@@ -1,4 +1,6 @@
-migration-tool
+What's this
 ==============
 
-TUBAME - a supporting tool for migrating from other platform, i.e. Weblogic, Websphere, etc to JBoss.  
+TUBAMEはJBossマイグレーションを予定しているプロジェクトに対し、以下の情報を提供します。  
+* アプリケーションに含まれる利用できないJavaパッケージやクラス情報
+* その他設定ファイルに含まれる修正が必要な箇所と修正工数の情報
