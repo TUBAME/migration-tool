@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<PortabilityKnowhow xmlns="http://generated.model.biz.knowhow.tubame.jboss.org/knowhow" xmlns:ns2="http://docbook.org/ns/docbook">
+    <PortabilityKnowhowTitle>Online Quick User Manual - Portability Source Code Analyzer</PortabilityKnowhowTitle>
+    <EntryViewList>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_1</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_2</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_3</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_6</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_7</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_8</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_10</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_30</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_31</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_32</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_33</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_36</EntryCategoryRefKey>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_29</EntryCategoryRefKey>
+        </EntryCategory>
+    </EntryViewList>
+    <ChapterList>
+        <Chapter>
+            <ChapterNo>1.</ChapterNo>
+            <ChapterName> Overview</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>1.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_1</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>1.2.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_2</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>2.</ChapterNo>
+            <ChapterName> Operating Environment</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>2.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_3</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>2.2.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_6</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>2.3.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_7</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>3.</ChapterNo>
+            <ChapterName> Installing the Tool</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>3.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_8</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>4.</ChapterNo>
+            <ChapterName> How to Use</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>4.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_10</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>4.1.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_30</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>4.1.2.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_31</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>4.1.3.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_32</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>4.1.4.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_33</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>4.1.5.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_36</ChapterCategoryRefKey>
+                </ChildChapter>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>5.</ChapterNo>
+            <ChapterName> Uninstalling the Tool</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>5.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_29</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+    </ChapterList>
+    <CategoryList>
+        <Category categoryId="category_1" appropriate="true">
+            <CategoryName> Introduction to This Document</CategoryName>
+            <KnowhowRefKey>knowhow_1</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_2" appropriate="true">
+            <CategoryName> Introduction to This Tool</CategoryName>
+            <KnowhowRefKey>knowhow_2</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_3" appropriate="true">
+            <CategoryName> Hardware Requirements</CategoryName>
+            <KnowhowRefKey>knowhow_4</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_6" appropriate="true">
+            <CategoryName> Software Requirements</CategoryName>
+            <KnowhowRefKey>knowhow_5</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_7" appropriate="true">
+            <CategoryName> Prerequisite</CategoryName>
+            <KnowhowRefKey>knowhow_6</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_8" appropriate="true">
+            <CategoryName> Installing the Tool</CategoryName>
+            <KnowhowRefKey>knowhow_7</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_10" appropriate="true">
+            <CategoryName> Operating Procedures</CategoryName>
+            <KnowhowRefKey>knowhow_8</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_30" appropriate="true">
+            <CategoryName> Creating Your Eclipse Project</CategoryName>
+            <KnowhowRefKey>knowhow_29</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_31" appropriate="true">
+            <CategoryName> Preparations</CategoryName>
+            <KnowhowRefKey>knowhow_30</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_32" appropriate="true">
+            <CategoryName> Conducting a Search</CategoryName>
+            <KnowhowRefKey>knowhow_31</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_33" appropriate="true">
+            <CategoryName> Checking Results</CategoryName>
+            <KnowhowRefKey>knowhow_32</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_36" appropriate="true">
+            <CategoryName> Working with View Menu</CategoryName>
+            <KnowhowRefKey>knowhow_35</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_29" appropriate="true">
+            <CategoryName> Uninstalling the Tool</CategoryName>
+            <KnowhowRefKey>knowhow_28</KnowhowRefKey>
+        </Category>
+    </CategoryList>
+    <KnowhowList>
+        <KnowhowInfomation knowhowId="knowhow_1" knowhowDetailRefKey="knowhowDetail_1">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_2" knowhowDetailRefKey="knowhowDetail_2">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_4" knowhowDetailRefKey="knowhowDetail_4">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_5" knowhowDetailRefKey="knowhowDetail_5">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_6" knowhowDetailRefKey="knowhowDetail_6">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_7" knowhowDetailRefKey="knowhowDetail_7">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_8" knowhowDetailRefKey="knowhowDetail_8">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_29" knowhowDetailRefKey="knowhowDetail_29">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_30" knowhowDetailRefKey="knowhowDetail_30">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_31" knowhowDetailRefKey="knowhowDetail_31">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_32" knowhowDetailRefKey="knowhowDetail_32">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_35" knowhowDetailRefKey="knowhowDetail_35">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_28" knowhowDetailRefKey="knowhowDetail_28">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+    </KnowhowList>
+    <DocBookList>
+        <DocBook articleId="knowhowDetail_1">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>This manual provides a brief description of procedures from installation through to use of the <ns2:application>Portability Source Code Analyzer</ns2:application>.</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_2">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>
+			Operating as an Eclipse plug-in, this tool automatically extracts the necessary information from the target environment to extract the code that will be necessary to port.
+			<ns2:note>
+                            <ns2:para>Since the information needed for searches is automatically extracted from the target environment, it can extract the required code from any platform without relying on a specific platform.</ns2:para>
+                            <ns2:para>Also, the search information required for porting to <ns2:application>JBoss EAP6</ns2:application> is included with the tool, there is no need to specify the target porting environment in the tool.</ns2:para>
+                        </ns2:note>
+        <ns2:table>
+                            <ns2:title>Targeted resources</ns2:title>
+                            <ns2:tgroup cols="2">
+<ns2:thead>
+    <ns2:row>
+        <ns2:entry>Item</ns2:entry>
+        <ns2:entry>Description</ns2:entry>
+    </ns2:row>
+</ns2:thead>
+<ns2:tbody>
+    <ns2:row>
+        <ns2:entry>Java  file</ns2:entry>
+        <ns2:entry>Information for all classes used by Java files is compared to the library information available at the target environment to extract classes that cannot be used or should not be used.</ns2:entry> 
+    </ns2:row>
+    <ns2:row>
+        <ns2:entry>JSP file</ns2:entry>
+        <ns2:entry>The Java class information and tag library information used by JSP files is compared to the library information available at the target environment to extract classes that cannot be used or should not be used.</ns2:entry> 
+    </ns2:row>
+    <ns2:row>
+        <ns2:entry>XML file</ns2:entry>
+        <ns2:entry>The DTD and XSD information of XML files is compared with the DTD and XSD information available at the target environment to extract the XML files that need be ported.</ns2:entry>
+    </ns2:row>
+</ns2:tbody>
+                            </ns2:tgroup>
+                        </ns2:table>
+      </ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_4">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>It has been confirmed that the tool can operate in the following hardware environment.</ns2:para>
+                    <ns2:table>
+                        <ns2:title>Hardware Requirements</ns2:title>
+                        <ns2:tgroup cols="2">
+                            <ns2:thead>
+<ns2:row>
+    <ns2:entry>Item</ns2:entry>
+    <ns2:entry>Requirements</ns2:entry>
+</ns2:row>
+                            </ns2:thead>
+                            <ns2:tbody>
+<ns2:row>
+    <ns2:entry>CPU</ns2:entry>
+    <ns2:entry>Pentium (R) Dual-Core CPU E5400 @2.70GHz (2 CPU) or the equivalent</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>RAM</ns2:entry>
+    <ns2:entry>2012MB RAM  or more</ns2:entry>
+</ns2:row>
+                            </ns2:tbody>
+                        </ns2:tgroup>
+                    </ns2:table>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_5">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>It has been confirmed that the tool can operate in the following software environment.</ns2:para>
+                    <ns2:table>
+                        <ns2:title>Software Requirements</ns2:title>
+                        <ns2:tgroup cols="2">
+                            <ns2:thead>
+<ns2:row>
+    <ns2:entry>Item</ns2:entry>
+    <ns2:entry>Requirements</ns2:entry>
+</ns2:row>
+                            </ns2:thead>
+                            <ns2:tbody>
+<ns2:row>
+    <ns2:entry>OS</ns2:entry>
+    <ns2:entry>Windows XP/7, CentOS 6</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Java VM</ns2:entry>
+    <ns2:entry>
+							Oracle JRE 1.7.0_U9 or higher
+							<ns2:important>
+            <ns2:para>JRE in version 1.6 or lower will not run.</ns2:para>
+        </ns2:important>
+						</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>IDE</ns2:entry>
+    <ns2:entry>
+							Eclipse 3.7 Indigo
+							<ns2:important>
+            <ns2:para>Eclipse in version 4 or higher will not run.</ns2:para>
+        </ns2:important>
+						</ns2:entry>
+</ns2:row>
+                            </ns2:tbody>
+                        </ns2:tgroup>
+                    </ns2:table>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_6">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>
+        None in particular.
+			<ns2:note>
+                            <ns2:para>There is no  need to make all the preparations needed for a successful compilation. Searches can be performed as long as the target files are available.</ns2:para>
+                        </ns2:note>
+                    </ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_7">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Set up the <ns2:link>operating environment</ns2:link> described above. 
+			Perform the steps below after the required environment has been set up.
+		</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>Download</ns2:para>
+                            <ns2:para>Download the plug-in.</ns2:para>
+                            <ns2:para>
+                <ns2:warning>
+    <ns2:para>
+        <ns2:link>http://www.jboss.org/unknown</ns2:link>
+    </ns2:para>
+</ns2:warning>
+                </ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Unzip</ns2:para>
+                            <ns2:para>
+					Unzip the downloaded file. 
+					Unzipping the file creates the 
+					<ns2:filename>org.jboss.tubame.wsearch_*</ns2:filename> directory.
+					<ns2:note>
+    <ns2:para>The * part of the name varies with the version.</ns2:para>
+</ns2:note>
+					<ns2:important>
+    <ns2:para>
+							Unzipping the file in Windows may fail due to path length limitations. 
+							If it fails, use a short path such as 
+							<ns2:filename>C:\temp</ns2:filename>
+							 for unzipping.
+						</ns2:para>
+</ns2:important>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Install in Eclipse.</ns2:para>
+                            <ns2:para>
+					Move or copy the unzipped directory to the 
+<ns2:filename>plugins</ns2:filename> 
+directory under the Eclipse installation directory.
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Confirm installation.</ns2:para>
+                            <ns2:para>
+					Select the Eclipse menu as shown below.
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>Help</ns2:guimenu>
+    <ns2:guimenuitem>About Eclipse</ns2:guimenuitem>
+    <ns2:guimenuitem>Installation Details</ns2:guimenuitem>
+    <ns2:guimenuitem>Plug-ins</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                            <ns2:para>
+					Confirm that the <ns2:guilabel>Plug-in Id</ns2:guilabel> column contains the <ns2:guilabel>org.jboss.tubame.wsearch</ns2:guilabel>  plug-in name. 
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Complete installation.</ns2:para>
+                            <ns2:para>This completes the installation.</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_8">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>The following describes how to use the tool.</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_28">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>
+			Delete the installed <ns2:filename>org.jboss.tubame.wsearch_*</ns2:filename>. This completes the uninstallation.
+			<ns2:note>
+                            <ns2:para>The * part of the name varies with the version.</ns2:para>
+                        </ns2:note>
+			<ns2:note>
+                            <ns2:para>
+					Add the 
+					<ns2:command>-clean</ns2:command>
+					 option when starting up Eclipse after deletion.
+				</ns2:para>
+                        </ns2:note>
+		</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_29">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Perform the following steps.</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>Start up Eclipse.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+					Start up the project creation wizard.
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>File</ns2:guimenu>
+    <ns2:guimenuitem>New</ns2:guimenuitem>
+    <ns2:guimenuitem>Project...</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+                Create a <ns2:guimenuitem>Java Project</ns2:guimenuitem>.
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>Java Project</ns2:guimenu>
+    <ns2:guimenuitem>Next</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                            <ns2:para>
+                    Use the <ns2:guilabel>New Java Project</ns2:guilabel> wizard to make the appropriate settings required by the environment of the item to be ported to create a project.
+				</ns2:para>
+                            <ns2:para>
+                <ns2:important>
+    <ns2:para>Be sure to create a <ns2:guilabel>Java Project</ns2:guilabel>. The tool will not run normally in a project other than a <ns2:guilabel>Java Project</ns2:guilabel>.</ns2:para>
+</ns2:important>
+                </ns2:para>
+                            <ns2:para>
+                <ns2:important>
+    <ns2:para>The targeted Java search files must be placed in the <ns2:guilabel>Eclipse Source Folder</ns2:guilabel>. </ns2:para>
+</ns2:important>
+                </ns2:para>
+                            <ns2:para>
+                <ns2:important>
+    <ns2:para>As long as the placed source files have file names that Java can handle, directory and file names are not an issue.  However, if characters that Java cannot handle are included (e.g. hyphens), a search may end in failure.</ns2:para>
+</ns2:important>
+                </ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_30">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Perform the following steps.</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+					Specify the information required by the search.
+				</ns2:para>
+                            <ns2:para>
+                Specify the information required by the search as shown below.
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>Window</ns2:guimenu>
+    <ns2:guimenuitem>Preferences</ns2:guimenuitem>
+    <ns2:guimenuitem>Portability Source Code Analyzer</ns2:guimenuitem>
+    <ns2:guimenuitem>Library settings</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                            <ns2:para>
+               The following information can be specified.
+					<ns2:itemizedlist>
+    <ns2:listitem>
+        <ns2:para>
+								Library settings
+							</ns2:para>
+        <ns2:para>
+                            These settings manage library information used for searches. Libraries whose checkboxes have been selected will be searched as available libraries at the target environment.
+							</ns2:para>
+        <ns2:para>
+                            <ns2:note>
+                <ns2:para>The following settings can be made.</ns2:para>
+                <ns2:itemizedlist>
+                    <ns2:listitem>
+                        <ns2:para>
+                        <ns2:guilabel>Name</ns2:guilabel>
+                    </ns2:para>
+                        <ns2:para>Screen name.  Type a name.</ns2:para>
+                    </ns2:listitem>
+                    <ns2:listitem>
+                        <ns2:para>
+                        <ns2:guilabel>Library type</ns2:guilabel>
+                    </ns2:para>
+                        <ns2:para>Select whether libraries will be compressed files (zip format) or directories.</ns2:para>
+                    </ns2:listitem>
+                    <ns2:listitem>
+                        <ns2:para>
+                        <ns2:guilabel>Path</ns2:guilabel>
+                    </ns2:para>
+                        <ns2:para>Set the path of the libraries.</ns2:para>
+                    </ns2:listitem>
+                    <ns2:listitem>
+                        <ns2:para>
+                        <ns2:guilabel>Type</ns2:guilabel>
+                    </ns2:para>
+                        <ns2:para>Select this checkbox for libraries in the Maven repository format.</ns2:para>
+                    </ns2:listitem>
+                    <ns2:listitem>
+                        <ns2:para>
+                        <ns2:guilabel>Description</ns2:guilabel>
+                    </ns2:para>
+                        <ns2:para>Provide a description of the library.</ns2:para>
+                    </ns2:listitem>
+                </ns2:itemizedlist>
+            </ns2:note>
+                            </ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>
+								Cache
+							</ns2:para>
+        <ns2:para>
+                            Library information is extracted when a search starts.  A cache function has been provided to handle the comparatively heavy processing that search results involve. Specify whether or not the cache will be used. Since the cache does not exist during the first search, library information is extracted even if the cache is enabled.
+							</ns2:para>
+    </ns2:listitem>
+</ns2:itemizedlist>
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_31">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Perform the following steps.</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>Select search resources.</ns2:para>
+                            <ns2:para>Right-click a resource you want to search and select the following menu.</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenuitem>JBoss Portability Assessment Tools</ns2:guimenuitem>
+    <ns2:guimenuitem>Dependency Search</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Set search conditions.</ns2:para>
+                            <ns2:para>
+					Make the following entries. 
+					<ns2:simplelist>
+    <ns2:member>
+                            <ns2:guilabel>Destination of output results</ns2:guilabel>: Specifies a <ns2:filename>gjbm</ns2:filename> file to which to output the search results. </ns2:member>
+</ns2:simplelist>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Conduct a search.</ns2:para>
+                            <ns2:para>
+					Click <ns2:guimenuitem>Finish</ns2:guimenuitem> to start the search.
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_32">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>When the search ends, <ns2:guilabel>Dependency Search Result view</ns2:guilabel> appears in the Eclipse work view area. 
+			You can also open <ns2:guilabel>Dependency Search Result view</ns2:guilabel> by double clicking the <ns2:filename>gjbm</ns2:filename> search result file.
+		</ns2:para>
+                    <ns2:para>
+            Items displayed in <ns2:guilabel>Dependency Search Result view</ns2:guilabel> are described below. 
+		</ns2:para>
+                    <ns2:table>
+                        <ns2:title>Items displayed in Dependency Search Result view</ns2:title>
+                        <ns2:tgroup cols="2">
+                            <ns2:thead>
+<ns2:row>
+    <ns2:entry>Item</ns2:entry>
+    <ns2:entry>Description</ns2:entry>
+</ns2:row>
+                            </ns2:thead>
+                            <ns2:tbody>
+<ns2:row>
+    <ns2:entry>Header area</ns2:entry>
+    <ns2:entry>
+        Displays <ns2:guilabel>error </ns2:guilabel> instance,<ns2:guilabel> warning </ns2:guilabel>instance and result file path information.
+                        <ns2:note>
+            <ns2:para>By default, up to <ns2:parameter>100</ns2:parameter> instances each will be displayed for <ns2:guilabel>errors</ns2:guilabel> and <ns2:guilabel>warnings</ns2:guilabel>, but no results will be displayed beyond that.</ns2:para>
+        </ns2:note>
+    </ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Result</ns2:entry>
+    <ns2:entry>Displays the results of comparing source and target.
+                            <ns2:note>
+            <ns2:para>There are the following classifications.</ns2:para>
+            <ns2:itemizedlist>
+                <ns2:listitem>
+                    <ns2:para>
+                        <ns2:guilabel>error</ns2:guilabel>
+                    </ns2:para>
+                    <ns2:para>Indicates the code is deemed necessary for porting.</ns2:para>
+                </ns2:listitem>
+                <ns2:listitem>
+                    <ns2:para>
+                        <ns2:guilabel>warn</ns2:guilabel>
+                    </ns2:para>
+                    <ns2:para>Items where porting is recommended or where the need for porting should be checked. </ns2:para>
+                </ns2:listitem>
+            </ns2:itemizedlist>
+        </ns2:note>
+                        </ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Category</ns2:entry>
+    <ns2:entry>Displays found source categories.
+                            <ns2:note>
+            <ns2:para>There are the following classifications.</ns2:para>
+            <ns2:itemizedlist>
+                <ns2:listitem>
+                    <ns2:para>
+                        <ns2:guilabel>Java</ns2:guilabel>
+                    </ns2:para>
+                </ns2:listitem>
+                <ns2:listitem>
+                    <ns2:para>
+                        <ns2:guilabel>XML</ns2:guilabel>
+                    </ns2:para>
+                </ns2:listitem>
+                <ns2:listitem>
+                    <ns2:para>
+                        <ns2:guilabel>JSP</ns2:guilabel>
+                    </ns2:para>
+                </ns2:listitem>
+            </ns2:itemizedlist>
+        </ns2:note>
+                        </ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Package</ns2:entry>
+    <ns2:entry>The package name is displayed for a Java file, otherwise <ns2:quote>-</ns2:quote> is displayed. </ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Source library</ns2:entry>
+    <ns2:entry>Displays the name of the found source library.</ns2:entry> 
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Target library</ns2:entry>
+    <ns2:entry>Displays the name of the found source library. Multiple hits are displayed comma-delimited. </ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Class</ns2:entry>
+    <ns2:entry>Displays the class name, namespace, tag library path, schema path, etc. depending on what is found.</ns2:entry> 
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Hit count</ns2:entry>
+    <ns2:entry>Displays found instances by package or class.</ns2:entry> 
+</ns2:row>
+<ns2:row>
+    <ns2:entry>File to be ported</ns2:entry>
+    <ns2:entry>Displays the name of the file to be ported.</ns2:entry> 
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Line</ns2:entry>
+    <ns2:entry> Displays the line numbers of the files that will be ported.</ns2:entry> 
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Result details</ns2:entry>
+    <ns2:entry> Displays the found reason.</ns2:entry> 
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Remarks</ns2:entry>
+    <ns2:entry>Displays the name of the target library when a deprecated class is found.</ns2:entry>
+</ns2:row>
+                            </ns2:tbody>
+                        </ns2:tgroup>
+                    </ns2:table>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_35">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>
+            The view menu allows you to take the following actions regarding items displayed in <ns2:guilabel>Dependency Search Result view</ns2:guilabel>.
+		</ns2:para>
+                    <ns2:table>
+                        <ns2:title>View menu item</ns2:title>
+                        <ns2:tgroup cols="2">
+                            <ns2:thead>
+<ns2:row>
+    <ns2:entry>Item</ns2:entry>
+    <ns2:entry>Description</ns2:entry>
+</ns2:row>
+                            </ns2:thead>
+                            <ns2:tbody>
+<ns2:row>
+    <ns2:entry>Result filter</ns2:entry>
+    <ns2:entry>Allows you to set the result columns that should be displayed.</ns2:entry> 
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Category filter</ns2:entry>
+    <ns2:entry>Allows you to set the category columns that should be displayed.</ns2:entry> 
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Package filter</ns2:entry>
+    <ns2:entry>Allows you to set the package columns that should be displayed.</ns2:entry> 
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Source library filter</ns2:entry>
+    <ns2:entry>Allows you to set the source library filter columns that should be displayed.</ns2:entry> 
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Target library filter</ns2:entry>
+    <ns2:entry>Allows you to set the target library filter columns that should be displayed.</ns2:entry> 
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Export to CSV</ns2:entry>
+    <ns2:entry>
+        Allows you to export items displayed in <ns2:guilabel>Dependency Search Result view</ns2:guilabel> to a CSV format file.</ns2:entry> 
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Display instance settings</ns2:entry>
+    <ns2:entry>
+        Determines the maximum number of items displayed in <ns2:guilabel>Dependency Search Result view</ns2:guilabel>. The set value indicates the maximum number of instances displayed in the <ns2:guilabel>error</ns2:guilabel> and <ns2:guilabel>warn</ns2:guilabel> <ns2:guilabel>result</ns2:guilabel> columns.
+                        </ns2:entry>
+</ns2:row>
+                            </ns2:tbody>
+                        </ns2:tgroup>
+                    </ns2:table>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+    </DocBookList>
+    <SearchInfomationList/>
+</PortabilityKnowhow>
