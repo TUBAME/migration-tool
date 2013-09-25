@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jxb:bindings xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	jxb:extensionBindingPrefixes="xjc" xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:docbook="http://docbook.org/ns/docbook"
+	version="2.1">
+
+	<jxb:globalBindings>
+		<xjc:simple />
+	</jxb:globalBindings>
+
+	<jxb:bindings schemaLocation="src/main/resources/xsd/docbook.xsd">
+		<jxb:bindings
+			node="//xs:attributeGroup[@name='db.common.attributes']/xs:attribute[@name='version']">
+			<jxb:property name="commonVersion" />
+		</jxb:bindings>
+		<jxb:bindings
+			node="//xs:attributeGroup[@name='db.common.attributes']/xs:attribute[@name='revision']">
+			<jxb:property name="commonRevision" />
+		</jxb:bindings>
+		<jxb:bindings
+			node="//xs:attributeGroup[@name='db.common.attributes']/xs:attribute[@ref='xml:lang']">
+			<jxb:property name="xmlLang" />
+		</jxb:bindings>
+		<jxb:bindings
+			node="//xs:element[@name='table']/xs:complexType/xs:attribute[@name='title']">
+			<jxb:property name="titleAttribute" />
+		</jxb:bindings>
+	</jxb:bindings>
+</jxb:bindings>

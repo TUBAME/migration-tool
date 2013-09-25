@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.7"?>
+<plugin>
+
+	<!-- org.eclipse.ui.perspectives -->
+	<extension point="org.eclipse.ui.perspectives">
+		<perspective id="SearchPerspective"
+			class="org.tubame.portability.plugin.perspective.SearchPerspective"
+			name="%perspective.SearchPerspective.name" />
+	</extension>
+
+	<!-- org.eclipse.ui.views -->
+	<extension point="org.eclipse.ui.views">
+		<category id="org.tubame.portability.category"
+			name="%view.category.name" />
+		<!-- CheckListInformationView -->
+		<view id="CheckListInformationView"
+			class="org.tubame.portability.plugin.view.CheckListInformationView"
+			category="org.tubame.portability.category" name="%view.CheckListInformationView.name"
+			restorable="true" />
+		<!-- WorkStatusView -->
+		<view id="WorkStatusView"
+			class="org.tubame.portability.plugin.view.WorkStatusView"
+			category="org.tubame.portability.category" name="%view.WorkStatusView.name"
+			restorable="true" />
+		<!-- HtmlGuideView -->
+		<view id="HtmlGuideView"
+			class="org.tubame.portability.plugin.view.HtmlGuideView"
+			category="org.tubame.portability.category" name="%view.HtmlGuideView.name"
+			restorable="true" />
+		<!-- ConvertView -->
+		<view id="ConvertView"
+			class="org.tubame.portability.plugin.view.ConvertView"
+			category="org.tubame.portability.category" name="%view.ConvertView.name"
+			restorable="true" />
+	</extension>
+
+	<!-- org.eclipse.ui.actionSets -->
+	<extension point="org.eclipse.ui.actionSets">
+		<actionSet id="MenuAdd.actionSet.delete" label="Delete"
+			visible="true">
+			<action id="RowDeleteAction" definitionId="org.tubame.trn.command.rowDelete"
+				class="org.tubame.portability.plugin.action.RowDeleteAction"
+				label="%menu.rowDelete.name" toolbarPath="sampleGroup"
+				icon="/resources/icons/rowDelete.png" />
+			<action id="ConfirmItemDeleteActio" definitionId="org.tubame.trn.command.confirmDelete"
+				class="org.tubame.portability.plugin.action.ConfirmItemDeleteAction"
+				label="%menu.confirmDelete.name" toolbarPath="sampleGroup"
+				icon="/resources/icons/confirmDelete.png" />
+			<action id="SearchFilterAction" definitionId="org.tubame.trn.command.searchFilter"
+				class="org.tubame.portability.plugin.action.SearchFilterAction"
+				label="%menu.searchFilter.name" toolbarPath="sampleGroup"
+				icon="/resources/icons/JbmFilter.png" />
+			<action id="SaveCsvAction" definitionId="org.tubame.trn.command.SaveCsv"
+				class="org.tubame.portability.plugin.action.SaveCsvAction"
+				label="%menu.saveCsv.name" toolbarPath="sampleGroup"
+				icon="/resources/icons/saveCSV.png" />
+		</actionSet>
+	</extension>
+	<extension point="org.eclipse.ui.commands">
+		<command id="org.tubame.trn.command.rowDelete" name="%menu.rowDelete.name" />
+		<command id="org.tubame.trn.command.confirmDelete"
+			name="%menu.confirmDelete.name" />
+		<command id="org.tubame.trn.command.searchFilter"
+			name="%menu.searchFilter.name" />
+		<command id="org.tubame.trn.command.SaveCsv" name="%menu.saveCsv.name" />
+	</extension>
+
+	<!-- org.eclipse.ui.editors -->
+	<extension point="org.eclipse.ui.editors">
+		<editor id="JbmEditorPart"
+			class="org.tubame.portability.plugin.editor.JbmEditorPart"
+			name="%editor.jbm.name" extensions="jbm" default="false" />
+	</extension>
+
+	<!-- Marker -->
+	<extension id="JBossMigrationMarker" point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.core.resources.marker" />
+	</extension>
+	<!-- DifficultyLowMarker -->
+	<extension id="DifficultyLowMarker" point="org.eclipse.core.resources.markers">
+		<super type="org.tubame.portability.JBossMigrationMarker" />
+	</extension>
+	<!-- DifficultyMiddleMarker -->
+	<extension id="DifficultyMiddleMarker" point="org.eclipse.core.resources.markers">
+		<super type="org.tubame.portability.JBossMigrationMarker" />
+	</extension>
+	<!-- DifficultyHighMarker -->
+	<extension id="DifficultyHighMarker" point="org.eclipse.core.resources.markers">
+		<super type="org.tubame.portability.JBossMigrationMarker" />
+	</extension>
+	<!-- DifficultyUnknownMarker -->
+	<extension id="DifficultyUnknownMarker" point="org.eclipse.core.resources.markers">
+		<super type="org.tubame.portability.JBossMigrationMarker" />
+	</extension>
+	<!-- DifficultyNotTrnMarker -->
+	<extension id="DifficultyNotTrnMarker" point="org.eclipse.core.resources.markers">
+		<super type="org.tubame.portability.JBossMigrationMarker" />
+	</extension>
+
+	<!-- org.eclipse.ui.editors.markerAnnotationSpecification -->
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<!-- DifficultyLowMarker -->
+		<specification icon="/resources/icons/DifficultyLow.png"
+			annotationType="DifficultyLowMarkerTypeAnnotation" />
+		<!-- DifficultyMiddleMarker -->
+		<specification icon="/resources/icons/DifficultyMiddle.png"
+			annotationType="DifficultyMiddleMarkerTypeAnnotation" />
+		<!-- DifficultyHighMarker -->
+		<specification icon="/resources/icons/DifficultyHigh.png"
+			annotationType="DifficultyHighMarkerTypeAnnotation" />
+		<!-- DifficultyUnknownMarker -->
+		<specification icon="/resources/icons/DifficultyUnknown.png"
+			annotationType="DifficultyUnknownMarkerTypeAnnotation" />
+		<!-- DifficultyNotTrnMarker -->
+		<specification icon="/resources/icons/DifficultyNOT_TRN.png"
+			annotationType="DifficultyNotTrnMarkerTypeAnnotation" />
+	</extension>
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type name="DifficultyLowMarkerTypeAnnotation" super="org.eclipse.ui.workbench.texteditor.info"
+			markerType="org.tubame.portability.DifficultyLowMarker">
+		</type>
+		<type name="DifficultyMiddleMarkerTypeAnnotation" super="org.eclipse.ui.workbench.texteditor.info"
+			markerType="org.tubame.portability.DifficultyMiddleMarker">
+		</type>
+		<type name="DifficultyHighMarkerTypeAnnotation" super="org.eclipse.ui.workbench.texteditor.info"
+			markerType="org.tubame.portability.DifficultyHighMarker">
+		</type>
+		<type name="DifficultyUnknownMarkerTypeAnnotation" super="org.eclipse.ui.workbench.texteditor.info"
+			markerType="org.tubame.portability.DifficultyUnknownMarker">
+		</type>
+		<type name="DifficultyNotTrnMarkerTypeAnnotation" super="org.eclipse.ui.workbench.texteditor.info"
+			markerType="org.tubame.portability.DifficultyNotTrnMarker">
+		</type>
+	</extension>
+
+	<!-- org.eclipse.ui.popupMenus -->
+	<extension point="org.eclipse.ui.popupMenus">
+		<!-- ShowConvertViewAction -->
+		<objectContribution id="Contribution" objectClass="org.eclipse.core.resources.IFile"
+			nameFilter="*.cxml" adaptable="true">
+			<menu id="org.tubame.menu1" label="%menu.name"
+				path="additions">
+				<separator name="portability"/>
+			</menu>
+			<action id="ShowConvertAction"
+				class="org.tubame.portability.plugin.action.ShowConvertViewAction"
+				label="%menu.convert.view.name" menubarPath="org.tubame.menu1/portability"
+				enablesFor="1">
+			</action>
+		</objectContribution>
+		<!-- WizardAction -->
+		<objectContribution id="Contribution" objectClass="org.eclipse.core.resources.IResource"
+			adaptable="true">
+			<menu id="org.tubame.menu1" label="%menu.name"
+				path="additions">
+				<separator name="portability"/>
+			</menu>
+			<!-- ShowConvertWizardAction -->
+			<action
+				class="org.tubame.portability.plugin.action.ShowConvertWizardAction"
+				id="ShowConvertWizardAction" enablesFor="1" label="%menu.convert.name"
+				menubarPath="org.tubame.menu1/portability">
+			</action>
+			<!-- ShowSearchWizardAction -->
+			<action
+				class="org.tubame.portability.plugin.action.ShowSearchWizardAction"
+				id="ShowSearchWizardAction" enablesFor="1" label="%menu.search.name"
+				menubarPath="org.tubame.menu1/portability">
+			</action>
+		</objectContribution>
+	</extension>
+
+</plugin>
