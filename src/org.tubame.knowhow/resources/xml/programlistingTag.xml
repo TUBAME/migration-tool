@@ -1,8 +1,0 @@
-<figure>
-    <title>TODO:Please enter the Title</title>
-    <programlisting language="TODO:Template:Please enter the CodeType">
-        <textobject>
-            <textdata fileref="TODO:Template:Please enter the FileRef" />
-        </textobject>
-    </programlisting>
-</figure>
