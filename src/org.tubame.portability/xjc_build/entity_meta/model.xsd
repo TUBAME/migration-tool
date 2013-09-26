@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="jbossMigrationConvertTool">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="migrationItems" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="migrationItem" type="migrationItem"
+								minOccurs="0" maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="migrationItem">
+		<xs:sequence>
+			<xs:element name="migrationTargets" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="migrationTarget" type="migrationTarget"
+							minOccurs="0" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="number" type="xs:string" />
+		<xs:attribute name="priorityType" type="priorityType" />
+		<xs:attribute name="convertType" type="convertType" />
+	</xs:complexType>
+
+	<xs:complexType name="migrationTarget">
+		<xs:sequence>
+			<xs:element name="targetFile" type="xs:string" minOccurs="0" />
+			<xs:element name="convertedFile" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="targetLines" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="targetLine" type="xs:string"
+							minOccurs="0" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="convertLines" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="convertLine" type="xs:string"
+							minOccurs="0" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="convert" type="xs:boolean" use="required" />
+	</xs:complexType>
+
+	<xs:simpleType name="convertType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ALL" />
+			<xs:enumeration value="EJB_JAR_XML_CONVERT" />
+			<xs:enumeration value="EJB_CMP_XML_CONVERT" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="priorityType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="UNKNOWN" />
+			<xs:enumeration value="LOW" />
+			<xs:enumeration value="MIDDLE" />
+			<xs:enumeration value="HIGH" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="webLogic">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="V8" />
+			<xs:enumeration value="V6" />
+			<xs:enumeration value="V5" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
+

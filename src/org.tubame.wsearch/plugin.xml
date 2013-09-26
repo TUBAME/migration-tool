@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.7"?>
+<plugin>
+
+	<extension point="org.eclipse.ui.views">
+		<category id="org.tubame.wsearch.category"
+			name="%view.category.name">
+		</category>
+		<view
+			name="%view.GenericSearchResultView.name"
+			category="org.tubame.wsearch.category"
+			class="org.tubame.wsearch.ui.view.WSearchResultView"
+			id="org.tubame.wsearch.ui.view.GenericSearchResultView"
+			allowMultiple="true">
+		</view>
+	</extension>
+
+	<extension point="org.eclipse.ui.editors">
+		<editor
+			name="%view.GenericSearchResultView.name"
+			extensions="gjbm"
+			launcher="org.tubame.wsearch.ui.editor.WSearchResultViewLauncher"
+			id="org.tubame.wsearch.ui.view.GenericSearchResultView">
+		</editor>
+	</extension>
+
+	<extension point="org.eclipse.ui.perspectiveExtensions">
+		<perspectiveExtension targetID="org.eclipse.jdt.ui.JavaPerspective">
+			<view ratio="0.5" relative="org.eclipse.ui.views.ProblemView"
+				relationship="right"
+				id="org.tubame.wsearch.ui.view.GenericSearchResultView"
+				visible="false">
+			</view>
+		</perspectiveExtension>
+	</extension>
+
+	<extension point="org.eclipse.ui.popupMenus">
+		<objectContribution id="Contribution" objectClass="org.eclipse.core.resources.IResource"
+			adaptable="true">
+			<menu id="org.tubame.menu1" label="%menu1.label"
+				path="additions">
+				<separator name="wsearch"/>
+			</menu>
+			<action
+				class="org.tubame.wsearch.popup.actions.ExecuteGenericSearch"
+				enablesFor="1" id="org.tubame.generic.newAction" label="%newAction.label"
+				menubarPath="org.tubame.menu1/wsearch">
+			</action>
+		</objectContribution>
+		<objectContribution id="Contribution" objectClass="org.eclipse.core.resources.IFile"
+			nameFilter="*.gjbm" adaptable="true">
+			<action
+				class="org.tubame.wsearch.popup.actions.WSearchResultsViewOpenAction"
+				id="WSearchResultsViewOpenAction"
+				label="%actions.WSearchResultsViewOpenAction.label.name"
+				enablesFor="1" menubarPath="org.tubame.menu1/wsearch">
+			</action>
+		</objectContribution>
+	</extension>
+
+	<extension point="org.eclipse.ui.preferencePages">
+		<page
+			class="org.tubame.wsearch.ui.preferences.WSearchPreferenceTop"
+			id="org.tubame.wsearch.ui.preferences.Page1" name="%preferences.Page1.name">
+		</page>
+		<page category="org.tubame.wsearch.ui.preferences.Page1"
+			class="org.tubame.wsearch.ui.preferences.LibraryRepositoryPreferencePage"
+			id="org.tubame.wsearch.ui.preferences.Page2" name="%preferences.Page2.name">
+		</page>
+		<page category="org.tubame.wsearch.ui.preferences.Page1"
+			class="org.tubame.wsearch.ui.preferences.SrcSearchFilterPreferencePage"
+			id="org.tubame.wsearch.ui.preferences.Page3" name="%preferences.Page3.name">
+		</page>
+	</extension>
+
+</plugin>
