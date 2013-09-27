@@ -116,61 +116,61 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class Caption {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "important", namespace = "http://docbook.org/ns/docbook", type = Important.class, required = false),
-        @XmlElementRef(name = "segmentedlist", namespace = "http://docbook.org/ns/docbook", type = Segmentedlist.class, required = false),
-        @XmlElementRef(name = "example", namespace = "http://docbook.org/ns/docbook", type = Example.class, required = false),
-        @XmlElementRef(name = "methodsynopsis", namespace = "http://docbook.org/ns/docbook", type = Methodsynopsis.class, required = false),
-        @XmlElementRef(name = "note", namespace = "http://docbook.org/ns/docbook", type = Note.class, required = false),
-        @XmlElementRef(name = "calloutlist", namespace = "http://docbook.org/ns/docbook", type = Calloutlist.class, required = false),
-        @XmlElementRef(name = "address", namespace = "http://docbook.org/ns/docbook", type = Address.class, required = false),
-        @XmlElementRef(name = "screenshot", namespace = "http://docbook.org/ns/docbook", type = Screenshot.class, required = false),
-        @XmlElementRef(name = "productionset", namespace = "http://docbook.org/ns/docbook", type = Productionset.class, required = false),
-        @XmlElementRef(name = "table", namespace = "http://docbook.org/ns/docbook", type = Table.class, required = false),
-        @XmlElementRef(name = "programlistingco", namespace = "http://docbook.org/ns/docbook", type = Programlistingco.class, required = false),
-        @XmlElementRef(name = "mediaobject", namespace = "http://docbook.org/ns/docbook", type = Mediaobject.class, required = false),
-        @XmlElementRef(name = "task", namespace = "http://docbook.org/ns/docbook", type = Task.class, required = false),
-        @XmlElementRef(name = "programlisting", namespace = "http://docbook.org/ns/docbook", type = Programlisting.class, required = false),
-        @XmlElementRef(name = "funcsynopsis", namespace = "http://docbook.org/ns/docbook", type = Funcsynopsis.class, required = false),
-        @XmlElementRef(name = "itemizedlist", namespace = "http://docbook.org/ns/docbook", type = Itemizedlist.class, required = false),
-        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
-        @XmlElementRef(name = "glosslist", namespace = "http://docbook.org/ns/docbook", type = Glosslist.class, required = false),
-        @XmlElementRef(name = "informalequation", namespace = "http://docbook.org/ns/docbook", type = Informalequation.class, required = false),
-        @XmlElementRef(name = "equation", namespace = "http://docbook.org/ns/docbook", type = Equation.class, required = false),
-        @XmlElementRef(name = "qandaset", namespace = "http://docbook.org/ns/docbook", type = Qandaset.class, required = false),
-        @XmlElementRef(name = "revhistory", namespace = "http://docbook.org/ns/docbook", type = Revhistory.class, required = false),
-        @XmlElementRef(name = "screenco", namespace = "http://docbook.org/ns/docbook", type = Screenco.class, required = false),
-        @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
-        @XmlElementRef(name = "para", namespace = "http://docbook.org/ns/docbook", type = Para.class, required = false),
-        @XmlElementRef(name = "synopsis", namespace = "http://docbook.org/ns/docbook", type = Synopsis.class, required = false),
-        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false),
-        @XmlElementRef(name = "constraintdef", namespace = "http://docbook.org/ns/docbook", type = Constraintdef.class, required = false),
-        @XmlElementRef(name = "figure", namespace = "http://docbook.org/ns/docbook", type = Figure.class, required = false),
         @XmlElementRef(name = "simplelist", namespace = "http://docbook.org/ns/docbook", type = Simplelist.class, required = false),
-        @XmlElementRef(name = "classsynopsis", namespace = "http://docbook.org/ns/docbook", type = Classsynopsis.class, required = false),
-        @XmlElementRef(name = "orderedlist", namespace = "http://docbook.org/ns/docbook", type = Orderedlist.class, required = false),
-        @XmlElementRef(name = "variablelist", namespace = "http://docbook.org/ns/docbook", type = Variablelist.class, required = false),
-        @XmlElementRef(name = "simpara", namespace = "http://docbook.org/ns/docbook", type = Simpara.class, required = false),
         @XmlElementRef(name = "bibliolist", namespace = "http://docbook.org/ns/docbook", type = Bibliolist.class, required = false),
+        @XmlElementRef(name = "screen", namespace = "http://docbook.org/ns/docbook", type = Screen.class, required = false),
         @XmlElementRef(name = "formalpara", namespace = "http://docbook.org/ns/docbook", type = Formalpara.class, required = false),
-        @XmlElementRef(name = "informalfigure", namespace = "http://docbook.org/ns/docbook", type = Informalfigure.class, required = false),
-        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
-        @XmlElementRef(name = "procedure", namespace = "http://docbook.org/ns/docbook", type = Procedure.class, required = false),
-        @XmlElementRef(name = "fieldsynopsis", namespace = "http://docbook.org/ns/docbook", type = Fieldsynopsis.class, required = false),
-        @XmlElementRef(name = "bridgehead", namespace = "http://docbook.org/ns/docbook", type = Bridgehead.class, required = false),
-        @XmlElementRef(name = "informaltable", namespace = "http://docbook.org/ns/docbook", type = Informaltable.class, required = false),
+        @XmlElementRef(name = "funcsynopsis", namespace = "http://docbook.org/ns/docbook", type = Funcsynopsis.class, required = false),
+        @XmlElementRef(name = "simpara", namespace = "http://docbook.org/ns/docbook", type = Simpara.class, required = false),
         @XmlElementRef(name = "informalexample", namespace = "http://docbook.org/ns/docbook", type = Informalexample.class, required = false),
-        @XmlElementRef(name = "tip", namespace = "http://docbook.org/ns/docbook", type = Tip.class, required = false),
-        @XmlElementRef(name = "blockquote", namespace = "http://docbook.org/ns/docbook", type = Blockquote.class, required = false),
-        @XmlElementRef(name = "caution", namespace = "http://docbook.org/ns/docbook", type = Caution.class, required = false),
-        @XmlElementRef(name = "msgset", namespace = "http://docbook.org/ns/docbook", type = Msgset.class, required = false),
-        @XmlElementRef(name = "constructorsynopsis", namespace = "http://docbook.org/ns/docbook", type = Constructorsynopsis.class, required = false),
-        @XmlElementRef(name = "epigraph", namespace = "http://docbook.org/ns/docbook", type = Epigraph.class, required = false),
-        @XmlElementRef(name = "cmdsynopsis", namespace = "http://docbook.org/ns/docbook", type = Cmdsynopsis.class, required = false),
-        @XmlElementRef(name = "destructorsynopsis", namespace = "http://docbook.org/ns/docbook", type = Destructorsynopsis.class, required = false),
-        @XmlElementRef(name = "literallayout", namespace = "http://docbook.org/ns/docbook", type = Literallayout.class, required = false),
+        @XmlElementRef(name = "equation", namespace = "http://docbook.org/ns/docbook", type = Equation.class, required = false),
         @XmlElementRef(name = "sidebar", namespace = "http://docbook.org/ns/docbook", type = Sidebar.class, required = false),
+        @XmlElementRef(name = "informalequation", namespace = "http://docbook.org/ns/docbook", type = Informalequation.class, required = false),
+        @XmlElementRef(name = "tip", namespace = "http://docbook.org/ns/docbook", type = Tip.class, required = false),
+        @XmlElementRef(name = "segmentedlist", namespace = "http://docbook.org/ns/docbook", type = Segmentedlist.class, required = false),
+        @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
+        @XmlElementRef(name = "msgset", namespace = "http://docbook.org/ns/docbook", type = Msgset.class, required = false),
+        @XmlElementRef(name = "cmdsynopsis", namespace = "http://docbook.org/ns/docbook", type = Cmdsynopsis.class, required = false),
+        @XmlElementRef(name = "glosslist", namespace = "http://docbook.org/ns/docbook", type = Glosslist.class, required = false),
+        @XmlElementRef(name = "caution", namespace = "http://docbook.org/ns/docbook", type = Caution.class, required = false),
+        @XmlElementRef(name = "note", namespace = "http://docbook.org/ns/docbook", type = Note.class, required = false),
+        @XmlElementRef(name = "methodsynopsis", namespace = "http://docbook.org/ns/docbook", type = Methodsynopsis.class, required = false),
+        @XmlElementRef(name = "itemizedlist", namespace = "http://docbook.org/ns/docbook", type = Itemizedlist.class, required = false),
+        @XmlElementRef(name = "example", namespace = "http://docbook.org/ns/docbook", type = Example.class, required = false),
+        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
+        @XmlElementRef(name = "screenshot", namespace = "http://docbook.org/ns/docbook", type = Screenshot.class, required = false),
+        @XmlElementRef(name = "address", namespace = "http://docbook.org/ns/docbook", type = Address.class, required = false),
+        @XmlElementRef(name = "destructorsynopsis", namespace = "http://docbook.org/ns/docbook", type = Destructorsynopsis.class, required = false),
         @XmlElementRef(name = "warning", namespace = "http://docbook.org/ns/docbook", type = Warning.class, required = false),
-        @XmlElementRef(name = "screen", namespace = "http://docbook.org/ns/docbook", type = Screen.class, required = false)
+        @XmlElementRef(name = "informaltable", namespace = "http://docbook.org/ns/docbook", type = Informaltable.class, required = false),
+        @XmlElementRef(name = "bridgehead", namespace = "http://docbook.org/ns/docbook", type = Bridgehead.class, required = false),
+        @XmlElementRef(name = "revhistory", namespace = "http://docbook.org/ns/docbook", type = Revhistory.class, required = false),
+        @XmlElementRef(name = "literallayout", namespace = "http://docbook.org/ns/docbook", type = Literallayout.class, required = false),
+        @XmlElementRef(name = "variablelist", namespace = "http://docbook.org/ns/docbook", type = Variablelist.class, required = false),
+        @XmlElementRef(name = "qandaset", namespace = "http://docbook.org/ns/docbook", type = Qandaset.class, required = false),
+        @XmlElementRef(name = "constructorsynopsis", namespace = "http://docbook.org/ns/docbook", type = Constructorsynopsis.class, required = false),
+        @XmlElementRef(name = "table", namespace = "http://docbook.org/ns/docbook", type = Table.class, required = false),
+        @XmlElementRef(name = "figure", namespace = "http://docbook.org/ns/docbook", type = Figure.class, required = false),
+        @XmlElementRef(name = "procedure", namespace = "http://docbook.org/ns/docbook", type = Procedure.class, required = false),
+        @XmlElementRef(name = "orderedlist", namespace = "http://docbook.org/ns/docbook", type = Orderedlist.class, required = false),
+        @XmlElementRef(name = "epigraph", namespace = "http://docbook.org/ns/docbook", type = Epigraph.class, required = false),
+        @XmlElementRef(name = "screenco", namespace = "http://docbook.org/ns/docbook", type = Screenco.class, required = false),
+        @XmlElementRef(name = "productionset", namespace = "http://docbook.org/ns/docbook", type = Productionset.class, required = false),
+        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false),
+        @XmlElementRef(name = "synopsis", namespace = "http://docbook.org/ns/docbook", type = Synopsis.class, required = false),
+        @XmlElementRef(name = "calloutlist", namespace = "http://docbook.org/ns/docbook", type = Calloutlist.class, required = false),
+        @XmlElementRef(name = "important", namespace = "http://docbook.org/ns/docbook", type = Important.class, required = false),
+        @XmlElementRef(name = "classsynopsis", namespace = "http://docbook.org/ns/docbook", type = Classsynopsis.class, required = false),
+        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
+        @XmlElementRef(name = "constraintdef", namespace = "http://docbook.org/ns/docbook", type = Constraintdef.class, required = false),
+        @XmlElementRef(name = "informalfigure", namespace = "http://docbook.org/ns/docbook", type = Informalfigure.class, required = false),
+        @XmlElementRef(name = "mediaobject", namespace = "http://docbook.org/ns/docbook", type = Mediaobject.class, required = false),
+        @XmlElementRef(name = "programlistingco", namespace = "http://docbook.org/ns/docbook", type = Programlistingco.class, required = false),
+        @XmlElementRef(name = "para", namespace = "http://docbook.org/ns/docbook", type = Para.class, required = false),
+        @XmlElementRef(name = "blockquote", namespace = "http://docbook.org/ns/docbook", type = Blockquote.class, required = false),
+        @XmlElementRef(name = "task", namespace = "http://docbook.org/ns/docbook", type = Task.class, required = false),
+        @XmlElementRef(name = "fieldsynopsis", namespace = "http://docbook.org/ns/docbook", type = Fieldsynopsis.class, required = false),
+        @XmlElementRef(name = "programlisting", namespace = "http://docbook.org/ns/docbook", type = Programlisting.class, required = false)
     })
     @XmlMixed
     protected List<Object> content;
@@ -301,62 +301,62 @@ public class Caption {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Important }
-     * {@link Segmentedlist }
-     * {@link Example }
-     * {@link Methodsynopsis }
-     * {@link Note }
-     * {@link Calloutlist }
-     * {@link Address }
-     * {@link Screenshot }
-     * {@link Productionset }
-     * {@link Table }
-     * {@link Programlistingco }
-     * {@link Mediaobject }
-     * {@link Task }
-     * {@link Programlisting }
-     * {@link Funcsynopsis }
-     * {@link Itemizedlist }
-     * {@link Remark }
-     * {@link Glosslist }
-     * {@link Informalequation }
-     * {@link Equation }
-     * {@link Qandaset }
-     * {@link Revhistory }
-     * {@link Screenco }
-     * {@link Annotation }
-     * {@link Para }
-     * {@link Synopsis }
-     * {@link Anchor }
-     * {@link Constraintdef }
-     * {@link Figure }
      * {@link Simplelist }
-     * {@link Classsynopsis }
-     * {@link Orderedlist }
-     * {@link Variablelist }
-     * {@link Simpara }
      * {@link Bibliolist }
-     * {@link Formalpara }
-     * {@link Informalfigure }
-     * {@link Indexterm }
-     * {@link Procedure }
-     * {@link Fieldsynopsis }
-     * {@link Bridgehead }
-     * {@link Informaltable }
-     * {@link Informalexample }
-     * {@link String }
-     * {@link Tip }
-     * {@link Blockquote }
-     * {@link Caution }
-     * {@link Msgset }
-     * {@link Constructorsynopsis }
-     * {@link Cmdsynopsis }
-     * {@link Epigraph }
-     * {@link Destructorsynopsis }
-     * {@link Literallayout }
-     * {@link Sidebar }
      * {@link Screen }
+     * {@link Formalpara }
+     * {@link Funcsynopsis }
+     * {@link Simpara }
+     * {@link Informalexample }
+     * {@link Equation }
+     * {@link Sidebar }
+     * {@link Informalequation }
+     * {@link Tip }
+     * {@link Segmentedlist }
+     * {@link Annotation }
+     * {@link Msgset }
+     * {@link Cmdsynopsis }
+     * {@link Glosslist }
+     * {@link Caution }
+     * {@link Note }
+     * {@link Methodsynopsis }
+     * {@link Itemizedlist }
+     * {@link Example }
+     * {@link Remark }
+     * {@link Screenshot }
+     * {@link Address }
+     * {@link Destructorsynopsis }
      * {@link Warning }
+     * {@link Informaltable }
+     * {@link Bridgehead }
+     * {@link Revhistory }
+     * {@link Literallayout }
+     * {@link Variablelist }
+     * {@link Qandaset }
+     * {@link Constructorsynopsis }
+     * {@link Table }
+     * {@link Figure }
+     * {@link Procedure }
+     * {@link Orderedlist }
+     * {@link Epigraph }
+     * {@link Screenco }
+     * {@link Productionset }
+     * {@link Anchor }
+     * {@link Synopsis }
+     * {@link Calloutlist }
+     * {@link Important }
+     * {@link Classsynopsis }
+     * {@link Indexterm }
+     * {@link Constraintdef }
+     * {@link Informalfigure }
+     * {@link String }
+     * {@link Mediaobject }
+     * {@link Programlistingco }
+     * {@link Para }
+     * {@link Blockquote }
+     * {@link Task }
+     * {@link Fieldsynopsis }
+     * {@link Programlisting }
      * 
      * 
      */

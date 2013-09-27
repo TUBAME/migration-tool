@@ -47,8 +47,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *         &lt;element ref="{http://docbook.org/ns/docbook}parameter"/>
  *         &lt;element ref="{http://docbook.org/ns/docbook}funcparams"/>
  *       &lt;/choice>
- *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.linking.attributes"/>
  *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.attributes"/>
+ *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.linking.attributes"/>
  *       &lt;attribute name="role" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
  *       &lt;attribute name="choice" default="opt">
  *         &lt;simpleType>
@@ -73,24 +73,24 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class Paramdef {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "link", namespace = "http://docbook.org/ns/docbook", type = Link.class, required = false),
+        @XmlElementRef(name = "type", namespace = "http://docbook.org/ns/docbook", type = Type.class, required = false),
+        @XmlElementRef(name = "biblioref", namespace = "http://docbook.org/ns/docbook", type = Biblioref.class, required = false),
         @XmlElementRef(name = "inlinemediaobject", namespace = "http://docbook.org/ns/docbook", type = Inlinemediaobject.class, required = false),
         @XmlElementRef(name = "funcparams", namespace = "http://docbook.org/ns/docbook", type = Funcparams.class, required = false),
-        @XmlElementRef(name = "xref", namespace = "http://docbook.org/ns/docbook", type = Xref.class, required = false),
+        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
         @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
-        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
-        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
-        @XmlElementRef(name = "parameter", namespace = "http://docbook.org/ns/docbook", type = Parameter.class, required = false),
+        @XmlElementRef(name = "replaceable", namespace = "http://docbook.org/ns/docbook", type = Replaceable.class, required = false),
+        @XmlElementRef(name = "initializer", namespace = "http://docbook.org/ns/docbook", type = Initializer.class, required = false),
+        @XmlElementRef(name = "xref", namespace = "http://docbook.org/ns/docbook", type = Xref.class, required = false),
+        @XmlElementRef(name = "link", namespace = "http://docbook.org/ns/docbook", type = Link.class, required = false),
+        @XmlElementRef(name = "phrase", namespace = "http://docbook.org/ns/docbook", type = Phrase.class, required = false),
         @XmlElementRef(name = "olink", namespace = "http://docbook.org/ns/docbook", type = Olink.class, required = false),
         @XmlElementRef(name = "alt", namespace = "http://docbook.org/ns/docbook", type = Alt.class, required = false),
-        @XmlElementRef(name = "biblioref", namespace = "http://docbook.org/ns/docbook", type = Biblioref.class, required = false),
-        @XmlElementRef(name = "phrase", namespace = "http://docbook.org/ns/docbook", type = Phrase.class, required = false),
-        @XmlElementRef(name = "replaceable", namespace = "http://docbook.org/ns/docbook", type = Replaceable.class, required = false),
+        @XmlElementRef(name = "parameter", namespace = "http://docbook.org/ns/docbook", type = Parameter.class, required = false),
+        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false),
         @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
-        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
-        @XmlElementRef(name = "type", namespace = "http://docbook.org/ns/docbook", type = Type.class, required = false),
-        @XmlElementRef(name = "initializer", namespace = "http://docbook.org/ns/docbook", type = Initializer.class, required = false),
-        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false)
+        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
+        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false)
     })
     @XmlMixed
     protected List<Object> content;
@@ -100,10 +100,6 @@ public class Paramdef {
     @XmlAttribute(name = "choice")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String choice;
-    @XmlAttribute(name = "linkend")
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object linkend;
     @XmlAttribute(name = "id", namespace = "http://www.w3.org/XML/1998/namespace")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -163,6 +159,10 @@ public class Paramdef {
     @XmlAttribute(name = "annotations")
     @XmlSchemaType(name = "anySimpleType")
     protected String annotations;
+    @XmlAttribute(name = "linkend")
+    @XmlIDREF
+    @XmlSchemaType(name = "IDREF")
+    protected Object linkend;
 
     /**
      * Gets the value of the content property.
@@ -182,25 +182,25 @@ public class Paramdef {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Link }
+     * {@link Type }
+     * {@link Biblioref }
      * {@link Inlinemediaobject }
      * {@link Funcparams }
-     * {@link Xref }
-     * {@link Remark }
-     * {@link String }
-     * {@link Superscript }
-     * {@link Subscript }
-     * {@link Olink }
-     * {@link Parameter }
-     * {@link Alt }
-     * {@link Biblioref }
-     * {@link Phrase }
-     * {@link Replaceable }
      * {@link Indexterm }
-     * {@link Annotation }
-     * {@link Anchor }
+     * {@link Remark }
+     * {@link Replaceable }
+     * {@link String }
+     * {@link Xref }
      * {@link Initializer }
-     * {@link Type }
+     * {@link Link }
+     * {@link Phrase }
+     * {@link Olink }
+     * {@link Alt }
+     * {@link Parameter }
+     * {@link Anchor }
+     * {@link Annotation }
+     * {@link Subscript }
+     * {@link Superscript }
      * 
      * 
      */
@@ -261,30 +261,6 @@ public class Paramdef {
      */
     public void setChoice(String value) {
         this.choice = value;
-    }
-
-    /**
-     * Gets the value of the linkend property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     
-     */
-    public Object getLinkend() {
-        return linkend;
-    }
-
-    /**
-     * Sets the value of the linkend property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
-     */
-    public void setLinkend(Object value) {
-        this.linkend = value;
     }
 
     /**
@@ -741,6 +717,30 @@ public class Paramdef {
      */
     public void setAnnotations(String value) {
         this.annotations = value;
+    }
+
+    /**
+     * Gets the value of the linkend property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Object }
+     *     
+     */
+    public Object getLinkend() {
+        return linkend;
+    }
+
+    /**
+     * Sets the value of the linkend property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Object }
+     *     
+     */
+    public void setLinkend(Object value) {
+        this.linkend = value;
     }
 
 }

@@ -55,8 +55,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *         &lt;element ref="{http://docbook.org/ns/docbook}uri"/>
  *         &lt;element ref="{http://docbook.org/ns/docbook}otheraddr"/>
  *       &lt;/choice>
- *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.attributes"/>
  *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.linking.attributes"/>
+ *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.attributes"/>
  *       &lt;attribute name="role" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
  *       &lt;attribute name="continuation">
  *         &lt;simpleType>
@@ -92,32 +92,32 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class Address {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "uri", namespace = "http://docbook.org/ns/docbook", type = Uri.class, required = false),
-        @XmlElementRef(name = "personname", namespace = "http://docbook.org/ns/docbook", type = Personname.class, required = false),
-        @XmlElementRef(name = "link", namespace = "http://docbook.org/ns/docbook", type = Link.class, required = false),
-        @XmlElementRef(name = "inlinemediaobject", namespace = "http://docbook.org/ns/docbook", type = Inlinemediaobject.class, required = false),
-        @XmlElementRef(name = "city", namespace = "http://docbook.org/ns/docbook", type = City.class, required = false),
-        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
-        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
-        @XmlElementRef(name = "state", namespace = "http://docbook.org/ns/docbook", type = State.class, required = false),
-        @XmlElementRef(name = "olink", namespace = "http://docbook.org/ns/docbook", type = Olink.class, required = false),
-        @XmlElementRef(name = "alt", namespace = "http://docbook.org/ns/docbook", type = Alt.class, required = false),
-        @XmlElementRef(name = "fax", namespace = "http://docbook.org/ns/docbook", type = Fax.class, required = false),
-        @XmlElementRef(name = "replaceable", namespace = "http://docbook.org/ns/docbook", type = Replaceable.class, required = false),
-        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
-        @XmlElementRef(name = "otheraddr", namespace = "http://docbook.org/ns/docbook", type = Otheraddr.class, required = false),
         @XmlElementRef(name = "phone", namespace = "http://docbook.org/ns/docbook", type = Phone.class, required = false),
-        @XmlElementRef(name = "xref", namespace = "http://docbook.org/ns/docbook", type = Xref.class, required = false),
-        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
-        @XmlElementRef(name = "street", namespace = "http://docbook.org/ns/docbook", type = Street.class, required = false),
+        @XmlElementRef(name = "inlinemediaobject", namespace = "http://docbook.org/ns/docbook", type = Inlinemediaobject.class, required = false),
         @XmlElementRef(name = "country", namespace = "http://docbook.org/ns/docbook", type = Country.class, required = false),
-        @XmlElementRef(name = "biblioref", namespace = "http://docbook.org/ns/docbook", type = Biblioref.class, required = false),
+        @XmlElementRef(name = "replaceable", namespace = "http://docbook.org/ns/docbook", type = Replaceable.class, required = false),
+        @XmlElementRef(name = "otheraddr", namespace = "http://docbook.org/ns/docbook", type = Otheraddr.class, required = false),
+        @XmlElementRef(name = "city", namespace = "http://docbook.org/ns/docbook", type = City.class, required = false),
+        @XmlElementRef(name = "link", namespace = "http://docbook.org/ns/docbook", type = Link.class, required = false),
         @XmlElementRef(name = "phrase", namespace = "http://docbook.org/ns/docbook", type = Phrase.class, required = false),
+        @XmlElementRef(name = "fax", namespace = "http://docbook.org/ns/docbook", type = Fax.class, required = false),
         @XmlElementRef(name = "pob", namespace = "http://docbook.org/ns/docbook", type = Pob.class, required = false),
-        @XmlElementRef(name = "postcode", namespace = "http://docbook.org/ns/docbook", type = Postcode.class, required = false),
+        @XmlElementRef(name = "olink", namespace = "http://docbook.org/ns/docbook", type = Olink.class, required = false),
         @XmlElementRef(name = "email", namespace = "http://docbook.org/ns/docbook", type = Email.class, required = false),
+        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false),
         @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
-        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false)
+        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
+        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
+        @XmlElementRef(name = "biblioref", namespace = "http://docbook.org/ns/docbook", type = Biblioref.class, required = false),
+        @XmlElementRef(name = "street", namespace = "http://docbook.org/ns/docbook", type = Street.class, required = false),
+        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
+        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
+        @XmlElementRef(name = "xref", namespace = "http://docbook.org/ns/docbook", type = Xref.class, required = false),
+        @XmlElementRef(name = "postcode", namespace = "http://docbook.org/ns/docbook", type = Postcode.class, required = false),
+        @XmlElementRef(name = "alt", namespace = "http://docbook.org/ns/docbook", type = Alt.class, required = false),
+        @XmlElementRef(name = "personname", namespace = "http://docbook.org/ns/docbook", type = Personname.class, required = false),
+        @XmlElementRef(name = "uri", namespace = "http://docbook.org/ns/docbook", type = Uri.class, required = false),
+        @XmlElementRef(name = "state", namespace = "http://docbook.org/ns/docbook", type = State.class, required = false)
     })
     @XmlMixed
     protected List<Object> content;
@@ -140,6 +140,10 @@ public class Address {
     @XmlAttribute(name = "space", namespace = "http://www.w3.org/XML/1998/namespace")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String space;
+    @XmlAttribute(name = "linkend")
+    @XmlIDREF
+    @XmlSchemaType(name = "IDREF")
+    protected Object linkend;
     @XmlAttribute(name = "id", namespace = "http://www.w3.org/XML/1998/namespace")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -199,10 +203,6 @@ public class Address {
     @XmlAttribute(name = "annotations")
     @XmlSchemaType(name = "anySimpleType")
     protected String annotations;
-    @XmlAttribute(name = "linkend")
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object linkend;
 
     /**
      * Gets the value of the content property.
@@ -222,33 +222,33 @@ public class Address {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Uri }
-     * {@link Personname }
-     * {@link Link }
-     * {@link Inlinemediaobject }
-     * {@link City }
-     * {@link Superscript }
-     * {@link Subscript }
-     * {@link State }
-     * {@link Olink }
-     * {@link Alt }
-     * {@link Fax }
-     * {@link Replaceable }
-     * {@link Indexterm }
-     * {@link Otheraddr }
      * {@link Phone }
-     * {@link Xref }
+     * {@link Inlinemediaobject }
+     * {@link Country }
+     * {@link Replaceable }
+     * {@link Otheraddr }
+     * {@link City }
+     * {@link Link }
+     * {@link Phrase }
+     * {@link Fax }
+     * {@link Pob }
+     * {@link Olink }
+     * {@link Email }
+     * {@link Anchor }
+     * {@link Annotation }
+     * {@link Subscript }
+     * {@link Superscript }
+     * {@link Biblioref }
+     * {@link Street }
+     * {@link Indexterm }
      * {@link Remark }
      * {@link String }
-     * {@link Street }
-     * {@link Country }
-     * {@link Biblioref }
-     * {@link Phrase }
-     * {@link Pob }
+     * {@link Xref }
      * {@link Postcode }
-     * {@link Email }
-     * {@link Annotation }
-     * {@link Anchor }
+     * {@link Alt }
+     * {@link Personname }
+     * {@link Uri }
+     * {@link State }
      * 
      * 
      */
@@ -401,6 +401,30 @@ public class Address {
      */
     public void setSpace(String value) {
         this.space = value;
+    }
+
+    /**
+     * Gets the value of the linkend property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Object }
+     *     
+     */
+    public Object getLinkend() {
+        return linkend;
+    }
+
+    /**
+     * Sets the value of the linkend property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Object }
+     *     
+     */
+    public void setLinkend(Object value) {
+        this.linkend = value;
     }
 
     /**
@@ -857,30 +881,6 @@ public class Address {
      */
     public void setAnnotations(String value) {
         this.annotations = value;
-    }
-
-    /**
-     * Gets the value of the linkend property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     
-     */
-    public Object getLinkend() {
-        return linkend;
-    }
-
-    /**
-     * Sets the value of the linkend property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
-     */
-    public void setLinkend(Object value) {
-        this.linkend = value;
     }
 
 }

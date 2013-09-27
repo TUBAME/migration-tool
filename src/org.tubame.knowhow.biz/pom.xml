@@ -142,10 +142,18 @@
 							<target>
 								<property name="knowhow_ui_eclipse_pj_path"
 									value="${basedir}/../org.tubame.knowhow" />
+								<property name="portability_ui_eclipse_pj_path"
+									value="${basedir}/../org.tubame.portability" />
+									
 								<copy
 									file="${basedir}/target/${project.artifactId}-${project.version}.jar"
 									tofile="${knowhow_ui_eclipse_pj_path}/lib/${project.artifactId}-${project.version}.jar"
 									overwrite="true" />
+								<copy
+									file="${basedir}/target/${project.artifactId}-${project.version}.jar"
+									tofile="${portability_ui_eclipse_pj_path}/lib/${project.artifactId}-${project.version}.jar"
+									overwrite="true" />
+									
 							</target>
 						</configuration>
 						<goals>

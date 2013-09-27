@@ -22,8 +22,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.attributes"/>
  *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.linking.attributes"/>
+ *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.attributes"/>
  *       &lt;attribute name="role" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
  *       &lt;attribute name="xrefstyle" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
  *       &lt;attribute name="endterm" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
@@ -49,6 +49,10 @@ public class Xref {
     @XmlIDREF
     @XmlSchemaType(name = "IDREF")
     protected Object endterm;
+    @XmlAttribute(name = "linkend")
+    @XmlIDREF
+    @XmlSchemaType(name = "IDREF")
+    protected Object linkend;
     @XmlAttribute(name = "id", namespace = "http://www.w3.org/XML/1998/namespace")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -108,10 +112,6 @@ public class Xref {
     @XmlAttribute(name = "annotations")
     @XmlSchemaType(name = "anySimpleType")
     protected String annotations;
-    @XmlAttribute(name = "linkend")
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object linkend;
 
     /**
      * Gets the value of the role property.
@@ -183,6 +183,30 @@ public class Xref {
      */
     public void setEndterm(Object value) {
         this.endterm = value;
+    }
+
+    /**
+     * Gets the value of the linkend property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Object }
+     *     
+     */
+    public Object getLinkend() {
+        return linkend;
+    }
+
+    /**
+     * Sets the value of the linkend property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Object }
+     *     
+     */
+    public void setLinkend(Object value) {
+        this.linkend = value;
     }
 
     /**
@@ -639,30 +663,6 @@ public class Xref {
      */
     public void setAnnotations(String value) {
         this.annotations = value;
-    }
-
-    /**
-     * Gets the value of the linkend property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     
-     */
-    public Object getLinkend() {
-        return linkend;
-    }
-
-    /**
-     * Sets the value of the linkend property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
-     */
-    public void setLinkend(Object value) {
-        this.linkend = value;
     }
 
 }

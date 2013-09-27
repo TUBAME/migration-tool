@@ -66,8 +66,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *         &lt;element ref="{http://docbook.org/ns/docbook}email"/>
  *         &lt;element ref="{http://docbook.org/ns/docbook}uri"/>
  *       &lt;/choice>
- *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.linking.attributes"/>
  *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.attributes"/>
+ *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.linking.attributes"/>
  *       &lt;attribute name="role" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -84,53 +84,49 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class Computeroutput {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "uri", namespace = "http://docbook.org/ns/docbook", type = Uri.class, required = false),
-        @XmlElementRef(name = "link", namespace = "http://docbook.org/ns/docbook", type = Link.class, required = false),
-        @XmlElementRef(name = "filename", namespace = "http://docbook.org/ns/docbook", type = Filename.class, required = false),
-        @XmlElementRef(name = "termdef", namespace = "http://docbook.org/ns/docbook", type = Termdef.class, required = false),
-        @XmlElementRef(name = "inlinemediaobject", namespace = "http://docbook.org/ns/docbook", type = Inlinemediaobject.class, required = false),
-        @XmlElementRef(name = "systemitem", namespace = "http://docbook.org/ns/docbook", type = Systemitem.class, required = false),
-        @XmlElementRef(name = "option", namespace = "http://docbook.org/ns/docbook", type = Option.class, required = false),
-        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
-        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
-        @XmlElementRef(name = "optional", namespace = "http://docbook.org/ns/docbook", type = Optional.class, required = false),
-        @XmlElementRef(name = "olink", namespace = "http://docbook.org/ns/docbook", type = Olink.class, required = false),
-        @XmlElementRef(name = "parameter", namespace = "http://docbook.org/ns/docbook", type = Parameter.class, required = false),
-        @XmlElementRef(name = "literal", namespace = "http://docbook.org/ns/docbook", type = Literal.class, required = false),
-        @XmlElementRef(name = "co", namespace = "http://docbook.org/ns/docbook", type = Co.class, required = false),
-        @XmlElementRef(name = "alt", namespace = "http://docbook.org/ns/docbook", type = Alt.class, required = false),
-        @XmlElementRef(name = "property", namespace = "http://docbook.org/ns/docbook", type = Property.class, required = false),
-        @XmlElementRef(name = "replaceable", namespace = "http://docbook.org/ns/docbook", type = Replaceable.class, required = false),
-        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
-        @XmlElementRef(name = "userinput", namespace = "http://docbook.org/ns/docbook", type = Userinput.class, required = false),
-        @XmlElementRef(name = "computeroutput", namespace = "http://docbook.org/ns/docbook", type = Computeroutput.class, required = false),
-        @XmlElementRef(name = "envar", namespace = "http://docbook.org/ns/docbook", type = Envar.class, required = false),
-        @XmlElementRef(name = "nonterminal", namespace = "http://docbook.org/ns/docbook", type = Nonterminal.class, required = false),
-        @XmlElementRef(name = "xref", namespace = "http://docbook.org/ns/docbook", type = Xref.class, required = false),
-        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
-        @XmlElementRef(name = "symbol", namespace = "http://docbook.org/ns/docbook", type = Symbol.class, required = false),
-        @XmlElementRef(name = "code", namespace = "http://docbook.org/ns/docbook", type = Code.class, required = false),
-        @XmlElementRef(name = "token", namespace = "http://docbook.org/ns/docbook", type = Token.class, required = false),
-        @XmlElementRef(name = "markup", namespace = "http://docbook.org/ns/docbook", type = Markup.class, required = false),
         @XmlElementRef(name = "constant", namespace = "http://docbook.org/ns/docbook", type = Constant.class, required = false),
+        @XmlElementRef(name = "inlinemediaobject", namespace = "http://docbook.org/ns/docbook", type = Inlinemediaobject.class, required = false),
         @XmlElementRef(name = "package", namespace = "http://docbook.org/ns/docbook", type = Package.class, required = false),
+        @XmlElementRef(name = "termdef", namespace = "http://docbook.org/ns/docbook", type = Termdef.class, required = false),
+        @XmlElementRef(name = "co", namespace = "http://docbook.org/ns/docbook", type = Co.class, required = false),
+        @XmlElementRef(name = "literal", namespace = "http://docbook.org/ns/docbook", type = Literal.class, required = false),
+        @XmlElementRef(name = "replaceable", namespace = "http://docbook.org/ns/docbook", type = Replaceable.class, required = false),
         @XmlElementRef(name = "tag", namespace = "http://docbook.org/ns/docbook", type = Tag.class, required = false),
-        @XmlElementRef(name = "biblioref", namespace = "http://docbook.org/ns/docbook", type = Biblioref.class, required = false),
+        @XmlElementRef(name = "nonterminal", namespace = "http://docbook.org/ns/docbook", type = Nonterminal.class, required = false),
+        @XmlElementRef(name = "link", namespace = "http://docbook.org/ns/docbook", type = Link.class, required = false),
+        @XmlElementRef(name = "computeroutput", namespace = "http://docbook.org/ns/docbook", type = Computeroutput.class, required = false),
+        @XmlElementRef(name = "markup", namespace = "http://docbook.org/ns/docbook", type = Markup.class, required = false),
+        @XmlElementRef(name = "option", namespace = "http://docbook.org/ns/docbook", type = Option.class, required = false),
+        @XmlElementRef(name = "filename", namespace = "http://docbook.org/ns/docbook", type = Filename.class, required = false),
+        @XmlElementRef(name = "olink", namespace = "http://docbook.org/ns/docbook", type = Olink.class, required = false),
         @XmlElementRef(name = "email", namespace = "http://docbook.org/ns/docbook", type = Email.class, required = false),
-        @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
-        @XmlElementRef(name = "command", namespace = "http://docbook.org/ns/docbook", type = Command.class, required = false),
+        @XmlElementRef(name = "parameter", namespace = "http://docbook.org/ns/docbook", type = Parameter.class, required = false),
         @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false),
-        @XmlElementRef(name = "prompt", namespace = "http://docbook.org/ns/docbook", type = Prompt.class, required = false)
+        @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
+        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
+        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
+        @XmlElementRef(name = "biblioref", namespace = "http://docbook.org/ns/docbook", type = Biblioref.class, required = false),
+        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
+        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
+        @XmlElementRef(name = "code", namespace = "http://docbook.org/ns/docbook", type = Code.class, required = false),
+        @XmlElementRef(name = "xref", namespace = "http://docbook.org/ns/docbook", type = Xref.class, required = false),
+        @XmlElementRef(name = "systemitem", namespace = "http://docbook.org/ns/docbook", type = Systemitem.class, required = false),
+        @XmlElementRef(name = "token", namespace = "http://docbook.org/ns/docbook", type = Token.class, required = false),
+        @XmlElementRef(name = "optional", namespace = "http://docbook.org/ns/docbook", type = Optional.class, required = false),
+        @XmlElementRef(name = "symbol", namespace = "http://docbook.org/ns/docbook", type = Symbol.class, required = false),
+        @XmlElementRef(name = "command", namespace = "http://docbook.org/ns/docbook", type = Command.class, required = false),
+        @XmlElementRef(name = "userinput", namespace = "http://docbook.org/ns/docbook", type = Userinput.class, required = false),
+        @XmlElementRef(name = "alt", namespace = "http://docbook.org/ns/docbook", type = Alt.class, required = false),
+        @XmlElementRef(name = "uri", namespace = "http://docbook.org/ns/docbook", type = Uri.class, required = false),
+        @XmlElementRef(name = "property", namespace = "http://docbook.org/ns/docbook", type = Property.class, required = false),
+        @XmlElementRef(name = "prompt", namespace = "http://docbook.org/ns/docbook", type = Prompt.class, required = false),
+        @XmlElementRef(name = "envar", namespace = "http://docbook.org/ns/docbook", type = Envar.class, required = false)
     })
     @XmlMixed
     protected List<Object> content;
     @XmlAttribute(name = "role")
     @XmlSchemaType(name = "anySimpleType")
     protected String role;
-    @XmlAttribute(name = "linkend")
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object linkend;
     @XmlAttribute(name = "id", namespace = "http://www.w3.org/XML/1998/namespace")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -190,6 +186,10 @@ public class Computeroutput {
     @XmlAttribute(name = "annotations")
     @XmlSchemaType(name = "anySimpleType")
     protected String annotations;
+    @XmlAttribute(name = "linkend")
+    @XmlIDREF
+    @XmlSchemaType(name = "IDREF")
+    protected Object linkend;
 
     /**
      * Gets the value of the content property.
@@ -209,44 +209,44 @@ public class Computeroutput {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Uri }
-     * {@link Filename }
-     * {@link Link }
-     * {@link Termdef }
+     * {@link Constant }
      * {@link Inlinemediaobject }
-     * {@link Systemitem }
-     * {@link Option }
-     * {@link Superscript }
-     * {@link Subscript }
-     * {@link Parameter }
-     * {@link Olink }
-     * {@link Optional }
-     * {@link Alt }
+     * {@link Termdef }
+     * {@link Package }
      * {@link Co }
      * {@link Literal }
-     * {@link Property }
      * {@link Replaceable }
-     * {@link Indexterm }
-     * {@link Userinput }
-     * {@link Computeroutput }
-     * {@link Envar }
+     * {@link Tag }
      * {@link Nonterminal }
-     * {@link Xref }
+     * {@link Link }
+     * {@link Computeroutput }
+     * {@link Markup }
+     * {@link Filename }
+     * {@link Option }
+     * {@link Olink }
+     * {@link Parameter }
+     * {@link Email }
+     * {@link Anchor }
+     * {@link Annotation }
+     * {@link Superscript }
+     * {@link Subscript }
+     * {@link Biblioref }
+     * {@link Indexterm }
      * {@link Remark }
      * {@link String }
-     * {@link Symbol }
-     * {@link Markup }
-     * {@link Token }
+     * {@link Xref }
      * {@link Code }
-     * {@link Constant }
-     * {@link Package }
-     * {@link Biblioref }
-     * {@link Tag }
-     * {@link Email }
-     * {@link Annotation }
+     * {@link Systemitem }
+     * {@link Optional }
+     * {@link Token }
      * {@link Command }
-     * {@link Anchor }
+     * {@link Symbol }
+     * {@link Userinput }
+     * {@link Alt }
+     * {@link Property }
+     * {@link Uri }
      * {@link Prompt }
+     * {@link Envar }
      * 
      * 
      */
@@ -279,30 +279,6 @@ public class Computeroutput {
      */
     public void setRole(String value) {
         this.role = value;
-    }
-
-    /**
-     * Gets the value of the linkend property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     
-     */
-    public Object getLinkend() {
-        return linkend;
-    }
-
-    /**
-     * Sets the value of the linkend property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
-     */
-    public void setLinkend(Object value) {
-        this.linkend = value;
     }
 
     /**
@@ -759,6 +735,30 @@ public class Computeroutput {
      */
     public void setAnnotations(String value) {
         this.annotations = value;
+    }
+
+    /**
+     * Gets the value of the linkend property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Object }
+     *     
+     */
+    public Object getLinkend() {
+        return linkend;
+    }
+
+    /**
+     * Sets the value of the linkend property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Object }
+     *     
+     */
+    public void setLinkend(Object value) {
+        this.linkend = value;
     }
 
 }

@@ -157,11 +157,6 @@
 				<separator name="portability"/>
 			</menu>
 			<!-- ShowConvertWizardAction -->
-			<action
-				class="org.tubame.portability.plugin.action.ShowConvertWizardAction"
-				id="ShowConvertWizardAction" enablesFor="1" label="%menu.convert.name"
-				menubarPath="org.tubame.menu1/portability">
-			</action>
 			<!-- ShowSearchWizardAction -->
 			<action
 				class="org.tubame.portability.plugin.action.ShowSearchWizardAction"

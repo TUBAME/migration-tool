@@ -31,8 +31,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *         &lt;element ref="{http://docbook.org/ns/docbook}refpurpose"/>
  *         &lt;element ref="{http://docbook.org/ns/docbook}refclass" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.linking.attributes"/>
  *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.attributes"/>
+ *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.linking.attributes"/>
  *       &lt;attribute name="role" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -61,10 +61,6 @@ public class Refnamediv {
     @XmlAttribute(name = "role")
     @XmlSchemaType(name = "anySimpleType")
     protected String role;
-    @XmlAttribute(name = "linkend")
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object linkend;
     @XmlAttribute(name = "id", namespace = "http://www.w3.org/XML/1998/namespace")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -124,6 +120,10 @@ public class Refnamediv {
     @XmlAttribute(name = "annotations")
     @XmlSchemaType(name = "anySimpleType")
     protected String annotations;
+    @XmlAttribute(name = "linkend")
+    @XmlIDREF
+    @XmlSchemaType(name = "IDREF")
+    protected Object linkend;
 
     /**
      * Gets the value of the refdescriptor property.
@@ -253,30 +253,6 @@ public class Refnamediv {
      */
     public void setRole(String value) {
         this.role = value;
-    }
-
-    /**
-     * Gets the value of the linkend property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     
-     */
-    public Object getLinkend() {
-        return linkend;
-    }
-
-    /**
-     * Sets the value of the linkend property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
-     */
-    public void setLinkend(Object value) {
-        this.linkend = value;
     }
 
     /**
@@ -733,6 +709,30 @@ public class Refnamediv {
      */
     public void setAnnotations(String value) {
         this.annotations = value;
+    }
+
+    /**
+     * Gets the value of the linkend property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Object }
+     *     
+     */
+    public Object getLinkend() {
+        return linkend;
+    }
+
+    /**
+     * Sets the value of the linkend property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Object }
+     *     
+     */
+    public void setLinkend(Object value) {
+        this.linkend = value;
     }
 
 }

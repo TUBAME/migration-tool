@@ -83,25 +83,25 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class Arg {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "sbr", namespace = "http://docbook.org/ns/docbook", type = Sbr.class, required = false),
-        @XmlElementRef(name = "link", namespace = "http://docbook.org/ns/docbook", type = Link.class, required = false),
-        @XmlElementRef(name = "inlinemediaobject", namespace = "http://docbook.org/ns/docbook", type = Inlinemediaobject.class, required = false),
-        @XmlElementRef(name = "xref", namespace = "http://docbook.org/ns/docbook", type = Xref.class, required = false),
-        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
-        @XmlElementRef(name = "synopfragmentref", namespace = "http://docbook.org/ns/docbook", type = Synopfragmentref.class, required = false),
-        @XmlElementRef(name = "option", namespace = "http://docbook.org/ns/docbook", type = Option.class, required = false),
-        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
-        @XmlElementRef(name = "arg", namespace = "http://docbook.org/ns/docbook", type = Arg.class, required = false),
-        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
-        @XmlElementRef(name = "olink", namespace = "http://docbook.org/ns/docbook", type = Olink.class, required = false),
-        @XmlElementRef(name = "alt", namespace = "http://docbook.org/ns/docbook", type = Alt.class, required = false),
         @XmlElementRef(name = "group", namespace = "http://docbook.org/ns/docbook", type = Group.class, required = false),
         @XmlElementRef(name = "biblioref", namespace = "http://docbook.org/ns/docbook", type = Biblioref.class, required = false),
-        @XmlElementRef(name = "phrase", namespace = "http://docbook.org/ns/docbook", type = Phrase.class, required = false),
-        @XmlElementRef(name = "replaceable", namespace = "http://docbook.org/ns/docbook", type = Replaceable.class, required = false),
-        @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
+        @XmlElementRef(name = "inlinemediaobject", namespace = "http://docbook.org/ns/docbook", type = Inlinemediaobject.class, required = false),
         @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
-        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false)
+        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
+        @XmlElementRef(name = "synopfragmentref", namespace = "http://docbook.org/ns/docbook", type = Synopfragmentref.class, required = false),
+        @XmlElementRef(name = "replaceable", namespace = "http://docbook.org/ns/docbook", type = Replaceable.class, required = false),
+        @XmlElementRef(name = "sbr", namespace = "http://docbook.org/ns/docbook", type = Sbr.class, required = false),
+        @XmlElementRef(name = "xref", namespace = "http://docbook.org/ns/docbook", type = Xref.class, required = false),
+        @XmlElementRef(name = "arg", namespace = "http://docbook.org/ns/docbook", type = Arg.class, required = false),
+        @XmlElementRef(name = "link", namespace = "http://docbook.org/ns/docbook", type = Link.class, required = false),
+        @XmlElementRef(name = "phrase", namespace = "http://docbook.org/ns/docbook", type = Phrase.class, required = false),
+        @XmlElementRef(name = "option", namespace = "http://docbook.org/ns/docbook", type = Option.class, required = false),
+        @XmlElementRef(name = "olink", namespace = "http://docbook.org/ns/docbook", type = Olink.class, required = false),
+        @XmlElementRef(name = "alt", namespace = "http://docbook.org/ns/docbook", type = Alt.class, required = false),
+        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false),
+        @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
+        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
+        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false)
     })
     @XmlMixed
     protected List<Object> content;
@@ -196,26 +196,26 @@ public class Arg {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Sbr }
-     * {@link Link }
+     * {@link Biblioref }
+     * {@link Group }
      * {@link Inlinemediaobject }
-     * {@link Xref }
+     * {@link Indexterm }
      * {@link Remark }
+     * {@link Replaceable }
      * {@link Synopfragmentref }
      * {@link String }
-     * {@link Option }
-     * {@link Superscript }
+     * {@link Xref }
+     * {@link Sbr }
      * {@link Arg }
-     * {@link Subscript }
+     * {@link Link }
+     * {@link Phrase }
+     * {@link Option }
      * {@link Olink }
      * {@link Alt }
-     * {@link Group }
-     * {@link Biblioref }
-     * {@link Phrase }
-     * {@link Replaceable }
-     * {@link Indexterm }
-     * {@link Annotation }
      * {@link Anchor }
+     * {@link Annotation }
+     * {@link Subscript }
+     * {@link Superscript }
      * 
      * 
      */
