@@ -1,17 +1,17 @@
 What's TUBAME
 ==============
 
-TUBAME‚ÍJBossƒ}ƒCƒOƒŒ[ƒVƒ‡ƒ“‚ð—\’è‚µ‚Ä‚¢‚éƒvƒƒWƒFƒNƒg‚É‘Î‚µAˆÈ‰º‚Ìî•ñ‚ð’ñ‹Ÿ‚µ‚Ü‚·B  
-* ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÉŠÜ‚Ü‚ê‚é—˜—p‚Å‚«‚È‚¢JavaƒpƒbƒP[ƒW‚âƒNƒ‰ƒXî•ñ(ˆË‘¶«ŒŸõ‹@”\)
-* ‚»‚Ì‘¼Ý’èƒtƒ@ƒCƒ‹‚ÉŠÜ‚Ü‚ê‚éC³‚ª•K—v‚È‰ÓŠ‚ÆC³H”‚Ìî•ñ(ƒiƒŒƒbƒWƒx[ƒXŒŸõ‹@”\)
+TUBAMEï¿½ï¿½JBossï¿½}ï¿½Cï¿½Oï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½è‚µï¿½Ä‚ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Wï¿½Fï¿½Nï¿½gï¿½É‘Î‚ï¿½ï¿½Aï¿½È‰ï¿½ï¿½Ìï¿½ï¿½ï¿½ñ‹Ÿ‚ï¿½ï¿½Ü‚ï¿½ï¿½B  
+* ï¿½Aï¿½vï¿½ï¿½ï¿½Pï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÉŠÜ‚Ü‚ï¿½é—˜ï¿½pï¿½Å‚ï¿½ï¿½È‚ï¿½Javaï¿½pï¿½bï¿½Pï¿½[ï¿½Wï¿½ï¿½Nï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½(ï¿½Ë‘ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½\)
+* ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½Ý’ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ÉŠÜ‚Ü‚ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½È‰Óï¿½ï¿½ÆCï¿½ï¿½ï¿½Hï¿½ï¿½ï¿½Ìï¿½ï¿½(ï¿½iï¿½ï¿½ï¿½bï¿½Wï¿½xï¿½[ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½\)
 
 How do I run TUBAME?
 ==============
-TUBAME‚ÍEclipse‚Ìƒvƒ‰ƒOƒCƒ“‚È‚½‚ßAƒCƒ“ƒXƒg[ƒ‹‚ÍpluginsƒtƒHƒ‹ƒ_‚É”z’u‚·‚é‚¾‚¯‚Å‚·B
-ˆË‘¶«ŒŸõ‚Í‚»‚Ì‚Ü‚Ü‚Å“®ì‚µ‚Ü‚·BƒiƒŒƒbƒWƒx[ƒXŒŸõ‚É•K—v‚ÈRule-Set(xmlƒtƒ@ƒCƒ‹)‚ÍAKnowledge Manager‚ð—˜—p‚µ‚ÄŽ©‚çì¬‚Å‚«‚Ü‚·B
+TUBAMEï¿½ï¿½Eclipseï¿½Ìƒvï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½È‚ï¿½ï¿½ßAï¿½Cï¿½ï¿½ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½ï¿½pluginsï¿½tï¿½Hï¿½ï¿½ï¿½_ï¿½É”zï¿½uï¿½ï¿½ï¿½é‚¾ï¿½ï¿½ï¿½Å‚ï¿½ï¿½B
+ï¿½Ë‘ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½Ì‚Ü‚Ü‚Å“ï¿½ï¿½ì‚µï¿½Ü‚ï¿½ï¿½Bï¿½iï¿½ï¿½ï¿½bï¿½Wï¿½xï¿½[ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½É•Kï¿½vï¿½ï¿½Rule-Set(xmlï¿½tï¿½@ï¿½Cï¿½ï¿½)ï¿½ÍAKnowledge Managerï¿½ð—˜—pï¿½ï¿½ï¿½ÄŽï¿½ï¿½ï¿½ì¬ï¿½Å‚ï¿½ï¿½Ü‚ï¿½ï¿½B
 
-Rule-Set‚ÌÚ×‚ÈƒmƒEƒnƒE(Guideline)‚Í“¯—l‚Éknowledge Manager‚ð—˜—p‚µ‚Äì¬‚Å‚«‚Ü‚·B
+Rule-Setï¿½ÌÚ×‚Èƒmï¿½Eï¿½nï¿½E(Guideline)ï¿½Í“ï¿½ï¿½lï¿½ï¿½knowledge Managerï¿½ð—˜—pï¿½ï¿½ï¿½Äì¬ï¿½Å‚ï¿½ï¿½Ü‚ï¿½ï¿½B
 
-‚Ü‚¸‚ÍAJoss EAP4‚©‚çEAP6‚Ö‚ÌˆÚAŽž‚ÌRule-Set‚ÆÚ×‚ÈƒmƒEƒnƒE‚ðƒTƒ“ƒvƒ‹‚Æ‚µ‚Äƒ_ƒEƒ“ƒ[ƒh‰Â”\‚È‚Ì‚ÅA¥”ñ—˜—p‚µ‚Ä‚Ý‚Ä‚­‚¾‚³‚¢B¡Œã™X‚ÉWeblogic‚©‚çJBoss‚Ö‚ÌƒmƒEƒnƒE‚àŒöŠJ‚µ‚Ä‚¢‚­—\’è‚Å‚·BŠF—l‚©‚ç‚ÌƒmƒEƒnƒE“Še‚à‚¨‘Ò‚¿‚µ‚Ä‚¨‚è‚Ü‚·B
+ï¿½Ü‚ï¿½ï¿½ÍAJoss EAP4ï¿½ï¿½ï¿½ï¿½EAP6ï¿½Ö‚ÌˆÚAï¿½ï¿½ï¿½ï¿½Rule-Setï¿½ÆÚ×‚Èƒmï¿½Eï¿½nï¿½Eï¿½ï¿½ï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Äƒ_ï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½Â”\ï¿½È‚Ì‚ÅAï¿½ï¿½ï¿½ñ—˜—pï¿½ï¿½ï¿½Ä‚Ý‚Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ã™ï¿½Xï¿½ï¿½Weblogicï¿½ï¿½ï¿½ï¿½JBossï¿½Ö‚Ìƒmï¿½Eï¿½nï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½Å‚ï¿½ï¿½Bï¿½Fï¿½lï¿½ï¿½ï¿½ï¿½Ìƒmï¿½Eï¿½nï¿½Eï¿½ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½ï¿½Ò‚ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 
-Ú×‚Í[wiki](https://github.com/TUBAME/migration-tool/wiki)‚â[ƒNƒCƒbƒNƒ}ƒjƒ…ƒAƒ‹](http://tubame.github.io/migration-tool)‚ð‚²——‚­‚¾‚³‚¢B
+ï¿½Ú×‚ï¿½[Wki](https://github.com/TUBAME/migration-tool/wiki)ï¿½ï¿½[ï¿½Nï¿½Cï¿½bï¿½Nï¿½}ï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½](http://tubame.github.io/migration-tool)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
