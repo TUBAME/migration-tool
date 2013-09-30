@@ -17,4 +17,4 @@ To try and understand TUBAME it's the better way to use Rule-Sets (now JBoss EAP
 From now on TUBAME will provide Rule-Sets gradually, such as migration on WebLogic to JBoss EAP6.
 And we expect and appreciate that you share your own Rule-Sets. Your contribution will make TUBAME fly higher!
 
-You can see Details about TUBAME at [Wiki](https://github.com/TUBAME/migration-tool/wiki\(English\)) and [manuals](http://tubame.github.io/migration-tool/index_en.html).
+You can see Details about TUBAME at [Wiki](https://github.com/TUBAME/migration-tool/wiki/Home%28English%29) and [manuals](http://tubame.github.io/migration-tool/index_en.html).
