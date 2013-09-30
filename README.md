@@ -3,8 +3,10 @@ What's TUBAME
 
 TUBAME provides follwing useful informations for your migration.
 
-* Application codes that could be unavailable or deprecated on the target middleware (JBoss EAP6, etc.) - Dependency Searching Function
-* HowTo and Workload for modifiying configurations that could be needed for your applications to run on the target middleware - Knowledge-Based Searching Function
+* Dependency Searching Function
+ - Application codes that could be unavailable or deprecated on the target middleware (JBoss EAP6, etc.) - Dependency Searching Function
+* Knowledge-Based Searching Function
+ - How To and Workload for modifiying configurations that could be needed for your applications to run on the target middleware
 
 How do I run TUBAME?
 ==============
