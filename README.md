@@ -1,17 +1,20 @@
 What's TUBAME
 ==============
 
-TUBAMEはJBossマイグレーションを予定しているプロジェクトに対し、以下の情報を提供します。  
-* アプリケーションに含まれる利用できないJavaパッケージやクラス情報(依存性検索機能)
-* その他設定ファイルに含まれる修正が必要な箇所と修正工数の情報(ナレッジベース検索機能)
+TUBAME provides follwing useful informations for your migration.
+
+* Application codes that could be unavailable or deprecated on the target middleware (JBoss EAP6, etc.) - Dependency Searching Function
+* HowTo and Workload for modifiying configurations that could be needed for your applications to run on the target middleware - Knowledge-Based Searching Function
 
 How do I run TUBAME?
 ==============
-TUBAMEはEclipseのプラグインなため、インストールはpluginsフォルダに配置するだけです。
-依存性検索はそのままで動作します。ナレッジベース検索に必要なRule-Set(xmlファイル)は、Knowledge Managerを利用して自ら作成できます。
 
-Rule-Setの詳細なノウハウ(Guideline)は同様にknowledge Managerを利用して作成できます。
+TUBAME is the Eclipse Plugin. So all you have to do for using TUBAME is to put it's binaries into Eclipse plugins folder.  
+The Dependency Searching Function is ready-to-use as soon as you install it in Eclipse, and also you can use the Knowledge-Based Function without any additional operations if you use Rule-Sets provided by TUBAME community.
+Or you can define your own Rule-Set by Knowledge Manager. By using Knowledge Manager you can make detailed Guideline for migration.  
 
-まずは、Joss EAP4からEAP6への移植時のRule-Setと詳細なノウハウをサンプルとしてダウンロード可能なので、是非利用してみてください。今後徐々にWeblogicからJBossへのノウハウも公開していく予定です。皆様からのノウハウ投稿もお待ちしております。
+To try and understand TUBAME it's the better way to use Rule-Sets (now JBoss EAP4 to EAP6 available) provided by TUBAME.  
+From now on TUBAME will provide Rule-Sets gradually, such as migration on WebLogic to JBoss EAP6.
+And we expect and appreciate that you share your own Rule-Sets. Your contribution will make TUBAME fly higher!
 
-詳細は[wiki](https://github.com/TUBAME/migration-tool/wiki)や[クイックマニュアル](http://tubame.github.io/migration-tool)をご覧ください。
+You can see Details about TUBAME at [WiKi](https://github.com/TUBAME/migration-tool/wiki\(English\)) and [manuals](http://tubame.github.io/migration-tool/index_en.html).
