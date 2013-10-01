@@ -22,4 +22,4 @@ Please see following manuals for more details about installation.
  * [Online Quick User Manual - Dependency Search](http://tubame.github.io/migration-tool/wsearch.html)
  * [Online Quick User Manual - Knowledge-Based Search](http://tubame.github.io/migration-tool/portability.html)
 
-You can see an outline of TUBAME at [WiKi](https://github.com/TUBAME/migration-tool/wiki).
+You can see an outline of TUBAME at [WiKi](https://github.com/TUBAME/migration-tool/wiki/How-to-build%28English%29).
