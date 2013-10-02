@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0"
+	targetNamespace="http://generated.model.biz.knowhow.tubame/knowhow"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://generated.model.biz.knowhow.tubame/knowhow"
+	xmlns:docbook="http://docbook.org/ns/docbook" elementFormDefault="qualified">
+
+	<xs:import namespace="http://docbook.org/ns/docbook"
+		schemaLocation="./docbook.xsd" />
+
+	<xs:element name="PortabilityKnowhow">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="PortabilityKnowhowTitle" type="xs:string"
+					minOccurs="1" maxOccurs="1" />
+				<xs:element name="EntryViewList" minOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="EntryCategory" type="EntryCategory"
+								minOccurs="0" maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ChapterList" minOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Chapter" type="Chapter" minOccurs="0"
+								maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="CategoryList" minOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Category" type="Category" minOccurs="0"
+								maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="KnowhowList" minOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="KnowhowInfomation" type="KnowhowInfomation"
+								minOccurs="0" maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="DocBookList" minOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="DocBook" type="DocBook" minOccurs="0"
+								maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SearchInfomationList" minOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="SearchInfomation" type="SearchInfomation"
+								minOccurs="0" maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="Chapter">
+		<xs:sequence>
+			<xs:element name="ChapterNo" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="ChapterName" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="ChildChapter" type="ChildChapter"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ChildChapter">
+		<xs:sequence>
+			<xs:element name="ChildCapterNo" type="xs:string"
+				minOccurs="1" />
+			<xs:element name="ChapterCategoryRefKey" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="ChildChapter" type="ChildChapter"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EntryCategory">
+		<xs:sequence>
+			<xs:element name="EntryCategoryRefKey" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="ChildEntry" type="ChildEntry" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ChildEntry">
+		<xs:sequence>
+			<xs:element name="EntryCategoryRefKey" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="ChildEntry" type="ChildEntry" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Category">
+		<xs:sequence>
+			<xs:element name="CategoryName" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="KnowhowRefKey" type="xs:string"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="categoryId" type="xs:string" use="required" />
+		<xs:attribute name="appropriate" type="xs:boolean" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="KnowhowInfomation">
+		<xs:sequence>
+			<xs:element name="KnowhowNo" type="xs:integer" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="KnowhowName" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="CheckItem" type="CheckItem" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="knowhowId" type="xs:string" use="required" />
+		<xs:attribute name="knowhowDetailRefKey" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="DocBook">
+		<xs:sequence>
+			<xs:element ref="docbook:article" />
+		</xs:sequence>
+		<xs:attribute name="articleId" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="CheckItem">
+		<xs:sequence>
+			<xs:element name="CheckItemNo" type="xs:integer"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="CheckItemName" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="SearchProcess" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="PortabilityFactor" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="PortabilityDegree" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="DegreeDetail" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="VisualConfirm" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="HearingConfirm" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="checkItemId" type="xs:string" />
+		<xs:attribute name="searchRefKey" type="xs:string" />
+		<xs:attribute name="searchExistance" type="xs:boolean"
+			use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="SearchInfomation">
+		<xs:sequence>
+			<xs:element name="FileType" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="SearchKey1" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="SearchKey2" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="PythonModule" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="LineNumberInfomation" type="LineNumberInfomation"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="Appropriate" type="Appropriate"
+				minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="searchInfoId" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="LineNumberInfomation">
+		<xs:sequence>
+			<xs:element name="LineNumber" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="LineNumberContents" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="Investigation" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Appropriate">
+		<xs:sequence>
+			<xs:element name="AppropriateContents" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="lineNumberAppropriate" type="xs:boolean"
+			use="required" />
+	</xs:complexType>
+
+</xs:schema>

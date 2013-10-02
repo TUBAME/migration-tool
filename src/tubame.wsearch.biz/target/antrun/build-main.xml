@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <property name="wsearch_ui_eclipse_pj_path" value="C:\tubame-dev-confirm\workspace\tubame.wsearch.biz/../tubame.wsearch"/>
+  <copy file="C:\tubame-dev-confirm\workspace\tubame.wsearch.biz/target/tubame-wsearch-biz-1.0.0.jar" tofile="${wsearch_ui_eclipse_pj_path}/lib/tubame-wsearch-biz-1.0.0.jar" overwrite="true"/>
+</target>
+</project>
