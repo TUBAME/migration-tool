@@ -15,7 +15,7 @@ TUBAME is the Eclipse Plugin. So all you have to do for using TUBAME is to put i
 The Dependency Searching Function is ready-to-use as soon as you install it in Eclipse, and also you can use the Knowledge-Based Function without any additional operations if you use Rule-Sets provided by TUBAME community.
 Or you can define your own Rule-Set by Knowledge Manager. By using Knowledge Manager you can make detailed Guideline for migration.  
 
-To try and understand TUBAME it's the better way to use Rule-Sets (now JBoss EAP4 to EAP6 available) provided by [TUBAME]((https://github.com/TUBAME/migration-knowledge/releases).
+To try and understand TUBAME it's the better way to use Rule-Sets (now JBoss EAP4 to EAP6 available) provided by [TUBAME](https://github.com/TUBAME/migration-knowledge/releases).
 From now on TUBAME will provide Rule-Sets gradually, such as migration on WebLogic to JBoss EAP6.
 And we expect and appreciate that you share your own Rule-Sets. Your contribution will make TUBAME fly higher!
 
