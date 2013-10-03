@@ -25,3 +25,7 @@ Please see following manuals for more details about installation.
  * [Online Quick User Manual - Knowledge-Based Search](http://tubame.github.io/migration-tool/portability.html)
 
 You can see an outline of TUBAME at [WiKi](https://github.com/TUBAME/migration-tool/wiki/Home%28English%29).
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/TUBAME/migration-tool/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
