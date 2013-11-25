@@ -1,0 +1,1425 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PortabilityKnowhow xmlns="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:ns2="http://docbook.org/ns/docbook">
+    <PortabilityKnowhowTitle>Online Quick User Manual - KnowledgeBase Search</PortabilityKnowhowTitle>
+    <EntryViewList>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_1</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_2</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_3</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_6</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_7</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_8</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_10</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_11</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_15</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_17</EntryCategoryRefKey>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_12</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_18</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_19</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_26</EntryCategoryRefKey>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_13</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_27</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_28</EntryCategoryRefKey>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_29</EntryCategoryRefKey>
+        </EntryCategory>
+    </EntryViewList>
+    <ChapterList>
+        <Chapter>
+            <ChapterNo>1.</ChapterNo>
+            <ChapterName> Overview</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>1.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_1</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>1.2.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_2</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>2.</ChapterNo>
+            <ChapterName> Operating Environment</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>2.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_3</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>2.2.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_6</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>2.3.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_7</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>3.</ChapterNo>
+            <ChapterName> Installing the Tool</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>3.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_8</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>4.</ChapterNo>
+            <ChapterName> How to Use</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>4.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_10</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>4.1.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_11</ChapterCategoryRefKey>
+                    <ChildChapter>
+                        <ChildCapterNo>4.1.1.1.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_15</ChapterCategoryRefKey>
+                    </ChildChapter>
+                    <ChildChapter>
+                        <ChildCapterNo>4.1.1.2.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_17</ChapterCategoryRefKey>
+                    </ChildChapter>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>4.1.2.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_12</ChapterCategoryRefKey>
+                    <ChildChapter>
+                        <ChildCapterNo>4.1.2.1.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_18</ChapterCategoryRefKey>
+                    </ChildChapter>
+                    <ChildChapter>
+                        <ChildCapterNo>4.1.2.2.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_19</ChapterCategoryRefKey>
+                    </ChildChapter>
+                    <ChildChapter>
+                        <ChildCapterNo>4.1.2.3.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_26</ChapterCategoryRefKey>
+                    </ChildChapter>
+                </ChildChapter>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>5.</ChapterNo>
+            <ChapterName> Uninstalling the Tool</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>5.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_29</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+    </ChapterList>
+    <CategoryList>
+        <Category categoryId="category_1" appropriate="true">
+            <CategoryName> Introduction to This Document</CategoryName>
+            <KnowhowRefKey>knowhow_1</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_2" appropriate="true">
+            <CategoryName> Introduction to This Tool</CategoryName>
+            <KnowhowRefKey>knowhow_2</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_3" appropriate="true">
+            <CategoryName> Hardware Requirements</CategoryName>
+            <KnowhowRefKey>knowhow_4</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_6" appropriate="true">
+            <CategoryName> Software Requirements</CategoryName>
+            <KnowhowRefKey>knowhow_5</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_7" appropriate="true">
+            <CategoryName> Prerequisite</CategoryName>
+            <KnowhowRefKey>knowhow_6</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_8" appropriate="true">
+            <CategoryName> Installing the Tool</CategoryName>
+            <KnowhowRefKey>knowhow_7</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_10" appropriate="true">
+            <CategoryName> Operating Procedures</CategoryName>
+            <KnowhowRefKey>knowhow_8</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_11" appropriate="true">
+            <CategoryName> Search Function</CategoryName>
+            <KnowhowRefKey>knowhow_10</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_15" appropriate="true">
+            <CategoryName> Creating Your Eclipse Project</CategoryName>
+            <KnowhowRefKey>knowhow_14</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_17" appropriate="true">
+            <CategoryName> Conducting a Search</CategoryName>
+            <KnowhowRefKey>knowhow_16</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_12" appropriate="true">
+            <CategoryName> Feature for Editing Search Results</CategoryName>
+            <KnowhowRefKey>knowhow_11</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_18" appropriate="true">
+            <CategoryName> Checking Search Results</CategoryName>
+            <KnowhowRefKey>knowhow_17</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_19" appropriate="true">
+            <CategoryName> Editing Search Results</CategoryName>
+            <KnowhowRefKey>knowhow_18</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_26" appropriate="true">
+            <CategoryName> Exporting Editing Results</CategoryName>
+            <KnowhowRefKey>knowhow_25</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_13" appropriate="true">
+            <CategoryName> Conversion Function</CategoryName>
+            <KnowhowRefKey>knowhow_12</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_27" appropriate="true">
+            <CategoryName> Creating Your Eclipse Project</CategoryName>
+            <KnowhowRefKey>knowhow_26</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_28" appropriate="true">
+            <CategoryName> Conducting Conversion</CategoryName>
+            <KnowhowRefKey>knowhow_27</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_29" appropriate="true">
+            <CategoryName> Uninstalling the Tool</CategoryName>
+            <KnowhowRefKey>knowhow_28</KnowhowRefKey>
+        </Category>
+    </CategoryList>
+    <KnowhowList>
+        <KnowhowInfomation knowhowId="knowhow_1" knowhowDetailRefKey="knowhowDetail_1">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_2" knowhowDetailRefKey="knowhowDetail_2">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_4" knowhowDetailRefKey="knowhowDetail_4">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_5" knowhowDetailRefKey="knowhowDetail_5">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_6" knowhowDetailRefKey="knowhowDetail_6">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_7" knowhowDetailRefKey="knowhowDetail_7">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_8" knowhowDetailRefKey="knowhowDetail_8">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_10" knowhowDetailRefKey="knowhowDetail_10">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_14" knowhowDetailRefKey="knowhowDetail_14">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_16" knowhowDetailRefKey="knowhowDetail_16">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_11" knowhowDetailRefKey="knowhowDetail_11">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_17" knowhowDetailRefKey="knowhowDetail_17">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_18" knowhowDetailRefKey="knowhowDetail_18">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_25" knowhowDetailRefKey="knowhowDetail_25">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_12" knowhowDetailRefKey="knowhowDetail_12">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_26" knowhowDetailRefKey="knowhowDetail_26">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_27" knowhowDetailRefKey="knowhowDetail_27">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_28" knowhowDetailRefKey="knowhowDetail_28">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+    </KnowhowList>
+    <DocBookList>
+        <DocBook articleId="knowhowDetail_1">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>This manual provides a brief description of procedures from installation through to use of the KnowledgeBase Search.</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_2">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>
+			Operating as an Eclipse plug-in, this tool makes a rough estimate of 
+			the scale of rewriting required of programmers in migrating to JBoss. 
+			It comes with the following major features.
+			<ns2:table>
+                            <ns2:title>Major tool features</ns2:title>
+                            <ns2:tgroup cols="2">
+<ns2:thead>
+    <ns2:row>
+        <ns2:entry>Feature</ns2:entry>
+        <ns2:entry>Description</ns2:entry>
+    </ns2:row>
+</ns2:thead>
+<ns2:tbody>
+    <ns2:row>
+        <ns2:entry>Search function</ns2:entry>
+        <ns2:entry>Feature for finding code that must be rewritten in porting software to JBoss.  
+							</ns2:entry>
+    </ns2:row>
+    <ns2:row>
+        <ns2:entry>Feature for editing search results</ns2:entry>
+        <ns2:entry>Enables editing of a visual representation of search results.  
+								It allows you to individually adjust the need for porting of search results. 
+								This improves the accuracy in extracting the scale of porting based on the requirements of each application. 
+							</ns2:entry>
+    </ns2:row>
+    <ns2:row>
+        <ns2:entry>Conversion function</ns2:entry>
+        <ns2:entry>Finds and converts code that can be converted.</ns2:entry>
+    </ns2:row>
+</ns2:tbody>
+                            </ns2:tgroup>
+                        </ns2:table>
+		</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_4">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>It has been confirmed that the tool can operate in the following hardware environment.</ns2:para>
+                    <ns2:table>
+                        <ns2:title>Hardware Requirements</ns2:title>
+                        <ns2:tgroup cols="2">
+                            <ns2:thead>
+<ns2:row>
+    <ns2:entry>Item</ns2:entry>
+    <ns2:entry>Requirements</ns2:entry>
+</ns2:row>
+                            </ns2:thead>
+                            <ns2:tbody>
+<ns2:row>
+    <ns2:entry>CPU</ns2:entry>
+    <ns2:entry>Pentium (R) Dual-Core CPU E5400 @2.70GHz (2 CPU) or the equivalent</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>RAM</ns2:entry>
+    <ns2:entry>2012MB RAM  or more</ns2:entry>
+</ns2:row>
+                            </ns2:tbody>
+                        </ns2:tgroup>
+                    </ns2:table>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_5">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>It has been confirmed that the tool can operate in the following software environment.</ns2:para>
+                    <ns2:table>
+                        <ns2:title>Software Requirements</ns2:title>
+                        <ns2:tgroup cols="2">
+                            <ns2:thead>
+<ns2:row>
+    <ns2:entry>Item</ns2:entry>
+    <ns2:entry>Requirements</ns2:entry>
+</ns2:row>
+                            </ns2:thead>
+                            <ns2:tbody>
+<ns2:row>
+    <ns2:entry>OS</ns2:entry>
+    <ns2:entry>Windows XP/7, CentOS 6</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Java VM</ns2:entry>
+    <ns2:entry>
+							Oracle JRE 1.6 or more
+						</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>IDE</ns2:entry>
+    <ns2:entry>
+							Eclipse3.7 Indigo
+						</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Script</ns2:entry>
+    <ns2:entry>Python 2.7 + lxml module
+                        </ns2:entry>
+</ns2:row>
+                            </ns2:tbody>
+                        </ns2:tgroup>
+                    </ns2:table>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_6">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>This tool assumes that the following file is present.</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+					A <ns2:filename>Knowledge XML </ns2:filename>
+					file created by the 
+					<ns2:application>Knowledge 
+					Manager</ns2:application>
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_7">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Set up the <ns2:link>operating environment</ns2:link> described above. 
+			Perform the steps below after the required environment has been set up.
+		</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>Download</ns2:para>
+                            <ns2:para>Download the plug-in.</ns2:para>
+                            <ns2:para>
+                <ns2:warning>
+    <ns2:para>
+        <ns2:link>http://www.jboss.org/unknown</ns2:link>
+    </ns2:para>
+</ns2:warning>
+                </ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Unzip</ns2:para>
+                            <ns2:para>
+					Unzip the downloaded file. 
+					Unzipping the file creates the 
+					<ns2:filename>org.tubame.portability_*</ns2:filename> 
+					directory.
+					<ns2:note>
+    <ns2:para>The * part of the name varies with the version.</ns2:para>
+</ns2:note>
+					<ns2:important>
+    <ns2:para>
+							Unzipping the file in Windows may fail due to path length limitations. 
+							If it fails, use a short path such as
+							<ns2:filename>C:\temp</ns2:filename>
+							 for unzipping.
+						</ns2:para>
+</ns2:important>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Set Python runtime.</ns2:para>
+                            <ns2:para>
+					Use a text editor to open <ns2:filename>resources/properties/application*.properties</ns2:filename> under the unzipped directory. 
+					As shown below, set the path where Python is installed. 
+					<ns2:programlisting>
+					
+# Example showing installation under Windows
+PYTHON_RUNTIME_PATH=C:/Python27/python.exe
+					
+					</ns2:programlisting>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Install in Eclipse.</ns2:para>
+                            <ns2:para>
+					Move or copy the unzipped directory to the 
+<ns2:filename>plugins</ns2:filename> 
+directory under the Eclipse installation directory.
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Confirm installation.</ns2:para>
+                            <ns2:para>
+					Select the Eclipse menu as shown below.
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>Help</ns2:guimenu>
+    <ns2:guimenuitem>About Eclipse</ns2:guimenuitem>
+    <ns2:guimenuitem>Installation Details</ns2:guimenuitem>
+    <ns2:guimenuitem>Plug-ins</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                            <ns2:para>
+					Confirm that the <ns2:guilabel>Plug-in Id</ns2:guilabel> column contains the <ns2:guilabel>org.tubame.portability</ns2:guilabel>  plug-in name.
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Complete installation.</ns2:para>
+                            <ns2:para>This completes the installation.</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_8">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>The following describes how to use the features of each tool.</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_10">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>This feature finds the code that has to be rewritten when porting to JBoss.</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_11">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>This feature allows you to edit a visual representation of the search results.  Sometimes it may be necessary to individually check what search results need to be ported. 
+			Visual checks or inquiries are made regarding such results to determine whether they need to be ported. 
+			This process is completed when all items that need to be ported have been found.
+		</ns2:para>
+                    <ns2:para>Perform the following steps.</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>Open the search result files.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Check the source code.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Check the visual check items.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Check the inquiry check items.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Link to the porting guideline.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Display the check list information.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Delete items that need not be ported.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Display work progress status.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Calculate the total number of lines.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Display the number of hits or all items.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Output a report.</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_12">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Finds and converts code that can be converted. The following file conversions can be made.</ns2:para>
+                    <ns2:para>
+        <ns2:table>
+                            <ns2:title>Convertible files</ns2:title>
+                            <ns2:tgroup cols="2">
+<ns2:thead>
+    <ns2:row>
+        <ns2:entry>Before conversion</ns2:entry>
+        <ns2:entry>After conversion</ns2:entry>
+    </ns2:row>
+</ns2:thead>
+<ns2:tbody>
+    <ns2:row>
+        <ns2:entry>EJB deployment descriptor file with a vendor extension</ns2:entry>
+        <ns2:entry>EJB deployment descriptor file with a JBoss extension</ns2:entry>
+    </ns2:row>
+</ns2:tbody>
+                            </ns2:tgroup>
+                        </ns2:table>
+        </ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_14">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Perform the following steps.</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>Start up Eclipse.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+					Start up the project creation wizard.
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>File</ns2:guimenu>
+    <ns2:guimenuitem>New</ns2:guimenuitem>
+    <ns2:guimenuitem>Project...</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+                Create a <ns2:guimenuitem>Java Project</ns2:guimenuitem>.
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>Java Project</ns2:guimenu>
+    <ns2:guimenuitem>Next</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                            <ns2:para>
+                    Use the <ns2:guilabel>New Java Project</ns2:guilabel> wizard to make the appropriate settings required by the environment of the item to be ported to create a project.
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Position the source files that need to be ported.</ns2:para>
+                            <ns2:para>
+					Position the source files that need to be ported in the created project.
+					<ns2:note>
+    <ns2:para>
+					Position not only *.java, but also *.jar, *.xml, *.jsp, *.properties, *.xsd and 
+					all other files that are required for running the application.</ns2:para>
+</ns2:note>
+					<ns2:note>
+    <ns2:para>There is no need to make all the preparations required for a successful build.</ns2:para>
+</ns2:note>
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_16">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Perform the following steps.</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>Select search resource.</ns2:para>
+                            <ns2:para>Right-click a resource you want to search and select the following menu.</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenuitem>tubame</ns2:guimenuitem>
+    <ns2:guimenuitem>KnowledgeBase Search</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Set search conditions.</ns2:para>
+                            <ns2:para>
+					Make the following entries. 
+					<ns2:simplelist>
+    <ns2:member>
+                            <ns2:guilabel>Knowledge XML file selection</ns2:guilabel>: Specify the <ns2:filename>Knowledge XML </ns2:filename>file to be searched. </ns2:member>
+    <ns2:member>
+                            <ns2:guilabel>Destination of output results</ns2:guilabel>: Specify a <ns2:filename>jbm</ns2:filename> file to which to save the search results</ns2:member>
+</ns2:simplelist>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Conduct a search.</ns2:para>
+                            <ns2:para>
+					Click <ns2:guimenuitem>Finish</ns2:guimenuitem> 
+					to start the search.
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_17">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>The following describes a method for confirming search results.</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+					Open the <ns2:filename>jbm</ns2:filename> 
+					file.
+				</ns2:para>
+                            <ns2:para>
+					Double click the saved 
+					<ns2:filename>jbm</ns2:filename> 
+					file that contains the search results.
+				</ns2:para>
+                            <ns2:para>
+                <ns2:note>
+    <ns2:para>This step is not necessary since the search result file automatically opens after a search has been conducted.</ns2:para>
+</ns2:note>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Check the screen for editing search results.</ns2:para>
+                            <ns2:para>The screen for editing search results shows a list of items that may have to be ported. An overview of the displayed items is provided below. 
+					Double click a line to open an editor with an associated extension to display the relevant file.
+				</ns2:para>
+                            <ns2:note>
+<ns2:para>
+						The <ns2:guimenuitem>Switch display </ns2:guimenuitem>
+						button in the Eclipse toolbar allows you to switch between 
+						display of all search items and hit items.
+					</ns2:para>
+                            </ns2:note>
+                            <ns2:table>
+<ns2:title>Items displayed in the screen for editing search results</ns2:title>
+<ns2:tgroup cols="2">
+    <ns2:thead>
+        <ns2:row>
+            <ns2:entry>Item</ns2:entry>
+            <ns2:entry>Description</ns2:entry>
+        </ns2:row>
+    </ns2:thead>
+    <ns2:tbody>
+        <ns2:row>
+            <ns2:entry>No.</ns2:entry>
+            <ns2:entry>Number of the searched condition.</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Hit count</ns2:entry>
+            <ns2:entry>The number of items that matched the search conditions.</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Major item</ns2:entry>
+            <ns2:entry>-</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Minor item</ns2:entry>
+            <ns2:entry>-</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>File name</ns2:entry>
+            <ns2:entry>Path from project route of the relevant file.</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Line</ns2:entry>
+            <ns2:entry>Line number of the relevant file.</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Degree of difficulty</ns2:entry>
+            <ns2:entry>
+									Difficulty icons indicate the degree of difficulty that porting involves.
+
+                            <ns2:note>
+                    <ns2:para>There are the following classifications.</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>High</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>Requires major rewriting of the implementation involving major changes to the implementation, settings and other changes.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Middle</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>Requires minor rewriting of the implementation. </ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Low</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>Can be handled by minor rewriting that does not affect implementation.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Unknown</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>Unknown difficulty</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>NOT_TRN</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>Cannot be ported.</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:note>
+								</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Guide chapter</ns2:entry>
+            <ns2:entry>
+									The number of the chapter in the Portability Examination Guideline.
+									<ns2:para>Click an item to link to the Portability Examination Guideline.</ns2:para>
+									<ns2:note>
+                    <ns2:para>
+											To use this feature, 
+											the HTML created using the 
+											<ns2:application>Knowledge Manager</ns2:application> 
+											must be placed in the 
+											<ns2:filename>resources/guide/index.html</ns2:filename>.
+										</ns2:para>
+                    <ns2:para>
+											The 
+											<ns2:filename>GUIDE_FILE_PATH </ns2:filename> 
+											parameter of the 
+											<ns2:parameter>resources/properties/application*.properties
+											</ns2:parameter> 
+											can be used to change the location.
+										</ns2:para>
+                </ns2:note>
+								</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Visual check details</ns2:entry>
+            <ns2:entry>Describes the details of a visual check (indicated by 0 column width when initially displayed).</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Inquiry check details</ns2:entry>
+            <ns2:entry>Describes the details of an inquiry check (indicated by 0 column width when initially displayed).</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Visual status</ns2:entry>
+            <ns2:entry>
+									Current status of visual check.<ns2:note>
+                    <ns2:para>There are the following classifications.</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Blank</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>There is no need for a visual check.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Not completed</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>There are still items that require visual checking.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Not checked</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>The visual check has not been conducted.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Completed</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>The visual check has been completed.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Checked (no need for porting)</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>The visual check has been completed (the check determined that there were no issues).</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Checked (need to be ported)</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>The visual check has been completed (the check determined that porting was required).</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:note>
+								</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Inquiry status</ns2:entry>
+            <ns2:entry>
+									Current status of inquiry check
+                            <ns2:note>
+                    <ns2:para>There are the following classifications.</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Blank</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>There is no need for an inquiry check.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Not completed</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>There are still items that require inquiry checking.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Not checked</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>The inquiry check has not been conducted.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Completed</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>The inquiry check has been completed.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Checked (no need for porting)</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>The inquiry check has been completed (the check determined that there were no issues).</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Checked (need to be ported)</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>The inquiry check has been completed (the check determined that porting is necessary).</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:note>
+								</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Line count</ns2:entry>
+            <ns2:entry>
+									The approximate number of lines that must be rewritten.
+                            <ns2:note>
+                    <ns2:para>There are the following classifications.</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Numeric value</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>The approximate number of lines that must be rewritten.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>TODO: Code manually calculated by SE</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>Items that should be calculated separately according to the commentary.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Unknown</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>Items that require separate calculation because the number of lines are not known.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Checked (no need for porting)</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>The inquiry check has been completed (the check determined that there were no issues).</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Checked (need to be ported)</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>The inquiry check has been completed (the check determined that porting is necessary).</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:note>
+								</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Line count basis</ns2:entry>
+            <ns2:entry>Provides a reason for why the stated number of lines need to be ported.</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Total lines</ns2:entry>
+            <ns2:entry>Hit count times line count</ns2:entry>
+        </ns2:row>
+    </ns2:tbody>
+</ns2:tgroup>
+                            </ns2:table>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+					Check using Checklist Information view.
+				</ns2:para>
+                            <ns2:para>
+					The <ns2:guilabel>Checklist Information view</ns2:guilabel> allows you to 
+					check detailed information regarding items selected in the screen for editing search results. It allows you to check the following information.
+				</ns2:para>
+                            <ns2:table>
+<ns2:title>Items that Checklist Information view displays.</ns2:title>
+<ns2:tgroup cols="2">
+    <ns2:thead>
+        <ns2:row>
+            <ns2:entry>Item</ns2:entry>
+            <ns2:entry>Description</ns2:entry>
+        </ns2:row>
+    </ns2:thead>
+    <ns2:tbody>
+        <ns2:row>
+            <ns2:entry>Major item</ns2:entry>
+            <ns2:entry>-</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Minor item</ns2:entry>
+            <ns2:entry>-</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Visual check details</ns2:entry>
+            <ns2:entry>Investigation method or criteria relying on visual checks when a search is not enough to identify items that need to be migrated.  </ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Inquiry check details</ns2:entry>
+            <ns2:entry>Inquiries made to the developer when the need for migration cannot be determined otherwise.</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Search method</ns2:entry>
+            <ns2:entry>Describes the method used for searching items that need to be ported.</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Porting factors</ns2:entry>
+            <ns2:entry>The reasons that make migration necessary.</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Difficulty details</ns2:entry>
+            <ns2:entry>The details of difficulties involved in performing migration work.</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Reason for not calculating</ns2:entry>
+            <ns2:entry>Reason given for not calculating the number of lines that need to be rewritten.</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Investigation method</ns2:entry>
+            <ns2:entry>Investigation method used to calculate the number of lines that need to be rewritten.</ns2:entry>
+        </ns2:row>
+    </ns2:tbody>
+</ns2:tgroup>
+                            </ns2:table>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+					Check using Work Status view.
+				</ns2:para>
+                            <ns2:para>
+					The <ns2:guilabel>Work Status view</ns2:guilabel> 
+					allows you to check current edit work status.
+				</ns2:para>
+                            <ns2:table>
+<ns2:title>Items displayed in Work Status view</ns2:title>
+<ns2:tgroup cols="2">
+    <ns2:thead>
+        <ns2:row>
+            <ns2:entry>Item</ns2:entry>
+            <ns2:entry>Description</ns2:entry>
+        </ns2:row>
+    </ns2:thead>
+    <ns2:tbody>
+        <ns2:row>
+            <ns2:entry>Current work status</ns2:entry>
+            <ns2:entry>Displays current work status.
+                            <ns2:note>
+                    <ns2:para>There are the following classifications.</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>The check item work has been completed.</ns2:guilabel>
+                            </ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Check visual check and inquiry check items.</ns2:guilabel>
+                            </ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Unknown/TODO: Check code manually calculated by SE.</ns2:guilabel>
+                            </ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Overwrite the file.</ns2:guilabel>
+                            </ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:note>
+            </ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Current visual check/inquiry check status</ns2:entry>
+            <ns2:entry>Indicates the remaining and total number of items in the 
+							<ns2:guilabel>visual check status</ns2:guilabel>
+							 and 
+							<ns2:guilabel>inquiry check status </ns2:guilabel>
+							displayed in the screen for editing search results.</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Unknown/TODO: Rewriting status of code manually calculated by SE</ns2:entry>
+            <ns2:entry>
+							Indicates the remaining and total number of items in the 
+							<ns2:guilabel>rewriting status of unknown items </ns2:guilabel>
+							and 
+							<ns2:guilabel>rewriting status of code manually calculated by SE</ns2:guilabel>
+							 displayed in the screen for editing search results.</ns2:entry>
+        </ns2:row>
+    </ns2:tbody>
+</ns2:tgroup>
+                            </ns2:table>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_18">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>To calculate the scale of porting required, the need for porting among all the search results must be determined. 
+			Steps for doing that are described below.
+		</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>Check the visual status.</ns2:para>
+                            <ns2:para>
+					Items whose <ns2:guilabel>visual status </ns2:guilabel>
+					has 
+					<ns2:guilabel>not been checked</ns2:guilabel>
+					 must be visually checked to determine whether or not they require porting. 
+					Check the relevant files to determine whether porting is required. When it becomes clear that porting is necessary, use the result to change the status of the 
+					<ns2:guilabel>visual status </ns2:guilabel>
+					column. 
+					Right-click the relevant code to change the status to any of those listed below.
+				</ns2:para>
+                            <ns2:para>
+					<ns2:note>
+    <ns2:para>There are the following classifications.</ns2:para>
+    <ns2:itemizedlist>
+        <ns2:listitem>
+            <ns2:para>
+									<ns2:guilabel>Not checked</ns2:guilabel>
+								</ns2:para>
+            <ns2:para>Not checked</ns2:para>
+        </ns2:listitem>
+        <ns2:listitem>
+            <ns2:para>
+									<ns2:guilabel>Checked (no need for porting)</ns2:guilabel>
+								</ns2:para>
+            <ns2:para>No issues</ns2:para>
+        </ns2:listitem>
+        <ns2:listitem>
+            <ns2:para>
+									<ns2:guilabel>Checked (need to be ported)</ns2:guilabel>
+								</ns2:para>
+            <ns2:para>Porting is required</ns2:para>
+        </ns2:listitem>
+    </ns2:itemizedlist>
+</ns2:note>
+				</ns2:para>
+                            <ns2:para>
+					<ns2:note>
+    <ns2:para>Use the Shift and Ctrl keys to select multiple items.  
+						(Note that the above menu will not appear when lines not subject to visual checks are included in the selection range.)
+						</ns2:para>
+</ns2:note>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Check the inquiry status.</ns2:para>
+                            <ns2:para>
+					It is necessary to make inquiries to the developer regarding items whose <ns2:guilabel>inquiry status </ns2:guilabel>
+					has 
+					<ns2:guilabel>not been checked</ns2:guilabel>
+					 to determine whether they require porting. 
+					Contact the developer to check whether or not the relevant code requires porting. When it becomes clear that porting is necessary, use the result to change the status of the  
+					<ns2:guilabel>inquiry status </ns2:guilabel>
+					column. 
+					Right-click the relevant code to change the status to any of those listed below.
+				</ns2:para>
+                            <ns2:para>
+					<ns2:note>
+    <ns2:para>There are the following classifications.</ns2:para>
+    <ns2:itemizedlist>
+        <ns2:listitem>
+            <ns2:para>
+									<ns2:guilabel>Not checked</ns2:guilabel>
+								</ns2:para>
+            <ns2:para>Not checked</ns2:para>
+        </ns2:listitem>
+        <ns2:listitem>
+            <ns2:para>
+									<ns2:guilabel>Checked (no need for porting)</ns2:guilabel>
+								</ns2:para>
+            <ns2:para>No issues</ns2:para>
+        </ns2:listitem>
+        <ns2:listitem>
+            <ns2:para>
+									<ns2:guilabel>Checked (need to be ported)</ns2:guilabel>
+								</ns2:para>
+            <ns2:para>Porting is required</ns2:para>
+        </ns2:listitem>
+    </ns2:itemizedlist>
+</ns2:note>
+				</ns2:para>
+                            <ns2:para>
+				<ns2:note>
+    <ns2:para>Use the Shift and Ctrl keys to select multiple items.  
+						(Note that the above menu will not appear when lines not subject to visual checks are included in the selection range.)
+					</ns2:para>
+</ns2:note>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Delete items that need not be ported.</ns2:para>
+                            <ns2:para>This feature allows you to delete items not related to porting from the screen. 
+					You can either select single lines to delete them one at a time or select all lines to delete them at one time.
+				</ns2:para>
+                            <ns2:table>
+<ns2:title>Deletion method</ns2:title>
+<ns2:tgroup cols="2">
+    <ns2:thead>
+        <ns2:row>
+            <ns2:entry>Item</ns2:entry>
+            <ns2:entry>Description</ns2:entry>
+        </ns2:row>
+    </ns2:thead>
+    <ns2:tbody>
+        <ns2:row>
+            <ns2:entry>Delete selected line</ns2:entry>
+            <ns2:entry>Click the <ns2:guimenuitem>Delete Line </ns2:guimenuitem>
+						button in the Eclipse toolbar to delete the selected line. </ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>Delete all lines</ns2:entry>
+            <ns2:entry>Click the <ns2:guimenuitem>Delete items need not be ported </ns2:guimenuitem>
+						button in the Eclipse toolbar.</ns2:entry>
+        </ns2:row>
+    </ns2:tbody>
+</ns2:tgroup>
+                            </ns2:table>
+                            <ns2:note>
+<ns2:para>Use the Shift and Ctrl keys to select multiple items.</ns2:para>
+                            </ns2:note>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_25">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>You can create totals and final reports by exporting edited results as a CSV file.</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>Export</ns2:para>
+                            <ns2:para>
+					Select 
+					<ns2:guimenuitem>Export to CSV </ns2:guimenuitem>
+					from the Eclipse menu to output a CSV file.
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Analyze CSV files.</ns2:para>
+                            <ns2:para>This tool does not provide a tool for analyzing CSV files. 
+					The user should create an analyzing tool or some other suitable tool.
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_26">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Perform the following steps.</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>Start up Eclipse.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+					Start up the project creation wizard.
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>File</ns2:guimenu>
+    <ns2:guimenuitem>New</ns2:guimenuitem>
+    <ns2:guimenuitem>Project...</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+                Create a <ns2:guimenuitem>Java Project</ns2:guimenuitem>.
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>Java Project</ns2:guimenu>
+    <ns2:guimenuitem>Next</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                            <ns2:para>
+                    Use the <ns2:guilabel>New Java Project</ns2:guilabel> wizard to make the appropriate settings required by the environment of the item to be ported to create a project. 
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Position the source files that need to be ported.</ns2:para>
+                            <ns2:para>
+					Position the source files that need to be ported in the created project.
+					<ns2:note>
+    <ns2:para>
+					Position not only *.java, but also *.jar, *.xml, *.jsp, *.properties, *.xsd and 
+					all other files that are required for running the application.</ns2:para>
+</ns2:note>
+					<ns2:note>
+    <ns2:para>There is no need to make all the preparations required for a successful build.</ns2:para>
+</ns2:note>
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_27">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Perform the following steps.</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>Select the resource you want to convert.</ns2:para>
+                            <ns2:para>Right-click a resource you want to convert and select the following menu.</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenuitem>tubame</ns2:guimenuitem>
+    <ns2:guimenuitem>KnowledgeBase Convert</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Set conversion conditions.</ns2:para>
+                            <ns2:para>
+					Make the following entries. 
+					<ns2:simplelist>
+    <ns2:member>
+                            <ns2:guilabel>Destination of converted source file</ns2:guilabel>: Specify the location the converted source file will be saved to.</ns2:member>
+    <ns2:member>
+                            <ns2:guilabel>WebLogic version</ns2:guilabel>: Select the WebLogic Version of files that will be ported.</ns2:member>
+</ns2:simplelist>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Conduct conversion.</ns2:para>
+                            <ns2:para>
+					Click <ns2:guimenuitem>Finish </ns2:guimenuitem>
+					to start the search of files that need to be converted and any resources that need to be converted will be converted.
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_28">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>
+			Delete the installed
+			<ns2:filename>org.tubame.portability_*</ns2:filename>. 
+			This completes the uninstallation.
+			<ns2:note>
+                            <ns2:para>The * part of the name varies with the version.</ns2:para>
+                        </ns2:note>
+			<ns2:note>
+                            <ns2:para>
+					Add the 
+					<ns2:command>-clean</ns2:command>
+					 option when starting up Eclipse after deletion.
+				</ns2:para>
+                        </ns2:note>
+		</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+    </DocBookList>
+    <SearchInfomationList/>
+</PortabilityKnowhow>
