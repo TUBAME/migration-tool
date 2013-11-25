@@ -1,12 +1,12 @@
 <HTML xmlns:knowhow="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:doc="http://docbook.org/ns/docbook">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>オンラインクイックユーザマニュアル - 移植規模算出ツール</title>
+<title>オンラインクイックユーザマニュアル - ナレッジベース検索ツール</title>
 <link href="css/docbook.css" type="text/css" rel="stylesheet">
 <meta content="DocBook XSL Stylesheets V1.78.1" name="generator">
 </HEAD>
 <BODY>
-<H1 class="title">オンラインクイックユーザマニュアル - 移植規模算出ツール</H1>
+<H1 class="title">オンラインクイックユーザマニュアル - ナレッジベース検索ツール</H1>
 <div class="toc">
 <p>
 <b>Index</b>
@@ -120,27 +120,6 @@
 </dd>
 </dl>
 </dd>
-<dd>
-<dl>
-<dt>
-<span class="4.1.3."><a href="#tubame_4.1.3.">4.1.3.変換機能</a></span>
-</dt>
-<dd>
-<dl>
-<dt>
-<span class="4.1.3.1."><a href="#tubame_4.1.3.1.">4.1.3.1.Eclipseプロジェクトの作成</a></span>
-</dt>
-</dl>
-</dd>
-<dd>
-<dl>
-<dt>
-<span class="4.1.3.2."><a href="#tubame_4.1.3.2.">4.1.3.2.変換の実行</a></span>
-</dt>
-</dl>
-</dd>
-</dl>
-</dd>
 </dl>
 </dd>
 <dt>
@@ -151,6 +130,30 @@
 <dt>
 <span class="5.1."><a href="#tubame_5.1.">5.1.アンインストール</a></span>
 </dt>
+</dl>
+</dd>
+<dt>
+<span class="6."><a href="#tubame_6.">6.付録</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="6.1."><a href="#tubame_6.1.">6.1.Pythonおよびlxmlのインストール</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="6.1.1."><a href="#tubame_6.1.1.">6.1.1.RHEL6でのインストール手順</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="6.1.2."><a href="#tubame_6.1.2.">6.1.2.Windows7でのインストール手順</a></span>
+</dt>
+</dl>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -164,7 +167,7 @@
 <br>
 <div class="section">
 <div class="titlepage"></div>
-<p>本マニュアルは、移植規模算出ツールを使用する為に、インストールから利用するまでの手順について簡易に説明したマニュアルです。</p>
+<p>本マニュアルは、ナレッジベース検索ツールを使用する為に、インストールから利用するまでの手順について簡易に説明したマニュアルです。</p>
 </div>
 <br>
 <br>
@@ -179,7 +182,7 @@
 			主に以下の機能を有します。
 			</p>
 <div class="table">
-<a name="N102F4"></a>
+<a name="N10351"></a>
 <p class="title">
 <b>Table&nbsp;1.&nbsp;本ツールの主な機能</b>
 </p>
@@ -205,9 +208,6 @@
 								アプリケーション個別な要件を踏まえ、移植規模の抽出精度の向上を可能にします。
 							</td>
 </tr>
-<tr>
-<td>変換機能</td><td>変換が可能な箇所を検索し変換を行う機能です。</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -229,7 +229,7 @@
 <div class="titlepage"></div>
 <p>本ツールは以下のハードウェア環境で動作することを確認しています。</p>
 <div class="table">
-<a name="N1031C"></a>
+<a name="N10374"></a>
 <p class="title">
 <b>Table&nbsp;1.&nbsp;ハードウェア要件</b>
 </p>
@@ -266,7 +266,7 @@
 <div class="titlepage"></div>
 <p>本ツールは以下のソフトウェア環境で動作することを確認しています。</p>
 <div class="table">
-<a name="N1033E"></a>
+<a name="N10396"></a>
 <p class="title">
 <b>Table&nbsp;1.&nbsp;ソフトウェア要件</b>
 </p>
@@ -283,29 +283,39 @@
 </thead>
 <tbody>
 <tr>
-<td>OS</td><td>Windows XP/7, RHEL6(※)他同等Linuxで互換性有</td>
+<td>OS</td><td>Windows XP/7, CentOS 6</td>
 </tr>
 <tr>
-<td>Java VM</td><td>
+<td>JavaVM</td><td>
 							Oracle JRE 1.6 以上
 						</td>
 </tr>
 <tr>
-</tr>
-<tr>
 <td>IDE</td><td>
 							Eclipse3.7 Indigo
-</td>
+						</td>
 </tr>
 <tr>
 <td>Script</td><td>Python 2.7 + lxml モジュール
-                        </td>
+						</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <br class="table-break">
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>Pythonおよびlxmlがインストールされていない場合は付録「Pythonおよびlxmlのインストール」を参考にインストールしてください。</p>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <br>
 <br>
@@ -320,9 +330,9 @@
 <li class="listitem">
 <p>
 					
-<span class="application">移植ノウハウ管理ツール</span>
+<span class="application">ナレッジ管理ツール</span>
 					で作成された
-					<code class="filename">ノウハウ XML</code>
+					<code class="filename">ナレッジ XML</code>
 					ファイル
 				</p>
 </li>
@@ -358,7 +368,7 @@
 <tr>
 <td valign="top" align="left">
 <p>
-        https://github.com/TUBAME/migration-tool/releases
+        http://www.jboss.org/unknown
     </p>
 </td>
 </tr>
@@ -373,7 +383,7 @@
 <p>
 					ダウンロードしたファイルを解凍します。
 					解凍すると
-					<code class="filename">tubame.portability_*</code>
+					<code class="filename">org.tubame.portability_*</code>
 					という名前のディレクトリが作成されます。
 					</p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -448,7 +458,7 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
 </p>
 <p>
 					
-<span class="guilabel">Plug-in Id</span> の部分に、以下のプラグイン名 <span class="guilabel">tubame.portability</span> が存在することを確認してください。
+<span class="guilabel">Plug-in Id</span> の部分に、以下のプラグイン名 <span class="guilabel">org.tubame.portability</span> が存在することを確認してください。
 				</p>
 </li>
 <li class="listitem">
@@ -573,7 +583,7 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
 <p>検索したいリソース上で右クリックし、以下のメニューを選択します。</p>
 <p>
 					
-<span class="guimenuitem">JBoss 移植性検討ツール</span> &rarr; <span class="guimenuitem">検索</span>
+<span class="guimenuitem">tubame</span> &rarr; <span class="guimenuitem">ナレッジベース検索</span>
 				
 </p>
 </li>
@@ -585,7 +595,7 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
 <table border="0" summary="Simple list" class="simplelist">
 <tr>
 <td>
-                            <span class="guilabel">ノウハウ XML ファイル選択</span>: 検索の元とする<code class="filename">ノウハウ XML</code>ファイルを指定します。</td>
+                            <span class="guilabel">ナレッジ XML ファイル選択</span>: 検索の元とする<code class="filename">ナレッジ XML</code>ファイルを指定します。</td>
 </tr>
 <tr>
 <td>
@@ -719,7 +729,7 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
 </table>
 </div>
 <div class="table">
-<a name="N104E5"></a>
+<a name="N10538"></a>
 <p class="title">
 <b>Table&nbsp;1.&nbsp;検索結果編集画面の表示項目</b>
 </p>
@@ -830,7 +840,7 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
 <td valign="top" align="left">
 <p>
 											本機能を利用するには、
-											<span class="application">移植ノウハウ管理ツール</span>
+											<span class="application">ナレッジ管理ツール</span>
 											で作成された HTML を
 											<code class="filename">resources/guide/index.html</code>
 											に配置する必要があります。
@@ -1079,7 +1089,7 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
 					では、検索結果編集画面で選択している項目に対する詳細情報を確認することができます。以下のような情報を確認することができます。
 				</p>
 <div class="table">
-<a name="N1061D"></a>
+<a name="N10670"></a>
 <p class="title">
 <b>Table&nbsp;2.&nbsp;チェックリスト情報ビューの表示項目</b>
 </p>
@@ -1138,7 +1148,7 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
 					では、現時点の編集作業状況を確認することができます。
 				</p>
 <div class="table">
-<a name="N1065E"></a>
+<a name="N106B1"></a>
 <p class="title">
 <b>Table&nbsp;3.&nbsp;作業状況ビューの表示項目</b>
 </p>
@@ -1405,7 +1415,7 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
 					個別に行を選択して削除する方法と、一括削除する方法の2つがあります。
 				</p>
 <div class="table">
-<a name="N1071A"></a>
+<a name="N1076D"></a>
 <p class="title">
 <b>Table&nbsp;1.&nbsp;削除方法</b>
 </p>
@@ -1479,174 +1489,6 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
 </div>
 <br>
 <br>
-<a name="tubame_4.1.3."></a>
-<h3 class="title">4.1.3.変換機能</h3>
-<br>
-<div class="section">
-<div class="titlepage"></div>
-<p>変換が可能な箇所を検索し変換を行います。以下のファイルの変換が可能です。</p>
-<p>
-        
-</p>
-<div class="table">
-<a name="N10434"></a>
-<p class="title">
-<b>Table&nbsp;1.&nbsp;変換対象</b>
-</p>
-<div class="table-contents">
-<table summary="変換対象" border="1">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th>変換前</th><th>変換後</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ベンダ拡張の EJB デプロイメントディスクリプタ</td><td>JBoss 拡張の EJB デプロイメントディスクリプタ</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>
-<br class="table-break">
-        
-</p>
-</div>
-<br>
-<br>
-<a name="tubame_4.1.3.1."></a>
-<h3 class="title">4.1.3.1.Eclipseプロジェクトの作成</h3>
-<br>
-<div class="section">
-<div class="titlepage"></div>
-<p>以下の手順を実施します。</p>
-<div class="orderedlist">
-<ol class="orderedlist" type="1">
-<li class="listitem">
-<p>Eclipse を起動</p>
-</li>
-<li class="listitem">
-<p>
-					プロジェクト作成ウィザードの起動
-				</p>
-<p>
-					
-<span class="guimenu">File</span> &rarr; <span class="guimenuitem">New</span> &rarr; <span class="guimenuitem">Project...</span>
-				
-</p>
-</li>
-<li class="listitem">
-<p>
-                
-<span class="guimenuitem">Java Project</span>の作成
-				</p>
-<p>
-					
-<span class="guimenu">Java Project</span> &rarr; <span class="guimenuitem">Next</span>
-				
-</p>
-<p>
-                    
-<span class="guilabel">New Java Project</span> ウィザードで、移植元の環境に応じて適宜設定を行いプロジェクトを作成します。
-				</p>
-</li>
-<li class="listitem">
-<p>移植元ソースファイル群の配置</p>
-<p>
-					移植元となるソースファイル群を作成したプロジェクトに配置します。
-					</p>
-<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
-<table border="0" summary="Note">
-<tr>
-<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
-</tr>
-<tr>
-<td valign="top" align="left">
-<p>
-					*.java だけでなく、*.jar, *.xml, *.jsp, *.properties, *.xsd
-					などアプリケーションの動作に必要なファイル群全てを配置してください。</p>
-</td>
-</tr>
-</table>
-</div>
-<p>
-					
-</p>
-<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
-<table border="0" summary="Note">
-<tr>
-<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
-</tr>
-<tr>
-<td valign="top" align="left">
-<p>ビルドが成功する状態にする必要はありません。</p>
-</td>
-</tr>
-</table>
-</div>
-<p>
-				
-</p>
-</li>
-</ol>
-</div>
-</div>
-<br>
-<br>
-<a name="tubame_4.1.3.2."></a>
-<h3 class="title">4.1.3.2.変換の実行</h3>
-<br>
-<div class="section">
-<div class="titlepage"></div>
-<p>以下の手順を実施します。</p>
-<div class="orderedlist">
-<ol class="orderedlist" type="1">
-<li class="listitem">
-<p>変換対象リソースの選択</p>
-<p>変換したいリソース上で右クリックし、以下のメニューを選択します。</p>
-<p>
-					
-<span class="guimenuitem">JBoss 移植性検討ツール</span> &rarr; <span class="guimenuitem">変換</span>
-				
-</p>
-</li>
-<li class="listitem">
-<p>変換条件の設定</p>
-<p>
-					以下の入力項目を設定します。
-					</p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr>
-<td>
-                            <span class="guilabel">変換後ソースファイル出力先</span>: 変換したソースファイルの出力先を設定します</td>
-</tr>
-<tr>
-<td>
-                            <span class="guilabel">WebLogicバージョン</span>: 移植元が使用している WebLogic Version を選択します</td>
-</tr>
-</table>
-<p>
-				
-</p>
-</li>
-<li class="listitem">
-<p>変換の実行</p>
-<p>
-					
-<span class="guimenuitem">Finish</span>
-					をクリックすると変換対象ファイルの検索が開始され、変換対象となるリソースがあれば変換処理を行います。
-				</p>
-</li>
-</ol>
-</div>
-</div>
-<br>
-<br>
 <a name="tubame_5."></a>
 <h2 class="title">5.アンイストール</h2>
 <br>
@@ -1657,7 +1499,7 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
 <div class="titlepage"></div>
 <p>
 			インストールした
-			<code class="filename">tubame.portability_*</code>
+			<code class="filename">org.tubame.portability_*</code>
 			を削除してください。以上で、アンインストールは完了です。
 			</p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -1694,6 +1536,89 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
 <p>
 		
 </p>
+</div>
+<br>
+<br>
+<a name="tubame_6."></a>
+<h2 class="title">6.付録</h2>
+<br>
+<a name="tubame_6.1."></a>
+<h3 class="title">6.1.Pythonおよびlxmlのインストール</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Pythonおよびlxmlのインストール手順を以下に示す。</p>
+</div>
+<br>
+<br>
+<a name="tubame_6.1.1."></a>
+<h3 class="title">6.1.1.RHEL6でのインストール手順</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>RHEL6（および同等Linux）ではyumを利用してインストールする手順を示す。</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>インストール済みパッケージの確認</p>
+<p>rpmコマンドを実行し、Pythonおよびlxmlがインストール済みか確認する。インストールされていない場合はインストールを行う。</p>
+</li>
+<li class="listitem">
+<p>インストールの実施</p>
+<p>yumコマンドを実行し、Pythonおよびlxmlをインストールする。
+                </p>
+<pre class="programlisting">
+$ su - 
+# yum install python python-lxml
+				</pre>
+<p>
+                
+</p>
+</li>
+</ol>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_6.1.2."></a>
+<h3 class="title">6.1.2.Windows7でのインストール手順</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Windows7ではインストーラを利用してインストールする手順を示す。</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>インストーラのダウンロード</p>
+<p>以下のリンク先より自身の環境に合わせたインストーラをダウンロードする。</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>
+						Python2.7.6：http://python.org/download/releases/2.7.6
+					</p>
+<p>
+						lxml3.2.4：https://pypi.python.org/pypi/lxml/3.2.4
+					</p>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li class="listitem">
+<p>Pythonインストーラの実行</p>
+<p>ダウンロードしたpython-2.7.6.*.msiを実行し、ウィザードに従ってインストールを行う。</p>
+</li>
+<li class="listitem">
+<p>lxmlインストーラの実行</p>
+<p>ダウンロードしたlxml-3.2.4.*-py2.7.exeを実行し、ウィザードに従ってインストールを行う。</p>
+</li>
+</ol>
+</div>
 </div>
 <br>
 <br>
