@@ -1,12 +1,12 @@
 <HTML xmlns:knowhow="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:doc="http://docbook.org/ns/docbook">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>オンラインクイックユーザマニュアル - 移植性汎用検索ツール</title>
+<title>オンラインクイックユーザマニュアル - 依存性検索ツール</title>
 <link href="css/docbook.css" type="text/css" rel="stylesheet">
 <meta content="DocBook XSL Stylesheets V1.78.1" name="generator">
 </HEAD>
 <BODY>
-<H1 class="title">オンラインクイックユーザマニュアル - 移植性汎用検索ツール</H1>
+<H1 class="title">オンラインクイックユーザマニュアル - 依存性検索ツール</H1>
 <div class="toc">
 <p>
 <b>Index</b>
@@ -129,7 +129,7 @@
 <br>
 <div class="section">
 <div class="titlepage"></div>
-<p>本マニュアルは、 <span class="application">移植性汎用検索ツール</span> を使用する為に、インストールから利用するまでの手順について簡易に説明したマニュアルです。</p>
+<p>本マニュアルは、 <span class="application">依存性検索ツール</span> を使用する為に、インストールから利用するまでの手順について簡易に説明したマニュアルです。</p>
 </div>
 <br>
 <br>
@@ -262,13 +262,13 @@
 </tr>
 <tr>
 <td>JavaVM</td><td>
-							Oracle JRE 1.7.0_U9 以上
-</td>
+							Oracle JRE 1.6 以上
+						</td>
 </tr>
 <tr>
 <td>IDE</td><td>
 							Eclipse3.7 Indigo
-</td>
+						</td>
 </tr>
 </tbody>
 </table>
@@ -312,7 +312,10 @@
 <br>
 <div class="section">
 <div class="titlepage"></div>
-<p>事前に動作環境に記載されている環境等の準備を整えてください。
+<p>
+			事前に
+			動作環境
+			に記載されている環境等の準備を整えてください。
 			準備が整っていることを確認し、以下の手順を実施します。
 		</p>
 <div class="orderedlist">
@@ -321,24 +324,24 @@
 <p>ダウンロード</p>
 <p>プラグインをダウンロードします</p>
 <p>
-                
+					
 </p>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
-<table border="0" summary="Warning">
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
 <tr>
-<td valign="top" align="center" rowspan="2" width="25"><img alt="[Warning]" src="images/warning.png"></td><th align="left">Warning</th>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
 </tr>
 <tr>
 <td valign="top" align="left">
 <p>
-        https://github.com/TUBAME/migration-tool/releases
-    </p>
+							https://github.com/TUBAME/migration-tool/releases
+						</p>
 </td>
 </tr>
 </table>
 </div>
 <p>
-                
+				
 </p>
 </li>
 <li class="listitem">
@@ -405,7 +408,10 @@
 </p>
 <p>
 					
-<span class="guilabel">Plug-in Id</span>の部分に、以下のプラグイン名<span class="guilabel">tubame.wsearch</span>が存在することを確認してください。
+<span class="guilabel">Plug-in Id</span>
+					の部分に、以下のプラグイン名
+					<span class="guilabel">tubame.wsearch</span>
+					が存在することを確認してください。
 				</p>
 </li>
 <li class="listitem">
@@ -541,7 +547,7 @@
 				</p>
 <p>
 					
-<span class="guimenu">Window</span> &rarr; <span class="guimenuitem">Preferences</span> &rarr; <span class="guimenuitem">移植性汎用検索ツール</span> &rarr; <span class="guimenuitem">ライブラリ設定</span>
+<span class="guimenu">Window</span> &rarr; <span class="guimenuitem">Preferences</span> &rarr; <span class="guimenuitem">依存性検索ツール</span> &rarr; <span class="guimenuitem">ライブラリ設定</span>
 				
 </p>
 <p>
@@ -651,7 +657,7 @@
 <p>検索したいリソース上で右クリックし、以下のメニューを選択します。</p>
 <p>
 					
-<span class="guimenuitem">JBoss 移植性検討ツール</span> &rarr; <span class="guimenuitem">汎用検索</span>
+<span class="guimenuitem">tubame</span> &rarr; <span class="guimenuitem">依存性検索</span>
 				
 </p>
 </li>
@@ -688,20 +694,20 @@
 <br>
 <div class="section">
 <div class="titlepage"></div>
-<p>検索が完了すると、 Eclipse の作業ビューエリアに<span class="guilabel">汎用検索結果ビュー</span>が表示されます。
-			また、検索結果ファイルである<code class="filename">gjbm</code>ファイルをダブルクリックすることでも<span class="guilabel">汎用検索結果ビュー</span>を表示することができます。
+<p>検索が完了すると、 Eclipse の作業ビューエリアに<span class="guilabel">依存性検索結果ビュー</span>が表示されます。
+			また、検索結果ファイルである<code class="filename">gjbm</code>ファイルをダブルクリックすることでも<span class="guilabel">依存性検索結果ビュー</span>を表示することができます。
 		</p>
 <p>
             
-<span class="guilabel">汎用検索結果ビュー</span>の各表示項目の説明を以下に記載します。
+<span class="guilabel">依存性検索結果ビュー</span>の各表示項目の説明を以下に記載します。
 		</p>
 <div class="table">
-<a name="N10432"></a>
+<a name="N1042A"></a>
 <p class="title">
-<b>Table&nbsp;1.&nbsp;汎用検索結果ビュー表示項目</b>
+<b>Table&nbsp;1.&nbsp;依存性検索結果ビュー表示項目</b>
 </p>
 <div class="table-contents">
-<table summary="汎用検索結果ビュー表示項目" border="1">
+<table summary="依存性検索結果ビュー表示項目" border="1">
 <colgroup>
 <col>
 <col>
@@ -816,7 +822,7 @@
 <td>移植元ライブラリ</td><td>検出した移植元ライブラリ名を表示します。</td>
 </tr>
 <tr>
-<td>移植先ライブラリ</td><td>検出した移植元ライブラリ名を表示します。複数ヒットする場合は、カンマ区切りで表示します。</td>
+<td>移植先ライブラリ</td><td>検出した移植先ライブラリ名を表示します。複数ヒットする場合は、カンマ区切りで表示します。</td>
 </tr>
 <tr>
 <td>クラス</td><td>検出したものに応じて、クラス名、名前空間、タグライブラリパス、スキーマパスなどを表示します。</td>
@@ -851,10 +857,10 @@
 <div class="titlepage"></div>
 <p>
             
-<span class="guilabel">汎用検索結果ビュー</span>に表示されている内容に対して、ビューメニューより以下のような操作を行うことができます。
+<span class="guilabel">依存性検索結果ビュー</span>に表示されている内容に対して、ビューメニューより以下のような操作を行うことができます。
 		</p>
 <div class="table">
-<a name="N104CB"></a>
+<a name="N104C3"></a>
 <p class="title">
 <b>Table&nbsp;1.&nbsp;ビューメニュー項目</b>
 </p>
@@ -887,11 +893,11 @@
 </tr>
 <tr>
 <td>CSV出力</td><td>
-        <span class="guilabel">汎用検索結果ビュー</span>に表示されている項目を CSV 形式で保存できます。</td>
+        <span class="guilabel">依存性検索結果ビュー</span>に表示されている項目を CSV 形式で保存できます。</td>
 </tr>
 <tr>
 <td>表示件数設定</td><td>
-        <span class="guilabel">汎用検索結果ビュー</span>に表示する最大件数を設定します。設定値は、<span class="guilabel">結果</span>列の<span class="guilabel">error</span>、<span class="guilabel">warn</span>それぞれの最大表示件数となります。
+        <span class="guilabel">依存性検索結果ビュー</span>に表示する最大件数を設定します。設定値は、<span class="guilabel">結果</span>列の<span class="guilabel">error</span>、<span class="guilabel">warn</span>それぞれの最大表示件数となります。
                         </td>
 </tr>
 </tbody>

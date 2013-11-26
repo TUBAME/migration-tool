@@ -1,12 +1,12 @@
 <HTML xmlns:knowhow="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:doc="http://docbook.org/ns/docbook">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>オンラインクイックユーザマニュアル - 移植ノウハウ管理ツール</title>
+<title>オンラインクイックユーザマニュアル - ナレッジ管理ツール</title>
 <link href="css/docbook.css" type="text/css" rel="stylesheet">
 <meta content="DocBook XSL Stylesheets V1.78.1" name="generator">
 </HEAD>
 <BODY>
-<H1 class="title">オンラインクイックユーザマニュアル - 移植ノウハウ管理ツール</H1>
+<H1 class="title">オンラインクイックユーザマニュアル - ナレッジ管理ツール</H1>
 <div class="toc">
 <p>
 <b>Index</b>
@@ -88,7 +88,7 @@
 <dd>
 <dl>
 <dt>
-<span class="4.1.3."><a href="#tubame_4.1.3.">4.1.3.ノウハウの作成</a></span>
+<span class="4.1.3."><a href="#tubame_4.1.3.">4.1.3.ナレッジの作成</a></span>
 </dt>
 </dl>
 </dd>
@@ -129,7 +129,7 @@
 <br>
 <div class="section">
 <div class="titlepage"></div>
-<p>本マニュアルは、 <span class="application">移植ノウハウ管理ツール</span> を使用する為に、インストールから利用するまでの手順について簡易に説明したマニュアルです。</p>
+<p>本マニュアルは、 <span class="application">ナレッジ管理ツール</span> を使用する為に、インストールから利用するまでの手順について簡易に説明したマニュアルです。</p>
 </div>
 <br>
 <br>
@@ -139,9 +139,9 @@
 <div class="section">
 <div class="titlepage"></div>
 <p>
-        本ツールは Eclipse プラグインとして動作し、移植ノウハウを GUI 上で容易に作成、管理することができるツールです。
-        移植ノウハウには、移植箇所を抽出するための検索条件、移植難易度、移植工数 (移植概算ライン) 等が設定可能です。
-			登録される移植ノウハウは XML 形式で管理されます。
+        本ツールは Eclipse プラグインとして動作し、ナレッジを GUI 上で容易に作成、管理することができるツールです。
+        ナレッジには、移植箇所を抽出するための検索条件、移植難易度、移植工数 (移植概算ライン) 等が設定可能です。
+			登録されるナレッジは XML 形式で管理されます。
 			大きく以下の情報を扱うことが可能です。
         </p>
 <div class="table">
@@ -162,10 +162,10 @@
 </thead>
 <tbody>
 <tr>
-<td>移植ノウハウのドキュメント情報</td><td>ドキュメント情報を HTML 形式で保存できます。保存したファイルを <span class="application">移植規模算出ツール</span> にコピーすれば、検索結果からリンク参照することができます。</td>
+<td>ナレッジのドキュメント情報</td><td>ドキュメント情報を HTML 形式で保存できます。保存したファイルを <span class="application">ナレッジベース検索ツール</span> にコピーすれば、検索結果からリンク参照することができます。</td>
 </tr>
 <tr>
-<td>移植箇所の検索情報</td><td>検索情報を XML 形式で保存できます。保存したファイルを <span class="application">移植規模算出ツール</span> の入力として使用すれば、検索ロジックとして実行することができます。</td>
+<td>移植箇所の検索情報</td><td>検索情報を XML 形式で保存できます。保存したファイルを <span class="application">ナレッジベース検索ツール</span> の入力として使用すれば、検索ロジックとして実行することができます。</td>
 </tr>
 </tbody>
 </table>
@@ -247,12 +247,12 @@
 <tr>
 <td>JavaVM</td><td>
 							Oracle JRE 1.6 以上
-</td>
+						</td>
 </tr>
 <tr>
 <td>IDE</td><td>
 							Eclipse3.7 Indigo
-</td>
+						</td>
 </tr>
 </tbody>
 </table>
@@ -279,7 +279,10 @@
 <br>
 <div class="section">
 <div class="titlepage"></div>
-<p>事前に動作環境 に記載されている環境等の準備を整えてください。
+<p>
+			事前に
+			動作環境
+			に記載されている環境等の準備を整えてください。
 			準備が整っていることを確認し、以下の手順を実施します。
 		</p>
 <div class="orderedlist">
@@ -288,24 +291,24 @@
 <p>ダウンロード</p>
 <p>プラグインをダウンロードします</p>
 <p>
-                
+					
 </p>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
-<table border="0" summary="Warning">
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
 <tr>
-<td valign="top" align="center" rowspan="2" width="25"><img alt="[Warning]" src="images/warning.png"></td><th align="left">Warning</th>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
 </tr>
 <tr>
 <td valign="top" align="left">
 <p>
-        https://github.com/TUBAME/migration-tool/releases
-    </p>
+							https://github.com/TUBAME/migration-tool/releases
+						</p>
 </td>
 </tr>
 </table>
 </div>
 <p>
-                
+				
 </p>
 </li>
 <li class="listitem">
@@ -372,7 +375,10 @@
 </p>
 <p>
 					
-<span class="guilabel">Plug-in Id</span> の部分に、以下のプラグイン名 <span class="guilabel">tubame.knowhow</span> が存在することを確認してください。
+<span class="guilabel">Plug-in Id</span>
+					の部分に、以下のプラグイン名
+					<span class="guilabel">tubame.knowhow</span>
+					が存在することを確認してください。
 				</p>
 </li>
 <li class="listitem">
@@ -451,7 +457,7 @@
 				</p>
 <p>
 					
-<span class="guimenu">Window</span> &rarr; <span class="guimenuitem">Open Perspecive</span> &rarr; <span class="guimenuitem">Other</span> &rarr; <span class="guimenuitem">移植ノウハウ管理ツール</span>
+<span class="guimenu">Window</span> &rarr; <span class="guimenuitem">Open Perspecive</span> &rarr; <span class="guimenuitem">Other</span> &rarr; <span class="guimenuitem">ナレッジ管理ツール</span>
 				
 </p>
 </li>
@@ -501,20 +507,20 @@
 <br>
 <br>
 <a name="tubame_4.1.3."></a>
-<h3 class="title">4.1.3.ノウハウの作成</h3>
+<h3 class="title">4.1.3.ナレッジの作成</h3>
 <br>
 <div class="section">
 <div class="titlepage"></div>
-<p>ノウハウの作成方法を以下に記載します。</p>
+<p>ナレッジの作成方法を以下に記載します。</p>
 <div class="orderedlist">
 <ol class="orderedlist" type="1">
 <li class="listitem">
 <p>
-					ノウハウ XML ファイルの新規作成
+					ナレッジ XML ファイルの新規作成
 				</p>
 <p>
 					
-<span class="guimenu">File</span> &rarr; <span class="guimenuitem">New</span> &rarr; <span class="guimenuitem">Other</span> &rarr; <span class="guimenuitem">ノウハウ XML ファイル</span>
+<span class="guimenu">File</span> &rarr; <span class="guimenuitem">New</span> &rarr; <span class="guimenuitem">Other</span> &rarr; <span class="guimenuitem">ナレッジ XML ファイル</span>
 				
 </p>
 <p>
@@ -527,11 +533,11 @@
 </tr>
 <tr>
 <td valign="top" align="left">
-<p>作成済みの <code class="filename">ノウハウ XML</code> ファイルを開く場合は。該当ファイル上で右クリックして以下のようにメニューを選択してください。
+<p>作成済みの <code class="filename">ナレッジ XML</code> ファイルを開く場合は。該当ファイル上で右クリックして以下のようにメニューを選択してください。
 					</p>
 <p>
 						
-<span class="guimenu">Open With</span> &rarr; <span class="guimenuitem">Other</span> &rarr; <span class="guimenuitem">移植ノウハウエディタ</span>
+<span class="guimenu">Open With</span> &rarr; <span class="guimenuitem">Other</span> &rarr; <span class="guimenuitem">ナレッジエディタ</span>
 					
 </p>
 </td>
@@ -543,20 +549,20 @@
 </p>
 </li>
 <li class="listitem">
-<p>ノウハウエントリービューの操作</p>
+<p>ナレッジエントリービューの操作</p>
 <p>
-					個々のノウハウは
-					<span class="guilabel">ノウハウエントリービュー</span>
+					個々のナレッジは
+					<span class="guilabel">ナレッジエントリービュー</span>
 					上で追加・参照・更新・削除します。
-					作成したノウハウはアイテムとしてドキュメント作成等に活用できます。
-					<span class="guilabel">ノウハウエントリービュー</span>
+					作成したナレッジはアイテムとしてドキュメント作成等に活用できます。
+					<span class="guilabel">ナレッジエントリービュー</span>
 					は、以下のいずれかの方法で起動します。
 					</p>
 <div class="itemizedlist">
 <ul class="itemizedlist" style="list-style-type: disc; ">
 <li class="listitem">
 <p>
-								ノウハウ XML 新規作成後に自動起動
+								ナレッジ XML 新規作成後に自動起動
 							</p>
 </li>
 <li class="listitem">
@@ -565,7 +571,7 @@
 							</p>
 <p>
 								
-<span class="guimenu">Window</span> &rarr; <span class="guimenuitem">Show View</span> &rarr; <span class="guimenuitem">Other</span> &rarr; <span class="guimenuitem">移植ノウハウ管理ツール</span> &rarr; <span class="guimenuitem">ノウハウエントリービュー</span>
+<span class="guimenu">Window</span> &rarr; <span class="guimenuitem">Show View</span> &rarr; <span class="guimenuitem">Other</span> &rarr; <span class="guimenuitem">ナレッジ管理ツール</span> &rarr; <span class="guimenuitem">ナレッジエントリービュー</span>
 							
 </p>
 </li>
@@ -577,7 +583,7 @@
 </li>
 <li class="listitem">
 <p>
-					ノウハウを構成するアイテム群の作成
+					ナレッジを構成するアイテム群の作成
 				</p>
 <p>
 					アイテムの作成は以下の手順で実施します。最初はアイテムが 1 つもないため、必ず
@@ -622,11 +628,11 @@
 </div>
 <p>
 
-					ノウハウを構成するアイテムは、以下の種類があります。
+					ナレッジを構成するアイテムは、以下の種類があります。
 					以下に各アイテムの説明を記載します。
 					</p>
 <div class="table">
-<a name="N10400"></a>
+<a name="N103F8"></a>
 <p class="title">
 <b>Table&nbsp;1.&nbsp;アイテムの種類</b>
 </p>
@@ -646,15 +652,15 @@
 <td>カテゴリ</td><td>ドキュメント構成の章・節にタイトルに相当すアイテムです。タイトル情報のみ保持します。</td>
 </tr>
 <tr>
-<td>ノウハウ</td><td>
-										ドキュメント構成の章・節に記述されるノウハウコンテンツに相当するアイテムです。
+<td>ナレッジ</td><td>
+										ドキュメント構成の章・節に記述されるナレッジコンテンツに相当するアイテムです。
 										<code class="sgmltag-element">DocBook#Artile</code>
 										形式のコンテンツ情報のみ保持します。
 									</td>
 </tr>
 <tr>
 <td>チェックアイテム</td><td>
-										該当ノウハウの移植判断情報を保持するアイテムです。
+										該当ナレッジの移植判断情報を保持するアイテムです。
 										<span class="guilabel">検索手順</span>
 										、
 										<span class="guilabel">移植要因</span>
@@ -665,7 +671,7 @@
 </tr>
 <tr>
 <td>検索情報</td><td>
-										<span class="application">移植規模算出ツール</span>
+										<span class="application">ナレッジベース検索ツール</span>
 										が検索の際に使用する検索ロジックとなるアイテムです。
 									</td>
 </tr>
@@ -680,16 +686,16 @@
 </li>
 <li class="listitem">
 <p>
-					移植ノウハウエディタの操作
+					ナレッジエディタの操作
 				</p>
 <p>
 					登録されたアイテムの編集や、ドキュメント構成の作成を行います。
-					<span class="guilabel">移植ノウハウエディタ</span>
+					<span class="guilabel">ナレッジエディタ</span>
 					には以下の種類のタブがあります。
 					以下に各タブの説明を記載します。
 					</p>
 <div class="table">
-<a name="N10438"></a>
+<a name="N10430"></a>
 <p class="title">
 <b>Table&nbsp;2.&nbsp;タブの種類</b>
 </p>
@@ -709,14 +715,14 @@
 <td>ドキュメンテーション</td><td>
 										作成する HTML ドキュメントの章構成を編集することができます。
 										見出しを作成後、
-										<span class="guilabel">ノウハウエントリービュー</span>
+										<span class="guilabel">ナレッジエントリービュー</span>
 										から
 										<span class="guilabel">カテゴリ</span> をドラッグ&amp;ドロップすることでドキュメントを構成していきます。
 									</td>
 </tr>
 <tr>
-<td>ノウハウ詳細</td><td>
-										ノウハウのコンテンツを
+<td>ナレッジ詳細</td><td>
+										ナレッジのコンテンツを
 										<code class="sgmltag-element">DocBook#Article</code>
 										形式で編集するエディタです。エディタ上で右クリックを行い、タグのテンプレートを挿入することもできます。
 										<div class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -740,7 +746,7 @@
 </tr>
 <tr>
 <td>チェックアイテム</td><td>
-										<span class="guilabel">ノウハウエントリービュー</span>
+										<span class="guilabel">ナレッジエントリービュー</span>
 										で選択している
 										<span class="guilabel">チェックアイテム情報</span>
 										および
@@ -762,7 +768,7 @@
 					の各入力項目の説明をします。
 					</p>
 <div class="table">
-<a name="N10476"></a>
+<a name="N1046E"></a>
 <p class="title">
 <b>Table&nbsp;3.&nbsp;チェックアイテム情報</b>
 </p>
@@ -779,12 +785,12 @@
 </thead>
 <tbody>
 <tr>
-<td>検索手順</td><td>登録するノウハウとしてどのような移植箇所をどのように検索するのかの概要を文章で入力します。
+<td>検索手順</td><td>登録するナレッジとしてどのような移植箇所をどのように検索するのかの概要を文章で入力します。
 									</td>
 </tr>
 <tr>
 <td>検索実施</td><td>
-										<span class="application">移植規模算出ツール</span>
+										<span class="application">ナレッジベース検索ツール</span>
 										で検索する際に、実際に検索対象とする場合はチェックを有効にします。
 									</td>
 </tr>
@@ -949,7 +955,7 @@
 					
 </p>
 <div class="table">
-<a name="N10528"></a>
+<a name="N10520"></a>
 <p class="title">
 <b>Table&nbsp;4.&nbsp;検索情報</b>
 </p>
@@ -1060,7 +1066,7 @@
 <br>
 <div class="section">
 <div class="titlepage"></div>
-<p>作成したノウハウドキュメントを Eclipse 標準ブラウザで確認することができます。
+<p>作成したナレッジドキュメントを Eclipse 標準ブラウザで確認することができます。
 			以下の 2 種類の確認方法があります。
 		</p>
 <div class="itemizedlist">
@@ -1079,12 +1085,12 @@
 <p>アイテム単体での確認</p>
 <p>
 					
-<span class="guilabel">ノウハウ詳細</span>
+<span class="guilabel">ナレッジ詳細</span>
 					タブにて作成したアイテム単体でのドキュメントを確認できます。
 				</p>
 <p>
 					
-<span class="guimenu">ノウハウ詳細</span> &rarr; <span class="guimenuitem">右クリック</span> &rarr; <span class="guimenuitem">HTML プレビュー</span>
+<span class="guimenu">ナレッジ詳細</span> &rarr; <span class="guimenuitem">右クリック</span> &rarr; <span class="guimenuitem">HTML プレビュー</span>
 				
 </p>
 </li>
@@ -1098,7 +1104,7 @@
 <br>
 <div class="section">
 <div class="titlepage"></div>
-<p>作成したノウハウをファイルとして保存できます。
+<p>作成したナレッジをファイルとして保存できます。
 			以下の 2 種類の確認方法があります。
 		</p>
 <div class="itemizedlist">
@@ -1120,7 +1126,7 @@
 </tr>
 <tr>
 <td valign="top" align="left">
-<p>保存したファイルは、 <span class="application">移植ノウハウ管理ツール</span> で再度編集することができます。</p>
+<p>保存したファイルは、 <span class="application">ナレッジ管理ツール</span> で再度編集することができます。</p>
 </td>
 </tr>
 </table>
@@ -1138,7 +1144,7 @@
 </tr>
 <tr>
 <td valign="top" align="left">
-<p>保存したファイルは、 <span class="application">移植規模算出ツール</span> の入力ファイルとして利用できます。</p>
+<p>保存したファイルは、 <span class="application">ナレッジベース検索ツール</span> の入力ファイルとして利用できます。</p>
 </td>
 </tr>
 </table>
@@ -1161,7 +1167,7 @@
 </tr>
 <tr>
 <td valign="top" align="left">
-<p>保存したファイルは、 <span class="application">移植ノウハウ管理ツール</span> で再度エディットすることはできません。</p>
+<p>保存したファイルは、 <span class="application">ナレッジ管理ツール</span> で再度エディットすることはできません。</p>
 </td>
 </tr>
 </table>
@@ -1176,7 +1182,7 @@
 </tr>
 <tr>
 <td valign="top" align="left">
-<p>保存したファイルは、 <span class="application">移植規模算出ツール</span> のリンク先ファイルとして利用できます。</p>
+<p>保存したファイルは、 <span class="application">ナレッジベース検索ツール</span> のリンク先ファイルとして利用できます。</p>
 </td>
 </tr>
 </table>

@@ -242,11 +242,11 @@
             <KnowhowRefKey>knowhow_29</KnowhowRefKey>
         </Category>
         <Category categoryId="category_31" appropriate="true">
-            <CategoryName>RHEL6でのインストール手順</CategoryName>
+            <CategoryName>Linuxでのインストール手順</CategoryName>
             <KnowhowRefKey>knowhow_30</KnowhowRefKey>
         </Category>
         <Category categoryId="category_32" appropriate="true">
-            <CategoryName>Windows7でのインストール手順</CategoryName>
+            <CategoryName>Windowsでのインストール手順</CategoryName>
             <KnowhowRefKey>knowhow_31</KnowhowRefKey>
         </Category>
     </CategoryList>
@@ -436,7 +436,7 @@
                             <ns2:tbody>
 <ns2:row>
     <ns2:entry>OS</ns2:entry>
-    <ns2:entry>Windows XP/7, CentOS 6</ns2:entry>
+    <ns2:entry>Windows XP/7, RHEL6(※)他同等Linuxで互換性有</ns2:entry>
 </ns2:row>
 <ns2:row>
     <ns2:entry>JavaVM</ns2:entry>
@@ -452,7 +452,7 @@
 </ns2:row>
 <ns2:row>
     <ns2:entry>Script</ns2:entry>
-    <ns2:entry>Python 2.7 + lxml モジュール
+    <ns2:entry>Python 2.6or2.7 + lxml モジュール
 						</ns2:entry>
 </ns2:row>
                             </ns2:tbody>
@@ -490,7 +490,10 @@
                     <ns2:title>body</ns2:title>
                 </ns2:info>
                 <ns2:section>
-                    <ns2:para>事前に <ns2:link>動作環境</ns2:link> に記載されている環境等の準備を整えてください。
+                    <ns2:para>
+			事前に
+			<ns2:link>動作環境</ns2:link>
+			に記載されている環境等の準備を整えてください。
 			準備が整っていることを確認し、以下の手順を実施します。
 		</ns2:para>
                     <ns2:orderedlist>
@@ -498,19 +501,19 @@
                             <ns2:para>ダウンロード</ns2:para>
                             <ns2:para>プラグインをダウンロードします</ns2:para>
                             <ns2:para>
-                <ns2:warning>
+					<ns2:note>
     <ns2:para>
-        <ns2:link>http://www.jboss.org/unknown</ns2:link>
-    </ns2:para>
-</ns2:warning>
-                </ns2:para>
+							<ns2:link>https://github.com/TUBAME/migration-tool/releases</ns2:link>
+						</ns2:para>
+</ns2:note>
+				</ns2:para>
                         </ns2:listitem>
                         <ns2:listitem>
                             <ns2:para>解凍</ns2:para>
                             <ns2:para>
 					ダウンロードしたファイルを解凍します。
 					解凍すると
-					<ns2:filename>org.tubame.portability_*</ns2:filename>
+					<ns2:filename>tubame.portability_*</ns2:filename>
 					という名前のディレクトリが作成されます。
 					<ns2:note>
     <ns2:para>* 部分はプラグインのバージョンによって変わります。</ns2:para>
@@ -528,13 +531,15 @@
                         <ns2:listitem>
                             <ns2:para>Pythonランタイムの設定</ns2:para>
                             <ns2:para>
-					解凍したディレクトリ配下の <ns2:filename>resources/properties/application*.properties</ns2:filename> をテキストエディタで開きます。
+					解凍したディレクトリ配下の
+					<ns2:filename>resources/properties/application*.properties</ns2:filename>
+					をテキストエディタで開きます。
 					以下のように、 Python がインストールされているパスを設定します。
 					<ns2:programlisting>
-					
-# Windows 上にインストールした場合の例
-PYTHON_RUNTIME_PATH=C:/Python27/python.exe
-					
+
+						# Windows 上にインストールした場合の例
+						PYTHON_RUNTIME_PATH=C:/Python27/python.exe
+
 					</ns2:programlisting>
 				</ns2:para>
                         </ns2:listitem>
@@ -560,7 +565,10 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
 </ns2:menuchoice>
 				</ns2:para>
                             <ns2:para>
-					<ns2:guilabel>Plug-in Id</ns2:guilabel> の部分に、以下のプラグイン名 <ns2:guilabel>org.tubame.portability</ns2:guilabel> が存在することを確認してください。
+					<ns2:guilabel>Plug-in Id</ns2:guilabel>
+					の部分に、以下のプラグイン名
+					<ns2:guilabel>tubame.portability</ns2:guilabel>
+					が存在することを確認してください。
 				</ns2:para>
                         </ns2:listitem>
                         <ns2:listitem>
@@ -1452,7 +1460,7 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
                 <ns2:section>
                     <ns2:para>
 			インストールした
-			<ns2:filename>org.tubame.portability_*</ns2:filename>
+			<ns2:filename>tubame.portability_*</ns2:filename>
 			を削除してください。以上で、アンインストールは完了です。
 			<ns2:note>
                             <ns2:para>* 部分はプラグインのバージョンによって変わります。</ns2:para>
@@ -1474,7 +1482,7 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
                     <ns2:title>body</ns2:title>
                 </ns2:info>
                 <ns2:section>
-                    <ns2:para>Pythonおよびlxmlのインストール手順を以下に示す。</ns2:para>
+                    <ns2:para>Pythonおよびlxmlのインストール手順を以下に記載します。</ns2:para>
                 </ns2:section>
             </ns2:article>
         </DocBook>
@@ -1484,7 +1492,7 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
                     <ns2:title>body</ns2:title>
                 </ns2:info>
                 <ns2:section>
-                    <ns2:para>RHEL6（および同等Linux）ではyumを利用してインストールする手順を示す。</ns2:para>
+                    <ns2:para>RHEL（および同等Linux）ではyumを利用してインストールする手順を以下に記載します。</ns2:para>
                     <ns2:orderedlist>
                         <ns2:listitem>
                             <ns2:para>インストール済みパッケージの確認</ns2:para>
@@ -1509,7 +1517,7 @@ $ su -
                     <ns2:title>body</ns2:title>
                 </ns2:info>
                 <ns2:section>
-                    <ns2:para>Windows7ではインストーラを利用してインストールする手順を示す。</ns2:para>
+                    <ns2:para>Windowsではインストーラを利用してインストールする手順を以下に記載します。</ns2:para>
                     <ns2:orderedlist>
                         <ns2:listitem>
                             <ns2:para>インストーラのダウンロード</ns2:para>

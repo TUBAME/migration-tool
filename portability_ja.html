@@ -143,14 +143,14 @@
 <dd>
 <dl>
 <dt>
-<span class="6.1.1."><a href="#tubame_6.1.1.">6.1.1.RHEL6でのインストール手順</a></span>
+<span class="6.1.1."><a href="#tubame_6.1.1.">6.1.1.Linuxでのインストール手順</a></span>
 </dt>
 </dl>
 </dd>
 <dd>
 <dl>
 <dt>
-<span class="6.1.2."><a href="#tubame_6.1.2.">6.1.2.Windows7でのインストール手順</a></span>
+<span class="6.1.2."><a href="#tubame_6.1.2.">6.1.2.Windowsでのインストール手順</a></span>
 </dt>
 </dl>
 </dd>
@@ -283,7 +283,7 @@
 </thead>
 <tbody>
 <tr>
-<td>OS</td><td>Windows XP/7, CentOS 6</td>
+<td>OS</td><td>Windows XP/7, RHEL6(※)他同等Linuxで互換性有</td>
 </tr>
 <tr>
 <td>JavaVM</td><td>
@@ -296,7 +296,7 @@
 						</td>
 </tr>
 <tr>
-<td>Script</td><td>Python 2.7 + lxml モジュール
+<td>Script</td><td>Python 2.6or2.7 + lxml モジュール
 						</td>
 </tr>
 </tbody>
@@ -349,7 +349,10 @@
 <br>
 <div class="section">
 <div class="titlepage"></div>
-<p>事前に 動作環境 に記載されている環境等の準備を整えてください。
+<p>
+			事前に
+			動作環境
+			に記載されている環境等の準備を整えてください。
 			準備が整っていることを確認し、以下の手順を実施します。
 		</p>
 <div class="orderedlist">
@@ -358,24 +361,24 @@
 <p>ダウンロード</p>
 <p>プラグインをダウンロードします</p>
 <p>
-                
+					
 </p>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
-<table border="0" summary="Warning">
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
 <tr>
-<td valign="top" align="center" rowspan="2" width="25"><img alt="[Warning]" src="images/warning.png"></td><th align="left">Warning</th>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
 </tr>
 <tr>
 <td valign="top" align="left">
 <p>
-        http://www.jboss.org/unknown
-    </p>
+							https://github.com/TUBAME/migration-tool/releases
+						</p>
 </td>
 </tr>
 </table>
 </div>
 <p>
-                
+				
 </p>
 </li>
 <li class="listitem">
@@ -383,7 +386,7 @@
 <p>
 					ダウンロードしたファイルを解凍します。
 					解凍すると
-					<code class="filename">org.tubame.portability_*</code>
+					<code class="filename">tubame.portability_*</code>
 					という名前のディレクトリが作成されます。
 					</p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -425,14 +428,16 @@
 <li class="listitem">
 <p>Pythonランタイムの設定</p>
 <p>
-					解凍したディレクトリ配下の <code class="filename">resources/properties/application*.properties</code> をテキストエディタで開きます。
+					解凍したディレクトリ配下の
+					<code class="filename">resources/properties/application*.properties</code>
+					をテキストエディタで開きます。
 					以下のように、 Python がインストールされているパスを設定します。
 					</p>
 <pre class="programlisting">
-					
-# Windows 上にインストールした場合の例
-PYTHON_RUNTIME_PATH=C:/Python27/python.exe
-					
+
+						# Windows 上にインストールした場合の例
+						PYTHON_RUNTIME_PATH=C:/Python27/python.exe
+
 					</pre>
 <p>
 				
@@ -458,7 +463,10 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
 </p>
 <p>
 					
-<span class="guilabel">Plug-in Id</span> の部分に、以下のプラグイン名 <span class="guilabel">org.tubame.portability</span> が存在することを確認してください。
+<span class="guilabel">Plug-in Id</span>
+					の部分に、以下のプラグイン名
+					<span class="guilabel">tubame.portability</span>
+					が存在することを確認してください。
 				</p>
 </li>
 <li class="listitem">
@@ -1499,7 +1507,7 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
 <div class="titlepage"></div>
 <p>
 			インストールした
-			<code class="filename">org.tubame.portability_*</code>
+			<code class="filename">tubame.portability_*</code>
 			を削除してください。以上で、アンインストールは完了です。
 			</p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -1547,16 +1555,16 @@ PYTHON_RUNTIME_PATH=C:/Python27/python.exe
 <br>
 <div class="section">
 <div class="titlepage"></div>
-<p>Pythonおよびlxmlのインストール手順を以下に示す。</p>
+<p>Pythonおよびlxmlのインストール手順を以下に記載します。</p>
 </div>
 <br>
 <br>
 <a name="tubame_6.1.1."></a>
-<h3 class="title">6.1.1.RHEL6でのインストール手順</h3>
+<h3 class="title">6.1.1.Linuxでのインストール手順</h3>
 <br>
 <div class="section">
 <div class="titlepage"></div>
-<p>RHEL6（および同等Linux）ではyumを利用してインストールする手順を示す。</p>
+<p>RHEL（および同等Linux）ではyumを利用してインストールする手順を以下に記載します。</p>
 <div class="orderedlist">
 <ol class="orderedlist" type="1">
 <li class="listitem">
@@ -1581,11 +1589,11 @@ $ su -
 <br>
 <br>
 <a name="tubame_6.1.2."></a>
-<h3 class="title">6.1.2.Windows7でのインストール手順</h3>
+<h3 class="title">6.1.2.Windowsでのインストール手順</h3>
 <br>
 <div class="section">
 <div class="titlepage"></div>
-<p>Windows7ではインストーラを利用してインストールする手順を示す。</p>
+<p>Windowsではインストーラを利用してインストールする手順を以下に記載します。</p>
 <div class="orderedlist">
 <ol class="orderedlist" type="1">
 <li class="listitem">
