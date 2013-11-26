@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <PortabilityKnowhow xmlns="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:ns2="http://docbook.org/ns/docbook">
-    <PortabilityKnowhowTitle>Online Quick User Manual - KnowledgeBase Search</PortabilityKnowhowTitle>
+    <PortabilityKnowhowTitle>Online Quick User Manual - Knowledge-Based Search</PortabilityKnowhowTitle>
     <EntryViewList>
         <EntryCategory>
             <EntryCategoryRefKey>category_1</EntryCategoryRefKey>
@@ -294,7 +294,7 @@
                     <ns2:title>body</ns2:title>
                 </ns2:info>
                 <ns2:section>
-                    <ns2:para>This manual provides a brief description of procedures from installation through to use of the KnowledgeBase Search.</ns2:para>
+                    <ns2:para>This manual provides a brief description of procedures from installation through to use of the Knowledge-Based Search.</ns2:para>
                 </ns2:section>
             </ns2:article>
         </DocBook>
@@ -378,7 +378,8 @@
                     <ns2:title>body</ns2:title>
                 </ns2:info>
                 <ns2:section>
-                    <ns2:para>It has been confirmed that the tool can operate in the following software environment.</ns2:para>
+                    <ns2:para>It has been confirmed that the tool can operate in the following software environment.
+		</ns2:para>
                     <ns2:table>
                         <ns2:title>Software Requirements</ns2:title>
                         <ns2:tgroup cols="2">
@@ -391,7 +392,7 @@
                             <ns2:tbody>
 <ns2:row>
     <ns2:entry>OS</ns2:entry>
-    <ns2:entry>Windows XP/7, CentOS 6</ns2:entry>
+    <ns2:entry>Windows XP/7, RHEL6(*)Other Linux Compatible</ns2:entry>
 </ns2:row>
 <ns2:row>
     <ns2:entry>Java VM</ns2:entry>
@@ -407,8 +408,8 @@
 </ns2:row>
 <ns2:row>
     <ns2:entry>Script</ns2:entry>
-    <ns2:entry>Python 2.7 + lxml module
-                        </ns2:entry>
+    <ns2:entry>Python 2.6or2.7 + lxml module
+             </ns2:entry>
 </ns2:row>
                             </ns2:tbody>
                         </ns2:tgroup>
@@ -442,7 +443,7 @@
                     <ns2:title>body</ns2:title>
                 </ns2:info>
                 <ns2:section>
-                    <ns2:para>Set up the <ns2:link>operating environment</ns2:link> described above. 
+                    <ns2:para>Set up the <ns2:link>operating environment</ns2:link> described above.
 			Perform the steps below after the required environment has been set up.
 		</ns2:para>
                     <ns2:orderedlist>
@@ -450,19 +451,19 @@
                             <ns2:para>Download</ns2:para>
                             <ns2:para>Download the plug-in.</ns2:para>
                             <ns2:para>
-                <ns2:warning>
+					<ns2:note>
     <ns2:para>
-        <ns2:link>http://www.jboss.org/unknown</ns2:link>
-    </ns2:para>
-</ns2:warning>
-                </ns2:para>
+							<ns2:link>https://github.com/TUBAME/migration-tool/releases</ns2:link>
+						</ns2:para>
+</ns2:note>
+				</ns2:para>
                         </ns2:listitem>
                         <ns2:listitem>
                             <ns2:para>Unzip</ns2:para>
                             <ns2:para>
 					Unzip the downloaded file. 
 					Unzipping the file creates the 
-					<ns2:filename>org.tubame.portability_*</ns2:filename> 
+					<ns2:filename>tubame.portability_*</ns2:filename> 
 					directory.
 					<ns2:note>
     <ns2:para>The * part of the name varies with the version.</ns2:para>
@@ -472,7 +473,7 @@
 							Unzipping the file in Windows may fail due to path length limitations. 
 							If it fails, use a short path such as
 							<ns2:filename>C:\temp</ns2:filename>
-							 for unzipping.
+							for unzipping.
 						</ns2:para>
 </ns2:important>
 				</ns2:para>
@@ -480,13 +481,13 @@
                         <ns2:listitem>
                             <ns2:para>Set Python runtime.</ns2:para>
                             <ns2:para>
-					Use a text editor to open <ns2:filename>resources/properties/application*.properties</ns2:filename> under the unzipped directory. 
-					As shown below, set the path where Python is installed. 
+					Use a text editor to open <ns2:filename>resources/properties/application*.properties</ns2:filename> 
+					under the unzipped directory. As shown below, set the path where Python is installed. 
 					<ns2:programlisting>
-					
+
 # Example showing installation under Windows
 PYTHON_RUNTIME_PATH=C:/Python27/python.exe
-					
+
 					</ns2:programlisting>
 				</ns2:para>
                         </ns2:listitem>
@@ -512,7 +513,7 @@ directory under the Eclipse installation directory.
 </ns2:menuchoice>
 				</ns2:para>
                             <ns2:para>
-					Confirm that the <ns2:guilabel>Plug-in Id</ns2:guilabel> column contains the <ns2:guilabel>org.tubame.portability</ns2:guilabel>  plug-in name.
+					Confirm that the <ns2:guilabel>Plug-in Id</ns2:guilabel> column contains the <ns2:guilabel>tubame.portability</ns2:guilabel> plug-in name.
 				</ns2:para>
                         </ns2:listitem>
                         <ns2:listitem>
@@ -690,7 +691,7 @@ directory under the Eclipse installation directory.
                             <ns2:para>
 					<ns2:menuchoice>
     <ns2:guimenuitem>tubame</ns2:guimenuitem>
-    <ns2:guimenuitem>KnowledgeBase Search</ns2:guimenuitem>
+    <ns2:guimenuitem>Knowledge-Based Search</ns2:guimenuitem>
 </ns2:menuchoice>
 				</ns2:para>
                         </ns2:listitem>
@@ -1369,7 +1370,7 @@ directory under the Eclipse installation directory.
                             <ns2:para>
 					<ns2:menuchoice>
     <ns2:guimenuitem>tubame</ns2:guimenuitem>
-    <ns2:guimenuitem>KnowledgeBase Convert</ns2:guimenuitem>
+    <ns2:guimenuitem>Knowledge-Based Convert</ns2:guimenuitem>
 </ns2:menuchoice>
 				</ns2:para>
                         </ns2:listitem>
@@ -1404,7 +1405,7 @@ directory under the Eclipse installation directory.
                 <ns2:section>
                     <ns2:para>
 			Delete the installed
-			<ns2:filename>org.tubame.portability_*</ns2:filename>. 
+			<ns2:filename>tubame.portability_*</ns2:filename>. 
 			This completes the uninstallation.
 			<ns2:note>
                             <ns2:para>The * part of the name varies with the version.</ns2:para>

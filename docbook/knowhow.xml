@@ -258,11 +258,11 @@
 <ns2:tbody>
     <ns2:row>
         <ns2:entry>Knowledge documents information</ns2:entry>
-        <ns2:entry>Document information can be exported in the HTML format. By copying exported files to the <ns2:application>KnowledgeBase Search</ns2:application> makes it possible to link reference from search results. </ns2:entry>
+        <ns2:entry>Document information can be exported in the HTML format. By copying exported files to the <ns2:application>Knowledge-Based Search</ns2:application> makes it possible to link reference from search results. </ns2:entry>
     </ns2:row>
     <ns2:row>
         <ns2:entry>Search information regarding code that needs to be ported</ns2:entry>
-        <ns2:entry>Search information can be exported in the XML format. Using exported files as input to the <ns2:application>KnowledgeBase Search</ns2:application> makes it possible to use them as search logic.</ns2:entry>
+        <ns2:entry>Search information can be exported in the XML format. Using exported files as input to the <ns2:application>Knowledge-Based Search</ns2:application> makes it possible to use them as search logic.</ns2:entry>
     </ns2:row>
 </ns2:tbody>
                             </ns2:tgroup>
@@ -321,7 +321,7 @@
                             <ns2:tbody>
 <ns2:row>
     <ns2:entry>OS</ns2:entry>
-    <ns2:entry>Windows XP/7, CentOS 6</ns2:entry>
+    <ns2:entry>Windows XP/7, RHEL6(*)Other Linux Compatible</ns2:entry>
 </ns2:row>
 <ns2:row>
     <ns2:entry>JavaVM</ns2:entry>
@@ -365,11 +365,11 @@
                             <ns2:para>Download</ns2:para>
                             <ns2:para>Download the plug-in.</ns2:para>
                             <ns2:para>
-                <ns2:warning>
+                <ns2:note>
     <ns2:para>
-        <ns2:link>http://www.jboss.org/unknown</ns2:link>
+        <ns2:link>https://github.com/TUBAME/migration-tool/releases</ns2:link>
     </ns2:para>
-</ns2:warning>
+</ns2:note>
                 </ns2:para>
                         </ns2:listitem>
                         <ns2:listitem>
@@ -377,7 +377,7 @@
                             <ns2:para>
 					Unzip the downloaded file. 
 					Unzipping the file creates the 
-					<ns2:filename>org.tubame.knowhow_*</ns2:filename> directory.
+					<ns2:filename>tubame.knowhow_*</ns2:filename> directory.
 					<ns2:note>
     <ns2:para>The * part of the name varies with the version.</ns2:para>
 </ns2:note>
@@ -413,7 +413,7 @@ directory under the Eclipse installation directory.
 </ns2:menuchoice>
 				</ns2:para>
                             <ns2:para>
-					Confirm that the <ns2:guilabel>Plug-in Id</ns2:guilabel> column contains the <ns2:guilabel>org.tubame.knowhow</ns2:guilabel>  plug-in name.
+					Confirm that the <ns2:guilabel>Plug-in Id</ns2:guilabel> column contains the <ns2:guilabel>tubame.knowhow</ns2:guilabel>  plug-in name.
 				</ns2:para>
                         </ns2:listitem>
                         <ns2:listitem>
@@ -442,7 +442,7 @@ directory under the Eclipse installation directory.
                 <ns2:section>
                     <ns2:para>
 			Delete the installed
-			<ns2:filename>org.tubame.knowhow_*</ns2:filename>. This completes the uninstallation.
+			<ns2:filename>tubame.knowhow_*</ns2:filename>. This completes the uninstallation.
 			<ns2:note>
                             <ns2:para>The * part of the name varies with the version.</ns2:para>
                         </ns2:note>
@@ -664,7 +664,7 @@ directory under the Eclipse installation directory.
             <ns2:row>
                 <ns2:entry>Search information</ns2:entry>
                 <ns2:entry>
-										A search logic item that the <ns2:application>KnowledgeBase Search</ns2:application> 
+										A search logic item that the <ns2:application>Knowledge-Based Search</ns2:application> 
 										uses during searches.
 									</ns2:entry>
             </ns2:row>
@@ -754,7 +754,7 @@ directory under the Eclipse installation directory.
             <ns2:row>
                 <ns2:entry>Conduct a search</ns2:entry>
                 <ns2:entry>
-										Select this checkbox to conduct searches using the <ns2:application>KnowledgeBase Search</ns2:application>.  
+										Select this checkbox to conduct searches using the <ns2:application>Knowledge-Based Search</ns2:application>.  
 									</ns2:entry>
             </ns2:row>
             <ns2:row>
@@ -1005,7 +1005,7 @@ directory under the Eclipse installation directory.
 				</ns2:para>
                             <ns2:para>
                 <ns2:note>
-    <ns2:para>Exported files can be used by <ns2:application>KnowledgeBase Search</ns2:application> as input files.</ns2:para>
+    <ns2:para>Exported files can be used by <ns2:application>Knowledge-Based Search</ns2:application> as input files.</ns2:para>
 </ns2:note>
 				</ns2:para>
                         </ns2:listitem>
@@ -1021,7 +1021,7 @@ directory under the Eclipse installation directory.
                             </ns2:important>
                             <ns2:para>
                 <ns2:note>
-    <ns2:para>Exported files can be used by <ns2:application>KnowledgeBase Search</ns2:application> as input files.</ns2:para>
+    <ns2:para>Exported files can be used by <ns2:application>Knowledge-Based Search</ns2:application> as input files.</ns2:para>
 </ns2:note>
 				</ns2:para>
                         </ns2:listitem>

@@ -326,7 +326,7 @@
                             <ns2:tbody>
 <ns2:row>
     <ns2:entry>OS</ns2:entry>
-    <ns2:entry>Windows XP/7, CentOS 6</ns2:entry>
+    <ns2:entry>Windows XP/7, RHEL6(*)Other Linux Compatible</ns2:entry>
 </ns2:row>
 <ns2:row>
     <ns2:entry>Java VM</ns2:entry>
@@ -367,7 +367,8 @@
                     <ns2:title>body</ns2:title>
                 </ns2:info>
                 <ns2:section>
-                    <ns2:para>Set up the <ns2:link>operating environment</ns2:link> described above. 
+                    <ns2:para>
+			Set up the <ns2:link>operating environment</ns2:link> described above. 
 			Perform the steps below after the required environment has been set up.
 		</ns2:para>
                     <ns2:orderedlist>
@@ -375,19 +376,21 @@
                             <ns2:para>Download</ns2:para>
                             <ns2:para>Download the plug-in.</ns2:para>
                             <ns2:para>
-                <ns2:warning>
+					<ns2:note>
     <ns2:para>
-        <ns2:link>http://www.jboss.org/unknown</ns2:link>
-    </ns2:para>
-</ns2:warning>
-                </ns2:para>
+							<ns2:link>https://github.com/TUBAME/migration-tool/releases
+
+							</ns2:link>
+						</ns2:para>
+</ns2:note>
+				</ns2:para>
                         </ns2:listitem>
                         <ns2:listitem>
                             <ns2:para>Unzip</ns2:para>
                             <ns2:para>
 					Unzip the downloaded file. 
 					Unzipping the file creates the 
-					<ns2:filename>org.tubame.wsearch_*</ns2:filename> directory.
+					<ns2:filename>tubame.wsearch_*</ns2:filename> directory.
 					<ns2:note>
     <ns2:para>The * part of the name varies with the version.</ns2:para>
 </ns2:note>
@@ -405,7 +408,7 @@
                             <ns2:para>Install in Eclipse.</ns2:para>
                             <ns2:para>
 					Move or copy the unzipped directory to the 
-<ns2:filename>plugins</ns2:filename> 
+<ns2:filename>plugins</ns2:filename>
 directory under the Eclipse installation directory.
 				</ns2:para>
                         </ns2:listitem>
@@ -423,7 +426,7 @@ directory under the Eclipse installation directory.
 </ns2:menuchoice>
 				</ns2:para>
                             <ns2:para>
-					Confirm that the <ns2:guilabel>Plug-in Id</ns2:guilabel> column contains the <ns2:guilabel>org.tubame.wsearch</ns2:guilabel>  plug-in name. 
+					Confirm that the <ns2:guilabel>Plug-in Id</ns2:guilabel> column contains the <ns2:guilabel>tubame.wsearch</ns2:guilabel> plug-in name. 
 				</ns2:para>
                         </ns2:listitem>
                         <ns2:listitem>
@@ -451,7 +454,7 @@ directory under the Eclipse installation directory.
                 </ns2:info>
                 <ns2:section>
                     <ns2:para>
-			Delete the installed <ns2:filename>org.tubame.wsearch_*</ns2:filename>. This completes the uninstallation.
+			Delete the installed <ns2:filename>tubame.wsearch_*</ns2:filename>. This completes the uninstallation.
 			<ns2:note>
                             <ns2:para>The * part of the name varies with the version.</ns2:para>
                         </ns2:note>
