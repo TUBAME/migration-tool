@@ -132,6 +132,30 @@
 </dt>
 </dl>
 </dd>
+<dt>
+<span class="6."><a href="#tubame_6.">6.Appendix</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="6.1."><a href="#tubame_6.1.">6.1.Installing Python and lxml module</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="6.1.1."><a href="#tubame_6.1.1.">6.1.1.Instructions for installing on Linux</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="6.1.2."><a href="#tubame_6.1.2.">6.1.2.Instructions for installing on Windows</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
 </dl>
 </div>
 <HR>
@@ -158,7 +182,7 @@
 			It comes with the following major features.
 			</p>
 <div class="table">
-<a name="N102D9"></a>
+<a name="N10351"></a>
 <p class="title">
 <b>Table&nbsp;1.&nbsp;Major tool features</b>
 </p>
@@ -208,7 +232,7 @@
 <div class="titlepage"></div>
 <p>It has been confirmed that the tool can operate in the following hardware environment.</p>
 <div class="table">
-<a name="N10301"></a>
+<a name="N10379"></a>
 <p class="title">
 <b>Table&nbsp;1.&nbsp;Hardware Requirements</b>
 </p>
@@ -246,7 +270,7 @@
 <p>It has been confirmed that the tool can operate in the following software environment.
 		</p>
 <div class="table">
-<a name="N10323"></a>
+<a name="N1039B"></a>
 <p class="title">
 <b>Table&nbsp;1.&nbsp;Software Requirements</b>
 </p>
@@ -284,6 +308,19 @@
 </div>
 </div>
 <br class="table-break">
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>When Python and lxml module are not installed, please install it with reference to Appendix "Installing Python and lxml module".
+			</p>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <br>
 <br>
@@ -692,7 +729,7 @@ directory under the Eclipse installation directory.
 </table>
 </div>
 <div class="table">
-<a name="N104C2"></a>
+<a name="N1053D"></a>
 <p class="title">
 <b>Table&nbsp;1.&nbsp;Items displayed in the screen for editing search results</b>
 </p>
@@ -1051,7 +1088,7 @@ directory under the Eclipse installation directory.
 					check detailed information regarding items selected in the screen for editing search results. It allows you to check the following information.
 				</p>
 <div class="table">
-<a name="N105FA"></a>
+<a name="N10675"></a>
 <p class="title">
 <b>Table&nbsp;2.&nbsp;Items that Checklist Information view displays.</b>
 </p>
@@ -1109,7 +1146,7 @@ directory under the Eclipse installation directory.
 					allows you to check current edit work status.
 				</p>
 <div class="table">
-<a name="N1063B"></a>
+<a name="N106B6"></a>
 <p class="title">
 <b>Table&nbsp;3.&nbsp;Items displayed in Work Status view</b>
 </p>
@@ -1374,7 +1411,7 @@ directory under the Eclipse installation directory.
 					You can either select single lines to delete them one at a time or select all lines to delete them at one time.
 				</p>
 <div class="table">
-<a name="N106F7"></a>
+<a name="N10772"></a>
 <p class="title">
 <b>Table&nbsp;1.&nbsp;Deletion method</b>
 </p>
@@ -1495,6 +1532,109 @@ directory under the Eclipse installation directory.
 <p>
 		
 </p>
+</div>
+<br>
+<br>
+<a name="tubame_6."></a>
+<h2 class="title">6.Appendix</h2>
+<br>
+<a name="tubame_6.1."></a>
+<h3 class="title">6.1.Installing Python and lxml module</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>The following describes an installation procedure of Python and lxml module.</p>
+</div>
+<br>
+<br>
+<a name="tubame_6.1.1."></a>
+<h3 class="title">6.1.1.Instructions for installing on Linux</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>The following describes an installation procedure using yum on
+			Linux.
+		</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>confirming the installed package</p>
+<p>
+					execute rpm command and confirm whether Python and lxml module are
+					installed. When it is not installed, install it.
+					</p>
+<pre class="programlisting">
+$ rpm &ndash;q python python-lxml
+python-*
+python-lxml-*
+					</pre>
+<p>
+				
+</p>
+</li>
+<li class="listitem">
+<p>Installation</p>
+<p>
+					execute yum command and install Python and lxml module.
+					</p>
+<pre class="programlisting">
+$ su -
+# yum install python python-lxml
+					</pre>
+<p>
+				
+</p>
+</li>
+</ol>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_6.1.2."></a>
+<h3 class="title">6.1.2.Instructions for installing on Windows</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>The following describes an installation procedure using
+			installer on Windows.
+		</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>downloading the installer file.</p>
+<p>download an installer from the following links.</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>
+						Python2.7.6：
+						http://python.org/download/releases/2.7.6
+					</p>
+<p>
+						lxml3.2.4：
+						https://pypi.python.org/pypi/lxml/3.2.4
+					</p>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li class="listitem">
+<p>Python installation</p>
+<p>run the installer "python-2.7.6.*.msi" and Follow the wizard
+					instructions to install.</p>
+</li>
+<li class="listitem">
+<p>lxml installation</p>
+<p>run the installer "lxml-3.2.4.*-py2.7.exe" and Follow the
+					wizard instructions to install.</p>
+</li>
+</ol>
+</div>
 </div>
 <br>
 <br>

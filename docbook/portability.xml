@@ -56,6 +56,15 @@
         <EntryCategory>
             <EntryCategoryRefKey>category_29</EntryCategoryRefKey>
         </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_30</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_31</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_32</EntryCategoryRefKey>
+            </ChildEntry>
+        </EntryCategory>
     </EntryViewList>
     <ChapterList>
         <Chapter>
@@ -138,6 +147,22 @@
                 <ChapterCategoryRefKey>category_29</ChapterCategoryRefKey>
             </ChildChapter>
         </Chapter>
+        <Chapter>
+            <ChapterNo>6.</ChapterNo>
+            <ChapterName>Appendix</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>6.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_30</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>6.1.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_31</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>6.1.2.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_32</ChapterCategoryRefKey>
+                </ChildChapter>
+            </ChildChapter>
+        </Chapter>
     </ChapterList>
     <CategoryList>
         <Category categoryId="category_1" appropriate="true">
@@ -212,6 +237,18 @@
             <CategoryName> Uninstalling the Tool</CategoryName>
             <KnowhowRefKey>knowhow_28</KnowhowRefKey>
         </Category>
+        <Category categoryId="category_30" appropriate="false">
+            <CategoryName>Installing Python and lxml module</CategoryName>
+            <KnowhowRefKey>knowhow_29</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_31" appropriate="true">
+            <CategoryName>Instructions for installing on Linux</CategoryName>
+            <KnowhowRefKey>knowhow_30</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_32" appropriate="true">
+            <CategoryName>Instructions for installing on Windows</CategoryName>
+            <KnowhowRefKey>knowhow_31</KnowhowRefKey>
+        </Category>
     </CategoryList>
     <KnowhowList>
         <KnowhowInfomation knowhowId="knowhow_1" knowhowDetailRefKey="knowhowDetail_1">
@@ -283,6 +320,18 @@
             <KnowhowName>body</KnowhowName>
         </KnowhowInfomation>
         <KnowhowInfomation knowhowId="knowhow_28" knowhowDetailRefKey="knowhowDetail_28">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_29" knowhowDetailRefKey="knowhowDetail_29">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_30" knowhowDetailRefKey="knowhowDetail_30">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_31" knowhowDetailRefKey="knowhowDetail_31">
             <KnowhowNo>1</KnowhowNo>
             <KnowhowName>body</KnowhowName>
         </KnowhowInfomation>
@@ -414,6 +463,10 @@
                             </ns2:tbody>
                         </ns2:tgroup>
                     </ns2:table>
+                    <ns2:note>
+                        <ns2:para>When Python and lxml module are not installed, please install it with reference to Appendix &quot;Installing Python and lxml module&quot;.
+			</ns2:para>
+                    </ns2:note>
                 </ns2:section>
             </ns2:article>
         </DocBook>
@@ -1418,6 +1471,90 @@ directory under the Eclipse installation directory.
 				</ns2:para>
                         </ns2:note>
 		</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_29">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>The following describes an installation procedure of Python and lxml module.</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_30">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>The following describes an installation procedure using yum on
+			Linux.
+		</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>confirming the installed package</ns2:para>
+                            <ns2:para>
+					execute rpm command and confirm whether Python and lxml module are
+					installed. When it is not installed, install it.
+					<ns2:programlisting>
+$ rpm –q python python-lxml
+python-*
+python-lxml-*
+					</ns2:programlisting>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Installation</ns2:para>
+                            <ns2:para>
+					execute yum command and install Python and lxml module.
+					<ns2:programlisting>
+$ su -
+# yum install python python-lxml
+					</ns2:programlisting>
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_31">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>The following describes an installation procedure using
+			installer on Windows.
+		</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>downloading the installer file.</ns2:para>
+                            <ns2:para>download an installer from the following links.</ns2:para>
+                            <ns2:note>
+<ns2:para>
+						Python2.7.6：
+						<ns2:link>http://python.org/download/releases/2.7.6</ns2:link>
+					</ns2:para>
+<ns2:para>
+						lxml3.2.4：
+						<ns2:link>https://pypi.python.org/pypi/lxml/3.2.4</ns2:link>
+					</ns2:para>
+                            </ns2:note>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Python installation</ns2:para>
+                            <ns2:para>run the installer &quot;python-2.7.6.*.msi&quot; and Follow the wizard
+					instructions to install.</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>lxml installation</ns2:para>
+                            <ns2:para>run the installer &quot;lxml-3.2.4.*-py2.7.exe&quot; and Follow the
+					wizard instructions to install.</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
                 </ns2:section>
             </ns2:article>
         </DocBook>
