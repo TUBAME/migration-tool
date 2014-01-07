@@ -158,7 +158,7 @@ Degree of importance, Convert Flag, Guide Chapter, Check Status.
 """
 def print_csv3(pNo,pFilePath,pPriority,pFlag,pChapterNo,pCheckStatus):
 
-    print pNo + "," + pFilePath + ",1" +",," + pPriority + "," + pFlag+ "," + pChapterNo+ "," + pCheckStatus
+    print pNo + "," + pFilePath + ",1" +",1," + pPriority + "," + pFlag+ "," + pChapterNo+ "," + pCheckStatus
 
 """
 Display in the following order the search results.

@@ -6,5 +6,25 @@
 			<ModuleDescription>Extracts the line number of record matches search key 1 (xpath) in an XML file and outputs the search result
 			</ModuleDescription>
 		</SearchModule>
+		<SearchModule>
+			<ModuleName>ext_report_generator.py</ModuleName>
+			<ModuleDescription>
+			The input file and the gjbm jbm file is the result of dependence search and knowledge base search,
+
+Search Keywords 1 is an option for custom output directory
+The default is to output a report to the 「eclipse\plugins\tubame.portability-*/report」 under . If you want to change the output destination , 
+specify the report output directory with the full path to Search Keywords 1 .
+
+Search Keywords 1:c://report
+
+Search Keywords 2 is an option for the package pie chart of dependency search tool . Results dependent search , when many packages that are not available in the target environment is present , together some of these packages
+It is useful when you want to aggregate . If you are together as weblogic (weblogic.A, weblogic.B, ...) packages starting from "weblogic" for example , were aggregated together as the struts org.apache.struts is ,
+I specify a search keyword 2 as follows .
+
+Search Keywords 2:weblogic=weblogic;struts=org.apache.struts
+
+When the report output in this form , aggregate pie chart of the package are categorized weblogic, the struts, it is aggregated
+			</ModuleDescription>
+		</SearchModule>
 	</SearchModuleList>
 </PortabilitySearchModule>
