@@ -1,0 +1,1053 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PortabilityKnowhow xmlns="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:ns2="http://docbook.org/ns/docbook">
+    <PortabilityKnowhowTitle>オンラインクイックユーザマニュアル - ナレッジ管理ツール</PortabilityKnowhowTitle>
+    <EntryViewList>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_1</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_2</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_3</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_6</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_7</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_8</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_10</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_30</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_31</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_32</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_33</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_35</EntryCategoryRefKey>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_29</EntryCategoryRefKey>
+        </EntryCategory>
+    </EntryViewList>
+    <ChapterList>
+        <Chapter>
+            <ChapterNo>1.</ChapterNo>
+            <ChapterName>はじめに</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>1.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_1</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>1.2.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_2</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>2.</ChapterNo>
+            <ChapterName>動作環境</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>2.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_3</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>2.2.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_6</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>2.3.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_7</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>3.</ChapterNo>
+            <ChapterName>インストール</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>3.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_8</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>4.</ChapterNo>
+            <ChapterName>利用方法</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>4.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_10</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>4.1.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_30</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>4.1.2.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_31</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>4.1.3.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_32</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>4.1.4.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_33</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>4.1.5.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_35</ChapterCategoryRefKey>
+                </ChildChapter>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>5.</ChapterNo>
+            <ChapterName>アンイストール</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>5.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_29</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+    </ChapterList>
+    <CategoryList>
+        <Category categoryId="category_1" appropriate="true">
+            <CategoryName>本ドキュメントの紹介</CategoryName>
+            <KnowhowRefKey>knowhow_1</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_2" appropriate="true">
+            <CategoryName>本ツールの紹介</CategoryName>
+            <KnowhowRefKey>knowhow_2</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_3" appropriate="true">
+            <CategoryName>ハードウェア要件</CategoryName>
+            <KnowhowRefKey>knowhow_4</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_6" appropriate="true">
+            <CategoryName>ソフトウェア要件</CategoryName>
+            <KnowhowRefKey>knowhow_5</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_7" appropriate="true">
+            <CategoryName>前提条件</CategoryName>
+            <KnowhowRefKey>knowhow_6</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_8" appropriate="true">
+            <CategoryName>インストール</CategoryName>
+            <KnowhowRefKey>knowhow_7</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_10" appropriate="true">
+            <CategoryName>利用の流れ</CategoryName>
+            <KnowhowRefKey>knowhow_8</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_30" appropriate="true">
+            <CategoryName>Eclipseプロジェクトの作成</CategoryName>
+            <KnowhowRefKey>knowhow_29</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_31" appropriate="true">
+            <CategoryName>ツールの起動</CategoryName>
+            <KnowhowRefKey>knowhow_30</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_32" appropriate="true">
+            <CategoryName>ナレッジの作成</CategoryName>
+            <KnowhowRefKey>knowhow_31</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_33" appropriate="true">
+            <CategoryName>ドキュメントの確認</CategoryName>
+            <KnowhowRefKey>knowhow_32</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_35" appropriate="true">
+            <CategoryName>ファイルの保存</CategoryName>
+            <KnowhowRefKey>knowhow_34</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_29" appropriate="true">
+            <CategoryName>アンインストール</CategoryName>
+            <KnowhowRefKey>knowhow_28</KnowhowRefKey>
+        </Category>
+    </CategoryList>
+    <KnowhowList>
+        <KnowhowInfomation knowhowId="knowhow_1" knowhowDetailRefKey="knowhowDetail_1">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_2" knowhowDetailRefKey="knowhowDetail_2">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_4" knowhowDetailRefKey="knowhowDetail_4">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_5" knowhowDetailRefKey="knowhowDetail_5">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_6" knowhowDetailRefKey="knowhowDetail_6">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_7" knowhowDetailRefKey="knowhowDetail_7">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_8" knowhowDetailRefKey="knowhowDetail_8">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_29" knowhowDetailRefKey="knowhowDetail_29">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_30" knowhowDetailRefKey="knowhowDetail_30">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_31" knowhowDetailRefKey="knowhowDetail_31">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_32" knowhowDetailRefKey="knowhowDetail_32">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_34" knowhowDetailRefKey="knowhowDetail_34">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_28" knowhowDetailRefKey="knowhowDetail_28">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+    </KnowhowList>
+    <DocBookList>
+        <DocBook articleId="knowhowDetail_1">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>本マニュアルは、 <ns2:application>ナレッジ管理ツール</ns2:application> を使用する為に、インストールから利用するまでの手順について簡易に説明したマニュアルです。</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_2">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>
+        本ツールは Eclipse プラグインとして動作し、ナレッジを GUI 上で容易に作成、管理することができるツールです。
+        ナレッジには、移植箇所を抽出するための検索条件、移植難易度、移植工数 (移植概算ライン) 等が設定可能です。
+			登録されるナレッジは XML 形式で管理されます。
+			大きく以下の情報を扱うことが可能です。
+        <ns2:table>
+                            <ns2:title>本ツールで扱う情報</ns2:title>
+                            <ns2:tgroup cols="2">
+<ns2:thead>
+    <ns2:row>
+        <ns2:entry>項目</ns2:entry>
+        <ns2:entry>説明</ns2:entry>
+    </ns2:row>
+</ns2:thead>
+<ns2:tbody>
+    <ns2:row>
+        <ns2:entry>ナレッジのドキュメント情報</ns2:entry>
+        <ns2:entry>ドキュメント情報を HTML 形式で保存できます。保存したファイルを <ns2:application>ナレッジベース検索ツール</ns2:application> にコピーすれば、検索結果からリンク参照することができます。</ns2:entry>
+    </ns2:row>
+    <ns2:row>
+        <ns2:entry>移植箇所の検索情報</ns2:entry>
+        <ns2:entry>検索情報を XML 形式で保存できます。保存したファイルを <ns2:application>ナレッジベース検索ツール</ns2:application> の入力として使用すれば、検索ロジックとして実行することができます。</ns2:entry>
+    </ns2:row>
+</ns2:tbody>
+                            </ns2:tgroup>
+                        </ns2:table>
+      </ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_4">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>本ツールは以下のハードウェア環境で動作することを確認しています。</ns2:para>
+                    <ns2:table>
+                        <ns2:title>ハードウェア要件</ns2:title>
+                        <ns2:tgroup cols="2">
+                            <ns2:thead>
+<ns2:row>
+    <ns2:entry>項目</ns2:entry>
+    <ns2:entry>要件</ns2:entry>
+</ns2:row>
+                            </ns2:thead>
+                            <ns2:tbody>
+<ns2:row>
+    <ns2:entry>CPU</ns2:entry>
+    <ns2:entry>Pentium(R) Dual-Core CPU E5400 @2.70GHz(2 CPU) 相当</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>RAM</ns2:entry>
+    <ns2:entry>2012MB RAM 相当</ns2:entry>
+</ns2:row>
+                            </ns2:tbody>
+                        </ns2:tgroup>
+                    </ns2:table>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_5">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>本ツールは以下のソフトウェア環境で動作することを確認しています。</ns2:para>
+                    <ns2:table>
+                        <ns2:title>ソフトウェア要件</ns2:title>
+                        <ns2:tgroup cols="2">
+                            <ns2:thead>
+<ns2:row>
+    <ns2:entry>項目</ns2:entry>
+    <ns2:entry>要件</ns2:entry>
+</ns2:row>
+                            </ns2:thead>
+                            <ns2:tbody>
+<ns2:row>
+    <ns2:entry>OS</ns2:entry>
+    <ns2:entry>Windows XP/7, RHEL6(※)他同等Linuxで互換性有</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>JavaVM</ns2:entry>
+    <ns2:entry>
+							Oracle JRE 1.6 以上
+						</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>IDE</ns2:entry>
+    <ns2:entry>
+							Eclipse3.7 Indigo
+						</ns2:entry>
+</ns2:row>
+                            </ns2:tbody>
+                        </ns2:tgroup>
+                    </ns2:table>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_6">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>特になし。</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_7">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>
+			事前に
+			<ns2:link>動作環境</ns2:link>
+			に記載されている環境等の準備を整えてください。
+			準備が整っていることを確認し、以下の手順を実施します。
+		</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>ダウンロード</ns2:para>
+                            <ns2:para>プラグインをダウンロードします</ns2:para>
+                            <ns2:para>
+					<ns2:note>
+    <ns2:para>
+							<ns2:link>https://github.com/TUBAME/migration-tool/releases</ns2:link>
+						</ns2:para>
+</ns2:note>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>解凍</ns2:para>
+                            <ns2:para>
+					ダウンロードしたファイルを解凍します。
+					解凍すると
+					<ns2:filename>tubame.knowhow_*</ns2:filename>
+					という名前のディレクトリが作成されます。
+					<ns2:note>
+    <ns2:para>* 部分はプラグインのバージョンによって変わります。</ns2:para>
+</ns2:note>
+					<ns2:important>
+    <ns2:para>
+							Windows 上で zip を解凍する場合、パス長の制限により解凍に失敗する場合があります。
+							失敗した場合は、
+							<ns2:filename>C:\temp</ns2:filename>
+							のような短いパスに解凍してください。
+						</ns2:para>
+</ns2:important>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Eclipse へインストール</ns2:para>
+                            <ns2:para>
+					解凍したディレクトリを、Eclipse インストールディレクトリ下の
+					<ns2:filename>plugins</ns2:filename>
+					ディレクトリに移動またはコピーします。
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>インストール確認</ns2:para>
+                            <ns2:para>
+					以下のように Eclipse メニューを選択します。
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>Help</ns2:guimenu>
+    <ns2:guimenuitem>About Eclipse</ns2:guimenuitem>
+    <ns2:guimenuitem>Installation Details</ns2:guimenuitem>
+    <ns2:guimenuitem>Plug-ins</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                            <ns2:para>
+					<ns2:guilabel>Plug-in Id</ns2:guilabel>
+					の部分に、以下のプラグイン名
+					<ns2:guilabel>tubame.knowhow</ns2:guilabel>
+					が存在することを確認してください。
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>インストール完了</ns2:para>
+                            <ns2:para>これでインストール完了です</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_8">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>ツールの利用の流れを解説します。</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_28">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>
+			インストールした
+			<ns2:filename>tubame.knowhow_*</ns2:filename>
+			を削除してください。以上で、アンインストールは完了です。
+			<ns2:note>
+                            <ns2:para>* 部分はプラグインのバージョンによって変わります。</ns2:para>
+                        </ns2:note>
+			<ns2:note>
+                            <ns2:para>
+					削除した後にEclipseを起動する際は
+					<ns2:command>-clean</ns2:command>
+					のオプションを付与して起動してください。
+				</ns2:para>
+                        </ns2:note>
+		</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_29">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>以下の手順を実施します。</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>Eclipse を起動</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+					プロジェクト作成ウィザードの起動
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>File</ns2:guimenu>
+    <ns2:guimenuitem>New</ns2:guimenuitem>
+    <ns2:guimenuitem>Project...</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+                <ns2:guimenuitem>Project</ns2:guimenuitem> の作成
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>Project</ns2:guimenu>
+    <ns2:guimenuitem>Next</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                            <ns2:para>
+                    <ns2:guilabel>New Project</ns2:guilabel> ウィザードで、移植元の環境に応じて適宜設定を行いプロジェクトを作成します。
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_30">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>以下の手順を実施します。</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+					パースペクティブの起動
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>Window</ns2:guimenu>
+    <ns2:guimenuitem>Open Perspecive</ns2:guimenuitem>
+    <ns2:guimenuitem>Other</ns2:guimenuitem>
+    <ns2:guimenuitem>ナレッジ管理ツール</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>ツールの初期化</ns2:para>
+                            <ns2:para>
+					パースペクティブを起動すると自動的にツールの初期化処理が開始されます。初期化が完了するまでお待ちください。
+					<ns2:note>
+    <ns2:para>XML のマーシャル / アンマーシャルクラスの初期化に時間を要する場合があります。</ns2:para>
+</ns2:note>
+					<ns2:note>
+    <ns2:para>
+							初期化処理はキャンセルできません。
+							<ns2:guimenuitem>Cancel</ns2:guimenuitem>
+							ボタンをクリックしても無視されます。
+						</ns2:para>
+</ns2:note>
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_31">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>ナレッジの作成方法を以下に記載します。</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+					ナレッジ XML ファイルの新規作成
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>File</ns2:guimenu>
+    <ns2:guimenuitem>New</ns2:guimenuitem>
+    <ns2:guimenuitem>Other</ns2:guimenuitem>
+    <ns2:guimenuitem>ナレッジ XML ファイル</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                            <ns2:para>
+                <ns2:note>
+    <ns2:para>作成済みの <ns2:filename>ナレッジ XML</ns2:filename> ファイルを開く場合は。該当ファイル上で右クリックして以下のようにメニューを選択してください。
+					</ns2:para>
+    <ns2:para>
+						<ns2:menuchoice>
+            <ns2:guimenu>Open With</ns2:guimenu>
+            <ns2:guimenuitem>Other</ns2:guimenuitem>
+            <ns2:guimenuitem>ナレッジエディタ</ns2:guimenuitem>
+        </ns2:menuchoice>
+					</ns2:para>
+</ns2:note>
+                </ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>ナレッジエントリービューの操作</ns2:para>
+                            <ns2:para>
+					個々のナレッジは
+					<ns2:guilabel>ナレッジエントリービュー</ns2:guilabel>
+					上で追加・参照・更新・削除します。
+					作成したナレッジはアイテムとしてドキュメント作成等に活用できます。
+					<ns2:guilabel>ナレッジエントリービュー</ns2:guilabel>
+					は、以下のいずれかの方法で起動します。
+					<ns2:itemizedlist>
+    <ns2:listitem>
+        <ns2:para>
+								ナレッジ XML 新規作成後に自動起動
+							</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>
+								Eclipse のビュー表示メニューからの起動
+							</ns2:para>
+        <ns2:para>
+								<ns2:menuchoice>
+                <ns2:guimenu>Window</ns2:guimenu>
+                <ns2:guimenuitem>Show View</ns2:guimenuitem>
+                <ns2:guimenuitem>Other</ns2:guimenuitem>
+                <ns2:guimenuitem>ナレッジ管理ツール</ns2:guimenuitem>
+                <ns2:guimenuitem>ナレッジエントリービュー</ns2:guimenuitem>
+            </ns2:menuchoice>
+							</ns2:para>
+    </ns2:listitem>
+</ns2:itemizedlist>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+					ナレッジを構成するアイテム群の作成
+				</ns2:para>
+                            <ns2:para>
+					アイテムの作成は以下の手順で実施します。最初はアイテムが 1 つもないため、必ず
+					<ns2:guilabel>カテゴリ</ns2:guilabel>
+					を作成することになります。
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>(アイテムの選択)</ns2:guimenu>
+    <ns2:guimenuitem>右クリック</ns2:guimenuitem>
+    <ns2:guimenuitem>任意の登録メニュー</ns2:guimenuitem>
+    <ns2:guimenuitem>登録Wizard起動</ns2:guimenuitem>
+</ns2:menuchoice>
+					<ns2:note>
+    <ns2:para>
+							アイテムを未選択の場合は
+							<ns2:guilabel>カテゴリ</ns2:guilabel>
+							のみ作成可能です。
+						</ns2:para>
+</ns2:note>
+					<ns2:note>
+    <ns2:para>上記の他に、コピー&amp;ペーストによる作成も可能です。</ns2:para>
+</ns2:note>
+
+					ナレッジを構成するアイテムは、以下の種類があります。
+					以下に各アイテムの説明を記載します。
+					<ns2:table>
+    <ns2:title>アイテムの種類</ns2:title>
+    <ns2:tgroup cols="2">
+        <ns2:thead>
+            <ns2:row>
+                <ns2:entry>項目</ns2:entry>
+                <ns2:entry>説明</ns2:entry>
+            </ns2:row>
+        </ns2:thead>
+        <ns2:tbody>
+            <ns2:row>
+                <ns2:entry>カテゴリ</ns2:entry>
+                <ns2:entry>ドキュメント構成の章・節にタイトルに相当すアイテムです。タイトル情報のみ保持します。</ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>ナレッジ</ns2:entry>
+                <ns2:entry>
+										ドキュメント構成の章・節に記述されるナレッジコンテンツに相当するアイテムです。
+										<ns2:tag>DocBook#Artile</ns2:tag>
+										形式のコンテンツ情報のみ保持します。
+									</ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>チェックアイテム</ns2:entry>
+                <ns2:entry>
+										該当ナレッジの移植判断情報を保持するアイテムです。
+										<ns2:guilabel>検索手順</ns2:guilabel>
+										、
+										<ns2:guilabel>移植要因</ns2:guilabel>
+										、
+										<ns2:guilabel>難易度</ns2:guilabel>
+										などの情報を保持します。
+									</ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>検索情報</ns2:entry>
+                <ns2:entry>
+										<ns2:application>ナレッジベース検索ツール</ns2:application>
+										が検索の際に使用する検索ロジックとなるアイテムです。
+									</ns2:entry>
+            </ns2:row>
+        </ns2:tbody>
+    </ns2:tgroup>
+</ns2:table>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+					ナレッジエディタの操作
+				</ns2:para>
+                            <ns2:para>
+					登録されたアイテムの編集や、ドキュメント構成の作成を行います。
+					<ns2:guilabel>ナレッジエディタ</ns2:guilabel>
+					には以下の種類のタブがあります。
+					以下に各タブの説明を記載します。
+					<ns2:table>
+    <ns2:title>タブの種類</ns2:title>
+    <ns2:tgroup cols="2">
+        <ns2:thead>
+            <ns2:row>
+                <ns2:entry>項目</ns2:entry>
+                <ns2:entry>説明</ns2:entry>
+            </ns2:row>
+        </ns2:thead>
+        <ns2:tbody>
+            <ns2:row>
+                <ns2:entry>ドキュメンテーション</ns2:entry>
+                <ns2:entry>
+										作成する HTML ドキュメントの章構成を編集することができます。
+										見出しを作成後、
+										<ns2:guilabel>ナレッジエントリービュー</ns2:guilabel>
+										から
+										<ns2:guilabel>カテゴリ</ns2:guilabel> をドラッグ&amp;ドロップすることでドキュメントを構成していきます。
+									</ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>ナレッジ詳細</ns2:entry>
+                <ns2:entry>
+										ナレッジのコンテンツを
+										<ns2:tag>DocBook#Article</ns2:tag>
+										形式で編集するエディタです。エディタ上で右クリックを行い、タグのテンプレートを挿入することもできます。
+										<ns2:important>
+                        <ns2:para>
+												独自にセクションが作成され章構成が崩れるのを防ぐため、
+												<ns2:tag>&lt;section&gt;</ns2:tag>
+												タグは使用できません。
+											</ns2:para>
+                    </ns2:important>
+									</ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>チェックアイテム</ns2:entry>
+                <ns2:entry>
+										<ns2:guilabel>ナレッジエントリービュー</ns2:guilabel>
+										で選択している
+										<ns2:guilabel>チェックアイテム情報</ns2:guilabel>
+										および
+										<ns2:guilabel>検索情報</ns2:guilabel>
+										を編集することができます。
+									</ns2:entry>
+            </ns2:row>
+        </ns2:tbody>
+    </ns2:tgroup>
+</ns2:table>
+					以下に
+					<ns2:guilabel>チェックアイテム</ns2:guilabel>
+					タブで編集する
+					<ns2:guilabel>チェックアイテム情報</ns2:guilabel> および
+					<ns2:guilabel>検索情報</ns2:guilabel>
+					の各入力項目の説明をします。
+					<ns2:table>
+    <ns2:title>チェックアイテム情報</ns2:title>
+    <ns2:tgroup cols="2">
+        <ns2:thead>
+            <ns2:row>
+                <ns2:entry>項目</ns2:entry>
+                <ns2:entry>説明</ns2:entry>
+            </ns2:row>
+        </ns2:thead>
+        <ns2:tbody>
+            <ns2:row>
+                <ns2:entry>検索手順</ns2:entry>
+                <ns2:entry>登録するナレッジとしてどのような移植箇所をどのように検索するのかの概要を文章で入力します。
+									</ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>検索実施</ns2:entry>
+                <ns2:entry>
+										<ns2:application>ナレッジベース検索ツール</ns2:application>
+										で検索する際に、実際に検索対象とする場合はチェックを有効にします。
+									</ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>移植要因</ns2:entry>
+                <ns2:entry>移植が必要となる理由として該当する項目を選択します。</ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>難易度</ns2:entry>
+                <ns2:entry>
+										移植作業の難易度を選択します。
+
+										<ns2:note>
+                        <ns2:para>選択基準は以下となります。</ns2:para>
+                        <ns2:itemizedlist>
+                            <ns2:listitem>
+<ns2:para>
+    <ns2:guilabel>高</ns2:guilabel>
+</ns2:para>
+<ns2:para>実装内容の大規模な修正が必要で、実装や設定等の大幅な見直しが必要</ns2:para>
+                            </ns2:listitem>
+                            <ns2:listitem>
+<ns2:para>
+    <ns2:guilabel>中</ns2:guilabel>
+</ns2:para>
+<ns2:para>実装内容を考慮した小規模な修正が必要</ns2:para>
+                            </ns2:listitem>
+                            <ns2:listitem>
+<ns2:para>
+    <ns2:guilabel>低</ns2:guilabel>
+</ns2:para>
+<ns2:para>実装内容を考慮せず軽微な修正で対応可能</ns2:para>
+                            </ns2:listitem>
+                            <ns2:listitem>
+<ns2:para>
+    <ns2:guilabel>不明</ns2:guilabel>
+</ns2:para>
+<ns2:para>難易度不明</ns2:para>
+                            </ns2:listitem>
+                            <ns2:listitem>
+<ns2:para>
+    <ns2:guilabel>移植不可</ns2:guilabel>
+</ns2:para>
+<ns2:para>移植不可</ns2:para>
+                            </ns2:listitem>
+                        </ns2:itemizedlist>
+                    </ns2:note>
+									</ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>難易度詳細</ns2:entry>
+                <ns2:entry>移植作業の詳細な難易度を選択します。
+
+										<ns2:note>
+                        <ns2:para>選択基準は以下となります。</ns2:para>
+                        <ns2:itemizedlist>
+                            <ns2:listitem>
+<ns2:para>
+    <ns2:guilabel>高</ns2:guilabel>
+</ns2:para>
+<ns2:para>難易度が <ns2:guilabel>高</ns2:guilabel> であるもの</ns2:para>
+                            </ns2:listitem>
+                            <ns2:listitem>
+<ns2:para>
+    <ns2:guilabel>中</ns2:guilabel>
+</ns2:para>
+<ns2:para>難易度が <ns2:guilabel>中</ns2:guilabel> であるもの</ns2:para>
+                            </ns2:listitem>
+                            <ns2:listitem>
+<ns2:para>
+    <ns2:guilabel>低1</ns2:guilabel>
+</ns2:para>
+<ns2:para>難易度が <ns2:guilabel>低</ns2:guilabel> であり、置換レベルで対応不可能であるもの</ns2:para>
+                            </ns2:listitem>
+                            <ns2:listitem>
+<ns2:para>
+    <ns2:guilabel>低2</ns2:guilabel>
+</ns2:para>
+<ns2:para>難易度が <ns2:guilabel>低</ns2:guilabel> であり、置換レベルで対応可能であるもの</ns2:para>
+                            </ns2:listitem>
+                            <ns2:listitem>
+<ns2:para>
+    <ns2:guilabel>不明1</ns2:guilabel>
+</ns2:para>
+<ns2:para>難易度が <ns2:guilabel>不明</ns2:guilabel> であり、JBossにて該当機能がなく難易度を判断できないもの</ns2:para>
+                            </ns2:listitem>
+                            <ns2:listitem>
+<ns2:para>
+    <ns2:guilabel>不明2</ns2:guilabel>
+</ns2:para>
+<ns2:para>難易度が <ns2:guilabel>不明</ns2:guilabel> であり、JBossに該当機能があるかどうかも不明で難易度を判断できないもの</ns2:para>
+                            </ns2:listitem>
+                            <ns2:listitem>
+<ns2:para>
+    <ns2:guilabel>移植不可</ns2:guilabel>
+</ns2:para>
+<ns2:para>難易度が <ns2:guilabel>移植不可</ns2:guilabel> であるもの</ns2:para>
+                            </ns2:listitem>
+                        </ns2:itemizedlist>
+                    </ns2:note>
+    </ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>目視確認</ns2:entry>
+                <ns2:entry>設定したロジカルな検索条件だけでは移植項目が特定できない場合の目視による調査方法または、判定基準等を入力します。
+									</ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>ヒアリング確認</ns2:entry>
+                <ns2:entry>開発元に確認しなければ移植の必要性が判断できない項目の場合の開発元への確認内容を入力します。
+									</ns2:entry>
+            </ns2:row>
+        </ns2:tbody>
+    </ns2:tgroup>
+</ns2:table>
+					<ns2:table>
+    <ns2:title>検索情報</ns2:title>
+    <ns2:tgroup cols="2">
+        <ns2:thead>
+            <ns2:row>
+                <ns2:entry>項目</ns2:entry>
+                <ns2:entry>説明</ns2:entry>
+            </ns2:row>
+        </ns2:thead>
+        <ns2:tbody>
+            <ns2:row>
+                <ns2:entry>検索対象ファイル</ns2:entry>
+                <ns2:entry>検索対象とするファイル名を入力します。正規表現での入力が可能です。
+									</ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>検索キーワード 1</ns2:entry>
+                <ns2:entry>検索モジュールに渡すパラメータを入力します。正規表現や XPath での入力も可能です。<ns2:note>
+                        <ns2:para>入力するパラメータについては、検索モジュールによって変わります。検索モジュール概要を参考にパラメータを入力してください。</ns2:para>
+                    </ns2:note>
+    </ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>検索キーワード 2</ns2:entry>
+                <ns2:entry>検索モジュールに渡すパラメータを入力します。正規表現や XPath での入力も可能です。<ns2:note>
+                        <ns2:para>入力するパラメータについては、検索モジュールによって変わります。検索モジュール概要を参考にパラメータを入力してください。</ns2:para>
+                    </ns2:note>
+    </ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>検索モジュール</ns2:entry>
+                <ns2:entry>検索モジュール概要を参考に検索したいモジュールを選択します。<ns2:note>
+                        <ns2:para>未選択の場合は、標準検索機能により検索が実行されます。標準検索機能は、<ns2:guilabel>検索対象ファイル</ns2:guilabel>でヒットしたファイルに対して
+    <ns2:guilabel>検索キーワード 1</ns2:guilabel> で検索後、 <ns2:guilabel>検索キーワード 2</ns2:guilabel> でさらに検索を行います。</ns2:para>
+                    </ns2:note>
+    </ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>検索モジュール概要</ns2:entry>
+                <ns2:entry>検索モジュールの概要説明が表示されます。</ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>ライン数算出</ns2:entry>
+                <ns2:entry>検索にヒットした場合に <ns2:guilabel>ライン数</ns2:guilabel> に入力した値を移植工数として加算する場合はチェックを有効にします。</ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>非算出理由</ns2:entry>
+                <ns2:entry>
+        <ns2:guilabel>ライン数算出</ns2:guilabel> を無効にする場合は、その理由を入力します。</ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>不明 / TODO</ns2:entry>
+                <ns2:entry>
+        <ns2:guilabel>ライン数</ns2:guilabel> が不確定な場合に、該当する項目を選択します。</ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>ライン数</ns2:entry>
+                <ns2:entry>移植に要するおおよその修正ライン数を入力します。</ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>ライン数根拠</ns2:entry>
+                <ns2:entry>入力した <ns2:guilabel>ライン数</ns2:guilabel> の根拠を入力します。</ns2:entry>
+            </ns2:row>
+            <ns2:row>
+                <ns2:entry>調査内容</ns2:entry>
+                <ns2:entry>修正ライン数を算出するための調査方法等を入力します。</ns2:entry>
+            </ns2:row>
+        </ns2:tbody>
+    </ns2:tgroup>
+</ns2:table>
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_32">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>作成したナレッジドキュメントを Eclipse 標準ブラウザで確認することができます。
+			以下の 2 種類の確認方法があります。
+		</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>ドキュメント全体での確認</ns2:para>
+                            <ns2:para>
+					ツールバー上の
+					<ns2:guimenu>HTML プレビュー</ns2:guimenu>
+					ボタンで、
+					<ns2:guilabel>ドキュメンテーション</ns2:guilabel>
+					タブにて構成したドキュメント全体を確認できます。
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>アイテム単体での確認</ns2:para>
+                            <ns2:para>
+					<ns2:guilabel>ナレッジ詳細</ns2:guilabel>
+					タブにて作成したアイテム単体でのドキュメントを確認できます。
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>ナレッジ詳細</ns2:guimenu>
+    <ns2:guimenuitem>右クリック</ns2:guimenuitem>
+    <ns2:guimenuitem>HTML プレビュー</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_34">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>作成したナレッジをファイルとして保存できます。
+			以下の 2 種類の確認方法があります。
+		</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>XML 保存</ns2:para>
+                            <ns2:para>
+					ツールバー上の
+					<ns2:guimenu>XML 保存</ns2:guimenu>
+					ボタンで、 XML 形式でファイルを保存することができます。
+				</ns2:para>
+                            <ns2:para>
+                <ns2:note>
+    <ns2:para>保存したファイルは、 <ns2:application>ナレッジ管理ツール</ns2:application> で再度編集することができます。</ns2:para>
+</ns2:note>
+				</ns2:para>
+                            <ns2:para>
+                <ns2:note>
+    <ns2:para>保存したファイルは、 <ns2:application>ナレッジベース検索ツール</ns2:application> の入力ファイルとして利用できます。</ns2:para>
+</ns2:note>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>HTML 保存</ns2:para>
+                            <ns2:para>
+					ツールバー上の
+					<ns2:guimenu>HTML 保存</ns2:guimenu>
+					ボタンで、 HTML 形式でファイルを保存することができます。
+				</ns2:para>
+                            <ns2:important>
+<ns2:para>保存したファイルは、 <ns2:application>ナレッジ管理ツール</ns2:application> で再度エディットすることはできません。</ns2:para>
+                            </ns2:important>
+                            <ns2:para>
+                <ns2:note>
+    <ns2:para>保存したファイルは、 <ns2:application>ナレッジベース検索ツール</ns2:application> のリンク先ファイルとして利用できます。</ns2:para>
+</ns2:note>
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+    </DocBookList>
+    <SearchInfomationList/>
+</PortabilityKnowhow>

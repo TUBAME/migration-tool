@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PortabilityKnowhow xmlns="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:ns2="http://docbook.org/ns/docbook">
+    <PortabilityKnowhowTitle>ナレッジベース検索レポート</PortabilityKnowhowTitle>
+    <EntryViewList>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_2</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_3</EntryCategoryRefKey>
+        </EntryCategory>
+    </EntryViewList>
+    <ChapterList>
+        <Chapter>
+            <ChapterNo>1.</ChapterNo>
+            <ChapterName>TUBAMEレポート</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>1.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_2</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>1.2.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_3</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+    </ChapterList>
+    <CategoryList>
+        <Category categoryId="category_2" appropriate="true">
+            <CategoryName>前提条件</CategoryName>
+            <KnowhowRefKey>knowhow_2</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_3" appropriate="true">
+            <CategoryName>レポート出力方法</CategoryName>
+            <KnowhowRefKey>knowhow_3</KnowhowRefKey>
+        </Category>
+    </CategoryList>
+    <KnowhowList>
+        <KnowhowInfomation knowhowId="knowhow_2" knowhowDetailRefKey="knowhowDetail_2">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_3" knowhowDetailRefKey="knowhowDetail_3">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+            <CheckItem checkItemId="checkItem_3" searchRefKey="searchInfo_2" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>seach-csv</CheckItemName>
+                <SearchProcess>jbmファイル及びgbmファイルを検索する</SearchProcess>
+                <PortabilityFactor>AP サーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Middle</PortabilityDegree>
+                <DegreeDetail>中</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+    </KnowhowList>
+    <DocBookList>
+        <DocBook articleId="knowhowDetail_2">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>
+			前提条件を以下に示す
+
+			<ns2:itemizedlist>
+                            <ns2:listitem>
+<ns2:para>ナレッジベース検索ツール</ns2:para>
+<ns2:itemizedlist>
+    <ns2:listitem>
+        <ns2:para>ナレッジベース検索ツールの作業状況ビューより以下のタスクが完了していること。</ns2:para>
+        <ns2:orderedlist>
+            <ns2:listitem>
+                <ns2:para>目視確認項目の確認</ns2:para>
+            </ns2:listitem>
+            <ns2:listitem>
+                <ns2:para>ヒアリング確認項目の確認</ns2:para>
+            </ns2:listitem>
+            <ns2:listitem>
+                <ns2:para>不明項目(ライン数が不明となっている項目)の確認</ns2:para>
+            </ns2:listitem>
+            <ns2:listitem>
+                <ns2:para>SE手動算出項目(ライン数をSEが設定する項目)の確認</ns2:para>
+            </ns2:listitem>
+        </ns2:orderedlist>
+        <ns2:warning>
+            <ns2:para>作業状況ビューにより、残項目が存在しないことを確認してください</ns2:para>
+            <ns2:figure>
+                <ns2:title>作業状況ビュー </ns2:title>
+                <ns2:mediaobject>
+                    <ns2:imageobject>
+                        <ns2:imagedata fileref="images/status.JPG" width="200"/>
+                    </ns2:imageobject>
+                </ns2:mediaobject>
+            </ns2:figure>
+        </ns2:warning>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>
+								ナレッジベース検索ツールの作業状況ビューのタスクがすべて完了後、「チェック済みの移植不要項目の削除」を実行済みであること
+								<ns2:figure>
+                <ns2:title>ナレッジベース検索ツールの「チェック済みの移植不要項目の削除」ボタンについて</ns2:title>
+                <ns2:mediaobject>
+                    <ns2:imageobject>
+                        <ns2:imagedata fileref="images/delete_checkedItem.JPG" width="600"/>
+                    </ns2:imageobject>
+                </ns2:mediaobject>
+            </ns2:figure>
+							</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>「CSV保存ボタン」を実行し、ファイル出力すること.本例ではknowhow_result.csvとして出力する
+							</ns2:para>
+        <ns2:figure>
+            <ns2:title>ナレッジベース検索ツールの「CSV保存」ボタンについて</ns2:title>
+            <ns2:mediaobject>
+                <ns2:imageobject>
+                    <ns2:imagedata fileref="images/save_csv.JPG" width="600"/>
+                </ns2:imageobject>
+            </ns2:mediaobject>
+        </ns2:figure>
+    </ns2:listitem>
+</ns2:itemizedlist>
+                            </ns2:listitem>
+                            <ns2:listitem>
+<ns2:para>依存性検索ツール</ns2:para>
+<ns2:figure>
+    <ns2:title>依存性検索検索結果ビューより「CSV出力」を実施していること。本例ではdepends_result.csvとして出力する
+						</ns2:title>
+    <ns2:mediaobject>
+        <ns2:imageobject>
+            <ns2:imagedata fileref="images/depends_save_csv.JPG" width="600"/>
+        </ns2:imageobject>
+    </ns2:mediaobject>
+</ns2:figure>
+<ns2:para/>
+                            </ns2:listitem>
+                        </ns2:itemizedlist>
+
+
+		</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_3">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>ナレッジベース検索ツールまたは、依存性検索ツールでCSV出力した２つのファイルをEclipseのプロジェクト内にコピーしてださい
+				</ns2:para>
+                            <ns2:important>
+<ns2:para>ナレッジベース検索ツールの結果をレポートする場合は、eclipse/plugins/tubame.portability-*/resources/xml/checkListInformation_ja.xmlも必要となるため、CSVファイルに加え、checkListInformation_ja.xmlファイルもEclipseのプロジェクト内の同じ場所にコピーしてださい
+					</ns2:para>
+                            </ns2:important>
+                            <ns2:important>
+<ns2:para>汎用検索検索ツールの結果をレポートする場合は、前提条件にあるように、かならずCSV出力したものをEclipseのプロジェクト内にコピーしてださい。
+					</ns2:para>
+                            </ns2:important>
+                            <ns2:note>
+<ns2:para>ここではナレッジベース検索ツールで出力したファイルをknowhow_result.csv、依存性検索ツールで出力したファイルをdepends_result.csvとして保存する
+					</ns2:para>
+<ns2:para>保存先はプロジェクト内であれば、任意ですが、この例ではreport_inputディレクトリにCSVファイルを保存する
+					</ns2:para>
+                            </ns2:note>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>CSVファイルの拡張子を変更する</ns2:para>
+                            <ns2:note>
+<ns2:para>ナレッジベース検索ツールで出力したCSVファイルの拡張子をjbmに変更する( knowhow_result.csv
+						-&gt;
+						knowhow_result.jbm )
+					</ns2:para>
+<ns2:para>依存性検索ツールで出力したCSVファイルの拡張子をgjbmに変更する( depends_result.csv -&gt;
+						depends_result.gjbm )
+					</ns2:para>
+                            </ns2:note>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>TubameReportGenerator.xmlを取得する</ns2:para>
+                            <ns2:note>
+<ns2:para>TubameReportGenerator.xmlについては以下より取得可能です</ns2:para>
+<ns2:para>https://github.com/TUBAME/migration-knowledge/releases/download/report-generator/tubame-report-knowledge.zip
+					</ns2:para>
+                            </ns2:note>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>ナレッジXMLにTubameReportGenerator.xmlを指定して、ナレッジベース検索を実行する。本例の場合は、report_inputディレクトリを右クリックして、ナレッジベース検索を実行する
+				</ns2:para>
+                            <ns2:figure>
+<ns2:title>ナレッジベース検索メニュー </ns2:title>
+<ns2:mediaobject>
+    <ns2:imageobject>
+        <ns2:imagedata fileref="images/tubame_menu.JPG" width="300"/>
+    </ns2:imageobject>
+</ns2:mediaobject>
+                            </ns2:figure>
+                            <ns2:warning>
+<ns2:para>以下の点に注意してください</ns2:para>
+<ns2:itemizedlist>
+    <ns2:listitem>
+        <ns2:para>検索対象に必ずナレッジベース検索ツールまたは依存性検索ツールで出力したCSVファイル(本例ではknowhow_result.jbm及びdepends_result.gjbm)が格納されていることを確認してください
+							</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>ナレッジベース検索ツールの結果をレポートする場合は、eclipse/plugins/tubame.portability-*/resources/xml/checkListInformation_ja.xmlも必要となるため、CSVファイルに加え、checkListInformation_ja.xmlファイルもknowhow_result.jbmと同じ場所に配置されていることを確認してください
+							</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>ナレッジXMLはTubameReportGenerator.xmlを指定してください</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>検索対象は、レポート対象のjbmやgjbmファイルが存在するディレクトリを指定してください。本例の場合は、report_inputディレクトリを右クリックして、ナレッジベース検索を実行する</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>結果出力先ファイルは上書きされないように出力先のファイル名はreport_search_result.jbm等に変更するようにしてください。
+							</ns2:para>
+    </ns2:listitem>
+</ns2:itemizedlist>
+                            </ns2:warning>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>出力されたレポートの確認</ns2:para>
+                            <ns2:note>
+<ns2:para>
+						レポートはデフォルトではeclipse\plugins\tubame.knowhow-*/report配下に出力されます。
+						出力先を変更したい場合は、TubameReportGenerator.xmlをナレッジ管理ツールで開き、チェックアイテム「search-csv」の検索キーワード1に出力先ディレクトリをフルパスで指定してください
+
+					</ns2:para>
+<ns2:figure>
+    <ns2:title>TUBAMEレポートイメージ</ns2:title>
+    <ns2:mediaobject>
+        <ns2:imageobject>
+            <ns2:imagedata fileref="images/tubame_report_image.png" width="600"/>
+        </ns2:imageobject>
+    </ns2:mediaobject>
+</ns2:figure>
+                            </ns2:note>
+                            <ns2:important>
+<ns2:para>レポート出力後に再度jbmファイルエディタで参照、編集する場合は、プロジェクト内にコピーしたファイルのcheckListInformation_ja.xmlをeclipse/plugins/tubame.portability-*/resources/xml/配下にコピーする必要があります
+					</ns2:para>
+                            </ns2:important>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+    </DocBookList>
+    <SearchInfomationList>
+        <SearchInfomation searchInfoId="searchInfo_2">
+            <FileType>.*g?jbm</FileType>
+            <SearchKey1></SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_report_generator.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>0</LineNumber>
+                <LineNumberContents></LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+    </SearchInfomationList>
+</PortabilityKnowhow>

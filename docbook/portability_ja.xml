@@ -1,0 +1,1548 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PortabilityKnowhow xmlns="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:ns2="http://docbook.org/ns/docbook">
+    <PortabilityKnowhowTitle>オンラインクイックユーザマニュアル - ナレッジベース検索ツール</PortabilityKnowhowTitle>
+    <EntryViewList>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_1</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_2</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_3</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_6</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_7</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_8</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_10</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_11</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_15</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_17</EntryCategoryRefKey>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_12</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_18</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_19</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_26</EntryCategoryRefKey>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_13</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_27</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_28</EntryCategoryRefKey>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_29</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_30</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_31</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_32</EntryCategoryRefKey>
+            </ChildEntry>
+        </EntryCategory>
+    </EntryViewList>
+    <ChapterList>
+        <Chapter>
+            <ChapterNo>1.</ChapterNo>
+            <ChapterName>はじめに</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>1.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_1</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>1.2.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_2</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>2.</ChapterNo>
+            <ChapterName>動作環境</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>2.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_3</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>2.2.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_6</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>2.3.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_7</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>3.</ChapterNo>
+            <ChapterName>インストール</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>3.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_8</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>4.</ChapterNo>
+            <ChapterName>利用方法</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>4.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_10</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>4.1.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_11</ChapterCategoryRefKey>
+                    <ChildChapter>
+                        <ChildCapterNo>4.1.1.1.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_15</ChapterCategoryRefKey>
+                    </ChildChapter>
+                    <ChildChapter>
+                        <ChildCapterNo>4.1.1.2.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_17</ChapterCategoryRefKey>
+                    </ChildChapter>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>4.1.2.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_12</ChapterCategoryRefKey>
+                    <ChildChapter>
+                        <ChildCapterNo>4.1.2.1.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_18</ChapterCategoryRefKey>
+                    </ChildChapter>
+                    <ChildChapter>
+                        <ChildCapterNo>4.1.2.2.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_19</ChapterCategoryRefKey>
+                    </ChildChapter>
+                    <ChildChapter>
+                        <ChildCapterNo>4.1.2.3.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_26</ChapterCategoryRefKey>
+                    </ChildChapter>
+                </ChildChapter>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>5.</ChapterNo>
+            <ChapterName>アンイストール</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>5.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_29</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>6.</ChapterNo>
+            <ChapterName>付録</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>6.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_30</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>6.1.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_31</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>6.1.2.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_32</ChapterCategoryRefKey>
+                </ChildChapter>
+            </ChildChapter>
+        </Chapter>
+    </ChapterList>
+    <CategoryList>
+        <Category categoryId="category_1" appropriate="true">
+            <CategoryName>本ドキュメントの紹介</CategoryName>
+            <KnowhowRefKey>knowhow_1</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_2" appropriate="true">
+            <CategoryName>本ツールの紹介</CategoryName>
+            <KnowhowRefKey>knowhow_2</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_3" appropriate="true">
+            <CategoryName>ハードウェア要件</CategoryName>
+            <KnowhowRefKey>knowhow_4</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_6" appropriate="true">
+            <CategoryName>ソフトウェア要件</CategoryName>
+            <KnowhowRefKey>knowhow_5</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_7" appropriate="true">
+            <CategoryName>前提条件</CategoryName>
+            <KnowhowRefKey>knowhow_6</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_8" appropriate="true">
+            <CategoryName>インストール</CategoryName>
+            <KnowhowRefKey>knowhow_7</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_10" appropriate="true">
+            <CategoryName>利用の流れ</CategoryName>
+            <KnowhowRefKey>knowhow_8</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_11" appropriate="true">
+            <CategoryName>検索機能</CategoryName>
+            <KnowhowRefKey>knowhow_10</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_15" appropriate="true">
+            <CategoryName>Eclipseプロジェクトの作成</CategoryName>
+            <KnowhowRefKey>knowhow_14</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_17" appropriate="true">
+            <CategoryName>検索の実行</CategoryName>
+            <KnowhowRefKey>knowhow_16</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_12" appropriate="true">
+            <CategoryName>検索結果編集機能</CategoryName>
+            <KnowhowRefKey>knowhow_11</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_18" appropriate="true">
+            <CategoryName>検索結果の確認</CategoryName>
+            <KnowhowRefKey>knowhow_17</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_19" appropriate="true">
+            <CategoryName>検索結果の編集</CategoryName>
+            <KnowhowRefKey>knowhow_18</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_26" appropriate="true">
+            <CategoryName>編集結果の保存</CategoryName>
+            <KnowhowRefKey>knowhow_25</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_13" appropriate="true">
+            <CategoryName>変換機能</CategoryName>
+            <KnowhowRefKey>knowhow_12</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_27" appropriate="true">
+            <CategoryName>Eclipseプロジェクトの作成</CategoryName>
+            <KnowhowRefKey>knowhow_26</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_28" appropriate="true">
+            <CategoryName>変換の実行</CategoryName>
+            <KnowhowRefKey>knowhow_27</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_29" appropriate="true">
+            <CategoryName>アンインストール</CategoryName>
+            <KnowhowRefKey>knowhow_28</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_30" appropriate="false">
+            <CategoryName>Pythonおよびlxmlのインストール</CategoryName>
+            <KnowhowRefKey>knowhow_29</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_31" appropriate="true">
+            <CategoryName>Linuxでのインストール手順</CategoryName>
+            <KnowhowRefKey>knowhow_30</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_32" appropriate="true">
+            <CategoryName>Windowsでのインストール手順</CategoryName>
+            <KnowhowRefKey>knowhow_31</KnowhowRefKey>
+        </Category>
+    </CategoryList>
+    <KnowhowList>
+        <KnowhowInfomation knowhowId="knowhow_1" knowhowDetailRefKey="knowhowDetail_1">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_2" knowhowDetailRefKey="knowhowDetail_2">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_4" knowhowDetailRefKey="knowhowDetail_4">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_5" knowhowDetailRefKey="knowhowDetail_5">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_6" knowhowDetailRefKey="knowhowDetail_6">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_7" knowhowDetailRefKey="knowhowDetail_7">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_8" knowhowDetailRefKey="knowhowDetail_8">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_10" knowhowDetailRefKey="knowhowDetail_10">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_14" knowhowDetailRefKey="knowhowDetail_14">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_16" knowhowDetailRefKey="knowhowDetail_16">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_11" knowhowDetailRefKey="knowhowDetail_11">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_17" knowhowDetailRefKey="knowhowDetail_17">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_18" knowhowDetailRefKey="knowhowDetail_18">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_25" knowhowDetailRefKey="knowhowDetail_25">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_12" knowhowDetailRefKey="knowhowDetail_12">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_26" knowhowDetailRefKey="knowhowDetail_26">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_27" knowhowDetailRefKey="knowhowDetail_27">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_28" knowhowDetailRefKey="knowhowDetail_28">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_29" knowhowDetailRefKey="knowhowDetail_29">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_30" knowhowDetailRefKey="knowhowDetail_30">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_31" knowhowDetailRefKey="knowhowDetail_31">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+    </KnowhowList>
+    <DocBookList>
+        <DocBook articleId="knowhowDetail_1">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>本マニュアルは、ナレッジベース検索ツールを使用する為に、インストールから利用するまでの手順について簡易に説明したマニュアルです。</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_2">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>
+			本ツールは Eclipse プラグインとして動作し、 JBoss への移植を行う人向けに、
+			移植に必要な概算修正規模等を算出するツールです。
+			主に以下の機能を有します。
+			<ns2:table>
+                            <ns2:title>本ツールの主な機能</ns2:title>
+                            <ns2:tgroup cols="2">
+<ns2:thead>
+    <ns2:row>
+        <ns2:entry>機能</ns2:entry>
+        <ns2:entry>説明</ns2:entry>
+    </ns2:row>
+</ns2:thead>
+<ns2:tbody>
+    <ns2:row>
+        <ns2:entry>検索機能</ns2:entry>
+        <ns2:entry>JBoss への移植において修正が必要な箇所を検索する機能です。
+							</ns2:entry>
+    </ns2:row>
+    <ns2:row>
+        <ns2:entry>検索結果編集機能</ns2:entry>
+        <ns2:entry>検索結果を視覚的に表示し編集する機能です。
+								検索結果に対して、個別に移植要否の調整ができます。
+								アプリケーション個別な要件を踏まえ、移植規模の抽出精度の向上を可能にします。
+							</ns2:entry>
+    </ns2:row>
+</ns2:tbody>
+                            </ns2:tgroup>
+                        </ns2:table>
+		</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_4">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>本ツールは以下のハードウェア環境で動作することを確認しています。</ns2:para>
+                    <ns2:table>
+                        <ns2:title>ハードウェア要件</ns2:title>
+                        <ns2:tgroup cols="2">
+                            <ns2:thead>
+<ns2:row>
+    <ns2:entry>項目</ns2:entry>
+    <ns2:entry>要件</ns2:entry>
+</ns2:row>
+                            </ns2:thead>
+                            <ns2:tbody>
+<ns2:row>
+    <ns2:entry>CPU</ns2:entry>
+    <ns2:entry>Pentium(R) Dual-Core CPU E5400 @2.70GHz(2 CPU) 相当</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>RAM</ns2:entry>
+    <ns2:entry>2012MB RAM 相当</ns2:entry>
+</ns2:row>
+                            </ns2:tbody>
+                        </ns2:tgroup>
+                    </ns2:table>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_5">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>本ツールは以下のソフトウェア環境で動作することを確認しています。</ns2:para>
+                    <ns2:table>
+                        <ns2:title>ソフトウェア要件</ns2:title>
+                        <ns2:tgroup cols="2">
+                            <ns2:thead>
+<ns2:row>
+    <ns2:entry>項目</ns2:entry>
+    <ns2:entry>要件</ns2:entry>
+</ns2:row>
+                            </ns2:thead>
+                            <ns2:tbody>
+<ns2:row>
+    <ns2:entry>OS</ns2:entry>
+    <ns2:entry>Windows XP/7, RHEL6(※)他同等Linuxで互換性有</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>JavaVM</ns2:entry>
+    <ns2:entry>
+							Oracle JRE 1.6 以上
+						</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>IDE</ns2:entry>
+    <ns2:entry>
+							Eclipse3.7 Indigo
+						</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>Script</ns2:entry>
+    <ns2:entry>Python 2.6or2.7 + lxml モジュール
+						</ns2:entry>
+</ns2:row>
+                            </ns2:tbody>
+                        </ns2:tgroup>
+                    </ns2:table>
+                    <ns2:note>
+                        <ns2:para>Pythonおよびlxmlがインストールされていない場合は付録「Pythonおよびlxmlのインストール」を参考にインストールしてください。</ns2:para>
+                    </ns2:note>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_6">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>本ツールは以下に示すものがある前提となります。</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+					<ns2:application>ナレッジ管理ツール</ns2:application>
+					で作成された
+					<ns2:filename>ナレッジ XML</ns2:filename>
+					ファイル
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_7">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>
+			事前に
+			<ns2:link>動作環境</ns2:link>
+			に記載されている環境等の準備を整えてください。
+			準備が整っていることを確認し、以下の手順を実施します。
+		</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>ダウンロード</ns2:para>
+                            <ns2:para>プラグインをダウンロードします</ns2:para>
+                            <ns2:para>
+					<ns2:note>
+    <ns2:para>
+							<ns2:link>https://github.com/TUBAME/migration-tool/releases</ns2:link>
+						</ns2:para>
+</ns2:note>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>解凍</ns2:para>
+                            <ns2:para>
+					ダウンロードしたファイルを解凍します。
+					解凍すると
+					<ns2:filename>tubame.portability_*</ns2:filename>
+					という名前のディレクトリが作成されます。
+					<ns2:note>
+    <ns2:para>* 部分はプラグインのバージョンによって変わります。</ns2:para>
+</ns2:note>
+					<ns2:important>
+    <ns2:para>
+							Windows 上で zip を解凍する場合、パス長の制限により解凍に失敗する場合があります。
+							失敗した場合は、
+							<ns2:filename>C:\temp</ns2:filename>
+							のような短いパスに解凍してください。
+						</ns2:para>
+</ns2:important>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Pythonランタイムの設定</ns2:para>
+                            <ns2:para>
+					解凍したディレクトリ配下の
+					<ns2:filename>resources/properties/application*.properties</ns2:filename>
+					をテキストエディタで開きます。
+					以下のように、 Python がインストールされているパスを設定します。
+					<ns2:programlisting>
+
+						# Windows 上にインストールした場合の例
+						PYTHON_RUNTIME_PATH=C:/Python27/python.exe
+
+					</ns2:programlisting>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Eclipse へインストール</ns2:para>
+                            <ns2:para>
+					解凍したディレクトリを、Eclipse インストールディレクトリ下の
+					<ns2:filename>plugins</ns2:filename>
+					ディレクトリに移動またはコピーします。
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>インストール確認</ns2:para>
+                            <ns2:para>
+					以下のように Eclipse メニューを選択します。
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>Help</ns2:guimenu>
+    <ns2:guimenuitem>About Eclipse</ns2:guimenuitem>
+    <ns2:guimenuitem>Installation Details</ns2:guimenuitem>
+    <ns2:guimenuitem>Plug-ins</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                            <ns2:para>
+					<ns2:guilabel>Plug-in Id</ns2:guilabel>
+					の部分に、以下のプラグイン名
+					<ns2:guilabel>tubame.portability</ns2:guilabel>
+					が存在することを確認してください。
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>インストール完了</ns2:para>
+                            <ns2:para>これでインストール完了です</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_8">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>ツールの各機能毎に利用の流れを解説します。</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_10">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>JBoss への移植において修正が必要な箇所を検索します。</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_11">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>検索結果を視覚的に表示し編集することができます。 検索結果に対して、個別に移植要否の確認が必要な場合があります。
+			その箇所を目視または、ヒアリングすることで移植要否を確定していきます。
+			最終的に移植要否が全て確定できれば完了となります。
+		</ns2:para>
+                    <ns2:para>以下の手順を実施します。</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>検索結果ファイルを開く</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>ソース該当箇所のチェック</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>目視確認項目のチェック</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>ヒアリング確認項目のチェック</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>移植ガイドラインへのリンク</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>チェックリストの情報表示</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>移植不要項目の削除</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>作業状況情報の表示</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>合計ラインの算出</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>ヒット数表示/全件表示</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>報告書の出力</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_12">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>変換が可能な箇所を検索し変換を行います。以下のファイルの変換が可能です。</ns2:para>
+                    <ns2:para>
+        <ns2:table>
+                            <ns2:title>変換対象</ns2:title>
+                            <ns2:tgroup cols="2">
+<ns2:thead>
+    <ns2:row>
+        <ns2:entry>変換前</ns2:entry>
+        <ns2:entry>変換後</ns2:entry>
+    </ns2:row>
+</ns2:thead>
+<ns2:tbody>
+    <ns2:row>
+        <ns2:entry>ベンダ拡張の EJB デプロイメントディスクリプタ</ns2:entry>
+        <ns2:entry>JBoss 拡張の EJB デプロイメントディスクリプタ</ns2:entry>
+    </ns2:row>
+</ns2:tbody>
+                            </ns2:tgroup>
+                        </ns2:table>
+        </ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_14">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>以下の手順を実施します。</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>Eclipse を起動</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+					プロジェクト作成ウィザードの起動
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>File</ns2:guimenu>
+    <ns2:guimenuitem>New</ns2:guimenuitem>
+    <ns2:guimenuitem>Project...</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+                <ns2:guimenuitem>Java Project</ns2:guimenuitem>の作成
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>Java Project</ns2:guimenu>
+    <ns2:guimenuitem>Next</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                            <ns2:para>
+                    <ns2:guilabel>New Java Project</ns2:guilabel> ウィザードで、移植元の環境に応じて適宜設定を行いプロジェクトを作成します。
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>移植元ソースファイル群の配置</ns2:para>
+                            <ns2:para>
+					移植元となるソースファイル群を作成したプロジェクトに配置します。
+					<ns2:note>
+    <ns2:para>
+					*.java だけでなく、*.jar, *.xml, *.jsp, *.properties, *.xsd
+					などアプリケーションの動作に必要なファイル群全てを配置してください。</ns2:para>
+</ns2:note>
+					<ns2:note>
+    <ns2:para>ビルドが成功する状態にする必要はありません。</ns2:para>
+</ns2:note>
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_16">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>以下の手順を実施します。</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>検索リソースの選択</ns2:para>
+                            <ns2:para>検索したいリソース上で右クリックし、以下のメニューを選択します。</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenuitem>tubame</ns2:guimenuitem>
+    <ns2:guimenuitem>ナレッジベース検索</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>検索条件の設定</ns2:para>
+                            <ns2:para>
+					以下の入力項目を設定します。
+					<ns2:simplelist>
+    <ns2:member>
+                            <ns2:guilabel>ナレッジ XML ファイル選択</ns2:guilabel>: 検索の元とする<ns2:filename>ナレッジ XML</ns2:filename>ファイルを指定します。</ns2:member>
+    <ns2:member>
+                            <ns2:guilabel>結果出力先</ns2:guilabel>: 検索結果の出力先として <ns2:filename>jbm</ns2:filename> ファイルを指定します。</ns2:member>
+</ns2:simplelist>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>検索の実行</ns2:para>
+                            <ns2:para>
+					<ns2:guimenuitem>Finish</ns2:guimenuitem>
+					をクリックすると検索が開始されます。
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_17">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>検索結果の確認方法を以下に記載します。</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+					<ns2:filename>jbm</ns2:filename>
+					ファイルのオープン
+				</ns2:para>
+                            <ns2:para>
+					検索結果として保存した
+					<ns2:filename>jbm</ns2:filename>
+					ファイルをダブルクリックして開きます。
+				</ns2:para>
+                            <ns2:para>
+                <ns2:note>
+    <ns2:para>検索機能実行後は自動的に検索結果ファイルが開かれるため、本作業は不要です。</ns2:para>
+</ns2:note>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>検索結果編集画面の確認</ns2:para>
+                            <ns2:para>検索結果編集画面では、移植が必要な可能性のある項目が一覧で表示されます。各表示項目の概要を以下に記載します。
+					任意の行をダブルクリックすると、拡張子に関連付けされているエディタを開き、該当ファイルを表示することができます。
+				</ns2:para>
+                            <ns2:note>
+<ns2:para>
+						Eclipse ツールバーの
+						<ns2:guimenuitem>表示切替</ns2:guimenuitem>
+						ボタンで検索項目全件表示 / ヒット項目表示を切り替えることができます。
+					</ns2:para>
+                            </ns2:note>
+                            <ns2:table>
+<ns2:title>検索結果編集画面の表示項目</ns2:title>
+<ns2:tgroup cols="2">
+    <ns2:thead>
+        <ns2:row>
+            <ns2:entry>項目</ns2:entry>
+            <ns2:entry>説明</ns2:entry>
+        </ns2:row>
+    </ns2:thead>
+    <ns2:tbody>
+        <ns2:row>
+            <ns2:entry>項番</ns2:entry>
+            <ns2:entry>検索した条件の項番です。</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>ヒット数</ns2:entry>
+            <ns2:entry>検索条件にヒットした数です。</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>大項目</ns2:entry>
+            <ns2:entry>-</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>中項目</ns2:entry>
+            <ns2:entry>-</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>ファイル名</ns2:entry>
+            <ns2:entry>対象ファイルのプロジェクトルートからのパスです。</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>行</ns2:entry>
+            <ns2:entry>対象ファイルの行番号です。</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>難易度</ns2:entry>
+            <ns2:entry>
+									移植の為の難易度を難易度アイコン別に表示します。
+
+                            <ns2:note>
+                    <ns2:para>以下の種類があります。</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>High</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>実装内容の大規模な修正が必要で、実装や設定等の大幅な見直しが必要</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Middle</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>実装内容を考慮した小規模な修正が必要</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Low</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>実装内容を考慮せず軽微な修正で対応可能</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>Unknown</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>難易度不明</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>NOT_TRN</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>移植不可</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:note>
+								</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>ガイド章</ns2:entry>
+            <ns2:entry>
+									移植性検討ガイドラインの章番号です。
+									<ns2:para>項目をクリックすると、移植性検討ガイドラインにリンクすることができます。</ns2:para>
+									<ns2:note>
+                    <ns2:para>
+											本機能を利用するには、
+											<ns2:application>ナレッジ管理ツール</ns2:application>
+											で作成された HTML を
+											<ns2:filename>resources/guide/index.html</ns2:filename>
+											に配置する必要があります。
+										</ns2:para>
+                    <ns2:para>
+											配置場所は
+											<ns2:filename>resources/properties/application*.properties
+											</ns2:filename>
+											の
+											<ns2:parameter>GUIDE_FILE_PATH</ns2:parameter>
+											パラメータで変更できます。
+										</ns2:para>
+                </ns2:note>
+								</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>目視確認内容</ns2:entry>
+            <ns2:entry>目視確認する内容の説明です。 （初期表示時は列幅0で表示されている）</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>ヒアリング確認内容</ns2:entry>
+            <ns2:entry>ヒアリング確認する内容の説明です。 （初期表示時は列幅0で表示されている）</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>目視状況</ns2:entry>
+            <ns2:entry>
+									目視確認の現在の状況です。<ns2:note>
+                    <ns2:para>以下の種類があります。</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>空白</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>目視確認する必要なし</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>未</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>目視確認する項目がまだ存在している</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>未確認</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>目視確認が未実施である</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>済</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>目視確認が完了している</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>確認済 (移植不要)</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>目視確認が完了している (問題なしと判断した項目)</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>確認済(移植要)</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>目視確認が完了している (移植が必要と判断した項目)</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:note>
+								</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>ヒアリング状況</ns2:entry>
+            <ns2:entry>
+									ヒアリング確認の現在の状況です。
+                            <ns2:note>
+                    <ns2:para>以下の種類があります。</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>空白</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>ヒアリング確認する必要なし</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>未</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>ヒアリング確認する項目がまだ存在している</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>未確認</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>目視確認が未実施である</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>済</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>ヒアリング確認が完了している</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>確認済 (移植不要)</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>ヒアリング確認が完了している (問題なしと判断した項目)</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>確認済 (移植要)</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>ヒアリング確認が完了している(移植が必要と判断した項目)</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:note>
+								</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>ライン数</ns2:entry>
+            <ns2:entry>
+									移植に必要な概算修正ライン数です。
+                            <ns2:note>
+                    <ns2:para>以下の種類があります。</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>数値</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>移植に必要な概算修正ライン数</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>TODO:SE 手動算出</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>解説に基づき個別に算出すべき項目</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>不明</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>ライン数不明なため独自に算出すべき項目</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>確認済 (移植不要)</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>ヒアリング確認が完了している (問題なしと判断した項目)</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>確認済 (移植要)</ns2:guilabel>
+                            </ns2:para>
+                            <ns2:para>ヒアリング確認が完了している(移植が必要と判断した項目)</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:note>
+								</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>ライン数根拠</ns2:entry>
+            <ns2:entry>移植に必要な概算ライン数の根拠です。</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>合計ライン</ns2:entry>
+            <ns2:entry>ヒット数×ライン数です。</ns2:entry>
+        </ns2:row>
+    </ns2:tbody>
+</ns2:tgroup>
+                            </ns2:table>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+					チェックリスト情報ビューの確認
+				</ns2:para>
+                            <ns2:para>
+					<ns2:guilabel>チェックリスト情報ビュー</ns2:guilabel>
+					では、検索結果編集画面で選択している項目に対する詳細情報を確認することができます。以下のような情報を確認することができます。
+				</ns2:para>
+                            <ns2:table>
+<ns2:title>チェックリスト情報ビューの表示項目</ns2:title>
+<ns2:tgroup cols="2">
+    <ns2:thead>
+        <ns2:row>
+            <ns2:entry>項目</ns2:entry>
+            <ns2:entry>説明</ns2:entry>
+        </ns2:row>
+    </ns2:thead>
+    <ns2:tbody>
+        <ns2:row>
+            <ns2:entry>大項目</ns2:entry>
+            <ns2:entry>-</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>中項目</ns2:entry>
+            <ns2:entry>-</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>目視確認内容</ns2:entry>
+            <ns2:entry>検索だけでは移植項目が特定できない場合の目視による調査方法または、判定基準です。 </ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>ヒアリング確認内容</ns2:entry>
+            <ns2:entry>開発元に確認しなければ移植の必要性が判断できない項目の場合の開発元への確認内容です。</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>検索手順</ns2:entry>
+            <ns2:entry>移植項目を検索した手順の解説です。</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>移植要因</ns2:entry>
+            <ns2:entry>移植が必要となる理由です。</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>難易度詳細</ns2:entry>
+            <ns2:entry>移植作業の詳細な難易度です。</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>非算出理由</ns2:entry>
+            <ns2:entry>修正に要するライン数を算出しない場合の理由です。</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>調査方法</ns2:entry>
+            <ns2:entry>修正ライン数を算出するための調査方法です。</ns2:entry>
+        </ns2:row>
+    </ns2:tbody>
+</ns2:tgroup>
+                            </ns2:table>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+					作業状況ビューの確認
+				</ns2:para>
+                            <ns2:para>
+					<ns2:guilabel>作業状況ビュー</ns2:guilabel>
+					では、現時点の編集作業状況を確認することができます。
+				</ns2:para>
+                            <ns2:table>
+<ns2:title>作業状況ビューの表示項目</ns2:title>
+<ns2:tgroup cols="2">
+    <ns2:thead>
+        <ns2:row>
+            <ns2:entry>項目</ns2:entry>
+            <ns2:entry>説明</ns2:entry>
+        </ns2:row>
+    </ns2:thead>
+    <ns2:tbody>
+        <ns2:row>
+            <ns2:entry>現在の作業状況</ns2:entry>
+            <ns2:entry>現在の作業状況が表示されます。
+                            <ns2:note>
+                    <ns2:para>以下の種類があります。</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>確認項目作業が完了しました。</ns2:guilabel>
+                            </ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>目視/ヒアリング確認項目を確認して下さい。</ns2:guilabel>
+                            </ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>不明/TODO:SE手動算出項目を確認して下さい。</ns2:guilabel>
+                            </ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:guilabel>ファイルを上書きしてください。</ns2:guilabel>
+                            </ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:note>
+            </ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>現在の目視確認 / ヒアリング確認状況</ns2:entry>
+            <ns2:entry>検索結果編集画面に表示されている
+							<ns2:guilabel>目視確認状況</ns2:guilabel>
+							および
+							<ns2:guilabel>ヒアリング確認状況</ns2:guilabel>
+							の残件数 / 全件数を表示します。</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>不明 / TODO：SE手動算出項目修正状況</ns2:entry>
+            <ns2:entry>
+							検索結果編集画面に表示されている
+							<ns2:guilabel>不明項目修正状況</ns2:guilabel>
+							および
+							<ns2:guilabel>SE手動算出項目修正状況</ns2:guilabel>
+							の残件数 / 全件数を表示します。</ns2:entry>
+        </ns2:row>
+    </ns2:tbody>
+</ns2:tgroup>
+                            </ns2:table>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_18">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>移植規模を算出するためには、検索結果に対して移植要否を全て確定する必要があります。
+			以下にその手順を記載します。
+		</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>目視状況のチェック</ns2:para>
+                            <ns2:para>
+					<ns2:guilabel>目視状況</ns2:guilabel>
+					が
+					<ns2:guilabel>未確認</ns2:guilabel>
+					の項目は、目視で移植要否を確認する必要があります。
+					該当のファイルを確認し移植の必要性をチェックしてください。移植要否が明確になったら、その結果を該当行の
+					<ns2:guilabel>目視状況</ns2:guilabel>
+					列のステータスを変更します。
+					該当箇所で右クリックし、ステータスを以下の状態に変更する事が出来ます。
+				</ns2:para>
+                            <ns2:para>
+					<ns2:note>
+    <ns2:para>以下の種類があります。</ns2:para>
+    <ns2:itemizedlist>
+        <ns2:listitem>
+            <ns2:para>
+									<ns2:guilabel>未確認</ns2:guilabel>
+								</ns2:para>
+            <ns2:para>未確認</ns2:para>
+        </ns2:listitem>
+        <ns2:listitem>
+            <ns2:para>
+									<ns2:guilabel>確認済 (移植不要)</ns2:guilabel>
+								</ns2:para>
+            <ns2:para>問題なし</ns2:para>
+        </ns2:listitem>
+        <ns2:listitem>
+            <ns2:para>
+									<ns2:guilabel>確認済 (移植要)</ns2:guilabel>
+								</ns2:para>
+            <ns2:para>移植が必要</ns2:para>
+        </ns2:listitem>
+    </ns2:itemizedlist>
+</ns2:note>
+				</ns2:para>
+                            <ns2:para>
+					<ns2:note>
+    <ns2:para>ShiftキーやCtrlキーにより複数選択することができます。 (
+							ただし、選択範囲に目視確認項目ではない行が含まれていた場合、上記のメニューは表示されません)
+						</ns2:para>
+</ns2:note>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>ヒアリング状況のチェック</ns2:para>
+                            <ns2:para>
+					<ns2:guilabel>ヒアリング状況</ns2:guilabel>
+					が
+					<ns2:guilabel>未確認</ns2:guilabel>
+					の項目は、開発者にヒアリングして移植要否を確認する必要があります。
+					該当の箇所について開発者へ移植の必要性を確認してください。移植要否が明確になったら、その結果を該当行の
+					<ns2:guilabel>ヒアリング状況</ns2:guilabel>
+					列のステータスを変更します。
+					該当箇所で右クリックし、ステータスを以下の状態に変更する事が出来ます。
+				</ns2:para>
+                            <ns2:para>
+					<ns2:note>
+    <ns2:para>以下の種類があります。</ns2:para>
+    <ns2:itemizedlist>
+        <ns2:listitem>
+            <ns2:para>
+									<ns2:guilabel>未確認</ns2:guilabel>
+								</ns2:para>
+            <ns2:para>未確認</ns2:para>
+        </ns2:listitem>
+        <ns2:listitem>
+            <ns2:para>
+									<ns2:guilabel>確認済 (移植不要)</ns2:guilabel>
+								</ns2:para>
+            <ns2:para>問題なし</ns2:para>
+        </ns2:listitem>
+        <ns2:listitem>
+            <ns2:para>
+									<ns2:guilabel>確認済 (移植要)</ns2:guilabel>
+								</ns2:para>
+            <ns2:para>移植が必要</ns2:para>
+        </ns2:listitem>
+    </ns2:itemizedlist>
+</ns2:note>
+				</ns2:para>
+                            <ns2:para>
+				<ns2:note>
+    <ns2:para>ShiftキーやCtrlキーにより複数選択することができます。 (
+						ただし、選択範囲に目視確認項目ではない行が含まれていた場合、上記のメニューは表示されません)
+					</ns2:para>
+</ns2:note>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>移植不要項目の削除</ns2:para>
+                            <ns2:para>移植に関係しない項目など、画面上から項目を削除することができます。
+					個別に行を選択して削除する方法と、一括削除する方法の2つがあります。
+				</ns2:para>
+                            <ns2:table>
+<ns2:title>削除方法</ns2:title>
+<ns2:tgroup cols="2">
+    <ns2:thead>
+        <ns2:row>
+            <ns2:entry>項目</ns2:entry>
+            <ns2:entry>説明</ns2:entry>
+        </ns2:row>
+    </ns2:thead>
+    <ns2:tbody>
+        <ns2:row>
+            <ns2:entry>選択行削除</ns2:entry>
+            <ns2:entry>Eclipse ツールバーの <ns2:guimenuitem>行削除</ns2:guimenuitem>
+						ボタンをクリックして選択行を削除します。</ns2:entry>
+        </ns2:row>
+        <ns2:row>
+            <ns2:entry>一括行削除</ns2:entry>
+            <ns2:entry>Eclipse ツールバーの <ns2:guimenuitem>チェック済みの移植不要項目の削除</ns2:guimenuitem>
+						ボタンをクリックして一括削除します。</ns2:entry>
+        </ns2:row>
+    </ns2:tbody>
+</ns2:tgroup>
+                            </ns2:table>
+                            <ns2:note>
+<ns2:para>ShiftキーやCtrlキーにより複数選択することができます。</ns2:para>
+                            </ns2:note>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_25">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>編集結果をCSVとして保存することで、集計や最終レポート作成に活用することができます。</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>保存</ns2:para>
+                            <ns2:para>
+					Eclipse メニューの
+					<ns2:guimenuitem>CSV保存</ns2:guimenuitem>
+					を選択し、CSVファイルを出力します。
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>CSVファイルの分析</ns2:para>
+                            <ns2:para>CSVファイルの分析ツールは本ツールでは提供していません。
+					利用者側で分析ツールを作成するなど適宜対応してください。
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_26">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>以下の手順を実施します。</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>Eclipse を起動</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+					プロジェクト作成ウィザードの起動
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>File</ns2:guimenu>
+    <ns2:guimenuitem>New</ns2:guimenuitem>
+    <ns2:guimenuitem>Project...</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+                <ns2:guimenuitem>Java Project</ns2:guimenuitem>の作成
+				</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenu>Java Project</ns2:guimenu>
+    <ns2:guimenuitem>Next</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                            <ns2:para>
+                    <ns2:guilabel>New Java Project</ns2:guilabel> ウィザードで、移植元の環境に応じて適宜設定を行いプロジェクトを作成します。
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>移植元ソースファイル群の配置</ns2:para>
+                            <ns2:para>
+					移植元となるソースファイル群を作成したプロジェクトに配置します。
+					<ns2:note>
+    <ns2:para>
+					*.java だけでなく、*.jar, *.xml, *.jsp, *.properties, *.xsd
+					などアプリケーションの動作に必要なファイル群全てを配置してください。</ns2:para>
+</ns2:note>
+					<ns2:note>
+    <ns2:para>ビルドが成功する状態にする必要はありません。</ns2:para>
+</ns2:note>
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_27">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>以下の手順を実施します。</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>変換対象リソースの選択</ns2:para>
+                            <ns2:para>変換したいリソース上で右クリックし、以下のメニューを選択します。</ns2:para>
+                            <ns2:para>
+					<ns2:menuchoice>
+    <ns2:guimenuitem>tubame</ns2:guimenuitem>
+    <ns2:guimenuitem>変換</ns2:guimenuitem>
+</ns2:menuchoice>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>変換条件の設定</ns2:para>
+                            <ns2:para>
+					以下の入力項目を設定します。
+					<ns2:simplelist>
+    <ns2:member>
+                            <ns2:guilabel>変換後ソースファイル出力先</ns2:guilabel>: 変換したソースファイルの出力先を設定します</ns2:member>
+    <ns2:member>
+                            <ns2:guilabel>WebLogicバージョン</ns2:guilabel>: 移植元が使用している WebLogic Version を選択します</ns2:member>
+</ns2:simplelist>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>変換の実行</ns2:para>
+                            <ns2:para>
+					<ns2:guimenuitem>Finish</ns2:guimenuitem>
+					をクリックすると変換対象ファイルの検索が開始され、変換対象となるリソースがあれば変換処理を行います。
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_28">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>
+			インストールした
+			<ns2:filename>tubame.portability_*</ns2:filename>
+			を削除してください。以上で、アンインストールは完了です。
+			<ns2:note>
+                            <ns2:para>* 部分はプラグインのバージョンによって変わります。</ns2:para>
+                        </ns2:note>
+			<ns2:note>
+                            <ns2:para>
+					削除した後にEclipseを起動する際は
+					<ns2:command>-clean</ns2:command>
+					のオプションを付与して起動してください。
+				</ns2:para>
+                        </ns2:note>
+		</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_29">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Pythonおよびlxmlのインストール手順を以下に記載します。</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_30">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>RHEL（および同等Linux）ではyumを利用してインストールする手順を以下に記載します。</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>インストール済みパッケージの確認</ns2:para>
+                            <ns2:para>rpmコマンドを実行し、Pythonおよびlxmlがインストール済みか確認する。インストールされていない場合はインストールを行う。</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>インストールの実施</ns2:para>
+                            <ns2:para>yumコマンドを実行し、Pythonおよびlxmlをインストールする。
+                <ns2:programlisting>
+$ su - 
+# yum install python python-lxml
+				</ns2:programlisting>
+                </ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_31">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Windowsではインストーラを利用してインストールする手順を以下に記載します。</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>インストーラのダウンロード</ns2:para>
+                            <ns2:para>以下のリンク先より自身の環境に合わせたインストーラをダウンロードする。</ns2:para>
+                            <ns2:note>
+<ns2:para>
+						Python2.7.6：<ns2:link>http://python.org/download/releases/2.7.6</ns2:link>
+					</ns2:para>
+<ns2:para>
+						lxml3.2.4：<ns2:link>https://pypi.python.org/pypi/lxml/3.2.4</ns2:link>
+					</ns2:para>
+                            </ns2:note>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Pythonインストーラの実行</ns2:para>
+                            <ns2:para>ダウンロードしたpython-2.7.6.*.msiを実行し、ウィザードに従ってインストールを行う。</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>lxmlインストーラの実行</ns2:para>
+                            <ns2:para>ダウンロードしたlxml-3.2.4.*-py2.7.exeを実行し、ウィザードに従ってインストールを行う。</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+    </DocBookList>
+    <SearchInfomationList/>
+</PortabilityKnowhow>
