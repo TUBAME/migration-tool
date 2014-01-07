@@ -800,7 +800,7 @@ public class WSearchResultView extends ViewPart {
                                         new FileOutputStream(path));
                                 for (MigrationEditorRow row : list) {
                                     out.write((row.toString() + "\n")
-                                            .getBytes());
+                                            .getBytes("utf-8"));
 
                                     // Cancellation process
                                     if (monitor.isCanceled()) {

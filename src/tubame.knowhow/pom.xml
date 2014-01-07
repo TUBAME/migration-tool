@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>tubame</groupId>
 	<artifactId>tubame.knowhow</artifactId>
-	<version>1.0.0.qualifier</version>
+	<version>1.0.1.qualifier</version>
 	<packaging>eclipse-plugin</packaging>
 	<properties>
 		<tycho-version>0.18.1</tycho-version>

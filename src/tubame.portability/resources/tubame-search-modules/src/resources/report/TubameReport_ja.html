@@ -1,0 +1,410 @@
+<HTML xmlns:knowhow="http://generated.model.biz.knowhow.tubame/knowhow"
+	xmlns:doc="http://docbook.org/ns/docbook">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>TUBAME移植性検討レポート</title>
+<link href="css/knowhow.css" type="text/css" rel="stylesheet">
+<meta content="DocBook XSL Stylesheets V1.78.1" name="generator">
+<!--  style -->
+<style type="text/css">
+#graph ,#pie-graph{
+	width: 600px;
+	height: 400px;
+}
+
+.graph-title {
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	margin: 50px 0 0;
+}
+</style>
+<!-- third party lib -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/flotr2.min.js"></script>
+
+<script type="text/javascript" src="js/KnowhowDegreeOfDifficultySumCalclator_fromAp/getresult.js"></script>
+<script type="text/javascript" src="js/KnowhowDegreeOfDifficultySumCalclator_toAp/getresult.js"></script>
+<script type="text/javascript" src="js/KnowhowFactorSumCalclator_fromAp/getresult.js"></script>
+<script type="text/javascript" src="js/KnowhowFactorSumCalclator_toAp/getresult.js"></script>
+<script type="text/javascript" src="js/KnowhowFactorGraphSumCalclator_graph/getresult.js"></script>
+<script type="text/javascript" src="js/KnowhowFileCategorySumCalclator_toAp/getresult.js"></script>
+<script type="text/javascript" src="js/KnowhowFileCategorySumCalclator_fromAp/getresult.js"></script>
+<script type="text/javascript" src="js/KnowhowMigrationItemCalclator/getresult.js"></script>
+<script type="text/javascript" src="js/DependsPackagePicGrapthSumCalclator/getresult.js"></script>
+<script type="text/javascript" src="js/DependsErrSumCalclator/getresult.js"></script>
+<script type="text/javascript" src="js/DependsPackageSumCalclator/getresult.js"></script>
+<!--  for tubame reporter -->
+
+
+
+</HEAD>
+<BODY>
+	<H1 class="title">TUBAME移植性検討レポート</H1>
+	<div class="toc">
+		<p>
+			<b>Index</b>
+		</p>
+		<dl class="toc">
+			<dt>
+				<span class="1."><a href="#tubame_1.">1.TUBAME移植性検討レポート</a></span>
+			</dt>
+			<dd>
+				<dl>
+					<dt>
+						<span class="1.1."><a href="#tubame_1.1.">1.1.ナレッジベース検索レポート</a></span>
+					</dt>
+					<dd>
+						<dl>
+							<dt>
+								<span class="1.1.1."><a href="#tubame_1.1.1.">1.1.1.移植概算ライン数および移植発生要因別の結果</a></span>
+							</dt>
+						</dl>
+					</dd>
+					<dd>
+						<dl>
+							<dt>
+								<span class="1.1.2."><a href="#tubame_1.1.2.">1.1.2.ファイル分類別の結果及び移植項目について</a></span>
+							</dt>
+						</dl>
+					</dd>
+				</dl>
+			</dd>
+			<dd>
+				<dl>
+					<dt>
+						<span class="1.2."><a href="#tubame_1.2.">1.2.依存性検索レポート</a></span>
+					</dt>
+					<dd>
+						<dl>
+							<dt>
+								<span class="1.2.1."><a href="#tubame_1.2.1.">1.2.1.移行後の環境で利用できないエラー件数の結果(Java,Jsp,Xml)</a></span>
+							</dt>
+						</dl>
+					</dd>
+					<dd>
+						<dl>
+							<dt>
+								<span class="1.2.2."><a href="#tubame_1.2.2.">1.2.2.移行後の環境で利用できないAPIのエラー件数の結果(Java,Jsp)</a></span>
+							</dt>
+						</dl>
+					</dd>
+				</dl>
+			</dd>
+		</dl>
+	</div>
+	<HR>
+	<a name="tubame_1."></a>
+	<h2 class="title">1.TUBAME移植性検討レポート</h2>
+	<br>
+	<a name="tubame_1.1."></a>
+	<h3 class="title">1.1.ナレッジベース検索レポート</h3>
+	<br>
+	<br>
+	<a name="tubame_1.1.1."></a>
+	<h3 class="title">1.1.1.移植概算ライン数および移植発生要因別の結果</h3>
+	<br>
+	<div class="section">
+		<div class="titlepage"></div>
+		<p>移植概算ライン数および移植発生要因別の結果を以下に示す。</p>
+		<div class="table">
+			<a name="N1024F"></a>
+			<p class="title">
+				<b>Table&nbsp;1.&nbsp;難易度別の移植概算ライン数 </b>
+			</p>
+			<div class="table-contents">
+				<table summary="難易度別の移植概算ライン数
+
+				" border="1">
+					<colgroup>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>-</th>
+							<th>高</th>
+							<th>中</th>
+							<th>低2</th>
+							<th>低1</th>
+							<th>難易度不明</th>
+							<th>合計</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>WebLogicバージョンアップ</td>
+							<td id="fromAp_High"></td>
+							<td id="fromAp_Middle"></td>
+							<td id="fromAp_Low2"></td>
+							<td id="fromAp_Low1"></td>
+							<td id="fromAp_Unknown"></td>
+							<td id="fromAp_Total"></td>
+						</tr>
+						<tr>
+							<td>JBossEAPへの移植</td>
+							<td id="toAp_High"></td>
+							<td id="toAp_Middle"></td>
+							<td id="toAp_Low2"></td>
+							<td id="toAp_Low1"></td>
+							<td id="toAp_Unknown"></td>
+							<td id="toAp_Total"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<br class="table-break">
+		<div class="table">
+			<a name="N1025D"></a>
+			<p class="title">
+				<b>Table&nbsp;2.&nbsp;移植発生要因別の移植概算ライン数 </b>
+			</p>
+			<div class="table-contents">
+				<table summary="移植発生要因別の移植概算ライン数
+
+				" border="1">
+					<colgroup>
+						<col>
+						<col>
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>要因</th>
+							<th>要因詳細</th>
+							<th>移植概算ライン数</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>要因1</td>
+							<td>JavaSE・JavaEEバージョンアップに伴う修正</td>
+							<td id="toAp_factor1"></td>
+						</tr>
+						<tr>
+							<td>要因2</td>
+							<td>APサーバ非推奨機能に関する修正</td>
+							<td id="toAp_factor2"></td>
+						</tr>
+						<tr>
+							<td>要因3</td>
+							<td>APサーバ固有機能に関する修正</td>
+							<td id="toAp_factor3"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<br class="table-break">
+		<div class="figure">
+			<a name="N1026B"></a>
+			<p class="title">
+				<b>Figure&nbsp;1.&nbsp;移植ステップ数対比</b>
+			</p>
+			<div class="figure-contents">
+				<div id="graph"></div>
+			</div>
+		</div>
+		<br class="figure-break">
+	</div>
+	<br>
+	<br>
+	<a name="tubame_1.1.2."></a>
+	<h3 class="title">1.1.2.ファイル分類別の結果及び移植項目について</h3>
+	<br>
+	<div class="section">
+		<div class="titlepage"></div>
+		<p>ファイル分類別の結果及び移植項目について示す.</p>
+		<div class="table">
+			<a name="N1027D"></a>
+			<p class="title">
+				<b>Table&nbsp;1.&nbsp;ファイル別の移植概算ライン数 </b>
+			</p>
+			<div class="table-contents">
+				<div class="table-contents">
+				<table summary="ファイル別の移植概算ライン数" border="1">
+					<colgroup>
+						<col>
+						<col>
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>-</th>
+							<th>WebLogicバージョンアップ</th>
+							<th>JBossEAPの移植</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Java</td>
+							<td id="fromAp_Java"></td>
+							<td id="toAp_Java"></td>
+						</tr>
+						<tr>
+							<td>Jsp</td>
+							<td id="fromAp_Jsp"></td>
+							<td id="toAp_Jsp"></td>
+						</tr>
+						<tr>
+							<td>Xml</td>
+							<td id="fromAp_Xml"></td>
+							<td id="toAp_Xml"></td>
+						</tr>
+						<tr>
+							<td>Properties</td>
+							<td id="fromAp_Properties"></td>
+							<td id="toAp_Properties"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<br class="table-break">
+		<div class="table">
+			<a name="N1028B"></a>
+			<p class="title">
+				<b>Table&nbsp;2.&nbsp;移植項目別の移植概算ライン数 </b>
+			</p>
+			<div class="table-contents">
+				<table summary="移植項目別のステップ数" border="1">
+					<colgroup>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+
+							<th>大項目</th>
+							<th>中項目</th>
+							<th>難易度</th>
+							<th>要因</th>
+							<th>ガイド章番号</th>
+							<th>箇所数</th>
+							<th>ステップ数</th>
+							<th>ステップ数の合計</th>
+							<th>備考(目視確認項目のステータス)</th>
+						</tr>
+					</thead>
+					<tbody id="migrationItemList">
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<br class="table-break">
+	</div>
+	<br>
+	<br>
+	<a name="tubame_1.2."></a>
+	<h3 class="title">1.2.依存性検索レポート</h3>
+	<br>
+	<br>
+	<a name="tubame_1.2.1."></a>
+	<h3 class="title">1.2.1.移行後の環境で利用できないエラー件数の結果(Java,Jsp,Xml)</h3>
+	<br>
+	<div class="section">
+		<div class="titlepage"></div>
+		<p>依存性検索ツールで検知した移行後の環境で利用できないエラー件数の結果(Java,Jsp,Xml)を以下に示す。</p>
+		<div class="table">
+			<a name="N102A5"></a>
+			<p class="title">
+				<b>Table&nbsp;1.&nbsp;ファイル別のエラー件数 </b>
+			</p>
+			<div class="table-contents">
+				<table summary="ファイル別のエラー件数" border="1">
+					<colgroup>
+						<col>
+						<col>
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>-</th>
+							<th>Err件数</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Java</td>
+							<td id="Depends_Err_Java"></td>
+						</tr>
+						<tr>
+							<td>Jsp</td>
+							<td id="Depends_Err_Jsp"></td>
+						</tr>
+						<tr>
+							<td>Xml</td>
+							<td id="Depends_Err_Xml"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<br class="table-break">
+	</div>
+	<br>
+	<br>
+	<a name="tubame_1.2.2."></a>
+	<h3 class="title">1.2.2.移行後の環境で利用できないAPIのエラー件数の結果(Java,Jsp)</h3>
+	<br>
+	<div class="section">
+		<div class="titlepage"></div>
+		<p>依存性検索ツールで検知した移行後の環境で利用できないパッケージ別のエラー件数数を以下に示す。</p>
+		<div class="table">
+			<a name="N102BF"></a>
+			<p class="title">
+				<b>Table&nbsp;1.&nbsp;パッケージ別のエラー件数 </b>
+			</p>
+			<div class="table-contents">
+				<table summary="依存性検索のパッケージ別のエラー件数" border="1">
+					<colgroup>
+						<col>
+						<col>
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>パッケージ名</th>
+							<th>エラー件数</th>
+							<th>備考</th>
+						</tr>
+					</thead>
+					<tbody id="dependsPackgeSum">
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<br class="table-break">
+		<div class="figure">
+			<a name="N102CD"></a>
+			<p class="title">
+				<b>Figure&nbsp;1.&nbsp;パッケージ別の円グラフ集計</b>
+			</p>
+			<div class="figure-contents">
+				<div id="pie-graph"></div>
+			</div>
+		</div>
+		<br class="figure-break">
+	</div>
+	<br>
+	<br>
+
+
+<script type="text/javascript" src="js/knowhow.js"></script>
+<script type="text/javascript" src="js/depends.js"></script>
+
+</BODY>
+</HTML>
