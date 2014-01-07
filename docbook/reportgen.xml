@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PortabilityKnowhow xmlns="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:ns2="http://docbook.org/ns/docbook">
+    <PortabilityKnowhowTitle>TUBAME's Migration assesment report</PortabilityKnowhowTitle>
+    <EntryViewList>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_2</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_3</EntryCategoryRefKey>
+        </EntryCategory>
+    </EntryViewList>
+    <ChapterList>
+        <Chapter>
+            <ChapterNo>1.</ChapterNo>
+            <ChapterName>TUBAME's Migration assesment report</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>1.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_2</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>1.2.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_3</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+    </ChapterList>
+    <CategoryList>
+        <Category categoryId="category_2" appropriate="true">
+            <CategoryName>Prerequisite</CategoryName>
+            <KnowhowRefKey>knowhow_2</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_3" appropriate="true">
+            <CategoryName>How to Use</CategoryName>
+            <KnowhowRefKey>knowhow_3</KnowhowRefKey>
+        </Category>
+    </CategoryList>
+    <KnowhowList>
+        <KnowhowInfomation knowhowId="knowhow_2" knowhowDetailRefKey="knowhowDetail_2">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_3" knowhowDetailRefKey="knowhowDetail_3">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+            <CheckItem checkItemId="checkItem_3" searchRefKey="searchInfo_2" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>seach-csv</CheckItemName>
+                <SearchProcess>jbmファイル及びgbmファイルを検索する</SearchProcess>
+                <PortabilityFactor>AP サーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Middle</PortabilityDegree>
+                <DegreeDetail>中</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+    </KnowhowList>
+    <DocBookList>
+        <DocBook articleId="knowhowDetail_2">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>
+			The following describes how to use the features TUBAME Reporting
+
+			<ns2:itemizedlist>
+                            <ns2:listitem>
+<ns2:para>Knowledge-Based Search</ns2:para>
+<ns2:itemizedlist>
+    <ns2:listitem>
+        <ns2:para>Open the Work Status view of the Knowledge-Based Search, it is confirmed that the following tasks have been completed</ns2:para>
+        <ns2:orderedlist>
+            <ns2:listitem>
+                <ns2:para>Visual check</ns2:para>
+            </ns2:listitem>
+            <ns2:listitem>
+                <ns2:para>Inquiry check</ns2:para>
+            </ns2:listitem>
+            <ns2:listitem>
+                <ns2:para>Degree of difficulty is Unknown Item(Rewriting status of code manually calculated by SE)</ns2:para>
+            </ns2:listitem>
+            <ns2:listitem>
+                <ns2:para>Code manually calculated by SE(Rewriting Step Line manually calculated by SE)</ns2:para>
+            </ns2:listitem>
+        </ns2:orderedlist>
+        <ns2:warning>
+            <ns2:figure>
+                <ns2:title>Work Status view</ns2:title>
+                <ns2:mediaobject>
+                    <ns2:imageobject>
+                        <ns2:imagedata fileref="images/workStatusView.JPG" width="600"/>
+                    </ns2:imageobject>
+                </ns2:mediaobject>
+            </ns2:figure>
+        </ns2:warning>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>
+								All tasks after completion, you run the &quot;Delete items need not be ported&quot; button  in the menu editor of jbm file editor
+								<ns2:figure>
+                <ns2:title>menu of jbm file editor &quot;Delete items need not be ported&quot; button</ns2:title>
+                <ns2:mediaobject>
+                    <ns2:imageobject>
+                        <ns2:imagedata fileref="images/workStatusViewComplete.JPG" width="600"/>
+                    </ns2:imageobject>
+                </ns2:mediaobject>
+            </ns2:figure>
+							</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>Run in the menu of jbm file editor to &quot;Export to CSV&quot;, and outputs a csv. And outputs it as knowhow_result.csv In this example
+							</ns2:para>
+        <ns2:figure>
+            <ns2:title>menu of jbm file editor to &quot;Export to CSV&quot;</ns2:title>
+            <ns2:mediaobject>
+                <ns2:imageobject>
+                    <ns2:imagedata fileref="images/knowledgeBaseCsvExport.JPG" width="600"/>
+                </ns2:imageobject>
+            </ns2:mediaobject>
+        </ns2:figure>
+    </ns2:listitem>
+</ns2:itemizedlist>
+                            </ns2:listitem>
+                            <ns2:listitem>
+<ns2:para>Dependency Search</ns2:para>
+<ns2:figure>
+    <ns2:title>Run in the menu of Dependency Search Result view to &quot;Export to CSV&quot;, and outputs a csv. And outputs it as depends_result.csv In this example</ns2:title>
+    <ns2:mediaobject>
+        <ns2:imageobject>
+            <ns2:imagedata fileref="images/DepencCsvExport.JPG" width="600"/>
+        </ns2:imageobject>
+    </ns2:mediaobject>
+</ns2:figure>
+<ns2:para/>
+                            </ns2:listitem>
+                        </ns2:itemizedlist>
+
+
+		</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_3">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>Be sure to copy the project within the Eclipse two files that
+					the CSV output
+				</ns2:para>
+                            <ns2:important>
+<ns2:para>If you want to report the results of a knowledge-based search
+						tool,
+						「...eclipse/plugins/tubame.portability-*/resources/xml/checkListInformation.xml
+						also becomes necessary, checkListInformation_ja.xml」file may also
+						need to be copied to the project in Eclipse
+					</ns2:para>
+                            </ns2:important>
+                            <ns2:important>
+<ns2:para>If you want to report the results of a dependence search tool,
+						need to run CSV export
+					</ns2:para>
+                            </ns2:important>
+                            <ns2:note>
+<ns2:para>In this example, it is saved as a knowhow_result.csv the file
+						output in the knowledge-based search. Save as depends_result.csv
+						files that are output in dependence search tool
+					</ns2:para>
+<ns2:para>Save the CSV file to report_input directory in this example
+					</ns2:para>
+                            </ns2:note>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Change the extension of the CSV file</ns2:para>
+                            <ns2:note>
+<ns2:para>Changed to &quot;jbm&quot; the extension of the CSV file
+						output by the knowledge-base search tool( knowhow_result.csv
+						-&gt;
+						knowhow_result.jbm )
+					</ns2:para>
+<ns2:para>Change to &quot;gjbm&quot; the extension of CSV files output
+						by the dependency search tool( depends_result.csv -&gt;
+						depends_result.gjbm )
+					</ns2:para>
+                            </ns2:note>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Get TubameReportGenerator.xml from github of TUBAME</ns2:para>
+                            <ns2:note>
+<ns2:para>It is obtainable from the following</ns2:para>
+<ns2:para>https://github.com/TUBAME/migration-knowledge/releases/download/report-generator/tubame-report-knowledge.zip</ns2:para>
+                            </ns2:note>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>By specifying the knowledge XML to TubameReportGenerator.xml,
+					you run the knowledge base search</ns2:para>
+                            <ns2:figure>
+<ns2:title>Menus for performing Knowledge Search </ns2:title>
+<ns2:mediaobject>
+    <ns2:imageobject>
+        <ns2:imagedata fileref="images/tubame_menu_en.JPG" width="600"/>
+    </ns2:imageobject>
+</ns2:mediaobject>
+                            </ns2:figure>
+                            <ns2:warning>
+<ns2:para>Please be aware of the following</ns2:para>
+<ns2:itemizedlist>
+    <ns2:listitem>
+        <ns2:para>Please make sure that is stored (depends_result.gjbm and
+								knowhow_result.jbm in this example) CSV file output in
+								dependence search tool or knowledge base search tool always in
+								the search
+							</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>If you want to report the results of a knowledge-based
+								search tool,
+								「eclipse/plugins/tubame.portability-*/resources/xml/checkListInformation.xml」
+								is also necessary. Please be place in the same directory as the
+								file knowhow_result.jbm also checkListInformation.xml
+							</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>Please specify the TubameReportGenerator.xml as knowledge
+								XML</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>Please specify the search directory where  jbm/gjbm file exist for  need to generate a report .In the case of this example, you can right-click the report_input directory and run the KnowledgeBase Search</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>You do not overwrite the existing file jbm, the destination
+								file change the file name of the destination result
+							</ns2:para>
+    </ns2:listitem>
+</ns2:itemizedlist>
+                            </ns2:warning>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Confirmation of reports that have been output</ns2:para>
+                            <ns2:note>
+<ns2:para>
+						Report is output to the
+						「eclipse\plugins\tubame.knowhow-*/report」 under by default.
+						If you want to change the output destination, open it in knowledge
+						management tool TubameReportGenerator.xml, please specify the full
+						path of the output directory to Search Keywords check items of
+						&quot;search-csv&quot; </ns2:para>
+<ns2:figure>
+    <ns2:title>Tubame Report Image</ns2:title>
+    <ns2:mediaobject>
+        <ns2:imageobject>
+            <ns2:imagedata fileref="images/tubame_report.png" width="800"/>
+        </ns2:imageobject>
+    </ns2:mediaobject>
+</ns2:figure>
+                            </ns2:note>
+                            <ns2:important>
+<ns2:para>See in jbm file editor again after the report output, if you
+						want to edit, you need to be copied to the
+						「eclipse/plugins/tubame.portability-*/resources/xml」under the
+						checkListInformation.xml that you copied in the project</ns2:para>
+                            </ns2:important>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+    </DocBookList>
+    <SearchInfomationList>
+        <SearchInfomation searchInfoId="searchInfo_2">
+            <FileType>.*g?jbm</FileType>
+            <SearchKey1></SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_report_generator.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>0</LineNumber>
+                <LineNumberContents></LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+    </SearchInfomationList>
+</PortabilityKnowhow>
