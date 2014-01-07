@@ -1,7 +1,0 @@
-tubame\common\util\CmnStringUtil.class
-tubame\common\util\resource\CmnMessagePropertiesUtil.class
-tubame\common\logic\converter\CmnDocBookConverter.class
-tubame\common\util\resource\CmnResourceUtil.class
-tubame\common\logging\CmnJbmToolsLoggingUtil.class
-tubame\common\util\CmnFileUtil.class
-tubame\common\exception\CmnJbmException.class
