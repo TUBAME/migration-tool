@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<project name="maven-antrun-" default="main"  >
-<target name="main">
-  <property name="knowhow_ui_eclipse_pj_path" value="C:\tubame-dev-confirm\workspace\tubame.knowhow.biz/../tubame.knowhow"/>
-  <property name="portability_ui_eclipse_pj_path" value="C:\tubame-dev-confirm\workspace\tubame.knowhow.biz/../tubame.portability"/>
-  <copy file="C:\tubame-dev-confirm\workspace\tubame.knowhow.biz/target/tubame-knowhow-biz-1.0.0.jar" tofile="${knowhow_ui_eclipse_pj_path}/lib/tubame-knowhow-biz-1.0.0.jar" overwrite="true"/>
-  <copy file="C:\tubame-dev-confirm\workspace\tubame.knowhow.biz/target/tubame-knowhow-biz-1.0.0.jar" tofile="${portability_ui_eclipse_pj_path}/lib/tubame-knowhow-biz-1.0.0.jar" overwrite="true"/>
-</target>
-</project>
