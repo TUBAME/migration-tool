@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PortabilityKnowhow xmlns="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:ns2="http://docbook.org/ns/docbook">
+    <PortabilityKnowhowTitle>tubame-site</PortabilityKnowhowTitle>
+    <EntryViewList>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_7</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_10</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_14</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_15</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_17</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_18</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_20</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_21</EntryCategoryRefKey>
+        </EntryCategory>
+    </EntryViewList>
+    <ChapterList>
+        <Chapter>
+            <ChapterNo>1.</ChapterNo>
+            <ChapterName>Welcome To TUBAME</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>1.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_10</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>1.2.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_15</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>1.3.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_14</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>2.</ChapterNo>
+            <ChapterName>Download</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>2.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_17</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>3.</ChapterNo>
+            <ChapterName>Quickstart</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>3.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_18</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>4.</ChapterNo>
+            <ChapterName>Community</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>4.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_21</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>4.2.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_20</ChapterCategoryRefKey>
+            </ChildChapter>
+        </Chapter>
+    </ChapterList>
+    <CategoryList>
+        <Category categoryId="category_7" appropriate="true">
+            <CategoryName>最後に</CategoryName>
+            <KnowhowRefKey>knowhow_8</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_10" appropriate="true">
+            <CategoryName>TUBAME</CategoryName>
+            <KnowhowRefKey>knowhow_11</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_14" appropriate="false">
+            <CategoryName>TUBAME UseCase</CategoryName>
+            <KnowhowRefKey>knowhow_15</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_15" appropriate="true">
+            <CategoryName>TUBAME Tools Overview</CategoryName>
+            <KnowhowRefKey>knowhow_16</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_17" appropriate="true">
+            <CategoryName>Get the TUMABE plugin</CategoryName>
+            <KnowhowRefKey>knowhow_17</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_18" appropriate="true">
+            <CategoryName>Install,How to use</CategoryName>
+            <KnowhowRefKey>knowhow_18</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_20" appropriate="true">
+            <CategoryName>Forum</CategoryName>
+            <KnowhowRefKey>knowhow_19</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_21" appropriate="true">
+            <CategoryName>Development project</CategoryName>
+            <KnowhowRefKey>knowhow_20</KnowhowRefKey>
+        </Category>
+    </CategoryList>
+    <KnowhowList>
+        <KnowhowInfomation knowhowId="knowhow_8" knowhowDetailRefKey="knowhowDetail_8">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>最後に</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_11" knowhowDetailRefKey="knowhowDetail_11">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Welcome To Tubame</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_15" knowhowDetailRefKey="knowhowDetail_15">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>UseCase</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_16" knowhowDetailRefKey="knowhowDetail_16">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>TUBAME Tools Overview</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_17" knowhowDetailRefKey="knowhowDetail_17">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_18" knowhowDetailRefKey="knowhowDetail_18">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_19" knowhowDetailRefKey="knowhowDetail_19">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_20" knowhowDetailRefKey="knowhowDetail_20">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+        </KnowhowInfomation>
+    </KnowhowList>
+    <DocBookList>
+        <DocBook articleId="knowhowDetail_8">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>最後に</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:note>
+                        <ns2:para>The TUBAME, and that bring happiness to the house swallows make a nest in the house, there is a legend in Japan, by making use of the JBoss by using this tool, I wish that happiness visit.
+			</ns2:para>
+                        <ns2:para>supported by ntt and redhat</ns2:para>
+                    </ns2:note>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_11">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Welcome To Tubame</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>TUBAME is a tool that allows the calculation of the correction effort and extraction of corrections necessary when migrating between JBoss or JBoss, from a commercial AP server. It contains a sub-multiple tools, you can use as an Eclipse plug-in. ? Please utilize all means because it is published in TUBAME community as OSS product.
+	    </ns2:para>
+                    <ns2:para>
+			TUMABE tools that has been provided to support a smooth transition to JBoss, TUBAME is made up from the tool of the following three.
+		</ns2:para>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>
+					<ns2:application>Dependency Search Tool(tubame.wsearch)</ns2:application>
+					<ns2:itemizedlist>
+    <ns2:listitem>
+        <ns2:para>The target environment in the (middleware) to automatically
+								extract the class information and Java package that is not
+								available</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>By as the target environment, to set the library
+								information, also about the framework, to extract the API
+								information that are not available in the target environment
+							</ns2:para>
+    </ns2:listitem>
+</ns2:itemizedlist>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+					<ns2:application>Knowledge-Based Search Tool(tubame.portability)
+					</ns2:application>
+					<ns2:itemizedlist>
+    <ns2:listitem>
+        <ns2:para>Search from the knowledge base of the community</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>In order to search for knowledge, to extract the Porting
+								Item that can not be detected in the dependency search. For
+								example, there is no problem on the source code, but I extract
+								the Porting Item problems such as occurs at run time.</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>Show the man-hours and difficulty in each Porting Item
+							</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>It is possible to see the Porting Guilde to Porting Item
+								each, you can see how to fix</ns2:para>
+    </ns2:listitem>
+</ns2:itemizedlist>
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+					<ns2:application>Knowledge Manager Tool(tubame.knowhow)</ns2:application>
+					<ns2:itemizedlist>
+    <ns2:listitem>
+        <ns2:para>Edit registration and the knowledge necessary to Knowledge
+								Base Search</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>From the creation of content knowledge, to a set of search
+								criteria, you can only set this tool the information required by
+								the knowledge-based search.</ns2:para>
+    </ns2:listitem>
+</ns2:itemizedlist>
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                    <ns2:note>
+                        <ns2:itemizedlist>
+                            <ns2:listitem>
+<ns2:para>Why named TUBAME</ns2:para>
+<ns2:para>In Japan, there is a legend that bring happiness to the home and swallows nest in the house. I pray that happiness visit to JBoss migration of you using this tool!</ns2:para>
+                            </ns2:listitem>
+                        </ns2:itemizedlist>
+                    </ns2:note>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_15">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>TUBAME UseCase</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>TUBAME widely available to Porting Phase from Porting Assesment Phase. I will introduce the use cases TUBAME below.</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>Features of TUBAME Tools in Porting Assesment Phase</ns2:title>
+                        <ns2:mediaobject>
+                            <ns2:imageobject>
+<ns2:imagedata fileref="images/Portability-Evaluation-Phase.png" width="800"/>
+                            </ns2:imageobject>
+                        </ns2:mediaobject>
+                    </ns2:figure>
+                    <ns2:figure>
+                        <ns2:title>Features of TUBAME Tools in Porting Phase</ns2:title>
+                        <ns2:mediaobject>
+                            <ns2:imageobject>
+<ns2:imagedata fileref="images/Porting-Phase.png" width="800"/>
+                            </ns2:imageobject>
+                        </ns2:mediaobject>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_16">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>TUBAME Tools overview</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:orderedlist>
+                        <ns2:listitem>
+                            <ns2:para>Knowledge-Based Search Tool</ns2:para>
+                            <ns2:figure>
+<ns2:title>For the input and output of the Knowledge-Based Search Tool</ns2:title>
+<ns2:mediaobject>
+    <ns2:imageobject>
+        <ns2:imagedata fileref="images/Configuration-knowledgeBased.png" width="500"/>
+    </ns2:imageobject>
+</ns2:mediaobject>
+                            </ns2:figure>
+                            <ns2:warning>
+<ns2:itemizedlist>
+    <ns2:listitem>
+        <ns2:para>Migration Knowledge XML</ns2:para>
+        <ns2:para>This is a required parameter. Migration Knowledge XML can also be created in their own knowledge management tool or to download from TUBAME community.
+							</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>Migration Guide</ns2:para>
+        <ns2:para>This is optional. If you want to display the guide, then download it from TUBAME community and  place of knowledge-based search tool(Create a ...eclipse/plugins/tubame.portability-*/resources/guide folder, place the css folder and index.html)
+							</ns2:para>
+    </ns2:listitem>
+</ns2:itemizedlist>
+<ns2:para>Migration Guide and migration knowledge XML is obtainable from the following</ns2:para>
+<ns2:itemizedlist>
+    <ns2:listitem>
+        <ns2:para>JBossEAP4-&gt;6</ns2:para>
+        <ns2:para>https://github.com/TUBAME/migration-knowledge/releases/download/EAP4toEAP6/EAP4to6.zip
+									</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>WLS9-&gt;JBossEAP6</ns2:para>
+        <ns2:para>https://github.com/TUBAME/migration-knowledge/releases/download/WLS9toEAP6/WLS9ToEAP6.zip
+									</ns2:para>
+    </ns2:listitem>
+</ns2:itemizedlist>
+                            </ns2:warning>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Dependency Search Tool</ns2:para>
+                            <ns2:figure>
+<ns2:title>For input and output of Dependency Search Tool</ns2:title>
+<ns2:mediaobject>
+    <ns2:imageobject>
+        <ns2:imagedata fileref="images/Configuration-Dependancy.png" width="500"/>
+    </ns2:imageobject>
+</ns2:mediaobject>
+                            </ns2:figure>
+                            <ns2:warning>
+<ns2:itemizedlist>
+    <ns2:listitem>
+        <ns2:para>Library information of the destination environment</ns2:para>
+        <ns2:para>This is a required parameter. JBossEAP6 is set as a library information of the destination by default.
+							</ns2:para>
+        <ns2:para>If migration target is of JBossEAP6 not, to set the library information in the preference settings of dependency search tool. You have the following on how to set
+							</ns2:para>
+        <ns2:orderedlist>
+            <ns2:listitem>
+                <ns2:para>as migration target library information, specify the path, including the library</ns2:para>
+            </ns2:listitem>
+            <ns2:listitem>
+                <ns2:para>as migration target library information, specify the (zip) Maven repository that contains the migrtion target library</ns2:para>
+            </ns2:listitem>
+        </ns2:orderedlist>
+    </ns2:listitem>
+</ns2:itemizedlist>
+                            </ns2:warning>
+                        </ns2:listitem>
+                    </ns2:orderedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_17">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Tool of the latest version of TUBAME Tools can retrieve from the following</ns2:para>
+                    <ns2:para>https://github.com/TUBAME/migration-tool/releases/download/tubame-plugins-1.0.1/tubame-plugins101.zip</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>Knowledge-Based Search Tool</ns2:para>
+                            <ns2:para>tubame-plugins101/tubame.portability-1.0.1.201401070709</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Dependency Search Tool</ns2:para>
+                            <ns2:para>tubame-plugins101/tubame.wsearch-1.0.1.201401070641</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Knowledge Manager Tool</ns2:para>
+                            <ns2:para>tubame-plugins101/tubame.knowhow-1.0.1.201401070639</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_18">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>QuickStart of TUBAME Tools are visible from below</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>Knowledge-Based Search Tool</ns2:para>
+                            <ns2:para>http://tubame.github.io/migration-tool/portability.html
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Dependency Search Tool</ns2:para>
+                            <ns2:para>http://tubame.github.io/migration-tool/wsearch.html
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Knowledge Manager Tool</ns2:para>
+                            <ns2:para>http://tubame.github.io/migration-tool/knowhow.html
+				</ns2:para>
+                            <ns2:warning>
+<ns2:para> I hope posts of migration of knowledge from everyone. Please
+						check the following: Knowledge post how to TUBAME community.
+					</ns2:para>
+<ns2:itemizedlist>
+    <ns2:listitem>
+        <ns2:para>Knowledge post how to TUBAME community</ns2:para>
+        <ns2:para>http://tubame.github.io/user-knowledge/post_knowlege.html
+							</ns2:para>
+    </ns2:listitem>
+</ns2:itemizedlist>
+                            </ns2:warning>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                    <ns2:note>
+                        <ns2:para>Please check below for report generation</ns2:para>
+                        <ns2:para>http://tubame.github.io/migration-tool/reportgen.html</ns2:para>
+                    </ns2:note>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_19">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>Users Forum</ns2:para>
+                            <ns2:para>https://groups.google.com/d/forum/tubame-users
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_20">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>Development project</ns2:para>
+                            <ns2:para>https://github.com/TUBAME/migration-tool
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+    </DocBookList>
+    <SearchInfomationList/>
+</PortabilityKnowhow>
