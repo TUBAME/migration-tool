@@ -19,12 +19,10 @@ To try and understand TUBAME it's the better way to use Rule-Sets (now JBoss EAP
 From now on TUBAME will provide Rule-Sets gradually, such as migration on WebLogic to JBoss EAP6.
 And we expect and appreciate that you share your own Rule-Sets. Your contribution will make TUBAME fly higher!
 
-Please see following manuals for more details about installation.
+Please see following pages for more details .
 
- * [Online Quick User Manual - Dependency Search](http://tubame.github.io/migration-tool/wsearch.html)
- * [Online Quick User Manual - Knowledge-Based Search](http://tubame.github.io/migration-tool/portability.html)
-
-You can see an outline of TUBAME at [WiKi](https://github.com/TUBAME/migration-tool/wiki/Home%28English%29).
+ * [English](http://tubame.github.io/migration-tool/index.html)
+ * [Japanese](http://tubame.github.io/migration-tool/index_ja.html)
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/TUBAME/migration-tool/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
