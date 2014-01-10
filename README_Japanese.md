@@ -14,4 +14,4 @@ Rule-Setの詳細なノウハウ(Guideline)は同様にknowledge Managerを利用して作成できま
 
 まずは、Joss EAP4からEAP6への移植時のRule-Setと詳細なノウハウをサンプルとして[ダウンロード可能](https://github.com/TUBAME/migration-knowledge/releases)なので、是非利用してみてください。今後徐々にWeblogicからJBossへのノウハウも公開していく予定です。皆様からのノウハウ投稿もお待ちしております。
 
-詳細は[Wiki](https://github.com/TUBAME/migration-tool/wiki)や[クイックマニュアル](http://tubame.github.io/migration-tool)をご覧ください。
+詳細は[indexページ](http://tubame.github.io/migration-tool/index_ja.html)をご覧ください。
