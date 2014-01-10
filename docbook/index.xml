@@ -162,7 +162,7 @@
                     <ns2:title>Welcome To Tubame</ns2:title>
                 </ns2:info>
                 <ns2:section>
-                    <ns2:para>TUBAME is a tool that allows the calculation of the correction effort and extraction of corrections necessary when migrating between JBoss or JBoss, from a commercial AP server. It contains a sub-multiple tools, you can use as an Eclipse plug-in. ? Please utilize all means because it is published in TUBAME community as OSS product.
+                    <ns2:para>TUBAME is a tool that allows the calculation of the correction effort and extraction of corrections necessary when migrating between JBoss or JBoss from a commercial AP server. It contains a multiple sub-tools, you can use it as an Eclipse plug-in. ? Please utilize by all means because it is published in TUBAME community as OSS product.
 	    </ns2:para>
                     <ns2:para>
 			TUMABE tools that has been provided to support a smooth transition to JBoss, TUBAME is made up from the tool of the following three.
@@ -173,14 +173,10 @@
 					<ns2:application>Dependency Search Tool(tubame.wsearch)</ns2:application>
 					<ns2:itemizedlist>
     <ns2:listitem>
-        <ns2:para>The target environment in the (middleware) to automatically
-								extract the class information and Java package that is not
-								available</ns2:para>
+        <ns2:para>Automatically extract the class information and Java package that is not available in the target environment (middleware).</ns2:para>
     </ns2:listitem>
     <ns2:listitem>
-        <ns2:para>By as the target environment, to set the library
-								information, also about the framework, to extract the API
-								information that are not available in the target environment
+        <ns2:para>(if you set the library information about the framework ,) extract the API information that is not available in the target environment
 							</ns2:para>
     </ns2:listitem>
 </ns2:itemizedlist>
@@ -195,8 +191,7 @@
         <ns2:para>Search from the knowledge base of the community</ns2:para>
     </ns2:listitem>
     <ns2:listitem>
-        <ns2:para>In order to search for knowledge, to extract the Porting
-								Item that can not be detected in the dependency search. For
+        <ns2:para>In order to search for knowledge, extract the Porting Item that can not detect in the dependency search. For
 								example, there is no problem on the source code, but I extract
 								the Porting Item problems such as occurs at run time.</ns2:para>
     </ns2:listitem>
@@ -232,7 +227,7 @@
                         <ns2:itemizedlist>
                             <ns2:listitem>
 <ns2:para>Why named TUBAME</ns2:para>
-<ns2:para>In Japan, there is a legend that bring happiness to the home and swallows nest in the house. I pray that happiness visit to JBoss migration of you using this tool!</ns2:para>
+<ns2:para>In Japan, there is a legend that bringing happiness for the family when a swallows makes a nest in the house. I pray that happiness visit to JBoss migration of you using this tool!</ns2:para>
                             </ns2:listitem>
                         </ns2:itemizedlist>
                     </ns2:note>
@@ -245,7 +240,7 @@
                     <ns2:title>TUBAME UseCase</ns2:title>
                 </ns2:info>
                 <ns2:section>
-                    <ns2:para>TUBAME widely available to Porting Phase from Porting Assesment Phase. I will introduce the use cases TUBAME below.</ns2:para>
+                    <ns2:para>TUBAME widely can be availed from Porting Assessment Phase to Porting Phase. I will introduce the use cases TUBAME below.</ns2:para>
                     <ns2:figure>
                         <ns2:title>Features of TUBAME Tools in Porting Assesment Phase</ns2:title>
                         <ns2:mediaobject>
@@ -275,7 +270,7 @@
                         <ns2:listitem>
                             <ns2:para>Knowledge-Based Search Tool</ns2:para>
                             <ns2:figure>
-<ns2:title>For the input and output of the Knowledge-Based Search Tool</ns2:title>
+<ns2:title>About input and output of the Knowledge-Based Search Tool</ns2:title>
 <ns2:mediaobject>
     <ns2:imageobject>
         <ns2:imagedata fileref="images/Configuration-knowledgeBased.png" width="500"/>
@@ -323,8 +318,8 @@
                             <ns2:warning>
 <ns2:itemizedlist>
     <ns2:listitem>
-        <ns2:para>Library information of the destination environment</ns2:para>
-        <ns2:para>This is a required parameter. JBossEAP6 is set as a library information of the destination by default.
+        <ns2:para>Library information of the target environment</ns2:para>
+        <ns2:para>This is a required parameter. JBossEAP6 is set as a library information of the target by default.
 							</ns2:para>
         <ns2:para>If migration target is of JBossEAP6 not, to set the library information in the preference settings of dependency search tool. You have the following on how to set
 							</ns2:para>
@@ -350,7 +345,7 @@
                     <ns2:title>body</ns2:title>
                 </ns2:info>
                 <ns2:section>
-                    <ns2:para>Tool of the latest version of TUBAME Tools can retrieve from the following</ns2:para>
+                    <ns2:para>The latest version of TUBAME Tools be available from the following</ns2:para>
                     <ns2:para>https://github.com/TUBAME/migration-tool/releases/download/tubame-plugins-1.0.1/tubame-plugins101.zip</ns2:para>
                     <ns2:itemizedlist>
                         <ns2:listitem>
@@ -398,7 +393,7 @@
 <ns2:itemizedlist>
     <ns2:listitem>
         <ns2:para>Knowledge post how to TUBAME community</ns2:para>
-        <ns2:para>http://tubame.github.io/user-knowledge/post_knowlege.html
+        <ns2:para>http://tubame.github.io/user-knowledge/en/post_knowledge.html
 							</ns2:para>
     </ns2:listitem>
 </ns2:itemizedlist>
