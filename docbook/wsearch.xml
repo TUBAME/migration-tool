@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <PortabilityKnowhow xmlns="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:ns2="http://docbook.org/ns/docbook">
     <PortabilityKnowhowTitle>Online Quick User Manual - Dependency Search</PortabilityKnowhowTitle>
     <EntryViewList>
@@ -259,11 +259,11 @@
 <ns2:tbody>
     <ns2:row>
         <ns2:entry>Java  file</ns2:entry>
-        <ns2:entry>Information for all classes used by Java files is compared to the library information available at the target environment to extract classes that cannot be used or should not be used.</ns2:entry> 
+        <ns2:entry>Information for all classes used by Java files is compared to the library information available at the target environment to extract classes that cannot be used or should not be used.</ns2:entry>
     </ns2:row>
     <ns2:row>
         <ns2:entry>JSP file</ns2:entry>
-        <ns2:entry>The Java class information and tag library information used by JSP files is compared to the library information available at the target environment to extract classes that cannot be used or should not be used.</ns2:entry> 
+        <ns2:entry>The Java class information and tag library information used by JSP files is compared to the library information available at the target environment to extract classes that cannot be used or should not be used.</ns2:entry>
     </ns2:row>
     <ns2:row>
         <ns2:entry>XML file</ns2:entry>
@@ -337,7 +337,7 @@
 <ns2:row>
     <ns2:entry>IDE</ns2:entry>
     <ns2:entry>
-							Eclipse 3.7 Indigo
+							Eclipse 3.7 Indigo or Eclipse 4.3 Kepler
 						</ns2:entry>
 </ns2:row>
                             </ns2:tbody>
@@ -733,7 +733,7 @@ directory under the Eclipse installation directory.
 </ns2:row>
 <ns2:row>
     <ns2:entry>Source library</ns2:entry>
-    <ns2:entry>Displays the name of the found source library.</ns2:entry> 
+    <ns2:entry>Displays the name of the found source library.</ns2:entry>
 </ns2:row>
 <ns2:row>
     <ns2:entry>Target library</ns2:entry>
@@ -741,23 +741,23 @@ directory under the Eclipse installation directory.
 </ns2:row>
 <ns2:row>
     <ns2:entry>Class</ns2:entry>
-    <ns2:entry>Displays the class name, namespace, tag library path, schema path, etc. depending on what is found.</ns2:entry> 
+    <ns2:entry>Displays the class name, namespace, tag library path, schema path, etc. depending on what is found.</ns2:entry>
 </ns2:row>
 <ns2:row>
     <ns2:entry>Hit count</ns2:entry>
-    <ns2:entry>Displays found instances by package or class.</ns2:entry> 
+    <ns2:entry>Displays found instances by package or class.</ns2:entry>
 </ns2:row>
 <ns2:row>
     <ns2:entry>File to be ported</ns2:entry>
-    <ns2:entry>Displays the name of the file to be ported.</ns2:entry> 
+    <ns2:entry>Displays the name of the file to be ported.</ns2:entry>
 </ns2:row>
 <ns2:row>
     <ns2:entry>Line</ns2:entry>
-    <ns2:entry> Displays the line numbers of the files that will be ported.</ns2:entry> 
+    <ns2:entry> Displays the line numbers of the files that will be ported.</ns2:entry>
 </ns2:row>
 <ns2:row>
     <ns2:entry>Result details</ns2:entry>
-    <ns2:entry> Displays the found reason.</ns2:entry> 
+    <ns2:entry> Displays the found reason.</ns2:entry>
 </ns2:row>
 <ns2:row>
     <ns2:entry>Remarks</ns2:entry>
@@ -790,28 +790,28 @@ directory under the Eclipse installation directory.
                             <ns2:tbody>
 <ns2:row>
     <ns2:entry>Result filter</ns2:entry>
-    <ns2:entry>Allows you to set the result columns that should be displayed.</ns2:entry> 
+    <ns2:entry>Allows you to set the result columns that should be displayed.</ns2:entry>
 </ns2:row>
 <ns2:row>
     <ns2:entry>Category filter</ns2:entry>
-    <ns2:entry>Allows you to set the category columns that should be displayed.</ns2:entry> 
+    <ns2:entry>Allows you to set the category columns that should be displayed.</ns2:entry>
 </ns2:row>
 <ns2:row>
     <ns2:entry>Package filter</ns2:entry>
-    <ns2:entry>Allows you to set the package columns that should be displayed.</ns2:entry> 
+    <ns2:entry>Allows you to set the package columns that should be displayed.</ns2:entry>
 </ns2:row>
 <ns2:row>
     <ns2:entry>Source library filter</ns2:entry>
-    <ns2:entry>Allows you to set the source library filter columns that should be displayed.</ns2:entry> 
+    <ns2:entry>Allows you to set the source library filter columns that should be displayed.</ns2:entry>
 </ns2:row>
 <ns2:row>
     <ns2:entry>Target library filter</ns2:entry>
-    <ns2:entry>Allows you to set the target library filter columns that should be displayed.</ns2:entry> 
+    <ns2:entry>Allows you to set the target library filter columns that should be displayed.</ns2:entry>
 </ns2:row>
 <ns2:row>
     <ns2:entry>Export to CSV</ns2:entry>
     <ns2:entry>
-        Allows you to export items displayed in <ns2:guilabel>Dependency Search Result view</ns2:guilabel> to a CSV format file.</ns2:entry> 
+        Allows you to export items displayed in <ns2:guilabel>Dependency Search Result view</ns2:guilabel> to a CSV format file.</ns2:entry>
 </ns2:row>
 <ns2:row>
     <ns2:entry>Display instance settings</ns2:entry>

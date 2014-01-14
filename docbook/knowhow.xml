@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <PortabilityKnowhow xmlns="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:ns2="http://docbook.org/ns/docbook">
     <PortabilityKnowhowTitle>Online Quick User Manual - Knowledge Manager</PortabilityKnowhowTitle>
     <EntryViewList>
@@ -332,7 +332,7 @@
 <ns2:row>
     <ns2:entry>IDE</ns2:entry>
     <ns2:entry>
-							Eclipse3.7 Indigo
+							Eclipse 3.7 Indigo or Eclipse 4.3 Kepler
 						</ns2:entry>
 </ns2:row>
                             </ns2:tbody>
@@ -759,7 +759,7 @@ directory under the Eclipse installation directory.
             </ns2:row>
             <ns2:row>
                 <ns2:entry>Porting factor</ns2:entry>
-                <ns2:entry>Searches items that correspond to the reason for the need to port code.</ns2:entry> 
+                <ns2:entry>Searches items that correspond to the reason for the need to port code.</ns2:entry>
             </ns2:row>
             <ns2:row>
                 <ns2:entry>Difficulty</ns2:entry>
@@ -863,7 +863,7 @@ directory under the Eclipse installation directory.
             </ns2:row>
             <ns2:row>
                 <ns2:entry>Inquiry check</ns2:entry>
-            <ns2:entry>Enter items to be checked with developers when the need for porting cannot be determined without checking with the developer.
+                <ns2:entry>Enter items to be checked with developers when the need for porting cannot be determined without checking with the developer.
 									</ns2:entry>
             </ns2:row>
         </ns2:tbody>
@@ -907,33 +907,33 @@ directory under the Eclipse installation directory.
             </ns2:row>
             <ns2:row>
                 <ns2:entry>Search Module overview</ns2:entry>
-                <ns2:entry>Displays a description of the search module overview.</ns2:entry> 
+                <ns2:entry>Displays a description of the search module overview.</ns2:entry>
             </ns2:row>
             <ns2:row>
                 <ns2:entry>Line count calculation</ns2:entry>
-                <ns2:entry>Select this checkbox when the value in the <ns2:guilabel>Line count</ns2:guilabel> field should be added as porting man-hours when a search returns a hit.</ns2:entry> 
+                <ns2:entry>Select this checkbox when the value in the <ns2:guilabel>Line count</ns2:guilabel> field should be added as porting man-hours when a search returns a hit.</ns2:entry>
             </ns2:row>
             <ns2:row>
                 <ns2:entry>Reason for not calculating</ns2:entry>
                 <ns2:entry>
-        Enter the reason when <ns2:guilabel>line count calculation</ns2:guilabel> should be ignored.</ns2:entry> 
+        Enter the reason when <ns2:guilabel>line count calculation</ns2:guilabel> should be ignored.</ns2:entry>
             </ns2:row>
             <ns2:row>
                 <ns2:entry>Unknown/TODO</ns2:entry>
                 <ns2:entry>
-        When the <ns2:guilabel>line count</ns2:guilabel> is not finalized, select an applicable item.</ns2:entry> 
+        When the <ns2:guilabel>line count</ns2:guilabel> is not finalized, select an applicable item.</ns2:entry>
             </ns2:row>
             <ns2:row>
                 <ns2:entry>Line count</ns2:entry>
-                <ns2:entry>Enter the rough number of lines that should be rewritten during porting.</ns2:entry> 
+                <ns2:entry>Enter the rough number of lines that should be rewritten during porting.</ns2:entry>
             </ns2:row>
             <ns2:row>
                 <ns2:entry>Line count basis</ns2:entry>
-                <ns2:entry>Enter the reason for the entered <ns2:guilabel>line count</ns2:guilabel>.</ns2:entry> 
+                <ns2:entry>Enter the reason for the entered <ns2:guilabel>line count</ns2:guilabel>.</ns2:entry>
             </ns2:row>
             <ns2:row>
                 <ns2:entry>Investigation details</ns2:entry>
-            <ns2:entry>Enter the investigation method for calculating the number of lines that will be rewritten.</ns2:entry>
+                <ns2:entry>Enter the investigation method for calculating the number of lines that will be rewritten.</ns2:entry>
             </ns2:row>
         </ns2:tbody>
     </ns2:tgroup>

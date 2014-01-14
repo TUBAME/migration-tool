@@ -447,12 +447,12 @@
 <ns2:row>
     <ns2:entry>IDE</ns2:entry>
     <ns2:entry>
-							Eclipse3.7 Indigo
+							Eclipse 3.7 Indigo or Eclipse 4.3 Kepler
 						</ns2:entry>
 </ns2:row>
 <ns2:row>
     <ns2:entry>Script</ns2:entry>
-    <ns2:entry>Python 2.6or2.7 + lxml モジュール
+    <ns2:entry>Python 2.6 or 2.7 + lxml モジュール
 						</ns2:entry>
 </ns2:row>
                             </ns2:tbody>
@@ -535,11 +535,9 @@
 					<ns2:filename>resources/properties/application*.properties</ns2:filename>
 					をテキストエディタで開きます。
 					以下のように、 Python がインストールされているパスを設定します。
-					<ns2:programlisting>
-
-						# Windows 上にインストールした場合の例
-						PYTHON_RUNTIME_PATH=C:/Python27/python.exe
-
+					<ns2:programlisting>		
+# Windows 上にインストールした場合の例
+PYTHON_RUNTIME_PATH=C:/Python27/python.exe
 					</ns2:programlisting>
 				</ns2:para>
                         </ns2:listitem>
