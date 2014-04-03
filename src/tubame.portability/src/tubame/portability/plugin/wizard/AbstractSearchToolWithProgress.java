@@ -262,6 +262,8 @@ public abstract class AbstractSearchToolWithProgress implements
             IOException, InterruptedException {
         List<String> lineList = new ArrayList<String>();
         String line = null;
+		CheckListInformationFactory.getCheckListInformationFacade()
+				.initCheckListInformationReader();
         // Read one line search results
         while ((line = reader.readLine()) != null) {
             if (monitor.isCanceled()) {

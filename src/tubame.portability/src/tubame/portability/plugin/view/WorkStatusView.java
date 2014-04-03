@@ -34,6 +34,7 @@ import org.eclipse.ui.forms.widgets.TableWrapLayout;
 import org.eclipse.ui.part.ViewPart;
 
 import tubame.portability.exception.JbmException;
+import tubame.portability.logic.CheckListInformationFactory;
 import tubame.portability.model.ConfirmItemEnum;
 import tubame.portability.model.JbmEditorEnum;
 import tubame.portability.model.JbmEditorMigrationRow;
@@ -151,6 +152,8 @@ public class WorkStatusView extends ViewPart {
 
         WorkStatusView instance = WorkStatusView.getInstance();
         if (instance != null) {
+			CheckListInformationFactory.getCheckListInformationFacade()
+					.initCheckListInformationReader();
             if (list == null) {
                 List<JbmEditorMigrationRow> rowList = WorkStatusView.getList();
                 instance.workText.setText(instance.createStateString(

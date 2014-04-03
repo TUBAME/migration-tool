@@ -205,27 +205,8 @@ public class CheckListInformationXml implements CheckListInformationReader {
      */
     private String getText(String location) throws JbmException {
         try {
-            setInitila();
             return xpath.evaluate(location, doc).trim();
         } catch (XPathExpressionException e) {
-            throw new JbmException(
-                    e,
-                    LOGGER,
-                    ERROR_LEVEL.ERROR,
-                    new String[] { MessageUtil.CHECKLIST_INFORMATION_FILE_ERROR });
-        } catch (SAXException e) {
-            throw new JbmException(
-                    e,
-                    LOGGER,
-                    ERROR_LEVEL.ERROR,
-                    new String[] { MessageUtil.CHECKLIST_INFORMATION_FILE_ERROR });
-        } catch (IOException e) {
-            throw new JbmException(
-                    e,
-                    LOGGER,
-                    ERROR_LEVEL.ERROR,
-                    new String[] { MessageUtil.CHECKLIST_INFORMATION_FILE_ERROR });
-        } catch (ParserConfigurationException e) {
             throw new JbmException(
                     e,
                     LOGGER,
@@ -244,7 +225,7 @@ public class CheckListInformationXml implements CheckListInformationReader {
      * @throws SAXException
      *             XML parsing error
      */
-    protected void setInitila() throws ParserConfigurationException,
+    public void setInitila() throws ParserConfigurationException,
             SAXException, IOException {
         // Do regeneration check item information XML file generated from
         // knowledge XML.

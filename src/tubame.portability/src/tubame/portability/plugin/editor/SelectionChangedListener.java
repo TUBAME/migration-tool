@@ -112,6 +112,8 @@ public class SelectionChangedListener implements ISelectionChangedListener {
      *            No
      */
     private void printInformationView(String no) {
+		CheckListInformationFactory.getCheckListInformationFacade()
+				.initCheckListInformationReader();
         CheckListInformation message = new CheckListInformation();
         CheckListInformationFacade facade = CheckListInformationFactory
                 .getCheckListInformationFacade();

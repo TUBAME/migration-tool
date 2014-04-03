@@ -25,7 +25,6 @@ import org.eclipse.jface.viewers.TreeViewer;
 import tubame.portability.model.JbmEditorMigrationRow;
 import tubame.portability.model.MigrationEditorRow;
 import tubame.portability.plugin.editor.MigrationEditorOperation;
-import tubame.portability.plugin.view.WorkStatusView;
 
 /**
  * Delete the selected rows in the search results.<br/>
@@ -63,7 +62,6 @@ public class JbmRowDelete implements MigrationRowDelete {
         for (JbmEditorMigrationRow first : editorList) {
             if (deleteJbmEditorRow.equals(first)) {
                 editorList.remove(first);
-                WorkStatusView.out(false, editorList);
                 return;
             }
             for (JbmEditorMigrationRow second : first.getChildList()) {
@@ -75,7 +73,6 @@ public class JbmRowDelete implements MigrationRowDelete {
                     // first level
                     deleteFirstLevel(editorList, first);
                     first.updateWriteData();
-                    WorkStatusView.out(false, editorList);
                     return;
                 }
                 for (JbmEditorMigrationRow third : second.getChildList()) {
@@ -92,7 +89,6 @@ public class JbmRowDelete implements MigrationRowDelete {
                         // first level
                         deleteFirstLevel(editorList, first);
                         first.updateWriteData();
-                        WorkStatusView.out(false, editorList);
                         return;
                     }
                 }
