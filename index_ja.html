@@ -200,6 +200,23 @@ body {
 						<div class="titlepage"></div>
 						<p>TUBAMEは商用APサーバからJBoss、またはJBoss同士のマイグレーション時に必要な修正箇所の抽出や修正工数の算出ができるツールです。複数のサブツールを備えており、Eclipseプラグインとして利用することができます。OSS製品としてTUBAMEコミュニティで公開されておりますので是非ご活用ください。
 						</p>
+						<div class="warning"
+										style="margin-left: 0.5in; margin-right: 0.5in;">
+										<table border="0" summary="Warning">
+											<tr>
+												<td valign="top" align="center" rowspan="2" width="25"><img
+													alt="[Warning]" src="images/warning.png"></td>
+												<th align="left">Warning</th>
+											</tr>
+											<tr>
+												<td valign="top" align="left">
+													<p>TUBAMEはJBossだけでなく、Tomcat移植(Tomcatのバージョンアップ）についても対応しています。
+													</p>
+												</td>
+											</tr>
+										</table>
+									</div>
+									
 						<p>TUBAMEはJBossへのスムーズな移行を支援するために用意されたツールで、以下3つのツールから構成されています。
 						</p>
 						<div class="orderedlist">
@@ -330,7 +347,7 @@ body {
 														<ul class="itemizedlist" style="list-style-type: disc;">
 															<li class="listitem">
 																<p>マイグレーションナレッジXML</p>
-																<p>必須パラメータである。必須パラメータとなります。移行ナレッジはTUBAMEコミュニティからダウンロードするかまたはナレッジ管理ツールで自ら作成することも出来ます。
+																<p>必須パラメータとなります。移行ナレッジはTUBAMEコミュニティからダウンロードするかまたはナレッジ管理ツールで自ら作成することも出来ます。
 																</p>
 															</li>
 															<li class="listitem">
@@ -344,12 +361,24 @@ body {
 													<div class="itemizedlist">
 														<ul class="itemizedlist" style="list-style-type: disc;">
 															<li class="listitem">
-																<p>JBossEAP4-&gt;6</p>
+																<p>JBossEAP4-&gt;JBossEAP6</p>
 																<a href="https://github.com/TUBAME/migration-knowledge/releases/download/EAP4toEAP6/EAP4to6.zip">https://github.com/TUBAME/migration-knowledge/releases/download/EAP4toEAP6/EAP4to6.zip</a>
 															</li>
 															<li class="listitem">
-																<p>WLS9-&gt;JBossEAP6</p>
+																<p>WebLogic9-&gt;JBossEAP6</p>
 																<a href="https://github.com/TUBAME/migration-knowledge/releases/download/WLS9toEAP6/WLS9ToEAP6.zip">https://github.com/TUBAME/migration-knowledge/releases/download/WLS9toEAP6/WLS9ToEAP6.zip</a>
+															</li>
+															<li class="listitem">
+																<p>WebSphere6-&gt;JBossEAP6</p>
+																<a href="https://github.com/TUBAME/user-knowledge/releases/download/WAS6toJBossEAP6/WAS6toJBossEAP6.zip">https://github.com/TUBAME/user-knowledge/releases/download/WAS6toJBossEAP6/WAS6toJBossEAP6.zip</a>
+															</li>
+															<li class="listitem">
+																<p>Tomcat5.5-&gt;Tomcat6</p>
+																<a href="https://github.com/TUBAME/user-knowledge/releases/download/Tomcat5.5to6.0/Tomcat5.5to6.0.zip">https://github.com/TUBAME/user-knowledge/releases/download/Tomcat5.5to6.0/Tomcat5.5to6.0.zip</a>
+															</li>
+															<li class="listitem">
+																<p>Tomcat6-&gt;Tomcat7</p>
+																<a href="https://github.com/TUBAME/user-knowledge/releases/download/Tomcat6.0to7.0/Tomcat6.0to7.0.zip">https://github.com/TUBAME/user-knowledge/releases/download/Tomcat6.0to7.0/Tomcat6.0to7.0.zip</a>
 															</li>
 														</ul>
 													</div>
