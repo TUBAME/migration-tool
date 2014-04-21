@@ -1,0 +1,1 @@
+1,*.xml,//*[local-name() = 'session-descriptor'],,ext_search_xml_xpath.py,Unknown,,

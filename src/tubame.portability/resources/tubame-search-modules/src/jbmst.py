@@ -37,7 +37,7 @@ import csv
 import os
 import imp
 import codecs
-
+import traceback
 bPARAMETER_CHECK = True        # Release Version
 
 
@@ -90,9 +90,6 @@ if hasattr(sys,"setdefaultencoding"):
 if bPARAMETER_CHECK:
     input_csv_file = sys.argv[1]            # Run Parameters [1] (search files)
     search_dir = sys.argv[2]                # Run Parameters [1] (Search target folder)
-else:
-    input_csv_file = "..\\test\\input\\testWlsImportCheck01.csv"
-    search_dir = "..\\test\\target"
 
 # Set the path to the file list of the key search_target
 # Ex) search_targets_map = { "*.java": "A","B"
@@ -132,7 +129,7 @@ denominatorCSV=getDenominatorSearchNum(reader)
 
 
 isHit = 0;
-
+errorFilePath = ""
 for tempRow in tempCSVLine:
 
     count = count + 1
@@ -141,98 +138,89 @@ for tempRow in tempCSVLine:
         raise IOError, 'Invalid search keyword file (line %d): %s' % (count,input_csv_file)
 
     row = jbmst_common.load(tempRow)
-
-
-
-    no = row[0]                         # No
-    search_target = row[1]              # Target File
-    search_str1 = row[2]                # Search Keyword1
-    search_str2 = row[3]                # Search Keyword2
-    extend_py_file = row[4]             # Extended search module name
-    priority = row[5]                   # Degree of difficulty
-    flag = row[6]                       # Convert Flag
-    if (len(row) > 7):
-        chapter_no = row[7]             # Guide Chapter
-    else:
-        chapter_no = ""                 # Empty string
-    check_Status = "0"                  # Check Status
-
-
-
-    # Display progress of a search (XX/XXX)
-    print getSearchNum(no)+"/"+denominatorCSV
-    # Flush the Buffer
-    sys.stdout.flush()
-
-
-
-    # Get the extension from the file name search.
-    extension = jbmst_common.getExtension(search_target)
-
-    target_list = []            # Initialize the object dictionary.
-
-    # Check the same or search for file names that you already processed.
-    # If the same file name exists, set the file path of the file that was already processed.
-    # If the same file name does not exist,
-    #  to get the file path of the file that meets your search criteria file name that is extracted.
-    if search_targets_map.has_key(search_target):
-        target_list = search_targets_map[search_target]
-    else:
-        target_list = jbmst_common.searchFileBySearchTarget(search_dir,search_target)
-        search_targets_map[search_target] = target_list
-
-    # If the search target file does not exist in the project on, output to CSV contents of the search keyword.
-    if (len(target_list) == 0):
-        result_line_cnt_list = "0"
-        #jbmst_common.print_csv(no,priority,flag,search_target,result_line_cnt_list,chapter_no,check_Status)
-        line = no + "," + search_target + "," + result_line_cnt_list + ","+ "0" + "," + priority + "," + flag+ "," + chapter_no+ "," + check_Status
-        print line
-
-    # If the extended search file name is specified, do an extended search processing.
-    if extend_py_file != "":
-        extend_py_file = extend_py_file[:-3]
-        load_module_name = "extend." + extend_py_file
-        ext_search_module = sys.modules[load_module_name]
-
-        jbmst_common.searchTarget=search_target
-
-        if ext_search_module.paramCheck(search_str1,search_str2) != 0:
-            raise IOError, 'Invalid search keyword parameter (line %d): %s' % (count,input_csv_file)
-
-        try :
-            ext_search_module.ext_search(no,priority,flag,target_list,search_str1,search_str2,input_csv_file,search_dir,chapter_no,check_Status)
-        except Exception, inst:
-            errorFilePath = ext_search_module.getErrorFilePath()
-            error = inst
-            raise Exception, '  File %s\r\n%s' % (errorFilePath, error)
-        continue
-
-    isHit = 0;
-    for filePath in target_list:
-
-        if search_str1 == "":
-            jbmst_common.print_csv3(no,filePath,priority,flag,chapter_no,check_Status)
+    try :
+        no = row[0]                         # No
+        search_target = row[1]              # Target File
+        search_str1 = row[2]                # Search Keyword1
+        search_str2 = row[3]                # Search Keyword2
+        extend_py_file = row[4]             # Extended search module name
+        priority = row[5]                   # Degree of difficulty
+        flag = row[6]                       # Convert Flag
+        if (len(row) > 7):
+            chapter_no = row[7]             # Guide Chapter
         else:
-            result_line_cnt_list = []
-            if extension == "java" :
-                result_line_cnt_list = jbmst_search_java.searchByFile(filePath,search_str1,search_str2)
-
-            elif extension == "jsp" :
-                result_line_cnt_list = jbmst_search_jsp.searchByFile(filePath,search_str1,search_str2)
-
-            elif extension == "xml" :
-                result_line_cnt_list = jbmst_search_xml.searchByFile(filePath,search_str1,search_str2)
-
+            chapter_no = ""                 # Empty string
+        check_Status = "0"                  # Check Status
+    
+        # Display progress of a search (XX/XXX)
+        print getSearchNum(no)+"/"+denominatorCSV
+        # Flush the Buffer
+        sys.stdout.flush()
+    
+        # Get the extension from the file name search.
+        extension = jbmst_common.getExtension(search_target)
+        target_list = []            # Initialize the object dictionary.
+    
+        # Check the same or search for file names that you already processed.
+        # If the same file name exists, set the file path of the file that was already processed.
+        # If the same file name does not exist,
+        #  to get the file path of the file that meets your search criteria file name that is extracted.
+        if search_targets_map.has_key(search_target):
+            target_list = search_targets_map[search_target]
+        else:
+            target_list = jbmst_common.searchFileBySearchTarget(search_dir,search_target)
+            search_targets_map[search_target] = target_list
+    
+    
+        # If the extended search file name is specified, do an extended search processing.
+        if extend_py_file != "":
+            extend_py_file = extend_py_file[:-3]
+            load_module_name = "extend." + extend_py_file
+            ext_search_module = sys.modules[load_module_name]
+    
+            jbmst_common.searchTarget=search_target
+    
+            if ext_search_module.paramCheck(search_str1,search_str2) != 0:
+                raise IOError, 'Invalid search keyword parameter (line %d): %s' % (count,input_csv_file)
+    
+            try :
+                ext_search_module.ext_search(no,priority,flag,target_list,search_str1,search_str2,input_csv_file,search_dir,chapter_no,check_Status)
+            except Exception, inst:
+                errorFilePath = ext_search_module.getErrorFilePath()
+                error = inst
+                raise Exception, 'Failed search (line %d): %s r\n%s' % (count,input_csv_file, error)
+            continue
+    
+        isHit = 0;
+        for filePath in target_list:
+            errorFilePath = filePath
+            
+            if search_str1 == "":
+                jbmst_common.print_csv3(no,filePath,priority,flag,chapter_no,check_Status)
             else:
-                result_line_cnt_list = jbmst_search_default.searchByFile(filePath,search_str1,search_str2)
+                result_line_cnt_list = []
+                if extension == "java" :
+                    result_line_cnt_list = jbmst_search_java.searchByFile(filePath,search_str1,search_str2)
+    
+                elif extension == "jsp" :
+                    result_line_cnt_list = jbmst_search_jsp.searchByFile(filePath,search_str1,search_str2)
+    
+                elif extension == "xml" :
+                    result_line_cnt_list = jbmst_search_xml.searchByFile(filePath,search_str1,search_str2)
+                else:
+                    result_line_cnt_list = jbmst_search_default.searchByFile(filePath,search_str1,search_str2)
 
-            # Output to a CSV also number 0 line search hits.
-            if (len(result_line_cnt_list) != 0):
-                isHit += 1
-            jbmst_common.print_csv(no,priority,flag,filePath,result_line_cnt_list,chapter_no,check_Status)
-    # If no results, output to CSV contents of the search keyword.
-    if len(target_list) >= 1 and isHit == 0:
-        result_line_cnt_list = "0"
-        line = no + "," + search_target + "," + result_line_cnt_list + ","+ "0" + "," + priority + "," + flag+ "," + chapter_no+ "," + check_Status
-        print line
-
+                # Output to a CSV also number 0 line search hits.
+                if (len(result_line_cnt_list) != 0):
+                    #isHit += 1
+                    jbmst_common.print_csv(no,priority,flag,filePath,result_line_cnt_list,chapter_no,check_Status)
+                
+        # If no results, output to CSV contents of the search keyword.
+        if len(target_list) >= 1 and isHit != 0:
+            result_line_cnt_list = "0"
+            line = no + "," + search_target + "," + result_line_cnt_list + ","+ "0" + "," + priority + "," + flag+ "," + chapter_no+ "," + check_Status
+            print line
+    
+    except Exception, ex:
+        #print ex
+        raise Exception, 'Search Err(csvinfo:%s ,SearchTargetFile:%s) \r\n%s ' % (row,errorFilePath,traceback.format_exc(sys.exc_info()[2]))
