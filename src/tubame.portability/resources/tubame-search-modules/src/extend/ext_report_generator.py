@@ -837,8 +837,8 @@ def ext_search(pNo, pPriority, pFlag, pList, pGenTargetDir, pRules, pInputCsv, p
                     if calcator.get('execCreateResultMap'):
                         results = calcator_instance.createResultMap(results)
                     calcator_instance.jswriter.save(results)
-    if len(rsl_list) == 0:
-            common_module.print_csv4(pNo, pPriority, pFlag,common_module.searchTarget , pChapterNo, pCheck_Status)
+    #if len(rsl_list) == 0:
+    #        common_module.print_csv4(pNo, pPriority, pFlag,common_module.searchTarget , pChapterNo, pCheck_Status)
             
     else:
         if pGenTargetDir == "":

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<weblogic-web-app xmlns="http://www.bea.com/ns/weblogic/90">
+  <session-descriptor>
+    <timeout-secs>3600</timeout-secs>
+    <invalidation-interval-secs>60</invalidation-interval-secs>
+    <persistent-store-type>memory</persistent-store-type>
+    <url-rewriting-enabled>true</url-rewriting-enabled>
+  </session-descriptor>
+  <jsp-descriptor>
+    <keepgenerated>true</keepgenerated>
+    <page-check-seconds>5</page-check-seconds>
+    <precompile>false</precompile>
+  </jsp-descriptor>
+</weblogic-web-app>
