@@ -18,6 +18,12 @@
  */
 package tubame.portability.logic.reader;
 
+import java.io.IOException;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
+
 import tubame.portability.exception.JbmException;
 
 /**
@@ -154,4 +160,7 @@ public interface CheckListInformationReader {
      * 
      */
     public void clearAdapter();
+    
+	public void setInitila() throws ParserConfigurationException, SAXException,
+			IOException;
 }

@@ -18,6 +18,12 @@
  */
 package tubame.portability.logic;
 
+import java.io.IOException;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
+
 import tubame.portability.exception.JbmException;
 import tubame.portability.logic.reader.CheckListInformationReader;
 import tubame.portability.logic.reader.CheckListInformationXml;
@@ -49,6 +55,15 @@ public class CheckListInformationFacade {
      * 
      */
     public void initCheckListInformationReader() {
+		try {
+			checkListInformationRead.setInitila();
+		} catch (ParserConfigurationException e) {
+			// no operation
+		} catch (SAXException e) {
+			// no operation
+		} catch (IOException e) {
+			// no operation
+		}
         checkListInformationRead.clearAdapter();
     }
 
