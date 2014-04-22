@@ -205,6 +205,9 @@ public class CheckListInformationXml implements CheckListInformationReader {
      */
     private String getText(String location) throws JbmException {
         try {
+        	if(xpath==null){
+        		throw new JbmException(MessageUtil.ERR_CONVERT_FILE_CLOSE);
+        	}
             return xpath.evaluate(location, doc).trim();
         } catch (XPathExpressionException e) {
             throw new JbmException(
@@ -231,7 +234,12 @@ public class CheckListInformationXml implements CheckListInformationReader {
         // knowledge XML.
         DocumentBuilder builder = DocumentBuilderFactory.newInstance()
                 .newDocumentBuilder();
-        doc = builder.parse(new File(createTargetFilePath()));
+        File file = new File(createTargetFilePath());
+        if(!file.exists()){
+            LOGGER.warn(MessageUtil.ERR_CONVERT_FILE_CLOSE);
+        	return;
+        }
+        doc = builder.parse(file);
         XPathFactory factory = XPathFactory.newInstance();
         xpath = factory.newXPath();
     }
