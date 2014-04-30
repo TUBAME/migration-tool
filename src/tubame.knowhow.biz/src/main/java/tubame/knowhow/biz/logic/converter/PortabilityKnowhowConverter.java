@@ -30,15 +30,15 @@ import tubame.knowhow.biz.model.generated.knowhow.Category;
 import tubame.knowhow.biz.model.generated.knowhow.Chapter;
 import tubame.knowhow.biz.model.generated.knowhow.DocBook;
 import tubame.knowhow.biz.model.generated.knowhow.EntryCategory;
-import tubame.knowhow.biz.model.generated.knowhow.KnowhowInfomation;
+import tubame.knowhow.biz.model.generated.knowhow.KnowhowInformation;
 import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow;
-import tubame.knowhow.biz.model.generated.knowhow.SearchInfomation;
+import tubame.knowhow.biz.model.generated.knowhow.SearchInformation;
 import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow.CategoryList;
 import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow.ChapterList;
 import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow.DocBookList;
 import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow.EntryViewList;
 import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow.KnowhowList;
-import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow.SearchInfomationList;
+import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow.SearchInformationList;
 import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
 
 /**
@@ -57,11 +57,11 @@ public class PortabilityKnowhowConverter {
     /** Map of the category list */
     private Map<String, Category> categoryMap = new LinkedHashMap<String, Category>();
     /** Map of know-how list */
-    private Map<String, KnowhowInfomation> knowhowMap = new LinkedHashMap<String, KnowhowInfomation>();
+    private Map<String, KnowhowInformation> knowhowMap = new LinkedHashMap<String, KnowhowInformation>();
     /** Map of DocBook list */
     private Map<String, DocBook> docBookMap = new LinkedHashMap<String, DocBook>();
     /** Map of search information */
-    private Map<String, SearchInfomation> searchInfoMap = new LinkedHashMap<String, SearchInfomation>();
+    private Map<String, SearchInformation> searchInfoMap = new LinkedHashMap<String, SearchInformation>();
     /** Know-how XML information */
     private PortabilityKnowhow portabilityKnowhow;
 
@@ -89,7 +89,7 @@ public class PortabilityKnowhowConverter {
         createDocBookMap(portabilityKnowhow.getDocBookList());
         createEntryList(portabilityKnowhow.getEntryViewList());
         createKnowhowMap(portabilityKnowhow.getKnowhowList());
-        createSearchInfoMap(portabilityKnowhow.getSearchInfomationList());
+        createSearchInfoMap(portabilityKnowhow.getSearchInformationList());
     }
 
     /**
@@ -111,7 +111,7 @@ public class PortabilityKnowhowConverter {
      *            KnowhowList
      */
     private void createKnowhowMap(KnowhowList knowhowList) {
-        for (KnowhowInfomation knowhow : knowhowList.getKnowhowInfomations()) {
+        for (KnowhowInformation knowhow : knowhowList.getKnowhowInformations()) {
             knowhowMap.put(knowhow.getKnowhowId(), knowhow);
         }
     }
@@ -119,12 +119,12 @@ public class PortabilityKnowhowConverter {
     /**
      * Create a search list information map.<br/>
      * 
-     * @param searchInfomationList
-     *            SearchInfomationList
+     * @param searchInformationList
+     *            SearchInformationList
      */
-    private void createSearchInfoMap(SearchInfomationList searchInfomationList) {
-        for (SearchInfomation searchInfo : searchInfomationList
-                .getSearchInfomations()) {
+    private void createSearchInfoMap(SearchInformationList searchInformationList) {
+        for (SearchInformation searchInfo : searchInformationList
+                .getSearchInformations()) {
             searchInfoMap.put(searchInfo.getSearchInfoId(), searchInfo);
         }
     }
@@ -227,7 +227,7 @@ public class PortabilityKnowhowConverter {
      * 
      * @return knowhowMap
      */
-    public Map<String, KnowhowInfomation> getKnowhowMap() {
+    public Map<String, KnowhowInformation> getKnowhowMap() {
         return knowhowMap;
     }
 
@@ -237,7 +237,7 @@ public class PortabilityKnowhowConverter {
      * @param knowhowMap
      *            knowhowMap
      */
-    public void setKnowhowMap(Map<String, KnowhowInfomation> knowhowMap) {
+    public void setKnowhowMap(Map<String, KnowhowInformation> knowhowMap) {
         this.knowhowMap = knowhowMap;
     }
 
@@ -265,7 +265,7 @@ public class PortabilityKnowhowConverter {
      * 
      * @return searchInfoMap
      */
-    public Map<String, SearchInfomation> getSearchInfoMap() {
+    public Map<String, SearchInformation> getSearchInfoMap() {
         return searchInfoMap;
     }
 
@@ -275,7 +275,7 @@ public class PortabilityKnowhowConverter {
      * @param searchInfoMap
      *            searchInfoMap
      */
-    public void setSearchInfoMap(Map<String, SearchInfomation> searchInfoMap) {
+    public void setSearchInfoMap(Map<String, SearchInformation> searchInfoMap) {
         this.searchInfoMap = searchInfoMap;
     }
 

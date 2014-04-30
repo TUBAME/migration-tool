@@ -21,13 +21,13 @@ package tubame.knowhow.plugin.logic.command;
 import java.util.List;
 import java.util.Map;
 
-import tubame.knowhow.biz.model.generated.knowhow.KnowhowInfomation;
+import tubame.knowhow.biz.model.generated.knowhow.KnowhowInformation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import tubame.knowhow.biz.logic.converter.PortabilityKnowhowConverter;
 import tubame.knowhow.biz.model.EntryViewItemEnum;
-
 import tubame.knowhow.plugin.logic.EntryItemManagement;
 import tubame.knowhow.plugin.model.view.AbstractViewType;
 import tubame.knowhow.plugin.model.view.KnowhowViewType;
@@ -48,7 +48,7 @@ public class CommandViewKnowhow {
     /** Know-how level */
     private static final int KNNOWHOW_LEVEL = PortabilityKnowhowListViewData.LEVEL_SECOND;
     /** Map data know-how */
-    private Map<String, KnowhowInfomation> knowhowMap;
+    private Map<String, KnowhowInformation> knowhowMap;
     /** Check items conversion command object */
     private CommandViewCheckItem commandViewCheckItem;
 
@@ -79,20 +79,20 @@ public class CommandViewKnowhow {
         CommandViewKnowhow.LOGGER.debug("[parentCategory]" + parentCategory
                 + "[knowhowRefKeies]" + knowhowRefKeies);
         for (String knowhowRefKey : knowhowRefKeies) {
-            KnowhowInfomation knowhowInfomation = ViewUtil.getKnowhow(
+            KnowhowInformation knowhowInformation = ViewUtil.getKnowhow(
                     knowhowRefKey, knowhowMap);
             PortabilityKnowhowListViewOperation knowhow = new PortabilityKnowhowListViewData(
                     parentCategory, KNNOWHOW_LEVEL,
-                    knowhowXmlToEntryView(knowhowInfomation));
+                    knowhowXmlToEntryView(knowhowInformation));
             EntryItemManagement.compareEntryItemId(knowhow.getKnowhowViewType()
                     .getRegisterKey(), EntryViewItemEnum.Knowhow.getName());
             // Sign up EntryItemManagement Know how the know-how of key
             // information
             EntryItemManagement.compareEntryItemId(
-                    knowhowInfomation.getKnowhowDetailRefKey(),
+                    knowhowInformation.getKnowhowDetailRefKey(),
                     EntryViewItemEnum.KnowhowDetail.getName());
             commandCheckItem(ViewUtil.insertChildKnowhowEntryViewData(
-                    parentCategory, knowhow), knowhowInfomation);
+                    parentCategory, knowhow), knowhowInformation);
         }
     }
 
@@ -103,26 +103,26 @@ public class CommandViewKnowhow {
      * 
      * @param parentKnowhow
      *            Parent hierarchical data
-     * @param knowhowInfomation
+     * @param knowhowInformation
      *            Know-how information
      */
     private void commandCheckItem(
             PortabilityKnowhowListViewOperation parentKnowhow,
-            KnowhowInfomation knowhowInfomation) {
+            KnowhowInformation knowhowInformation) {
         commandViewCheckItem.command(parentKnowhow,
-                knowhowInfomation.getCheckItems());
+                knowhowInformation.getCheckItems());
     }
 
     /**
      * Convert to the View display data.<br/>
      * convert know-how XML data to the View display data.<br/>
      * 
-     * @param knowhowInfomation
-     *            KnowhowInfomation
+     * @param knowhowInformation
+     *            KnowhowInformation
      * @return AbstractSampleViewData
      */
     private AbstractViewType knowhowXmlToEntryView(
-            KnowhowInfomation knowhowInfomation) {
-        return new KnowhowViewType(knowhowInfomation);
+            KnowhowInformation knowhowInformation) {
+        return new KnowhowViewType(knowhowInformation);
     }
 }

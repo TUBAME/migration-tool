@@ -20,7 +20,7 @@ package tubame.knowhow.plugin.model.view;
 
 import java.math.BigInteger;
 
-import tubame.knowhow.biz.model.generated.knowhow.KnowhowInfomation;
+import tubame.knowhow.biz.model.generated.knowhow.KnowhowInformation;
 
 import tubame.knowhow.plugin.ui.wizard.register.AbstractCreateKnowhowPage;
 
@@ -54,14 +54,14 @@ public class KnowhowViewType extends AbstractViewType {
     /**
      * Constructor.<br/>
      * 
-     * @param knowhowInfomation
+     * @param knowhowInformation
      *            Know-how XML (know-how)
      */
-    public KnowhowViewType(KnowhowInfomation knowhowInfomation) {
-        super.setRegisterName(knowhowInfomation.getKnowhowName());
-        super.setRegisterKey(knowhowInfomation.getKnowhowId());
-        this.knowhowDetailRefKey = knowhowInfomation.getKnowhowDetailRefKey();
-        knowhowNo = knowhowInfomation.getKnowhowNo();
+    public KnowhowViewType(KnowhowInformation knowhowInformation) {
+        super.setRegisterName(knowhowInformation.getKnowhowName());
+        super.setRegisterKey(knowhowInformation.getKnowhowId());
+        this.knowhowDetailRefKey = knowhowInformation.getKnowhowDetailRefKey();
+        knowhowNo = knowhowInformation.getKnowhowNo();
     }
 
     /**

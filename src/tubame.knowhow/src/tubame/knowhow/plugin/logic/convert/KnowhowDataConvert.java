@@ -26,17 +26,17 @@ import java.util.Map;
 import tubame.knowhow.biz.model.generated.knowhow.Appropriate;
 import tubame.knowhow.biz.model.generated.knowhow.Category;
 import tubame.knowhow.biz.model.generated.knowhow.CheckItem;
-import tubame.knowhow.biz.model.generated.knowhow.KnowhowInfomation;
-import tubame.knowhow.biz.model.generated.knowhow.LineNumberInfomation;
+import tubame.knowhow.biz.model.generated.knowhow.KnowhowInformation;
+import tubame.knowhow.biz.model.generated.knowhow.LineNumberInformation;
 import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow.CategoryList;
 import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow.KnowhowList;
-import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow.SearchInfomationList;
-import tubame.knowhow.biz.model.generated.knowhow.SearchInfomation;
+import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow.SearchInformationList;
+import tubame.knowhow.biz.model.generated.knowhow.SearchInformation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tubame.knowhow.biz.model.LineNumberEnum;
 
+import tubame.knowhow.biz.model.LineNumberEnum;
 import tubame.knowhow.plugin.model.view.CategoryViewType;
 import tubame.knowhow.plugin.model.view.CheckItemViewType;
 import tubame.knowhow.plugin.model.view.KnowhowViewType;
@@ -60,7 +60,7 @@ public class KnowhowDataConvert {
     /** Know-how list */
     private KnowhowList knowhowList = new KnowhowList();
     /** Search information list */
-    private SearchInfomationList searchInfomationList = new SearchInfomationList();
+    private SearchInformationList searchInformationList = new SearchInformationList();
     /** Grant No map data and each key of know-how / category */
     private Map<String, BigInteger> knowhowNoMap = new LinkedHashMap<String, BigInteger>();
 
@@ -98,30 +98,30 @@ public class KnowhowDataConvert {
      */
     private void convertKnowhow(
             PortabilityKnowhowListViewOperation knowhowListViewOperation) {
-        KnowhowInfomation knowhowInfomation = new KnowhowInfomation();
+        KnowhowInformation knowhowInformation = new KnowhowInformation();
         PortabilityKnowhowListViewData knowhowListViewData = (PortabilityKnowhowListViewData) knowhowListViewOperation;
         KnowhowViewType knowhowType = (KnowhowViewType) knowhowListViewData
                 .getKnowhowViewType();
-        knowhowInfomation.setKnowhowDetailRefKey(knowhowType
+        knowhowInformation.setKnowhowDetailRefKey(knowhowType
                 .getKnowhowDetailRefKey());
-        knowhowInfomation.setKnowhowId(knowhowType.getRegisterKey());
-        knowhowInfomation.setKnowhowName(knowhowType.getRegisterName());
-        knowhowInfomation.setKnowhowNo(obtainKnowhowNo(knowhowType
+        knowhowInformation.setKnowhowId(knowhowType.getRegisterKey());
+        knowhowInformation.setKnowhowName(knowhowType.getRegisterName());
+        knowhowInformation.setKnowhowNo(obtainKnowhowNo(knowhowType
                 .getRegisterKey()));
-        convertCheckItem(knowhowInfomation,
+        convertCheckItem(knowhowInformation,
                 knowhowListViewOperation.getChildList());
-        knowhowList.getKnowhowInfomations().add(knowhowInfomation);
+        knowhowList.getKnowhowInformations().add(knowhowInformation);
     }
 
     /**
      * Converted check item information to the know-how XML data.<br/>
      * 
-     * @param knowhowInfomation
+     * @param knowhowInformation
      *            Know-how information
      * @param childList
      *            List<PortabilityKnowhowListViewOperation>
      */
-    private void convertCheckItem(KnowhowInfomation knowhowInfomation,
+    private void convertCheckItem(KnowhowInformation knowhowInformation,
             List<PortabilityKnowhowListViewOperation> childList) {
         BigInteger checkItemNo = new BigInteger("0");
         for (PortabilityKnowhowListViewOperation knowhowListViewOperation : childList) {
@@ -146,7 +146,7 @@ public class KnowhowDataConvert {
                 checkItem.setSearchRefKey(checkItemType.getSearchRefKey());
                 convertSearchInfo(knowhowListViewOperation.getChildList());
             }
-            knowhowInfomation.getCheckItems().add(checkItem);
+            knowhowInformation.getCheckItems().add(checkItem);
         }
     }
 
@@ -160,21 +160,21 @@ public class KnowhowDataConvert {
             List<PortabilityKnowhowListViewOperation> childList) {
 
         for (PortabilityKnowhowListViewOperation knowhowListViewOperation : childList) {
-            SearchInfomation searchInfomation = new SearchInfomation();
+            SearchInformation searchInformation = new SearchInformation();
             PortabilityKnowhowListViewData knowhowListViewData = (PortabilityKnowhowListViewData) knowhowListViewOperation;
             SearchInfoViewType searchInfoType = (SearchInfoViewType) knowhowListViewData
                     .getKnowhowViewType();
 
-            searchInfomation.setSearchInfoId(searchInfoType.getRegisterKey());
-            searchInfomation.setFileType(searchInfoType.getFileType());
-            searchInfomation.setSearchKey1(searchInfoType.getSearchKeyword1());
-            searchInfomation.setSearchKey2(searchInfoType.getSearchKeyword2());
-            searchInfomation.setPythonModule(searchInfoType.getPythonModule());
-            searchInfomation
-                    .setLineNumberInfomation(convertLineNumbrInfo(searchInfoType));
-            searchInfomation.setAppropriate(convertAppropriate(searchInfoType));
+            searchInformation.setSearchInfoId(searchInfoType.getRegisterKey());
+            searchInformation.setFileType(searchInfoType.getFileType());
+            searchInformation.setSearchKey1(searchInfoType.getSearchKeyword1());
+            searchInformation.setSearchKey2(searchInfoType.getSearchKeyword2());
+            searchInformation.setPythonModule(searchInfoType.getPythonModule());
+            searchInformation
+                    .setLineNumberInformation(convertLineNumbrInfo(searchInfoType));
+            searchInformation.setAppropriate(convertAppropriate(searchInfoType));
 
-            searchInfomationList.getSearchInfomations().add(searchInfomation);
+            searchInformationList.getSearchInformations().add(searchInformation);
         }
     }
 
@@ -201,16 +201,16 @@ public class KnowhowDataConvert {
      *            Search information
      * @return Line number information
      */
-    private LineNumberInfomation convertLineNumbrInfo(
+    private LineNumberInformation convertLineNumbrInfo(
             SearchInfoViewType searchInfoType) {
-        LineNumberInfomation lineNumberInfomation = new LineNumberInfomation();
-        convertLineNumber(searchInfoType, lineNumberInfomation);
-        lineNumberInfomation.setLineNumberContents(searchInfoType
+        LineNumberInformation lineNumberInformation = new LineNumberInformation();
+        convertLineNumber(searchInfoType, lineNumberInformation);
+        lineNumberInformation.setLineNumberContents(searchInfoType
                 .getLineNumberContents());
-        lineNumberInfomation
+        lineNumberInformation
                 .setInvestigation(searchInfoType.getInvestigation());
 
-        return lineNumberInfomation;
+        return lineNumberInformation;
     }
 
     /**
@@ -218,16 +218,16 @@ public class KnowhowDataConvert {
      * 
      * @param searchInfoType
      *            Search information
-     * @param lineNumberInfomation
+     * @param lineNumberInformation
      *            Line number information
      */
     private void convertLineNumber(SearchInfoViewType searchInfoType,
-            LineNumberInfomation lineNumberInfomation) {
+            LineNumberInformation lineNumberInformation) {
         if (searchInfoType.getUnKnownLine().equals(
                 LineNumberEnum.Empty.getName())) {
-            lineNumberInfomation.setLineNumber(searchInfoType.getLineNumber());
+            lineNumberInformation.setLineNumber(searchInfoType.getLineNumber());
         } else {
-            lineNumberInfomation.setLineNumber(searchInfoType.getUnKnownLine());
+            lineNumberInformation.setLineNumber(searchInfoType.getUnKnownLine());
         }
     }
 
@@ -313,11 +313,11 @@ public class KnowhowDataConvert {
     }
 
     /**
-     * Get searchInfomationList.<br/>
+     * Get searchInformationList.<br/>
      * 
-     * @return searchInfomationList
+     * @return searchInformationList
      */
-    public SearchInfomationList getSearchInfomationList() {
-        return searchInfomationList;
+    public SearchInformationList getSearchInformationList() {
+        return searchInformationList;
     }
 }

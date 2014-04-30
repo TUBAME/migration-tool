@@ -78,19 +78,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PortabilityKnowhow.SearchInfomationList }
+     * Create an instance of {@link PortabilityKnowhow.SearchInformationList }
      * 
      */
-    public PortabilityKnowhow.SearchInfomationList createPortabilityKnowhowSearchInfomationList() {
-        return new PortabilityKnowhow.SearchInfomationList();
-    }
-
-    /**
-     * Create an instance of {@link SearchInfomation }
-     * 
-     */
-    public SearchInfomation createSearchInfomation() {
-        return new SearchInfomation();
+    public PortabilityKnowhow.SearchInformationList createPortabilityKnowhowSearchInformationList() {
+        return new PortabilityKnowhow.SearchInformationList();
     }
 
     /**
@@ -110,19 +102,19 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SearchInformation }
+     * 
+     */
+    public SearchInformation createSearchInformation() {
+        return new SearchInformation();
+    }
+
+    /**
      * Create an instance of {@link Appropriate }
      * 
      */
     public Appropriate createAppropriate() {
         return new Appropriate();
-    }
-
-    /**
-     * Create an instance of {@link LineNumberInfomation }
-     * 
-     */
-    public LineNumberInfomation createLineNumberInfomation() {
-        return new LineNumberInfomation();
     }
 
     /**
@@ -134,19 +126,19 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link LineNumberInformation }
+     * 
+     */
+    public LineNumberInformation createLineNumberInformation() {
+        return new LineNumberInformation();
+    }
+
+    /**
      * Create an instance of {@link DocBook }
      * 
      */
     public DocBook createDocBook() {
         return new DocBook();
-    }
-
-    /**
-     * Create an instance of {@link KnowhowInfomation }
-     * 
-     */
-    public KnowhowInfomation createKnowhowInfomation() {
-        return new KnowhowInfomation();
     }
 
     /**
@@ -171,6 +163,14 @@ public class ObjectFactory {
      */
     public CheckItem createCheckItem() {
         return new CheckItem();
+    }
+
+    /**
+     * Create an instance of {@link KnowhowInformation }
+     * 
+     */
+    public KnowhowInformation createKnowhowInformation() {
+        return new KnowhowInformation();
     }
 
 }

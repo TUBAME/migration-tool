@@ -37,7 +37,7 @@ import org.slf4j.LoggerFactory;
 
 import tubame.portability.exception.JbmException;
 import tubame.portability.exception.JbmException.ERROR_LEVEL;
-import tubame.portability.logic.CreateCheckListInfomationFile;
+import tubame.portability.logic.CreateCheckListInformationFile;
 import tubame.portability.util.PluginUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
@@ -80,7 +80,7 @@ public class CheckListInformationXml implements CheckListInformationReader {
      */
     @Override
     public String getBigDescription(String no) throws JbmException {
-        return getText(createLocation(no, CreateCheckListInfomationFile.BIG));
+        return getText(createLocation(no, CreateCheckListInformationFile.BIG));
     }
 
     /**
@@ -88,7 +88,7 @@ public class CheckListInformationXml implements CheckListInformationReader {
      */
     @Override
     public String getMiddleDescription(String no) throws JbmException {
-        return getText(createLocation(no, CreateCheckListInfomationFile.MIDDLE));
+        return getText(createLocation(no, CreateCheckListInformationFile.MIDDLE));
     }
 
     /**
@@ -100,7 +100,7 @@ public class CheckListInformationXml implements CheckListInformationReader {
             return CheckListInformationXml.checkEyeDescriptionList.get(no);
         }
         String result = getText(createLocation(no,
-                CreateCheckListInfomationFile.VISUAL_CONFIRM));
+                CreateCheckListInformationFile.VISUAL_CONFIRM));
         CheckListInformationXml.checkEyeDescriptionList.put(no, result);
         return result;
     }
@@ -114,7 +114,7 @@ public class CheckListInformationXml implements CheckListInformationReader {
             return CheckListInformationXml.hearingDescriptionList.get(no);
         }
         String result = getText(createLocation(no,
-                CreateCheckListInfomationFile.HEARING_CONFIRM));
+                CreateCheckListInformationFile.HEARING_CONFIRM));
         CheckListInformationXml.hearingDescriptionList.put(no, result);
         return result;
     }
@@ -125,7 +125,7 @@ public class CheckListInformationXml implements CheckListInformationReader {
     @Override
     public String getSearchDescription(String no) throws JbmException {
         return getText(createLocation(no,
-                CreateCheckListInfomationFile.SEARCH_PROCESS));
+                CreateCheckListInformationFile.SEARCH_PROCESS));
     }
 
     /**
@@ -134,7 +134,7 @@ public class CheckListInformationXml implements CheckListInformationReader {
     @Override
     public String getFactorDescription(String no) throws JbmException {
         return getText(createLocation(no,
-                CreateCheckListInfomationFile.PORTABILITY_FACTOR));
+                CreateCheckListInformationFile.PORTABILITY_FACTOR));
     }
 
     /**
@@ -143,7 +143,7 @@ public class CheckListInformationXml implements CheckListInformationReader {
     @Override
     public String getDegreeDescription(String no) throws JbmException {
         return getText(createLocation(no,
-                CreateCheckListInfomationFile.DEGREE_DETAIL));
+                CreateCheckListInformationFile.DEGREE_DETAIL));
     }
 
     /**
@@ -152,7 +152,7 @@ public class CheckListInformationXml implements CheckListInformationReader {
     @Override
     public String getAppropriateDescription(String no) throws JbmException {
         return getText(createLocation(no,
-                CreateCheckListInfomationFile.APPROPPRIATE));
+                CreateCheckListInformationFile.APPROPPRIATE));
     }
 
     /**
@@ -161,7 +161,7 @@ public class CheckListInformationXml implements CheckListInformationReader {
     @Override
     public String getInvestigationDescription(String no) throws JbmException {
         return getText(createLocation(no,
-                CreateCheckListInfomationFile.INVESTIGATION));
+                CreateCheckListInformationFile.INVESTIGATION));
     }
 
     /**
@@ -170,7 +170,7 @@ public class CheckListInformationXml implements CheckListInformationReader {
     @Override
     public String getLineNumberDescription(String no) throws JbmException {
         return getText(createLocation(no,
-                CreateCheckListInfomationFile.LINE_NUMBER));
+                CreateCheckListInformationFile.LINE_NUMBER));
     }
 
     /**
@@ -180,7 +180,7 @@ public class CheckListInformationXml implements CheckListInformationReader {
     public String getLineNumberContentsDescription(String no)
             throws JbmException {
         return getText(createLocation(no,
-                CreateCheckListInfomationFile.LINE_NUMBER_CONTENTS));
+                CreateCheckListInformationFile.LINE_NUMBER_CONTENTS));
     }
 
     /**

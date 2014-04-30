@@ -189,9 +189,9 @@ public final class MessagePropertiesUtil {
     /** Copy the selected item. (Log) */
     public static final String LOG_ELEMENT_COPY = "logElementCopy";
     /** Get the know-how information registration wizard. (Log) */
-    public static final String LOG_OPEN_KNOWHOWINFOMATION_WIZARD = "logOpenKnowhowInfomationWizard";
+    public static final String LOG_OPEN_KNOWHOWINFORMATION_WIZARD = "logOpenKnowhowInformationWizard";
     /** Get search information registration wizard. (Log) */
-    public static final String LOG_OPEN_SEARCHINFOMATION_WIZARD = "logOpenSearchInfomationWizard";
+    public static final String LOG_OPEN_SEARCHINFORMATION_WIZARD = "logOpenSearchInformationWizard";
     /** Change the subject name of the selected item. (Log) */
     public static final String LOG_CHANGE_SUBJECT_NAME = "logChangeSubjectName";
     /** Did the insertion of tags. (Log) */

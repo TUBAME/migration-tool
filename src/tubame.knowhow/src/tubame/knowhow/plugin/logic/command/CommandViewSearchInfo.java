@@ -20,7 +20,7 @@ package tubame.knowhow.plugin.logic.command;
 
 import java.util.Map;
 
-import tubame.knowhow.biz.model.generated.knowhow.SearchInfomation;
+import tubame.knowhow.biz.model.generated.knowhow.SearchInformation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,7 +47,7 @@ public class CommandViewSearchInfo {
     /** Search information level */
     private static final int SEARCH_LEVEL = PortabilityKnowhowListViewData.LEVEL_FOURTH;
     /** Map data know-how */
-    private Map<String, SearchInfomation> searchInfoMap;
+    private Map<String, SearchInformation> searchInfoMap;
 
     /**
      * Constructor.<br/>
@@ -88,10 +88,10 @@ public class CommandViewSearchInfo {
      * Convert know-how XML data to the View display data.<br/>
      * 
      * @param searchInfo
-     *            SearchInfomation
+     *            SearchInformation
      * @return AbstractSampleViewData AbstractSampleViewData
      */
-    private AbstractViewType knowhowXmlToEntryView(SearchInfomation searchInfo) {
+    private AbstractViewType knowhowXmlToEntryView(SearchInformation searchInfo) {
         return new SearchInfoViewType(searchInfo);
     }
 
