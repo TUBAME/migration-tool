@@ -70,9 +70,9 @@ public class KnowhowXmlConvertFacade {
             // Search file generation
             CreateKeywordSearchFile.xmlToCsv(convert);
 
-            // CheckListInfomation.xml file generation
+            // CheckListInformation.xml file generation
             LOGGER.info(MessageUtil.LOG_CREATE_CHECKLISTINFO_XML);
-            CreateCheckListInfomationFile.xmlToXml(convert);
+            CreateCheckListInformationFile.xmlToXml(convert);
         } catch (JbmException e) {
             throw e;
         } catch (tubame.knowhow.biz.exception.JbmException e) {

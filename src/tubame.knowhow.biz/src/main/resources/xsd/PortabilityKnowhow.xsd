@@ -40,7 +40,7 @@
 				<xs:element name="KnowhowList" minOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="KnowhowInfomation" type="KnowhowInfomation"
+							<xs:element name="KnowhowInformation" type="KnowhowInformation"
 								minOccurs="0" maxOccurs="unbounded" />
 						</xs:sequence>
 					</xs:complexType>
@@ -53,10 +53,10 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="SearchInfomationList" minOccurs="1">
+				<xs:element name="SearchInformationList" minOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="SearchInfomation" type="SearchInfomation"
+							<xs:element name="SearchInformation" type="SearchInformation"
 								minOccurs="0" maxOccurs="unbounded" />
 						</xs:sequence>
 					</xs:complexType>
@@ -78,7 +78,7 @@
 
 	<xs:complexType name="ChildChapter">
 		<xs:sequence>
-			<xs:element name="ChildCapterNo" type="xs:string"
+			<xs:element name="ChildChapterNo" type="xs:string"
 				minOccurs="1" />
 			<xs:element name="ChapterCategoryRefKey" type="xs:string"
 				minOccurs="1" maxOccurs="1" />
@@ -116,7 +116,7 @@
 		<xs:attribute name="appropriate" type="xs:boolean" use="required" />
 	</xs:complexType>
 
-	<xs:complexType name="KnowhowInfomation">
+	<xs:complexType name="KnowhowInformation">
 		<xs:sequence>
 			<xs:element name="KnowhowNo" type="xs:integer" minOccurs="1"
 				maxOccurs="1" />
@@ -161,7 +161,7 @@
 			use="required" />
 	</xs:complexType>
 
-	<xs:complexType name="SearchInfomation">
+	<xs:complexType name="SearchInformation">
 		<xs:sequence>
 			<xs:element name="FileType" type="xs:string" minOccurs="1"
 				maxOccurs="1" />
@@ -171,7 +171,7 @@
 				maxOccurs="1" />
 			<xs:element name="PythonModule" type="xs:string"
 				minOccurs="1" maxOccurs="1" />
-			<xs:element name="LineNumberInfomation" type="LineNumberInfomation"
+			<xs:element name="LineNumberInformation" type="LineNumberInformation"
 				minOccurs="1" maxOccurs="1" />
 			<xs:element name="Appropriate" type="Appropriate"
 				minOccurs="1" maxOccurs="1" />
@@ -179,7 +179,7 @@
 		<xs:attribute name="searchInfoId" type="xs:string" use="required" />
 	</xs:complexType>
 
-	<xs:complexType name="LineNumberInfomation">
+	<xs:complexType name="LineNumberInformation">
 		<xs:sequence>
 			<xs:element name="LineNumber" type="xs:string" minOccurs="1"
 				maxOccurs="1" />

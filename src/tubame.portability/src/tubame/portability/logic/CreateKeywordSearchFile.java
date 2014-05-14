@@ -32,8 +32,8 @@ import tubame.knowhow.biz.model.generated.knowhow.Category;
 import tubame.knowhow.biz.model.generated.knowhow.Chapter;
 import tubame.knowhow.biz.model.generated.knowhow.CheckItem;
 import tubame.knowhow.biz.model.generated.knowhow.ChildChapter;
-import tubame.knowhow.biz.model.generated.knowhow.KnowhowInfomation;
-import tubame.knowhow.biz.model.generated.knowhow.SearchInfomation;
+import tubame.knowhow.biz.model.generated.knowhow.KnowhowInformation;
+import tubame.knowhow.biz.model.generated.knowhow.SearchInformation;
 
 import tubame.portability.exception.JbmException;
 import tubame.portability.util.CsvUtil;
@@ -60,12 +60,12 @@ public class CreateKeywordSearchFile {
     /**
      * Map of know-how list
      */
-    private static Map<String, KnowhowInfomation> knowhowMap = null;
+    private static Map<String, KnowhowInformation> knowhowMap = null;
 
     /**
      * Map of search information
      */
-    private static Map<String, SearchInfomation> searchInfoMap = null;
+    private static Map<String, SearchInformation> searchInfoMap = null;
 
     /**
      * Search convert files to (CSV format) from the know-how XML.<br/>
@@ -152,7 +152,7 @@ public class CreateKeywordSearchFile {
         // 2.ChildChapter
         for (ChildChapter childChapter : children) {
             // No (heading No. Category No)
-            childChapNo = childChapter.getChildCapterNo();
+            childChapNo = childChapter.getChildChapterNo();
 
             String cateRefKey = childChapter.getChapterCategoryRefKey();
             // 3.CategoryList
@@ -164,7 +164,7 @@ public class CreateKeywordSearchFile {
                     for (String knowhowRefKey : category.getValue()
                             .getKnowhowRefKeies()) {
                         // 4.KnowhowList
-                        for (Map.Entry<String, KnowhowInfomation> knowhow : knowhowMap
+                        for (Map.Entry<String, KnowhowInformation> knowhow : knowhowMap
                                 .entrySet()) {
 
                             // Mapping and determination of KnowhowList
@@ -197,13 +197,13 @@ public class CreateKeywordSearchFile {
                                         continue;
                                     }
 
-                                    // 6.SearchInfomationList
-                                    for (Map.Entry<String, SearchInfomation> search : searchInfoMap
+                                    // 6.SearchInformationList
+                                    for (Map.Entry<String, SearchInformation> search : searchInfoMap
                                             .entrySet()) {
 
                                         String searchInfoId = search.getKey();
                                         // Mapping and determination of
-                                        // SearchInfomationList KnowhowList
+                                        // SearchInformationList KnowhowList
                                         if (searchRefKey.equals(searchInfoId)) {
                                             /**
                                              * Stores the search information

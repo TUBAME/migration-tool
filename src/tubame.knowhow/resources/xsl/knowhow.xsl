@@ -101,10 +101,10 @@
 				<dt>
 					<span>
 						<xsl:attribute name="class">
-							<xsl:value-of select="knowhow:ChildCapterNo" />
+							<xsl:value-of select="knowhow:ChildChapterNo" />
 						</xsl:attribute>
-						<a href="#tubame_{knowhow:ChildCapterNo}">
-							<xsl:value-of select="knowhow:ChildCapterNo" />
+						<a href="#tubame_{knowhow:ChildChapterNo}">
+							<xsl:value-of select="knowhow:ChildChapterNo" />
 							<xsl:call-template name="displayCategoryName">
 								<xsl:with-param name="refkey">
 									<xsl:value-of select="knowhow:ChapterCategoryRefKey" />
@@ -133,13 +133,13 @@
 		<xsl:apply-templates select="knowhow:ChildChapter" />
 	</xsl:template>
 	<xsl:template match="knowhow:ChildChapter">
-		<a name="tubame_{knowhow:ChildCapterNo}"></a>
+		<a name="tubame_{knowhow:ChildChapterNo}"></a>
 		<h3 class="title">
-			<xsl:value-of select="knowhow:ChildCapterNo" />
+			<xsl:value-of select="knowhow:ChildChapterNo" />
 			<xsl:call-template name="displayCategoryName">
 				<xsl:with-param name="refkey">
 					<xsl:value-of select="knowhow:ChapterCategoryRefKey" />
-				</xsl:with-param>
+				</xsl:with-param>ww
 			</xsl:call-template>
 		</h3>
 		<br />
@@ -182,7 +182,7 @@
 			-
 		</xsl:param>
 		<xsl:for-each
-			select="/knowhow:PortabilityKnowhow/knowhow:KnowhowList/knowhow:KnowhowInfomation">
+			select="/knowhow:PortabilityKnowhow/knowhow:KnowhowList/knowhow:KnowhowInformation">
 			<xsl:choose>
 				<xsl:when test="$KnowhowRefKey=@knowhowId">
 					<xsl:call-template name="searchDocBook">

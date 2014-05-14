@@ -21,7 +21,7 @@ package tubame.knowhow.plugin.model.view;
 import java.util.Map;
 
 import tubame.common.util.CmnStringUtil;
-import tubame.knowhow.biz.model.generated.knowhow.SearchInfomation;
+import tubame.knowhow.biz.model.generated.knowhow.SearchInformation;
 import tubame.knowhow.biz.model.LineNumberEnum;
 
 import tubame.knowhow.plugin.logic.FileManagement;
@@ -93,7 +93,7 @@ public class SearchInfoViewType extends AbstractViewType {
      * @param searchInfo
      *            Know-how XML (information retrieval)
      */
-    public SearchInfoViewType(SearchInfomation searchInfo) {
+    public SearchInfoViewType(SearchInformation searchInfo) {
         super.setRegisterName(searchInfo.getSearchInfoId());
         super.setRegisterKey(searchInfo.getSearchInfoId());
         appropriateLine = searchInfo.getAppropriate().isLineNumberAppropriate();
@@ -101,9 +101,9 @@ public class SearchInfoViewType extends AbstractViewType {
         searchKeyword1 = searchInfo.getSearchKey1();
         searchKeyword2 = searchInfo.getSearchKey2();
         setLineNumberInfo(searchInfo);
-        lineNumberContents = searchInfo.getLineNumberInfomation()
+        lineNumberContents = searchInfo.getLineNumberInformation()
                 .getLineNumberContents();
-        investigation = searchInfo.getLineNumberInfomation().getInvestigation();
+        investigation = searchInfo.getLineNumberInformation().getInvestigation();
         pythonModule = searchInfo.getPythonModule();
         pythonModuleContext = obtainPythonModuleContext(searchInfo
                 .getPythonModule());
@@ -119,17 +119,17 @@ public class SearchInfoViewType extends AbstractViewType {
      * @param searchInfo
      *            Search information
      */
-    private void setLineNumberInfo(SearchInfomation searchInfo) {
-        if (searchInfo.getLineNumberInfomation().getLineNumber()
+    private void setLineNumberInfo(SearchInformation searchInfo) {
+        if (searchInfo.getLineNumberInformation().getLineNumber()
                 .equals(LineNumberEnum.ToDoSE.getName())) {
             lineNumber = CmnStringUtil.INITIAL_NUMBER;
-            unKnownLine = searchInfo.getLineNumberInfomation().getLineNumber();
-        } else if (searchInfo.getLineNumberInfomation().getLineNumber()
+            unKnownLine = searchInfo.getLineNumberInformation().getLineNumber();
+        } else if (searchInfo.getLineNumberInformation().getLineNumber()
                 .equals(LineNumberEnum.Unknown.getName())) {
             lineNumber = CmnStringUtil.INITIAL_NUMBER;
-            unKnownLine = searchInfo.getLineNumberInfomation().getLineNumber();
+            unKnownLine = searchInfo.getLineNumberInformation().getLineNumber();
         } else {
-            lineNumber = searchInfo.getLineNumberInfomation().getLineNumber();
+            lineNumber = searchInfo.getLineNumberInformation().getLineNumber();
             unKnownLine = CmnStringUtil.EMPTY;
         }
     }

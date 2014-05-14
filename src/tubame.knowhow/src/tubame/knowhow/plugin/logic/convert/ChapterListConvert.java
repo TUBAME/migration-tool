@@ -93,7 +93,7 @@ public class ChapterListConvert {
             chapterNoBuilder = createChapterNo(chapterNoBuilder);
             ChildChapter childChapter = new ChildChapter();
             CategoryEntry category = (CategoryEntry) categoryOperator;
-            childChapter.setChildCapterNo(chapterNoBuilder.toString());
+            childChapter.setChildChapterNo(chapterNoBuilder.toString());
             childChapter.setChapterCategoryRefKey(category.getKey());
             this.convertChapterCategory(categoryOperator,
                     childChapter.getChildChapters(), chapterNoBuilder);

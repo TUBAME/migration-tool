@@ -1,5 +1,5 @@
 /*
- * CreateCheckListInfomationFile.java
+ * CreateCheckListInformationFile.java
  * Created on 2013/06/28
  *
  * Copyright (C) 2011-2013 Nippon Telegraph and Telephone Corporation
@@ -40,8 +40,8 @@ import tubame.knowhow.biz.model.generated.knowhow.Category;
 import tubame.knowhow.biz.model.generated.knowhow.Chapter;
 import tubame.knowhow.biz.model.generated.knowhow.CheckItem;
 import tubame.knowhow.biz.model.generated.knowhow.ChildChapter;
-import tubame.knowhow.biz.model.generated.knowhow.KnowhowInfomation;
-import tubame.knowhow.biz.model.generated.knowhow.SearchInfomation;
+import tubame.knowhow.biz.model.generated.knowhow.KnowhowInformation;
+import tubame.knowhow.biz.model.generated.knowhow.SearchInformation;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -57,7 +57,7 @@ import tubame.portability.util.resource.MessageUtil;
 /**
  * Make the generation of checklist information know-how from an XML file XML.<br/>
  */
-public class CreateCheckListInfomationFile {
+public class CreateCheckListInformationFile {
     /**
      * Heading tag information list
      */
@@ -71,15 +71,15 @@ public class CreateCheckListInfomationFile {
     /**
      * Map of know-how list
      */
-    private static Map<String, KnowhowInfomation> knowhowMap = null;
+    private static Map<String, KnowhowInformation> knowhowMap = null;
 
     /**
      * Map of search information
      */
-    private static Map<String, SearchInfomation> searchInfoMap = null;
+    private static Map<String, SearchInformation> searchInfoMap = null;
 
     /**
-     * Attributes of XML (checkListInfomation)
+     * Attributes of XML (checkListInformation)
      */
     private static final String ROOT_ELEMENT = "checkListInformation";
     /**
@@ -162,7 +162,7 @@ public class CreateCheckListInfomationFile {
         knowhowMap = convert.getKnowhowMap();
         searchInfoMap = convert.getSearchInfoMap();
 
-        // Get the contents of the checkListInfomation.xml
+        // Get the contents of the checkListInformation.xml
         xmlList = getCheckListInfoData();
 
         try {
@@ -342,7 +342,7 @@ public class CreateCheckListInfomationFile {
 
         for (ChildChapter childChapter : children) {
             // No (heading No. Category No)
-            childChapNo = childChapter.getChildCapterNo();
+            childChapNo = childChapter.getChildChapterNo();
 
             String cateRefKey = childChapter.getChapterCategoryRefKey();
             // 3.CategoryList
@@ -360,7 +360,7 @@ public class CreateCheckListInfomationFile {
                         mid = category.getValue().getCategoryName();
 
                         // 4.KnowhowList
-                        for (Map.Entry<String, KnowhowInfomation> knowhow : knowhowMap
+                        for (Map.Entry<String, KnowhowInformation> knowhow : knowhowMap
                                 .entrySet()) {
 
                             // Mapping and determination of KnowhowList
@@ -398,24 +398,24 @@ public class CreateCheckListInfomationFile {
                                         continue;
                                     }
 
-                                    // 6.SearchInfomationList
-                                    for (Map.Entry<String, SearchInfomation> search : searchInfoMap
+                                    // 6.SearchInformationList
+                                    for (Map.Entry<String, SearchInformation> search : searchInfoMap
                                             .entrySet()) {
 
                                         String searchInfoId = search.getKey();
                                         // Mapping and determination of
-                                        // SearchInfomationList KnowhowList
+                                        // SearchInformationList KnowhowList
                                         if (searchRefKey.equals(searchInfoId)) {
                                             // <Number of lines>
-                                            lineNum = CreateCheckListInfomationFile
+                                            lineNum = CreateCheckListInformationFile
                                                     .getLineNum(search);
                                             // <Line number basis>
                                             lineNumContent = search.getValue()
-                                                    .getLineNumberInfomation()
+                                                    .getLineNumberInformation()
                                                     .getLineNumberContents();
                                             // Line census method>
                                             invest = search.getValue()
-                                                    .getLineNumberInfomation()
+                                                    .getLineNumberInformation()
                                                     .getInvestigation();
                                             // Recorded Required fields>
                                             if (!search.getValue()
@@ -436,7 +436,7 @@ public class CreateCheckListInfomationFile {
                                             }
                                             /**
                                              * It contains the contents of
-                                             * CheckListInfomation.xml
+                                             * CheckListInformation.xml
                                              */
                                             String no = childChapNo + "-"
                                                     + knowhowNo + "-"
@@ -472,10 +472,10 @@ public class CreateCheckListInfomationFile {
      *            Search Info Map
      * @return Number of lines
      */
-    private static String getLineNum(Entry<String, SearchInfomation> search) {
+    private static String getLineNum(Entry<String, SearchInformation> search) {
         if (!calculationFlag
                 && search.getValue().getAppropriate().isLineNumberAppropriate()) {
-            return search.getValue().getLineNumberInfomation().getLineNumber();
+            return search.getValue().getLineNumberInformation().getLineNumber();
         }
         return "0";
     }

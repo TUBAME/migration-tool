@@ -26,7 +26,7 @@ import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow.ChapterList
 import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow.DocBookList;
 import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow.EntryViewList;
 import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow.KnowhowList;
-import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow.SearchInfomationList;
+import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow.SearchInformationList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -89,8 +89,8 @@ public class EntryToKnowhowXmlConvert {
         knowhowDataConvert.convert(inputKnowhowEntry);
         CategoryList categoryList = knowhowDataConvert.getCategoryList();
         KnowhowList knowhowList = knowhowDataConvert.getKnowhowList();
-        SearchInfomationList searchInfomationList = knowhowDataConvert
-                .getSearchInfomationList();
+        SearchInformationList searchInformationList = knowhowDataConvert
+                .getSearchInformationList();
 
         docBookConvert.convert(knowhowDetailTypes);
         DocBookList docBookList = docBookConvert.getDocBookList();
@@ -101,7 +101,7 @@ public class EntryToKnowhowXmlConvert {
 
         portabilityKnowhow.setCategoryList(categoryList);
         portabilityKnowhow.setKnowhowList(knowhowList);
-        portabilityKnowhow.setSearchInfomationList(searchInfomationList);
+        portabilityKnowhow.setSearchInformationList(searchInformationList);
         portabilityKnowhow.setDocBookList(docBookList);
 
         return portabilityKnowhow;

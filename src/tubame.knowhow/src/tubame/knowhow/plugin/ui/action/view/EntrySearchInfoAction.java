@@ -58,7 +58,7 @@ public class EntrySearchInfoAction extends AbstractEntryItemAction {
     protected IWizard getWizard() {
         EntrySearchInfoAction.LOGGER
                 .info(MessagePropertiesUtil
-                        .getMessage(MessagePropertiesUtil.LOG_OPEN_SEARCHINFOMATION_WIZARD));
+                        .getMessage(MessagePropertiesUtil.LOG_OPEN_SEARCHINFORMATION_WIZARD));
         return new CreateSearchInfoWizard(
                 PluginUtil.getActiveWorkbenchWindow(),
                 ResourceUtil.registerSearchInfoTitle, getSelectedEntry());

@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="ChildCapterNo" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="ChildChapterNo" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="ChapterCategoryRefKey" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="ChildChapter" type="{http://generated.model.biz.knowhow.tubame/knowhow}ChildChapter" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
@@ -32,41 +32,41 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ChildChapter", propOrder = {
-    "childCapterNo",
+    "childChapterNo",
     "chapterCategoryRefKey",
     "childChapters"
 })
 public class ChildChapter {
 
-    @XmlElement(name = "ChildCapterNo", required = true)
-    protected String childCapterNo;
+    @XmlElement(name = "ChildChapterNo", required = true)
+    protected String childChapterNo;
     @XmlElement(name = "ChapterCategoryRefKey", required = true)
     protected String chapterCategoryRefKey;
     @XmlElement(name = "ChildChapter")
     protected List<ChildChapter> childChapters;
 
     /**
-     * Gets the value of the childCapterNo property.
+     * Gets the value of the childChapterNo property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getChildCapterNo() {
-        return childCapterNo;
+    public String getChildChapterNo() {
+        return childChapterNo;
     }
 
     /**
-     * Sets the value of the childCapterNo property.
+     * Sets the value of the childChapterNo property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setChildCapterNo(String value) {
-        this.childCapterNo = value;
+    public void setChildChapterNo(String value) {
+        this.childChapterNo = value;
     }
 
     /**

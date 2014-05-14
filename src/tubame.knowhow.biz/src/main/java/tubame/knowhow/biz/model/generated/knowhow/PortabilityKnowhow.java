@@ -59,7 +59,7 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;complexContent>
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 &lt;sequence>
- *                   &lt;element name="KnowhowInfomation" type="{http://generated.model.biz.knowhow.tubame/knowhow}KnowhowInfomation" maxOccurs="unbounded" minOccurs="0"/>
+ *                   &lt;element name="KnowhowInformation" type="{http://generated.model.biz.knowhow.tubame/knowhow}KnowhowInformation" maxOccurs="unbounded" minOccurs="0"/>
  *                 &lt;/sequence>
  *               &lt;/restriction>
  *             &lt;/complexContent>
@@ -76,12 +76,12 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;/complexContent>
  *           &lt;/complexType>
  *         &lt;/element>
- *         &lt;element name="SearchInfomationList">
+ *         &lt;element name="SearchInformationList">
  *           &lt;complexType>
  *             &lt;complexContent>
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 &lt;sequence>
- *                   &lt;element name="SearchInfomation" type="{http://generated.model.biz.knowhow.tubame/knowhow}SearchInfomation" maxOccurs="unbounded" minOccurs="0"/>
+ *                   &lt;element name="SearchInformation" type="{http://generated.model.biz.knowhow.tubame/knowhow}SearchInformation" maxOccurs="unbounded" minOccurs="0"/>
  *                 &lt;/sequence>
  *               &lt;/restriction>
  *             &lt;/complexContent>
@@ -103,7 +103,7 @@ import javax.xml.bind.annotation.XmlType;
     "categoryList",
     "knowhowList",
     "docBookList",
-    "searchInfomationList"
+    "searchInformationList"
 })
 @XmlRootElement(name = "PortabilityKnowhow")
 public class PortabilityKnowhow {
@@ -120,8 +120,8 @@ public class PortabilityKnowhow {
     protected PortabilityKnowhow.KnowhowList knowhowList;
     @XmlElement(name = "DocBookList", required = true)
     protected PortabilityKnowhow.DocBookList docBookList;
-    @XmlElement(name = "SearchInfomationList", required = true)
-    protected PortabilityKnowhow.SearchInfomationList searchInfomationList;
+    @XmlElement(name = "SearchInformationList", required = true)
+    protected PortabilityKnowhow.SearchInformationList searchInformationList;
 
     /**
      * Gets the value of the portabilityKnowhowTitle property.
@@ -268,27 +268,27 @@ public class PortabilityKnowhow {
     }
 
     /**
-     * Gets the value of the searchInfomationList property.
+     * Gets the value of the searchInformationList property.
      * 
      * @return
      *     possible object is
-     *     {@link PortabilityKnowhow.SearchInfomationList }
+     *     {@link PortabilityKnowhow.SearchInformationList }
      *     
      */
-    public PortabilityKnowhow.SearchInfomationList getSearchInfomationList() {
-        return searchInfomationList;
+    public PortabilityKnowhow.SearchInformationList getSearchInformationList() {
+        return searchInformationList;
     }
 
     /**
-     * Sets the value of the searchInfomationList property.
+     * Sets the value of the searchInformationList property.
      * 
      * @param value
      *     allowed object is
-     *     {@link PortabilityKnowhow.SearchInfomationList }
+     *     {@link PortabilityKnowhow.SearchInformationList }
      *     
      */
-    public void setSearchInfomationList(PortabilityKnowhow.SearchInfomationList value) {
-        this.searchInfomationList = value;
+    public void setSearchInformationList(PortabilityKnowhow.SearchInformationList value) {
+        this.searchInformationList = value;
     }
 
 
@@ -542,7 +542,7 @@ public class PortabilityKnowhow {
      *   &lt;complexContent>
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *       &lt;sequence>
-     *         &lt;element name="KnowhowInfomation" type="{http://generated.model.biz.knowhow.tubame/knowhow}KnowhowInfomation" maxOccurs="unbounded" minOccurs="0"/>
+     *         &lt;element name="KnowhowInformation" type="{http://generated.model.biz.knowhow.tubame/knowhow}KnowhowInformation" maxOccurs="unbounded" minOccurs="0"/>
      *       &lt;/sequence>
      *     &lt;/restriction>
      *   &lt;/complexContent>
@@ -553,40 +553,40 @@ public class PortabilityKnowhow {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "knowhowInfomations"
+        "knowhowInformations"
     })
     public static class KnowhowList {
 
-        @XmlElement(name = "KnowhowInfomation")
-        protected List<KnowhowInfomation> knowhowInfomations;
+        @XmlElement(name = "KnowhowInformation")
+        protected List<KnowhowInformation> knowhowInformations;
 
         /**
-         * Gets the value of the knowhowInfomations property.
+         * Gets the value of the knowhowInformations property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the knowhowInfomations property.
+         * This is why there is not a <CODE>set</CODE> method for the knowhowInformations property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getKnowhowInfomations().add(newItem);
+         *    getKnowhowInformations().add(newItem);
          * </pre>
          * 
          * 
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link KnowhowInfomation }
+         * {@link KnowhowInformation }
          * 
          * 
          */
-        public List<KnowhowInfomation> getKnowhowInfomations() {
-            if (knowhowInfomations == null) {
-                knowhowInfomations = new ArrayList<KnowhowInfomation>();
+        public List<KnowhowInformation> getKnowhowInformations() {
+            if (knowhowInformations == null) {
+                knowhowInformations = new ArrayList<KnowhowInformation>();
             }
-            return this.knowhowInfomations;
+            return this.knowhowInformations;
         }
 
     }
@@ -602,7 +602,7 @@ public class PortabilityKnowhow {
      *   &lt;complexContent>
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *       &lt;sequence>
-     *         &lt;element name="SearchInfomation" type="{http://generated.model.biz.knowhow.tubame/knowhow}SearchInfomation" maxOccurs="unbounded" minOccurs="0"/>
+     *         &lt;element name="SearchInformation" type="{http://generated.model.biz.knowhow.tubame/knowhow}SearchInformation" maxOccurs="unbounded" minOccurs="0"/>
      *       &lt;/sequence>
      *     &lt;/restriction>
      *   &lt;/complexContent>
@@ -613,40 +613,40 @@ public class PortabilityKnowhow {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "searchInfomations"
+        "searchInformations"
     })
-    public static class SearchInfomationList {
+    public static class SearchInformationList {
 
-        @XmlElement(name = "SearchInfomation")
-        protected List<SearchInfomation> searchInfomations;
+        @XmlElement(name = "SearchInformation")
+        protected List<SearchInformation> searchInformations;
 
         /**
-         * Gets the value of the searchInfomations property.
+         * Gets the value of the searchInformations property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the searchInfomations property.
+         * This is why there is not a <CODE>set</CODE> method for the searchInformations property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getSearchInfomations().add(newItem);
+         *    getSearchInformations().add(newItem);
          * </pre>
          * 
          * 
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link SearchInfomation }
+         * {@link SearchInformation }
          * 
          * 
          */
-        public List<SearchInfomation> getSearchInfomations() {
-            if (searchInfomations == null) {
-                searchInfomations = new ArrayList<SearchInfomation>();
+        public List<SearchInformation> getSearchInformations() {
+            if (searchInformations == null) {
+                searchInformations = new ArrayList<SearchInformation>();
             }
-            return this.searchInfomations;
+            return this.searchInformations;
         }
 
     }

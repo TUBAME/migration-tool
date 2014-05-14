@@ -57,7 +57,7 @@ public class EntryKnowhowAction extends AbstractEntryItemAction {
     protected IWizard getWizard() {
         EntryKnowhowAction.LOGGER
                 .info(MessagePropertiesUtil
-                        .getMessage(MessagePropertiesUtil.LOG_OPEN_KNOWHOWINFOMATION_WIZARD));
+                        .getMessage(MessagePropertiesUtil.LOG_OPEN_KNOWHOWINFORMATION_WIZARD));
         return new CreateKnowhowWizard(PluginUtil.getActiveWorkbenchWindow(),
                 ResourceUtil.registerKnowhow, getSelectedEntry());
     }

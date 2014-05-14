@@ -25,8 +25,8 @@ import java.util.Map;
 import tubame.common.util.CmnFileUtil;
 import tubame.common.util.CmnStringUtil;
 import tubame.knowhow.biz.model.generated.knowhow.Category;
-import tubame.knowhow.biz.model.generated.knowhow.KnowhowInfomation;
-import tubame.knowhow.biz.model.generated.knowhow.SearchInfomation;
+import tubame.knowhow.biz.model.generated.knowhow.KnowhowInformation;
+import tubame.knowhow.biz.model.generated.knowhow.SearchInformation;
 import tubame.knowhow.biz.exception.JbmException;
 
 import tubame.knowhow.plugin.logic.EntryItemManagement;
@@ -219,11 +219,11 @@ public final class ViewUtil {
      *            Reference key know-how
      * @param knowhowMap
      *            Map data know-how
-     * @return KnowhowInfomation
+     * @return KnowhowInformation
      */
-    public static KnowhowInfomation getKnowhow(String knowhowRefKey,
-            Map<String, KnowhowInfomation> knowhowMap) {
-        for (Map.Entry<String, KnowhowInfomation> entry : knowhowMap.entrySet()) {
+    public static KnowhowInformation getKnowhow(String knowhowRefKey,
+            Map<String, KnowhowInformation> knowhowMap) {
+        for (Map.Entry<String, KnowhowInformation> entry : knowhowMap.entrySet()) {
             if (knowhowRefKey.equals(entry.getKey())) {
                 return entry.getValue();
             }
@@ -238,11 +238,11 @@ public final class ViewUtil {
      *            Search key information reference
      * @param searchInfoMap
      *            Search Info Map data
-     * @return SearchInfomation
+     * @return SearchInformation
      */
-    public static SearchInfomation getSearchInfo(String searchRefKey,
-            Map<String, SearchInfomation> searchInfoMap) {
-        for (Map.Entry<String, SearchInfomation> entry : searchInfoMap
+    public static SearchInformation getSearchInfo(String searchRefKey,
+            Map<String, SearchInformation> searchInfoMap) {
+        for (Map.Entry<String, SearchInformation> entry : searchInfoMap
                 .entrySet()) {
             if (searchRefKey.equals(entry.getKey())) {
                 return entry.getValue();
