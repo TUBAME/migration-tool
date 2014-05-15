@@ -279,7 +279,7 @@ public abstract class AbstractSearchToolWithProgress implements
                 StringBuffer addColums = createAddColums(line);
                 lineList.add(line + addColums.toString());
             } else {
-                String message = ResourceUtil.SEARCH_PROGRESS + line;
+            	String message = ResourceUtil.SEARCH_PROGRESS + line;
                 monitor.beginTask(message, IProgressMonitor.UNKNOWN);
             }
         }
@@ -407,26 +407,12 @@ public abstract class AbstractSearchToolWithProgress implements
             // File failed file
             // Last line causes the most
             String errorLine;
-            String errorFile = StringUtil.EMPTY;
-            List<String> errorList = new ArrayList<String>();
+            StringBuilder pyErrTrace = new StringBuilder();
             while ((errorLine = reader.readLine()) != null) {
-                errorList.add(new String(errorLine
-                        .getBytes(PythonUtil.PYTHON_CHARACTOR_CODE), CHAR_SET));
-                if (errorLine.indexOf("  File ") >= 0) {
-                    errorFile = errorLine;
-                }
+            	pyErrTrace.append(errorLine+"\n");
             }
-            StringBuilder sb = new StringBuilder();
-            sb.append(ResourceUtil.SEARCH_ERROR_FILE_STRING);
-            sb.append(StringUtil.LINE_SEPARATOR);
-            sb.append(errorFile);
-            sb.append(StringUtil.LINE_SEPARATOR);
-            sb.append(ResourceUtil.SEARCH_ERROR_STRING);
-            sb.append(StringUtil.LINE_SEPARATOR);
-            sb.append(errorList.get(errorList.size() - 1));
-
-            throw new JbmException(null, LOGGER, ERROR_LEVEL.ERROR,
-                    sb.toString());
+            throw new JbmException(new RuntimeException(MessageUtil.ERR_SEARCH_FAILED), LOGGER, ERROR_LEVEL.ERROR,
+            		pyErrTrace.toString());
         }
     }
 
