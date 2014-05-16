@@ -8,6 +8,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<xalan.version>2.7.1</xalan.version>
 	</properties>
 
 	<dependencies>
@@ -19,7 +20,7 @@
 		<dependency>
 			<groupId>xalan</groupId>
 			<artifactId>xalan</artifactId>
-			<version>2.7.1</version>
+			<version>${xalan.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.javassist</groupId>
@@ -111,7 +112,26 @@
 					</instructions>
 				</configuration>
 			</plugin>
-
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>install</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>
+								${project.build.directory}/lib
+							</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
@@ -140,11 +160,12 @@
 						<phase>install</phase>
 						<configuration>
 							<target>
-								<property name="knowhow_ui_eclipse_pj_path"
-									value="${basedir}/../tubame.knowhow" />
-								<property name="portability_ui_eclipse_pj_path"
-									value="${basedir}/../tubame.portability" />
-									
+								<property name="knowhow_ui_eclipse_pj_path" value="${basedir}/../tubame.knowhow" />
+								<property name="portability_ui_eclipse_pj_path" value="${basedir}/../tubame.portability" />
+								<copy
+									file="${basedir}/target/lib/xalan-${xalan.version}.jar"
+									tofile="${knowhow_ui_eclipse_pj_path}/lib/xalan-${xalan.version}.jar"
+									overwrite="true" />
 								<copy
 									file="${basedir}/target/${project.artifactId}-${project.version}.jar"
 									tofile="${knowhow_ui_eclipse_pj_path}/lib/${project.artifactId}-${project.version}.jar"
@@ -153,7 +174,7 @@
 									file="${basedir}/target/${project.artifactId}-${project.version}.jar"
 									tofile="${portability_ui_eclipse_pj_path}/lib/${project.artifactId}-${project.version}.jar"
 									overwrite="true" />
-									
+
 							</target>
 						</configuration>
 						<goals>
@@ -162,6 +183,7 @@
 					</execution>
 				</executions>
 			</plugin>
+
 		</plugins>
 	</build>
 </project>
