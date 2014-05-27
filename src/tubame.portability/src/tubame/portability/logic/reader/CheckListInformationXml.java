@@ -37,6 +37,7 @@ import org.slf4j.LoggerFactory;
 
 import tubame.portability.exception.JbmException;
 import tubame.portability.exception.JbmException.ERROR_LEVEL;
+import tubame.portability.logic.CheckListInformationFactory;
 import tubame.portability.logic.CreateCheckListInfomationFile;
 import tubame.portability.util.PluginUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
@@ -252,8 +253,9 @@ public class CheckListInformationXml implements CheckListInformationReader {
      *             Self Plugin directory failure
      */
     protected String createTargetFilePath() throws IOException {
-        String path = PluginUtil.getPluginDir()
-                + ApplicationPropertyUtil.CHECK_LIST_INFORMATION_FILE_PATH;
+//        String path = PluginUtil.getPluginDir()
+//                + ApplicationPropertyUtil.CHECK_LIST_INFORMATION_FILE_PATH;
+        String path = CheckListInformationFactory.getCheckListInformationPath();
         LOGGER.debug(MessageUtil.INF_CHECKLIST_INFORMATION_PATH + path);
         return path;
     }

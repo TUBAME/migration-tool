@@ -18,6 +18,7 @@
  */
 package tubame.portability.plugin.editor;
 
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +40,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.EditorPart;
 
 import tubame.portability.exception.JbmException;
+import tubame.portability.logic.CheckListInformationFactory;
 import tubame.portability.model.MigrationEditorRow;
 import tubame.portability.plugin.view.JbmEditorCellModifier;
 import tubame.portability.plugin.view.MousePointGetTreeViewer;
@@ -172,16 +174,24 @@ public abstract class AbstractJbmEditorPart extends EditorPart implements
     @Override
     public void init(IEditorSite site, IEditorInput input)
             throws PartInitException {
-
+    	
+    	
+    	
+        // Get the absolute path of the file
+        
+        
+        
+    	super.setInput(input);
+    	IFileEditorInput fileInput = (IFileEditorInput) super.getEditorInput();
+    	CheckListInformationFactory.setCheckListInformationPath(fileInput.getFile());
         preInit();
         super.setSite(site);
-        super.setInput(input);
+        
 
         // Get File information selected
-        IFileEditorInput fileInput = (IFileEditorInput) super.getEditorInput();
+//        IFileEditorInput fileInput = (IFileEditorInput) super.getEditorInput();
         super.setPartName(fileInput.getFile().getName());
 
-        // Get the absolute path of the file
         String fileLocation = fileInput.getFile().getLocation().toString();
 
         // Reads the CSV, set to model

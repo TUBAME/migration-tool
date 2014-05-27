@@ -43,11 +43,14 @@ import tubame.knowhow.biz.model.generated.knowhow.ChildChapter;
 import tubame.knowhow.biz.model.generated.knowhow.KnowhowInfomation;
 import tubame.knowhow.biz.model.generated.knowhow.SearchInfomation;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
 import tubame.portability.exception.JbmException;
+import tubame.portability.logic.convert.ConvertWithProgress;
 import tubame.portability.model.CheckListInformation;
 import tubame.portability.util.PluginUtil;
 import tubame.portability.util.StringUtil;
@@ -58,6 +61,13 @@ import tubame.portability.util.resource.MessageUtil;
  * Make the generation of checklist information know-how from an XML file XML.<br/>
  */
 public class CreateCheckListInfomationFile {
+	
+    /**
+     * Logger
+     */
+    private static final Logger LOGGER = LoggerFactory
+            .getLogger(CreateCheckListInfomationFile.class);
+    
     /**
      * Heading tag information list
      */
@@ -267,8 +277,11 @@ public class CreateCheckListInfomationFile {
         try {
             xmlOutPath = PluginUtil.getPluginDir()
                     + ApplicationPropertyUtil.CHECK_LIST_INFORMATION_FILE_PATH;
+            
+            LOGGER.info("CheckListInformationPath="+CheckListInformationFactory.getCheckListInformationPath());
 
-            StreamResult result = new StreamResult(xmlOutPath);
+            
+            StreamResult result = new StreamResult(CheckListInformationFactory.getCheckListInformationPath());
             TransformerFactory transFactory = TransformerFactory.newInstance();
             Transformer transformer = null;
 
@@ -277,11 +290,13 @@ public class CreateCheckListInfomationFile {
                     ApplicationPropertyUtil.CHARSET_XML);
             transformer.transform(source, result);
 
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             // Plug-in directory acquisition failure
             throw new JbmException(
                     MessageUtil.ERR_PLUGINUTIL_PLUGIN_DIRECTORY_GET, e);
-        } catch (TransformerConfigurationException e) {
+        }
+        catch (TransformerConfigurationException e) {
             // Transformer generation failure
             throw new JbmException(MessageUtil.ERR_CONVERT_KNOWHOW_XML, e);
         } catch (TransformerException e) {

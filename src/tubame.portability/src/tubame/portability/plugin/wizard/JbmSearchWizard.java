@@ -18,9 +18,13 @@
  */
 package tubame.portability.plugin.wizard;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -33,6 +37,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import tubame.portability.exception.JbmException;
+import tubame.portability.logic.CheckListInformationFactory;
 import tubame.portability.logic.KnowhowXmlConvertFactory;
 import tubame.portability.logic.search.SearchToolWithProgress;
 import tubame.portability.util.PluginUtil;
@@ -143,6 +148,9 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
         try {
             LOGGER.info(String.format(MessageUtil.LOG_INFO_PROC_START,
                     MessageUtil.LOG_INFO_PROC_NAME_SEARCH));
+            
+            IFile jbmFile = jbmSearchSelectionPage.getJbmFile();
+			CheckListInformationFactory.setCheckListInformationPath(jbmFile);
 
             // Close the file with the same name that is already open
             PluginUtil.closeEditor(jbmSearchSelectionPage.getOutJbmFileText());

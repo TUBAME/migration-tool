@@ -18,17 +18,61 @@
  */
 package tubame.portability.logic;
 
+import java.net.URI;
+
+import org.eclipse.core.resources.IFile;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import tubame.portability.util.resource.ApplicationPropertyUtil;
+
 /**
  * Check list information file operation Factory.<br/>
  * Generate {@link CheckListInformationFacade}.<br/>
  */
 public class CheckListInformationFactory {
+	
+	
+    /**
+     * Logger
+     */
+    private static final Logger LOGGER = LoggerFactory
+            .getLogger(CheckListInformationFactory.class);
+    
     /**
      * Check list information file Facade
      */
     private static final CheckListInformationFacade FACADE = new CheckListInformationFacade();
+    
+	/**
+	 * Check list information path
+	 */
+	private static String checkListInformationPath;
+    
+	
+	/**
+	 * Get check list information path
+	 * @return Check list information
+	 */
+	public static String getCheckListInformationPath(){
+		return checkListInformationPath;
+	}
+	
+	/**
+	 * Set path from jbmFile
+	 * @param jbmFile jbmfile
+	 */
+	public static void setCheckListInformationPath(IFile jbmFile) {
+		URI locationURI = jbmFile.getLocationURI();
+		String osString = jbmFile.getLocation().toOSString();
+		String path = locationURI.getPath();
+		String[] token = path.split("/");
+		String fileName = token[token.length-1];
+		CheckListInformationFactory.checkListInformationPath = osString.substring(0, osString.length()-fileName.length()) + ApplicationPropertyUtil.CHECK_LIST_INFORMATION_FILE_PATH;
+		LOGGER.debug("CheckListInformationXML path="+checkListInformationPath);
+	}
 
-    /**
+	/**
      * Constructor.<br/>
      * It can not be instantiated from another class.<br/>
      * 
@@ -46,5 +90,6 @@ public class CheckListInformationFactory {
     public static CheckListInformationFacade getCheckListInformationFacade() {
         return CheckListInformationFactory.FACADE;
     }
+    
 
 }
