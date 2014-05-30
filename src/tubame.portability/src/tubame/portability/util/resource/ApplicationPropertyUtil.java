@@ -122,6 +122,11 @@ public class ApplicationPropertyUtil extends NLS {
      * Temporary file output CSV
      */
     public static String OUTPUT_TEMPORARY_CSV;
+    
+    
+    public static String SEARCH_REPORTGEN_KEYWORD_FILE;
+
+	public static String REPORTGEN_OUTPUT_DIR;
 
     static {
         // initialize resource bundle

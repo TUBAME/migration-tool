@@ -26,6 +26,7 @@ import org.eclipse.osgi.util.NLS;
  */
 public class MessageUtil extends NLS {
     private static final String BUNDLE_NAME = "resources.properties.message"; //$NON-NLS-1$
+
     public static String ERR_JBM_IO;
     public static String ERR_ADD_MARKER;
     public static String INF_CONVERT_CANCEL;
@@ -33,8 +34,11 @@ public class MessageUtil extends NLS {
     public static String ERR_CONVERT_FAILED;
     public static String ERR_CONVERT_FILEPATH_INVALID;
     public static String ERR_CONVERT_DIRECTORY_NOT_ENTERED;
+    public static String ERR_REPORT_DIRECTORY_NOT_ENTERED;
     public static String ERR_CONVERT_PROJECT_NOT_ENTERED;
     public static String ERR_CONVERT_PROJECT_NOT_VALUE;
+    public static String ERR_REPORTGEN_PROJECT_NOT_VALUE;
+    public static String ERR_REPORTGEN_PROJECT_NOT_OPEN;
     public static String ERR_CONVERT_PROJECT_NOT_OPEN;
     public static String ERR_CONVERT_DATA_NOT_FOUND;
     public static String QUE_CONVERT_DATA_CONFIRM;
@@ -68,6 +72,7 @@ public class MessageUtil extends NLS {
     public static String INF_SEARCH_RUNNING;
     public static String QUE_SEARCH_UPDATE_CONFIRM;
     public static String INF_SHOW_SEARCHWIZARD;
+    public static String INF_SHOW_REPORTGENWIZARD;
     public static String INF_SHOW_CONVERTWIZARD;
     public static String INF_CHECKLIST_INFORMATION_PATH;
     public static String ERR_CONVERT_NOT_FOUND;
@@ -133,6 +138,13 @@ public class MessageUtil extends NLS {
     public static String LOG_INFO_BTN_NAME_SEARCH;
     public static String LOG_INFO_BTN_NAME_YES;
     public static String LOG_INFO_BTN_NAME_NO;
+	public static String ERR_REPORTGEN_FAILED;
+	public static String INF_REPORTGEN_COMPLETE;
+	public static String INF_REPORTGEN_CANCEL;
+	public static String LOG_INFO_PROC_NAME_REPORTGEN;
+	public static String INF_SEARCH_REPORTGEN_NON;
+	public static String ERR_REPORTGEN_CHKLISTXML_NON;
+	
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, MessageUtil.class);

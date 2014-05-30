@@ -148,11 +148,18 @@ public class ResourceUtil extends NLS {
 
     public static String WIZ_TITLE_SEARCH;
     public static String WIZ_TITLE_CONVERT;
-
+    public static String WIZ_TITLE_REPORTGEN;
+    public static String SELECT_REPORT_OUTPUT_DIR;
     public static String SEARCH_PROGRESS;
 
     public static String EDIT_CELL;
     public static String OUTPUT_CSV;
+    
+    public static String DIALOG_REPORTGEN;
+
+	public static String REPORTGEN_PROGRESS;
+    
+    
 
     static {
         // initialize resource bundle
