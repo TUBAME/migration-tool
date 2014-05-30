@@ -18,7 +18,17 @@
  */
 package tubame.portability.plugin.wizard;
 
+import java.io.File;
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -27,6 +37,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
 
+import ch.qos.logback.classic.Logger;
 import tubame.portability.util.FileUtil;
 import tubame.portability.util.PluginUtil;
 import tubame.portability.util.StringUtil;
@@ -465,4 +476,15 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
         }
         return true;
     }
+
+	public IFile getJbmFile() {
+		String jbmFilePath = this.outJbmFileText.getText();
+		String projectName = PluginUtil.getProjectName(this.outJbmFileText.getText());
+		IProject project = PluginUtil.getProject(projectName);
+		String substring = jbmFilePath.substring(projectName.length()+1);
+		IFile file = project.getFile(substring);
+		return file;
+	
+	}
+
 }

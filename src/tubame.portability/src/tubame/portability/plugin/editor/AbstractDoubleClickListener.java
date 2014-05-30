@@ -92,6 +92,7 @@ public abstract class AbstractDoubleClickListener implements
 	 *            Rows to display
 	 */
 	public void editorOpen(String targetFilePath, int initLine) {
+		LOGGER.info("hoge");
 		// Specify the file
 		IFile file = PluginUtil.createIFile(ResourcesPlugin.getWorkspace()
 				.getRoot(), targetFilePath);

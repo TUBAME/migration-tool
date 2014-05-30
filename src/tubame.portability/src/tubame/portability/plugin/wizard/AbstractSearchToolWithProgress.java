@@ -86,7 +86,7 @@ public abstract class AbstractSearchToolWithProgress implements
     /**
      * The decision whether the output file
      */
-    private boolean isFileOut;
+    protected boolean isFileOut;
 
     /**
      * Constructor. Specify search directory, Search keyword file, the output

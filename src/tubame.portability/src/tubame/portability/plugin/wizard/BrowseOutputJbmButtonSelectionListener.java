@@ -34,6 +34,7 @@ import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 import org.eclipse.ui.model.WorkbenchContentProvider;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
 
+import tubame.portability.logic.CheckListInformationFactory;
 import tubame.portability.util.FileUtil;
 import tubame.portability.util.PluginUtil;
 import tubame.portability.util.StringUtil;

@@ -68,9 +68,13 @@
 
 	<!-- org.eclipse.ui.editors -->
 	<extension point="org.eclipse.ui.editors">
-		<editor id="JbmEditorPart"
-			class="tubame.portability.plugin.editor.JbmEditorPart"
-			name="%editor.jbm.name" extensions="jbm" default="false" />
+		<editor
+        class="tubame.portability.plugin.editor.JbmEditorPart"
+        default="false"
+        extensions="jbm"
+        id="JbmEditorPart"
+        name="%editor.jbm.name">
+  </editor>
 	</extension>
 
 	<!-- Marker -->
@@ -164,6 +168,26 @@
 				menubarPath="tubame.menu1/portability">
 			</action>
 		</objectContribution>
+  <objectContribution
+        adaptable="true"
+        id="Contribution"
+        objectClass="org.eclipse.core.resources.IResource">
+     <menu
+           id="tubame.menu1"
+           label="%menu.name"
+           path="additions">
+        <separator
+              name="portability">
+        </separator>
+     </menu>
+     <action
+           class="tubame.portability.plugin.action.ReportGenWizardAction"
+           enablesFor="1"
+           id="ReportGenWizardAction"
+           label="%menu.reportgen.name"
+           menubarPath="tubame.menu1/portability">
+     </action>
+  </objectContribution>
 	</extension>
 
 </plugin>

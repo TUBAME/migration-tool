@@ -96,4 +96,21 @@ public class PythonUtil {
         LOGGER.info(filePath);
         return filePath;
     }
+    
+    /**
+     * Get the path of the search keyword file.<br/>
+     * 
+     * @param keywordFile
+     *            Search Keyword files
+     * @return Keyword file full path
+     * @throws IOException
+     *             plugin directory acquisition failure
+     */
+    public static String getReportGenerationPath()
+            throws IOException {
+        String filePath = PluginUtil.getResolvedPluginDir() + ApplicationPropertyUtil.REPORTGEN_OUTPUT_DIR;
+        LOGGER.info(filePath);
+        return filePath;
+    }
+    
 }

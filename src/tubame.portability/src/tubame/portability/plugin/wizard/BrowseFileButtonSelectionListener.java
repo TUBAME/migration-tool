@@ -32,6 +32,8 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 import org.eclipse.ui.model.WorkbenchContentProvider;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import tubame.portability.util.FileUtil;
 import tubame.portability.util.PluginUtil;
@@ -43,6 +45,13 @@ import tubame.portability.util.resource.ResourceUtil;
  * Listener class that displays a file selection dialog.<br/>
  */
 public class BrowseFileButtonSelectionListener implements SelectionListener {
+	
+    /**
+     * Logger
+     */
+    private static final Logger LOGGER = LoggerFactory
+            .getLogger(BrowseFileButtonSelectionListener.class);
+    
     /** Search target path of the relative path */
     private final Text searchTargetText;
     /**

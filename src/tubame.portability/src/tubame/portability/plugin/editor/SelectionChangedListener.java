@@ -77,6 +77,7 @@ public class SelectionChangedListener implements ISelectionChangedListener {
      */
     @Override
     public void selectionChanged(SelectionChangedEvent event) {
+    	LOGGER.info("SelectionChangedEvent event");
         selectionObject = ((StructuredSelection) event.getSelection())
                 .getFirstElement();
 

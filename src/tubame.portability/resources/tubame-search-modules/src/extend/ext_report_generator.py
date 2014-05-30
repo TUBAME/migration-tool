@@ -733,10 +733,10 @@ def deleteJsParentDir(calclators):
 
 def getCheckListInformationPath():
     base = os.path.dirname(os.path.abspath(g_targetFilePath))
-    filepath = os.path.normpath(os.path.join(base, "./checkListInformation_ja.xml"))
+    filepath = os.path.normpath(os.path.join(base, "./.checkListInformation_ja.xml"))
     if os.path.isfile(filepath):
         return filepath
-    filepath = os.path.normpath(os.path.join(base, "./checkListInformation.xml"))
+    filepath = os.path.normpath(os.path.join(base, "./.checkListInformation.xml"))
     if os.path.isfile(filepath):
         return filepath
     raise Exception("checkListInformation.xml or checkListInformation_ja.xml is required in search target dir")
