@@ -18,29 +18,26 @@
  */
 package tubame.portability.logic.reader;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathExpressionException;
-import javax.xml.xpath.XPathFactory;
+import javax.xml.stream.FactoryConfigurationError;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamConstants;
+import javax.xml.stream.XMLStreamReader;
 
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.xml.sax.SAXException;
 
 import tubame.portability.exception.JbmException;
-import tubame.portability.exception.JbmException.ERROR_LEVEL;
 import tubame.portability.logic.CheckListInformationFactory;
 import tubame.portability.logic.CreateCheckListInfomationFile;
-import tubame.portability.util.PluginUtil;
-import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
 
 /**
@@ -51,14 +48,9 @@ import tubame.portability.util.resource.MessageUtil;
  */
 public class CheckListInformationXml implements CheckListInformationReader {
 
-    /**
-     * XPath object
-     */
-    private XPath xpath;
-    /**
-     * Document object
-     */
-    private Document doc;
+    private Map<String, Map<String, String>> map = new HashMap<String, Map<String, String>>();;
+
+    private String projectPath;
 
     /**
      * Adapter for speed improvement
@@ -81,7 +73,7 @@ public class CheckListInformationXml implements CheckListInformationReader {
      */
     @Override
     public String getBigDescription(String no) throws JbmException {
-        return getText(createLocation(no, CreateCheckListInfomationFile.BIG));
+        return getText(no, CreateCheckListInfomationFile.BIG);
     }
 
     /**
@@ -89,7 +81,7 @@ public class CheckListInformationXml implements CheckListInformationReader {
      */
     @Override
     public String getMiddleDescription(String no) throws JbmException {
-        return getText(createLocation(no, CreateCheckListInfomationFile.MIDDLE));
+        return getText(no, CreateCheckListInfomationFile.MIDDLE);
     }
 
     /**
@@ -100,8 +92,8 @@ public class CheckListInformationXml implements CheckListInformationReader {
         if (CheckListInformationXml.checkEyeDescriptionList.containsKey(no)) {
             return CheckListInformationXml.checkEyeDescriptionList.get(no);
         }
-        String result = getText(createLocation(no,
-                CreateCheckListInfomationFile.VISUAL_CONFIRM));
+        String result = getText(no,
+                CreateCheckListInfomationFile.VISUAL_CONFIRM);
         CheckListInformationXml.checkEyeDescriptionList.put(no, result);
         return result;
     }
@@ -114,8 +106,8 @@ public class CheckListInformationXml implements CheckListInformationReader {
         if (CheckListInformationXml.hearingDescriptionList.containsKey(no)) {
             return CheckListInformationXml.hearingDescriptionList.get(no);
         }
-        String result = getText(createLocation(no,
-                CreateCheckListInfomationFile.HEARING_CONFIRM));
+        String result = getText(no,
+                CreateCheckListInfomationFile.HEARING_CONFIRM);
         CheckListInformationXml.hearingDescriptionList.put(no, result);
         return result;
     }
@@ -125,8 +117,8 @@ public class CheckListInformationXml implements CheckListInformationReader {
      */
     @Override
     public String getSearchDescription(String no) throws JbmException {
-        return getText(createLocation(no,
-                CreateCheckListInfomationFile.SEARCH_PROCESS));
+        return getText(no,
+                CreateCheckListInfomationFile.SEARCH_PROCESS);
     }
 
     /**
@@ -134,8 +126,8 @@ public class CheckListInformationXml implements CheckListInformationReader {
      */
     @Override
     public String getFactorDescription(String no) throws JbmException {
-        return getText(createLocation(no,
-                CreateCheckListInfomationFile.PORTABILITY_FACTOR));
+        return getText(no,
+                CreateCheckListInfomationFile.PORTABILITY_FACTOR);
     }
 
     /**
@@ -143,8 +135,8 @@ public class CheckListInformationXml implements CheckListInformationReader {
      */
     @Override
     public String getDegreeDescription(String no) throws JbmException {
-        return getText(createLocation(no,
-                CreateCheckListInfomationFile.DEGREE_DETAIL));
+        return getText(no,
+                CreateCheckListInfomationFile.DEGREE_DETAIL);
     }
 
     /**
@@ -152,8 +144,8 @@ public class CheckListInformationXml implements CheckListInformationReader {
      */
     @Override
     public String getAppropriateDescription(String no) throws JbmException {
-        return getText(createLocation(no,
-                CreateCheckListInfomationFile.APPROPPRIATE));
+        return getText(no,
+                CreateCheckListInfomationFile.APPROPPRIATE);
     }
 
     /**
@@ -161,8 +153,8 @@ public class CheckListInformationXml implements CheckListInformationReader {
      */
     @Override
     public String getInvestigationDescription(String no) throws JbmException {
-        return getText(createLocation(no,
-                CreateCheckListInfomationFile.INVESTIGATION));
+        return getText(no,
+                CreateCheckListInfomationFile.INVESTIGATION);
     }
 
     /**
@@ -170,8 +162,8 @@ public class CheckListInformationXml implements CheckListInformationReader {
      */
     @Override
     public String getLineNumberDescription(String no) throws JbmException {
-        return getText(createLocation(no,
-                CreateCheckListInfomationFile.LINE_NUMBER));
+        return getText(no,
+                CreateCheckListInfomationFile.LINE_NUMBER);
     }
 
     /**
@@ -180,8 +172,8 @@ public class CheckListInformationXml implements CheckListInformationReader {
     @Override
     public String getLineNumberContentsDescription(String no)
             throws JbmException {
-        return getText(createLocation(no,
-                CreateCheckListInfomationFile.LINE_NUMBER_CONTENTS));
+        return getText(no,
+                CreateCheckListInfomationFile.LINE_NUMBER_CONTENTS);
     }
 
     /**
@@ -204,46 +196,27 @@ public class CheckListInformationXml implements CheckListInformationReader {
      * @throws JbmException
      *             Xpath acquisition failure
      */
-    private String getText(String location) throws JbmException {
-        try {
-        	if(xpath==null){
+    private String getText(String no, String mode) throws JbmException {
+        	if(map==null){
         		throw new JbmException(MessageUtil.ERR_CONVERT_FILE_CLOSE);
         	}
-            return xpath.evaluate(location, doc).trim();
-        } catch (XPathExpressionException e) {
-            throw new JbmException(
-                    e,
-                    LOGGER,
-                    ERROR_LEVEL.ERROR,
-                    new String[] { MessageUtil.CHECKLIST_INFORMATION_FILE_ERROR });
-        }
+        	Map<String, String> elm = map.get(no);
+            return elm.get(mode).trim();
     }
 
     /**
      * Instantiation of the document and XPATH.<br/>
-     * 
-     * @throws ParserConfigurationException
-     *             DocumentBuilder instantiation failure
-     * @throws IOException
-     *             Self Plugin directory failure
-     * @throws SAXException
-     *             XML parsing error
      */
     public void setInitila() throws ParserConfigurationException,
             SAXException, IOException {
-        // Do regeneration check item information XML file generated from
-        // knowledge XML.
-        DocumentBuilder builder = DocumentBuilderFactory.newInstance()
-                .newDocumentBuilder();
         File file = new File(createTargetFilePath());
         if(!file.exists()){
             LOGGER.warn(MessageUtil.ERR_CONVERT_FILE_CLOSE);
         	return;
         }
-        doc = builder.parse(file);
-        XPathFactory factory = XPathFactory.newInstance();
-        xpath = factory.newXPath();
+        parseXML(createTargetFilePath());
     }
+
 
     /**
      * Get the checklist information file path.<br/>
@@ -260,22 +233,64 @@ public class CheckListInformationXml implements CheckListInformationReader {
         return path;
     }
 
-    /**
-     * Generate the Location of XPATH.<br/>
-     * Generate the Location of checkListInformation parent element.<br/>
-     * 
-     * @param no
-     *            Target No
-     * @param mode
-     *            Attribute value
-     * @return Location
-     */
-    private String createLocation(String no, String mode) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("/checkListInformation/description[@no='");
-        sb.append(no);
-        sb.append("']/");
-        sb.append(mode);
-        return sb.toString();
-    }
+	private void parseXML(String fileName)
+			throws FactoryConfigurationError {
+		XMLInputFactory factory = XMLInputFactory.newInstance();
+		BufferedInputStream stream = null;
+		XMLStreamReader reader = null;
+		try {
+			stream = new BufferedInputStream(new FileInputStream(fileName));
+			reader = factory.createXMLStreamReader(stream);
+
+			String no = null;
+			Map<String, String> elms = null;
+			while (reader.hasNext()) {
+				reader.next();
+				switch (reader.getEventType()) {
+				case XMLStreamConstants.START_ELEMENT:
+					if (CreateCheckListInfomationFile.DESCRIPTION.equals(reader.getLocalName())) {
+						no = reader.getAttributeValue(null, CreateCheckListInfomationFile.NO);
+						elms = addElms(reader);
+						map.put(no, elms);
+					}
+					break;
+				}
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (reader != null)
+					reader.close();
+			} catch (Exception e) {
+			}
+		}
+	}
+
+	private Map<String, String> addElms(XMLStreamReader reader) throws Exception {
+		Map<String, String> elms = new HashMap<String, String>();
+		boolean end = false;
+		String elm = null;
+		String data = "";
+		while(reader.hasNext() && end != true) {
+			switch (reader.getEventType()) {
+			case XMLStreamReader.START_ELEMENT:
+				elm = reader.getLocalName();
+				break;
+			case XMLStreamReader.END_ELEMENT:
+				if(CreateCheckListInfomationFile.DESCRIPTION.equals(reader.getLocalName())) {
+					end = true;
+					continue;
+				}
+				elms.put(elm, data);
+				data = "";
+				break;
+			case XMLStreamReader.CHARACTERS:
+				data = reader.getText();
+				break;
+			}
+			reader.next();
+		}
+		return elms;
+	}
 }

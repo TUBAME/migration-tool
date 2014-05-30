@@ -95,11 +95,11 @@ public class CreateCheckListInfomationFile {
     /**
      * Attributes of XML (description)
      */
-    private static final String DESCRIPTION = "description";
+    public static final String DESCRIPTION = "description";
     /**
      * Attributes of XML (no)
      */
-    private static final String NO = "no";
+    public static final String NO = "no";
     /**
      * Attributes of XML (big: large item)
      */
