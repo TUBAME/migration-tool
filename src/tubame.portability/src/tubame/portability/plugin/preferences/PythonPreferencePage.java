@@ -33,7 +33,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
@@ -41,9 +40,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import tubame.portability.Activator;
-import tubame.portability.plugin.wizard.BrowseDirectoryButtonSelectionListener;
 import tubame.portability.util.PythonUtil;
-import tubame.portability.util.resource.ApplicationPropertyUtil;
 
 /**
  * This is the class of the setting screen top of general-purpose search.<br/>
@@ -58,6 +55,8 @@ public class PythonPreferencePage extends PreferencePage implements
             .getLogger(PythonPreferencePage.class);
     
 	private Text pyPathText;
+
+	public static final String PREF_KEY_PY_RUNTIME_PATH = "PREF_KEY_PY_RUNTIME_PATH";
 
     /**
      * Constructor.<br/>
@@ -133,7 +132,13 @@ public class PythonPreferencePage extends PreferencePage implements
         pyPathText.setLayoutData(new GridData(
                 GridData.FILL_HORIZONTAL));
        
-        pyPathText.setText(PythonUtil.PY_RUNTIME_PATH);
+        String preferences = Activator.getPreferences(PREF_KEY_PY_RUNTIME_PATH);
+        if(preferences != null){
+        	pyPathText.setText(preferences);
+        }else{
+        	pyPathText.setText(PythonUtil.PY_RUNTIME_PATH);
+        }
+        
         pyPathText.addModifyListener(new ModifyListener() {
 			
 			@Override
@@ -173,6 +178,7 @@ public class PythonPreferencePage extends PreferencePage implements
     @Override
 	public boolean performOk() {
     	LOGGER.debug("py path:"+ pyPathText.getText());
+    	Activator.savePreferences(PREF_KEY_PY_RUNTIME_PATH, pyPathText.getText());
         PythonUtil.PY_RUNTIME_PATH = pyPathText.getText();
 		return super.performOk();
 	}

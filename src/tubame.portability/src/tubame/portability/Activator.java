@@ -27,13 +27,20 @@ import tubame.common.logging.CmnJbmToolsLoggingUtil;
 import tubame.knowhow.biz.util.resource.ApplicationPropertiesUtil;
 import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
 
+import org.eclipse.core.runtime.preferences.IEclipsePreferences;
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
+import org.osgi.service.prefs.BackingStoreException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import tubame.portability.logic.InitializePotability;
+import tubame.portability.plugin.dialog.ErrorDialog;
 import tubame.portability.util.PluginUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
@@ -157,4 +164,81 @@ public class Activator extends AbstractUIPlugin {
         }
     }
     
+    /**
+     * Get a set of Plugin.
+     * 
+     * @return Setting Plugin
+     */
+    public static IEclipsePreferences getPreferences() {
+        IEclipsePreferences prefs = InstanceScope.INSTANCE.getNode(PLUGIN_ID);
+        return prefs;
+    }
+    
+    /**
+     * Save the settings of Plugin.<br/>
+     * 
+     */
+    public static void savePreferences(String key,String val) {
+        IEclipsePreferences prefs = getPreferences();
+        
+        try {
+        	prefs.put(key, val);
+            prefs.flush();
+        } catch (BackingStoreException e) {
+            String message = getResourceString(Activator.class.getName()
+                    + ".err.msg.PrefSaveFailed");
+            ErrorDialog.openErrorDialog(getActiveWorkbenchShell(), e, message);
+        }
+    }
+    
+    /**
+     * Save the settings of Plugin.<br/>
+     * 
+     */
+    public static String getPreferences(String key) {
+        IEclipsePreferences prefs = getPreferences();
+        if (prefs != null){
+        	return prefs.get(key, null);
+        }else{
+        	return null;
+        }
+
+    }
+    
+    
+    /**
+     * Get the shell of the active workbench.<br/>
+     * 
+     * @return shell Shell of workbench active
+     */
+    public static Shell getActiveWorkbenchShell() {
+        IWorkbenchWindow window = getActiveWorkbenchWindow();
+        return window != null ? window.getShell() : getStandardDisplay()
+                .getActiveShell();
+    }
+    /**
+     * Get the window of the workbench active.<br/>
+     * 
+     * @return IWorkbenchWindow Window of the workbench active
+     */
+    public static IWorkbenchWindow getActiveWorkbenchWindow() {
+        return Activator.getDefault().getWorkbench().getActiveWorkbenchWindow();
+    }
+
+    /**
+     * Get the display.<br/>
+     * If the thread that is calling this method is in possession of the
+     * relevant display, <br/>
+     * get the related display, and get the default display if not in
+     * possession.<br/>
+     * 
+     * @return Display
+     */
+    private static Display getStandardDisplay() {
+        Display display = Display.getCurrent();
+        if (display == null) {
+            display = Display.getDefault();
+        }
+        return display;
+    }
 }

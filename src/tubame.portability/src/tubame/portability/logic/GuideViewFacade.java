@@ -26,8 +26,11 @@ import org.eclipse.ui.PartInitException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import tubame.portability.Activator;
 import tubame.portability.exception.JbmException;
 import tubame.portability.exception.JbmException.ERROR_LEVEL;
+import tubame.portability.plugin.dialog.ErrorDialog;
+import tubame.portability.plugin.preferences.MigrationGuidePreferencePage;
 import tubame.portability.plugin.view.HtmlGuideView;
 import tubame.portability.util.PluginUtil;
 import tubame.portability.util.StringUtil;
@@ -95,13 +98,14 @@ public class GuideViewFacade {
      *             IO exception
      */
     public static void view(String guideNo) throws IOException {
-    	if(INDEX_GUIDE_FILE_PATH == null){
-    		INDEX_GUIDE_FILE_PATH = PluginUtil.getPluginDir()
+    	String preferences = Activator.getPreferences(MigrationGuidePreferencePage.PREF_KEY_GUIDE_INDEX_PATH);
+    	if(preferences == null){
+    		preferences = PluginUtil.getPluginDir()
                     + ApplicationPropertyUtil.GUIDE_FILE_PATH;
     	}
         // Guide chapter numbers get chosen
-        String url = GuideViewFacade.createUrlPath(INDEX_GUIDE_FILE_PATH, guideNo);
-        if (new File(INDEX_GUIDE_FILE_PATH).exists()) {
+        String url = GuideViewFacade.createUrlPath(preferences, guideNo);
+        if (new File(preferences).exists()) {
             try {
                 IWorkbenchPage workBenchPage = PluginUtil.getActivePage();
                 HtmlGuideView viewPart = (HtmlGuideView) workBenchPage
@@ -111,6 +115,12 @@ public class GuideViewFacade {
                 JbmException.outputExceptionLog(e, LOGGER, ERROR_LEVEL.ERROR,
                         new String[] { MessageUtil.ERR_GUID_VIEW });
             }
+        }else{
+        	String message = Activator.getResourceString(GuideViewFacade.class.getName()
+                    + ".warnmsg.notfound.index");
+            ErrorDialog.openWarnDialog(
+                    Activator.getActiveWorkbenchShell(), new IOException(message),
+                    message);
         }
     }
 }

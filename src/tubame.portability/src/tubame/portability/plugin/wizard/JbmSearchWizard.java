@@ -36,10 +36,13 @@ import org.eclipse.ui.WorkbenchException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import tubame.portability.Activator;
 import tubame.portability.exception.JbmException;
 import tubame.portability.logic.CheckListInformationFactory;
+import tubame.portability.logic.GuideViewFacade;
 import tubame.portability.logic.KnowhowXmlConvertFactory;
 import tubame.portability.logic.search.SearchToolWithProgress;
+import tubame.portability.plugin.dialog.ErrorDialog;
 import tubame.portability.util.PluginUtil;
 import tubame.portability.util.PythonUtil;
 import tubame.portability.util.StringUtil;
@@ -155,6 +158,16 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
             // Close the file with the same name that is already open
             PluginUtil.closeEditor(jbmSearchSelectionPage.getOutJbmFileText());
 
+            
+            String pythonExePath = PythonUtil.getPythonExePath();
+            if(!new File(pythonExePath).exists()){
+            	String message = Activator.getResourceString(JbmSearchWizard.class.getName()
+                        + ".errmsg.notfound.python");
+            	 ErrorDialog.openErrorDialog(
+                         Activator.getActiveWorkbenchShell(), new Exception(message),
+                         message);
+            	 return false;
+            }
             // Convert an existing format file knowhowXML
             // knowhow.xml > keywordSearch.csv
             // knowhow.xml > checkListInformation.xml

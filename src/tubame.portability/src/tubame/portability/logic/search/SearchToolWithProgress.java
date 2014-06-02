@@ -24,6 +24,9 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import tubame.portability.Activator;
+import tubame.portability.plugin.dialog.ErrorDialog;
+import tubame.portability.plugin.preferences.PythonPreferencePage;
 import tubame.portability.plugin.wizard.AbstractSearchToolWithProgress;
 import tubame.portability.util.PythonUtil;
 import tubame.portability.util.resource.MessageUtil;
@@ -63,12 +66,19 @@ public class SearchToolWithProgress extends AbstractSearchToolWithProgress {
 
     /**
      * {@inheritDoc}
+     * @throws IOException 
      */
     @Override
-    public String getPythonExePath() throws IOException {
+    public String getPythonExePath() throws IOException  {
+    	String preferences = Activator.getPreferences(PythonPreferencePage.PREF_KEY_PY_RUNTIME_PATH);
+    	if (preferences != null){
+    		PythonUtil.PY_RUNTIME_PATH = preferences;
+    	}
     	File py = new File(PythonUtil.PY_RUNTIME_PATH);
     	if(!py.exists()  || py.isDirectory()){
-    		throw new IOException("Pythonのパスが不正です。プレファレンスページでPythonのパス設定を行ってください  path="+PythonUtil.PY_RUNTIME_PATH);
+            String message = Activator.getResourceString(SearchToolWithProgress.class.getName()
+                    + ".err.msg.invalidPythonPath");
+            throw new IOException(message+" path="+PythonUtil.PY_RUNTIME_PATH);
     	}
         return PythonUtil.PY_RUNTIME_PATH;
     }

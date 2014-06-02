@@ -24,6 +24,8 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import tubame.portability.Activator;
+import tubame.portability.plugin.preferences.PythonPreferencePage;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 
 /**
@@ -61,12 +63,17 @@ public class PythonUtil {
      *             plugin directory acquisition failure
      */
     public static String getPythonExePath() throws IOException {
-        String temp = ApplicationPropertyUtil.PYTHON_RUNTIME_PATH;
-        if (!new File(temp).isAbsolute()) {
-            temp = PluginUtil.getResolvedPluginDir() + temp;
-        }
-        LOGGER.info(temp);
-        return temp;
+    	String preferences = Activator.getPreferences(PythonPreferencePage.PREF_KEY_PY_RUNTIME_PATH);
+    	if(preferences == null){
+            String temp = ApplicationPropertyUtil.PYTHON_RUNTIME_PATH;
+            if (!new File(temp).isAbsolute()) {
+                temp = PluginUtil.getResolvedPluginDir() + temp;
+            }
+            return temp;
+    	}else{
+    		return preferences;
+    	}
+
     }
 
     /**
