@@ -189,5 +189,31 @@
      </action>
   </objectContribution>
 	</extension>
+ <extension
+       point="org.eclipse.ui.preferencePages">
+    <page
+          class="tubame.portability.plugin.preferences.TubamePreferenceTop"
+          id="tubame.portability.plugin.preferences.TubamePreferenceTopPage"
+          name="%preferences.TubamePreferenceTopPage.name">
+    </page>
+    <page
+          category="tubame.portability.plugin.preferences.TubamePreferenceTopPage"
+          class="tubame.portability.plugin.preferences.KnowledgeBasePreferenceTop"
+          id="tubame.portability.plugin.preferences.KnowledgeBasePreferenceTopPage"
+          name="%preferences.KnowledgeBasePreferenceTopPage.name">
+    </page>
+    <page
+          category="tubame.portability.plugin.preferences.KnowledgeBasePreferenceTopPage"
+          class="tubame.portability.plugin.preferences.PythonPreferencePage"
+          id="tubame.portability.plugin.preferences.PythonPreferencePage"
+          name="%preferences.PythonPreferencePage.name">
+    </page>
+    <page
+          category="tubame.portability.plugin.preferences.KnowledgeBasePreferenceTopPage"
+          class="tubame.portability.plugin.preferences.MigrationGuidePreferencePage"
+          id="tubame.portability.plugin.preferences.MigrationGuidePreferencePage"
+          name="%preferences.MigrationGuidePreferencePage">
+    </page>
+ </extension>
 
 </plugin>

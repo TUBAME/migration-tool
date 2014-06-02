@@ -19,6 +19,9 @@
 package tubame.portability;
 
 import java.net.URL;
+import java.util.MissingResourceException;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
 
 import tubame.common.logging.CmnJbmToolsLoggingUtil;
 import tubame.knowhow.biz.util.resource.ApplicationPropertiesUtil;
@@ -31,6 +34,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import tubame.portability.logic.InitializePotability;
+import tubame.portability.util.PluginUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
 
@@ -50,6 +54,8 @@ public class Activator extends AbstractUIPlugin {
     // The shared instance
     private static Activator plugin;
 
+	private ResourceBundle resourceBundle;
+
     /**
      * The constructor.<br/>
      */
@@ -67,6 +73,14 @@ public class Activator extends AbstractUIPlugin {
     public void start(BundleContext context) throws Exception {
         super.start(context);
         plugin = this;
+        try {
+            this.resourceBundle = PropertyResourceBundle
+                    .getBundle("resources.properties.message");
+        } catch (MissingResourceException x) {
+            this.resourceBundle = null;
+        }
+        
+        
         // Bundling
         CmnJbmToolsLoggingUtil.configureLoggerForPlugin(PLUGIN_ID, Activator
                 .getDefault().getStateLocation().toFile(),
@@ -126,4 +140,21 @@ public class Activator extends AbstractUIPlugin {
     private static URL getResources(String key) {
         return Activator.getDefault().getBundle().getResource(key);
     }
+    
+    /**
+     * Get the value corresponding to the key from the message file by the
+     * resource bundle mechanism.<br/>
+     * 
+     * @param key
+     *            Message key
+     * @return Message
+     */
+    public static String getResourceString(String key) {
+        try {
+            return plugin.resourceBundle.getString(key);
+        } catch (MissingResourceException e) {
+            return key;
+        }
+    }
+    
 }

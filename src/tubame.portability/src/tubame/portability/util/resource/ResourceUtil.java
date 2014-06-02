@@ -158,6 +158,9 @@ public class ResourceUtil extends NLS {
     public static String DIALOG_REPORTGEN;
 
 	public static String REPORTGEN_PROGRESS;
+	
+	
+	
     
     
 

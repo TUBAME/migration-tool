@@ -42,6 +42,8 @@ public class PythonUtil {
      */
     public static final String PYTHON_CHARACTOR_CODE = "Shift-Jis";
 
+    
+    public static String PY_RUNTIME_PATH = ApplicationPropertyUtil.PYTHON_RUNTIME_PATH;
     /**
      * Constructor.<br/>
      * It can not be instantiated from another class.<br/>
@@ -112,5 +114,15 @@ public class PythonUtil {
         LOGGER.info(filePath);
         return filePath;
     }
+    
+    
+    public static String getPyPath()
+            throws IOException {
+        String filePath = PluginUtil.getResolvedPluginDir() + ApplicationPropertyUtil.REPORTGEN_OUTPUT_DIR;
+        LOGGER.info(filePath);
+        return filePath;
+    }
+    
+    
     
 }

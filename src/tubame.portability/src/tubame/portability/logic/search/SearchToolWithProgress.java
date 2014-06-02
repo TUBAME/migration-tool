@@ -18,6 +18,7 @@
  */
 package tubame.portability.logic.search;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.slf4j.Logger;
@@ -65,7 +66,11 @@ public class SearchToolWithProgress extends AbstractSearchToolWithProgress {
      */
     @Override
     public String getPythonExePath() throws IOException {
-        return PythonUtil.getPythonExePath();
+    	File py = new File(PythonUtil.PY_RUNTIME_PATH);
+    	if(!py.exists()  || py.isDirectory()){
+    		throw new IOException("Pythonのパスが不正です。プレファレンスページでPythonのパス設定を行ってください  path="+PythonUtil.PY_RUNTIME_PATH);
+    	}
+        return PythonUtil.PY_RUNTIME_PATH;
     }
 
     /**

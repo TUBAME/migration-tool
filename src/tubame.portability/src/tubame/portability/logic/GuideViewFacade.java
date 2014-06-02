@@ -52,6 +52,10 @@ public class GuideViewFacade {
      */
     private static final String GUIDE_FILE_PATH = ApplicationPropertyUtil.GUIDE_FILE_PATH;
 
+    
+
+    public static String INDEX_GUIDE_FILE_PATH = null;
+    
     /**
      * Constructor.<br/>
      * It can not be instantiated from another class.<br/>
@@ -91,11 +95,13 @@ public class GuideViewFacade {
      *             IO exception
      */
     public static void view(String guideNo) throws IOException {
+    	if(INDEX_GUIDE_FILE_PATH == null){
+    		INDEX_GUIDE_FILE_PATH = PluginUtil.getPluginDir()
+                    + ApplicationPropertyUtil.GUIDE_FILE_PATH;
+    	}
         // Guide chapter numbers get chosen
-        String url = GuideViewFacade.createUrlPath(PluginUtil.getPluginDir()
-                + GuideViewFacade.GUIDE_FILE_PATH, guideNo);
-        if (new File(PluginUtil.getPluginDir()
-                + GuideViewFacade.GUIDE_FILE_PATH).exists()) {
+        String url = GuideViewFacade.createUrlPath(INDEX_GUIDE_FILE_PATH, guideNo);
+        if (new File(INDEX_GUIDE_FILE_PATH).exists()) {
             try {
                 IWorkbenchPage workBenchPage = PluginUtil.getActivePage();
                 HtmlGuideView viewPart = (HtmlGuideView) workBenchPage
