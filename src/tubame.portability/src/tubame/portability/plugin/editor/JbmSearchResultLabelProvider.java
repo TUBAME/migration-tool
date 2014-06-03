@@ -102,12 +102,12 @@ public class JbmSearchResultLabelProvider extends ColumnLabelProvider implements
      */
     @Override
     public Font getFont(Object element) {
-        if (element instanceof MigrationEditorRow) {
-            MigrationEditorRow row = (MigrationEditorRow) element;
-            if (row.getFont() != null) {
-                return row.getFont();
-            }
-        }
+//        if (element instanceof MigrationEditorRow) {
+//            MigrationEditorRow row = (MigrationEditorRow) element;
+//            if (row.getFont() != null) {
+//                return row.getFont();
+//            }
+//        }
         return super.getFont(element);
     }
 
@@ -116,10 +116,10 @@ public class JbmSearchResultLabelProvider extends ColumnLabelProvider implements
      */
     @Override
     public Color getForeground(Object element, int columnIndex) {
-        if (element instanceof MigrationEditorRow) {
-            MigrationEditorRow row = (MigrationEditorRow) element;
-            return row.getForeground(columnIndex);
-        }
+//        if (element instanceof MigrationEditorRow) {
+//            MigrationEditorRow row = (MigrationEditorRow) element;
+//            return row.getForeground(columnIndex);
+//        }
         return null;
     }
 

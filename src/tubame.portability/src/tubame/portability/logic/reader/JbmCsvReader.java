@@ -25,7 +25,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import org.slf4j.Logger;
@@ -46,6 +48,7 @@ import tubame.portability.model.generated.model.JbossMigrationConvertTool.Migrat
 import tubame.portability.model.generated.model.MigrationItem.MigrationTargets;
 import tubame.portability.model.generated.model.MigrationTarget.TargetLines;
 import tubame.portability.util.CsvUtil;
+import tubame.portability.util.PythonUtil;
 import tubame.portability.util.StringUtil;
 import tubame.portability.util.resource.MessageUtil;
 
@@ -100,6 +103,8 @@ public class JbmCsvReader implements JbmReader {
             bufferedReader = new BufferedReader(inputStreamReader);
             List<String> rowList = new ArrayList<String>();
             int lineCount = 0;
+            Map<String,Integer> progressStatusMap = new HashMap<String,Integer>();
+            
             while (true) {
                 lineCount++;
                 String line = bufferedReader.readLine();
@@ -108,8 +113,14 @@ public class JbmCsvReader implements JbmReader {
                 }
                 List<String> tokenList = CsvUtil.parseCsv(line);
                 allFormatCheck(lineCount, tokenList);
+                String number = tokenList.get(0);
+                if( number!= null){
+                	progressStatusMap.put(number, lineCount);
+                }
                 rowList.add(line);
             }
+            PythonUtil.PY_SEARCH_PROGRESS_STATUS_MAP = progressStatusMap;
+            
             return rowList;
         } catch (FileNotFoundException e) {
             throw new JbmException(e, LOGGER, ERROR_LEVEL.ERROR, new String[] {
@@ -148,7 +159,8 @@ public class JbmCsvReader implements JbmReader {
         }
     }
 
-    /**
+
+	/**
      * Check format of one line of the CSV.<br/>
      * Number, line number format check of Delimiter.<br/>
      * 
@@ -164,6 +176,7 @@ public class JbmCsvReader implements JbmReader {
         checkCsvDelimiterNum(tokenList, line);
         checkRowLineNo(tokenList.get(JbmCsvEnum.TOKEN_INDEX_ROW_NO.getCode()),
                 line);
+       
     }
 
     /**

@@ -20,6 +20,7 @@ package tubame.portability.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,6 +47,11 @@ public class PythonUtil {
 
     
     public static String PY_RUNTIME_PATH = ApplicationPropertyUtil.PYTHON_RUNTIME_PATH;
+    
+    
+    public static Map<String,Integer> PY_SEARCH_PROGRESS_STATUS_MAP = null;
+    
+    
     /**
      * Constructor.<br/>
      * It can not be instantiated from another class.<br/>

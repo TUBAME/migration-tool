@@ -86,19 +86,26 @@ public class JbmEditorPart extends AbstractJbmEditorPart {
     /**
      * File Name column size
      */
-    private static final int TARGET_FILE_PATH_COLUMN_SIZE = 200;
+    private static final int TARGET_FILE_PATH_COLUMN_SIZE = 100;
     /**
      * Major item column size
      */
-    private static final int BIG_ITEM_COLUMN_SIZE = 70;
+    private static final int BIG_ITEM_COLUMN_SIZE = 120;
+    
+    
+    /**
+     * Major item column size
+     */
+    private static final int MIDDLE_ITEM_COLUMN_SIZE = 120;
+    
     /**
      * Number of column size
      */
-    private static final int HIT_COLUMN_SIZE = 50;
+    private static final int HIT_COLUMN_SIZE = 60;
     /**
      * No column size
      */
-    private static final int NO_COLUMN_SIZE = 80;
+    private static final int NO_COLUMN_SIZE = 40;
     /**
      * Line number size
      */
@@ -139,8 +146,7 @@ public class JbmEditorPart extends AbstractJbmEditorPart {
      */
     @Override
     public List<MigrationEditorRow> load(String fileName) throws JbmException {
-        List<JbmEditorMigrationRow> list = JbmAccessFactory.getJbmReadFacade()
-                .read(fileName);
+        List<JbmEditorMigrationRow> list = JbmAccessFactory.getJbmReadFacade().read(fileName);
         List<MigrationEditorRow> resultList = new ArrayList<MigrationEditorRow>();
         resultList.addAll(list);
         return resultList;
@@ -166,39 +172,66 @@ public class JbmEditorPart extends AbstractJbmEditorPart {
         SelectionListener selectionListener = new JbmEditorSortListener(this);
         super.createTreeColumn(tree, JbmEditorEnum.INDEX_NO.getName(),
                 SWT.NULL, JbmEditorPart.NO_COLUMN_SIZE, selectionListener);
-        super.createTreeColumn(tree, JbmEditorEnum.HIT_NUM.getName(),
-                SWT.RIGHT, JbmEditorPart.HIT_COLUMN_SIZE, selectionListener);
+        
         super.createTreeColumn(tree, JbmEditorEnum.BIG_ITEM.getName(),
                 SWT.NULL, JbmEditorPart.BIG_ITEM_COLUMN_SIZE, null);
-        super.createTreeColumn(tree, JbmEditorEnum.MIDDLE_ITEM.getName(),
-                SWT.NULL, 0, null);
+        
+       super.createTreeColumn(tree, JbmEditorEnum.MIDDLE_ITEM.getName(),
+       SWT.NULL, JbmEditorPart.MIDDLE_ITEM_COLUMN_SIZE, null);
+        
+       super.createTreeColumn(tree, JbmEditorEnum.DIFFICULTY.getName(),
+               SWT.NULL, JbmEditorPart.DIFFICULTY_COLUMN_SIZE,
+               selectionListener);
+       
+        super.createTreeColumn(tree, JbmEditorEnum.HIT_NUM.getName(),
+                SWT.RIGHT, JbmEditorPart.HIT_COLUMN_SIZE, selectionListener);
+        
+
+        
         super.createTreeColumn(tree, JbmEditorEnum.TARGET_FILE_PATH.getName(),
                 SWT.NULL, JbmEditorPart.TARGET_FILE_PATH_COLUMN_SIZE, null);
+        
         super.createTreeColumn(tree, JbmEditorEnum.ROW_NO.getName(), SWT.RIGHT,
                 JbmEditorPart.ROW_COLUMN_SIZE, null);
-        super.createTreeColumn(tree, JbmEditorEnum.DIFFICULTY.getName(),
-                SWT.NULL, JbmEditorPart.DIFFICULTY_COLUMN_SIZE,
-                selectionListener);
+        
+
+        
+        // Number of line (with sort)
+        super.createTreeColumn(tree, JbmEditorEnum.LINE_NUM.getName(),
+                SWT.NULL, JbmEditorPart.LINE_COLUMN_SIZE, selectionListener);
+        
+        // Line number basis
+        super.createTreeColumn(tree, JbmEditorEnum.LINE_NUM_BASIS.getName(),
+                SWT.SELECTED, JbmEditorPart.LINE_BASIS_COLUMN_SIZE, null);
+        
+        // Total line
+        super.createTreeColumn(tree, JbmEditorEnum.TOTAL_LINE.getName(),
+                SWT.NULL, JbmEditorPart.TOTAL_LINE_COLUMN_SIZE, null);
+        
         super.createTreeColumn(tree, JbmEditorEnum.CHAPTER_NO.getName(),
                 SWT.NULL, JbmEditorPart.CHAPTER_NO_COLUMN_SIZE, null);
-        super.createTreeColumn(tree,
-                JbmEditorEnum.VISUAL_CONFIRM_ITEM.getName(), SWT.NULL, 0, null);
-        super.createTreeColumn(tree, JbmEditorEnum.HIARING_ITEM.getName(),
-                SWT.NULL, 0, null);
+        
+               
+
+        
+
+
+        
+        
+//        super.createTreeColumn(tree,
+//                JbmEditorEnum.VISUAL_CONFIRM_ITEM.getName(), SWT.NULL, 0, null);
+//        
+//        
+//        super.createTreeColumn(tree, JbmEditorEnum.HIARING_ITEM.getName(),
+//                SWT.NULL, 0, null);
         super.createTreeColumn(tree,
                 JbmEditorEnum.VISUAL_CONFIRM_STATSU_ITEM.getName(), SWT.NULL,
                 JbmEditorPart.VISUAL_COLUMN_SIZE, selectionListener);
         super.createTreeColumn(tree, JbmEditorEnum.HIARING_STATUS.getName(),
                 SWT.NULL, JbmEditorPart.HIARING_COLUMN_SIZE, selectionListener);
-        // Number of line (with sort)
-        super.createTreeColumn(tree, JbmEditorEnum.LINE_NUM.getName(),
-                SWT.NULL, JbmEditorPart.LINE_COLUMN_SIZE, selectionListener);
-        // Line number basis
-        super.createTreeColumn(tree, JbmEditorEnum.LINE_NUM_BASIS.getName(),
-                SWT.SELECTED, JbmEditorPart.LINE_BASIS_COLUMN_SIZE, null);
-        // Total line
-        super.createTreeColumn(tree, JbmEditorEnum.TOTAL_LINE.getName(),
-                SWT.NULL, JbmEditorPart.TOTAL_LINE_COLUMN_SIZE, null);
+
+
+  
     }
 
     /**

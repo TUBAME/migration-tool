@@ -153,7 +153,7 @@ for tempRow in tempCSVLine:
         check_Status = "0"                  # Check Status
     
         # Display progress of a search (XX/XXX)
-        print getSearchNum(no)+"/"+denominatorCSV
+        print no+"/"+denominatorCSV
         # Flush the Buffer
         sys.stdout.flush()
     

@@ -264,6 +264,7 @@ public abstract class AbstractSearchToolWithProgress implements
         String line = null;
 		CheckListInformationFactory.getCheckListInformationFacade()
 				.initCheckListInformationReader();
+		int totalLineCnt = PythonUtil.PY_SEARCH_PROGRESS_STATUS_MAP.keySet().size();
         // Read one line search results
         while ((line = reader.readLine()) != null) {
             if (monitor.isCanceled()) {
@@ -279,14 +280,31 @@ public abstract class AbstractSearchToolWithProgress implements
                 StringBuffer addColums = createAddColums(line);
                 lineList.add(line + addColums.toString());
             } else {
-            	String message = ResourceUtil.SEARCH_PROGRESS + line;
-                monitor.beginTask(message, IProgressMonitor.UNKNOWN);
+            	
+            	String statusLine = getStatusLine(line,totalLineCnt);
+//            	String message = ResourceUtil.SEARCH_PROGRESS + line;
+            	if(statusLine!= null){
+            		String message = ResourceUtil.SEARCH_PROGRESS + statusLine;
+            		monitor.beginTask(message, IProgressMonitor.UNKNOWN);
+            	}
+            	
+                
             }
         }
         return lineList;
     }
 
-    /**
+    private String getStatusLine(String line,int totalLineCnt) {
+		String orginalNumber = line.split("/")[0];
+		if(PythonUtil.PY_SEARCH_PROGRESS_STATUS_MAP.containsKey(orginalNumber)){
+			Integer integer = PythonUtil.PY_SEARCH_PROGRESS_STATUS_MAP.get(orginalNumber);
+			return String.valueOf(integer) + "/" + String.valueOf(totalLineCnt);
+		}
+		return null;
+		
+	}
+
+	/**
      * Generates a string to add to the return value from Python.<br/>
      * 
      * @param line

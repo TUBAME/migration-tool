@@ -18,8 +18,10 @@
  */
 package tubame.portability.model;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
@@ -29,6 +31,7 @@ import tubame.portability.logic.CheckListInformationFactory;
 import tubame.portability.plugin.action.ConfirmItemChangeAction;
 import tubame.portability.util.ColorUtil;
 import tubame.portability.util.PluginUtil;
+import tubame.portability.util.PythonUtil;
 import tubame.portability.util.StringUtil;
 import tubame.portability.util.resource.ResourceUtil;
 
@@ -231,6 +234,11 @@ public class JbmEditorMigrationRow implements MigrationEditorRow {
      *            File name
      */
     public void setFileName(String fileName) {
+//    	if(fileName.matches(File.separator)){
+//    		String[] token = fileName.split(File.separator);
+//    		this.fileName = token[token.length-1];
+//    
+//    	}
         this.fileName = fileName;
     }
 
@@ -735,7 +743,9 @@ public class JbmEditorMigrationRow implements MigrationEditorRow {
         case INDEX_NO:
             // No
             if (JbmEditorMigrationRow.LEVEL_FIRST == getLevel()) {
-                text = getNo();
+//                text = getNo();
+            	Integer no = PythonUtil.PY_SEARCH_PROGRESS_STATUS_MAP.get(getNo());
+                text = Integer.toString(no);
             }
             break;
         case HIT_NUM:
@@ -760,6 +770,11 @@ public class JbmEditorMigrationRow implements MigrationEditorRow {
             // File name
             if (JbmEditorMigrationRow.LEVEL_SECOND == getLevel()) {
                 text = getFileName();
+//                String pattern = Pattern.quote(System.getProperty("file.separator"));
+//                String[] splittedFileName = text.split(pattern);
+//                if(splittedFileName!= null){
+//                	text = splittedFileName[splittedFileName.length-1];
+//                }
             }
             break;
         case ROW_NO:

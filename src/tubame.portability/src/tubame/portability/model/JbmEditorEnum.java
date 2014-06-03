@@ -31,62 +31,86 @@ public enum JbmEditorEnum {
      * NO
      */
     INDEX_NO(0),
-    /**
-     * HIT number
-     */
-    HIT_NUM(1),
+    
+    
     /**
      * Large category
      */
-    BIG_ITEM(2),
+    BIG_ITEM(1),
+    
     /**
      * Middle item
      */
-    MIDDLE_ITEM(3),
-    /**
-     * File name
-     */
-    TARGET_FILE_PATH(4),
-    /**
-     * Line number
-     */
-    ROW_NO(5),
+    MIDDLE_ITEM(2),
+    
+    
     /**
      * Degree of difficulty
      */
-    DIFFICULTY(6),
+    DIFFICULTY(3),
+    
     /**
-     * Guide chapter number
+     * HIT number
      */
-    CHAPTER_NO(7),
+    HIT_NUM(4),
+
+ 
+    
+    
     /**
-     * Visual confirmation item
+     * File name
      */
-    VISUAL_CONFIRM_ITEM(8),
+    TARGET_FILE_PATH(5),
     /**
-     * Confirmation hearing content
+     * Line number
      */
-    HIARING_ITEM(9),
-    /**
-     * Visual confirmation status items
-     */
-    VISUAL_CONFIRM_STATSU_ITEM(10),
-    /**
-     * Hearing confirmation item
-     */
-    HIARING_STATUS(11),
+    ROW_NO(6),
+    
+    
     /**
      * Number of lines
      */
-    LINE_NUM(12),
+    LINE_NUM(7),
     /**
      * Line number basis
      */
-    LINE_NUM_BASIS(13),
+    LINE_NUM_BASIS(8),
     /**
      * Total line
      */
-    TOTAL_LINE(14),
+    TOTAL_LINE(9),
+    
+    /**
+     * Guide chapter number
+     */
+    CHAPTER_NO(10),
+    
+    
+    
+
+
+    
+
+    /**
+     * Visual confirmation status items
+     */
+    VISUAL_CONFIRM_STATSU_ITEM(11),
+    /**
+     * Hearing confirmation item
+     */
+    HIARING_STATUS(12),
+    
+
+    /**
+     * Visual confirmation item
+     */
+    VISUAL_CONFIRM_ITEM(13),
+    /**
+     * Confirmation hearing content
+     */
+    HIARING_ITEM(14),
+
+
     /**
      * Porting factor
      */

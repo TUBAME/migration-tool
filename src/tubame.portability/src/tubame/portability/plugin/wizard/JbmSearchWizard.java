@@ -18,11 +18,19 @@
  */
 package tubame.portability.plugin.wizard;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
@@ -41,8 +49,10 @@ import tubame.portability.exception.JbmException;
 import tubame.portability.logic.CheckListInformationFactory;
 import tubame.portability.logic.GuideViewFacade;
 import tubame.portability.logic.KnowhowXmlConvertFactory;
+import tubame.portability.logic.reader.JbmCsvReader;
 import tubame.portability.logic.search.SearchToolWithProgress;
 import tubame.portability.plugin.dialog.ErrorDialog;
+import tubame.portability.util.CsvUtil;
 import tubame.portability.util.PluginUtil;
 import tubame.portability.util.PythonUtil;
 import tubame.portability.util.StringUtil;
@@ -56,219 +66,246 @@ import tubame.portability.util.resource.ResourceUtil;
  * {@link AbstractJbmSelectionPage}
  */
 public class JbmSearchWizard extends Wizard implements INewWizard {
-    /**
-     * Logger
-     */
-    private static final Logger LOGGER = LoggerFactory
-            .getLogger(JbmSearchWizard.class);
+	/**
+	 * Logger
+	 */
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(JbmSearchWizard.class);
 
-    /**
-     * Screen the Wizard uses
-     */
-    private final JbmSearchSelectionPage jbmSearchSelectionPage;
+	/**
+	 * Screen the Wizard uses
+	 */
+	private final JbmSearchSelectionPage jbmSearchSelectionPage;
 
-    /**
-     * Get the search screen.<br/>
-     * 
-     * @return jbmSearchSelectionPage
-     */
-    public JbmSearchSelectionPage getjbmSearchSelectionPage() {
-        return jbmSearchSelectionPage;
-    }
+	/**
+	 * Get the search screen.<br/>
+	 * 
+	 * @return jbmSearchSelectionPage
+	 */
+	public JbmSearchSelectionPage getjbmSearchSelectionPage() {
+		return jbmSearchSelectionPage;
+	}
 
-    /**
-     * Get the title of the screen.<br/>
-     * 
-     * @return Title of the screen
-     */
-    public String getDialogTitle() {
-        return ResourceUtil.DIALOG_INFO_SEARCH;
-    }
+	/**
+	 * Get the title of the screen.<br/>
+	 * 
+	 * @return Title of the screen
+	 */
+	public String getDialogTitle() {
+		return ResourceUtil.DIALOG_INFO_SEARCH;
+	}
 
-    /**
-     * Get the error terms of the cancellation.<br/>
-     * 
-     * @return Error message of cancellation
-     */
-    public String getErrorRunCancel() {
-        return MessageUtil.INF_SEARCH_CANCELED;
-    }
+	/**
+	 * Get the error terms of the cancellation.<br/>
+	 * 
+	 * @return Error message of cancellation
+	 */
+	public String getErrorRunCancel() {
+		return MessageUtil.INF_SEARCH_CANCELED;
+	}
 
-    /**
-     * Get the error terms of the failure.<br/>
-     * 
-     * @return Error message on failure
-     */
-    public String getErrorRunFalse() {
-        return MessageUtil.ERR_SEARCH_FAILED;
-    }
+	/**
+	 * Get the error terms of the failure.<br/>
+	 * 
+	 * @return Error message on failure
+	 */
+	public String getErrorRunFalse() {
+		return MessageUtil.ERR_SEARCH_FAILED;
+	}
 
-    /**
-     * Get the wording of the processing is completed.<br/>
-     * 
-     * @return Completion of message processing
-     */
-    public String getRunComplete() {
-        return MessageUtil.INF_SEARCH_COMPLETE;
-    }
+	/**
+	 * Get the wording of the processing is completed.<br/>
+	 * 
+	 * @return Completion of message processing
+	 */
+	public String getRunComplete() {
+		return MessageUtil.INF_SEARCH_COMPLETE;
+	}
 
-    /**
-     * Constructor.<br/>
-     * 
-     * @param window
-     *            Window
-     * @param resource
-     *            Target resource
-     */
-    public JbmSearchWizard(IWorkbenchWindow window, IResource resource) {
-        super();
-        jbmSearchSelectionPage = new JbmSearchSelectionPage(resource);
-        super.setWindowTitle(ResourceUtil.DIALOG_SEARCH);
-    }
+	/**
+	 * Constructor.<br/>
+	 * 
+	 * @param window
+	 *            Window
+	 * @param resource
+	 *            Target resource
+	 */
+	public JbmSearchWizard(IWorkbenchWindow window, IResource resource) {
+		super();
+		jbmSearchSelectionPage = new JbmSearchSelectionPage(resource);
+		super.setWindowTitle(ResourceUtil.DIALOG_SEARCH);
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean performFinish() {
-        LOGGER.info(String.format(
-                MessageUtil.LOG_INFO_ACTION_P,
-                ResourceUtil.DIALOG_SEARCH,
-                MessageUtil.LOG_INFO_BTN_NAME_FINISH,
-                "TargetText=[" + jbmSearchSelectionPage.getTargetText()
-                        + "] KnowhowXmlFilePath=["
-                        + jbmSearchSelectionPage.getKnowhowXmlFilePath()
-                        + "] OutJbmFileText=["
-                        + jbmSearchSelectionPage.getOutJbmFileText() + "]"));
-        boolean validate = jbmSearchSelectionPage.checkFileUpdate();
-        // False when it was stuck to validate
-        if (!validate) {
-            LOGGER.info(String.format(MessageUtil.LOG_INFO_ACTION,
-                    jbmSearchSelectionPage.getDialogTitle(),
-                    MessageUtil.LOG_INFO_BTN_NAME_NO));
-            return false;
-        }
-        try {
-            LOGGER.info(String.format(MessageUtil.LOG_INFO_PROC_START,
-                    MessageUtil.LOG_INFO_PROC_NAME_SEARCH));
-            
-            IFile jbmFile = jbmSearchSelectionPage.getJbmFile();
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean performFinish() {
+		LOGGER.info(String.format(
+				MessageUtil.LOG_INFO_ACTION_P,
+				ResourceUtil.DIALOG_SEARCH,
+				MessageUtil.LOG_INFO_BTN_NAME_FINISH,
+				"TargetText=[" + jbmSearchSelectionPage.getTargetText()
+						+ "] KnowhowXmlFilePath=["
+						+ jbmSearchSelectionPage.getKnowhowXmlFilePath()
+						+ "] OutJbmFileText=["
+						+ jbmSearchSelectionPage.getOutJbmFileText() + "]"));
+		boolean validate = jbmSearchSelectionPage.checkFileUpdate();
+		// False when it was stuck to validate
+		if (!validate) {
+			LOGGER.info(String.format(MessageUtil.LOG_INFO_ACTION,
+					jbmSearchSelectionPage.getDialogTitle(),
+					MessageUtil.LOG_INFO_BTN_NAME_NO));
+			return false;
+		}
+		try {
+			LOGGER.info(String.format(MessageUtil.LOG_INFO_PROC_START,
+					MessageUtil.LOG_INFO_PROC_NAME_SEARCH));
+
+			IFile jbmFile = jbmSearchSelectionPage.getJbmFile();
 			CheckListInformationFactory.setCheckListInformationPath(jbmFile);
 
-            // Close the file with the same name that is already open
-            PluginUtil.closeEditor(jbmSearchSelectionPage.getOutJbmFileText());
+			// Close the file with the same name that is already open
+			PluginUtil.closeEditor(jbmSearchSelectionPage.getOutJbmFileText());
 
-            
-            String pythonExePath = PythonUtil.getPythonExePath();
-            if(!new File(pythonExePath).exists()){
-            	String message = Activator.getResourceString(JbmSearchWizard.class.getName()
-                        + ".errmsg.notfound.python");
-            	 ErrorDialog.openErrorDialog(
-                         Activator.getActiveWorkbenchShell(), new Exception(message),
-                         message);
-            	 return false;
-            }
-            // Convert an existing format file knowhowXML
-            // knowhow.xml > keywordSearch.csv
-            // knowhow.xml > checkListInformation.xml
-            KnowhowXmlConvertFactory.getKnowhowXmlConvertFacade()
-                    .convertSearchFiles(
-                            PluginUtil.getFileFullPath(jbmSearchSelectionPage
-                                    .getKnowhowXmlFilePath()));
+			String pythonExePath = PythonUtil.getPythonExePath();
+			if (!new File(pythonExePath).exists()) {
+				String message = Activator
+						.getResourceString(JbmSearchWizard.class.getName()
+								+ ".errmsg.notfound.python");
+				ErrorDialog.openErrorDialog(
+						Activator.getActiveWorkbenchShell(), new Exception(
+								message), message);
+				return false;
+			}
+			// Convert an existing format file knowhowXML
+			// knowhow.xml > keywordSearch.csv
+			// knowhow.xml > checkListInformation.xml
+			KnowhowXmlConvertFactory.getKnowhowXmlConvertFacade()
+					.convertSearchFiles(
+							PluginUtil.getFileFullPath(jbmSearchSelectionPage
+									.getKnowhowXmlFilePath()));
 
-            // Search process
-            SearchToolWithProgress progress = new SearchToolWithProgress(
-                    PluginUtil.getFileFullPath(jbmSearchSelectionPage
-                            .getTargetText()),
-                    PythonUtil
-                            .getSearchKeywordFilePath(ApplicationPropertyUtil.SEARCH_KEYWORD_FILE),
-                    PluginUtil.getFileFullPath(jbmSearchSelectionPage
-                            .getOutJbmFileText()));
-            ProgressMonitorDialog dialog = new ProgressMonitorDialog(
-                    PluginUtil.getActiveWorkbenchShell());
-            dialog.run(true, true, progress);
-            if (progress.isFileOut()) {
-                // Refresh
-                PluginUtil.refreshWorkSpace(dialog.getProgressMonitor());
-                // Open Perspective
-                PluginUtil.openSeachPerspective();
-                // Open the editor
-                PluginUtil.openEditor(
-                        jbmSearchSelectionPage.getOutJbmFileText(),
-                        PluginUtil.getSearchEditorId());
-                LOGGER.info(String.format(MessageUtil.LOG_INFO_PROC_END,
-                        MessageUtil.LOG_INFO_PROC_NAME_SEARCH));
-                PluginUtil.viewInfoDialog(getDialogTitle(), getRunComplete());
-            } else {
-                LOGGER.info(String.format(MessageUtil.LOG_INFO_PROC_END_P,
-                        MessageUtil.LOG_INFO_PROC_NAME_SEARCH,
-                        MessageUtil.INF_SEARCH_NON));
-                PluginUtil.viewInfoDialog(getDialogTitle(),
-                        MessageUtil.INF_SEARCH_NON);
-                return false;
+			// 検索キーワードファイルより検索進捗管理するために必要なマップ(PythonUtil.PY_SEARCH_PROGRESS_STATUS_MAP)を作成
+			String keywordPath = PluginUtil.getPluginDir()
+					+ ApplicationPropertyUtil.SEARCH_KEYWORD_FILE;
+			this.createProgressStatusMapForFile(keywordPath);
+			
+			// Search process
+			SearchToolWithProgress progress = new SearchToolWithProgress(
+					PluginUtil.getFileFullPath(jbmSearchSelectionPage
+							.getTargetText()),
+					PythonUtil
+							.getSearchKeywordFilePath(ApplicationPropertyUtil.SEARCH_KEYWORD_FILE),
+					PluginUtil.getFileFullPath(jbmSearchSelectionPage
+							.getOutJbmFileText()));
+			ProgressMonitorDialog dialog = new ProgressMonitorDialog(
+					PluginUtil.getActiveWorkbenchShell());
+			dialog.run(true, true, progress);
+			if (progress.isFileOut()) {
+				// Refresh
+				PluginUtil.refreshWorkSpace(dialog.getProgressMonitor());
+				// Open Perspective
+				PluginUtil.openSeachPerspective();
+				// Open the editor
+				PluginUtil.openEditor(
+						jbmSearchSelectionPage.getOutJbmFileText(),
+						PluginUtil.getSearchEditorId());
+				LOGGER.info(String.format(MessageUtil.LOG_INFO_PROC_END,
+						MessageUtil.LOG_INFO_PROC_NAME_SEARCH));
+				PluginUtil.viewInfoDialog(getDialogTitle(), getRunComplete());
+			} else {
+				LOGGER.info(String.format(MessageUtil.LOG_INFO_PROC_END_P,
+						MessageUtil.LOG_INFO_PROC_NAME_SEARCH,
+						MessageUtil.INF_SEARCH_NON));
+				PluginUtil.viewInfoDialog(getDialogTitle(),
+						MessageUtil.INF_SEARCH_NON);
+				return false;
+			}
+		} catch (IOException e) {
+			LOGGER.error(String.format(MessageUtil.LOG_ERR_PROC_ABNORMAL_END,
+					MessageUtil.LOG_INFO_PROC_NAME_SEARCH), e);
+			PluginUtil.viewErrorDialog(getDialogTitle(), getErrorRunFalse(), e);
+			return false;
+		} catch (InterruptedException e) {
+			// Cancellation
+			LOGGER.debug(MessageUtil.INF_CANCEL);
+			LOGGER.info(String.format(MessageUtil.LOG_INFO_PROC_CANCEL,
+					MessageUtil.LOG_INFO_PROC_NAME_SEARCH));
+			PluginUtil.viewInfoDialog(getDialogTitle(), getErrorRunCancel());
+			return false;
+		} catch (InvocationTargetException e) {
+			LOGGER.error(String.format(MessageUtil.LOG_ERR_PROC_ABNORMAL_END,
+					MessageUtil.LOG_INFO_PROC_NAME_SEARCH), e);
+			PluginUtil.viewErrorDialog(getDialogTitle(), getErrorRunFalse()
+					+ StringUtil.LINE_SEPARATOR + e.getMessage(), e);
+			return false;
+		} catch (WorkbenchException e) {
+			LOGGER.error(String.format(MessageUtil.LOG_ERR_PROC_ABNORMAL_END_P,
+					MessageUtil.LOG_INFO_PROC_NAME_SEARCH,
+					MessageUtil.ERR_SEARCH_PERSPECTIVE_OPEN), e);
+			// Failure in perspective related
+			PluginUtil.viewErrorDialog(getDialogTitle(),
+					MessageUtil.ERR_SEARCH_PERSPECTIVE_OPEN, e);
+			return false;
+		} catch (JbmException e) {
+			LOGGER.error(String.format(MessageUtil.LOG_ERR_PROC_ABNORMAL_END,
+					MessageUtil.LOG_INFO_PROC_NAME_SEARCH), e);
+			// Conversion failure to existing form of know-how XML file
+			PluginUtil.viewErrorDialog(getDialogTitle(), getErrorRunFalse()
+					+ StringUtil.LINE_SEPARATOR + e.getMessage(), e);
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean performCancel() {
+		LOGGER.info(String.format(MessageUtil.LOG_INFO_ACTION,
+				ResourceUtil.DIALOG_SEARCH,
+				MessageUtil.LOG_INFO_BTN_NAME_CANCEL));
+		return super.performCancel();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void addPages() {
+		super.addPage(jbmSearchSelectionPage);
+		super.addPages();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void init(IWorkbench workbench, IStructuredSelection selection) {
+		// no oparation.
+	}
+
+	private void createProgressStatusMapForFile(String filePath)
+			throws JbmException, IOException {
+		FileInputStream fileInputStream = new FileInputStream(filePath);
+		InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream,CsvUtil.CHAR_SET);
+		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+		int lineCount = 0;
+		Map<String, Integer> progressStatusMap = new HashMap<String, Integer>();
+        while (true) {
+            lineCount++;
+            String line = bufferedReader.readLine();
+            if (line == null) {
+                break;
             }
-        } catch (IOException e) {
-            LOGGER.error(String.format(MessageUtil.LOG_ERR_PROC_ABNORMAL_END,
-                    MessageUtil.LOG_INFO_PROC_NAME_SEARCH), e);
-            PluginUtil.viewErrorDialog(getDialogTitle(), getErrorRunFalse(), e);
-            return false;
-        } catch (InterruptedException e) {
-            // Cancellation
-            LOGGER.debug(MessageUtil.INF_CANCEL);
-            LOGGER.info(String.format(MessageUtil.LOG_INFO_PROC_CANCEL,
-                    MessageUtil.LOG_INFO_PROC_NAME_SEARCH));
-            PluginUtil.viewInfoDialog(getDialogTitle(), getErrorRunCancel());
-            return false;
-        } catch (InvocationTargetException e) {
-            LOGGER.error(String.format(MessageUtil.LOG_ERR_PROC_ABNORMAL_END,
-                    MessageUtil.LOG_INFO_PROC_NAME_SEARCH), e);
-            PluginUtil.viewErrorDialog(getDialogTitle(), getErrorRunFalse()
-                    + StringUtil.LINE_SEPARATOR + e.getMessage(), e);
-            return false;
-        } catch (WorkbenchException e) {
-            LOGGER.error(String.format(MessageUtil.LOG_ERR_PROC_ABNORMAL_END_P,
-                    MessageUtil.LOG_INFO_PROC_NAME_SEARCH,
-                    MessageUtil.ERR_SEARCH_PERSPECTIVE_OPEN), e);
-            // Failure in perspective related
-            PluginUtil.viewErrorDialog(getDialogTitle(),
-                    MessageUtil.ERR_SEARCH_PERSPECTIVE_OPEN, e);
-            return false;
-        } catch (JbmException e) {
-            LOGGER.error(String.format(MessageUtil.LOG_ERR_PROC_ABNORMAL_END,
-                    MessageUtil.LOG_INFO_PROC_NAME_SEARCH), e);
-            // Conversion failure to existing form of know-how XML file
-            PluginUtil.viewErrorDialog(getDialogTitle(), getErrorRunFalse()
-                    + StringUtil.LINE_SEPARATOR + e.getMessage(), e);
-            return false;
+            List<String> tokenList = CsvUtil.parseCsv(line);
+            String number = tokenList.get(0);
+            if( number!= null){
+            	progressStatusMap.put(number, lineCount);
+            }
         }
-        return true;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean performCancel() {
-        LOGGER.info(String.format(MessageUtil.LOG_INFO_ACTION,
-                ResourceUtil.DIALOG_SEARCH,
-                MessageUtil.LOG_INFO_BTN_NAME_CANCEL));
-        return super.performCancel();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void addPages() {
-        super.addPage(jbmSearchSelectionPage);
-        super.addPages();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void init(IWorkbench workbench, IStructuredSelection selection) {
-        // no oparation.
-    }
+        PythonUtil.PY_SEARCH_PROGRESS_STATUS_MAP = progressStatusMap;
+	}
 }

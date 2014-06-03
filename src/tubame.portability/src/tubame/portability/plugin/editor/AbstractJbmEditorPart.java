@@ -18,7 +18,6 @@
  */
 package tubame.portability.plugin.editor;
 
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -257,14 +256,15 @@ public abstract class AbstractJbmEditorPart extends EditorPart implements
         treeViewer.setInput(jbmEditorData);
 
         // Line number column is editable
-        String[] properties = new String[] { "", "", "", "", "", "", "", "",
-                "", "", "", "", ApplicationPropertyUtil.EDIT_COLUMN_LINENUM,
-                ApplicationPropertyUtil.EDIT_COLUMN_LINENUMCONTENTS, "" };
+        String[] properties = new String[] { 
+        		"", "","", "", "", "", 
+        		"", ApplicationPropertyUtil.EDIT_COLUMN_LINENUM,ApplicationPropertyUtil.EDIT_COLUMN_LINENUMCONTENTS, "", "", "",
+        		"","", "" };
         treeViewer.setColumnProperties(properties);
-        CellEditor[] editors = new CellEditor[] { null, null, null, null, null,
-                null, null, null, null, null, null, null,
-                new TextCellEditor(treeViewer.getTree()),
-                new TextCellEditor(treeViewer.getTree()), null };
+        CellEditor[] editors = new CellEditor[] { 
+        		null, null,null, null, null, null,
+        		null, new TextCellEditor(treeViewer.getTree()), new TextCellEditor(treeViewer.getTree()), null, null, null,
+                null,null, null };
         treeViewer.setCellEditors(editors);
         treeViewer.setCellModifier(new JbmEditorCellModifier(treeViewer));
         postCreatePartControl();
