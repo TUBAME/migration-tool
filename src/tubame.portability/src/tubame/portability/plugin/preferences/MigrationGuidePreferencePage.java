@@ -63,6 +63,8 @@ public class MigrationGuidePreferencePage extends PreferencePage implements
     
 	private Text guideIndexPath;
 
+	public static final String PREF_KEY_GUIDE_INDEX_PATH ="PREF_KEY_GUIDE_INDEX_PATH";
+
     /**
      * Constructor.<br/>
      * Nothing in particular.<br/>
@@ -135,7 +137,8 @@ public class MigrationGuidePreferencePage extends PreferencePage implements
 
         // Converted source file output destination selection text
         guideIndexPath = new Text(group, SWT.BORDER);
-        if(GuideViewFacade.INDEX_GUIDE_FILE_PATH == null){
+        String preferences = Activator.getPreferences(PREF_KEY_GUIDE_INDEX_PATH);
+        if(preferences == null){
         	try {
         		guideIndexPath.setText(PluginUtil.getResolvedPluginDir() 
 				        + ApplicationPropertyUtil.GUIDE_FILE_PATH);
@@ -143,7 +146,7 @@ public class MigrationGuidePreferencePage extends PreferencePage implements
 				new IllegalStateException(e.getMessage());
 			}
         }else{
-        	guideIndexPath.setText(GuideViewFacade.INDEX_GUIDE_FILE_PATH);
+        	guideIndexPath.setText(preferences);
         }
         
         guideIndexPath.setLayoutData(new GridData(
@@ -189,6 +192,7 @@ public class MigrationGuidePreferencePage extends PreferencePage implements
     @Override
 	public boolean performOk() {
     	LOGGER.debug("INDEX_GUIDE_FILE_PATH :" + guideIndexPath.getText());
+    	Activator.savePreferences(PREF_KEY_GUIDE_INDEX_PATH, guideIndexPath.getText());
     	GuideViewFacade.INDEX_GUIDE_FILE_PATH = guideIndexPath.getText();
 		// TODO Auto-generated method stub
 		return super.performOk();
