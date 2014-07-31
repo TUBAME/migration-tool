@@ -3,10 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>tubame</groupId>
 	<artifactId>tubame.knowhow</artifactId>
-	<version>1.0.2.qualifier</version>
+	<version>1.0.3.qualifier</version>
 	<packaging>eclipse-plugin</packaging>
 	<properties>
 		<tycho-version>0.18.1</tycho-version>
+		<docbook.xsl.release>docbook-xsl-1.78.1</docbook.xsl.release>
 	</properties>
 
 	<repositories>
@@ -26,6 +27,8 @@
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
 			</plugin>
+			
+
 		</plugins>
 	</build>
 	<dependencies>
