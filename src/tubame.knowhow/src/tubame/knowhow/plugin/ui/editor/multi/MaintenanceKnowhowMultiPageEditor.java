@@ -212,7 +212,7 @@ public class MaintenanceKnowhowMultiPageEditor extends FormEditor implements
         // IFile creation of know-how detail editor for editing
         IFile tempKnowhoDetailFile = createKnowhowDetailFile();
         // Refresh the DocBook template after creating a file
-        PluginUtil.refreshWorkSpace();
+        // PluginUtil.refreshWorkSpace();
         addPage(KNOWHOWDETAIL_PAGE, knowhowDetailEditor, new FileEditorInput(
                 tempKnowhoDetailFile));
         setPageText(KNOWHOWDETAIL_PAGE, ResourceUtil.knowhowDetail);
@@ -252,7 +252,9 @@ public class MaintenanceKnowhowMultiPageEditor extends FormEditor implements
             return PluginUtil.createIFile(container, knowhowDetailTempFile,
                     false);
         }
-        return PluginUtil.createIFile(container, knowhowDetailTempFile, true);
+        IFile file = PluginUtil.createIFile(container, knowhowDetailTempFile, true);
+        PluginUtil.refreshWorkSpace();
+        return file;
     }
 
     /**
