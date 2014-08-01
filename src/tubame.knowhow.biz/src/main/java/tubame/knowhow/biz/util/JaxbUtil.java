@@ -62,11 +62,12 @@ public final class JaxbUtil {
 		try {
 			instance = contextMap.get(clazz.getName());
 			if (instance == null) {
-				instance = JAXBContext.newInstance(clazz.getName());
+				instance = JAXBContext.newInstance(clazz);
 				contextMap.put(clazz.getName(), instance);
 			}
 		} catch (JAXBException e) {
-			// nop
+			LOGGER.error(e.getMessage());
+			e.printStackTrace();
 		}
 		LOGGER.info("Get JAXBContext end: " + clazz.getName());
 		return instance;
