@@ -210,23 +210,23 @@ public class CreateKeywordSearchFile {
                                              * Stores the search information
                                              */
                                             // No
-                                            line.append(childChapNo
-                                                    + StringUtil.HYPHEN
-                                                    + knowhowNo
-                                                    + StringUtil.HYPHEN
-                                                    + checkItemNo);
+                                            line.append(childChapNo)
+                                                    .append(StringUtil.HYPHEN)
+                                                    .append(knowhowNo)
+                                                    .append(StringUtil.HYPHEN)
+                                                    .append(checkItemNo);
                                             line.append(StringUtil.CSV_DELIMITER);
                                             // Search for files
                                             line.append(search.getValue()
                                                     .getFileType());
                                             line.append(StringUtil.CSV_DELIMITER);
                                             // Search key 1
-                                            line.append(search.getValue()
-                                                    .getSearchKey1());
+                                            line.append(escapeString(search
+                                                    .getValue().getSearchKey1()));
                                             line.append(StringUtil.CSV_DELIMITER);
                                             // Search key 2
-                                            line.append(search.getValue()
-                                                    .getSearchKey2());
+                                            line.append(escapeString(search
+                                                    .getValue().getSearchKey2()));
                                             line.append(StringUtil.CSV_DELIMITER);
                                             // Expansion module name
                                             line.append(search.getValue()
@@ -260,5 +260,9 @@ public class CreateKeywordSearchFile {
                 getChildrenKeyWordData(moreChildren, searchList);
             }
         }
+    }
+
+    private static String escapeString(final String original) {
+        return "\"" + original.replaceAll("\"", "\"\"") + "\"";
     }
 }
