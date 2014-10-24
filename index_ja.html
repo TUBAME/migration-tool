@@ -59,12 +59,6 @@ body {
 
 				<div class="bs-sidebar hidden-print affix-top" role="complementary">
 					<div class="well">
-						<!-- TODO:ここにナレッジ管理ツールで生成したHTMLのdiv class="toc"タグを挿入してください
-							
-					<div class="toc">
-
-					</div>
-					-->
 						<div class="toc">
 							<p>
 								<b>Index</b>
@@ -135,8 +129,6 @@ body {
 								</dd>
 							</dl>
 						</div>
-						<!-- toc end -->
-
 					</div>
 					<!-- well end -->
 
@@ -158,9 +150,8 @@ body {
 								<div class="thumbnail tile tile-double">
 									<a href="#tubame_1.1."> <img src="images/TUBAME.png"
 										width="68%">
-										<p />
 										<h2>TUBAME</h2>
-										<p />
+									</a>
 								</div>
 							</div>
 							<div class="col-sm-6 col-md-3">
@@ -190,7 +181,6 @@ body {
 				<!-- Dropdowns
   ================================================== -->
 				<div class="bs-docs-section">
-					<!-- TODO:ここにナレッジ管理ツールで生成したHTMLのhrタグの下のコンテンツからbodyの上までを挿入してください-->
 					<a name="tubame_1."></a>
 					<h2 class="title">1.Welcome To TUBAME</h2>
 					<br> <a name="tubame_1.1."></a>
@@ -200,25 +190,24 @@ body {
 						<div class="titlepage"></div>
 						<p>TUBAMEは商用APサーバからJBoss、またはJBoss同士のマイグレーション時に必要な修正箇所の抽出や修正工数の算出ができるツールです。複数のサブツールを備えており、Eclipseプラグインとして利用することができます。OSS製品としてTUBAMEコミュニティで公開されておりますので是非ご活用ください。
 						</p>
-						<div class="warning"
-										style="margin-left: 0.5in; margin-right: 0.5in;">
-										<table border="0" summary="Warning">
-											<tr>
-												<td valign="top" align="center" rowspan="2" width="25"><img
-													alt="[Warning]" src="images/warning.png"></td>
-												<th align="left">Warning</th>
-											</tr>
-											<tr>
-												<td valign="top" align="left">
-													<p>TUBAMEはJBossだけでなく、Tomcat移植(Tomcatのバージョンアップ）についても対応しています。
-													</p>
-												</td>
-											</tr>
-										</table>
-									</div>
-									
 						<p>TUBAMEはJBossへのスムーズな移行を支援するために用意されたツールで、以下3つのツールから構成されています。
 						</p>
+						<div class="warning"
+							style="margin-left: 0.5in; margin-right: 0.5in;">
+							<table border="0" summary="Warning">
+								<tr>
+									<td valign="top" align="center" rowspan="2" width="25"><img
+										alt="[Warning]" src="images/warning.png"></td>
+									<th align="left">Warning</th>
+								</tr>
+								<tr>
+									<td valign="top" align="left">
+										<p>
+											TUBAMEはJBossだけでなく、Tomcat移植(Tomcatのバージョンアップ）についても対応しています。</p>
+									</td>
+								</tr>
+							</table>
+						</div>
 						<div class="orderedlist">
 							<ol class="orderedlist" type="1">
 								<li class="listitem">
@@ -230,8 +219,7 @@ body {
 									<div class="itemizedlist">
 										<ul class="itemizedlist" style="list-style-type: disc;">
 											<li class="listitem">
-												<p>TUBAMEコミュニティで管理しているナレッジベースより検索します
-												</p>
+												<p>TUBAMEコミュニティで管理しているナレッジベースより検索します</p>
 											</li>
 											<li class="listitem">
 												<p>修正項目毎に移植難易度や修正工数を表します</p>
@@ -262,7 +250,6 @@ body {
 									</div>
 									<p></p>
 								</li>
-								
 								<li class="listitem">
 									<p>
 
@@ -272,10 +259,10 @@ body {
 									<div class="itemizedlist">
 										<ul class="itemizedlist" style="list-style-type: disc;">
 											<li class="listitem">
-												<p>ナレッジベース検索に必要なナレッジを登録及び編集できます。</p>
+												<p>ナレッジベース検索に必要なナレッジを登録及び編集できます</p>
 											</li>
 											<li class="listitem">
-												<p>ナレッジコンテンツの作成から、検索条件の設定まで、ナレッジベース検索で必要な情報をこのツールだけで設定が出来ます
+												<p>ナレッジコンテンツの作成から、検索条件の設定まで、ナレッジベース検索で必要な情報をこのツールだけで設定できます
 												</p>
 											</li>
 										</ul>
@@ -317,7 +304,7 @@ body {
 								<li class="listitem">
 									<p>ナレッジベース検索ツール</p>
 									<div class="figure">
-										<a name="N101D4"></a>
+										<a name="N101D7"></a>
 										<p class="title">
 											<b>Figure&nbsp;1.&nbsp;ナレッジベース検索ツールの入力と出力について</b>
 										</p>
@@ -348,7 +335,7 @@ body {
 														<ul class="itemizedlist" style="list-style-type: disc;">
 															<li class="listitem">
 																<p>マイグレーションナレッジXML</p>
-																<p>必須パラメータとなります。移行ナレッジはTUBAMEコミュニティからダウンロードするかまたはナレッジ管理ツールで自ら作成することも出来ます。
+																<p>必須パラメータとなります。移行ナレッジはTUBAMEコミュニティからダウンロードするかまたはナレッジ管理ツールで自ら作成することもできます。
 																</p>
 															</li>
 															<li class="listitem">
@@ -362,24 +349,28 @@ body {
 													<div class="itemizedlist">
 														<ul class="itemizedlist" style="list-style-type: disc;">
 															<li class="listitem">
-																<p>JBossEAP4-&gt;JBossEAP6</p>
-																<a href="https://github.com/TUBAME/migration-knowledge/releases/download/EAP4toEAP6/EAP4to6.zip">https://github.com/TUBAME/migration-knowledge/releases/download/EAP4toEAP6/EAP4to6.zip</a>
+																<p>JBossEAP4-&gt;JBossEAP6</p> <a
+																href="https://github.com/TUBAME/migration-knowledge/releases/download/EAP4toEAP6/EAP4to6.zip">https://github.com/TUBAME/migration-knowledge/releases/download/EAP4toEAP6/EAP4to6.zip</a>
 															</li>
 															<li class="listitem">
-																<p>WebLogic9-&gt;JBossEAP6</p>
-																<a href="https://github.com/TUBAME/migration-knowledge/releases/download/WLS9toEAP6/WLS9ToEAP6.zip">https://github.com/TUBAME/migration-knowledge/releases/download/WLS9toEAP6/WLS9ToEAP6.zip</a>
+																<p>WebLogic9-&gt;JBossEAP6</p> <a
+																href="https://github.com/TUBAME/migration-knowledge/releases/download/WLS9toEAP6/WLS9ToEAP6.zip">https://github.com/TUBAME/migration-knowledge/releases/download/WLS9toEAP6/WLS9ToEAP6.zip</a>
 															</li>
 															<li class="listitem">
-																<p>WebSphere6-&gt;JBossEAP6</p>
-																<a href="https://github.com/TUBAME/user-knowledge/releases/download/WAS6toJBossEAP6/WAS6toJBossEAP6.zip">https://github.com/TUBAME/user-knowledge/releases/download/WAS6toJBossEAP6/WAS6toJBossEAP6.zip</a>
+																<p>WebSphere6-&gt;JBossEAP6</p> <a
+																href="https://github.com/TUBAME/user-knowledge/releases/download/WAS6toJBossEAP6/WAS6toJBossEAP6.zip">https://github.com/TUBAME/user-knowledge/releases/download/WAS6toJBossEAP6/WAS6toJBossEAP6.zip</a>
 															</li>
 															<li class="listitem">
-																<p>Tomcat5.5-&gt;Tomcat6</p>
-																<a href="https://github.com/TUBAME/user-knowledge/releases/download/Tomcat5.5to6.0/Tomcat5.5to6.0.zip">https://github.com/TUBAME/user-knowledge/releases/download/Tomcat5.5to6.0/Tomcat5.5to6.0.zip</a>
+																<p>Tomcat5.5-&gt;Tomcat6.0</p> <a
+																href="https://github.com/TUBAME/user-knowledge/releases/download/Tomcat5.5to6.0/Tomcat5.5to6.0.zip">https://github.com/TUBAME/user-knowledge/releases/download/Tomcat5.5to6.0/Tomcat5.5to6.0.zip</a>
 															</li>
 															<li class="listitem">
-																<p>Tomcat6-&gt;Tomcat7</p>
-																<a href="https://github.com/TUBAME/user-knowledge/releases/download/Tomcat6.0to7.0/Tomcat6.0to7.0.zip">https://github.com/TUBAME/user-knowledge/releases/download/Tomcat6.0to7.0/Tomcat6.0to7.0.zip</a>
+																<p>Tomcat6.0-&gt;Tomcat7.0</p> <a
+																href="https://github.com/TUBAME/user-knowledge/releases/download/Tomcat6.0to7.0/Tomcat6.0to7.0.zip">https://github.com/TUBAME/user-knowledge/releases/download/Tomcat6.0to7.0/Tomcat6.0to7.0.zip</a>
+															</li>
+															<li class="listitem">
+																<p>Tomcat5.5-&gt;Tomcat7.0</p> <a
+																href="https://github.com/TUBAME/user-knowledge/releases/download/Tomcat6.0to7.0/Tomcat6.0to7.0.zip">https://github.com/TUBAME/user-knowledge/releases/download/Tomcat6.0to7.0/Tomcat6.0to7.0.zip</a>
 															</li>
 														</ul>
 													</div>
@@ -391,7 +382,7 @@ body {
 								<li class="listitem">
 									<p>移植性検索ツール</p>
 									<div class="figure">
-										<a name="N101F8"></a>
+										<a name="N1020F"></a>
 										<p class="title">
 											<b>Figure&nbsp;2.&nbsp;移植性検索ツールの入力と出力について</b>
 										</p>
@@ -453,7 +444,7 @@ body {
 						<div class="titlepage"></div>
 						<p>TUBAMEは移行の検討段階から実際の移植フェーズまで幅広く利用できます。以下に移行検討のフェーズ及び実際の移植フェーズでのユースケースについて紹介します。</p>
 						<div class="figure">
-							<a name="N101B6"></a>
+							<a name="N101B9"></a>
 							<p class="title">
 								<b>Figure&nbsp;1.&nbsp;移植性検討フェーズにおける各ツールの機能について</b>
 							</p>
@@ -471,7 +462,7 @@ body {
 						</div>
 						<br class="figure-break">
 						<div class="figure">
-							<a name="N101BE"></a>
+							<a name="N101C1"></a>
 							<p class="title">
 								<b>Figure&nbsp;2.&nbsp;移植フェーズにおける各ツールの機能について</b>
 							</p>
@@ -496,22 +487,23 @@ body {
 					<br>
 					<div class="section">
 						<div class="titlepage"></div>
-						<p>最新版のツールは以下より取得可能です</p>
-						<a href="https://github.com/TUBAME/migration-tool/releases/download/v1.0.2/tubame-plugins1.0.2.zip" >https://github.com/TUBAME/migration-tool/releases/download/v1.0.2/tubame-plugins1.0.2.zip</a>
+						<p>最新版(Ver1.0.3)のツールは以下より取得可能です</p>
+						<a
+							href="https://github.com/TUBAME/migration-tool/releases/tag/v1.0.3">https://github.com/TUBAME/migration-tool/releases/tag/v1.0.3</a>
 						<div class="itemizedlist">
 							<ul class="itemizedlist" style="list-style-type: disc;">
 								<li class="listitem">
 									<p>ナレッジベース検索ツール</p>
-									<p>tubame-plugins101/tubame.portability-1.0.2.*
+									<p>tubame-plugins103/tubame.portability-1.0.3v201407310552
 									</p>
 								</li>
 								<li class="listitem">
 									<p>依存性検索ツール</p>
-									<p>tubame-plugins101/tubame.wsearch-1.0.2.*</p>
+									<p>tubame-plugins103/tubame.wsearch-1.0.3v201407310544</p>
 								</li>
 								<li class="listitem">
 									<p>ナレッジ管理ツール</p>
-									<p>tubame-plugins101/tubame.knowhow-1.0.2.*</p>
+									<p>tubame-plugins103/tubame.knowhow-1.0.3v201407310542</p>
 								</li>
 							</ul>
 						</div>
@@ -527,16 +519,17 @@ body {
 						<div class="itemizedlist">
 							<ul class="itemizedlist" style="list-style-type: disc;">
 								<li class="listitem">
-									<p>ナレッジベース検索ツール</p>
-									<a target="_blank" href="http://tubame.github.io/migration-tool/portability_ja.html">http://tubame.github.io/migration-tool/portability_ja.html</a>
+									<p>ナレッジベース検索ツール</p> <a
+									href="http://tubame.github.io/migration-tool/portability_ja.html">http://tubame.github.io/migration-tool/portability_ja.html
+								</a>
 								</li>
 								<li class="listitem">
-									<p>依存性検索ツール</p>
-									<a target="_blank" href="http://tubame.github.io/migration-tool/wsearch_ja.html">http://tubame.github.io/migration-tool/wsearch_ja.html</a>
+									<p>依存性検索ツール</p> <a
+									href="http://tubame.github.io/migration-tool/wsearch_ja.html">http://tubame.github.io/migration-tool/wsearch_ja.html</a>
 								</li>
 								<li class="listitem">
-									<p>ナレッジ管理ツール</p>
-									<a target="_blank" href="http://tubame.github.io/migration-tool/knowhow_ja.html">http://tubame.github.io/migration-tool/knowhow_ja.html</a>
+									<p>ナレッジ管理ツール</p> <a
+									href="http://tubame.github.io/migration-tool/knowhow_ja.html">http://tubame.github.io/migration-tool/knowhow_ja.html</a>
 									<div class="warning"
 										style="margin-left: 0.5in; margin-right: 0.5in;">
 										<table border="0" summary="Warning">
@@ -552,8 +545,9 @@ body {
 													<div class="itemizedlist">
 														<ul class="itemizedlist" style="list-style-type: circle;">
 															<li class="listitem">
-																<p>ナレッジ管理ツールによるTUBAMEコミュニティへのナレッジ投稿方法</p>
-																<a target="_blank" href="http://tubame.github.io/user-knowledge/post_knowledge.html">http://tubame.github.io/user-knowledge/post_knowledge.html</a>
+																<p>ナレッジ管理ツールによるTUBAMEコミュニティへのナレッジ投稿方法</p> <a
+																href="http://tubame.github.io/user-knowledge/post_knowledge.html">http://tubame.github.io/user-knowledge/post_knowledge.html</a>
+																</p>
 															</li>
 														</ul>
 													</div>
@@ -573,8 +567,8 @@ body {
 								</tr>
 								<tr>
 									<td valign="top" align="left">
-										<p>レポート生成機能については以下をご確認ください</p>
-										<a target="_blank" href="http://tubame.github.io/migration-tool/reportgen_ja.html">http://tubame.github.io/migration-tool/reportgen_ja.html</a>
+										<p>レポート生成機能については以下をご確認ください</p> <a
+										href="http://tubame.github.io/migration-tool/reportgen_ja.html">http://tubame.github.io/migration-tool/reportgen_ja.html</a>
 									</td>
 								</tr>
 							</table>
@@ -582,7 +576,8 @@ body {
 					</div>
 					<br> <br> <a name="tubame_4."></a>
 					<h2 class="title">4.Community</h2>
-					<br> <a name="tubame_4.1."></a>
+					<br> <a name="tubame_4.1."></a> <br> <a
+						name="tubame_4.1."></a>
 					<h3 class="title">4.1.開発プロジェクト</h3>
 					<br>
 					<div class="section">
@@ -590,8 +585,8 @@ body {
 						<div class="itemizedlist">
 							<ul class="itemizedlist" style="list-style-type: disc;">
 								<li class="listitem">
-									<p>開発プロジェクト</p>
-									<a target="_blank" href="https://github.com/TUBAME/migration-tool">https://github.com/TUBAME/migration-tool</a>
+									<p>開発プロジェクト</p> <a
+									href="https://github.com/TUBAME/migration-tool">https://github.com/TUBAME/migration-tool</a>
 								</li>
 							</ul>
 						</div>
@@ -604,15 +599,13 @@ body {
 						<div class="itemizedlist">
 							<ul class="itemizedlist" style="list-style-type: disc;">
 								<li class="listitem">
-									<p>ユーザフォーラム</p>
-									<a target="_blank" href="https://groups.google.com/d/forum/tubame-users">https://groups.google.com/d/forum/tubame-users</a>
+									<p>ユーザフォーラム</p> <a
+									href="https://groups.google.com/d/forum/tubame-users">https://groups.google.com/d/forum/tubame-users</a>
 								</li>
 							</ul>
 						</div>
 					</div>
 					<br> <br>
-
-
 				</div>
 				<!-- bs-docs-section end-->
 
@@ -659,5 +652,8 @@ body {
 						s.parentNode.insertBefore(ga, s);
 					})();
 				</script>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
