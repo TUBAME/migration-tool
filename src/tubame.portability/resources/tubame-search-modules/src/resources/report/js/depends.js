@@ -8,8 +8,22 @@ $(document).ready(function() {
 	for (var i = 0; i < dependsPackagesResults.length; i ++) {
 		  var result = dependsPackagesResults[i];
 		  console.log(result);
-		  $("#dependsPackgeSum").append("<tr><td>"+result.label+"</td><td>"+result.data+"</td>@+ <td>"+result.classNameResult+"</td>@</tr>");
+		  $("#dependsPackgeSum").append("<tr><td>"+result.label+"</td><td>"+result.data+"</td>ï¿½@+ <td>"+result.classNameResult+"</td>ï¿½@</tr>");
 	}
+	var dependsTldResults  = $.fn.DependsJspUsedTldFileSumCalclator_getResult();
+	for (var i = 0; i < dependsTldResults.length; i ++) {
+		  var result = dependsTldResults[i];
+		  console.log(result);
+		  $("#dependsTldSum").append("<tr><td>"+result.label+"</td><td>"+result.data+"</td>ï¿½@+ <td></td>ï¿½@</tr>");
+	}
+	
+	var dependsXmlSchemaResults  = $.fn.DependsXmlUsedSchemaFileSumCalclator_getResult();
+	for (var i = 0; i < dependsXmlSchemaResults.length; i ++) {
+		  var result = dependsXmlSchemaResults[i];
+		  console.log(result);
+		  $("#dependsXmlSchemaSum").append("<tr><td>"+result.label+"</td><td>"+result.data+"</td>ï¿½@+ <td></td>ï¿½@</tr>");
+	}
+	
 });
 
 (function basic_pie(container) {

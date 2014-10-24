@@ -162,6 +162,12 @@ class ResultJsWriter(object):
         elif "DependsPackageSumCalclator" in self.dirname:
             body = self.createJsTpl2('''{ data :  %s , label : "%s" , classNameResult: "%s" }''',input)
         
+        elif "DependsJspUsedTldFileSumCalclator" in self.dirname:
+            body = self.createJsTpl2('''{ data :  %s , label : "%s" , classNameResult: "%s" }''',input)
+        
+        elif "DependsXmlUsedSchemaFileSumCalclator" in self.dirname:
+            body = self.createJsTpl2('''{ data :  %s , label : "%s" , classNameResult: "%s" }''',input)
+        
         self.write(body)
             
   
@@ -603,6 +609,8 @@ class DependsPackagePicGrapthSumCalclator(Calclator):
         return results
     
 
+
+    
 class DependsPackageSumCalclator(DependsPackagePicGrapthSumCalclator):
     """Calculators of Package  in dependence Search.
     
@@ -642,8 +650,122 @@ class DependsPackageSumCalclator(DependsPackagePicGrapthSumCalclator):
         return resultStr[:-1]
 
 
-
-
+class DependsClassNameSumCalclator(Calclator):
+    """Calculators of Package pie chart in dependence Search.
+    
+    """
+    
+    def __init__(self,rules,inputsModels):
+        '''
+        Constructor
+        '''
+        Calclator.__init__(self,self.__class__.__name__,inputsModels)
+        self.rules = rules
+        
+    def calc(self):
+        '''パッケージ毎のクラス情報についても取得するため、オーバライドする'''
+        self.calcBefore()
+        
+        calcResult = []
+        labels = self.data.keys()
+        for label in labels:
+            calcModels = self.data.get(label)
+            createModel = CalcModel(label,0)
+            map = {}
+            for calcModel in calcModels:
+                createModel.hitCount = int(createModel.hitCount) + int(calcModel.hitCount)
+                if not map.has_key(calcModel.classname):
+                    map[calcModel.classname] = calcModel.hitCount
+                else:
+                    map[calcModel.classname] = int(map.get(calcModel.classname)) + int(calcModel.hitCount)
+                classSumResultStr = self.createClassSumResultStr(map)
+                setattr(createModel, 'classSumResult', classSumResultStr)
+            calcResult.append(createModel)
+        return sorted(calcResult, key=lambda label: label.hitCount)
+    def createResultMap(self,calReuslt):
+        pass
+    
+    
+    def getClassname(self,calcModels):
+        results = []
+        for model in calcModels:
+            results.append(model.classname)
+        return results
+     
+    def getClassnameAll(self):
+        results = set([])
+        
+        labels = self.data.keys()
+        for label in labels:
+            calcModels = self.data.get(label)
+            results =results.union(set(self.getClassname(calcModels)))
+        return results
+    
+    def getAllData(self):
+        results = []
+        labels = self.data.keys()
+        for label in labels:
+            calcModels = self.data.get(label)
+            results = results +calcModels
+        return results
+    
+    def createClassSumResultStr(self,map):
+        classnames = map.keys()
+        resultStr = ""
+        for classname in classnames:
+            hitCount= map.get(classname)
+            resultStr = resultStr+ classname+":"+str(hitCount)+ ","
+        return resultStr[:-1]
+    
+class DependsJspUsedTldFileSumCalclator(DependsClassNameSumCalclator):
+    """Calculators of Package pie chart in dependence Search.
+    
+    """
+    
+    def __init__(self,rules,inputsModels):
+        '''
+        Constructor
+        '''
+        DependsClassNameSumCalclator.__init__(self,self.__class__.__name__,inputsModels)
+        
+    def calcBefore(self):
+        '''self.dataのマップにあるすべてのオブジェクトをクラス名でマップしなおす '''
+        self.classnames = self.getClassnameAll()
+        calcModels = self.getAllData()
+        newMap ={}
+        for className in self.classnames:
+            list =[]
+            if ".tld" not in className:
+                 continue
+            for calcModel in calcModels:
+                if calcModel.classname == className:
+                    list.append(calcModel)
+            newMap[className] = list
+        self.data = newMap
+        
+class DependsXmlUsedSchemaFileSumCalclator(DependsClassNameSumCalclator):
+    """Calculators of Package pie chart in dependence Search.
+    
+    """
+    
+    def __init__(self,rules,inputsModels):
+        '''
+        Constructor
+        '''
+        DependsClassNameSumCalclator.__init__(self,self.__class__.__name__,inputsModels)
+        
+    def calcBefore(self):
+        '''self.dataのマップにあるすべてのオブジェクトをクラス名でマップしなおす '''
+        self.classnames = self.getClassnameAll()
+        calcModels = self.getAllData()
+        newMap ={}
+        for className in self.classnames:
+            list =[]
+            for calcModel in calcModels:
+                if calcModel.classname == className:
+                    list.append(calcModel)
+            newMap[className] = list
+        self.data = newMap
         
 """
 ・エラーがあったファイルパスを取得する
@@ -808,7 +930,9 @@ def ext_search(pNo, pPriority, pFlag, pList, pGenTargetDir, pRules, pInputCsv, p
                  
                  {"calclator":"DependsErrSumCalclator", "type":"","condtions":"Java:f2=Java;Jsp:f2=Jsp;Xml:f2=Xml","execCreateResultMap":True},
                  {"calclator":"DependsPackagePicGrapthSumCalclator", "type":pDependPackageGroupingRules,"condtions":"Java:f2=Java;Jsp:f2=Jsp","execCreateResultMap":False},
-                 {"calclator":"DependsPackageSumCalclator","type":"","condtions":"Java:f2=Java;Jsp:f2=Jsp","execCreateResultMap":False}
+                 {"calclator":"DependsPackageSumCalclator","type":"","condtions":"Java:f2=Java;Jsp:f2=Jsp","execCreateResultMap":False},
+                 {"calclator":"DependsJspUsedTldFileSumCalclator","type":"","condtions":"Jsp:f2=Jsp","execCreateResultMap":False},
+                 {"calclator":"DependsXmlUsedSchemaFileSumCalclator","type":"","condtions":"Xml:f2=Xml","execCreateResultMap":False}
                 ]
     
     #getresultの親ディレクトリが存在する場合は、削除する。
