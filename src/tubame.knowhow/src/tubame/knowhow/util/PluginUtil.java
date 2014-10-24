@@ -61,13 +61,14 @@ import org.eclipse.ui.internal.ErrorEditorPart;
 import org.eclipse.ui.internal.WorkbenchWindow;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import tubame.knowhow.biz.exception.JbmException;
 import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
-
 import tubame.knowhow.Activator;
 import tubame.knowhow.plugin.logic.KnowhowManagement;
 import tubame.knowhow.plugin.ui.editor.multi.EditorDirty;
 import tubame.knowhow.plugin.ui.editor.multi.MaintenanceKnowhowMultiPageEditor;
+import tubame.knowhow.plugin.ui.view.KnowhowEntryCheckItemView;
 import tubame.knowhow.plugin.ui.view.KnowhowEntryTreeViewer;
 import tubame.knowhow.plugin.ui.view.KnowhowEntryView;
 
@@ -165,6 +166,9 @@ public final class PluginUtil {
         return PluginUtil.getViewPart(PluginUtil.getKnowhowEntryViewId());
     }
 
+    public static IViewPart getCheckItemEntryView() throws JbmException {
+        return PluginUtil.getViewPart(KnowhowEntryCheckItemView.ID);
+    }    
     /**
      * Get the view. The return a Null if it fails to take.<br/>
      * 
@@ -198,7 +202,7 @@ public final class PluginUtil {
      *            Check view ID
      * @return true:already open false:Not open
      */
-    private static IViewPart isOpendView(String viewId) {
+    public static IViewPart isOpendView(String viewId) {
         if (PluginUtil.getActivePage() != null) {
             IViewReference[] views = PluginUtil.getActivePage()
                     .getViewReferences();

@@ -22,10 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
-import tubame.common.util.CmnFileUtil;
-import tubame.common.util.CmnStringUtil;
-import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow;
-
 import org.docbook.ns.docbook.Article;
 import org.docbook.ns.docbook.Info;
 import org.docbook.ns.docbook.Para;
@@ -34,14 +30,17 @@ import org.docbook.ns.docbook.Title;
 import org.eclipse.core.runtime.jobs.Job;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import tubame.common.util.CmnFileUtil;
+import tubame.common.util.CmnStringUtil;
 import tubame.knowhow.biz.exception.JbmException;
 import tubame.knowhow.biz.logic.DocBookFacade;
 import tubame.knowhow.biz.logic.PortabilityKnowhowFacade;
 import tubame.knowhow.biz.logic.converter.PortabilityKnowhowConverter;
+import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow;
 import tubame.knowhow.biz.util.JaxbUtil;
 import tubame.knowhow.biz.util.resource.ApplicationPropertiesUtil;
 import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
-
 import tubame.knowhow.plugin.logic.command.CommandKnowhowDataList;
 import tubame.knowhow.plugin.logic.convert.EntryToKnowhowXmlConvert;
 import tubame.knowhow.plugin.model.editor.EntryOperator;
@@ -282,6 +281,7 @@ public final class KnowhowManagement {
         KnowhowManagement.unCheckRead(
                 FileManagement.getPortabilityKnowhowFilePath(), false);
         KnowhowManagement.convertKnowhowXmlFile();
+        
     }
 
     /**

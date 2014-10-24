@@ -20,13 +20,13 @@ package tubame.knowhow.plugin.ui.view;
 
 import java.util.List;
 
-
 import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.swt.widgets.TreeItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
 
+import tubame.knowhow.biz.exception.JbmException;
+import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
 import tubame.knowhow.plugin.model.editor.EntryOperator;
 import tubame.knowhow.plugin.model.view.AbstractViewType;
 import tubame.knowhow.plugin.model.view.PortabilityKnowhowListViewOperation;
@@ -107,6 +107,15 @@ public class KnowhowEntryCellModifier implements ICellModifier {
 
             KnowhowEntryCellModifier.LOGGER.info(MessagePropertiesUtil
                     .getMessage(MessagePropertiesUtil.LOG_CHANGE_SUBJECT_NAME));
+            
+            try {
+				KnowhowEntryCheckItemView checkItemEntryView = (KnowhowEntryCheckItemView) PluginUtil.getCheckItemEntryView();
+				checkItemEntryView.refresh();
+				
+			} catch (JbmException e) {
+				 JbmException.outputExceptionLog(LOGGER, e, MessagePropertiesUtil
+		                    .getMessage(MessagePropertiesUtil.FAIL_REFRESH_CHECKITEM_VIEW));
+			}
         }
         KnowhowEntryCellModifier.setModify(false);
     }

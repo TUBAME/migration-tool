@@ -223,6 +223,21 @@ public final class ResourceUtil extends NLS {
     public static String initializeKnowhow;
     /** HTML Conversion */
     public static String convertHtml;
+    
+    
+    public static String isCopyProgramlistingTextDataFile;
+    
+    public static String textdataReadEncode;
+    
+    public static String textdataWriteEncode;
+    
+    public static String rootChapter;
+    
+    public static String parentCategory;
+    
+    public static String currentCategory;
+    
+    public static String checkItemNo;
 
     static {
         NLS.initializeMessages(BUNDLE_NAME, ResourceUtil.class);

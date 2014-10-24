@@ -25,8 +25,10 @@ import org.eclipse.ui.IViewActionDelegate;
 import org.eclipse.ui.IViewPart;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
 
+import tubame.knowhow.biz.exception.JbmException;
+import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
+import tubame.knowhow.plugin.ui.view.KnowhowEntryCheckItemView;
 import tubame.knowhow.plugin.ui.view.KnowhowEntryTreeViewer;
 import tubame.knowhow.util.PluginUtil;
 
@@ -50,7 +52,7 @@ public class DeleteEntryItemAction implements IViewActionDelegate {
         knowhowEntryTreeViewer = PluginUtil.getKnowhowEntryViewTreeViewer();
         knowhowEntryTreeViewer.removeEntryItem(knowhowEntryTreeViewer
                 .getOneSelection());
-
+        
         DeleteEntryItemAction.LOGGER.info(MessagePropertiesUtil
                 .getMessage(MessagePropertiesUtil.LOG_ENTRY_REMOVE));
     }

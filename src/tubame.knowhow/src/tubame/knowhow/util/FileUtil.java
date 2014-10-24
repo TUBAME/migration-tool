@@ -18,11 +18,15 @@
  */
 package tubame.knowhow.util;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -33,8 +37,10 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.runtime.Path;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import tubame.knowhow.biz.exception.JbmException;
 import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
+import tubame.knowhow.util.resource.ResourceUtil;
 
 /**
  * Utility classes for the File (Directory) operation.<br/>
@@ -80,6 +86,35 @@ public final class FileUtil {
         }
         return false;
     }
+    
+    public static void copyFile(File in, File out) throws IOException {
+    	BufferedReader bufferedReader = null;
+    	BufferedOutputStream bufferedOutputStream = null;
+        try {
+            bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(in),ResourceUtil.textdataReadEncode));
+            String s = null;
+            bufferedOutputStream = new BufferedOutputStream(
+                    new FileOutputStream(out));
+            
+            while((s = bufferedReader.readLine())!=null){
+            	bufferedOutputStream.write((s + "\n")
+                        .getBytes(ResourceUtil.textdataWriteEncode));
+            }
+        } 
+        catch (IOException e) {
+            throw e;
+        }
+        finally {
+            if (bufferedReader != null) {
+            	bufferedReader.close();
+            }
+            if (bufferedOutputStream != null){
+            	bufferedOutputStream.flush();
+            	bufferedOutputStream.close();
+            }
+        }
+      }
+    
 
     /**
      * Generate a template file information.<br/>

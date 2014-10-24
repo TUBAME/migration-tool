@@ -17,6 +17,13 @@
 			class="tubame.knowhow.plugin.ui.view.KnowhowEntryView"
 			id="tubame.knowhow.maintenance.portability.ui.view.KnowhowEntryView"
 			name="%view.name" restorable="true" />
+  <view
+        category="tubame.knowhow.category"
+        class="tubame.knowhow.plugin.ui.view.KnowhowEntryCheckItemView"
+        id="tubame.knowhow.maintenance.portability.ui.view.KnowhowEntryCheckItemView"
+        name="%checkitem.view.name"
+        restorable="true">
+  </view>
 	</extension>
 
 	<!-- org.eclipse.ui.viewActions -->

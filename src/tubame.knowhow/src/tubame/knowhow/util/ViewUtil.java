@@ -22,18 +22,20 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.ui.IViewPart;
+
 import tubame.common.util.CmnFileUtil;
 import tubame.common.util.CmnStringUtil;
 import tubame.knowhow.biz.model.generated.knowhow.Category;
 import tubame.knowhow.biz.model.generated.knowhow.KnowhowInfomation;
 import tubame.knowhow.biz.model.generated.knowhow.SearchInfomation;
 import tubame.knowhow.biz.exception.JbmException;
-
 import tubame.knowhow.plugin.logic.EntryItemManagement;
 import tubame.knowhow.plugin.logic.FileManagement;
 import tubame.knowhow.plugin.logic.KnowhowManagement;
 import tubame.knowhow.plugin.model.view.PortabilityKnowhowListViewData;
 import tubame.knowhow.plugin.model.view.PortabilityKnowhowListViewOperation;
+import tubame.knowhow.plugin.ui.view.KnowhowEntryCheckItemView;
 import tubame.knowhow.plugin.ui.view.KnowhowEntryTreeViewer;
 import tubame.knowhow.plugin.ui.wizard.register.AbstractCreateKnowhowPage;
 
@@ -273,6 +275,12 @@ public final class ViewUtil {
             KnowhowManagement.refresh();
             ViewUtil.insertKnowhowEntryViewData(KnowhowManagement
                     .getEntryViewConvetData());
+            IViewPart opendView = PluginUtil.isOpendView(KnowhowEntryCheckItemView.ID);
+            if(opendView!= null){
+            	KnowhowEntryCheckItemView checkItemView = (KnowhowEntryCheckItemView) opendView;
+            	checkItemView.insertKnowhowEntryViewData(KnowhowManagement
+                    .getEntryViewConvetData());
+            }
         }
     }
 
