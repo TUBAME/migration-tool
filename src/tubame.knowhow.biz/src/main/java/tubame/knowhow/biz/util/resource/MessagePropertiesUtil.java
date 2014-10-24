@@ -59,6 +59,11 @@ public final class MessagePropertiesUtil {
     public static final String FAIL_READ_SEARCH_MODULE = "failReadSearchModule";
     /** Failed to update the know-how entry view */
     public static final String FAIL_UPDATE_ENTRY_VIEW = "failUpdateEntryView";
+    
+    public static final String FAIL_OPEN_VIEW = "failOpenView";
+    
+    public static final String FAIL_REFRESH_CHECKITEM_VIEW = "failRefreshOpenCheckItemView";
+    
     /** Failed to read the XML */
     public static final String FAIL_XML_READER = "failXmlReader";
     /** An error occurred fatal to completion button is pressed */

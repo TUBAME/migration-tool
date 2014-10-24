@@ -133,6 +133,13 @@ public final class ApplicationPropertiesUtil {
     public static final String JAVA_VERSIONUP = "javaVersionUp";
     /** dbmSChange */
     public static final String DBMS_CHANGE = "dbmSChange";
+    
+    public static final String FRAMEWORK = "framework";
+    
+    public static final String FRAMEWORK_NON_BACKWARD_COMPATI = "frameworkNonBackwardCompati";
+    
+    public static final String OPEN_CHECKITEM_ENTRY_VIEW = "labelOpenCheckEntryItemView";
+    
 
     /** Resource bundle */
     private static ResourceBundle resourceBundle = null;

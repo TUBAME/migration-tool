@@ -46,7 +46,14 @@ public enum PortabilityFactorEnum implements DefineEnumOperator {
             .getProperty(ApplicationPropertiesUtil.JAVA_VERSIONUP)),
     /** Change of enumeration DBMS */
     DBMSChange(ApplicationPropertiesUtil
-            .getProperty(ApplicationPropertiesUtil.DBMS_CHANGE));
+            .getProperty(ApplicationPropertiesUtil.DBMS_CHANGE)),
+    
+    FRAMEWORK(ApplicationPropertiesUtil
+            .getProperty(ApplicationPropertiesUtil.FRAMEWORK)),
+    
+    FRAMEWORK_NON_BACKWARD_COMPATI(ApplicationPropertiesUtil
+            .getProperty(ApplicationPropertiesUtil.FRAMEWORK_NON_BACKWARD_COMPATI));
+    
 
     /** Member variable of type String */
     private final String value;
