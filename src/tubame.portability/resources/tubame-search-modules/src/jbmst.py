@@ -127,6 +127,7 @@ count=0;
 # Get the parameter of the search keyword file
 denominatorCSV=getDenominatorSearchNum(reader)
 
+ignore_list=jbmst_common.load_ignorelist()
 
 isHit = 0;
 errorFilePath = ""
@@ -168,7 +169,7 @@ for tempRow in tempCSVLine:
         if search_targets_map.has_key(search_target):
             target_list = search_targets_map[search_target]
         else:
-            target_list = jbmst_common.searchFileBySearchTarget(search_dir,search_target)
+            target_list = jbmst_common.searchFileBySearchTarget(search_dir,search_target,ignore_list)
             search_targets_map[search_target] = target_list
     
     

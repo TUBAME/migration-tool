@@ -39,15 +39,15 @@ Generate the file path if you want to search for files that match the extension 
 @param pExtension:Extension to search for file name
 @return Path list to search for files
 """
-def searchFileByExtension(pSeachFolder,pExtension):
-
+def searchFileByExtension(pSeachFolder,pExtension,pIgoreList):
     SearchFileList = []
     for root, dirs, files in os.walk(pSeachFolder):
         for file in files:
             m = re.search("[^.]+$",file)
             extension = m.group()
             if extension == pExtension:
-                SearchFileList.append(os.path.join(root, file))
+                if not is_ignore_target(os.path.normpath(os.path.join(root, file)),pIgoreList,extension):
+                    SearchFileList.append(os.path.join(root, file))
     return SearchFileList
 
 """
@@ -58,14 +58,15 @@ Generate the file path if you want to search for files that match the extension 
 @param pFileName:File name to search for
 @return Path list to search for files
 """
-def searchFileByFileName(pSeachFolder,pFileName):
+def searchFileByFileName(pSeachFolder,pFileName,pIgoreList):
 
     SearchFileList = []
     for root, dirs, files in os.walk(pSeachFolder):
         for file in files:
             m = re.search("^"+pFileName+"$",file)
             if m:
-                SearchFileList.append(os.path.join(root, file))
+                if not is_ignore_target(os.path.join(root, file),pIgoreList,None):
+                    SearchFileList.append(os.path.join(root, file))
     return SearchFileList
 
 """
@@ -76,14 +77,15 @@ If it is not "*." Is the first character string, and performs a search by file n
 @param pSearchTarget:File name to search for that is extracted
 @return Path list to search for files
 """
-def searchFileBySearchTarget(pSeachFolder,pSearchTarget):
+def searchFileBySearchTarget(pSeachFolder,pSearchTarget,pIgnoreList):
 
+    
     m = re.search("^\*\.",pSearchTarget)
     if m:
         extension = pSearchTarget.split(".")[1]
-        return searchFileByExtension(pSeachFolder,extension)
+        return searchFileByExtension(pSeachFolder,extension,pIgnoreList)
     else:
-        return searchFileByFileName(pSeachFolder,pSearchTarget)
+        return searchFileByFileName(pSeachFolder,pSearchTarget,pIgnoreList)
 
 """
 Get the extension from the filename specified.
@@ -212,3 +214,30 @@ Initial processing of accessor methods (search files).
 """
 def __init__(self):
     self.searchTarget = ""
+
+
+def load_ignorelist(IGNORE_LIST="ignore.list"):
+    ignore_list=[]
+    base = os.path.dirname(os.path.abspath(__file__))+ "./.."
+    ignore_listfile = os.path.normpath(os.path.join(base, IGNORE_LIST))
+    if os.path.exists(ignore_listfile):
+        f = open(ignore_listfile, "r")
+        for line in f:
+            ignore_list.append(str(os.path.normpath(line)))
+    return ignore_list
+
+def is_ignore_target(filepath,ignore_list,pExtension):
+    if len(ignore_list) == 0:
+        return False
+    if os.path.normpath(filepath) in ignore_list:
+        return True
+    else:
+        return False
+
+    
+
+    
+    
+    
+     
+    
