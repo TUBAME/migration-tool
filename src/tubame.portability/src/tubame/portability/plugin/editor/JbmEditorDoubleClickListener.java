@@ -21,11 +21,13 @@ package tubame.portability.plugin.editor;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 
 import tubame.portability.model.JbmEditorMigrationRow;
+import tubame.portability.util.FileUtil;
 import tubame.portability.util.PluginUtil;
 
 /**
@@ -36,7 +38,9 @@ import tubame.portability.util.PluginUtil;
  */
 public class JbmEditorDoubleClickListener extends AbstractDoubleClickListener {
 
-    /**
+    private IProject selectedProject;
+
+	/**
      * Constructor.<br/>
      * 
      * @param menuOperation
@@ -46,7 +50,12 @@ public class JbmEditorDoubleClickListener extends AbstractDoubleClickListener {
         super(menuOperation);
     }
 
-    /**
+    public JbmEditorDoubleClickListener(MigrationEditorOperation menuOperation, IProject project) {
+    	 super(menuOperation);
+    	 this.selectedProject = project;
+	}
+
+	/**
      * Cast the selection of the target.<br/>
      * Cast in Row data that is displayed on the screen.<br/>
      * 
@@ -111,12 +120,12 @@ public class JbmEditorDoubleClickListener extends AbstractDoubleClickListener {
             // If double-click the second level
             if (JbmEditorMigrationRow.LEVEL_SECOND == row.getLevel()) {
                 // Get a file path from the second level
-                super.editorOpen(row.getFileName(), 0);
+                super.editorOpen(row.getFileName(), 0,selectedProject);
             }
             // If double-click the three-tier
             if (JbmEditorMigrationRow.LEVEL_THIRD == row.getLevel()) {
                 super.editorOpen(row.getFileName(),
-                        Integer.valueOf(row.getRowNo()).intValue());
+                        Integer.valueOf(row.getRowNo()).intValue(),selectedProject);
             }
         }
 

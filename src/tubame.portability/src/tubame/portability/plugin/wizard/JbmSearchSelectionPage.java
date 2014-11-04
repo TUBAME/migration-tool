@@ -66,6 +66,10 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
      */
     private Text knowhowText;
 
+	private File selectedTarget;
+
+	private IProject selectedProject;
+
     /**
      * Constructor.<br/>
      * Initializes the resource to be processed.<br/>
@@ -385,9 +389,78 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
         // Set the operation when the button is pressed
         Button.addSelectionListener(new BrowseFileButtonSelectionListener(this,
                 knowhowText, getKnowhowExtension()));
+        
+       
+         IPath rawLocation = resource.getRawLocation();
+         if(rawLocation!=null){
+        	 selectedTarget= rawLocation.toFile();
+         }else{
+        	//一般プロジェクトで、プロジェクト選択している場合は、nullになる場合があるので、
+        	 if (resource instanceof IProject) {
+				IProject project = (IProject) resource;
+				selectedTarget = project.getLocation().toFile();
+			}
+         }
+        selectedProject = resource.getProject();
+        
     }
 
-    /**
+    public File getSelectedTarget() {
+		return selectedTarget;
+	}
+
+	public void setSelectedTarget(File selectedTarget) {
+		this.selectedTarget = selectedTarget;
+	}
+
+	public IProject getSelectedProject() {
+		return selectedProject;
+	}
+
+	public void setSelectedProject(IProject selectedProject) {
+		this.selectedProject = selectedProject;
+	}
+
+	public File getSelectedProjectFile() {
+		return selectedTarget;
+	}
+
+	public void setSelectedProjectFile(File selectedProjectFile) {
+		this.selectedTarget = selectedProjectFile;
+	}
+	
+	public String getRealKnowhowXmlPath(){
+		IFile file = null;
+		if(knowhowText!=null){
+			//コンポジットに設定されているのはプロジェクト名が余計に付与しているので、プロジェクト名を削除したものを取得する
+			String knowhowXmlExcludeProjectName = getPathExcludeProjectName(knowhowText);
+			file = selectedProject.getFile(knowhowXmlExcludeProjectName);
+		}
+		if(file!=null){
+			return file.getLocation().toFile().getPath();
+		}
+		return null;
+	}
+	
+	public String getRealOutJbmFilePath(){
+		IFile file = null;
+		if(outJbmFileText!=null){
+			//コンポジットに設定されているのはプロジェクト名が余計に付与しているので、プロジェクト名を削除したものを取得する
+			String outJbmFilePathExcludeProjectName = getPathExcludeProjectName(outJbmFileText);
+			file = selectedProject.getFile(outJbmFilePathExcludeProjectName);
+		}
+		if(file!=null){
+			return file.getLocation().toFile().getPath();
+		}
+		return null;
+	}
+
+	private String getPathExcludeProjectName(Text knowhowFileName) {
+		String projectName = selectedProject.getName();
+		return knowhowFileName.getText().split(projectName)[1];
+	}
+
+	/**
      * {@inheritDoc}
      */
     @Override
@@ -415,10 +488,16 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
             return false;
         }
         // Search results file existence check
-        if (!FileUtil.fileExists(getKnowhowXmlFilePath())) {
-            setErrorMessage(getErrorFileNotFoundKnowhowXml());
-            return false;
+        String realKnowhowXmlPath = this.getRealKnowhowXmlPath();
+        
+        if(!new File(realKnowhowXmlPath).exists()){
+        	 setErrorMessage(getErrorProjectNotValueKnowhowXml());
+             return false;
         }
+//        if (!FileUtil.fileExists(realKnowhowXmlPath)) {
+//            setErrorMessage(getErrorFileNotFoundKnowhowXml());
+//            return false;
+//        }
 
         // Check the search results file output destination
         // //////////////////////////////////
@@ -484,7 +563,19 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
 		String substring = jbmFilePath.substring(projectName.length()+1);
 		IFile file = project.getFile(substring);
 		return file;
+	}
 	
+	private String getProjectRoot(){
+		String projectName = PluginUtil.getProjectName(this.outJbmFileText.getText());
+		IProject project = PluginUtil.getProject(projectName);
+        IPath fullPath = project.getFullPath();
+        String osString = fullPath.toOSString();
+        return osString;
+//        return root.replace(StringUtil.SLASH, FileUtil.FILE_SEPARATOR);
+	}
+
+	public String getOutJbmFilePathExcludeProjectName() {
+		return this.getPathExcludeProjectName(this.outJbmFileText);
 	}
 
 }

@@ -20,6 +20,7 @@ package tubame.portability.plugin.editor;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -40,8 +41,7 @@ import tubame.portability.util.resource.ResourceUtil;
  * And an editor with the specified file. Further, setting various markers.<br/>
  */
 @SuppressWarnings("restriction")
-public abstract class AbstractDoubleClickListener implements
-		IDoubleClickListener {
+public abstract class AbstractDoubleClickListener implements IDoubleClickListener {
 
 	/**
 	 * Layout size to be used when editor display
@@ -51,8 +51,7 @@ public abstract class AbstractDoubleClickListener implements
 	/**
 	 * Logger
 	 */
-	private static final Logger LOGGER = LoggerFactory
-			.getLogger(AbstractDoubleClickListener.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(AbstractDoubleClickListener.class);
 
 	/**
 	 * Editor
@@ -70,8 +69,7 @@ public abstract class AbstractDoubleClickListener implements
 	 * @throws CoreException
 	 *             Add marker failure
 	 */
-	public abstract void createMarker(IFile file, String targetFile)
-			throws CoreException;
+	public abstract void createMarker(IFile file, String targetFile) throws CoreException;
 
 	/**
 	 * Constructor.<br/>
@@ -91,20 +89,18 @@ public abstract class AbstractDoubleClickListener implements
 	 * @param initLine
 	 *            Rows to display
 	 */
-	public void editorOpen(String targetFilePath, int initLine) {
-		LOGGER.info("hoge");
+	public void editorOpen(String targetFilePath, int initLine, IProject selectedProject) {
 		// Specify the file
-		IFile file = PluginUtil.createIFile(ResourcesPlugin.getWorkspace()
-				.getRoot(), targetFilePath);
-		if (file == null) {
-			String message = String.format(MessageUtil.ERR_OPEN_FILE,
-					targetFilePath);
-			JbmException.outputExceptionLog(null, LOGGER, ERROR_LEVEL.ERROR,
-					new String[] { message });
-			PluginUtil.viewErrorDialog(ResourceUtil.FILE_OPEN_ERROR_TITLE,
-					message, null);
+		IFile file = PluginUtil.createIFile(ResourcesPlugin.getWorkspace().getRoot(), targetFilePath);
+		IFile fileFromSelectedProject = getFileFromSelectedProject(targetFilePath, selectedProject);
+		if (file == null && fileFromSelectedProject == null) {
+			String message = String.format(MessageUtil.ERR_OPEN_FILE, targetFilePath);
+			JbmException.outputExceptionLog(null, LOGGER, ERROR_LEVEL.ERROR, new String[] { message });
+			PluginUtil.viewErrorDialog(ResourceUtil.FILE_OPEN_ERROR_TITLE, message, null);
 		} else {
-
+			if (fileFromSelectedProject != null) {
+				file = fileFromSelectedProject;
+			}
 			try {
 				// Marker set
 				createMarker(file, targetFilePath);
@@ -113,10 +109,11 @@ public abstract class AbstractDoubleClickListener implements
 
 				// Because it is not available package of Internal For XXX
 				// Eclipse4.2,
-				
-				//splitEditorArea(marker);
-				
-				//splitEditorArea method was modified so that it does not use the internal package of Eclipse3 system
+
+				// splitEditorArea(marker);
+
+				// splitEditorArea method was modified so that it does not use
+				// the internal package of Eclipse3 system
 				IDE.openEditor(PluginUtil.getActivePage(), marker);
 				file.deleteMarkers(IMarker.TEXT, false, IResource.DEPTH_ZERO);
 			} catch (CoreException e) {
@@ -124,6 +121,16 @@ public abstract class AbstractDoubleClickListener implements
 						new String[] { MessageUtil.ERR_ADD_MARKER });
 			}
 		}
+	}
+
+	private IFile getFileFromSelectedProject(String targetFilePath, IProject selectedProject) {
+		String targetFilePathExcludeProjectName = getTargetFilePathExcludeProjectName(targetFilePath, selectedProject);
+		return selectedProject.getFile(targetFilePathExcludeProjectName);
+	}
+
+	private String getTargetFilePathExcludeProjectName(String targetFilePath, IProject selectedProject) {
+		// targetFilePathにはプロジェクトの情報が入っているので、プロジェクトの名前を削除する。
+		return targetFilePath.substring(selectedProject.getName().length());
 	}
 
 	/**
@@ -139,8 +146,7 @@ public abstract class AbstractDoubleClickListener implements
 	 * @throws CoreException
 	 *             Add marker failure
 	 */
-	public IMarker addMarker(IFile file, String markerId, int line)
-			throws CoreException {
+	public IMarker addMarker(IFile file, String markerId, int line) throws CoreException {
 		IMarker marker = file.createMarker(markerId);
 		marker.setAttribute(IMarker.LINE_NUMBER, line);
 		return marker;

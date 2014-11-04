@@ -21,6 +21,7 @@ package tubame.portability.plugin.editor;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -28,7 +29,10 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Tree;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.WorkbenchException;
+import org.eclipse.ui.part.EditorPart;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -240,7 +244,14 @@ public class JbmEditorPart extends AbstractJbmEditorPart {
     @Override
     public IDoubleClickListener getDoubleClickListener(
             MigrationEditorOperation editor) {
-        return new JbmEditorDoubleClickListener(editor);
+    	IProject project = null;
+    	if (editor instanceof EditorPart) {
+			EditorPart editorPart = (EditorPart) editor;
+			project = ((IFileEditorInput) editorPart.getEditorInput()).getFile().getProject();
+		}
+    	
+    	
+        return new JbmEditorDoubleClickListener(editor,project);
     }
 
     /**

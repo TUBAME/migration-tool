@@ -138,7 +138,7 @@ public abstract class AbstractSearchToolWithProgress implements
      * 
      * @return Workspace path
      */
-    private String getWorkspacePath() {
+    protected String getWorkspacePath() {
         String root = ResourcesPlugin.getWorkspace().getRoot().getLocation()
                 .toString();
         return root.replace(StringUtil.SLASH, FileUtil.FILE_SEPARATOR);

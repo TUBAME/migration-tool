@@ -722,6 +722,13 @@ public class PluginUtil {
                 file, editorId);
     }
 
+    public static void openEditor(IFile filePath, String editorId)
+            throws PartInitException {
+        // Open the editor
+        IDE.openEditor(PluginUtil.getActiveWorkbenchWindow().getActivePage(),
+        		filePath, editorId);
+    }
+    
     /**
      * Close the editor that is currently open the specified file.<br/>
      * 
