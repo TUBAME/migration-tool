@@ -47,7 +47,8 @@ public class SearchToolWithProgress extends AbstractSearchToolWithProgress {
      */
     private static final Logger LOGGER = LoggerFactory
             .getLogger(SearchToolWithProgress.class);
-	private IProject selectedProject;
+    
+	protected IProject selectedProject;
 
     /**
      * Constructor.<br/>
