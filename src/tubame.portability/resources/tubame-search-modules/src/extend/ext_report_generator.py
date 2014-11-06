@@ -798,23 +798,23 @@ def getExt(target):
     extension = m.group()
     return extension
     
-def createDependsCalcModelMap(ruleName,fieldNum,compareValue,dataFile,DEFAULT_ERR_FIELD_NUMS=1,DEFAULT_EXT_FIELD_NUMS=2,DEFAULT_PACKAGE_NUMS=3,DEFAULT_CLASSNAME_NUMS=6,DEFAULT_HITCOUNT_NUMS=7):
+def createDependsCalcModelMap(ruleName,fieldNum,compareValue,dataFile,DEFAULT_ERR_FIELD_NUMS=1,DEFAULT_EXT_FIELD_NUMS=2,DEFAULT_PACKAGE_NUMS=3,DEFAULT_CLASSNAME_NUMS=6):
     dependsCalcModels =[]
     f = codecs.open(dataFile, "r", "utf-8")
     rows = csv.reader(f)
     for row in rows:
-        if row[fieldNum-1] == compareValue and int(row[DEFAULT_HITCOUNT_NUMS-1]) != 0 and row[DEFAULT_ERR_FIELD_NUMS-1] == "error":
-            dependsCalcModels.append(DependsCalcModel(ruleName,row[DEFAULT_HITCOUNT_NUMS-1],row[DEFAULT_PACKAGE_NUMS-1],row[DEFAULT_CLASSNAME_NUMS-1],row[DEFAULT_EXT_FIELD_NUMS-1]))
+        if row[fieldNum-1] == compareValue  and row[DEFAULT_ERR_FIELD_NUMS-1] == "error":
+            dependsCalcModels.append(DependsCalcModel(ruleName,1,row[DEFAULT_PACKAGE_NUMS-1],row[DEFAULT_CLASSNAME_NUMS-1],row[DEFAULT_EXT_FIELD_NUMS-1]))
     
     return dependsCalcModels
 
-def createKnowledgeBaseCalcModelMap(ruleName,fieldNum,compareValue,dataFile,DEFAULT_LEVEL_FIELD_NUMS=1,DEFAULT_STEP_FIELD_NUMS=12,DEFAULT_STEP_TOTAL_FIELD_NUMS=13,DEFAULT_FACTOR_FIELD_NUMS=9,DEFAULT_TARGETFILE_NUMS=2,DEFAULT_GUIDE_FIELD_NUM=11,DEFAULT_HIT_FIELD_NUMS=3,DEFAUL_MANUAL_CHECK_STATUS=8,DEF_HIT_LINE=4):
+def createKnowledgeBaseCalcModelMap(ruleName,fieldNum,compareValue,dataFile,DEFAULT_LEVEL_FIELD_NUMS=1,DEFAULT_STEP_FIELD_NUMS=11,DEFAULT_STEP_TOTAL_FIELD_NUMS=12,DEFAULT_FACTOR_FIELD_NUMS=8,DEFAULT_TARGETFILE_NUMS=2,DEFAULT_GUIDE_FIELD_NUM=10,DEFAULT_HIT_FIELD_NUMS=3,DEFAUL_MANUAL_CHECK_STATUS=7,DEF_HIT_LINE=4):
     knowledgeBaseCalcModels =[]
     f = codecs.open(dataFile, "r", "utf-8")
     rows = csv.reader(f)
     for row in rows:
         if row[fieldNum-1] == compareValue and row[DEFAULT_STEP_TOTAL_FIELD_NUMS-1] != ""  and row[DEFAULT_HIT_FIELD_NUMS-1] != "" and row[DEFAULT_HIT_FIELD_NUMS-1] != 0 and row[DEFAULT_STEP_TOTAL_FIELD_NUMS-1] != "" and int(row[DEFAULT_STEP_TOTAL_FIELD_NUMS-1]) != 0 and row[3] != '0':
-            knowledgeBaseCalcModels.append(KnowledgeBaseCalcModel(ruleName,row[DEFAULT_STEP_TOTAL_FIELD_NUMS-1],row[DEFAULT_FACTOR_FIELD_NUMS-1],getExt(row[DEFAULT_TARGETFILE_NUMS-1]),row[0],row[DEFAULT_HIT_FIELD_NUMS-1],row[10],row[DEFAUL_MANUAL_CHECK_STATUS-1]))
+            knowledgeBaseCalcModels.append(KnowledgeBaseCalcModel(ruleName,row[DEFAULT_STEP_TOTAL_FIELD_NUMS-1],row[DEFAULT_FACTOR_FIELD_NUMS-1],getExt(row[DEFAULT_TARGETFILE_NUMS-1]),row[0],row[DEFAULT_HIT_FIELD_NUMS-1],row[9],row[DEFAUL_MANUAL_CHECK_STATUS-1]))
     
     return knowledgeBaseCalcModels
 
