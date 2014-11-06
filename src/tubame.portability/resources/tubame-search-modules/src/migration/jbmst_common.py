@@ -40,13 +40,15 @@ Generate the file path if you want to search for files that match the extension 
 @return Path list to search for files
 """
 def searchFileByExtension(pSeachFolder,pExtension,pIgoreList):
+    searchParentDir = os.path.normpath(os.path.join(pSeachFolder, ".."))
     SearchFileList = []
     for root, dirs, files in os.walk(pSeachFolder):
         for file in files:
             m = re.search("[^.]+$",file)
             extension = m.group()
             if extension == pExtension:
-                if not is_ignore_target(os.path.normpath(os.path.join(root, file)),pIgoreList,extension):
+                target = os.path.normpath(os.path.join(root, file))
+                if not is_ignore_target(os.path.relpath(target,searchParentDir),pIgoreList,extension):
                     SearchFileList.append(os.path.join(root, file))
     return SearchFileList
 
@@ -223,15 +225,16 @@ def load_ignorelist(IGNORE_LIST="ignore.list"):
     if os.path.exists(ignore_listfile):
         f = open(ignore_listfile, "r")
         for line in f:
-            ignore_list.append(str(os.path.normpath(line)))
+            igore = str(os.path.normpath(line)).replace('\n','')
+            ignore_list.append(igore)
     return ignore_list
 
 def is_ignore_target(filepath,ignore_list,pExtension):
     if len(ignore_list) == 0:
         return False
-    if os.path.normpath(filepath) in ignore_list:
-        return True
     else:
+        if os.path.normpath(filepath) in ignore_list:
+            return True
         return False
 
     
