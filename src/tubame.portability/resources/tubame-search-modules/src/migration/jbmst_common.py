@@ -237,8 +237,28 @@ def is_ignore_target(filepath,ignore_list,pExtension):
             return True
         return False
 
-    
+def getPackageAndClassName(pClassFullName):
+    className=getExtension(pClassFullName)
+    packageName=pClassFullName[0:-len(className)-1]
+    return [packageName,className]
 
+def searchFileByPackageAndFileName(pSeachFolder,pPackage,pFileName,pIgoreList):
+    #ファイル名が一致するものを取得する。
+    searchFileList = searchFileByFileName(pSeachFolder, pFileName+".java", pIgoreList)
+    java_search_module= sys.modules["migration.jbmst_search_java"]
+    
+    #パッケージで一致するか確認する
+    findtarget = None
+    for searchTargetFile in searchFileList:
+        #package分で一致するのは、Javaの仕様上は一つしかないはずなので、最初にみつかったものを返す.
+        line_cnt=java_search_module.search_open_file(searchTargetFile,"^package\s+"+pPackage)
+        if len(line_cnt)!=0:
+            findtarget = searchTargetFile
+            break
+    return findtarget
+    
+    
+    
     
     
     
