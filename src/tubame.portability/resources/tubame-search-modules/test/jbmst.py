@@ -278,19 +278,31 @@ class JbmstTestCase(unittest.TestCase):
         
         
     def testIgnoreXMLFileSearch(self):
-        body = "search_target/testIgnoreXMLFileSearch/web.xml"
+        body = "search_target\\testIgnoreXMLFileSearch\\web.xml"
         f = codecs.open("../src/ignore.list", "w", "utf-8")
         f.write(body)
         f.close()
         self.searchExecute()
         self.assertEqual(self.rslt_hit, None)
         os.remove("../src/ignore.list")
+    
+    def testExtSearchXmlDefinedclass(self):
+        self.searchExecute()
+        hitfile = "UploadAction.java"
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertNotEqual(self.rslt_steps, None)
         
+    def testExtSearchXmlDefinedclass2(self):
+        self.searchExecute()
+        hitfile = "ImageAction.java"
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\exercise\\" + hitfile)
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertNotEqual(self.rslt_steps, None)
         
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
-        pass
-        tests = ['testIgnoreXMLFileSearch']
+        tests = ['testTubameXpathSearchUsedSchemaNotFind']
         unittest.TestSuite.__init__(self, map(JbmstTestCase, tests))
 
 if __name__ == '__main__':
