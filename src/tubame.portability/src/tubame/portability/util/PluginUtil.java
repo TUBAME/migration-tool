@@ -22,6 +22,14 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathFactory;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -60,6 +68,8 @@ import org.eclipse.ui.ide.IDE;
 import org.osgi.framework.Bundle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 import tubame.portability.Activator;
 import tubame.portability.exception.JbmException;
@@ -68,6 +78,7 @@ import tubame.portability.model.DifficultyEnum;
 import tubame.portability.plugin.view.CheckListInformationView;
 import tubame.portability.plugin.view.ConvertView;
 import tubame.portability.plugin.view.WorkStatusView;
+import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
 
 /**
@@ -889,4 +900,61 @@ public class PluginUtil {
     public static Font getJbmEditorFont() {
         return new Font(null, "Tahoma", 9, SWT.BOLD);
     }
+
+	/**
+	 * 
+	 * @return
+	 */
+	public static Map<String,File> getKnowledgeNamesFromPluginResource() {
+		final Map<String,File> map = new HashMap();
+		
+		try {
+			String knowledgeDir = PluginUtil.getKnowledgeDir();
+			FileVisitor.walkFileTree(new File(knowledgeDir), new FileVisitor() {
+	            @Override
+	            public FileVisitResult visitFile(File file) throws IOException {
+	            	
+	            	if(file.getName().endsWith("xml")){
+	            		if(FileUtil.isKnowHowXml(file)){
+	            			try {
+								String portabilityKnowhowTitle = getPortabilityKnowhowTitle(file);
+								if(!map.containsKey(portabilityKnowhowTitle)){
+									map.put(portabilityKnowhowTitle, file);
+								}
+							} catch (Exception e) {
+								throw new IllegalStateException(e);
+							}
+	            		}
+	            	}
+	                return FileVisitResult.CONTINUE;
+	            }
+
+				@Override
+	            public FileVisitResult preVisitDirectory(File dir)
+	                    throws IOException {
+	                return FileVisitResult.CONTINUE;
+	            }
+				
+				private String getPortabilityKnowhowTitle(File file) throws Exception {
+					DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+					Document doc = builder.parse(file);
+					XPath xpath = XPathFactory.newInstance().newXPath();
+					Node evaluate = (Node) xpath.evaluate("//*[local-name()='PortabilityKnowhow']/*[local-name()='PortabilityKnowhowTitle']", doc,XPathConstants.NODE);
+					if(evaluate==null){
+						return null;
+					}
+					return evaluate.getFirstChild().getNodeValue();
+				}
+	        });	
+			
+		} catch (Exception e) {
+			throw new IllegalStateException(e);
+		}
+
+		return map;
+	}
+	
+	public static String getKnowledgeDir() throws IOException{
+		return new File(PluginUtil.getResolvedPluginDir()+ ApplicationPropertyUtil.KNOWLEDGE_DIR).toPath().toFile().getCanonicalPath();
+	}
 }

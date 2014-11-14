@@ -127,6 +127,8 @@ public class ApplicationPropertyUtil extends NLS {
     public static String SEARCH_REPORTGEN_KEYWORD_FILE;
 
 	public static String REPORTGEN_OUTPUT_DIR;
+	
+	public static String KNOWLEDGE_DIR;
 
     static {
         // initialize resource bundle

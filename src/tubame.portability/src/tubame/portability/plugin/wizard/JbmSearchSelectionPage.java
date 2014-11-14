@@ -19,17 +19,16 @@
 package tubame.portability.plugin.wizard;
 
 import java.io.File;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.io.IOException;
 
-import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -37,7 +36,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
 
-import ch.qos.logback.classic.Logger;
+import tubame.portability.plugin.dialog.KnowhowImportDialog;
 import tubame.portability.util.FileUtil;
 import tubame.portability.util.PluginUtil;
 import tubame.portability.util.StringUtil;
@@ -370,7 +369,7 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
         Group group = new Group(container, SWT.SHADOW_NONE);
         group.setText(getKnowhowXmlFileLabelString());
         group.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-        group.setLayout(new GridLayout(2, false));
+        group.setLayout(new GridLayout(3, false));
 
         // XML know-how selected text
         GridData gridDataDirectory = new GridData(GridData.FILL_HORIZONTAL);
@@ -389,6 +388,35 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
         // Set the operation when the button is pressed
         Button.addSelectionListener(new BrowseFileButtonSelectionListener(this,
                 knowhowText, getKnowhowExtension()));
+        
+        // Search target folder selection button
+        Button importButton = new Button(group, SWT.NULL);
+        importButton.setText(ResourceUtil.KNOWHOW_IMPORT_LABEL);
+        final String pjName = this.resource.getProject().getName();
+        // Set the operation when the button is pressed
+        importButton.addSelectionListener(new SelectionAdapter() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				KnowhowImportDialog knowhowImportDialog = new KnowhowImportDialog(getShell(),selectedProject);
+				int open = knowhowImportDialog.open();
+                if (open == Window.OK) {
+                	File importedFile = knowhowImportDialog.getImportedFile();
+                	try {
+						String relative = getRelative(PluginUtil.getKnowledgeDir(), importedFile);
+						knowhowText.setText(pjName + File.separator + relative);
+					} catch (IOException e1) {
+						throw new IllegalStateException(e1);
+					}
+                }
+			}
+        	
+		    private String getRelative(String basePath, File file){
+		    	int length = basePath.length();
+		    	return file.getAbsolutePath().substring(length);
+		    }
+        	
+		});
         
        
          IPath rawLocation = resource.getRawLocation();
@@ -565,14 +593,6 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
 		return file;
 	}
 	
-	private String getProjectRoot(){
-		String projectName = PluginUtil.getProjectName(this.outJbmFileText.getText());
-		IProject project = PluginUtil.getProject(projectName);
-        IPath fullPath = project.getFullPath();
-        String osString = fullPath.toOSString();
-        return osString;
-//        return root.replace(StringUtil.SLASH, FileUtil.FILE_SEPARATOR);
-	}
 
 	public String getOutJbmFilePathExcludeProjectName() {
 		return this.getPathExcludeProjectName(this.outJbmFileText);

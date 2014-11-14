@@ -18,18 +18,14 @@
  */
 package tubame.portability.plugin.wizard;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,7 +35,6 @@ import java.util.regex.Pattern;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
@@ -53,9 +48,7 @@ import org.slf4j.LoggerFactory;
 import tubame.portability.Activator;
 import tubame.portability.exception.JbmException;
 import tubame.portability.logic.CheckListInformationFactory;
-import tubame.portability.logic.GuideViewFacade;
 import tubame.portability.logic.KnowhowXmlConvertFactory;
-import tubame.portability.logic.reader.JbmCsvReader;
 import tubame.portability.logic.search.SearchToolWithProgress;
 import tubame.portability.plugin.dialog.ErrorDialog;
 import tubame.portability.util.CsvUtil;
@@ -64,7 +57,6 @@ import tubame.portability.util.FileVisitor;
 import tubame.portability.util.PluginUtil;
 import tubame.portability.util.PythonUtil;
 import tubame.portability.util.StringUtil;
-import tubame.portability.util.FileVisitor.FileVisitResult;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
 import tubame.portability.util.resource.ResourceUtil;
@@ -167,8 +159,9 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
 			CheckListInformationFactory.setCheckListInformationPath(jbmFile);
 
 			// Close the file with the same name that is already open
-			PluginUtil.closeEditor(jbmSearchSelectionPage.getOutJbmFileText());
-
+			//TODO: classcast発生するの...closeエディターなので影響なし？
+			//PluginUtil.closeEditor(jbmSearchSelectionPage.getOutJbmFileText());
+			
 			String pythonExePath = PythonUtil.getPythonExePath();
 			if (!new File(pythonExePath).exists()) {
 				String message = Activator.getResourceString(JbmSearchWizard.class.getName()
@@ -190,8 +183,6 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
 			String keywordPath = PluginUtil.getPluginDir() + ApplicationPropertyUtil.SEARCH_KEYWORD_FILE;
 			this.createProgressStatusMapForFile(keywordPath);
 
-			
-			
 			// Search process
 			SearchToolWithProgress progress = new SearchToolWithProgress(
 					jbmSearchSelectionPage.getSelectedTarget().getPath(),
@@ -299,7 +290,7 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
 						targetFile = getRelative(searchTargetFile.getParentFile().getPath()+File.separator, file);
 						LOGGER.debug("ignore targetfile:" + targetFile);
 						ignoreList.add(targetFile);
-					} else if (isKnowHowXml(file)) {
+					} else if (FileUtil.isKnowHowXml(file)) {
 						targetFile = getRelative(searchTargetFile.getParentFile().getPath()+File.separator, file);
 						LOGGER.debug("ignore targetfile:" + targetFile);
 						ignoreList.add(targetFile);
@@ -308,31 +299,7 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
 				return super.visitFile(file);
 			}
 
-			private boolean isKnowHowXml(File file) {
-				byte[] buff = new byte[256];
-				BufferedInputStream bufferedInputStream = null;
-				try {
-					bufferedInputStream = new BufferedInputStream(new FileInputStream(file));
-					if (bufferedInputStream != null) {
-						bufferedInputStream.read(buff);
-						if (new String(buff)
-								.contains("<PortabilityKnowhow xmlns=\"http://generated.model.biz.knowhow.tubame/knowhow\" xmlns:ns2=\"http://docbook.org/ns/docbook\">")) {
-							return true;
-						}
-					}
-				} catch (Exception e) {
-					;
-				} finally {
-					if (bufferedInputStream != null) {
-						try {
-							bufferedInputStream.close();
-						} catch (IOException e) {
-							;
-						}
-					}
-				}
-				return false;
-			}
+
 
 			private boolean isXml(String fileName) {
 				Matcher matcher = compile.matcher(fileName);
@@ -353,11 +320,6 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
 				return file.getAbsolutePath().substring(length);
 			}
 			
-			private String getRoot(){
-		        String root = ResourcesPlugin.getWorkspace().getRoot().getLocation()
-		                .toString();
-		        return root.replace(StringUtil.SLASH, FileUtil.FILE_SEPARATOR);
-			}
 			
 		});
 		return ignoreList;
@@ -391,21 +353,32 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
 	}
 
 	private void createProgressStatusMapForFile(String filePath) throws JbmException, IOException {
-		FileInputStream fileInputStream = new FileInputStream(filePath);
-		InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, CsvUtil.CHAR_SET);
-		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-		int lineCount = 0;
-		Map<String, Integer> progressStatusMap = new HashMap<String, Integer>();
-		while (true) {
-			lineCount++;
-			String line = bufferedReader.readLine();
-			if (line == null) {
-				break;
+		Map<String, Integer> progressStatusMap;
+		BufferedReader bufferedReader = null;
+		FileInputStream fileInputStream = null;
+		try {
+			fileInputStream = new FileInputStream(filePath);
+			InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, CsvUtil.CHAR_SET);
+			bufferedReader = new BufferedReader(inputStreamReader);
+			int lineCount = 0;
+			progressStatusMap = new HashMap<String, Integer>();
+			while (true) {
+				lineCount++;
+				String line = bufferedReader.readLine();
+				if (line == null) {
+					break;
+				}
+				List<String> tokenList = CsvUtil.parseCsv(line);
+				String number = tokenList.get(0);
+				if (number != null) {
+					progressStatusMap.put(number, lineCount);
+				}
 			}
-			List<String> tokenList = CsvUtil.parseCsv(line);
-			String number = tokenList.get(0);
-			if (number != null) {
-				progressStatusMap.put(number, lineCount);
+		} catch (IOException e) {
+			throw e;
+		} finally{
+			if(bufferedReader!=null){
+				bufferedReader.close();
 			}
 		}
 		PythonUtil.PY_SEARCH_PROGRESS_STATUS_MAP = progressStatusMap;
