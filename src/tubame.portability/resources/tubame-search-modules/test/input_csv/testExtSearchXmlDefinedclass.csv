@@ -1,0 +1,1 @@
+1,struts-config.xml,//*[local-name() = 'action-mappings']/*[local-name() = 'action']/@type,,ext_search_xml_definedclass.py,Unknown,,

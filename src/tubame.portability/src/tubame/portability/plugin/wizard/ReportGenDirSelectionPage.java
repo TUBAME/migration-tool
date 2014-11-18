@@ -18,6 +18,7 @@
  */
 package tubame.portability.plugin.wizard;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -231,4 +232,29 @@ public class ReportGenDirSelectionPage extends AbstractJbmSelectionPage {
 		return null;
 	}
 
+	public IProject getSelectedProject() {
+		return resource.getProject();
+	}
+	
+	public String getOutputFullPath(){
+		String outputPathExcludeProjectName = getOutputPathExcludeProjectName();
+		if(outputPathExcludeProjectName!= null){
+			return resource.getProject().getFile(outputPathExcludeProjectName).getLocation().toOSString();
+		}
+		return resource.getLocation().toOSString();
+	}
+	
+	public String getSearchTargetDirPath(){
+		return resource.getLocation().toOSString();
+	}
+	
+	private String getOutputPathExcludeProjectName(){
+		if(outSourceDirectoryText.getText().equals(this.resource.getProject().getName())){
+			return null;
+		}
+		return outSourceDirectoryText.getText().substring(this.resource.getProject().getName().length());
+	}
+	
+	
+	
 }

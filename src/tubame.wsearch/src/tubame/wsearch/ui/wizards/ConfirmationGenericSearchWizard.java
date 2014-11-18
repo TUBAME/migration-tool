@@ -22,8 +22,6 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
-import tubame.common.util.CmnStringUtil;
-
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.dialogs.Dialog;
@@ -41,9 +39,11 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.WorkbenchException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import tubame.common.util.CmnStringUtil;
 import tubame.wsearch.Activator;
-import tubame.wsearch.biz.cache.WSearchAnalyzerCacheArgument;
 import tubame.wsearch.biz.cache.CacheBase.TYPE;
+import tubame.wsearch.biz.cache.WSearchAnalyzerCacheArgument;
 import tubame.wsearch.biz.ex.WSearchBizException;
 import tubame.wsearch.biz.model.SearchFilter;
 import tubame.wsearch.cache.AnalyzerCacheLoaderDelegate;
@@ -127,6 +127,7 @@ public class ConfirmationGenericSearchWizard extends Wizard implements
         LOGGER.info(Activator.getResourceString("debug.msg.start")
                 + "ConfirmationGenericSearchWizard#performFinish");
 
+        
         if (CmnStringUtil.isEmpty(confirmationGenericSearchPage
                 .getOutputPlace().getText())) {
             MessageDialog.openError(getShell(), Activator
@@ -136,9 +137,10 @@ public class ConfirmationGenericSearchWizard extends Wizard implements
                             .getName() + ".err.msg.NoPath"));
             return false;
         }
-        File resultPath = new File(PluginUtil.getSelectedProject()
-                .getLocation().removeLastSegments(1).toString(),
-                confirmationGenericSearchPage.getOutputPlace().getText());
+//        File resultPath = new File(PluginUtil.getSelectedProject()
+//                .getLocation().removeLastSegments(1).toString(),
+//                confirmationGenericSearchPage.getOutputPlace().getText());
+        File resultPath = new File(this.getRealOutputFolderPath());
         if (!resultPath.exists()) {
             MessageDialog.openError(getShell(), Activator
                     .getResourceString(ConfirmationGenericSearchWizard.class
@@ -155,7 +157,7 @@ public class ConfirmationGenericSearchWizard extends Wizard implements
                             .getName() + ".err.msg.NotDirectory"));
             return false;
         }
-        File resultFile = new File(resultPath.toString(),
+        File resultFile = new File(resultPath.getPath(),
                 ResourceUtil.RESULT_FILE_NAME);
         if (resultFile.exists()) {
             int ret = new Dialog(getShell()) {
@@ -210,10 +212,12 @@ public class ConfirmationGenericSearchWizard extends Wizard implements
             // Interrupt the process.
             return false;
         }
-        String outputDirPath = selectedProject.getLocation()
-                .removeLastSegments(1).toString()
-                + CmnStringUtil.SLASH
-                + confirmationGenericSearchPage.getOutputPlace().getText();
+//        String outputDirPath = selectedProject.getLocation()
+//                .removeLastSegments(1).toString()
+//                + CmnStringUtil.SLASH
+//                + confirmationGenericSearchPage.getOutputPlace().getText();
+        
+        String outputDirPath = PluginUtil.getRealOutputDirPath(selectedProject,confirmationGenericSearchPage.getOutputPlace().getText());
 
         if (this.bizDomain.createAnalyzeAndCompareJobs(this.resource,
                 srcSearchFilters, outputDirPath)) {
@@ -252,4 +256,22 @@ public class ConfirmationGenericSearchWizard extends Wizard implements
 
         super.addPage(confirmationGenericSearchPage);
     }
+    
+	public String getRealOutputFolderPath(){
+		String outputPath = this.confirmationGenericSearchPage.getOutputPlace().getText();
+		String outputPathExecludeProjectName = getOutputPathExecludeProjectName(this.resource.getProject().getName(),outputPath);
+		return this.resource.getProject().getLocation().toOSString() + File.separator + outputPathExecludeProjectName;
+	}
+
+	private String getOutputPathExecludeProjectName(String projectName, String includeProjectNameVal) {
+		if(projectName.equals(includeProjectNameVal)){
+			return "";
+		}else{
+			if(includeProjectNameVal.length()>projectName.length() ){
+				return includeProjectNameVal.substring(includeProjectNameVal.length());
+			}
+		}
+		return null;
+	}
+	
 }

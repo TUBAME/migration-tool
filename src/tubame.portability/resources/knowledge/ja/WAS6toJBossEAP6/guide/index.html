@@ -1,0 +1,5011 @@
+<HTML xmlns:knowhow="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:doc="http://docbook.org/ns/docbook">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WebSphere6からJBossEAP6へのマイグレーションガイド</title>
+<link href="css/knowhow.css" type="text/css" rel="stylesheet">
+<meta content="DocBook XSL Stylesheets V1.78.1" name="generator">
+</HEAD>
+<BODY>
+<H1 class="title">WebSphere6からJBossEAP6へのマイグレーションガイド</H1>
+<div class="toc">
+<p>
+<b>Index</b>
+</p>
+<dl class="toc">
+<dt>
+<span class="1."><a href="#tubame_1.">1.サーバ設定の移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.1."><a href="#tubame_1.1.">1.1.JDBCドライバの移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2."><a href="#tubame_1.2.">1.2.アプリケーションサーバにおけるリソース設定</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.2.1."><a href="#tubame_1.2.1.">1.2.1.JDBC設定(JDBCProvider)の移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.2.1.1."><a href="#tubame_1.2.1.1.">1.2.1.1.データソースの移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.2.1.1.1."><a href="#tubame_1.2.1.1.1.">1.2.1.1.1.データソース設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2.2."><a href="#tubame_1.2.2.">1.2.2.JMS設定(JMSProvider)の移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.2.2.1."><a href="#tubame_1.2.2.1.">1.2.2.1.ESB設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2.2.2."><a href="#tubame_1.2.2.2.">1.2.2.2.JMSパーシステンス設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2.2.3."><a href="#tubame_1.2.2.3.">1.2.2.3.JMSシステムリソース設定の移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.2.2.3.1."><a href="#tubame_1.2.2.3.1.">1.2.2.3.1.V5 Default Messaging Providerのリソース設定</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.2.2.3.1.1."><a href="#tubame_1.2.2.3.1.1.">1.2.2.3.1.1.V5 Default Messaging Providerのリソース設定(コネクションファクトリ、キュー、トピック)の移行</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2.2.3.2."><a href="#tubame_1.2.2.3.2.">1.2.2.3.2.WebSphere MQ Messaging Providerのリソース設定</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.2.2.3.2.1."><a href="#tubame_1.2.2.3.2.1.">1.2.2.3.2.1.WebSphere MQ Messaging Providerのリソース設定(コネクションファクトリ、キュー、トピック)の移行</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2.2.3.3."><a href="#tubame_1.2.2.3.3.">1.2.2.3.3.Default messaging providerのリソース設定</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.2.2.3.3.1."><a href="#tubame_1.2.2.3.3.1.">1.2.2.3.3.1.Default messaging providerのリソース設定(コネクションファクトリ、キュー、トピック)の移行</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2.2.3.4."><a href="#tubame_1.2.2.3.4.">1.2.2.3.4.JBossのJMSシステムリソース設定</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.2.2.3.4.1."><a href="#tubame_1.2.2.3.4.1.">1.2.2.3.4.1.JMSコネクションファクトリの移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2.2.3.4.2."><a href="#tubame_1.2.2.3.4.2.">1.2.2.3.4.2.JMSキュー設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2.2.3.4.3."><a href="#tubame_1.2.2.3.4.3.">1.2.2.3.4.3.JMSトピック設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2.3."><a href="#tubame_1.2.3.">1.2.3.ResourceAdapter設定(J2CResourceAdapter)の移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2.4."><a href="#tubame_1.2.4.">1.2.4.メール設定(MailProvider)の移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2.5."><a href="#tubame_1.2.5.">1.2.5.URL設定(URLPorivder)の移行</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.3."><a href="#tubame_1.3.">1.3.アプリケーションサーバにおけるサーバ設定</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.3.1."><a href="#tubame_1.3.1.">1.3.1.ログ設定の移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.3.1.1."><a href="#tubame_1.3.1.1.">1.3.1.1.サーバログのローテーション設定</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.3.1.2."><a href="#tubame_1.3.1.2.">1.3.1.2.Webアクセスログのローテーション設定</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.3.2."><a href="#tubame_1.3.2.">1.3.2.Webコンテナ(WebContainer)設定</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.3.2.1."><a href="#tubame_1.3.2.1.">1.3.2.1.ワーカースレッド数の設定</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.3.2.2."><a href="#tubame_1.3.2.2.">1.3.2.2.セッション永続化設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.3.3."><a href="#tubame_1.3.3.">1.3.3.EJBコンテナ(EJBContainer)設定</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.3.3.1."><a href="#tubame_1.3.3.1.">1.3.3.1.MDBのスレッドプール設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.3.3.2."><a href="#tubame_1.3.3.2.">1.3.3.2.EJBのキャッシュ設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.3.3.3."><a href="#tubame_1.3.3.3.">1.3.3.3.EJBのタイマー設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.3.4."><a href="#tubame_1.3.4.">1.3.4.Portletコンテナ(PortletContainer)設定</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.3.5."><a href="#tubame_1.3.5.">1.3.5.SIPコンテナ(SIPContainer)設定</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.3.6."><a href="#tubame_1.3.6.">1.3.6.デプロイメント設定</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.3.6.1."><a href="#tubame_1.3.6.1.">1.3.6.1.JBossのデプロイメントについて</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.3.6.2."><a href="#tubame_1.3.6.2.">1.3.6.2.デプロイメント順序について</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.4."><a href="#tubame_1.4.">1.4.アプリケーションサーバにおけるWebアプリケーション設定</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.4.1."><a href="#tubame_1.4.1.">1.4.1.セッションに関連するパラメータの移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.4.1.1."><a href="#tubame_1.4.1.1.">1.4.1.1.クッキーの有効/無効化設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.4.1.2."><a href="#tubame_1.4.1.2.">1.4.1.2.クッキー名の設定移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.4.1.3."><a href="#tubame_1.4.1.3.">1.4.1.3.クッキーのパス設定移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.4.1.4."><a href="#tubame_1.4.1.4.">1.4.1.4.URLリライティング設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.4.1.5."><a href="#tubame_1.4.1.5.">1.4.1.5.セッションIDの長さ設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.4.1.6."><a href="#tubame_1.4.1.6.">1.4.1.6.セッションタイムアウト設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.4.1.7."><a href="#tubame_1.4.1.7.">1.4.1.7.セッション永続化設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.4.2."><a href="#tubame_1.4.2.">1.4.2.JSPに関連するパラメータの移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.4.3."><a href="#tubame_1.4.3.">1.4.3.charset設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.4.4."><a href="#tubame_1.4.4.">1.4.4.起動時終了時のリスナ設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.5."><a href="#tubame_1.5.">1.5.日本語文字化け対応</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.5.1."><a href="#tubame_1.5.1.">1.5.1.Get及びPostのエンコーディングについて</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.5.2."><a href="#tubame_1.5.2.">1.5.2.静的コンテンツのエンコーディング</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.5.3."><a href="#tubame_1.5.3.">1.5.3.JSPのエンコーディング</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.5.3.1."><a href="#tubame_1.5.3.1.">1.5.3.1.ページエンコーディングの一括設定</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>
+<span class="2."><a href="#tubame_2.">2.アプリケーションの移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.1."><a href="#tubame_2.1.">2.1.J2EE非推奨APIについて</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.1.1."><a href="#tubame_2.1.1.">2.1.1.Servletの非推奨APIについて</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.1.1.1."><a href="#tubame_2.1.1.1.">2.1.1.1.Servlet2.5で既に非推奨となる機能</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.1.1.2."><a href="#tubame_2.1.1.2.">2.1.1.2.Servlet3.0で非推奨となる機能</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.1.2."><a href="#tubame_2.1.2.">2.1.2.Servlet以外の非推奨API</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.1.2.1."><a href="#tubame_2.1.2.1.">2.1.2.1.JAXB非推奨API</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.1.2.2."><a href="#tubame_2.1.2.2.">2.1.2.2.JSF非推奨API</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.1.2.3."><a href="#tubame_2.1.2.3.">2.1.2.3.EJB非推奨API</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.1.2.4."><a href="#tubame_2.1.2.4.">2.1.2.4.JCA非推奨API</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.1.2.5."><a href="#tubame_2.1.2.5.">2.1.2.5.SOAP及びJWS非推奨API</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.1.2.6."><a href="#tubame_2.1.2.6.">2.1.2.6.Deployment 及びActivation API</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.2."><a href="#tubame_2.2.">2.2.JSPの移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.3."><a href="#tubame_2.3.">2.3.Servetの移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.4."><a href="#tubame_2.4.">2.4.JNDIの移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.4.1."><a href="#tubame_2.4.1.">2.4.1.JNDI名の移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.4.2."><a href="#tubame_2.4.2.">2.4.2.JNDIルックアップの呼び出し実装の移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.4.2.1."><a href="#tubame_2.4.2.1.">2.4.2.1.APサーバのコンテナ内のJNDIルックアップ呼び出し</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.4.2.2."><a href="#tubame_2.4.2.2.">2.4.2.2.APサーバのコンテナ外のJNDIルックアップ呼び出し</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.5."><a href="#tubame_2.5.">2.5.EJBの移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.5.1."><a href="#tubame_2.5.1.">2.5.1.EJBデプロイメントデスクリプタの移行</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.6."><a href="#tubame_2.6.">2.6.Webサービスのサーバ移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.6.1."><a href="#tubame_2.6.1.">2.6.1.Webサービス（JAX-RPC仕様）の移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.6.2."><a href="#tubame_2.6.2.">2.6.2.Webサービス（JAX-WS仕様）の移行</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.7."><a href="#tubame_2.7.">2.7.Webサービスのクライアント移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.8."><a href="#tubame_2.8.">2.8.APサーバ固有機能の移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.9."><a href="#tubame_2.9.">2.9.アプリケーションロギング</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.9.1."><a href="#tubame_2.9.1.">2.9.1.Log4jの移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.9.1.1."><a href="#tubame_2.9.1.1.">2.9.1.1.Log4jの設定をアプリケーション内で完結させる方法</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.9.1.2."><a href="#tubame_2.9.1.2.">2.9.1.2.Log4jの設定をJBossのログ出力設定にマージする方法</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.10."><a href="#tubame_2.10.">2.10.パッケージング</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.10.1."><a href="#tubame_2.10.1.">2.10.1.サーバアプリケーションのパッケージング</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.10.2."><a href="#tubame_2.10.2.">2.10.2.クライアントアプリケーションのパッケージング</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<HR>
+<a name="tubame_1."></a>
+<h2 class="title">1.サーバ設定の移行</h2>
+<br>
+<a name="tubame_1.1."></a>
+<h3 class="title">1.1.JDBCドライバの移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			WASではJDBCドライバのJARはresoures.xmlのresources.jdbc:JDBCProviderタグ配下のclasspathタグで指定される
+
+			</p>
+<div class="figure">
+<a name="N12D1D"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;resources.xmlにJDBCドライバの設定</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+  &lt;resources.jdbc:JDBCProvider xmi:id="JDBCProvider_1385359050500" name="Derby JDBC Provider" description="Derby embedded non-XA  JDBC Provider" providerType="Derby JDBC Provider" implementationClassName="org.apache.derby.jdbc.EmbeddedConnectionPoolDataSource" xa="false"&gt;
+    &lt;classpath&gt;${DERBY_JDBC_DRIVER_PATH}/derby.jar&lt;/classpath&gt;
+    &lt;factories xmi:type="resources.jdbc:DataSource" xmi:id="DataSource_1385359050880" name="Default Datasource" jndiName="DefaultDatasource" description="Datasource for the WebSphere Default Application" providerType="Derby JDBC Provider" authMechanismPreference="BASIC_PASSWORD" relationalResourceAdapter="builtin_rra" statementCacheSize="10" datasourceHelperClassname="com.ibm.websphere.rsadapter.DerbyDataStoreHelper"&gt;
+      &lt;propertySet xmi:id="J2EEResourcePropertySet_1385359050883"&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385359050883" name="databaseName" type="java.lang.String" value="${APP_INSTALL_ROOT}/${CELL}/DefaultApplication.ear/DefaultDB"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385359050884" name="shutdownDatabase" type="java.lang.String" value=""/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385359050885" name="dataSourceName" type="java.lang.String" value=""/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385359050886" name="description" type="java.lang.String" value=""/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385359050887" name="connectionAttributes" type="java.lang.String" value="upgrade=true"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385359050888" name="createDatabase" type="java.lang.String" value=""/&gt;
+      &lt;/propertySet&gt;
+      &lt;connectionPool xmi:id="ConnectionPool_1385359050883" connectionTimeout="180" maxConnections="10" minConnections="1" reapTime="180" unusedTimeout="1800" agedTimeout="0" purgePolicy="EntirePool"/&gt;
+    &lt;/factories&gt;
+
+   
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+		
+</p>
+<p>JBossの場合、JDBCドライバをモジュールとして登録するか、
+			デプロイメントとして登録する必要がある。JBossにPostgesSQLのJDBCドライバをモジュールとして登録する方法を示す。
+		</p>
+<p></p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>JDBCドライバモジュール定義ファイル(module.xml)を作成する</p>
+<div class="figure">
+<a name="N12D2F"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;PostgresSQLのJDBCドライバ用module.xml</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+						
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;module xmlns="urn:jboss:module:1.0" name="org.postgres"&gt;
+  &lt;resources&gt;
+    &lt;resource-root path="postgresql-9.1-902.jdbc4.jar"/&gt;
+  &lt;/resources&gt;
+  &lt;dependencies&gt;
+    &lt;module name="javax.api"/&gt;
+    &lt;module name="javax.transaction.api"/&gt;
+  &lt;/dependencies&gt;
+&lt;/module&gt;
+
+					</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+<li class="listitem">
+<p>JDBCドライバモジュールの登録に必要なファイルを配置する</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+<p>JBossのモジュールディレクトリ配下に$jboss.modules.dir/org/postgresqlフォルダを作成
+						</p>
+</li>
+<li class="listitem">
+<p>module.xmlを$jboss.modules.dir/org/postgresql配下にコピー
+						</p>
+</li>
+<li class="listitem">
+<p>JDBCドライバ(jdbc4*.jar)を$jboss.modules.dir/org/postgresql配下にコピーする
+						</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+<p>管理CLIよりJDBCドライバモジュールの登録を行う</p>
+<div class="figure">
+<a name="N12D49"></a>
+<p class="title">
+<b>Figure&nbsp;3.&nbsp;JBoss
+						EAP6の管理CLIよりJDBCドライバモジュールの登録を行う。ドライバー名は任意で、{driver-name}と表記する。
+					</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+						
+/subsystem=datasources/jdbc-driver=postgres9-driver:add(driver-name=postgres9-driver,driver-module-name=org.postgres)
+
+
+					</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_1.2."></a>
+<h3 class="title">1.2.アプリケーションサーバにおけるリソース設定</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			WASではresouces.xmlに以下の項目のリソース設定がされる。
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>JDBC設定(JDBCProvider)</p>
+</li>
+<li class="listitem">
+<p>JMS設定(JMSProvider)</p>
+</li>
+<li class="listitem">
+<p>メール設定(MailProvider)</p>
+</li>
+<li class="listitem">
+<p>URL設定(URLPorivder)</p>
+</li>
+</ul>
+</div>
+<p>
+			
+			以下に、JBossにおける設定方法について示す。
+		</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.1."></a>
+<h3 class="title">1.2.1.JDBC設定(JDBCProvider)の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			WASではデータソース設定をresources.xmlにJDBCProviderとして設定する。
+			</p>
+<div class="figure">
+<a name="N136A7"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;resources.xmlにおけるにJDBCProvider設定</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+  &lt;resources.jdbc:JDBCProvider xmi:id="JDBCProvider_1385359050500" name="Derby JDBC Provider" description="Derby embedded non-XA  JDBC Provider" providerType="Derby JDBC Provider" implementationClassName="org.apache.derby.jdbc.EmbeddedConnectionPoolDataSource" xa="false"&gt;
+    &lt;classpath&gt;${DERBY_JDBC_DRIVER_PATH}/derby.jar&lt;/classpath&gt;
+    &lt;factories xmi:type="resources.jdbc:DataSource" xmi:id="DataSource_1385359050880" name="Default Datasource" jndiName="DefaultDatasource" description="Datasource for the WebSphere Default Application" providerType="Derby JDBC Provider" authMechanismPreference="BASIC_PASSWORD" relationalResourceAdapter="builtin_rra" statementCacheSize="10" datasourceHelperClassname="com.ibm.websphere.rsadapter.DerbyDataStoreHelper"&gt;
+      &lt;propertySet xmi:id="J2EEResourcePropertySet_1385359050883"&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385359050883" name="databaseName" type="java.lang.String" value="${APP_INSTALL_ROOT}/${CELL}/DefaultApplication.ear/DefaultDB"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385359050884" name="shutdownDatabase" type="java.lang.String" value=""/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385359050885" name="dataSourceName" type="java.lang.String" value=""/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385359050886" name="description" type="java.lang.String" value=""/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385359050887" name="connectionAttributes" type="java.lang.String" value="upgrade=true"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385359050888" name="createDatabase" type="java.lang.String" value=""/&gt;
+      &lt;/propertySet&gt;
+      &lt;connectionPool xmi:id="ConnectionPool_1385359050883" connectionTimeout="180" maxConnections="10" minConnections="1" reapTime="180" unusedTimeout="1800" agedTimeout="0" purgePolicy="EntirePool"/&gt;
+    &lt;/factories&gt;
+    &lt;factories xmi:type="resources.jdbc:DataSource" xmi:id="DataSource_1385370896744" name="_kwatanabe-PCNode01.server1-WS_test_persistBus" jndiName="jdbc/com.ibm.ws.sib/kwatanabe-PCNode01.server1-WS_test_persistBus" description="Default Datasource for SIB" authMechanismPreference="BASIC_PASSWORD" relationalResourceAdapter="builtin_rra" statementCacheSize="40" datasourceHelperClassname="com.ibm.websphere.rsadapter.DerbyDataStoreHelper"&gt;
+      &lt;propertySet xmi:id="J2EEResourcePropertySet_1385370896767"&gt;
+         ...
+      &lt;/propertySet&gt;
+      &lt;connectionPool xmi:id="ConnectionPool_1385370896746" connectionTimeout="180" maxConnections="50" minConnections="1" reapTime="180" unusedTimeout="1800" agedTimeout="0" purgePolicy="EntirePool" numberOfSharedPoolPartitions="0" numberOfUnsharedPoolPartitions="0" numberOfFreePoolPartitions="0" freePoolDistributionTableSize="0" surgeThreshold="-1" surgeCreationInterval="0" testConnection="false" testConnectionInterval="0" stuckTimerTime="0" stuckTime="0" stuckThreshold="0"/&gt;
+    &lt;/factories&gt;
+  &lt;/resources.jdbc:JDBCProvider&gt;
+  &lt;resources.jdbc:JDBCProvider xmi:id="JDBCProvider_1385359064427" name="Samples Derby JDBC Provider (XA)" description="Built-in Derby JDBC Provider (XA)" providerType="Derby JDBC Provider (XA)" implementationClassName="org.apache.derby.jdbc.EmbeddedXADataSource" xa="true"&gt;
+    &lt;classpath&gt;${DERBY_JDBC_DRIVER_PATH}/derby.jar&lt;/classpath&gt;
+    &lt;factories xmi:type="resources.jdbc:DataSource" xmi:id="DataSource_1385359064554" name="PLANTSDB" jndiName="jdbc/PlantsByWebSphereDataSource" description="Data source for the Plants by WebSphere entity beans" providerType="Derby JDBC Provider (XA)" authMechanismPreference="BASIC_PASSWORD" relationalResourceAdapter="builtin_rra" statementCacheSize="10" datasourceHelperClassname="com.ibm.websphere.rsadapter.DerbyDataStoreHelper"&gt;
+      &lt;propertySet xmi:id="J2EEResourcePropertySet_1385359064556"&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385359064556" name="databaseName" type="java.lang.String" value="${APP_INSTALL_ROOT}/${CELL}/PlantsByWebSphere.ear/Database/PLANTSDB"/&gt;
+           ...
+      &lt;/propertySet&gt;
+      connectionPool xmi:id="ConnectionPool_1385359064556" connectionTimeout="180" maxConnections="10" minConnections="1" reapTime="180" unusedTimeout="1800" agedTimeout="0" purgePolicy="EntirePool"/&gt;
+    &lt;/factories&gt;
+  &lt;/resources.jdbc:JDBCProvider&gt;
+
+  
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+			
+			
+			JBossではdatasourceサブシステムにて、データソース設定を行う。詳細は以下を参照。
+		</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.1.1."></a>
+<h3 class="title">1.2.1.1.データソースの移行</h3>
+<br>
+<br>
+<a name="tubame_1.2.1.1.1."></a>
+<h3 class="title">1.2.1.1.1.データソース設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			移行元のデータソース設定情報を確認し、各データソース設定情報を管理CLIより設定する必要がある。WASでは、以下のようにresources.xmlでデータソースの設定を行う。
+			JBossEAP6では管理CLIのデータソース作成コマンド(data-sourceまたはxa-data-source)を利用する。
+		</p>
+<p>
+			
+</p>
+<div class="figure">
+<a name="N12DB8"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;WAS6のデータソース定義(resouces.xml)
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;factories xmi:type="resources.jdbc:DataSource" xmi:id="DataSource_1186161738750" name="WebSphere Commerce Oracle DataSource demo" jndiName="jdbc/WebSphere Commerce Oracle DataSource demo" description="WebSphere Commerce Oracle DataSource demo" authMechanismPreference="BASIC_PASSWORD" authDataAlias="WC_demo - authDataAlias" relationalResourceAdapter="builtin_rra" statementCacheSize="50" datasourceHelperClassname="com.ibm.websphere.rsadapter.Oracle10gDataStoreHelper"&gt; 
+ ... 
+  &lt;connectionPool xmi:id="ConnectionPool_1186161741031" connectionTimeout="180" maxConnections="65" minConnections="5" reapTime="180" unusedTimeout="1800" agedTimeout="1800" purgePolicy="EntirePool"/&gt;
+   ... 
+&lt;/factories&gt;
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+		
+</p>
+<p>サンプルとして以下設定より管理CLIでデータソースを設定する方法を示す</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>
+					JDBCドライバーのパラメータを中心とした基本情報のみを利用してデータソースを追加する
+					</p>
+<div class="table">
+<a name="N12DC9"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;JDBCドライバーのパラメータを中心として基本情報。この例ではPostgresSQLの利用を前提とする
+						</b>
+</p>
+<div class="table-contents">
+<table summary="JDBCドライバーのパラメータを中心として基本情報。この例ではPostgresSQLの利用を前提とする
+						" border="1">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>No</th><th>項目</th><th>JBossのパラメータ設定の説明</th><th>WASとの対比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td><td>リソースを一意に識別するためのID</td><td>リソースを一意に識別するために、JBossでデータソースを作成する際に必要となる情報</td><td>なし</td>
+</tr>
+<tr>
+<td>2</td><td>ドライバー名</td><td>JBossでは事前にモジュールとして登録したJDBCドライバーのドライバ名を指定する必要があるため、ドライバ名を指定する
+									</td><td>なし</td>
+</tr>
+<tr>
+<td>3</td><td>JNDI名</td><td>JNDI名。Bossではjboss/resources/jdbc/データソース名の形式でJNDI名を指定する必要がある
+									</td><td>jndiName</td>
+</tr>
+<tr>
+<td>4</td><td>データソースの定義クラス名</td><td>データソースの定義クラス名。非XAデータソース作成する際に指定する必要がある。</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>4</td><td>javax.sql.XADataSource実装の完全修飾名</td><td>JBossでXAデータソースを作成する際に必要となる</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>5</td><td>url</td><td>DBMSに接続するためのJDBC URL</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>6</td><td>user</td><td>DBMSに接続するためのDBユーザ名</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>7</td><td>password</td><td>DBMSに接続するためのDBユーザのパスワード。設定内容は暗号化されている</td><td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>
+<br class="table-break">
+					
+</p>
+<div class="figure">
+<a name="N12E1D"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;上記のJDBCドライバーのパラメータを中心とした基本情報を非XAデータソースとして追加する例を示す。
+						</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+data-source add --name=sample-ds --jndi-name=java:jboss/resources/jdbc/SampleDS --driver-name=sample-driver --driver-class=org.postgresql.Driver --connection-url=jdbc:postgresql://localhost:5432/testdb --user-name=postgres --password=postgres
+
+						</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+					
+</p>
+<div class="figure">
+<a name="N12E28"></a>
+<p class="title">
+<b>Figure&nbsp;3.&nbsp;上記のJDBCドライバーのパラメータを中心とした基本情報XAデータソースとして追加する例を示す。XAデータソースの場合、connection-urlで設定する内容は、xa-datasource-propertiesとして、ServerName、PortNumber、DatabaseName、User、Passwordを設定する。
+						</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+#XAデータソースの作成
+xa-data-source add --name=sample-xa-ds --jndi-name=java:jboss/resources/jdbc/SampleXADS --driver-name=sample-driver --xa-datasource-class=org.postgresql.xa.PGXADataSource
+
+#通常のオペレーションでxa-datasource-propertiesにServerName、PortNumber、DatabaseName、User、Passwordを追加する
+/subsystem=datasources/xa-data-source=appDS/xa-datasource-properties=ServerName:add(value="localhost")
+/subsystem=datasources/xa-data-source=appDS/xa-datasource-properties=PortNumber:add(value="5432")
+/subsystem=datasources/xa-data-source=appDS/xa-datasource-properties=DatabaseName:add(value="testdb")
+/subsystem=datasources/xa-data-source=appDS/xa-datasource-properties=User:add(value="postgres")
+/subsystem=datasources/xa-data-source=appDS/xa-datasource-properties=Password:add(value="postgres")
+
+						</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+				
+</p>
+</li>
+<li class="listitem">
+<p>
+					コネクションプールのパラメータ設定を管理CLIで設定する
+					</p>
+<div class="table">
+<a name="N12E36"></a>
+<p class="title">
+<b>Table&nbsp;2.&nbsp;コネクションプールのパラメータ設定の基本情報。この例ではPostgresSQLの利用を前提とする
+						</b>
+</p>
+<div class="table-contents">
+<table summary="コネクションプールのパラメータ設定の基本情報。この例ではPostgresSQLの利用を前提とする
+						" border="1">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>No</th><th>項目</th><th>説明</th><th>JBossのパラメータ設定</th><th>WASとの対比</th><th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td><td>コネクションプールサイズのminサイズ</td><td>&nbsp;</td><td>min-pool-size</td><td>minConnections</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>2</td><td>コネクションプールサイズのmaxサイズ</td><td>&nbsp;</td><td>max-pool-size</td><td>maxConnections</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>3</td><td>コネクション取得時チェック</td><td>接続プールから取得した DB 接続が有効である事を確認。</td><td>check-valid-connection-sql</td><td>&nbsp;</td><td>JBossではcheck-valid-connection-sqlにSQLコマンドが設定され、validate-on-matchがtrueの際に、コネクションの事前チェックが行われる</td>
+</tr>
+<tr>
+<td>4</td><td>未使用のコネクションチェック間隔</td><td>一度作成されたコネクションで、アイドル状態のコネクションをクローズする。	</td><td>idle-timeout-minutes.確認するタイミングは、idle-timeout-minutesに設定されている半分の時間間隔で行う。</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>
+<br class="table-break">
+					
+</p>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Warning">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Warning]" src="images/warning.png"></td><th align="left">Warning</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>#3の備考に記載しているvalidate-on-matchについて</p>
+<p>JBossEAP6.0.Xではvalidate-on-matheの設定が反映されないバグが存在しており、常にtrueの設定が利用される。https://issues.jboss.org/browse/AS7-6368
+						</p>
+<p>なお、JBossEAP6.1.X
+							では上記のバグは修正されているが、validate-on-matheはデフォルトでfalseが設定されるため、JBossEAP6.1.Xの場合は、明示的に設定を変更する必要がある。
+						</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+					
+</p>
+<div class="figure">
+<a name="N12E80"></a>
+<p class="title">
+<b>Figure&nbsp;4.&nbsp;コネクションプールーのパラメータ設定を管理CLIより行う例を示す。
+						</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+data-source --name=sample-ds --min-pool-size=20 --max-pool-size=256 --validate-on-match=true --check-valid-connection-sql="select 1" --idle-timeout-minutes=30
+
+						</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+				
+</p>
+</li>
+<li class="listitem">
+<p>
+					データソースのパラメータ設定
+					</p>
+<div class="table">
+<a name="N12E8E"></a>
+<p class="title">
+<b>Table&nbsp;3.&nbsp;グローバルトランザクション設定
+						</b>
+</p>
+<div class="table-contents">
+<table summary="グローバルトランザクション設定
+						" border="1">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>No</th><th>項目</th><th>JBossのパラメータ設定</th><th>WASとの対比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td><td>グローバルトランザクション設定</td><td>複数のリソースをグローバルトランザクションに参加させるためにはxa-data-sourceコマンドによりデータソースを作成する。
+									</td><td>resources.jdbc:JDBCProviderタグのxa属性(xa属性はtrue/falseで制御する)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>
+<br class="table-break">
+					xa-data-sourceコマンドを利用したデータソース作成方法はすでに記載しているため、手順について省略する
+				</p>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.2."></a>
+<h3 class="title">1.2.2.JMS設定(JMSProvider)の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			WAS6のJMSプロバイダは以下の３つが利用可能になっている
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>V5 Default Messaging Provider(WebSphere JMS Provider)</p>
+</li>
+<li class="listitem">
+<p>WebSphere MQ Messaging Provider(WebSphere MQ JMS Provider)</p>
+</li>
+<li class="listitem">
+<p>Default messaging provider(SIB JMS Resource Adapter)</p>
+</li>
+</ul>
+</div>
+<p>
+            JBossでは、標準でHornetQベースのJMSプロバイダが利用可能である。
+            
+            </p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>JBoss A-MQについては、JBossEAPには同梱されないため、別途JBoss A-MQのサブスクリプションが必要である</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.2.1."></a>
+<h3 class="title">1.2.2.1.ESB設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			WASではJMS環境をEnterprise Services Bus(ESB)上に行う。以下のような設定ファイルが存在する。
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>sib-bus.xml</p>
+<p>バスのメンバー定義</p>
+<div class="figure">
+<a name="N136DF"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;sib-bus.xmlファイルの設定例を示す。
+						</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;sibresources:SIBus xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sibresources="http://www.ibm.com/websphere/appserver/schemas/6.0/sibresources.xmi" xmi:id="SIBus_1385361988108" name="WS_test_Bus" uuid="4F7DDD18766AE7E7" secure="true" usePermittedChains="SSL_ENABLED" discardMsgsAfterQueueDeletion="false"&gt;
+  &lt;busMembers xmi:id="SIBusMember_1385362172630" server="server1" node="kwatanabe-PCNode01"&gt;
+    &lt;target xmi:id="SIBusMemberTarget_1385362172657" engineUuid="F275FD4A29E4F748"/&gt;
+  &lt;/busMembers&gt;
+&lt;/sibresources:SIBus&gt;
+
+						</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+<li class="listitem">
+<p>sib-engine.xml</p>
+<p>バスのエンジン定義。永続化設定など</p>
+</li>
+<li class="listitem">
+<p>sib-destinations.xml</p>
+<p>バスのディスティネーション定義</p>
+<div class="figure">
+<a name="N136F3"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;sib-destinations.xmlファイルの設定例を示す。
+						</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sibresources="http://www.ibm.com/websphere/appserver/schemas/6.0/sibresources.xmi"&gt;
+  &lt;sibresources:SIBTopicSpace xmi:id="SIBTopicSpace_1385361988134" identifier="Default.Topic.Space" uuid="11F22877E3E9C639B242307F" description="" sendAllowed="true" receiveAllowed="true"&gt;
+    &lt;localizationPointRefs xmi:id="SIBLocalizationPointRef_1385362172688" node="kwatanabe-PCNode01" server="server1" engineUuid="F275FD4A29E4F748"/&gt;
+  &lt;/sibresources:SIBTopicSpace&gt;
+  &lt;sibresources:SIBQueue xmi:id="SIBQueue_1385362172662" identifier="_SYSTEM.Exception.Destination.kwatanabe-PCNode01.server1-WS_test_Bus" uuid="5029A42238AC47016B30C21A"&gt;
+    &lt;localizationPointRefs xmi:id="SIBLocalizationPointRef_1385362172673" node="kwatanabe-PCNode01" server="server1" engineUuid="F275FD4A29E4F748"/&gt;
+  &lt;/sibresources:SIBQueue&gt;
+  &lt;sibresources:SIBQueue xmi:id="SIBQueue_1385362544585" identifier="ws_test_queueJms" uuid="BF07538AEE2AE81E4470CE31" description="" overrideOfQOSByProducerAllowed="true" exceptionDestination="$DEFAULT_EXCEPTION_DESTINATION" sendAllowed="true" receiveAllowed="true"&gt;
+    &lt;localizationPointRefs xmi:id="SIBLocalizationPointRef_1385362544601" node="kwatanabe-PCNode01" server="server1" engineUuid="F275FD4A29E4F748"/&gt;
+  &lt;/sibresources:SIBQueue&gt;
+&lt;/xmi:XMI&gt;
+						</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+<li class="listitem">
+<p>sib-service.xml</p>
+<p>バスのサービス定義</p>
+</li>
+<li class="listitem">
+<p>sib-authorisations.xml</p>
+</li>
+</ul>
+</div>
+<p>
+            
+</p>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Warning">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Warning]" src="images/warning.png"></td><th align="left">Warning</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>			JBossEAPではEnterprise Services
+			Bus(ESB)の機能を提供していないため、システム要件上、移行後の環境でもEnterprise Services Bus(ESB)が
+			必須となる場合は、JBossEAPの機能では代替できないので、注意すること。</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.2.2."></a>
+<h3 class="title">1.2.2.2.JMSパーシステンス設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>WASではJMS環境をEnterprise Services Bus(ESB)上に行う。永続化設定も、ESB設定として、sib-engine.xmlファイルに設定される。WASは永続化先にファイル(fileStore)及びデータベース(dataStore)をサポートしている
+        </p>
+<div class="figure">
+<a name="N13716"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;sib-engine.xmlファイルの設定例を示す。
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sibresources="http://www.ibm.com/websphere/appserver/schemas/6.0/sibresources.xmi"&gt;
+  &lt;sibresources:SIBMessagingEngine xmi:id="SIBMessagingEngine_1385362172645" name="kwatanabe-PCNode01.server1-WS_test_Bus" uuid="F275FD4A29E4F748" busName="WS_test_Bus" busUuid="4F7DDD18766AE7E7" highMessageThreshold="50000" messageStoreType="FILESTORE"&gt;
+    &lt;localizationPoints xmi:type="sibresources:SIBQueueLocalizationPoint" xmi:id="SIBQueueLocalizationPoint_1385362172667" identifier="_SYSTEM.Exception.Destination.kwatanabe-PCNode01.server1-WS_test_Bus@kwatanabe-PCNode01.server1-WS_test_Bus" uuid="96CB0289403D5DF5" targetUuid="5029A42238AC47016B30C21A"/&gt;
+    &lt;localizationPoints xmi:type="sibresources:SIBTopicSpaceLocalizationPoint" xmi:id="SIBTopicSpaceLocalizationPoint_1385362172683" identifier="Default.Topic.Space@kwatanabe-PCNode01.server1-WS_test_Bus" uuid="CE7486789BEE941C" targetUuid="11F22877E3E9C639B242307F" highMessageThreshold="50000"/&gt;
+    &lt;localizationPoints xmi:type="sibresources:SIBQueueLocalizationPoint" xmi:id="SIBQueueLocalizationPoint_1385362544596" identifier="ws_test_queueJms@kwatanabe-PCNode01.server1-WS_test_Bus" uuid="3134F7455848E16C" targetUuid="BF07538AEE2AE81E4470CE31" highMessageThreshold="50000"/&gt;
+    &lt;fileStore xmi:id="SIBFilestore_1385362172652" uuid="3D9F0A456CD9EDAE" logSize="100" minPermanentStoreSize="200" maxPermanentStoreSize="500" unlimitedPermanentStoreSize="false" minTemporaryStoreSize="200" maxTemporaryStoreSize="500" unlimitedTemporaryStoreSize="false" logDirectory="${USER_INSTALL_ROOT}/filestores/com.ibm.ws.sib/kwatanabe-PCNode01.server1-WS_test_Bus-F275FD4A29E4F748/log" permanentStoreDirectory="${USER_INSTALL_ROOT}/filestores/com.ibm.ws.sib/kwatanabe-PCNode01.server1-WS_test_Bus-F275FD4A29E4F748/store" temporaryStoreDirectory="${USER_INSTALL_ROOT}/filestores/com.ibm.ws.sib/kwatanabe-PCNode01.server1-WS_test_Bus-F275FD4A29E4F748/store"/&gt;
+  &lt;/sibresources:SIBMessagingEngine&gt;
+  &lt;sibresources:SIBMessagingEngine xmi:id="SIBMessagingEngine_1385370896551" name="kwatanabe-PCNode01.server1-WS_test_persistBus" uuid="68E6E3CB1C6FBF9A" busName="WS_test_persistBus" busUuid="32B89DCF67FE01D3" highMessageThreshold="50000"&gt;
+    &lt;dataStore xmi:id="SIBDatastore_1385370896558" uuid="78379ABD438046B4" dataSourceName="jdbc/com.ibm.ws.sib/kwatanabe-PCNode01.server1-WS_test_persistBus"/&gt;
+    &lt;localizationPoints xmi:type="sibresources:SIBQueueLocalizationPoint" xmi:id="SIBQueueLocalizationPoint_1385370896860" identifier="_SYSTEM.Exception.Destination.kwatanabe-PCNode01.server1-WS_test_persistBus@kwatanabe-PCNode01.server1-WS_test_persistBus" uuid="91D6EFD60DA2F403" targetUuid="9339F2B805A020445FDAA58D"/&gt;
+    &lt;localizationPoints xmi:type="sibresources:SIBTopicSpaceLocalizationPoint" xmi:id="SIBTopicSpaceLocalizationPoint_1385370896872" identifier="Default.Topic.Space@kwatanabe-PCNode01.server1-WS_test_persistBus" uuid="972CE85FA69B2D5F" targetUuid="B6C676084446884C8B37E36E" highMessageThreshold="50000"/&gt;
+  &lt;/sibresources:SIBMessagingEngine&gt;
+&lt;/xmi:XMI&gt;
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+            
+        
+</p>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Warning">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Warning]" src="images/warning.png"></td><th align="left">Warning</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>JBossEAP6のメッセージングシステムであるHornetQはパーシステンス（永続化）のために、リレーショナルデータベースや他のパーシステンスエンジンを使用せずに、ローカルトランザクションおよび XA トランザクション対応のメッセージング用に最適化されたジャーナル機能を使用している。
+移行元の環境でJMSの永続化設定としてRDBMSによる永続化を行っている場合、JBossEAP6ではRDBMSを永続化として採用できないので注意すること。</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>HornetQはデフォルトでジャーナルの読み書きにJavaのNIOを利用している。LinuxカーネルのAIOを利用してジャーナルへのアクセスを高速化するためのプラグインも利用することが可能である。</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.2.3."></a>
+<h3 class="title">1.2.2.3.JMSシステムリソース設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			WASではJMSシステムリソースresources.xmlにコネクションファクトリ、キュー、トピックの設定がされる。
+			それぞれのJMSプロバイダごとに設定が異なる。
+		</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.2.3.1."></a>
+<h3 class="title">1.2.2.3.1.V5 Default Messaging Providerのリソース設定</h3>
+<br>
+<br>
+<a name="tubame_1.2.2.3.1.1."></a>
+<h3 class="title">1.2.2.3.1.1.V5 Default Messaging Providerのリソース設定(コネクションファクトリ、キュー、トピック)の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>WASではresources.xmlにfactoriesタグとしてJMSリソースを定義する
+        </p>
+<div class="figure">
+<a name="N1373F"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;resources.xmlファイルの設定例を示す。
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					  
+  &lt;resources.jms:JMSProvider xmi:id="builtin_jmsprovider" name="WebSphere JMS Provider" description="V5 Default Messaging Provider" externalInitialContextFactory="" externalProviderURL=""&gt;
+    &lt;factories xmi:type="resources.jms.internalmessaging:WASQueueConnectionFactory" xmi:id="WASQueueConnectionFactory_1385368885318" name="v5QueueConFactory" jndiName="jms/v5QueueConFactory" authMechanismPreference="BASIC_PASSWORD" XAEnabled="true" node="kwatanabe-PCNode01"&gt;
+      &lt;connectionPool xmi:id="ConnectionPool_1385368885318"/&gt;
+      &lt;mapping xmi:id="MappingModule_1385368885318" mappingConfigAlias="DefaultPrincipalMapping" authDataAlias=""/&gt;
+      &lt;sessionPool xmi:id="ConnectionPool_1385368885319"/&gt;
+    &lt;/factories&gt;
+    &lt;factories xmi:type="resources.jms.internalmessaging:WASTopicConnectionFactory" xmi:id="WASTopicConnectionFactory_1385368911511" name="v5TopicConFactory" jndiName="jms/v5TopicConFactory" authMechanismPreference="BASIC_PASSWORD" XAEnabled="true" node="kwatanabe-PCNode01" port="DIRECT" cloneSupport="false"&gt;
+      &lt;connectionPool xmi:id="ConnectionPool_1385368911511"/&gt;
+      &lt;mapping xmi:id="MappingModule_1385368911511" mappingConfigAlias="DefaultPrincipalMapping" authDataAlias=""/&gt;
+      &lt;sessionPool xmi:id="ConnectionPool_1385368911512"/&gt;
+    &lt;/factories&gt;
+    &lt;factories xmi:type="resources.jms.internalmessaging:WASQueue" xmi:id="WASQueue_1385369119990" name="ws_test_v5queueJms" jndiName="jms/ws_test_v5queueJms" persistence="APPLICATION_DEFINED" priority="APPLICATION_DEFINED" specifiedPriority="0"/&gt;
+    &lt;factories xmi:type="resources.jms.internalmessaging:WASTopic" xmi:id="WASTopic_1385369410704" name="ws_test_v5topicJms" jndiName="jms/ws_test_v5topicJms" topic="abc" persistence="APPLICATION_DEFINED" priority="APPLICATION_DEFINED" specifiedPriority="0" expiry="APPLICATION_DEFINED" specifiedExpiry="0"/&gt;
+  &lt;/resources.jms:JMSProvider&gt;
+
+ 
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+        
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.2.3.2."></a>
+<h3 class="title">1.2.2.3.2.WebSphere MQ Messaging Providerのリソース設定</h3>
+<br>
+<br>
+<a name="tubame_1.2.2.3.2.1."></a>
+<h3 class="title">1.2.2.3.2.1.WebSphere MQ Messaging Providerのリソース設定(コネクションファクトリ、キュー、トピック)の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>WASではresources.xmlにfactoriesタグとしてJMSリソースを定義する
+        </p>
+<div class="figure">
+<a name="N13756"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;resources.xmlファイルの設定例を示す。
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+  &lt;resources.jms:JMSProvider xmi:id="builtin_mqprovider" name="WebSphere MQ JMS Provider" description="WebSphere MQ Messaging Provider" externalInitialContextFactory="" externalProviderURL=""&gt;
+    &lt;factories xmi:type="resources.jms.mqseries:MQConnectionFactory" xmi:id="MQConnectionFactory_1385367620599" name="wmq-ConFactory" jndiName="jms/wmq-ConFactory" authMechanismPreference="BASIC_PASSWORD" XAEnabled="true" port="0" transportType="BINDINGS" brokerVersion="MQSI" pubSubCleanup="SAFE" pubSubCleanupInterval="3600000" msgSelection="BROKER" publishAckInterval="25" sparseSubscriptions="false" statRefreshInterval="60000" substore="MIGRATE" multicast="DISABLED" msgRetention="true" cloneSupport="false" directAuth="BASIC" failIfQuiesce="true" pollingInterval="5000" rescanInterval="5000" useConnectionPooling="true"&gt;
+      &lt;connectionPool xmi:id="ConnectionPool_1385367620599"/&gt;
+      &lt;mapping xmi:id="MappingModule_1385367620599" mappingConfigAlias="DefaultPrincipalMapping" authDataAlias=""/&gt;
+      &lt;sessionPool xmi:id="ConnectionPool_1385367620600"/&gt;
+    &lt;/factories&gt;
+    &lt;factories xmi:type="resources.jms.mqseries:MQQueueConnectionFactory" xmi:id="MQQueueConnectionFactory_1385367707946" name="wmq-QueueConFactory" jndiName="jms/wmq-QueueConFactory" authMechanismPreference="BASIC_PASSWORD" XAEnabled="true" port="0" transportType="BINDINGS" msgRetention="true" failIfQuiesce="true" pollingInterval="5000" rescanInterval="5000" useConnectionPooling="true"&gt;
+      &lt;connectionPool xmi:id="ConnectionPool_1385367707946"/&gt;
+      &lt;mapping xmi:id="MappingModule_1385367707946" mappingConfigAlias="DefaultPrincipalMapping" authDataAlias=""/&gt;
+      &lt;sessionPool xmi:id="ConnectionPool_1385367707947"/&gt;
+    &lt;/factories&gt;
+    &lt;factories xmi:type="resources.jms.mqseries:MQTopicConnectionFactory" xmi:id="MQTopicConnectionFactory_1385367758000" name="wmq-TopicConFactory" jndiName="jms/wmq-TopicConFactory" authMechanismPreference="BASIC_PASSWORD" XAEnabled="true" port="0" transportType="BINDINGS" brokerVersion="MQSI" cloneSupport="false" pubSubCleanup="SAFE" pubSubCleanupInterval="3600000" msgSelection="BROKER" publishAckInterval="25" sparseSubscriptions="false" statRefreshInterval="60000" substore="MIGRATE" multicast="DISABLED" directAuth="BASIC" failIfQuiesce="true" pollingInterval="5000" rescanInterval="5000" useConnectionPooling="true"&gt;
+      &lt;connectionPool xmi:id="ConnectionPool_1385367758000"/&gt;
+      &lt;mapping xmi:id="MappingModule_1385367758000" mappingConfigAlias="DefaultPrincipalMapping" authDataAlias=""/&gt;
+      &lt;sessionPool xmi:id="ConnectionPool_1385367758001"/&gt;
+    &lt;/factories&gt;
+    &lt;factories xmi:type="resources.jms.mqseries:MQQueue" xmi:id="MQQueue_1385370014306" name="ws_test_wmqjms" jndiName="jms/ws_test_wmqjms" persistence="APPLICATION_DEFINED" priority="APPLICATION_DEFINED" specifiedPriority="0" expiry="APPLICATION_DEFINED" specifiedExpiry="0" baseQueueName="abc" useNativeEncoding="false" integerEncoding="Normal" decimalEncoding="Normal" floatingPointEncoding="IEEENormal" targetClient="JMS" queueManagerPort="0"/&gt;
+    &lt;factories xmi:type="resources.jms.mqseries:MQTopic" xmi:id="MQTopic_1385370051237" name="ws_test_wmqjmstopic" jndiName="jms/ws_test_wmqjmstopic" persistence="APPLICATION_DEFINED" priority="APPLICATION_DEFINED" specifiedPriority="0" expiry="APPLICATION_DEFINED" specifiedExpiry="0" baseTopicName="abc" useNativeEncoding="false" integerEncoding="Normal" decimalEncoding="Normal" floatingPointEncoding="IEEENormal" targetClient="JMS"/&gt;
+  &lt;/resources.jms:JMSProvider&gt;
+
+ 
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+        
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.2.3.3."></a>
+<h3 class="title">1.2.2.3.3.Default messaging providerのリソース設定</h3>
+<br>
+<br>
+<a name="tubame_1.2.2.3.3.1."></a>
+<h3 class="title">1.2.2.3.3.1.Default messaging providerのリソース設定(コネクションファクトリ、キュー、トピック)の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			WASではresources.xmlにfactoriesタグとしてJMSリソースを定義する
+			</p>
+<div class="figure">
+<a name="N1376D"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;resources.xmlファイルの設定例を示す。
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+  &lt;resources.j2c:J2CResourceAdapter xmi:id="J2CResourceAdapter_1385359001534" name="SIB JMS Resource Adapter" description="Default messaging provider" archivePath="${WAS_INSTALL_ROOT}/installedConnectors/sib.api.jmsra.rar"&gt;
+    &lt;classpath&gt;${WAS_INSTALL_ROOT}/installedConnectors/sib.api.jmsra.rar&lt;/classpath&gt;
+    &lt;factories xmi:type="resources.j2c:J2CConnectionFactory" xmi:id="J2CConnectionFactory_1385363129378" name="WebServicesInput_QCF" jndiName="jms/ws_test_qcf" description="" category="" authDataAlias="" manageCachedHandles="false" logMissingTransactionContext="false" xaRecoveryAuthAlias="" connectionDefinition="ConnectionDefinition_1385359001535"&gt;
+      &lt;propertySet xmi:id="J2EEResourcePropertySet_1385363129472"&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129472" name="BusName" type="java.lang.String" value="WS_test_Bus" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129473" name="ClientID" type="java.lang.String" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129474" name="ConnectionProximity" type="java.lang.String" value="Bus" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129475" name="durableSubscriptionHome" type="java.lang.String" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129476" name="NonPersistentMapping" type="java.lang.String" value="ExpressNonPersistent" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129477" name="Password" type="java.lang.String" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129478" name="PersistentMapping" type="java.lang.String" value="ReliablePersistent" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129479" name="ProviderEndpoints" type="java.lang.String" value="" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129480" name="ReadAhead" type="java.lang.String" value="Default" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129481" name="RemoteProtocol" type="java.lang.String" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129482" name="TargetTransportChain" type="java.lang.String" value="" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129483" name="ShareDataSourceWithCMP" type="java.lang.Boolean" value="false" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129484" name="shareDurableSubscriptions" type="java.lang.String" value="InCluster" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129485" name="Target" type="java.lang.String" value="" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129486" name="TargetSignificance" type="java.lang.String" value="Preferred" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129487" name="TargetType" type="java.lang.String" value="BusMember" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129488" name="TemporaryQueueNamePrefix" type="java.lang.String" value="" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129489" name="temporaryTopicNamePrefix" type="java.lang.String" required="false"/&gt;
+        &lt;resourceProperties xmi:id="J2EEResourceProperty_1385363129490" name="UserName" type="java.lang.String" required="false"/&gt;
+      &lt;/propertySet&gt;
+      &lt;connectionPool xmi:id="ConnectionPool_1385363129378" connectionTimeout="180" maxConnections="10" minConnections="1" reapTime="180" unusedTimeout="1800" agedTimeout="0" purgePolicy="EntirePool" numberOfSharedPoolPartitions="0" numberOfUnsharedPoolPartitions="0" numberOfFreePoolPartitions="0" freePoolDistributionTableSize="0" surgeThreshold="-1" surgeCreationInterval="0" testConnection="false" testConnectionInterval="0" stuckTimerTime="0" stuckTime="0" stuckThreshold"0"/&gt;
+    &lt;/factories&gt;
+    &lt;factories xmi:type="resources.j2c:J2CConnectionFactory" xmi:id="J2CConnectionFactory_1385363201883" name="WebServicesReply_QCF" jndiName="jms/WebServicesReplyQCF" description="" category="" authDataAlias="" manageCachedHandles="false" logMissingTransactionContext="false" xaRecoveryAuthAlias="" connectionDefinition="ConnectionDefinition_1385359001535"&gt;
+      &lt;propertySet xmi:id="J2EEResourcePropertySet_1385363201921"&gt;
+       ...
+      &lt;/propertySet&gt;
+      &lt;connectionPool xmi:id="ConnectionPool_1385363201883" connectionTimeout="180" maxConnections="10" minConnections="1" reapTime="180" unusedTimeout="1800" agedTimeout="0" purgePolicy="EntirePool" numberOfSharedPoolPartitions="0" numberOfUnsharedPoolPartitions="0" numberOfFreePoolPartitions="0" freePoolDistributionTableSize="0" surgeThreshold="-1" surgeCreationInterval="0" testConnection="false" testConnectionInterval="0" stuckTimerTime="0" stuckTime="0" stuckThreshold="0"/&gt;
+    &lt;/factories&gt;
+    &lt;factories xmi:type="resources.j2c:J2CConnectionFactory" xmi:id="J2CConnectionFactory_1385364899743" name="orzQFactory" jndiName="jms/orzQFactory" description="" category="" authDataAlias="" manageCachedHandles="false" logMissingTransactionContext="false" xaRecoveryAuthAlias="" connectionDefinition="ConnectionDefinition_1385359001535"&gt;
+      &lt;propertySet xmi:id="J2EEResourcePropertySet_1385364899815"&gt;
+       ...
+      &lt;/propertySet&gt;
+      &lt;connectionPool xmi:id="ConnectionPool_1385364899743" connectionTimeout="180" maxConnections="10" minConnections="1" reapTime="180" unusedTimeout="1800" agedTimeout="0" purgePolicy="EntirePool" numberOfSharedPoolPartitions="0" numberOfUnsharedPoolPartitions="0" numberOfFreePoolPartitions="0" freePoolDistributionTableSize="0" surgeThreshold="-1" surgeCreationInterval="0" testConnection="false" testConnectionInterval="0" stuckTimerTime="0" stuckTime="0" stuckThreshold="0"/&gt;
+    &lt;/factories&gt;
+    &lt;factories xmi:type="resources.j2c:J2CConnectionFactory" xmi:id="J2CConnectionFactory_1385366029926" name="hogeConFactory" jndiName="jms/hogeConFactory" description="" category="" authDataAlias="" manageCachedHandles="false" logMissingTransactionContext="false" xaRecoveryAuthAlias="" connectionDefinition="ConnectionDefinition_1385359001537"&gt;
+      &lt;propertySet xmi:id="J2EEResourcePropertySet_1385366029986"&gt;
+      ...
+      &lt;/propertySet&gt;
+      &lt;connectionPool xmi:id="ConnectionPool_1385366029926" connectionTimeout="180" maxConnections="10" minConnections="1" reapTime="180" unusedTimeout="1800" agedTimeout="0" purgePolicy="EntirePool" numberOfSharedPoolPartitions="0" numberOfUnsharedPoolPartitions="0" numberOfFreePoolPartitions="0" freePoolDistributionTableSize="0" surgeThreshold="-1" surgeCreationInterval="0" testConnection="false" testConnectionInterval="0" stuckTimerTime="0" stuckTime="0" stuckThreshold="0"/&gt;
+    &lt;/factories&gt;
+    
+    
+   
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+			
+</p>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Warning">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Warning]" src="images/warning.png"></td><th align="left">Warning</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>
+					実際のリソースの種別については、factoriesタグのconnectionDefinition属性値より確認すること。
+
+					</p>
+<div class="figure">
+<a name="N1377B"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;resources.xmlファイルのconnectionDefinition属性値の確認。
+						</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+
+&lt;resourceAdapter xmi:id="ResourceAdapter_1385359001535" transactionSupport="NoTransaction" reauthenticationSupport="false" resourceAdapterClass="com.ibm.ws.sib.api.jmsra.impl.JmsJcaResourceAdapterImpl"&gt;
+        &lt;outboundResourceAdapter xmi:id="OutboundResourceAdapter_1385359001535" reauthenticationSupport="false" transactionSupport="XATransaction"&gt;
+          &lt;connectionDefinitions xmi:id="ConnectionDefinition_1385359001535" managedConnectionFactoryClass="com.ibm.ws.sib.api.jmsra.impl.JmsJcaManagedQueueConnectionFactoryImpl" connectionFactoryInterface="javax.jms.QueueConnectionFactory" connectionFactoryImplClass="com.ibm.ws.sib.api.jms.impl.JmsQueueConnFactoryImpl" connectionInterface="javax.jms.QueueConnection" connectionImplClass="com.ibm.ws.sib.api.jms.impl.JmsQueueConnectionImpl"&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001536" name="BusName" type="java.lang.String"/&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001537" name="ClientID" type="java.lang.String"/&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001538" name="UserName" type="java.lang.String"/&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001539" name="Password" type="java.lang.String"/&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001540" name="NonPersistentMapping" type="java.lang.String" value="ExpressNonPersistent"/&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001541" name="PersistentMapping" type="java.lang.String" value="ReliablePersistent"/&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001542" name="ReadAhead" type="java.lang.String" value="Default"/&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001543" name="Target" type="java.lang.String"/&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001544" name="TargetType" type="java.lang.String" value="BusMember"/&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001545" name="TargetSignificance" type="java.lang.String" value="Preferred"/&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001546" name="RemoteProtocol" type="java.lang.String"/&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001547" name="TargetTransportChain" type="java.lang.String"/&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001548" name="ProviderEndpoints" type="java.lang.String"/&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001549" name="ConnectionProximity" type="java.lang.String" value="Bus"/&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001550" name="TemporaryQueueNamePrefix" type="java.lang.String"/&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001551" name="ShareDataSourceWithCMP" type="java.lang.Boolean" value="false"/&gt;
+          &lt;/connectionDefinitions&gt;
+          &lt;connectionDefinitions xmi:id="ConnectionDefinition_1385359001536" managedConnectionFactoryClass="com.ibm.ws.sib.api.jmsra.impl.JmsJcaManagedTopicConnectionFactoryImpl" connectionFactoryInterface="javax.jms.TopicConnectionFactory" connectionFactoryImplClass="com.ibm.ws.sib.api.jms.impl.JmsTopicConnFactoryImpl" connectionInterface="javax.jms.TopicConnection" connectionImplClass="com.ibm.ws.sib.api.jms.impl.JmsTopicConnectionImpl"&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001552" name="BusName" type="java.lang.String"/&gt;
+            ...
+          &lt;/connectionDefinitions&gt;
+          &lt;connectionDefinitions xmi:id="ConnectionDefinition_1385359001537" managedConnectionFactoryClass="com.ibm.ws.sib.api.jmsra.impl.JmsJcaManagedConnectionFactoryImpl" connectionFactoryInterface="javax.jms.ConnectionFactory" connectionFactoryImplClass="com.ibm.ws.sib.api.jms.impl.JmsConnFactoryImpl" connectionInterface="javax.jms.Connection" connectionImplClass="com.ibm.ws.sib.api.jms.impl.JmsConnectionImpl"&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1385359001570" name="BusName" type="java.lang.String"/&gt;
+            ....
+          &lt;/connectionDefinitions&gt;
+						</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+					managedConnectionFactoryClassの応じて、リソースの種別が決まる。
+					</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>javax.jms.ConnectionFactory</p>
+<p>com.ibm.ws.sib.api.jmsra.impl.JmsJcaManagedConnectionFactoryImpl</p>
+</li>
+<li class="listitem">
+<p>javax.jms.QueueConnectionFactory</p>
+<p>com.ibm.ws.sib.api.jms.impl.JmsQueueConnFactoryImpl</p>
+</li>
+<li class="listitem">
+<p>javax.jms.TopicConnectionFactory</p>
+<p>com.ibm.ws.sib.api.jms.impl.JmsTopicConnFactoryImpl</p>
+</li>
+</ul>
+</div>
+<p>
+				
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.2.3.4."></a>
+<h3 class="title">1.2.2.3.4.JBossのJMSシステムリソース設定</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBossのJMSリソース設定方法について示す.</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.2.3.4.1."></a>
+<h3 class="title">1.2.2.3.4.1.JMSコネクションファクトリの移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			WASでは、キューや、トピックごとにコネクションファクトリを作成して利用するようになっているが、JBossではデフォルトで以下のコネクションファクトリがデフォルトで利用可能である。移行後の環境では、デフォルトでJNDIにバインドされている以下のコネクションファクトリを利用するようにプログラムを修正すること
+
+			</p>
+<div class="table">
+<a name="N137B0"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;XA対応のコネクションファクトリ
+				</b>
+</p>
+<div class="table-contents">
+<table summary="XA対応のコネクションファクトリ
+				" border="1">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>#</th><th>コネクションファクトリ名</th><th>JBossのJNDIにバンドされているJNDI名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td><td>hornetq-ra</td><td>java:/JmsXA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>
+<br class="table-break">
+			
+</p>
+<div class="table">
+<a name="N137C6"></a>
+<p class="title">
+<b>Table&nbsp;2.&nbsp;非XAのコネクションファクトリ
+				</b>
+</p>
+<div class="table-contents">
+<table summary="非XAのコネクションファクトリ
+				" border="1">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>#</th><th>コネクションファクトリ名</th><th>JBossのJNDIにバンドされているJNDI名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td><td>InVmConnectionFactory</td><td>java:/ConnectionFactory</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>
+<br class="table-break">
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.2.3.4.2."></a>
+<h3 class="title">1.2.2.3.4.2.JMSキュー設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			JBossの場合は、管理CLIよりキューの登録を行う。以下の設定を参考に、キューの登録設定を行う。
+			</p>
+<div class="table">
+<a name="N137E8"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;キュー設定
+				</b>
+</p>
+<div class="table-contents">
+<table summary="キュー設定
+				" border="1">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>#</th><th>queueタグのname属性値</th><th>jndi-nameタグの値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td><td>exampleQueue</td><td>exampleGlobalQueue</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>
+<br class="table-break">
+			
+</p>
+<div class="figure">
+<a name="N137FE"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;管理CLIによるキューの登録例
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+/subsystem=messaging/hornetq-server=default/jms-queue=exampleQueue:add(entries=["java:jboss/exported/exampleGlobalQueue"])
+
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.2.3.4.3."></a>
+<h3 class="title">1.2.2.3.4.3.JMSトピック設定の移行</h3>
+<br>
+<br>
+<a name="tubame_1.2.3."></a>
+<h3 class="title">1.2.3.ResourceAdapter設定(J2CResourceAdapter)の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			WASではWebSphere Relational Resource Adapterが標準で組み込まれている。
+			</p>
+<div class="figure">
+<a name="N1382F"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;resource.xml設定例
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;resources.j2c:J2CResourceAdapter xmi:id="builtin_rra" name="WebSphere Relational Resource Adapter" description="Built-in Relational Resource Adapter for WebSphere Persistence" archivePath="${WAS_LIBS_DIR}/rsadapter.rar"&gt;
+    &lt;classpath&gt;${WAS_LIBS_DIR}/rsadapter.rar&lt;/classpath&gt;
+    &lt;factories xmi:type="resources.jdbc:CMPConnectorFactory" xmi:id="CMPConnectorFactory_1385359050913" name="Default_CF" authMechanismPreference="BASIC_PASSWORD" connectionDefinition="ConnectionDefinition_1054132487569" cmpDatasource="DataSource_1385359050880"&gt;
+      &lt;propertySet xmi:id="J2EEResourcePropertySet_1385359050913"/&gt;
+    &lt;/factories&gt;
+    &lt;factories xmi:type="resources.jdbc:CMPConnectorFactory" xmi:id="CMPConnectorFactory_1385359064582" name="PLANTSDB_CF" authMechanismPreference="BASIC_PASSWORD" connectionDefinition="ConnectionDefinition_1054132487569" cmpDatasource="DataSource_1385359064554"&gt;
+      &lt;propertySet xmi:id="J2EEResourcePropertySet_1385359064582"/&gt;
+    &lt;/factories&gt;
+    &lt;propertySet xmi:id="J2EEResourcePropertySet_8"/&gt;
+    &lt;deploymentDescriptor xmi:id="Connector_1054132487569" displayName="WS_RdbResourceAdapter" vendorName="IBM" specVersion="1.5" eisType="RRA" version="6.0"&gt;
+      &lt;icons xmi:id="IconType_1054132487569" smallIcon="rdb_small_icon.jpg" largeIcon="rdb_large_icon.jpg"/&gt;
+      &lt;displayNames xmi:id="DisplayName_1385370896745" value="WS_RdbResourceAdapter"/&gt;
+      &lt;displayNames xmi:id="DisplayName_1385370014306" value="WS_RdbResourceAdapter"/&gt;
+      &lt;displayNames xmi:id="DisplayName_1385369410704" value="WS_RdbResourceAdapter"/&gt;
+      &lt;displayNames xmi:id="DisplayName_1385369119990" value="WS_RdbResourceAdapter"/&gt;
+      &lt;displayNames xmi:id="DisplayName_1385368885319" value="WS_RdbResourceAdapter"/&gt;
+      &lt;displayNames xmi:id="DisplayName_1385367620599" value="WS_RdbResourceAdapter"/&gt;
+      &lt;displayNames xmi:id="DisplayName_1385366029925" value="WS_RdbResourceAdapter"/&gt;
+      &lt;displayNames xmi:id="DisplayName_1385364899741" value="WS_RdbResourceAdapter"/&gt;
+      &lt;displayNames xmi:id="DisplayName_1385363016745" value="WS_RdbResourceAdapter"/&gt;
+      &lt;displayNames xmi:id="DisplayName_1385359064429" value="WS_RdbResourceAdapter"/&gt;
+      &lt;displayNames xmi:id="DisplayName_1385359050500" value="WS_RdbResourceAdapter"/&gt;
+      &lt;displayNames xmi:id="DisplayName_1054132487569" value="WS_RdbResourceAdapter"/&gt;
+      &lt;descriptions xmi:id="Description_1054132487569" value="IBM Relational ResourceAdapter"/&gt;
+      &lt;license xmi:id="License_1054132487569" required="false"&gt;
+        &lt;descriptions xmi:id="Description_1054132487570" value="IBM Relational ResourceAdapter"/&gt;
+      &lt;/license&gt;
+      &lt;resourceAdapter xmi:id="ResourceAdapter_1054132487569" transactionSupport="NoTransaction" reauthenticationSupport="false" resourceAdapterClass="com.ibm.ws.rsadapter.spi.WSResourceAdapterImpl"&gt;
+        &lt;outboundResourceAdapter xmi:id="OutboundResourceAdapter_1054132487569" reauthenticationSupport="false" transactionSupport="XATransaction"&gt;
+          &lt;connectionDefinitions xmi:id="ConnectionDefinition_1054132487569" managedConnectionFactoryClass="com.ibm.ws.rsadapter.spi.WSManagedConnectionFactoryImpl" connectionFactoryInterface="javax.resource.cci.ConnectionFactory" connectionFactoryImplClass="com.ibm.ws.rsadapter.cci.WSRdbConnectionFactoryImpl" connectionInterface="javax.resource.cci.Connection" connectionImplClass="com.ibm.ws.rsadapter.cci.WSRdbConnectionImpl"&gt;
+            &lt;configProperties xmi:id="ConfigProperty_1054132487569" name="ConnectionFactoryType" type="java.lang.Integer" value="2"&gt;
+              &lt;descriptions xmi:id="Description_1054132487571" value="A constant indicating the type of connection factory: WSJdbcDataSource (1) or WSRdbConnectionFactory (2)"/&gt;
+            &lt;/configProperties&gt;
+          &lt;/connectionDefinitions&gt;
+          &lt;authenticationMechanisms xmi:id="AuthenticationMechanism_1054132487589" authenticationMechanismType="BasicPassword" credentialInterface="javax.resource.spi.security.PasswordCredential"&gt;
+            &lt;descriptions xmi:id="Description_1054132487590" value="BasicPassword authntication"/&gt;
+          &lt;/authenticationMechanisms&gt;
+          &lt;authenticationMechanisms xmi:id="AuthenticationMechanism_1054132487590" authenticationMechanismType="Kerbv5" credentialInterface="javax.resource.spi.security.GenericCredential"&gt;
+            &lt;descriptions xmi:id="Description_1054132487591" value="Kerbv5 Authentication"/&gt;
+          &lt;/authenticationMechanisms&gt;
+        &lt;/outboundResourceAdapter&gt;
+      &lt;/resourceAdapter&gt;
+    &lt;/deploymentDescriptor&gt;
+    &lt;connectionDefTemplateProps xmi:id="ConnectionDefTemplateProps_1054132487589" ConnectionDefinition="ConnectionDefinition_1054132487569"/&gt;
+  &lt;/resources.j2c:J2CResourceAdapter&gt;
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+		
+</p>
+<p>
+			JBossの場合はリソースアダプタは管理CLIより登録する。
+
+			</p>
+<div class="figure">
+<a name="N1383C"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;WebSphere MQのリソースアダプタをJBossに登録する管理CLIを示す。(参考)
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+deploy wmq.jmsra.rar
+/subsystem=resource-adapters/resource-adapter=wmq.jmsra.rar/:add(archive=deploy wmq.jmsra.rar,transaction-support=XATransaction)
+/subsystem=resource-adapters/resource-adapter=wmq.jmsra.rar/config-properties=maxConnections/:add(value=15)
+/subsystem=resource-adapters/resource-adapter=wmq.jmsra.rar/config-properties=connectionConcurrency/:add(value=5)
+/subsystem=resource-adapters/resource-adapter=wmq.jmsra.rar/connection-definitions=TestConnectionFactory:add(class-name=com.ibm.mq.connector.outbound.ManagedConnectionFactoryImpl, jndi-name=java:jboss/TestConnectionFactory)
+/subsystem=resource-adapters/resource-adapter=wmq.jmsra.rar/admin-objects=TestQueue:add(class-name=com.ibm.mq.connector.outbound.MQQueueProxy, jndi-name=java:jboss/jms/TestQueue)
+/subsystem=resource-adapters/resource-adapter=wmq.jmsra.rar/admin-objects=TestQueue/config-properties=baseQueueName/:add(value=TestQueue)
+/subsystem=resource-adapters/resource-adapter=wmq.jmsra.rar:activate
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.4."></a>
+<h3 class="title">1.2.4.メール設定(MailProvider)の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>WASではメールプロバイダが標準で組み込まれている。
+        
+        </p>
+<div class="figure">
+<a name="N13853"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;resource.xml設定例
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+  &lt;resources.mail:MailProvider xmi:id="builtin_mailprovider" name="Built-in Mail Provider" description="The built-in mail provider"&gt;
+    &lt;protocolProviders xmi:id="builtin_smtp" protocol="smtp" classname="com.sun.mail.smtp.SMTPTransport" type="TRANSPORT"/&gt;
+    &lt;protocolProviders xmi:id="builtin_pop3" protocol="pop3" classname="com.sun.mail.pop3.POP3Store" type="STORE"/&gt;
+    &lt;protocolProviders xmi:id="builtin_imap" protocol="imap" classname="com.sun.mail.imap.IMAPStore" type="STORE"/&gt;
+  &lt;/resources.mail:MailProvider&gt;
+
+  
+ 
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+        
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.5."></a>
+<h3 class="title">1.2.5.URL設定(URLPorivder)の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>WASではURLプロバイダが標準で組み込まれている。
+        
+        </p>
+<div class="figure">
+<a name="N1386A"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;resource.xml設定例
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;resources.url:URLProvider xmi:id="URLProvider_1" name="Default URL Provider" streamHandlerClassName="unused" protocol="unused"/&gt;
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+        
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.3."></a>
+<h3 class="title">1.3.アプリケーションサーバにおけるサーバ設定</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			WASでは、APサーバに関する設定は主にserver.xmlで行っている。APサーバ関連の主要な設定としては、以下が定義可能である。
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>ログ設定の移行</p>
+</li>
+<li class="listitem">
+<p>Webコンテナ(WebContainer)設定</p>
+</li>
+<li class="listitem">
+<p>EJBコンテナ(EJBContainer)設定</p>
+</li>
+<li class="listitem">
+<p>Portletコンテナ(PortletContainer)設定</p>
+</li>
+<li class="listitem">
+<p>SIPコンテナ(SIPContainer)設定</p>
+</li>
+</ul>
+</div>
+<p>
+
+			本章では、server.xmlで行っている設定をJBossで実施する方法について記載する。
+
+		</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.3.1."></a>
+<h3 class="title">1.3.1.ログ設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			WASでは以下の種類のログファイルが存在する。これらの設定はserver.logより確認できる。
+
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>SystemOut.log(outputStreamRedirect)</p>
+</li>
+<li class="listitem">
+<p>SystemErr.log(errorStreamRedirect)</p>
+</li>
+<li class="listitem">
+<p>trace.log(トレースログ)</p>
+</li>
+<li class="listitem">
+<p>activity.log(サーバログ)</p>
+</li>
+</ul>
+</div>
+<p>
+		
+</p>
+<p>
+			JBossではアプリケーションサーバのサーバログとしてserver.logに出力する。
+			Loggingのログレベルとして以下のログレベルが利用可能である。
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>JBoss Loggingのログレベル:TRACE、DEBUG、INFO、 WARN、ERROR、FATAL</p>
+<p>WASのログレベル：Finest、Finer、Fine、Detail、INFO、WARNING、ERROR、Audit、CRITICAL、FINEST</p>
+</li>
+</ul>
+</div>
+<p>
+		
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>JBossのログ出力にはJBoss
+				Loggingのほかに、java、commons-logging、log4j、sl4jのログフレームワークに対応しているたため、これらのログフレームワークが対応するすべてのログレベルに対応している
+			</p>
+<p>なお、アプリケーションのログ出力に、これらのログフレームワークを利用する場合は、JBossが提供している上記のログフレームワークのライブラリを利用して、コンパイルすること。アーカイブ時には、コンテナがモジュールとしてクラスをロードしているため、ログフレームワークライブラリを同梱させる必要はありません。
+			</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_1.3.1.1."></a>
+<h3 class="title">1.3.1.1.サーバログのローテーション設定</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+		JBossのサーバログのローテーション設定について示す。
+
+            </p>
+<div class="figure">
+<a name="N130CA"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;管理CLIによるサーバログ設定例（デフォルトで日単位によるローテーションからサイズに変更）
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+/subsystem=logging/periodic-rotating-file-handler=FILE:remove
+/subsystem=logging/size-rotating-file-handler=FILE:add(file={"path"=&gt;"server.log", "relative-to"=&gt;"jboss.server.log.dir}, rotate-size="100m", max-backup-index=10)
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+            　　　　　上記の示す通り、ログファイルのファイルサイズ上限とバックアップファイル数を指定できます。指定はsize-rotating-file-handlerのパラメータで行い、ファイルサイズの上限はrotate-sizeパラメータ、バックアップファイル数はmax-backup-indexパラメータで指定します。なお、ファイルサイズは「M」と記述することで「メガバイト」単位を指定でき、同様に「K」、「G」も指定可能です。
+            
+		</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.3.1.2."></a>
+<h3 class="title">1.3.1.2.Webアクセスログのローテーション設定</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			JBossのWEBアクセスログのローテーション設定について示す。
+			
+            </p>
+<div class="figure">
+<a name="N130E1"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;管理CLIによるWebアクセスログ出力設定
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+/subsystem=web/virtual-server=default-host/access-log=configuration/:add(pattern="%t,%a,%U,%s,%D",resolve-hosts=false, prefix="localhost_access_log.", rotate=true) 
+/subsystem=web/virtual-server=default-host/access-log=configuration/directory=configuration/:add(relative-to="jboss.server.log.dir",path=".")
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+            
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.3.2."></a>
+<h3 class="title">1.3.2.Webコンテナ(WebContainer)設定</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			Webコンテナ設定では以下の設定について示す
+
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>ワーカースレッド数の設定</p>
+</li>
+<li class="listitem">
+<p>セッション永続化設定</p>
+</li>
+</ul>
+</div>
+<p>
+
+			
+</p>
+<div class="figure">
+<a name="N134E0"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;WASのserver.xmlにおけるWebコンテナ設定
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;components xmi:type="applicationserver:ApplicationServer" xmi:id="ApplicationServer_1385359009220" applicationClassLoaderPolicy="MULTIPLE"&gt;
+  ...
+    &lt;components xmi:type="applicationserver.webcontainer:WebContainer" xmi:id="WebContainer_1385359009220" enableServletCaching="false" disablePooling="false"&gt;
+      &lt;stateManagement xmi:id="StateManageable_1385359009222" initialState="START"/&gt;
+      &lt;services xmi:type="applicationserver.webcontainer:SessionManager" xmi:id="SessionManager_1385359009220" enable="true" enableUrlRewriting="false" enableCookies="true" enableSSLTracking="false" enableProtocolSwitchRewriting="false" sessionPersistenceMode="NONE" enableSecurityIntegration="false" allowSerializedSessionAccess="false" maxWaitTime="5" accessSessionOnTimeout="true"&gt;
+        &lt;defaultCookieSettings xmi:id="Cookie_1385359009220" domain="" maximumAge="-1" secure="false"/&gt;
+        &lt;sessionDatabasePersistence xmi:id="SessionDatabasePersistence_1385359009220" datasourceJNDIName="jdbc/Sessions" userId="db2admin" password="{xor}Oz1tPjsyNjE=" db2RowSize="ROW_SIZE_4KB" tableSpaceName=""/&gt;
+        &lt;tuningParams xmi:id="TuningParams_1385359009220" usingMultiRowSchema="false" maxInMemorySessionCount="1000" allowOverflow="true" scheduleInvalidation="false" writeFrequency="TIME_BASED_WRITE" writeInterval="10" writeContents="ONLY_UPDATED_ATTRIBUTES" invalidationTimeout="30"&gt;
+          &lt;invalidationSchedule xmi:id="InvalidationSchedule_1385359009220" firstHour="14" secondHour="2"/&gt;
+        &lt;/tuningParams&gt;
+      &lt;/services&gt;
+    &lt;/components&gt;
+  &lt;/components&gt;
+ 
+ 
+ 
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.3.2.1."></a>
+<h3 class="title">1.3.2.1.ワーカースレッド数の設定</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>WASではserver.xmlのThreadPoolタグ(name="WebContainer")にてスレッドの制御設定を行っている
+        
+        </p>
+<div class="figure">
+<a name="N134F7"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;server.xmlのThreadPoolタグ設定
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+  &lt;services xmi:type="threadpoolmanager:ThreadPoolManager" xmi:id="ThreadPoolManager_1385359009220" enable="true"&gt;
+    &lt;threadPools xmi:id="ThreadPool_1385359009224" minimumSize="10" maximumSize="50" inactivityTimeout="3500" isGrowable="false" name="ORB.thread.pool"/&gt;
+    &lt;threadPools xmi:id="ThreadPool_1385359009225" minimumSize="1" maximumSize="3" inactivityTimeout="30000" isGrowable="false" name="server.startup" description="This pool is used by WebSphere during server startup."/&gt;
+    &lt;threadPools xmi:id="ThreadPool_1385359009226" minimumSize="5" maximumSize="20" name="Default"/&gt;
+    &lt;threadPools xmi:id="ThreadPool_1385359009220" minimumSize="10" maximumSize="50" inactivityTimeout="3500" isGrowable="false" name="WebContainer"/&gt;
+    &lt;threadPools xmi:id="ThreadPool_1385359009221" minimumSize="5" maximumSize="20" name="TCPChannel.DCS"/&gt;
+    &lt;threadPools xmi:id="ThreadPool_1385359009222" minimumSize="4" maximumSize="50" name="SIBFAPInboundThreadPool" description="Service integration bus FAP inbound channel thread pool"/&gt;
+    &lt;threadPools xmi:id="ThreadPool_1385359009223" minimumSize="4" maximumSize="50" name="SIBFAPThreadPool" description="Service integration bus FAP outbound channel thread pool"/&gt;
+  &lt;/services&gt;
+  
+ 
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+        
+</p>
+<p>
+			JBossの場合は、管理CLIよりWebサブシステムのAJPコネクターのmax-connectionsで、スレッドの制御設定(最大接続数)の設定を行います。
+
+			</p>
+<div class="figure">
+<a name="N13504"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;管理CLI
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+/subsystem=web/connector=ajp/:write-attribute(name=max-connections,value=100)
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.3.2.2."></a>
+<h3 class="title">1.3.2.2.セッション永続化設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>WASではserver.xmlのsessionDatabasePersistenceタグにより、RDBMSを永続化先として設定できる
+        
+        </p>
+<div class="figure">
+<a name="N1351B"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;server.xmlのsessionDatabasePersistence設定
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;components xmi:type="applicationserver.webcontainer:WebContainer" xmi:id="WebContainer_1385359009220" enableServletCaching="false" disablePooling="false"&gt;
+      &lt;stateManagement xmi:id="StateManageable_1385359009222" initialState="START"/&gt;
+      &lt;services xmi:type="applicationserver.webcontainer:SessionManager" xmi:id="SessionManager_1385359009220" enable="true" enableUrlRewriting="false" enableCookies="true" enableSSLTracking="false" enableProtocolSwitchRewriting="false" sessionPersistenceMode="NONE" enableSecurityIntegration="false" allowSerializedSessionAccess="false" maxWaitTime="5" accessSessionOnTimeout="true"&gt;
+        &lt;defaultCookieSettings xmi:id="Cookie_1385359009220" domain="" maximumAge="-1" secure="false"/&gt;
+        &lt;sessionDatabasePersistence xmi:id="SessionDatabasePersistence_1385359009220" datasourceJNDIName="jdbc/Sessions" userId="db2admin" password="{xor}Oz1tPjsyNjE=" db2RowSize="ROW_SIZE_4KB" tableSpaceName=""/&gt;
+        &lt;tuningParams xmi:id="TuningParams_1385359009220" usingMultiRowSchema="false" maxInMemorySessionCount="1000" allowOverflow="true" scheduleInvalidation="false" writeFrequency="TIME_BASED_WRITE" writeInterval="10" writeContents="ONLY_UPDATED_ATTRIBUTES" invalidationTimeout="30"&gt;
+          &lt;invalidationSchedule xmi:id="InvalidationSchedule_1385359009220" firstHour="14" secondHour="2"/&gt;
+        &lt;/tuningParams&gt;
+      &lt;/services&gt;
+    &lt;/components&gt;
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+        
+        
+</p>
+<p>JBossはデフォルトでメモリが採用される。</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.3.3."></a>
+<h3 class="title">1.3.3.EJBコンテナ(EJBContainer)設定</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			EJBコンテナ設定では以下の設定について示す
+
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>MDBのスレッドプール設定の移行</p>
+</li>
+<li class="listitem">
+<p>EJBのキャッシュ設定の移行</p>
+</li>
+<li class="listitem">
+<p>EJBのタイマー設定の移行</p>
+</li>
+</ul>
+</div>
+<p>
+
+			
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.3.3.1."></a>
+<h3 class="title">1.3.3.1.MDBのスレッドプール設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>WASではserver.xmlのThreadPool(name="Message.Listener.Pool")でMDBのスレッドプール設定を行う。
+        
+        </p>
+<div class="figure">
+<a name="N1354B"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;WASのserver.xmlにおけるWebコンテナ設定
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;components xmi:type="applicationserver:ApplicationServer" xmi:id="ApplicationServer_1385359009220" applicationClassLoaderPolicy="MULTIPLE"&gt;
+  ...
+	 &lt;components xmi:type="applicationserver.ejbcontainer:EJBContainer" xmi:id="EJBContainer_1385359009220" passivationDirectory="${USER_INSTALL_ROOT}/temp" inactivePoolCleanupInterval="30000"&gt;
+	      &lt;stateManagement xmi:id="StateManageable_1385359009223" initialState="START"/&gt;
+	      &lt;services xmi:type="applicationserver.ejbcontainer.messagelistener:MessageListenerService" xmi:id="MessageListenerService_1385359009220"&gt;
+	        &lt;threadPool xmi:id="ThreadPool_1385359009227" minimumSize="10" maximumSize="50" inactivityTimeout="3500" isGrowable="false" name="Message.Listener.Pool"/&gt;
+	      &lt;/services&gt;
+	      &lt;cacheSettings xmi:id="EJBCache_1385359009220" cleanupInterval="3000" cacheSize="2053"/&gt;
+	      &lt;timerSettings xmi:id="EJBTimer_1385359009220" datasourceJNDIName="jdbc/DefaultEJBTimerDataSource" tablePrefix="EJBTIMER_" pollInterval="300" numAlarmThreads="1"/&gt;
+	   &lt;/components&gt;
+&lt;/components&gt;
+   
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+         
+</p>
+<p>
+        
+        JBossの場合は、スレッドプール設定でなく、MDBの「MDBのインスタンスプール数」と「MDB個々の同時実行数」で設定を行う。
+		</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>JBossのEJBのインスタンスプールのサイズは、フォルトでは最大が20である。定常的にインスタンスの数がプールの最大数に到達する場合は、以下の設定でチューニングを検討する必要がある
+			</p>
+<p>JBossの場合は、以下の手順でEJBインスタンスプールの設定を行う  </p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>デフォルトで適用されるMDBのインスタンスプール設定を管理CLIより変更する。weblogic-ejb-jar.xmlのmax-beans-in-free-poolタグで
+						設定されるインスタンスプールの上限値の設定を、JBossのインスタンスプール設定(mdb-strict-max-pool)のmax-pool-sizeを変更する方法を示す。
+					</p>
+<div class="figure">
+<a name="N13561"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;mdb-strict-max-poolののmax-pool-sizeをデフォルトの20より25に変更する.
+						</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+/subsystem=ejb3/strict-max-bean-instance-pool=mdb-strict-max-pool:write-attribute(name=max-pool-size,value=25)
+
+						</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+</ol>
+</div>
+<p>「MDBの同時実行数」はデフォルトでは15となっています。MDBの同時実行数がボトルネックでMDBの同時実行数を上げることでさらにスループットの向上が期待できる場合は、以下の設定でチューニングを検討する必要がある
+			</p>
+<p>設定方法は、MDBにjavax.ejb.ActivationConfigPropertyを付与し、propertyNameに"maxSession"を設定し、propertyValue の値にMDBの同時実行数を設定する。
+			</p>
+<div class="figure">
+<a name="N1356F"></a>
+<p class="title">
+<b>Figure&nbsp;3.&nbsp;ActivationConfigPropertyによるmaxSession設定
+						</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+...
+import javax.ejb.ActivationConfigProperty;
+import javax.ejb.EJB;
+import javax.ejb.MessageDriven;
+import javax.jms.Message;
+import javax.jms.MessageListener;
+...
+
+@MessageDriven(name = "QueueReciverBean", 
+activationConfig = {
+@ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
+@ActivationConfigProperty(propertyName = "destination", propertyValue = "queue/test"),
+
+@ActivationConfigProperty(propertyName = "maxSession", propertyValue = "20") })
+
+public class QueueReciverBean implements MessageListener{
+
+	@Override
+	public void onMessage(Message rcvMessage) {
+	
+	...
+		
+	}
+	
+}
+						</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+			
+			
+</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_1.3.3.2."></a>
+<h3 class="title">1.3.3.2.EJBのキャッシュ設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>WASではserver.xmlのcacheSettingsにてEJBインスタンスキャッシュ設定を行う。
+        
+        
+                </p>
+<div class="figure">
+<a name="N13586"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;WASのserver.xmlにおけるEJBインスタンスキャッシュ設定
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;components xmi:type="applicationserver:ApplicationServer" xmi:id="ApplicationServer_1385359009220" applicationClassLoaderPolicy="MULTIPLE"&gt;
+  ...
+	 &lt;components xmi:type="applicationserver.ejbcontainer:EJBContainer" xmi:id="EJBContainer_1385359009220" passivationDirectory="${USER_INSTALL_ROOT}/temp" inactivePoolCleanupInterval="30000"&gt;
+	      ...
+	      &lt;cacheSettings xmi:id="EJBCache_1385359009220" cleanupInterval="3000" cacheSize="2053"/&gt;
+	      ...
+	   &lt;/components&gt;
+&lt;/components&gt;
+   
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+         
+</p>
+<p>
+
+			JBossではEJBインスタンスキャッシュ設定は、ejb3およびinfinispanサブシステムで設定を行う。なおEJBインスタンスキャッシュ設定の移行は単純なタグの置き換えレベルでは移行できないため、JBossの挙動に準拠した設定が必要である。
+		</p>
+<p>
+			JBossでは環境により、simple、passivating、clusterdのいづれかのキャッシュ設定が適用される。
+
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>非クラスタ環境ではsimpleキャッシュが利用される(パッシベート実施されない)。</p>
+</li>
+<li class="listitem">
+<p>非クラスタ環境(明示的にpassivatingアノテーションを付与）では、passvatingキャッシュが利用される(ファイルにパッシベートが実施される）。
+					</p>
+</li>
+<li class="listitem">
+<p>クラスタ環境(明示的にclusterdアノテーションを付与。またはクラスタ構成環境ではアノテーション付与は必要なく、自動で設定される）では、clusterdキャッシュが適用される(infinispanのキャッシュ機構でファイルにパッシベートされる）。
+					</p>
+</li>
+</ul>
+</div>
+<p>
+
+			キャッシュ設定に関して注意点及び、参考情報を示す。移行する際には以下の5点を参考にすること。
+
+			</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>キャッシュサイズの設定</p>
+<p>
+						JBossでは、以下の通りである
+						</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>非クラスタ環境</p>
+<p>simple及びpassvatingキャッシュでは、キャッシュの上限を設定することができない。
+								</p>
+</li>
+<li class="listitem">
+<p>クラスタ環境</p>
+<p>clusterdキャッシュでは/subsystem=infinispan/cache-container=ejb/replicaed-cache=replリソースのeviction属性のmax-entriesに、キャッシュ内のBeanのエントリ数の上限が設定可能である。
+								</p>
+<div class="figure">
+<a name="N135B1"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;管理CLIによる設定.
+									</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+										
+/subsystem=infinispan/cache-container=ejb/replicated-cache=repl/eviction=EVICTION:write-attribute(name=max-entries,value=10000)
+{
+    "outcome" =&gt; "success",
+    "response-headers" =&gt; {
+        "operation-requires-reload" =&gt; true,
+        "process-state" =&gt; "reload-required"
+    }
+}
+
+									</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+</ul>
+</div>
+<p>
+					
+</p>
+</li>
+<li class="listitem">
+<p>キャッシュアルゴリズムの設定</p>
+<p>
+						JBossの場合は、NRUには未対応で以下のようになる。
+						</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>非クラスタ環境</p>
+<p>simple及びpassvatingキャッシュでは、EVICTアルゴリズムは選択できない。
+								</p>
+</li>
+<li class="listitem">
+<p>クラスタ環境</p>
+<p>/subsystem=infinispan/cache-container=ejb/replicaed-cache=replリソースのeviction属性のstrategyでLRUが設定可能。これらのほかにFIFO,LRU,LIRSが設定可能。
+								</p>
+<div class="figure">
+<a name="N135CC"></a>
+<p class="title">
+<b>Figure&nbsp;3.&nbsp;管理CLIによる設定.
+									</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+										
+/subsystem=infinispan/cache-container=ejb/replicated-cache=repl/eviction=EVICTION:write-attribute(name=strategy,value=LIRS)
+{
+    "outcome" =&gt; "success",
+    "response-headers" =&gt; {
+        "operation-requires-reload" =&gt; true,
+        "process-state" =&gt; "reload-required"
+    }
+}
+
+									</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+</ul>
+</div>
+<p>
+
+					
+</p>
+</li>
+<li class="listitem">
+<p>キャッシュに保持される最長時間設定</p>
+<p>
+						JBossの場合は、以下のようになる。
+						</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>非クラスタ環境</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+											simpleキャッシュ
+										</span>
+</dt>
+<dd>
+<p>パッシベートしなたいめ、該当パラメータなし</p>
+</dd>
+<dt>
+<span class="term">
+											passviateキャッシュ
+										</span>
+</dt>
+<dd>
+<p>/subsystem=ejb3/file-passivation-store=fileリソースのidle-timeoutで設定可能
+											</p>
+<div class="figure">
+<a name="N135ED"></a>
+<p class="title">
+<b>Figure&nbsp;4.&nbsp;管理CLIによる設定.
+												</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+													
+/subsystem=ejb3/file-passivation-store=file:write-attribute(name=idle-timeout,value=300L)
+
+												</pre>
+</div>
+</div>
+<br class="figure-break">
+</dd>
+</dl>
+</div>
+</li>
+<li class="listitem">
+<p>クラスタ環境</p>
+<p>/subsystem=ejb3/cluster-passivation-store=infinispanリソースのidle-timeoutで設定可能
+								</p>
+<div class="figure">
+<a name="N135FC"></a>
+<p class="title">
+<b>Figure&nbsp;5.&nbsp;管理CLIによる設定.
+									</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+										
+/subsystem=ejb3/cluster-passivation-store=infinispan:write-attribute(name=idle-timeout,value=300L)
+
+									</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+</ul>
+</div>
+<p>
+
+					
+</p>
+</li>
+<li class="listitem">
+<p>パッシベート時の永続化ディレクトリ設定</p>
+<p>
+						JBossの場合は、以下のようになる。
+						</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>非クラスタ環境</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+											simpleキャッシュ
+										</span>
+</dt>
+<dd>
+<p>パッシベートしなたいめ、該当パラメータなし</p>
+</dd>
+<dt>
+<span class="term">
+											passviateキャッシュ
+										</span>
+</dt>
+<dd>
+<p>/subsystem=ejb3/file-passivation-store=fileリソースのrelative-toで設定可能。デフォルトではjboss.server.data.dirが設定
+											</p>
+<div class="figure">
+<a name="N1361D"></a>
+<p class="title">
+<b>Figure&nbsp;6.&nbsp;管理CLIによる設定.
+												</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+													
+/subsystem=ejb3/file-passivation-store=file:write-attribute(name=relative-to,value=パス)
+
+												</pre>
+</div>
+</div>
+<br class="figure-break">
+</dd>
+</dl>
+</div>
+</li>
+<li class="listitem">
+<p>クラスタ環境</p>
+<p>/subsystem=ejb3/cluster-passivation-store=infinispanリソースのfile-storeのrelative-toで設定可能。デフォルトではjboss.server.data.dirが設定
+								</p>
+<div class="figure">
+<a name="N1362C"></a>
+<p class="title">
+<b>Figure&nbsp;7.&nbsp;管理CLIによる設定.
+									</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+										
+/subsystem=infinispan/cache-container=ejb/replicated-cache=repl/file-store=FILE_STORE:write-attribute(name=relative-to,value=path)
+
+									</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+<li class="listitem">
+<p>非活性化ストアに保持される最長時間設定</p>
+<p>JBossでは該当パラメータは存在しない</p>
+</li>
+</ul>
+</div>
+<p>
+
+					
+</p>
+</li>
+</ol>
+</div>
+<p>
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.3.3.3."></a>
+<h3 class="title">1.3.3.3.EJBのタイマー設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>WASではserver.xmlのtimerSettingsタグでEJBのタイマー関連の設定ができる。
+         </p>
+<div class="figure">
+<a name="N13675"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;WASのserver.xmlにおけるEJBのタイマー
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;components xmi:type="applicationserver:ApplicationServer" xmi:id="ApplicationServer_1385359009220" applicationClassLoaderPolicy="MULTIPLE"&gt;
+  ...
+	 &lt;components xmi:type="applicationserver.ejbcontainer:EJBContainer" xmi:id="EJBContainer_1385359009220" passivationDirectory="${USER_INSTALL_ROOT}/temp" inactivePoolCleanupInterval="30000"&gt;
+	      ...
+	      &lt;timerSettings xmi:id="EJBTimer_1385359009220" datasourceJNDIName="jdbc/DefaultEJBTimerDataSource" tablePrefix="EJBTIMER_" pollInterval="300" numAlarmThreads="1"/&gt;
+	   &lt;/components&gt;
+&lt;/components&gt;
+   
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+         
+</p>
+<p>
+        
+        JBossでは。タイマーで登録された処理を行うスレッドプールのチューニングが可能であり、standalone-full-ha.xmlのejb3のサブシステム内でのtimer-serviceエレメントでtimer-serviceサービスとして設定できる
+        
+        </p>
+<div class="figure">
+<a name="N13682"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;管理CLIによるタイマーサービスの属性確認
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+/subsystem=ejb3/service=timer-service:read-resource
+{
+    "outcome" =&gt; "success",
+    "result" =&gt; {
+        "path" =&gt; "timer-service-data",
+        "relative-to" =&gt; "jboss.server.data.dir",
+        "thread-pool-name" =&gt; "default"
+    }
+}
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+        
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>JBossではAsynchronous Bean、Remote EJB、,EJB Timerは、デフォルトで&rdquo;default&rdquo;という名前のスレッドプールが設定される。この設定の場合、各Beanが共通して1つのスレッドプールを利用することになる。特定のBeanで頻繁にスレッドプールが利用され、スレッドプールが足りない場合は、スレッド数のチューニングや、スレッドプール設定をBean単位に設定するチューニングを行う必要がある</p>
+<div class="figure">
+<a name="N13690"></a>
+<p class="title">
+<b>Figure&nbsp;3.&nbsp;defaultスレッドプール設定の設定確認
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+/subsystem=ejb3/thread-pool=default/:read-resource
+{
+    "outcome" =&gt; "success",
+    "result" =&gt; {
+        "keepalive-time" =&gt; {
+            "time" =&gt; 100L,
+            "unit" =&gt; "MILLISECONDS"
+        },
+        "max-threads" =&gt; 10,
+        "name" =&gt; "default",
+        "thread-factory" =&gt; undefined
+    }
+}
+
+
+				</pre>
+</div>
+</div>
+<br class="figure-break">
+</td>
+</tr>
+</table>
+</div>
+<p>
+        
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.3.4."></a>
+<h3 class="title">1.3.4.Portletコンテナ(PortletContainer)設定</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>WASではserver.xmlのコンポーネント設定で、PortletConttainerの設定が可能である。JBossではPortletのコンテナ機能はない</p>
+<div class="figure">
+<a name="N13649"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;WASのPortletConttainer設定
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;components xmi:type="applicationserver:ApplicationServer" xmi:id="ApplicationServer_1385359009220" applicationClassLoaderPolicy="MULTIPLE"&gt;
+  ...
+  &lt;components xmi:type="portletcontainer:PortletContainer" xmi:id="PortletContainer_1385359009220"/&gt;
+ &lt;/components&gt;
+ 
+
+
+				</pre>
+</div>
+</div>
+<br class="figure-break">
+</div>
+<br>
+<br>
+<a name="tubame_1.3.5."></a>
+<h3 class="title">1.3.5.SIPコンテナ(SIPContainer)設定</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>WASではserver.xmlのコンポーネント設定で、SipConttainerの設定が可能である。JBossではSipのコンテナ機能はない</p>
+<div class="figure">
+<a name="N1365F"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;WASのSipConttainer設定
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;components xmi:type="applicationserver:ApplicationServer" xmi:id="ApplicationServer_1385359009220" applicationClassLoaderPolicy="MULTIPLE"&gt;
+  ...
+    &lt;components xmi:type="applicationserver.sipcontainer:SIPContainer" xmi:id="SIPContainer_1385359009220" name="" maxAppSessions="120000" maxMessageRate="5000" maxDispatchQueueSize="3200" maxResponseTime="0" statAveragePeriod="1000" statUpdateRange="10000"/&gt;
+ &lt;/components&gt;
+
+
+				</pre>
+</div>
+</div>
+<br class="figure-break">
+</div>
+<br>
+<br>
+<a name="tubame_1.3.6."></a>
+<h3 class="title">1.3.6.デプロイメント設定</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			JBossのデプロイについて、以下の項目について示す
+
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>JBossのデプロイメントについて</p>
+</li>
+<li class="listitem">
+<p>デプロイメント順序</p>
+</li>
+</ul>
+</div>
+<p>
+
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.3.6.1."></a>
+<h3 class="title">1.3.6.1.JBossのデプロイメントについて</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			JBossはデプロイメントを制御する方法として、以下のような２つの機能を提供している。
+
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>自動デプロイ(Auto-deploy)</p>
+<p>デプロイメントスキャナは、デプロイメントディレクトリ（$jboss.server.bae.dir/deployments）を定期的にチェックし、デプロイメントの存在を確認し、新しいデプロイメントや、差分があればロードして、デプロイ・再デプロイを行う。</p>
+</li>
+<li class="listitem">
+<p>手動デプロイ（Manual deploy）</p>
+<p>デプロイメントスキャナはデプロイメントディレクトリにあるコンテンツ自体を監視しません。その代わりに、スキャナはマーカーファイルシステムに依存し、そのマーカーファイルの追加または削除されることをコマンドとしてスキャナへ伝えることによって、コンテンツをアンデプロイまたは再デプロイを決定する。</p>
+</li>
+</ul>
+</div>
+<p>
+			自動デプロイは、アプリケーションの開発時は非常に便利な機能になるが、商用環境では、それぞれのシステムの運用要件に応じて、自動デプロイを実施しないなどの設定変更が必要になる。
+			
+			</p>
+<div class="figure">
+<a name="N13213"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;デプロイメントスキャナ無効化手順(サーバ起動時のみデプロイを行いたい場合は、scan-enabledプロパティをfalseに設定する
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+/subsystem=deployment-scanner/scanner=default/scanner=default:write-attribute(name=scan-enabled,value=false)
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+            
+            
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>これらの制御方法以外に管理CLIを利用したデプロイ制御も可能である</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.3.6.2."></a>
+<h3 class="title">1.3.6.2.デプロイメント順序について</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			JBossの場合は、デプロイメント全体で数値による順序の制御はできない。デプロイメンの順序を制御できるのはEARのみである。
+			EARが依存するearのファイル名を指定することで、デプロイメントの順序制御が可能である。
+			</p>
+<div class="figure">
+<a name="N1322E"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;EARのMETA-INFフォルダにjboss-deployment-dependencies.xmlを作成し、dependencyタグのname属性でEARのファイル名を指定する。
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;jboss umlns="urn:jboss:1.0"&gt;
+  &lt;jboss-deployment-dependencies xmlns="urn:jboss:deployment-dependencies:1.0"&gt;
+    &lt;dependency name="first.ear" /&gt;
+  &lt;/jboss-deployment-dependencies&gt;
+&lt;/jboss&gt;
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+            
+</p>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Warning">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Warning]" src="images/warning.png"></td><th align="left">Warning</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>本設定はJBoss EAP6.1.xから使用可能となっていますので、ご注意ください</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+            
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.4."></a>
+<h3 class="title">1.4.アプリケーションサーバにおけるWebアプリケーション設定</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			WASではJAVAEE仕様にない拡張機能をibm-web-ext.xmiに定義可能とている。JBossではjboss-web.xmlが該当する。
+			ここではWebアプリケーションでよく利用する以下のJBoss設定方法について示す。
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>セッションに関連するパラメータ</p>
+</li>
+<li class="listitem">
+<p>JSPに関連するパラメータ</p>
+</li>
+<li class="listitem">
+<p>セッションモニタリングに関連するパラメータ</p>
+</li>
+<li class="listitem">
+<p>同時接続時の最大スレッド数の設定</p>
+</li>
+<li class="listitem">
+<p>charset設定</p>
+</li>
+<li class="listitem">
+<p>起動時終了時のリスナ</p>
+</li>
+</ul>
+</div>
+<p>
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.4.1."></a>
+<h3 class="title">1.4.1.セッションに関連するパラメータの移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			セッションに関連するパラメータの移行として、以下についてJBossの設定方法について示す。
+
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>クッキーの有効/無効化</p>
+</li>
+<li class="listitem">
+<p>クッキー名の設定</p>
+</li>
+<li class="listitem">
+<p>クッキーのパス設定</p>
+</li>
+<li class="listitem">
+<p>URLリライティング)</p>
+</li>
+<li class="listitem">
+<p>セッションIDの長さ設定)</p>
+</li>
+<li class="listitem">
+<p>セッションタイムアウト設定</p>
+</li>
+<li class="listitem">
+<p>セッション永続化設定</p>
+</li>
+</ul>
+</div>
+<p>
+
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.4.1.1."></a>
+<h3 class="title">1.4.1.1.クッキーの有効/無効化設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			JBossの場合、web.xmlのsession-configのtracking-modeにCOOKIEとすることで、クッキーを利用したセッション管理になり、URLにSessionIDを付与されることを防ぐことができる。
+
+			</p>
+<div class="figure">
+<a name="N13152"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;web.xml
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"&gt;
+
+	&lt;session-config&gt;
+		&lt;!-- セッションIDがURLにエンコーディングされるのを抑止する --&gt;
+		&lt;tracking-mode&gt;COOKIE&lt;/tracking-mode&gt;
+	&lt;/session-config&gt;
+&lt;/web-app&gt;
+
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.4.1.2."></a>
+<h3 class="title">1.4.1.2.クッキー名の設定移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBossでは、 web.xmlのcookie-configタグ配下にnameを設定することで、クッキーに設定されるセッションID名を変更することができる
+        
+        </p>
+<div class="figure">
+<a name="N13169"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;web.xml
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"&gt;
+
+	&lt;session-config&gt;
+		
+		&lt;cookie-config&gt;
+		  &lt;name&gt;HOGEJSESSIONID&lt;/name&gt;　
+		&lt;/cookie-config&gt;
+
+	&lt;/session-config&gt;
+&lt;/web-app&gt;
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+        
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.4.1.3."></a>
+<h3 class="title">1.4.1.3.クッキーのパス設定移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			JBossでは、 web.xmlのcookie-configタグ配下にpathを設定することで、任意にクッキー名を変更することができる
+
+			</p>
+<div class="figure">
+<a name="N13180"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;web.xml
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"&gt;
+
+	&lt;session-config&gt;
+		
+		&lt;cookie-config&gt;
+			&lt;path&gt;/myPath&lt;/path&gt;
+		&lt;/cookie-config&gt;
+
+	&lt;/session-config&gt;
+&lt;/web-app&gt;
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.4.1.4."></a>
+<h3 class="title">1.4.1.4.URLリライティング設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			JBossでは、デフォルトでURL 書き換えが有効であり、URLエンコーディング時に、セッション ID が URL
+			にエンコーディングされる。セッション ID が URL
+			にエンコーディングされるのを抑止する場合は、web.xmlのsession-configのtracking-modeにCOOKIEを付与する。
+
+			</p>
+<div class="figure">
+<a name="N13197"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;web.xml
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"&gt;
+
+	&lt;session-config&gt;
+		&lt;!-- セッションIDがURLにエンコーディングされるのを抑止する --&gt;
+		&lt;tracking-mode&gt;COOKIE&lt;/tracking-mode&gt;
+	&lt;/session-config&gt;
+&lt;/web-app&gt;
+
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.4.1.5."></a>
+<h3 class="title">1.4.1.5.セッションIDの長さ設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBossでは、JMXで以下のMBeanオブジェクト名で、sessionIdLength属性を更新することで、セッションIDのサイズを変更することができる。デフォルトは16である。
+        
+        			</p>
+<div class="table">
+<a name="N131AE"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;config.xmlのjtaタグで定義されている設定とJBossの対応
+				</b>
+</p>
+<div class="table-contents">
+<table summary="config.xmlのjtaタグで定義されている設定とJBossの対応
+				" border="1">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>#</th><th>MBeanオブジェクト名</th><th>属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td><td>jboss.web:type=Manager,path=/コンテキスト名,host=default-host</td><td>sessionIdLength</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>
+<br class="table-break">
+        
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.4.1.6."></a>
+<h3 class="title">1.4.1.6.セッションタイムアウト設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBossでは、 web.xmlにsession-timeoutを設定することで、セッションタイムアウトを変更することができる。デフォルトでは30（分）である。
+        
+        </p>
+<div class="figure">
+<a name="N131D0"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;web.xml
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+
+&lt;web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"&gt;
+
+	&lt;session-config&gt;
+		
+		&lt;session-timeout&gt;60&lt;/session-timeout&gt;
+
+	&lt;/session-config&gt;
+&lt;/web-app&gt;
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+        
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.4.1.7."></a>
+<h3 class="title">1.4.1.7.セッション永続化設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBossはデフォルトでメモリが採用される。</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.4.2."></a>
+<h3 class="title">1.4.2.JSPに関連するパラメータの移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			JBossにおけるjspに関連する設定項目はhttp://docs.jboss.org/jbossweb/7.0.x/config/jsp.html
+			より確認できる。
+			JSPファイルが変更されたために再コンパイルする必要があるかどうかをチェックする間隔については、web.xmlのinit-paramにcheckIntervalとして設定可能である。デフォルトは0であり、チェックしない。
+
+			</p>
+<div class="figure">
+<a name="N1313B"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;web.xml
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;web-app xmlns:j2ee="http://java.sun.com/xml/ns/j2ee"&gt;
+	&lt;servlet&gt;
+		&lt;servlet-name&gt;jsp&lt;/servlet-name&gt;
+		&lt;servlet-class&gt;org.apache.jasper.servlet.JspServlet&lt;/servlet-class&gt;
+		&lt;init-param&gt;
+			&lt;param-name&gt;checkInterval&lt;/param-name&gt;
+			&lt;param-value&gt;30&lt;/param-value&gt;
+		&lt;/init-param&gt;
+	&lt;/servlet&gt;
+	&lt;servlet-mapping&gt;
+		&lt;servlet-name&gt;jsp&lt;/servlet-name&gt;
+		&lt;url-pattern&gt;*.jsp&lt;/url-pattern&gt;
+	&lt;/servlet-mapping&gt;
+	
+	&lt;error-page&gt;
+		&lt;error-code&gt;500&lt;/error-code&gt;
+		&lt;location&gt;/error.jsp&lt;/location&gt;
+	&lt;/error-page&gt;
+&lt;/web-app&gt;
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.4.3."></a>
+<h3 class="title">1.4.3.charset設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBossのGETとPOSTデータの文字エンコーディング指定については、「日本語文字化け対応」の「Get及びPostのエンコーディングについて」を参照</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.4.4."></a>
+<h3 class="title">1.4.4.起動時終了時のリスナ設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>TODO:</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.5."></a>
+<h3 class="title">1.5.日本語文字化け対応</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			サプリケーションサーバは、パラメータのエンコーディング時や、JSPファイルの読み込みなど、エンコーディングを設定することが可能である。
+			文字化けが発生する場合は、エンコーディング設定を制御することで、文字化け対応を行う必要がある。
+
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>Get及びPostのエンコーディングについて</p>
+</li>
+<li class="listitem">
+<p>静的コンテンツのエンコーディング</p>
+</li>
+<li class="listitem">
+<p>JSPのエンコーディング</p>
+</li>
+</ul>
+</div>
+<p>
+			
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.5.1."></a>
+<h3 class="title">1.5.1.Get及びPostのエンコーディングについて</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			JBossのエンコーディングの設定方法について示す。GET リクエストの場合と POST
+			リクエストの場合で、エンコーディングの設定方法が異なる。
+
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>Getリクエスト</p>
+<p>AJPコネクタの属性URIEncodingに文字エンコードを設定する。管理CLIでシステムプロパティorg.apache.catalina.connector.URI_ENCODINGに文字コードを設定する</p>
+<div class="figure">
+<a name="N13272"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;管理CLI
+						</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+/system-property=org.apache.catalina.connector.URI_ENCODING:add(value="UTF-8")
+
+						</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+<li class="listitem">
+<p>Postリクエスト</p>
+<p>Postリクエストのエンコーディングを設定する場合、ServletRequest#setCharacterEncoding()メソッドを利用することで、設定することができます。web.xmlで以下のように、filter-class タグに"org.apache.catalina.filters.SetCharacterEncodingFilter" を設定し、encodingに文字コードを設定する。</p>
+<div class="figure">
+<a name="N13281"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;web.xml
+						</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+&lt;filter&gt;
+      &lt;filter-name&gt;SetCharacterEncoding&lt;/filter-name&gt;
+      &lt;filter-class&gt;org.apache.catalina.filters.SetCharacterEncodingFilter&lt;/filter-class&gt;
+      &lt;init-param&gt;
+          &lt;param-name&gt;encoding&lt;/param-name&gt;
+          &lt;param-value&gt;UTF-8&lt;/param-value&gt;
+      &lt;/init-param&gt;
+  &lt;/filter&gt;
+  &lt;filter-mapping&gt;
+      &lt;filter-name&gt;SetCharacterEncoding&lt;/filter-name&gt;
+      &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+  &lt;/filter-mapping&gt;
+&lt;/filter&gt;
+
+						</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+</ul>
+</div>
+<p>
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.5.2."></a>
+<h3 class="title">1.5.2.静的コンテンツのエンコーディング</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			静的コンテンツ（*.html,*.txtなど）を読み込む場合は、DefaultServletのfileEncodingを使用することにより、エンコーディングを指定する。
+
+			</p>
+<div class="figure">
+<a name="N13298"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;web.xml
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;servlet&gt;
+  &lt;servlet-name&gt;default&lt;/servlet-name&gt;
+  &lt;servlet-class&gt;org.apache.catalina.servlets.DefaultServlet&lt;/servlet-class&gt;
+  &lt;init-param&gt;
+    &lt;param-name&gt;fileEncoding&lt;/param-name&gt;
+    &lt;param-value&gt;EUC-JP&lt;/param-value&gt;
+  &lt;/init-param&gt;
+&lt;/servlet&gt;
+
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.5.3."></a>
+<h3 class="title">1.5.3.JSPのエンコーディング</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			JSPのエンコーディングは以下について示す
+
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>ページエンコーディングの一括設定</p>
+</li>
+<li class="listitem">
+<p>JSP仕様変更によるIncludeディレクティブを使用している場合の対応</p>
+</li>
+</ul>
+</div>
+<p>
+
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.5.3.1."></a>
+<h3 class="title">1.5.3.1.ページエンコーディングの一括設定</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			JSP2.0で導入されたpage-encoding要素をweb.xmlに設定することで、ページエンコーディングの一括設定が可能である
+
+			</p>
+<div class="figure">
+<a name="N132C3"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;web.xml
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;jsp-config&gt;
+&lt;jsp-property-group&gt;
+    &lt;url-pattern&gt;*&lt;/url-pattern&gt;
+    &lt;page-encoding&gt;EUC-JP&lt;/page-encoding&gt;
+  &lt;/jsp-property-group&gt;
+&lt;/jsp-config&gt;
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_2."></a>
+<h2 class="title">2.アプリケーションの移行</h2>
+<br>
+<a name="tubame_2.1."></a>
+<h3 class="title">2.1.J2EE非推奨APIについて</h3>
+<br>
+<br>
+<a name="tubame_2.1.1."></a>
+<h3 class="title">2.1.1.Servletの非推奨APIについて</h3>
+<br>
+<br>
+<a name="tubame_2.1.1.1."></a>
+<h3 class="title">2.1.1.1.Servlet2.5で既に非推奨となる機能</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>以下はServlet 2.5で既に非推奨となってい機能一覧であり、推奨されていないAPIが利用されている場合は、代替となるAPIを利用するように修正する必要がある。</p>
+<p>推奨されていないインタフェース</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>javax.servlet.SingleThreadModel
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSessionContext
+				</p>
+</li>
+<li class="listitem">
+<p>javax.resource.spi.security.GenericCredential
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.jsp.el.FunctionMapper
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.jsp.el.VariableResolver
+				</p>
+</li>
+</ul>
+</div>
+<p>推奨されていないクラス</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p> javax.faces.application.StateManager.SerializedView
+				</p>
+</li>
+<li class="listitem">
+<p> javax.faces.el.MethodBinding
+				</p>
+</li>
+<li class="listitem">
+<p>javax.faces.el.PropertyResolver
+				</p>
+</li>
+<li class="listitem">
+<p>javax.faces.el.ValueBinding
+				</p>
+</li>
+<li class="listitem">
+<p>javax.faces.el.VariableResolver
+				</p>
+</li>
+<li class="listitem">
+<p>javax.faces.webapp.AttributeTag
+				</p>
+</li>
+<li class="listitem">
+<p>javax.faces.webapp.ConverterTag
+				</p>
+</li>
+<li class="listitem">
+<p> javax.faces.webapp.UIComponentBodyTag
+				</p>
+</li>
+<li class="listitem">
+<p>javax.faces.webapp.UIComponentTag
+				</p>
+</li>
+<li class="listitem">
+<p>javax.faces.webapp.ValidatorTag
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpUtils
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.jsp.el.Expression
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.jsp.el.ExpressionEvaluator
+				</p>
+</li>
+<li class="listitem">
+<p>javax.xml.soap.SOAPElementFactory
+				</p>
+</li>
+</ul>
+</div>
+<p>推奨されていないメソッド</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>javax.servlet.http.HttpServletResponse.encodeRedirectUrl(String)
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpServletResponse.encodeUrl(String)
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSessionContext.getIds()
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.ServletRequest.getRealPath(String)
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.UnavailableException.getServlet()
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.ServletContext.getServlet(String)
+				</p>
+</li>
+<li class="listitem">
+<p> javax.servlet.ServletContext.getServletNames()
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.ServletContext.getServlets()
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSessionContext.getSession(String)
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSession.getSessionContext()
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSession.getValue(String)
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSession.getValueNames()
+				</p>
+</li>
+<li class="listitem">
+<p> javax.servlet.http.HttpServletRequest.isRequestedSessionIdFromUrl()
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.ServletContext.log(Exception, String)
+				</p>
+</li>
+<li class="listitem">
+<p> javax.servlet.http.HttpSession.putValue(String, Object)
+				</p>
+</li>
+<li class="listitem">
+<p> javax.servlet.http.HttpSession.removeValue(String)
+				</p>
+</li>
+<li class="listitem">
+<p> javax.servlet.http.HttpServletResponse.setStatus(int, String)
+				</p>
+</li>
+</ul>
+</div>
+<p>この他多数。詳細は下記のURLを参照のこと</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>http://java.sun.com/javaee/5/docs/api/
+				</p>
+</li>
+<li class="listitem">
+<p>http://java.sun.com/javaee/5/docs/api/deprecated-list.html
+				</p>
+</li>
+</ul>
+</div>
+<p>なお、Servet2.5で以下のような変更も含まれているため、該当コードが存在する場合は，注意すること。
+        </p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>javax.servlet.ServletRequestインタフェースのgetReaderメソッドが呼び出されたあと，setCharacterEncodingメソッドの呼び出しが無効になることについて明記された
+				</p>
+</li>
+<li class="listitem">
+<p>無効化されたjavax.servlet.http.HttpSessionオブジェクトのgetIdメソッドが呼び出された場合にjava.lang.IllegalStateException例外がスローされる仕様が削除された。
+				</p>
+</li>
+</ul>
+</div>
+<p>
+        
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.1.1.2."></a>
+<h3 class="title">2.1.1.2.Servlet3.0で非推奨となる機能</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>以下はServlet
+			3.0で非推奨となっていた一覧であり、推奨されていないAPIが利用されている場合は、代替となるAPIを利用するように修正する必要がある。
+		</p>
+<p>推奨されていないメソッド</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>javax.servlet.http.HttpServletResponseWrapper.encodeRedirectUrl(String)
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpServletResponseWrapper.encodeUrl(String)
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpServletRequestWrapper.isRequestedSessionIdFromUrl()
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpServletResponseWrapper.setStatus(int,
+					String)
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.ServletRequestWrapper.getRealPath(String)
+				</p>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_2.1.2."></a>
+<h3 class="title">2.1.2.Servlet以外の非推奨API</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Servlet以外のAPIとして、JAXB,JSF,EJB,JCAなどのAPIを利用している場合も、代替となるAPIを利用するように修正する必要がある。</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.1.2.1."></a>
+<h3 class="title">2.1.2.1.JAXB非推奨API</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBossEAP6では、JAXB2.2をサポートしており、、JAXB2.2で推奨されていないAPIが利用されている場合は、代替となるAPIを利用するように修正する必要がある。</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.1.2.2."></a>
+<h3 class="title">2.1.2.2.JSF非推奨API</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBossEAP6では、JSF2.0をサポートしており、、JXF2.0で推奨されていないAPIが利用されている場合は、代替となるAPIを利用するように修正する必要がある。</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.1.2.3."></a>
+<h3 class="title">2.1.2.3.EJB非推奨API</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBossEAP6では、EJB3.1をサポートしており、、EJB3.1で推奨されていないAPIが利用されている場合は、代替となるAPIを利用するように修正する必要がある。</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.1.2.4."></a>
+<h3 class="title">2.1.2.4.JCA非推奨API</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBossEAP6では、Java EE Connector Architecture(JCA)1.6をサポートしており、、JCA1.6で推奨されていないAPIが利用されている場合は、代替となるAPIを利用するように修正する必要がある。</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.1.2.5."></a>
+<h3 class="title">2.1.2.5.SOAP及びJWS非推奨API</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBossEAP6では、Web Services Metadata for the Java Platform (JWS)2.1をサポートしており、、JWS2.1で推奨されていないAPIが利用されている場合は、代替となるAPIを利用するように修正する必要がある。</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.1.2.6."></a>
+<h3 class="title">2.1.2.6.Deployment 及びActivation API</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JAVAEE6で非推奨となっているDeployment 及び Activation APIを利用している場合、代替となるAPIを利用するように修正する必要がある</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.2."></a>
+<h3 class="title">2.2.JSPの移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>WAS6はJSP 2.0に準拠しており、JBoss EAP 6はJSP 2.1に準拠している。JSP仕様の差異による振る舞いについて注意が必要だが、同じJSPコードでもAPサーバに挙動が異なる点があるので注意すること。
+        </p>
+</div>
+<br>
+<br>
+<a name="tubame_2.3."></a>
+<h3 class="title">2.3.Servetの移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>WAS6はServlet2.4に準拠しており、JBoss EAP 6はServlet3.0に準拠している。Serlvlet仕様の差異による振る舞いについて注意が必要で、同じServletのコードでもAPサーバによつて、挙動が異なる点があるので注意すること。</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.4."></a>
+<h3 class="title">2.4.JNDIの移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p></p>
+</div>
+<br>
+<br>
+<a name="tubame_2.4.1."></a>
+<h3 class="title">2.4.1.JNDI名の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			JavaEE6では、JNDI名が標準化されており、app、module,globalなどのスコープ名がJavaEE6標準で利用できる。EJBの場合は、以下のようなJNDI名となる。
+
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>EJBのJNDI名</p>
+<p>java:&lt;スコープ&gt;[/&lt;アプリケーション名&gt;]/&lt;モジュール名&gt;/&lt;Bean名&gt;[!&lt;完全修飾インタフェース名&gt;]
+					</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+<p>スコープ:app、module,globalなどが指定可能。
+							</p>
+</li>
+<li class="listitem">
+<p>アプリケーション名:セッションBeanがearファイル内にパッケージ化されている場合にのみ必要</p>
+</li>
+<li class="listitem">
+<p>モジュール名:セッションBeanがパッケージ化されているモジュールの名前</p>
+</li>
+<li class="listitem">
+<p>Bean名:セッションBeanの名前</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<p>
+			
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>上記のJavaEE6で標準化されたJNDIを利用しなくても、デプロイメントディスクリプタのリソースリファレンス設定を行うことで、
+					プログラムコード上は、上記のJNDIスコープを利用することなく、参照が可能となる。
+				</p>
+<div class="figure">
+<a name="N12F17"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;デプロイメントディスクリプタ(jboss-ejb3.xml)</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+						
+&lt;enterprise-beans&gt;
+	&lt;session&gt;
+		&lt;ejb-name&gt;MusicLibraryEJB&lt;/ejb-name&gt;
+		&lt;ejb-ref&gt;
+			&lt;ejb-ref-name&gt;ejb/BandHome&lt;/ejb-ref-name&gt;
+			&lt;jndi-name&gt;java:app/bands-ejb21-module/BandEJB!examples.ejb20.relationships.bands.BandHome&lt;/jndi-name&gt;
+		&lt;/ejb-ref&gt;
+
+					</pre>
+</div>
+</div>
+<br class="figure-break">
+<div class="figure">
+<a name="N12F21"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;EJB呼び出しもとのプログラムコード（MusicLibraryEJB内での呼び出し）</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+						
+      Context ic    = new InitialContext();
+      Context env = (Context) ic.lookup("java:comp/env");
+      bandHome      = (BandHome)      env.lookup("ejb/BandHome");
+
+
+					</pre>
+</div>
+</div>
+<br class="figure-break">
+</td>
+</tr>
+</table>
+</div>
+<p>
+		
+</p>
+<p>また、JBossEAP6でJBoss固有の「jboss」スコープが導入されている。このスコープは、アプリケーションサーバーインスタンス内にデプロイされている全アプリケーションから参照可能なっている。
+		</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>データソースのJNDI名</p>
+<p>java:jboss/datasources/ExampleDS</p>
+</li>
+</ul>
+</div>
+<p>
+				
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>移植を行う上で、なるべくJBoss固有の「jboss」スコープをアプリケーション上から利用するのは避けるべきであり、可能な限りリソースリファレンスの設定で、ポータビリティを保つようにしたほうがよい。</p>
+<div class="figure">
+<a name="N12F38"></a>
+<p class="title">
+<b>Figure&nbsp;3.&nbsp;Webのリソースリファレンス設定(web.xml)</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+						
+	&lt;web-app xmlns:j2ee="http://java.sun.com/xml/ns/j2ee"&gt;
+	     &lt;resource-ref&gt;
+			&lt;res-ref-name&gt;jdbc/ExampleDS&lt;/res-ref-name&gt;
+			&lt;res-type&gt;javax.sql.DataSource&lt;/res-type&gt;
+			&lt;res-auth&gt;Container&lt;/res-auth&gt;
+			&lt;lookup-name&gt;java:jboss/datasources/ExampleDS&lt;/lookup-name&gt;
+		&lt;/resource-ref&gt;
+	&lt;/web-app&gt;
+
+					</pre>
+</div>
+</div>
+<br class="figure-break">
+<div class="figure">
+<a name="N12F42"></a>
+<p class="title">
+<b>Figure&nbsp;4.&nbsp;呼び出しもとのプログラムコード（SerletB内での呼び出し）</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+						
+	Context ic = new InitialContext();
+	Context env = (Context) ic.lookup("java:comp/env");
+	DataSource lookup = (DataSource) env.lookup("jdbc/ExampleDS");
+
+					</pre>
+</div>
+</div>
+<br class="figure-break">
+</td>
+</tr>
+</table>
+</div>
+<p>
+		
+</p>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Warning">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Warning]" src="images/warning.png"></td><th align="left">Warning</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>
+			なお、リモート呼び出しなどの場合は以下のようにJBoss独自の「ejb」を利用してJNDIルックアップを行う必要がある。
+
+			</p>
+<div class="figure">
+<a name="N12F50"></a>
+<p class="title">
+<b>Figure&nbsp;5.&nbsp;EJBのJNDI名の変更例</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+	//private static final String homeJNDIName = "MusicLibraryEJB.MusicLibraryHome";
+	private static final String homeJNDIName = "ejb:/bands-ejb21-module/MusicLibraryEJB!examples.ejb20.relationships.bands.MusicLibraryHome";
+	
+	...
+
+	/**
+	 * JNDI を使って、MusicLibrary Bean のホーム インタフェースをルックアップします。
+	 */
+	private MusicLibraryHome lookupMusicLibraryHome() throws NamingException {
+	...
+		Context ctx = getInitialContext();
+		Object home = (MusicLibraryHome) ctx.lookup(homeJNDIName);
+	...
+	
+	}
+
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+		
+</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_2.4.2."></a>
+<h3 class="title">2.4.2.JNDIルックアップの呼び出し実装の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JNDIのInitialContextを取得する際のProvider URLやlookupするJNDI名が、アプリケーション中にハードコーディングされているケースがあり、この場合はアプリケーションの修正が必要となる。properties ファイルで設定されている場合は、properties ファイルの修正が必要となる
+        
+        </p>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Warning">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Warning]" src="images/warning.png"></td><th align="left">Warning</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>WASではＩNITIAL_CONTEXT_FACTORYにcom.ibm.websphere.naming.WsnInitialContextFactoryが設定されており、これは以下の用途に応じて、移植を行う。</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+        
+        
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.4.2.1."></a>
+<h3 class="title">2.4.2.1.APサーバのコンテナ内のJNDIルックアップ呼び出し</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBossでAPサーバのコンテナ内からのJNDIルックアップを行う場合、InitialContextのコンストラクタの引数にPropertiesを設定する必要はなく、引数なしのコンストラクタでInitialContextを生成し、Jndiルックアップが可能である </p>
+<p>JBossに移行する際に、以下のようにプログラムを変更する。</p>
+<div class="figure">
+<a name="N12EC2"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;JBoss（移行後）のソースコード例</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+                
+InitialContext initialContext = new InitialContext();
+
+            </pre>
+</div>
+</div>
+<br class="figure-break">
+</div>
+<br>
+<br>
+<a name="tubame_2.4.2.2."></a>
+<h3 class="title">2.4.2.2.APサーバのコンテナ外のJNDIルックアップ呼び出し</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			JBossでAPサーバのコンテナ内からのJNDIルックアップ呼び出しする場合、以下を行う必要がある
+			</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>InitialContextのコンストラクタの引数に設定するPropertiesの内容を変更する
+					</p>
+<div class="figure">
+<a name="N12EDC"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;JBossのInitialContextのコンストラクタのProperties設定</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+Properties props = new Properties();
+props.put(InitialContext.INITIAL_CONTEXT_FACTORY,"org.jboss.naming.remote.client.InitialContextFactory");
+props.put(InitialContext.PROVIDER_URL, "remote://localhost:4447");
+props.put(InitialContext.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
+props.put(InitialContext.SECURITY_PRINCIPAL, "username");
+props.put(InitialContext.SECURITY_CREDENTIALS, "userpass");
+InitialContext initialContext = new InitialContext(props);
+
+						</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+<li class="listitem">
+<p>プロパティファイル(jboss-ejb-client.properties)を配置して、クラスパスに通す必要がある。(本例ではEJBクライアントの例を示す)
+					</p>
+<div class="figure">
+<a name="N12EE9"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;jboss-ejb-client.properties</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+remote.connectionprovider.create.options.org.xnio.Options.SSL_ENABLED=false
+remote.connections=default
+remote.connection.default.host=localhost
+remote.connection.default.port = 4447
+remote.connection.default.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMOUS=false
+
+
+#remote.connection.two.host=localhost
+#remote.connection.two.port = 4447
+#remote.connection.two.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMOUS=false
+
+						</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+</ol>
+</div>
+<p>
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.5."></a>
+<h3 class="title">2.5.EJBの移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			EJBは、StatelessSessionBean、StatefulSessionBean、EntityBean、およびMessageDrivenBeanが存在し、それぞれJBossへの移行が必要である。以下に移植方法を示す。
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>WAS独自EJBに関連するAPI(com.ibm.websphere.ejb.*)の移植</p>
+<p>
+						WAS独自EJBに関連するAPIを利用している場合は、JavaEE標準のAPIでの代替を検討する。
+					</p>
+</li>
+<li class="listitem">
+<p>デプロイメントディスクリプタの移行</p>
+<p>ibm-ejb-jar-ext.xmi及びejb-jar-bnd.xmiをjboss-ejb3.xmlへの移行する。EJBへのリソースバイディング設定については、ejb-jar.xmlのリソースリファレンス設定において、バンイドを行う。デプロイメントディスクリプタの移行方法の詳細は「デプロイメントデスクリプタの移行」を参照。ヘッダ部分については以下のように移植すること
+					</p>
+<div class="figure">
+<a name="N12F72"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;jboss-ejb3.xmlのヘッダ例
+						</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+&lt;jboss:ejb-jar xmlns:jboss="http://www.jboss.com/xml/ns/javaee"
+ xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.jboss.com/xml/ns/javaee http://www.jboss.org/j2ee/schema/jboss-ejb3-2_0.xsd
+ http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd"
+ version="3.1" impl-version="2.0"&gt;
+
+						</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+</ul>
+</div>
+<p>
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.5.1."></a>
+<h3 class="title">2.5.1.EJBデプロイメントデスクリプタの移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>WAS固有のデプロイメント・ディスクリプタであるibm-ejb-jar-ext.xmi及びejb-jar-bnd.xmiをjboss-ejb3.xmlに移行を行う。  </p>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Warning">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Warning]" src="images/warning.png"></td><th align="left">Warning</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>WASのejb-jar-bnd.xmiでは、EJBへのリソースバインド設定を行っているが、JBossEAP6では、これに該当するJBoss固有の定義ファイルは存在しないため、ejb-jar.xmlのリソースリファレンス設定において、代替する </p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_2.6."></a>
+<h3 class="title">2.6.Webサービスのサーバ移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			WAS6ではJAX-RPC,JAX-WSのサポートに加え、Apache Axisの実行環境を提供している。JBossEAP6ではJAVAEE仕様にあるJAX-RPC,JAX-WSは実行可能であるが、Axisの実行環境は提供していない。以下にWebサービスの移植概要を示す。
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>JBossEAP6が提供するwsprovideやwsconsumeを利用してJAX-WS仕様に基づいて移行する。
+					</p>
+</li>
+<li class="listitem">
+<p>JBossEAP5が提供するwstoolを利用してJAX-RPC仕様に基づいて移行する </p>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Warning">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Warning]" src="images/warning.png"></td><th align="left">Warning</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>JBoss EAP6では、JAX-RPCのWebサービスに必要なJ2EE Web サービス
+							プロイメント記述子ファイルであるwebservices.xml、jaxrpc-mapping.xml及びWSDLファイルをエンドポイントクラスより作成する機能がないため、JAX-RPCのWebサービスを作成する場合は、JBossEAP5が提供するwstoolを利用する必要がある。推奨はJAX-WSである
+							</p>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<p>
+            
+</p>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Warning">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Warning]" src="images/warning.png"></td><th align="left">Warning</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>JAX-RPC仕様はレガシーな仕様となっているため、JAX-WS仕様を利用することを推奨する。</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+        
+</p>
+<p>
+
+		オペレーション（サービスメソッドの）の呼び出し方法を「オペレーションスタイル」と呼び、「RPC」と「ドキュメント」の2種類がある。また、XMLデータ相互変換方式を「エンコードスタイル」と呼び、「エンコーデット」と「リテラル」の2種類が存在する。
+
+			</p>
+<div class="table">
+<a name="N12F9A"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;オペレーションスタイルの動作の違い</b>
+</p>
+<div class="table-contents">
+<table summary="オペレーションスタイルの動作の違い" border="1">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>-</th><th>RPC</th><th>ドキュメント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>オペレーションスタイル</td><td>SOAP メッセージにパラメータと戻り値が格納される</td><td>SOAP メッセージに XML ドキュメントが格納される</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>
+<br class="table-break">
+			
+			
+</p>
+<div class="table">
+<a name="N12FB0"></a>
+<p class="title">
+<b>Table&nbsp;2.&nbsp;XMLデータ相互変換方式の違い</b>
+</p>
+<div class="table-contents">
+<table summary="XMLデータ相互変換方式の違い" border="1">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>-</th><th>エンコーデット</th><th>リテラル</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>エンコードスタイル</td><td>SOAP独自エンコーディング</td><td>wsdlに定義されたXMLスキーマのデータ型にしたがって、XMLデータの相互変換を行なう</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>
+<br class="table-break">
+			「エンコーデット」については、SOAP-1.1で定義されているが、修正できない固有の相互運用性問題があり、JBossのWebサービスコンポーネントであるJBoss-WSはrpc/encodedをサポートとしていない。以下のようにWSDLファイルでrpc/encodedが利用されている場合、エンコードスタイルをリテラルに変更しrpc/literalか、document/literal を採用する。
+		</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.6.1."></a>
+<h3 class="title">2.6.1.Webサービス（JAX-RPC仕様）の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			JAX-RPCのWebサービスでは、、j2ee仕様でwebservices.xmlが必要である。また、JAX-RPC
+			マッピング・デプロイメントファイルで、Java 要素と WSDL 要素間で マップするが、WASでは以下のようなファイルが存在する。
+
+			</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>ibm-webservices-bnd.xmi</p>
+</li>
+<li class="listitem">
+<p>ibm-webservices-ext.xmi</p>
+</li>
+</ol>
+</div>
+<p>
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.6.2."></a>
+<h3 class="title">2.6.2.Webサービス（JAX-WS仕様）の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBossEAP6が提供するwsprovideやwsconsumeを利用してJAX-WS仕様に基づいて移行する。</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.7."></a>
+<h3 class="title">2.7.Webサービスのクライアント移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			WASではEnterprise Web Services for J2EE (JSR109)
+			仕様として、サーバ側の実装は、webservices.xmlデプロイメントディスクリプタが必要で、クライアント側は
+			webservicesclient.xmlが必要となっている。クライアントサイドのWAS固有のデプロイメントディスクリプタは以下の2つが存在する。
+
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>ibm-webservicesclient-bnd.xmi</p>
+</li>
+<li class="listitem">
+<p>ibm-webservicesclient-ext.xmi</p>
+</li>
+</ul>
+</div>
+<p>
+			これらのファイルには、WebSphere 製品に固有のデプロイメント情報 (セキュリティー情報など) が 含まれている。
+		</p>
+<p>
+
+			ここでは、JBossEAP6のwsconsumeを利用したWebサービスクライアントの移植方法について示す。クライアント実装に影響して、相互接続ができないなど問題が生じる可能性があるので、注意すること。
+		</p>
+<p>
+			Webサービス実装の実装方法について示す。
+			</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>wsconsumeの実行</p>
+<p>wsconsumeを実行し、スタブを生成する
+					</p>
+<div class="figure">
+<a name="N12FF8"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;wsconsumeの実行
+						</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+wsconsume -k  -o build/gen/classes -s build/gen/src -b ./build/input/SimpleService_schema1.xsd -b  ./build/input/SimpleService_schema2.xsd ./build/input/SimpleService.wsdl
+
+wsconsumeを実行すると以下のような構成でファイルが作成される。
+[カレントディレクトリ]
+          |--  build/gen/classes/**.class
+          |--  build/gen/src/**.java
+
+						</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+<li class="listitem">
+<p>クライアント実装</p>
+<p>wsconsumeで生成されたスタブを利用して、Webサービスクライアントを実装する。サービスクラスよりポートタイプクラスを取得して、メソッドの呼び出しを行う。
+					</p>
+<div class="figure">
+<a name="N13007"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;クライアント実装
+						</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+public static void main(String[] args) throws Exception {
+
+    URL url = new URL("context-name/SimpleService?wsdl");
+    SimpleService simpleService = new SimpleService(url);
+    SimplePortType port = simpleService.getSimplePortTypePort();
+    System.out.println(echoStruct);
+    port.sayHello("Hi there!");
+}
+
+						</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+<li class="listitem">
+<p>クライアント実行</p>
+<div class="figure">
+<a name="N13014"></a>
+<p class="title">
+<b>Figure&nbsp;3.&nbsp;クライアント実行</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+java -jar $JBOSS_HOME/jboss-modules.jar -mp $JBOSS_HOME/boss-eap-6.1/modules -dep org.jboss.ws.cxf.jbossws-cxf-client -cp classes org.example.Client
+
+						</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+</ol>
+</div>
+<p>
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.8."></a>
+<h3 class="title">2.8.APサーバ固有機能の移行</h3>
+<br>
+<br>
+<a name="tubame_2.9."></a>
+<h3 class="title">2.9.アプリケーションロギング</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>移行元のアプリケーションでJRasフレームワークのAPI(com.ibm.ras)を利用して、ログ出力している場合は、JBossのログイング実装を利用するように移植する必要がある。java.util.logging (JUL)、Log4j、commons-loggingライブラリを利用している場合、JBoss EAPでもこれらのフレームワークを利用したロギングが利用可能である。以下はLog4jの設定について示す</p>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Warning">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Warning]" src="images/warning.png"></td><th align="left">Warning</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>基本的に、JBossEAPに含まれるライブラリの利用が前提になる。コミュニティよりダウンロードしたものはサポート対象外となるので、注意すること。</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_2.9.1."></a>
+<h3 class="title">2.9.1.Log4jの移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			Log4j設定としては、以下の2つが存在する。
+			</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Log4jの設定をアプリケーション内で完結させる方法</p>
+</li>
+<li class="listitem">
+<p>Log4jの設定をJBossのログ出力設定にマージする方法</p>
+</li>
+</ol>
+</div>
+<p>
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.9.1.1."></a>
+<h3 class="title">2.9.1.1.Log4jの設定をアプリケーション内で完結させる方法</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			jboss-deployment-structure.xmｌを利用し,
+			暗黙的依存性の解除設定(org.apache.log4j）を行い、アプリケーションサーバが提供するモジュールlog4jと干渉しないようにする
+
+			</p>
+<div class="figure">
+<a name="N13309"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;サンプルEAR構成
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+hoge-ear.ear
+     |-- hoge-web.war
+     |-- hoge-ejb.jar
+     |-- lib
+         |-- util.jar
+         |-- log4.j.jar
+      |--logging/log4j.xml
+     |-- META-INF
+         |-- application.xml
+         |-- jboss-deployment-structure.xml
+         
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+
+			上記の構成の場合は、jboss-deployment-structure.xmlにwar及びejbのサブデプロイメントが参照しているlog4jの暗黙的依存性の解除設定を行い、
+			earデプロイメント内のlog4jをモジュールとして定義して、依存性を明示的に設定する必要がある。
+			
+			
+			</p>
+<div class="figure">
+<a name="N13314"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;jboss-deployment-structure.xml設定例
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+&lt;jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.0"&gt;
+    &lt;deployment&gt;
+        &lt;!-- log4j 除外設定--&gt;
+		&lt;exclusions&gt;
+			&lt;module name="org.apache.log4j" /&gt;
+		&lt;/exclusions&gt;
+	&lt;/deployment&gt;
+
+	&lt;module name="deployment.hoge-ear.ear.util"&gt;
+		&lt;resources&gt;
+			&lt;resource-root path="libs/util.jar"/&gt;
+		&lt;/resources&gt;
+	&lt;/module&gt;
+
+	&lt;!--  ear/libsにあるlog4jをモジュールとして定義 --&gt;
+	&lt;module name="deployment.hoge-ear.ear.log4j"&gt;
+		&lt;resources&gt;
+			&lt;resource-root path="libs/log4j-1.2.16.jar"/&gt;
+			&lt;resource-root path="logging"/&gt;
+		&lt;/resources&gt;
+	&lt;/module&gt;
+
+	&lt;sub-deployment name="hoge-web.war"&gt;
+        &lt;exclusions&gt;
+			&lt;module name="org.apache.log4j" /&gt;
+		&lt;/exclusions&gt;
+		&lt;dependencies&gt;
+			&lt;module
+				name="deployment.hoge-ear.ear.util" /&gt;
+			&lt;!-- warが参照するlog4jの依存性設定--&gt;
+			&lt;module
+			　　name="deployment.hoge-ear.ear.log4j" /&gt;
+		&lt;/dependencies&gt;
+	&lt;/sub-deployment&gt;
+
+	&lt;sub-deployment name="hoge-ejb.jar"&gt;
+	    &lt;!-- log4j 除外設定--&gt;
+		&lt;exclusions&gt;
+			&lt;module name="org.apache.log4j" /&gt;
+		&lt;/exclusions&gt;
+		&lt;dependencies&gt;
+		    &lt;!-- ejbが参照するlog4jの依存性設定--&gt;
+			&lt;module name="deployment.hoge-ear.ear.log4j" /&gt;
+		&lt;/dependencies&gt;
+	&lt;/sub-deployment&gt;
+
+&lt;/jboss-deployment-structure&gt;
+
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.9.1.2."></a>
+<h3 class="title">2.9.1.2.Log4jの設定をJBossのログ出力設定にマージする方法</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			Log4jの設定をJBossのログ出力設定にマージする場合、アプリケーション内にはLog4jのライブラリは同梱せず、アプリケーションサーバlog4jと干渉しないため、jboss-deployment-structure.xmlによるlog4jの暗黙的依存性の解除設定は必要ない。
+
+			</p>
+<div class="figure">
+<a name="N1332B"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;サンプルEAR構成
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+hoge-ear.ear
+     |-- hoge-web.war
+     |-- hoge-ejb.jar
+     |-- lib
+         |-- util.jar
+
+     |-- META-INF
+         |-- application.xml
+
+        
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+
+			アプリケーション用のlogger設定を制御する際は、管理CLIにより実施する。
+
+			</p>
+<div class="figure">
+<a name="N13336"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;管理CLIによりアプリケーション用(jp.co.ntt.ossc.webg.as7.migration)のログレベルTRACEで登録する。
+				</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+/subsystem=logging/logger=jp.co.ntt.ossc.webg.as7.migration:add(level=TRACE)
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+
+			
+</p>
+<div class="figure">
+<a name="N13341"></a>
+<p class="title">
+<b>Figure&nbsp;3.&nbsp;管理CLIにlogger設定後のstandalone-full-ha.xmlの抜粋(参考)</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+					
+...
+&lt;logger category="jp.co.ntt.ossc.webg.as7.migration"&gt;
+  &lt;level name="TRACE"/&gt;
+&lt;/logger&gt;
+
+				</pre>
+</div>
+</div>
+<p>
+<br class="figure-break">
+		
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.10."></a>
+<h3 class="title">2.10.パッケージング</h3>
+<br>
+<br>
+<a name="tubame_2.10.1."></a>
+<h3 class="title">2.10.1.サーバアプリケーションのパッケージング</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			WAS固有のデプロイメントディスクリプタについては、JavaEE標準のデプロイメントディスクリプタまたは、JBoss固有のデプロイメントディスクリプタに移植する。
+
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<div class="figure">
+<a name="N1388F"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;EAR構成
+						</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+  [xxx].ear
+
+|-- META-INF/
+
+|   |-- MANIFEST.MF
+|   |-- ibm-application-ext.xmi  JavaEE標準のapplication.xmlかJBoss固有のjboss-app.xmlに移植する
+|   |-- ibm-application-bnd.xmi JavaEE標準のapplication.xmlかJBoss固有のjboss-app.xmlに移植する
+
+
+
+						</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+<li class="listitem">
+<div class="figure">
+<a name="N1389A"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;WAR構成
+						</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+[xxx].war
+
+|-- META-INF/
+
+|   |-- MANIFEST.MF
+
+|-- WEB-INF/
+
+|   |-- ibm-web-bnd.xmi   JavaEE標準のweb.xml及びJBoss固有のjboss-web.xmlに移植する
+|   |-- ibm-web-ext.xmi   JavaEE標準のweb.xml及びJBoss固有のjboss-web.xmlに移植する
+|   |-- ibm-web-ext-pme.xmi   JavaEE標準のweb.xml及びJBoss固有のjboss-web.xmlに移植する
+|   |-- web.xml
+
+|   |-- classes/
+
+|   |-- lib/
+
+
+						</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+<li class="listitem">
+<div class="figure">
+<a name="N138A5"></a>
+<p class="title">
+<b>Figure&nbsp;3.&nbsp;EJB構成(JAR)
+						</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+  [xxx].jar(EJB)
+
+|-- META-INF/
+
+|   |-- MANIFEST.MF
+
+|   |-- ejb-jar.xml
+
+|   |-- ibm-ejb-jar-bnd.xmi JBoss固有のjboss-ejb3.xmlに移植する
+
+|   |-- ibm-ejb-jar-ext.xmi JBoss固有のjboss-ejb3.xmlに移植する
+
+|   |-- ibm-ejb-jar-ext-pme.xmi JBoss固有のjboss-ejb3.xmlに移植する
+						</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+</ul>
+</div>
+<p>
+
+
+		
+</p>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Warning">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Warning]" src="images/warning.png"></td><th align="left">Warning</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>WAS提供のライブラリなどがパッケージングされないよう、注意すること。</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_2.10.2."></a>
+<h3 class="title">2.10.2.クライアントアプリケーションのパッケージング</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			WAS固有のデプロイメントディスクリプタについては、JavaEE標準のデプロイメントディスクリプタまたは、JBoss固有のデプロイメントディスクリプタに移植する。
+
+			</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<div class="figure">
+<a name="N138C1"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;JAR構成(JAR)
+						</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+							
+  [xxx].jar(EJB)
+
+|-- META-INF/
+
+|   |-- MANIFEST.MF
+
+|   |-- application-client.xml
+
+|   |-- ibm-application-client-bnd.xmi JBossのデプロイメントディスクリプタに移植する
+
+|   |-- ibm-application-client-ext.xmi　JBossのデプロイメントディスクリプタに移植する
+
+						</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+</ul>
+</div>
+<p>
+
+
+		
+</p>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Warning">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Warning]" src="images/warning.png"></td><th align="left">Warning</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>WAS提供のライブラリなどがパッケージングされないよう、注意すること。</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<br>
+<br>
+</BODY>
+</HTML>

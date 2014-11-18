@@ -31,10 +31,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import tubame.common.util.CmnStringUtil;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -64,10 +63,14 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.IActionBars;
+import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.ViewPart;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import tubame.common.util.CmnStringUtil;
 import tubame.wsearch.Activator;
 import tubame.wsearch.biz.comparer.AbstractComparer;
 import tubame.wsearch.logics.WSearchReadFacade;
@@ -83,7 +86,7 @@ import tubame.wsearch.util.resource.ResourceUtil;
 /**
  * It is the view class general-purpose search results.<br/>
  */
-public class WSearchResultView extends ViewPart {
+public class WSearchResultView extends ViewPart implements ISelectionListener {
 
     /**
      * View ID
@@ -205,6 +208,8 @@ public class WSearchResultView extends ViewPart {
         this.resultFilePath = ws.getRoot().getLocation().addTrailingSeparator()
                 .toString()
                 + this.getViewSite().getSecondaryId();
+        
+        
 
         // Toolbar & Pulldown generation
         makeActions();
@@ -311,9 +316,10 @@ public class WSearchResultView extends ViewPart {
                                 .getColumnText(WSearchEditorEnum.INDEX_FILES
                                         .getIndex());
                         if (!CmnStringUtil.isEmpty(fileName)) {
-                            String resultPath = getViewSite().getSecondaryId();
-                            String projectName = resultPath.substring(0,
-                                    resultPath.indexOf(CmnStringUtil.SLASH));
+                            IProject findIProject = PluginUtil.findIProjectByPath(PluginUtil.getCanonicalPath(resultFilePath));
+//                            String projectName = resultPath.substring(0,
+//                                    resultPath.indexOf(CmnStringUtil.SLASH));
+                            String projectName = findIProject.getName();
                             try {
                                 IFile file = PluginUtil.getProject(projectName)
                                         .getFile(fileName);
@@ -1125,4 +1131,10 @@ public class WSearchResultView extends ViewPart {
         }
         return filtered;
     }
+
+	@Override
+	public void selectionChanged(IWorkbenchPart arg0, ISelection arg1) {
+		// TODO Auto-generated method stub
+		
+	}
 }

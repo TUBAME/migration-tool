@@ -798,13 +798,13 @@ def getExt(target):
     extension = m.group()
     return extension
     
-def createDependsCalcModelMap(ruleName,fieldNum,compareValue,dataFile,DEFAULT_ERR_FIELD_NUMS=1,DEFAULT_EXT_FIELD_NUMS=2,DEFAULT_PACKAGE_NUMS=3,DEFAULT_CLASSNAME_NUMS=6,DEFAULT_HITCOUNT_NUMS=7):
+def createDependsCalcModelMap(ruleName,fieldNum,compareValue,dataFile,DEFAULT_ERR_FIELD_NUMS=1,DEFAULT_EXT_FIELD_NUMS=2,DEFAULT_PACKAGE_NUMS=3,DEFAULT_CLASSNAME_NUMS=6):
     dependsCalcModels =[]
     f = codecs.open(dataFile, "r", "utf-8")
     rows = csv.reader(f)
     for row in rows:
-        if row[fieldNum-1] == compareValue and int(row[DEFAULT_HITCOUNT_NUMS-1]) != 0 and row[DEFAULT_ERR_FIELD_NUMS-1] == "error":
-            dependsCalcModels.append(DependsCalcModel(ruleName,row[DEFAULT_HITCOUNT_NUMS-1],row[DEFAULT_PACKAGE_NUMS-1],row[DEFAULT_CLASSNAME_NUMS-1],row[DEFAULT_EXT_FIELD_NUMS-1]))
+        if row[fieldNum-1] == compareValue  and row[DEFAULT_ERR_FIELD_NUMS-1] == "error":
+            dependsCalcModels.append(DependsCalcModel(ruleName,1,row[DEFAULT_PACKAGE_NUMS-1],row[DEFAULT_CLASSNAME_NUMS-1],row[DEFAULT_EXT_FIELD_NUMS-1]))
     
     return dependsCalcModels
 

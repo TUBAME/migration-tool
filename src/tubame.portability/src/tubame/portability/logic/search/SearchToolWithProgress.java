@@ -21,6 +21,7 @@ package tubame.portability.logic.search;
 import java.io.File;
 import java.io.IOException;
 
+import org.eclipse.core.resources.IProject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,7 +29,9 @@ import tubame.portability.Activator;
 import tubame.portability.plugin.dialog.ErrorDialog;
 import tubame.portability.plugin.preferences.PythonPreferencePage;
 import tubame.portability.plugin.wizard.AbstractSearchToolWithProgress;
+import tubame.portability.util.FileUtil;
 import tubame.portability.util.PythonUtil;
+import tubame.portability.util.StringUtil;
 import tubame.portability.util.resource.MessageUtil;
 
 /**
@@ -44,7 +47,29 @@ public class SearchToolWithProgress extends AbstractSearchToolWithProgress {
      */
     private static final Logger LOGGER = LoggerFactory
             .getLogger(SearchToolWithProgress.class);
+    
+	protected IProject selectedProject;
 
+    /**
+     * Constructor.<br/>
+     * Constructor reference of {@link AbstractSearchToolWithProgress}<br/>
+     * 
+     * @param target
+     *            Search directory
+     * @param keywordFilePath
+     *            Search files
+     * @param outFilePath
+     *            Search result output destination file path
+     * @param iProject 
+     */
+    public SearchToolWithProgress(String target, String keywordFilePath,
+            String outFilePath, IProject iProject) {
+        super(target, keywordFilePath, outFilePath);
+        this.selectedProject = iProject;
+        LOGGER.debug("[target]" + target + "[keywordFilePath]"
+                + keywordFilePath + "[outFilePath]" + outFilePath);
+    }
+    
     /**
      * Constructor.<br/>
      * Constructor reference of {@link AbstractSearchToolWithProgress}<br/>
@@ -59,10 +84,10 @@ public class SearchToolWithProgress extends AbstractSearchToolWithProgress {
     public SearchToolWithProgress(String target, String keywordFilePath,
             String outFilePath) {
         super(target, keywordFilePath, outFilePath);
-
         LOGGER.debug("[target]" + target + "[keywordFilePath]"
                 + keywordFilePath + "[outFilePath]" + outFilePath);
     }
+    
 
     /**
      * {@inheritDoc}
@@ -98,5 +123,17 @@ public class SearchToolWithProgress extends AbstractSearchToolWithProgress {
     public String getProgressTitle() {
         return MessageUtil.INF_SEARCH_RUNNING;
     }
+
+	@Override
+	protected String getWorkspacePath() {
+		//WorkSpaceのパス配下に検索対象があるとは限らないので、iproject情報から検索情報対象のデータを取得する必要がある
+		if(this.selectedProject!=null){
+			 String root = this.selectedProject.getLocation().toFile().getParent();
+			 return root.replace(StringUtil.SLASH, FileUtil.FILE_SEPARATOR);
+		}
+		return null;
+	}
+    
+    
 
 }

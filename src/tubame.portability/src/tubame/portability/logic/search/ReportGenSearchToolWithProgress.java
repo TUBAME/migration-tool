@@ -6,11 +6,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IProgressMonitor;
 
 import tubame.portability.exception.JbmException;
 import tubame.portability.logic.CheckListInformationFactory;
 import tubame.portability.util.FileUtil;
+import tubame.portability.util.StringUtil;
 import tubame.portability.util.resource.ResourceUtil;
 
 public class ReportGenSearchToolWithProgress extends SearchToolWithProgress {
@@ -19,6 +21,12 @@ public class ReportGenSearchToolWithProgress extends SearchToolWithProgress {
 			String keywordFilePath, String outFilePath) {
 		super(target, keywordFilePath, outFilePath);
 	}
+	
+
+	public ReportGenSearchToolWithProgress(String target, String keywordFilePath, String outFilePath, IProject iProject) {
+		super(target, keywordFilePath, outFilePath, iProject);
+	}
+
 
 	@Override
 	protected List<String> readList(IProgressMonitor monitor,
@@ -49,6 +57,18 @@ public class ReportGenSearchToolWithProgress extends SearchToolWithProgress {
         }
         return lineList;
 	}
+	
+	@Override
+	protected String getWorkspacePath() {
+		//WorkSpaceのパス配下に検索対象があるとは限らないので、iproject情報から検索情報対象のデータを取得する必要がある
+		if(this.selectedProject!=null){
+			 String root = this.selectedProject.getLocation().toFile().getParent();
+			 return root.replace(StringUtil.SLASH, FileUtil.FILE_SEPARATOR);
+		}
+		return null;
+	}
+	
+	
 	
 	
 

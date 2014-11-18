@@ -19,6 +19,7 @@
 package tubame.wsearch.logics;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -27,16 +28,23 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import org.apache.maven.model.Plugin;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import tubame.wsearch.Activator;
 import tubame.wsearch.models.WSearchCsvEnum;
 import tubame.wsearch.models.WSearchEditorMigrationRow;
 import tubame.wsearch.ui.ex.WSearchPluginException;
 import tubame.wsearch.util.CSVUtil;
+import tubame.wsearch.util.PluginUtil;
 import tubame.wsearch.util.resource.ResourceUtil;
 
 /**
@@ -190,8 +198,13 @@ public class WSearchCsvReader implements WSearchReader {
             List<WSearchEditorMigrationRow> rowList = new ArrayList<WSearchEditorMigrationRow>(
                     rows.size());
 
-            int rootSegment = ResourcesPlugin.getWorkspace().getRoot()
-                    .getLocation().segmentCount();
+//            IWorkbenchWindow activeWorkbenchWindow = Activator.getActiveWorkbenchWindow();
+//            if(activeWorkbenchWindow!=null){
+//            	IWorkbenchPage activePage = activeWorkbenchWindow.getActivePage();
+//            	ISelection selection2 = activePage.getSelection();
+//            	ISelection selection = activeWorkbenchWindow.getSelectionService().getSelection();
+//            	System.out.println(selection2);
+//            }
 
             for (List<String> tokenList : rows) {
                 // Set a value to each variable from the row data
@@ -217,17 +230,17 @@ public class WSearchCsvReader implements WSearchReader {
                         .getIndex()));
                 // Hits
                 item.setHitNum("1");
+                
                 // Porting the original file name
                 IPath path = new Path(
                         tokenList.get(WSearchCsvEnum.TOKEN_INDEX_FILES
                                 .getIndex()));
-                String file = path.removeFirstSegments(rootSegment + 1)
-                        .toString();
-                if (path.getDevice() == null) {
-                    item.setFiles(file);
-                } else {
-                    item.setFiles(file.substring(path.getDevice().length()));
-                }
+                
+                String targetFullPath = path.toOSString();
+                IProject findIProjectByPath = PluginUtil.findIProjectByPath(targetFullPath);
+                item.setFiles(targetFullPath.substring(findIProjectByPath.getLocation().toOSString().length()+File.separator.length()));
+                
+
                 // Line
                 item.setRowNumber(tokenList
                         .get(WSearchCsvEnum.TOKEN_INDEX_HIT_LINE.getIndex()));
@@ -300,7 +313,8 @@ public class WSearchCsvReader implements WSearchReader {
         }
     }
 
-    /**
+
+	/**
      * Create a {@link WSearchEditorMigrationRow}.<br/>
      * 
      * @param item

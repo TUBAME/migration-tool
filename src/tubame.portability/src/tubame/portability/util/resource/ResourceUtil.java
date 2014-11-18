@@ -31,6 +31,8 @@ public class ResourceUtil extends NLS {
      */
     private static final String BUNDLE_NAME = "resources.properties.resource"; //$NON-NLS-1$
 
+	public static String KNOWHOW_IMPORT_TITLE;
+
     public static String CONFIRM_STATUS_NG;
 
     public static String CONFIRM_STATUS_NON;
@@ -160,7 +162,9 @@ public class ResourceUtil extends NLS {
 	public static String REPORTGEN_PROGRESS;
 	
 	
+	public static String KNOWHOW_IMPORT_LABEL;
 	
+	public static String KNOWHOW_SELECT_LABEL;
     
     
 

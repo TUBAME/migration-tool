@@ -29,6 +29,7 @@ class JbmstTestCase(unittest.TestCase):
         input = self.input + self._testMethodName + ".csv"
         target = self.target + self._testMethodName
         cmd = "python ..\\src\\jbmst.py " + input + " " + target
+        
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE)
         result = p.stdout.read()
         print result
@@ -192,31 +193,7 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_steps[0]), 32)
         self.assertEqual(int(self.rslt_steps[1]), 32)
         
-    def testTubameKnowhowReportJaToDefaultOutputDir(self):
-        self.searchExecute()
-        
-        hitfile = "knowhow_result.jbm"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
-        self.assertEqual(int(self.rslt_hit), 1)
-        #self.assertEqual(self.rslt_steps, 1)
-        self.fileCompare("KnowhowDegreeOfDifficultySumCalclator_fromAp\\getresult.js","..\\..\\report\\js\\KnowhowDegreeOfDifficultySumCalclator_fromAp\\getresult.js")
-        self.fileCompare("KnowhowDegreeOfDifficultySumCalclator_toAp\\getresult.js","..\\..\\report\\js\\KnowhowDegreeOfDifficultySumCalclator_toAp\\getresult.js")
-        self.fileCompare("KnowhowFactorGraphSumCalclator_graph\\getresult.js","..\\..\\report\\js\\KnowhowFactorGraphSumCalclator_graph\\getresult.js")
-        self.fileCompare("KnowhowFactorSumCalclator_fromAp\\getresult.js","..\\..\\report\\js\\KnowhowFactorSumCalclator_fromAp\\getresult.js")
-        self.fileCompare("KnowhowFactorSumCalclator_toAp\\getresult.js","..\\..\\report\\js\\KnowhowFactorSumCalclator_toAp\\getresult.js")
-        self.fileCompare("KnowhowFileCategorySumCalclator_fromAp\\getresult.js","..\\..\\report\\js\\KnowhowFileCategorySumCalclator_fromAp\\getresult.js")
-        self.fileCompare("KnowhowFileCategorySumCalclator_toAp\\getresult.js","..\\..\\report\\js\\KnowhowFileCategorySumCalclator_toAp\\getresult.js")
-        self.fileCompare("KnowhowMigrationItemCalclator\\getresult.js","..\\..\\report\\js\\KnowhowMigrationItemCalclator\\getresult.js")
-        
-    def testTubameDependsReportJaToDefaultOutputDir(self):
-        self.searchExecute()
-        hitfile = "depends_result.gjbm"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
-        self.assertEqual(int(self.rslt_hit), 1)
-        self.fileCompare("DependsErrSumCalclator\\getresult.js","..\\..\\report\\js\\DependsErrSumCalclator\\getresult.js")
-        self.fileCompare("DependsPackagePicGrapthSumCalclator\\getresult.js","..\\..\\report\\js\\DependsPackagePicGrapthSumCalclator\\getresult.js")
-        self.fileCompare("DependsPackageSumCalclator\\getresult.js","..\\..\\report\\js\\DependsPackageSumCalclator\\getresult.js")
-         
+    
     def testTubameDependsReportJaToCustomOutputDir(self):
         body = "1,*.gjbm,%s,,ext_report_generator.py,Unknown,," % self.getReportPath()
         f = codecs.open(self.getBasePath()+"/input_csv/"+self._testMethodName+".csv", "w", "utf-8")
@@ -253,19 +230,7 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameReport_ja.html"), "レポートファイルが生成されていない")
         self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameReport_en.html"), "レポートファイルが生成されていない")
          
-    def testTubameReportGenerator(self):
-        self.searchExecute()
-        self.assertEqual(True, os.path.isfile("..\\..\\report\\js\\KnowhowDegreeOfDifficultySumCalclator_fromAp\\getresult.js"), "JSが生成されていない")
-        self.assertEqual(True, os.path.isfile("..\\..\\report\\js\\KnowhowDegreeOfDifficultySumCalclator_toAp\\getresult.js"), "JSが生成されていない")
-        self.assertEqual(True, os.path.isfile("..\\..\\report\\js\\KnowhowFactorGraphSumCalclator_graph\\getresult.js"), "JSが生成されていない")
-        self.assertEqual(True, os.path.isfile("..\\..\\report\\js\\KnowhowFactorSumCalclator_fromAp\\getresult.js"), "JSが生成されていない")
-        self.assertEqual(True, os.path.isfile("..\\..\\report\\js\\KnowhowFactorSumCalclator_toAp\\getresult.js"), "JSが生成されていない")
-        self.assertEqual(True, os.path.isfile("..\\..\\report\\js\\KnowhowFileCategorySumCalclator_fromAp\\getresult.js"), "JSが生成されていない")
-        self.assertEqual(True, os.path.isfile("..\\..\\report\\js\\KnowhowFileCategorySumCalclator_toAp\\getresult.js"), "JSが生成されていない")
-        self.assertEqual(True, os.path.isfile("..\\..\\report\\js\\DependsErrSumCalclator\\getresult.js"), "JSが生成されていない")
-        self.assertEqual(True, os.path.isfile("..\\..\\report\\js\\DependsPackagePicGrapthSumCalclator\\getresult.js"), "JSが生成されていない")
-        self.assertEqual(True, os.path.isfile("..\\..\\report\\js\\DependsPackageSumCalclator\\getresult.js"), "JSが生成されていない")
-         
+
     def testTubameReportGeneratorInputNotCsvJbm(self):
         body = "1,*.jbm,%s,,ext_report_generator.py,Unknown,," % self.getReportPath()
         f = codecs.open(self.getBasePath()+"/input_csv/"+self._testMethodName+".csv", "w", "utf-8")
@@ -282,7 +247,10 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameReport_en.html"), "レポートファイルが生成されていない")
         
     def testTubameXpathSearchSearchParamEscape(self):
-        self.searchExecute()
+        try:
+            self.searchExecute()
+        except Exceptin as e:
+            print 'occur error!!!!!'
         hitfile = "hoge.xml"
 #         self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
 #         self.assertEqual(int(self.rslt_hit), 3)
@@ -308,10 +276,33 @@ class JbmstTestCase(unittest.TestCase):
         self.searchExecute()
         self.assertEqual(self.rslt_steps, None)
         
+        
+    def testIgnoreXMLFileSearch(self):
+        body = "search_target\\testIgnoreXMLFileSearch\\web.xml"
+        f = codecs.open("../src/ignore.list", "w", "utf-8")
+        f.write(body)
+        f.close()
+        self.searchExecute()
+        self.assertEqual(self.rslt_hit, None)
+        os.remove("../src/ignore.list")
+    
+    def testExtSearchXmlDefinedclass(self):
+        self.searchExecute()
+        hitfile = "UploadAction.java"
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertNotEqual(self.rslt_steps, None)
+        
+    def testExtSearchXmlDefinedclass2(self):
+        self.searchExecute()
+        hitfile = "ImageAction.java"
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\exercise\\" + hitfile)
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertNotEqual(self.rslt_steps, None)
+        
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
-        pass
-        tests = ['testTubameXpathSearchSearchInvalidParam']
+        tests = ['testTubameXpathSearchUsedSchemaNotFind']
         unittest.TestSuite.__init__(self, map(JbmstTestCase, tests))
 
 if __name__ == '__main__':

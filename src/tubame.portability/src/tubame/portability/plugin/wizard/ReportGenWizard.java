@@ -135,9 +135,10 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 			LOGGER.info(String.format(MessageUtil.LOG_INFO_PROC_START,
 					MessageUtil.LOG_INFO_PROC_NAME_REPORTGEN));
 
-			String target = PluginUtil
-					.getFileFullPath(reportGenDirSelectionPage.getTargetText());
+//			String target = PluginUtil
+//					.getFileFullPath(reportGenDirSelectionPage.getTargetText());
 			
+			String target = reportGenDirSelectionPage.getSearchTargetDirPath();
 			existCheckListInformationForReportGen(target);
 			
 			// Search process
@@ -145,7 +146,7 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 					target,
 					PythonUtil
 							.getSearchKeywordFilePath(ApplicationPropertyUtil.SEARCH_REPORTGEN_KEYWORD_FILE),
-					jbmFilePath);
+					jbmFilePath,reportGenDirSelectionPage.getSelectedProject());
 			ProgressMonitorDialog dialog = new ProgressMonitorDialog(
 					PluginUtil.getActiveWorkbenchShell());
 
@@ -155,7 +156,7 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 				String reportGenerationPath = PythonUtil.getReportGenerationPath();
 				
 				// copy reportGenerationPath 
-				copyReport(reportGenerationPath,PluginUtil.getFileFullPath(reportGenDirSelectionPage.getOutSourceFolderText()));
+				copyReport(reportGenerationPath,reportGenDirSelectionPage.getOutputFullPath());
 				// Refresh
 				PluginUtil.refreshWorkSpace(dialog.getProgressMonitor());
 				// // Open Perspective

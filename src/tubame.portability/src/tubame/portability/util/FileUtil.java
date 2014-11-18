@@ -18,6 +18,7 @@
  */
 package tubame.portability.util;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -270,4 +271,30 @@ public class FileUtil {
             if (fos != null) fos.close();
         }
       }
+    
+	public static  boolean isKnowHowXml(File file) {
+		byte[] buff = new byte[256];
+		BufferedInputStream bufferedInputStream = null;
+		try {
+			bufferedInputStream = new BufferedInputStream(new FileInputStream(file));
+			if (bufferedInputStream != null) {
+				bufferedInputStream.read(buff);
+				if (new String(buff)
+						.contains("<PortabilityKnowhow xmlns=\"http://generated.model.biz.knowhow.tubame/knowhow\" xmlns:ns2=\"http://docbook.org/ns/docbook\">")) {
+					return true;
+				}
+			}
+		} catch (Exception e) {
+			;
+		} finally {
+			if (bufferedInputStream != null) {
+				try {
+					bufferedInputStream.close();
+				} catch (IOException e) {
+					;
+				}
+			}
+		}
+		return false;
+	}
 }

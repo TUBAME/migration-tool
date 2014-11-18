@@ -1,0 +1,3384 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PortabilityKnowhow xmlns="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:ns2="http://docbook.org/ns/docbook">
+    <PortabilityKnowhowTitle>MigrationGuide from JBossEAP4  to JBossEAP6</PortabilityKnowhowTitle>
+    <EntryViewList>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_1</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_2</EntryCategoryRefKey>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_3</EntryCategoryRefKey>
+                </ChildEntry>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_4</EntryCategoryRefKey>
+                </ChildEntry>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_6</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_11</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_15</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_16</EntryCategoryRefKey>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_17</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_18</EntryCategoryRefKey>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_19</EntryCategoryRefKey>
+                    <ChildEntry>
+                        <EntryCategoryRefKey>category_21</EntryCategoryRefKey>
+                    </ChildEntry>
+                    <ChildEntry>
+                        <EntryCategoryRefKey>category_22</EntryCategoryRefKey>
+                    </ChildEntry>
+                </ChildEntry>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_20</EntryCategoryRefKey>
+                    <ChildEntry>
+                        <EntryCategoryRefKey>category_23</EntryCategoryRefKey>
+                    </ChildEntry>
+                    <ChildEntry>
+                        <EntryCategoryRefKey>category_24</EntryCategoryRefKey>
+                    </ChildEntry>
+                </ChildEntry>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_52</EntryCategoryRefKey>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_53</EntryCategoryRefKey>
+                </ChildEntry>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_25</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_26</EntryCategoryRefKey>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_51</EntryCategoryRefKey>
+                </ChildEntry>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_34</EntryCategoryRefKey>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_28</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_29</EntryCategoryRefKey>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_30</EntryCategoryRefKey>
+                </ChildEntry>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_33</EntryCategoryRefKey>
+                </ChildEntry>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_36</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_40</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_41</EntryCategoryRefKey>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_42</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_45</EntryCategoryRefKey>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_46</EntryCategoryRefKey>
+                </ChildEntry>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_47</EntryCategoryRefKey>
+                </ChildEntry>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_48</EntryCategoryRefKey>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_50</EntryCategoryRefKey>
+                </ChildEntry>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_49</EntryCategoryRefKey>
+                </ChildEntry>
+            </ChildEntry>
+        </EntryCategory>
+    </EntryViewList>
+    <ChapterList>
+        <Chapter>
+            <ChapterNo>1.</ChapterNo>
+            <ChapterName>Migration of server setting</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>1.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_6</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>1.2.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_2</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>1.2.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_3</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>1.2.2.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_4</ChapterCategoryRefKey>
+                </ChildChapter>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>1.3.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_11</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>1.3.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_15</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>1.3.2.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_16</ChapterCategoryRefKey>
+                </ChildChapter>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>1.4.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_42</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>1.4.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_45</ChapterCategoryRefKey>
+                    <ChildChapter>
+                        <ChildCapterNo>1.4.1.1.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_46</ChapterCategoryRefKey>
+                    </ChildChapter>
+                    <ChildChapter>
+                        <ChildCapterNo>1.4.1.2.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_47</ChapterCategoryRefKey>
+                    </ChildChapter>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>1.4.2.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_48</ChapterCategoryRefKey>
+                    <ChildChapter>
+                        <ChildCapterNo>1.4.2.1.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_50</ChapterCategoryRefKey>
+                    </ChildChapter>
+                    <ChildChapter>
+                        <ChildCapterNo>1.4.2.2.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_49</ChapterCategoryRefKey>
+                    </ChildChapter>
+                </ChildChapter>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>1.5.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_17</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>1.5.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_18</ChapterCategoryRefKey>
+                    <ChildChapter>
+                        <ChildCapterNo>1.5.1.1.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_19</ChapterCategoryRefKey>
+                        <ChildChapter>
+                            <ChildCapterNo>1.5.1.1.1.</ChildCapterNo>
+                            <ChapterCategoryRefKey>category_21</ChapterCategoryRefKey>
+                        </ChildChapter>
+                        <ChildChapter>
+                            <ChildCapterNo>1.5.1.1.2.</ChildCapterNo>
+                            <ChapterCategoryRefKey>category_22</ChapterCategoryRefKey>
+                        </ChildChapter>
+                    </ChildChapter>
+                    <ChildChapter>
+                        <ChildCapterNo>1.5.1.2.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_20</ChapterCategoryRefKey>
+                        <ChildChapter>
+                            <ChildCapterNo>1.5.1.2.1.</ChildCapterNo>
+                            <ChapterCategoryRefKey>category_23</ChapterCategoryRefKey>
+                        </ChildChapter>
+                        <ChildChapter>
+                            <ChildCapterNo>1.5.1.2.2.</ChildCapterNo>
+                            <ChapterCategoryRefKey>category_24</ChapterCategoryRefKey>
+                        </ChildChapter>
+                    </ChildChapter>
+                </ChildChapter>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>2.</ChapterNo>
+            <ChapterName>Migration of applications</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>2.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_28</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>2.1.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_29</ChapterCategoryRefKey>
+                    <ChildChapter>
+                        <ChildCapterNo>2.1.1.1.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_30</ChapterCategoryRefKey>
+                    </ChildChapter>
+                    <ChildChapter>
+                        <ChildCapterNo>2.1.1.2.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_33</ChapterCategoryRefKey>
+                    </ChildChapter>
+                </ChildChapter>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>2.2.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_36</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>2.2.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_40</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>2.2.2.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_41</ChapterCategoryRefKey>
+                </ChildChapter>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>2.3.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_25</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>2.3.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_26</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>2.3.2.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_34</ChapterCategoryRefKey>
+                </ChildChapter>
+            </ChildChapter>
+        </Chapter>
+    </ChapterList>
+    <CategoryList>
+        <Category categoryId="category_1" appropriate="true">
+            <CategoryName>Migration of datasources</CategoryName>
+        </Category>
+        <Category categoryId="category_2" appropriate="true">
+            <CategoryName>Migration of datasource setting</CategoryName>
+            <KnowhowRefKey>knowhow_2</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_3" appropriate="true">
+            <CategoryName>Create a datasource definition file using IronJacamar</CategoryName>
+            <KnowhowRefKey>knowhow_3</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_4" appropriate="true">
+            <CategoryName>Migration of datasource settings</CategoryName>
+            <KnowhowRefKey>knowhow_4</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_6" appropriate="true">
+            <CategoryName>Migration of JDBC drivers</CategoryName>
+            <KnowhowRefKey>knowhow_5</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_11" appropriate="true">
+            <CategoryName>Migration of Web containers</CategoryName>
+            <KnowhowRefKey>knowhow_9</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_15" appropriate="true">
+            <CategoryName>Migration of AJP connector setting</CategoryName>
+            <KnowhowRefKey>knowhow_13</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_16" appropriate="true">
+            <CategoryName>Migration of jvmRoute setting</CategoryName>
+            <KnowhowRefKey>knowhow_14</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_17" appropriate="true">
+            <CategoryName>Migration of EJB containers</CategoryName>
+        </Category>
+        <Category categoryId="category_18" appropriate="true">
+            <CategoryName>Migration of Bean instance pool setting</CategoryName>
+            <KnowhowRefKey>knowhow_17</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_19" appropriate="true">
+            <CategoryName>Migration of SLSB instance pool setting</CategoryName>
+        </Category>
+        <Category categoryId="category_21" appropriate="true">
+            <CategoryName>Migration of SLSB instance pool setting (instance pool not configured)</CategoryName>
+            <KnowhowRefKey>knowhow_20</KnowhowRefKey>
+            <KnowhowRefKey>knowhow_22</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_22" appropriate="true">
+            <CategoryName>Migration of SLSB instance pool setting (instance pool configured)</CategoryName>
+            <KnowhowRefKey>knowhow_21</KnowhowRefKey>
+            <KnowhowRefKey>knowhow_23</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_20" appropriate="true">
+            <CategoryName>Migration of MDB instance pool setting</CategoryName>
+        </Category>
+        <Category categoryId="category_23" appropriate="true">
+            <CategoryName>Migration of MDB instance pool setting (instance pool not configured)</CategoryName>
+            <KnowhowRefKey>knowhow_24</KnowhowRefKey>
+            <KnowhowRefKey>knowhow_25</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_24" appropriate="true">
+            <CategoryName>Migration of MDB instance pool setting (instance pool configured)</CategoryName>
+            <KnowhowRefKey>knowhow_26</KnowhowRefKey>
+            <KnowhowRefKey>knowhow_27</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_52" appropriate="true">
+            <CategoryName>EntityBean container setting</CategoryName>
+        </Category>
+        <Category categoryId="category_53" appropriate="true">
+            <CategoryName>Migration of CMPBean setting</CategoryName>
+            <KnowhowRefKey>knowhow_48</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_25" appropriate="true">
+            <CategoryName>Migration of a deployment descriptor</CategoryName>
+        </Category>
+        <Category categoryId="category_26" appropriate="true">
+            <CategoryName>Migration of an EJB deployment descriptor</CategoryName>
+            <KnowhowRefKey>knowhow_28</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_51" appropriate="true">
+            <CategoryName>Migration of an EntityBean deployment descriptor (jboss.xml)</CategoryName>
+            <KnowhowRefKey>knowhow_47</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_34" appropriate="true">
+            <CategoryName>Migration of a Web deployment descriptor</CategoryName>
+            <KnowhowRefKey>knowhow_33</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_28" appropriate="true">
+            <CategoryName>Migration of Servet</CategoryName>
+        </Category>
+        <Category categoryId="category_29" appropriate="true">
+            <CategoryName>About unrecommended APIs for Servlet</CategoryName>
+        </Category>
+        <Category categoryId="category_30" appropriate="true">
+            <CategoryName>Functions not recommended for Servlet2.5</CategoryName>
+            <KnowhowRefKey>knowhow_30</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_33" appropriate="true">
+            <CategoryName>Functions not recommended for Servlet3.0</CategoryName>
+            <KnowhowRefKey>knowhow_32</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_36" appropriate="true">
+            <CategoryName>Migration of JNDIs</CategoryName>
+            <KnowhowRefKey>knowhow_34</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_40" appropriate="true">
+            <CategoryName>Migration of JNDI lookup call setting (inside a container of an AP server)</CategoryName>
+            <KnowhowRefKey>knowhow_37</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_41" appropriate="true">
+            <CategoryName>Migration of JNDI lookup call setting (outside a container of an AP server)</CategoryName>
+            <KnowhowRefKey>knowhow_38</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_42" appropriate="true">
+            <CategoryName>Migration of Web cluster setting</CategoryName>
+            <KnowhowRefKey>knowhow_39</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_45" appropriate="true">
+            <CategoryName>Migration of JGroup setting</CategoryName>
+        </Category>
+        <Category categoryId="category_46" appropriate="true">
+            <CategoryName>Migration of JGroup protocol stack setting</CategoryName>
+            <KnowhowRefKey>knowhow_42</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_47" appropriate="true">
+            <CategoryName>Migration of JGroup FC setting</CategoryName>
+            <KnowhowRefKey>knowhow_43</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_48" appropriate="true">
+            <CategoryName>Migration of replication setting</CategoryName>
+            <KnowhowRefKey>knowhow_44</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_50" appropriate="true">
+            <CategoryName>Migration of replication mode setting</CategoryName>
+            <KnowhowRefKey>knowhow_45</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_49" appropriate="true">
+            <CategoryName>Migration of replication sync setting</CategoryName>
+            <KnowhowRefKey>knowhow_46</KnowhowRefKey>
+        </Category>
+    </CategoryList>
+    <KnowhowList>
+        <KnowhowInfomation knowhowId="knowhow_2" knowhowDetailRefKey="knowhowDetail_2">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Migration of datasource setting</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_3" knowhowDetailRefKey="knowhowDetail_3">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Create a datasource definition file using IronJacamar</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_4" knowhowDetailRefKey="knowhowDetail_4">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Setting datasources with CLI</KnowhowName>
+            <CheckItem checkItemId="checkItem_1" searchRefKey="searchInfo_1" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>Search for the pool-name attribute</CheckItemName>
+                <SearchProcess>Check if the pool-name attribute is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_2" searchRefKey="searchInfo_2" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>Search for the jndi-name attribute</CheckItemName>
+                <SearchProcess>Check if the jndi-name attribute is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_3" searchRefKey="searchInfo_3" searchExistance="true">
+                <CheckItemNo>3</CheckItemNo>
+                <CheckItemName>Search for the jta attribute</CheckItemName>
+                <SearchProcess>Check if the jta attribute is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_4" searchRefKey="searchInfo_4" searchExistance="true">
+                <CheckItemNo>4</CheckItemNo>
+                <CheckItemName>Search for the spy attribute</CheckItemName>
+                <SearchProcess>Check if the py attribute is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_5" searchRefKey="searchInfo_5" searchExistance="true">
+                <CheckItemNo>5</CheckItemNo>
+                <CheckItemName>Search for the use-ccm attribute</CheckItemName>
+                <SearchProcess>Check if the use-ccm attribute is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_6" searchRefKey="searchInfo_6" searchExistance="true">
+                <CheckItemNo>6</CheckItemNo>
+                <CheckItemName>Search for the use-java-context attribute</CheckItemName>
+                <SearchProcess>Check if the use-java-context attribute is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_7" searchRefKey="searchInfo_7" searchExistance="true">
+                <CheckItemNo>7</CheckItemNo>
+                <CheckItemName>Search for the connection-url attribute</CheckItemName>
+                <SearchProcess>Check if the connection-url tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_8" searchRefKey="searchInfo_8" searchExistance="true">
+                <CheckItemNo>8</CheckItemNo>
+                <CheckItemName>Search for the driver-class attribute</CheckItemName>
+                <SearchProcess>Check if the driver-class tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_9" searchRefKey="searchInfo_9" searchExistance="true">
+                <CheckItemNo>9</CheckItemNo>
+                <CheckItemName>Search for the new-connection-sql attribute</CheckItemName>
+                <SearchProcess>Check if the new-connection-sql tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_10" searchRefKey="searchInfo_10" searchExistance="true">
+                <CheckItemNo>10</CheckItemNo>
+                <CheckItemName>Search for the transaction-isolation attribute</CheckItemName>
+                <SearchProcess>Check if the transaction-isolation tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_11" searchRefKey="searchInfo_11" searchExistance="true">
+                <CheckItemNo>11</CheckItemNo>
+                <CheckItemName>Search for the min-pool-size attribute</CheckItemName>
+                <SearchProcess>Check if the min-pool-size tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_12" searchRefKey="searchInfo_12" searchExistance="true">
+                <CheckItemNo>12</CheckItemNo>
+                <CheckItemName>Search for the max-pool-size attribute</CheckItemName>
+                <SearchProcess>Check if the max-pool-size tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_13" searchRefKey="searchInfo_13" searchExistance="true">
+                <CheckItemNo>13</CheckItemNo>
+                <CheckItemName>Search for the prefill attribute</CheckItemName>
+                <SearchProcess>Check if the prefill tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_14" searchRefKey="searchInfo_14" searchExistance="true">
+                <CheckItemNo>14</CheckItemNo>
+                <CheckItemName>Search for the use-strict-min attribute</CheckItemName>
+                <SearchProcess>Check if the use-strict-min tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_15" searchRefKey="searchInfo_15" searchExistance="true">
+                <CheckItemNo>15</CheckItemNo>
+                <CheckItemName>Search for the transaction-isolation attribute</CheckItemName>
+                <SearchProcess>Check if the transaction-isolation tag is defined in *-ds-eap6.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_16" searchRefKey="searchInfo_16" searchExistance="true">
+                <CheckItemNo>16</CheckItemNo>
+                <CheckItemName>Search for the flush-strategy attribute</CheckItemName>
+                <SearchProcess>Check if the flush-strategy tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_17" searchRefKey="searchInfo_17" searchExistance="true">
+                <CheckItemNo>17</CheckItemNo>
+                <CheckItemName>Search for the user-name attribute</CheckItemName>
+                <SearchProcess>Check if the user-name tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_18" searchRefKey="searchInfo_18" searchExistance="true">
+                <CheckItemNo>18</CheckItemNo>
+                <CheckItemName>Search for the password attribute</CheckItemName>
+                <SearchProcess>Check if the password tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_19" searchRefKey="searchInfo_19" searchExistance="true">
+                <CheckItemNo>19</CheckItemNo>
+                <CheckItemName>Search for the background-validation attribute</CheckItemName>
+                <SearchProcess>Check if the background-validation tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_20" searchRefKey="searchInfo_20" searchExistance="true">
+                <CheckItemNo>20</CheckItemNo>
+                <CheckItemName>Search for the use-fast-fail attribute</CheckItemName>
+                <SearchProcess>Check if the use-fast-fail tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_21" searchRefKey="searchInfo_21" searchExistance="true">
+                <CheckItemNo>21</CheckItemNo>
+                <CheckItemName>Search for the idle-timeout-minutes attribute</CheckItemName>
+                <SearchProcess>Check if the idle-timeout-minutes tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2	Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_22" searchRefKey="searchInfo_22" searchExistance="true">
+                <CheckItemNo>22</CheckItemNo>
+                <CheckItemName>Search for the xa-resource-timeout attribute</CheckItemName>
+                <SearchProcess>Check if the xa-resource-timeout tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_23" searchRefKey="searchInfo_23" searchExistance="true">
+                <CheckItemNo>23</CheckItemNo>
+                <CheckItemName>Search for the track-statements attribute</CheckItemName>
+                <SearchProcess>Check if the track-statements tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_24" searchRefKey="searchInfo_24" searchExistance="true">
+                <CheckItemNo>24</CheckItemNo>
+                <CheckItemName>Search for the prepared-statement-cache-size attribute</CheckItemName>
+                <SearchProcess>Check if the prepared-statement-cache-size tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_52" searchRefKey="searchInfo_52" searchExistance="true">
+                <CheckItemNo>25</CheckItemNo>
+                <CheckItemName>Search for the check-valid-connection-sql attribute</CheckItemName>
+                <SearchProcess>Check if the check-valid-connection-sql tag is defined in a datasource definition file (*-ds-eap6.xml) using IronJacamar</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_53" searchRefKey="searchInfo_53" searchExistance="true">
+                <CheckItemNo>26</CheckItemNo>
+                <CheckItemName>Search for the validate-on-matchl attribute</CheckItemName>
+                <SearchProcess>Check if the check-validate-on-match tag is defined in *-ds-eap6.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_5" knowhowDetailRefKey="knowhowDetail_5">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>How to migrate a JDBC driver</KnowhowName>
+            <CheckItem checkItemId="checkItem_89" searchRefKey="searchInfo_89" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>Search for a postgresql driver</CheckItemName>
+                <SearchProcess>Search for jdbc:postgresql in -ds.xml</SearchProcess>
+                <PortabilityFactor></PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail></DegreeDetail>
+                <VisualConfirm>Check if a datasource definition file, which has nothing to do with the application, is hit.</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_90" searchRefKey="searchInfo_90" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>Search for a oracle driver</CheckItemName>
+                <SearchProcess>Search for jdbc:oracle in -ds.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Check if a datasource definition file, which has nothing to do with the application, is hit.</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_91" searchRefKey="searchInfo_91" searchExistance="true">
+                <CheckItemNo>3</CheckItemNo>
+                <CheckItemName>Search for a mysql driver</CheckItemName>
+                <SearchProcess>Search for jdbc:sqlserver in -ds.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Check if a datasource definition file, which has nothing to do with the application, is hit.</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_9" knowhowDetailRefKey="knowhowDetail_9">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Migration of Web container setting</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_13" knowhowDetailRefKey="knowhowDetail_13">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Migration of AJP connector setting</KnowhowName>
+            <CheckItem checkItemId="checkItem_34" searchRefKey="searchInfo_34" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>Search for the port attribute of an AJP connector</CheckItemName>
+                <SearchProcess>Search for the port attribute of a Connector tag in server.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Check that it is not the port attribute of a HTTP connector</VisualConfirm>
+                <HearingConfirm>Check if it is a configuration that uses Apache(mod_jk）at the JBoss front</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_35" searchRefKey="searchInfo_35" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>Search for the protocol attribute of an AJP connector</CheckItemName>
+                <SearchProcess>Search for the port attribute of a Connector tag in server.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Check that it is not the port attribute of a HTTP connector</VisualConfirm>
+                <HearingConfirm>Check if it is a configuration that uses Apache(mod_jk）at the JBoss front</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_36" searchRefKey="searchInfo_36" searchExistance="true">
+                <CheckItemNo>3</CheckItemNo>
+                <CheckItemName>Search for the maxThreads attribute of an AJP connector</CheckItemName>
+                <SearchProcess>Search for the maxThreads attribute of a Connector tag in server.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Check that it is not the port attribute of a HTTP connector</VisualConfirm>
+                <HearingConfirm>Check if it is a configuration that uses Apache(mod_jk）at the JBoss front</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_37" searchRefKey="searchInfo_37" searchExistance="true">
+                <CheckItemNo>4</CheckItemNo>
+                <CheckItemName>Search for the connectionTimeout attribute of an AJP connector</CheckItemName>
+                <SearchProcess>Search for the connectionTimeout attribute of a Connector tag in server.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Check that it is not the port attribute of a HTTP connector</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_38" searchRefKey="searchInfo_38" searchExistance="true">
+                <CheckItemNo>5</CheckItemNo>
+                <CheckItemName>Search for the useBodyEncodingForURI attribute of an AJP connector</CheckItemName>
+                <SearchProcess>Search for the emptySessionPath attribute of a Connector tag in server.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Check that it is not the port attribute of a HTTP connector</VisualConfirm>
+                <HearingConfirm>Check if it is a configuration that uses Apache(mod_jk）at the JBoss front</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_39" searchRefKey="searchInfo_39" searchExistance="true">
+                <CheckItemNo>6</CheckItemNo>
+                <CheckItemName>Search for the emptySessionPath attribute of an AJP connector</CheckItemName>
+                <SearchProcess>Search for the protocol attribute of a Connector tag in server.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Check that it is not the port attribute of a HTTP connector</VisualConfirm>
+                <HearingConfirm>Check if it is a configuration that uses Apache(mod_jk）at the JBoss front</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_40" searchRefKey="searchInfo_40" searchExistance="true">
+                <CheckItemNo>7</CheckItemNo>
+                <CheckItemName>Search for the enableLookups attribute of an AJP connector</CheckItemName>
+                <SearchProcess>Search for the enableLookups attribute of a Connector tag in server.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Check that it is not the port attribute of a HTTP connector</VisualConfirm>
+                <HearingConfirm>Check if it is a configuration that uses Apache(mod_jk）at the JBoss front</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_41" searchRefKey="searchInfo_41" searchExistance="true">
+                <CheckItemNo>8</CheckItemNo>
+                <CheckItemName>Search for the redirectPort attribute of an AJP connector</CheckItemName>
+                <SearchProcess>Search for the redirectPort attribute of a Connector tag in server.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Check that it is not the port attribute of a HTTP connector</VisualConfirm>
+                <HearingConfirm>Check if it is a configuration that uses Apache(mod_jk）at the JBoss front</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_54" searchRefKey="searchInfo_54" searchExistance="true">
+                <CheckItemNo>9</CheckItemNo>
+                <CheckItemName>Search for the schema attribute of an AJP connector</CheckItemName>
+                <SearchProcess>Search for the scheme attribute of a Connector tag in server.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_55" searchRefKey="searchInfo_55" searchExistance="true">
+                <CheckItemNo>10</CheckItemNo>
+                <CheckItemName>Search for the secure attribute of an AJP connector</CheckItemName>
+                <SearchProcess>Search if the value of a secure attribute of the Connector tag in server.xml is true</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_14" knowhowDetailRefKey="knowhowDetail_14">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Migration of the jvmRoute setting</KnowhowName>
+            <CheckItem checkItemId="checkItem_42" searchRefKey="searchInfo_42" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>Search for the jvmRoute setting</CheckItemName>
+                <SearchProcess>Search for the jvmRoute attribute of an Engine tag in server.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_17" knowhowDetailRefKey="knowhowDetail_17">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Migration of Bean instance pools</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_20" knowhowDetailRefKey="knowhowDetail_20">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Migration of the instance pool setting when an instance pool is not set with a deployment descriptor</KnowhowName>
+            <CheckItem checkItemId="checkItem_45" searchRefKey="searchInfo_45" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>Check that an instance pool is not explicitly set in jboss.xml</CheckItemName>
+                <SearchProcess>Check that there is no configuration-name tag in jboss.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Check that there is no configuration-name tag in jboss.xml. If there is one, exclude it from items being ported</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_22" knowhowDetailRefKey="knowhowDetail_22">
+            <KnowhowNo>2</KnowhowNo>
+            <KnowhowName>Configuring a default instance pool of SLSB with management CLI (JBoss EAP 6)</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_21" knowhowDetailRefKey="knowhowDetail_21">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Migration of the setting when an instance pool is explicitly set in jboss.xml</KnowhowName>
+            <CheckItem checkItemId="checkItem_43" searchRefKey="searchInfo_43" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>Check if there is an instance pool tuning setting of SLSB in jboss.xml</CheckItemName>
+                <SearchProcess>Check if the value of the extends attribute for the container-configuration tag in jboss.xml is a Standard Stateless SessionBean</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_44" searchRefKey="searchInfo_44" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>Check if there is an instance pool tuning setting of SLSB in jboss.xml</CheckItemName>
+                <SearchProcess>Check if the value of the extends attribute for the container-configuration tag in jboss.xml is a Standard Stateless SessionBean</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_23" knowhowDetailRefKey="knowhowDetail_23">
+            <KnowhowNo>2</KnowhowNo>
+            <KnowhowName>Configuring an instance pool with management CLI for each Bean of SLSB (JBoss EAP 6)</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_24" knowhowDetailRefKey="knowhowDetail_24">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Migration of setting when an instance pool is not explicitly set in jboss.xml</KnowhowName>
+            <CheckItem checkItemId="checkItem_46" searchRefKey="searchInfo_46" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>Check that an instance pool is not explicitly set in jboss.xml</CheckItemName>
+                <SearchProcess>Check that there is no configuration-name tag in jboss.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Check that there is no configuration-name tag in jboss.xml. If there is one, exclude it from items being ported</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_25" knowhowDetailRefKey="knowhowDetail_25">
+            <KnowhowNo>2</KnowhowNo>
+            <KnowhowName>Configuring an instance pool with management CLI for MDB (JBoss EAP 6)</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_26" knowhowDetailRefKey="knowhowDetail_26">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Singleton Message Driven Bean</KnowhowName>
+            <CheckItem checkItemId="checkItem_48" searchRefKey="searchInfo_48" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>Check if there is an instance pool tuning setting of MDB in jboss.xml</CheckItemName>
+                <SearchProcess>Check if the value of the extends attribute for the container-configuration tag in jboss.xml is a Standard Message Driven Bean</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_49" searchRefKey="searchInfo_49" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>Check if there is an instance pool tuning setting of a singleton MDB in jboss.xml</CheckItemName>
+                <SearchProcess>Check if the value of the extends attribute for the container-configuration tag in jboss.xml is a Singleton Message Driven Bean</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_50" searchRefKey="searchInfo_50" searchExistance="true">
+                <CheckItemNo>3</CheckItemNo>
+                <CheckItemName>Check if there is an instance pool tuning setting of a message inflow MDB in jboss.xml</CheckItemName>
+                <SearchProcess>Check if the value of the extends attribute for the container-configuration tag in jboss.xml is a Standard Message Inflow Driven Bean</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_27" knowhowDetailRefKey="knowhowDetail_27">
+            <KnowhowNo>2</KnowhowNo>
+            <KnowhowName>Configuring an instance pool with management CLI for each MDB Bean (JBoss EAP 6)</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_48" knowhowDetailRefKey="knowhowDetail_48">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Migration of CMPBean setting</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_28" knowhowDetailRefKey="knowhowDetail_28">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Migration of an EJB deployment descriptor (jboss.xml)</KnowhowName>
+            <CheckItem checkItemId="checkItem_51" searchRefKey="searchInfo_51" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>Search for a JBoss EJB deployment descriptor (jboss.xml)</CheckItemName>
+                <SearchProcess>Search for jboss.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Check if the jboss.xml file in question is the one used by an application. &#xD; (if it is different, make it a non-porting item)</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_47" knowhowDetailRefKey="knowhowDetail_47">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Migration of an EntityBean deployment descriptor (jboss.xml)</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_33" knowhowDetailRefKey="knowhowDetail_33">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Migration of a Web deployment descriptor (jboss-web.xml)</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_30" knowhowDetailRefKey="knowhowDetail_30">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Functions not recommended for Servlet 2.5</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_32" knowhowDetailRefKey="knowhowDetail_32">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Functions not recommended for Servlet 3.0</KnowhowName>
+            <CheckItem checkItemId="checkItem_92" searchRefKey="searchInfo_92" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>Search 1 for HttpServletResponseWrapper#encodeRedirectUrl</CheckItemName>
+                <SearchProcess>Search for the encodeRedirectUrl method of the HttpServletResponseWrapper class used</SearchProcess>
+                <PortabilityFactor>Change JSP/Servlet specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Manually check if unrecommended APIs are used or not</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_93" searchRefKey="searchInfo_93" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>Search 2 for HttpServletResponseWrapper#encodeRedirectUrl</CheckItemName>
+                <SearchProcess>Search for the encodeRedirectUrl method of the HttpServletResponseWrapper class used</SearchProcess>
+                <PortabilityFactor>Change JSP/Servlet specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Manually check if unrecommended APIs are used or not</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_94" searchRefKey="searchInfo_94" searchExistance="true">
+                <CheckItemNo>3</CheckItemNo>
+                <CheckItemName>Search 1 for HttpServletResponseWrapper#encodeUrl</CheckItemName>
+                <SearchProcess>Search for the encodeUrl method of the HttpServletResponseWrapper class used</SearchProcess>
+                <PortabilityFactor>Change JSP/Servlet specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Manually check if unrecommended APIs are used or not</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_95" searchRefKey="searchInfo_95" searchExistance="true">
+                <CheckItemNo>4</CheckItemNo>
+                <CheckItemName>Search 2 for HttpServletResponseWrapper#encodeUrll</CheckItemName>
+                <SearchProcess>Search for the encodeUrl method of the HttpServletResponseWrapper class used</SearchProcess>
+                <PortabilityFactor>Change JSP/Servlet specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Manually check if unrecommended APIs are used or not</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_96" searchRefKey="searchInfo_96" searchExistance="true">
+                <CheckItemNo>5</CheckItemNo>
+                <CheckItemName>Search 1 for HttpServletResponseWrapper#isRequestedSessionIdFromUrl</CheckItemName>
+                <SearchProcess>Search for the isRequestedSessionIdFromUrl method of the HttpServletResponseWrapper class used</SearchProcess>
+                <PortabilityFactor>Change JSP/Servlet specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Manually check if unrecommended APIs are used or not</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_97" searchRefKey="searchInfo_97" searchExistance="true">
+                <CheckItemNo>6</CheckItemNo>
+                <CheckItemName>Search 2 for HttpServletResponseWrapper#isRequestedSessionIdFromUrl</CheckItemName>
+                <SearchProcess>Search for the isRequestedSessionIdFromUrl method of the HttpServletResponseWrapper class used</SearchProcess>
+                <PortabilityFactor>Change JSP/Servlet specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Manually check if unrecommended APIs are used or not</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_98" searchRefKey="searchInfo_98" searchExistance="true">
+                <CheckItemNo>7</CheckItemNo>
+                <CheckItemName>Search 1 for HttpServletResponseWrapper#setStatus</CheckItemName>
+                <SearchProcess>Search for the setStatus method of the HttpServletResponseWrapper class used</SearchProcess>
+                <PortabilityFactor>Change JSP/Servlet specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Manually check if unrecommended APIs are used or not</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_99" searchRefKey="searchInfo_99" searchExistance="true">
+                <CheckItemNo>8</CheckItemNo>
+                <CheckItemName>Search 2 for HttpServletResponseWrapper#setStatus</CheckItemName>
+                <SearchProcess>Search for the setStatus method of the HttpServletResponseWrapper class used</SearchProcess>
+                <PortabilityFactor>Change JSP/Servlet specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Manually check if unrecommended APIs are used or not</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_100" searchRefKey="searchInfo_100" searchExistance="true">
+                <CheckItemNo>9</CheckItemNo>
+                <CheckItemName>Search 1 for ServletRequestWrapper#encodeRedirectUrl</CheckItemName>
+                <SearchProcess>Search for the getRealPath method of the ServletRequestWrapper class used</SearchProcess>
+                <PortabilityFactor>Change JSP/Servlet specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Manually check if unrecommended APIs are used or not</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_101" searchRefKey="searchInfo_101" searchExistance="true">
+                <CheckItemNo>10</CheckItemNo>
+                <CheckItemName>Search 2 for ServletRequestWrapper#encodeRedirectUrl</CheckItemName>
+                <SearchProcess>Search for the getRealPath method of the HttpServletResponseWrapper class used</SearchProcess>
+                <PortabilityFactor>Change JSP/Servlet specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Manually check if unrecommended APIs are used or not</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_34" knowhowDetailRefKey="knowhowDetail_34">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>InitialContext setting for JNDI</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_37" knowhowDetailRefKey="knowhowDetail_37">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>JNDI lookup call from inside a container of an AP server</KnowhowName>
+            <CheckItem checkItemId="checkItem_62" searchRefKey="searchInfo_62" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>Search for InitialContext instance generation in java codes</CheckItemName>
+                <SearchProcess>Search for calls to InitialContext with arguments in java files</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Make it a non-porting item when there is no argument for InitialContext. Check if the code in question is a call from inside an AP server container when there are arguments specified. &#xD; If it is from inside an AP server container, no argument is needed to be specified for InitialContext and modifications are required not to specify arguments. Therefore, it will be a porting item. &#xD; If it is from outside an AP server container, it is not appropriate to detect it with this item. Therefore, make it a non-porting item.</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_38" knowhowDetailRefKey="knowhowDetail_38">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>JNDI lookup call from outside a container of an AP server</KnowhowName>
+            <CheckItem checkItemId="checkItem_56" searchRefKey="searchInfo_56" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>Search for the INITIAL_CONTEXT_FACTORY setting using properties</CheckItemName>
+                <SearchProcess>Search for org.jnp.interfaces.NamingContextFactory in *.properties</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>If the .properties file in question is &#xD;
+$jboss.home/conf/jndi.properties file, make it a non-porting item. &#xD; Otherwise, check that the file in question is set for a JNDI call, from outside a container. &#xD; If it is a call from outside a container, the content of a property needs to be changed. Therefore it will be a porting item.</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_57" searchRefKey="searchInfo_57" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>Search for the PROVIDER_URL setting using properties</CheckItemName>
+                <SearchProcess>Search for jnp:// in *.properties</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>If the .properties file in question is&#xD; $jboss.home/conf/jndi.properties file, make it a non-porting item. &#xD; Otherwise, check that the file in question is set for a JNDI call from outside a container. &#xD; If it is a call from outside a container, the content of property needs to be changed. Therefore it will be a porting item.</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_58" searchRefKey="searchInfo_58" searchExistance="true">
+                <CheckItemNo>3</CheckItemNo>
+                <CheckItemName>Search for the URL_PKG_PREFIXES setting using properties</CheckItemName>
+                <SearchProcess>If the .properties file in question is&#xD; $jboss.home/conf/jndi.properties file, make it a non-porting item. </SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>If the properties file in question is&#xD; the $jboss.home/conf/jndi.properties file, make it a non-porting item. &#xD; Otherwise, check that the file in question is set for a JNDI call from outside a container. &#xD; If it is a call from outside a container, it will be a non-porting item.</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_59" searchRefKey="searchInfo_59" searchExistance="true">
+                <CheckItemNo>4</CheckItemNo>
+                <CheckItemName>Searching for INITIAL_CONTEXT_FACTORY setting in the Java code</CheckItemName>
+                <SearchProcess>Search for org.jnp.interfaces.NamingContextFactory in *.java</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Check if the code in question is a call from outside an AP server container. If it is a call from outside an AP server container, it will be a porting item. If it is a call from inside an AP server container, it needs to be ported. Because it is wrong to check for this item, make it a non-porting item.</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_60" searchRefKey="searchInfo_60" searchExistance="true">
+                <CheckItemNo>5</CheckItemNo>
+                <CheckItemName>Search for PROVIDER_URL setting in the Jave code</CheckItemName>
+                <SearchProcess>Check if the code in question is a call from outside an AP server container. If it is a call from outside an AP server container, it will be a porting item.&#xD;If it is a call from inside an AP server container, it needs to be ported. Because it is wrong to check for this item, make it a non-porting item.</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Check if the code in question is a call from outside an AP server container. If it is a call from outside an AP server container, it will be a porting item.&#xD;If it is a call from inside an AP server container, it needs to be ported. Because it is wrong to check for this item, make it a non-porting item.</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_61" searchRefKey="searchInfo_61" searchExistance="true">
+                <CheckItemNo>6</CheckItemNo>
+                <CheckItemName>Search for URL_PKG_PREFIXES setting in the Jave code</CheckItemName>
+                <SearchProcess>Check if the code in question is a call from outside an AP server container. If it is a call from outside an AP server container, it will be a porting item.&#xD;If it is a call from inside an AP server container, it needs to be ported. Because it is wrong to check for this item, make it a non-porting item.</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Check if the code in question is a call from outside an AP server container. If it is a call from outside an AP server container, it will be a porting item.&#xD;If it is a call from inside an AP server container, it needs to be ported. Because it is wrong to check for this item, make it a non-porting item.</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_39" knowhowDetailRefKey="knowhowDetail_39">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Migration of Web cluster setting</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_42" knowhowDetailRefKey="knowhowDetail_42">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Migration of the JGroup protocol stack setting</KnowhowName>
+            <CheckItem checkItemId="checkItem_81" searchRefKey="searchInfo_81" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>JGroup protocol stacks search for UDP</CheckItemName>
+                <SearchProcess>Check if there is a UDP tag at any child elements of the config tag in jboss-service.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_82" searchRefKey="searchInfo_82" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>JGroup protocol stacks search for TCP</CheckItemName>
+                <SearchProcess>Check if there is a TCP tag at any child elements of the config tag in jboss-service.xml</SearchProcess>
+                <PortabilityFactor></PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail></DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_43" knowhowDetailRefKey="knowhowDetail_43">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Migration of JGroup FC setting</KnowhowName>
+            <CheckItem checkItemId="checkItem_83" searchRefKey="searchInfo_83" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>Check that JGroup FC is already set up</CheckItemName>
+                <SearchProcess>Check that the FC tag exists as a child element under the config tag in jboss-service.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm>you need to check if the FC setting is required.</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_84" searchRefKey="searchInfo_84" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>Check that the FC setting of JGroup is not configured.</CheckItemName>
+                <SearchProcess>Check that the FC tag exists as a child element under the config tag in jboss-service.xml</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm>Check if the FC setting is commented out. If the FC setting is valid, make it a non-porting item.</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_44" knowhowDetailRefKey="knowhowDetail_44">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Migration of replication setting</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_45" knowhowDetailRefKey="knowhowDetail_45">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Migration of replication mode</KnowhowName>
+            <CheckItem checkItemId="checkItem_85" searchRefKey="searchInfo_85" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>Check that the replication mode is alltoall</CheckItemName>
+                <SearchProcess>Check that the value of the buddyReplicationEnabled tag in jboss-service.xml is false </SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm>Check the number of cluster nodes of an AP server</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_86" searchRefKey="searchInfo_86" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>Check that the replication mode is buddy</CheckItemName>
+                <SearchProcess>Check that the value of the buddyReplicationEnabled tag in jboss-service.xml is true</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm>Replication mode which is alltoall-equivalent. Check if the buddy-equivalent function is really needed</HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_46" knowhowDetailRefKey="knowhowDetail_46">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Replication sync setting</KnowhowName>
+            <CheckItem checkItemId="checkItem_87" searchRefKey="searchInfo_87" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>Check that the replication sync setting is asynchronous</CheckItemName>
+                <SearchProcess>Check that the value of the attribute tag in jboss-service.xml is REPL_ASYNC</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_88" searchRefKey="searchInfo_88" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>Check that the replication sync setting is synchronous</CheckItemName>
+                <SearchProcess>Check that the value of the attribute tag in jboss-service.xml is REPL_SYNC</SearchProcess>
+                <PortabilityFactor>Change AP server specification</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>Low 2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm>Check if sync mode is needs to be set</HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+    </KnowhowList>
+    <DocBookList>
+        <DocBook articleId="knowhowDetail_2">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>How to migrate the datasource setting</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>This book shows how to migrate the setting using a migration tool provided by IronJacamar from the JBoss Commnutiy</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_3">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Create a datasource definition file using IronJacamar</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Please install IronJacamar and convert a datasource setting file by consulting the procedures in the following JBoss_Enterprise_Application_Platform-6-Migration_Guide.pdf file. A datasource definition file for JBoss EAP4 is jboss.home/server/{profile}/lib/*-ds.xml. Since a datasource definition file used by a business application needs to be migrated, convert only the datasource definition file in question using the converter provided by IronJacamar  
+		</ns2:para>
+                    <ns2:para>https://access.redhat.com/knowledge/docs/en-US/JBoss_Enterprise_Application_Platform/6/pdf/Migration_Guide/JBoss_Enterprise_Application_Platform-6-Migration_Guide-en-US.pdf
+		</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_4">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Setting datasources with CLI</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>It is not recommended that a datasource definition file for JBoss EAP5 is used for JBoss EAP6. The datasource setting needs to be configured with management CLI based on the setting of a datasource definition file created by IronJacamar
+		</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>If the non-tx-datasource tag is configured in a datasource definition file for JBoss EAP5, the datasource registration setting must be configured using a data-source command with management CLI. 
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>If the local-tx-datasource or tx-datasourc tag is configured in a datasource definition file for JBoss EAP5, the datasource registration setting must be configured using a data-source command with management CLI.
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                    <ns2:para>Here are a table which shows the relationship between attributes of a datasource definition file and data-source/xa-data-source commands, and an example of the datasource registration setting with management CLI;		</ns2:para>
+                    <ns2:table frame="all">
+                        <ns2:title>Table which shows the relationship between attributes of a datasource definition file and parameters specified by a data-source command and a xa-data-source command
+			</ns2:title>
+                        <ns2:tgroup cols="3">
+                            <ns2:tbody>
+<ns2:row>
+    <ns2:entry>#</ns2:entry>
+    <ns2:entry>Attribute values of a datasource definition file</ns2:entry>
+    <ns2:entry>Parameters specified by a xa-data-source command</ns2:entry>
+    <ns2:entry>Notes</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>1</ns2:entry>
+    <ns2:entry>pool-name</ns2:entry>
+    <ns2:entry>-name</ns2:entry>
+    <ns2:entry>Required parameters for a xa-data-source command</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>2</ns2:entry>
+    <ns2:entry>jndi-name</ns2:entry>
+    <ns2:entry>--jndi-name</ns2:entry>
+    <ns2:entry>Required parameters for a xa-data-source commnand</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>3</ns2:entry>
+    <ns2:entry>No support</ns2:entry>
+    <ns2:entry>--driver-name</ns2:entry>
+    <ns2:entry>Required parameters for a xa-data-source command. A driver for Postgres needs to be registered beforehand.
+						</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>4</ns2:entry>
+    <ns2:entry>jta</ns2:entry>
+    <ns2:entry>--jta</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>5</ns2:entry>
+    <ns2:entry>spy</ns2:entry>
+    <ns2:entry>--spy</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>6</ns2:entry>
+    <ns2:entry>use-ccm</ns2:entry>
+    <ns2:entry>--use-ccm</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>7</ns2:entry>
+    <ns2:entry>use-java-context</ns2:entry>
+    <ns2:entry>--use-java-context</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>8</ns2:entry>
+    <ns2:entry>connection-url</ns2:entry>
+    <ns2:entry/>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>9</ns2:entry>
+    <ns2:entry>driver-class</ns2:entry>
+    <ns2:entry/>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>10</ns2:entry>
+    <ns2:entry>new-connection-sql</ns2:entry>
+    <ns2:entry>--new-connection-sql</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>11</ns2:entry>
+    <ns2:entry>transaction-isolation</ns2:entry>
+    <ns2:entry>--transaction-isolation</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>12</ns2:entry>
+    <ns2:entry>min-pool-size</ns2:entry>
+    <ns2:entry>--min-pool-size</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>13</ns2:entry>
+    <ns2:entry>max-pool-size</ns2:entry>
+    <ns2:entry>--max-pool-size</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>14</ns2:entry>
+    <ns2:entry>prefill</ns2:entry>
+    <ns2:entry>--pool-prefill</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>15</ns2:entry>
+    <ns2:entry>use-strict-min</ns2:entry>
+    <ns2:entry>--pool-use-strict-min</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>16</ns2:entry>
+    <ns2:entry>flush-strategy</ns2:entry>
+    <ns2:entry>--flush-strategy</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>17</ns2:entry>
+    <ns2:entry>user-name</ns2:entry>
+    <ns2:entry>--user-name</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>18</ns2:entry>
+    <ns2:entry>password</ns2:entry>
+    <ns2:entry>--password </ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>19</ns2:entry>
+    <ns2:entry>check-valid-connection-sql</ns2:entry>
+    <ns2:entry>--check-valid-connection-sql</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>20</ns2:entry>
+    <ns2:entry>validate-on-match</ns2:entry>
+    <ns2:entry>--validate-on-match</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>21</ns2:entry>
+    <ns2:entry>background-validation</ns2:entry>
+    <ns2:entry>--background-validation</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>22</ns2:entry>
+    <ns2:entry>use-fast-fail</ns2:entry>
+    <ns2:entry>--use-fast-fail</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>23</ns2:entry>
+    <ns2:entry>idle-timeout-minutes</ns2:entry>
+    <ns2:entry>--idle-timeout-minutes</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>24</ns2:entry>
+    <ns2:entry>xa-resource-timeout</ns2:entry>
+    <ns2:entry>--xa-resource-timeout</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>25</ns2:entry>
+    <ns2:entry>track-statements</ns2:entry>
+    <ns2:entry>--track-statements</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>26</ns2:entry>
+    <ns2:entry>prepared-statement-cache-size</ns2:entry>
+    <ns2:entry>--prepared-statement-cache-size</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+                            </ns2:tbody>
+                        </ns2:tgroup>
+                    </ns2:table>
+                    <ns2:figure>
+                        <ns2:title>Example of non-XA datasource registration using a data-source command. A driver name should be specified with the form of {driver-name}, and a datasource name should be specified with the form of {datasource-name}  
+			</ns2:title>
+                        <ns2:programlisting language="text">
+				<ns2:textobject>
+<ns2:textdata fileref="add-data-source.cli"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:figure>
+                        <ns2:title>Example of XA datasource registration and xa-datasource-properties setting using a xa-data-source command. A driver name should be specified with the form of {driver-name}, and a datasource name should be specified with the form of {datasource-name}
+			</ns2:title>
+                        <ns2:programlisting language="text">
+				<ns2:textobject>
+<ns2:textdata fileref="add-xa-data-source.cli"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:para>Since DB server names, ports, user names, and passwords which are specified with connection-url set in a datasource definition file for JBossEAP5 can not be configured with a xa-data-source command for XA, additional settings are done for xa-datasource-properties in the normal operation of management CLI.
+		</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_5">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title xml:lang="ja">How to migrate a JDBC driver</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>For EAP4, a JDBC driver could be loaded for JBoss only by putting it under $jboss.home/server/{profile}/lib. For EAP6, a JDBC driver must be registered as a module or deployment.  We show here how to register a JDBC driver for PostgesSQL in JBoss EAP6.
+		</ns2:para>
+                    <ns2:para/>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>Create a definition file for a JDBC driver module (module.xml)</ns2:para>
+                            <ns2:figure>
+<ns2:title>module.xml for a JDBC driver for PostgresSQL</ns2:title>
+<ns2:programlisting language="text">
+						<ns2:textobject>
+        <ns2:textdata fileref="jdbc.module.xml"/>
+    </ns2:textobject>
+					</ns2:programlisting>
+                            </ns2:figure>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Deploy files required to register a JDBC driver module</ns2:para>
+                            <ns2:itemizedlist>
+<ns2:listitem>
+    <ns2:para>Create the $jboss.modules.dir/org/postgresql folder under the JBoss module directory
+						</ns2:para>
+</ns2:listitem>
+<ns2:listitem>
+    <ns2:para>Copy module.xml to $jboss.modules.dir/org/postgresql
+						</ns2:para>
+</ns2:listitem>
+<ns2:listitem>
+    <ns2:para>Copy a JDBC driver (jdbc4*.jar) to $jboss.modules.dir/org/postgresql
+						</ns2:para>
+</ns2:listitem>
+                            </ns2:itemizedlist>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Register a JDBC driver module with management CLI</ns2:para>
+                            <ns2:figure>
+<ns2:title>Register a JDBC driver module with management CLI in JBoss EAP6. The Driver name can be specified optionally with the form of {driver-name}.</ns2:title>
+<ns2:programlisting language="text">
+						<ns2:textobject>
+        <ns2:textdata fileref="add-postgres-driver.cli"/>
+    </ns2:textobject>
+					</ns2:programlisting>
+                            </ns2:figure>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_9">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Migration of Web container setting</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Migration of Web container setting</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_13">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Migration of AJP connector setting</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>In JBoss EAP4, the AJP connector setting was configured with Connector tags in $jboss.home/{profile}/deploy/jboss-web.deployer/server.xml. In JBoss EAP6, the AJP connector setting is configured with management CLI</ns2:para>
+                    <ns2:table frame="all">
+                        <ns2:title>Support for AJP connector attributes in JBoss EAP4 and JBoss EAP6</ns2:title>
+                        <ns2:tgroup cols="5">
+                            <ns2:tbody>
+<ns2:row>
+    <ns2:entry>#</ns2:entry>
+    <ns2:entry>AJP connector attributes in JBoss EAP4</ns2:entry>
+    <ns2:entry>AJP connector attributes in JBoss EAP6</ns2:entry>
+    <ns2:entry>Management CLI operations in JBoss EAP6</ns2:entry>
+    <ns2:entry>Notes</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>1</ns2:entry>
+    <ns2:entry>port</ns2:entry>
+    <ns2:entry/>
+    <ns2:entry>Use the port offset function of socket bindings</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>2</ns2:entry>
+    <ns2:entry>protocol</ns2:entry>
+    <ns2:entry>protocol</ns2:entry>
+    <ns2:entry>Setting unnecessary</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>3</ns2:entry>
+    <ns2:entry>maxThreads</ns2:entry>
+    <ns2:entry>max-connections</ns2:entry>
+    <ns2:entry>/subsystem=web/connector=ajp:write-attribute(name=max-connections,value=maxThreads setting value in EAP4)</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>4</ns2:entry>
+    <ns2:entry>minSpareThreads</ns2:entry>
+    <ns2:entry>No corresponding parameter in EAP6</ns2:entry>
+    <ns2:entry/>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>5</ns2:entry>
+    <ns2:entry>maxSpareThreads</ns2:entry>
+    <ns2:entry>No corresponding parameter in EAP6</ns2:entry>
+    <ns2:entry/>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>6</ns2:entry>
+    <ns2:entry>connectionTimeout</ns2:entry>
+    <ns2:entry>Set with the org.apache.coyote.ajp.DEFAULT_CONNECTION_TIMEOUT system property</ns2:entry>
+    <ns2:entry>/system-property=org.apache.coyote.ajp.DEFAULT_CONNECTION_TIMEOUT:add(value=EAP4のconnectionTimeout設定値)	/system-property=org.apache.coyote.ajp.DEFAULT_CONNECTION_TIMEOUT:add(value=connectionTimeout setting value in EAP4)</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>7</ns2:entry>
+    <ns2:entry>useBodyEncodingForURI</ns2:entry>
+    <ns2:entry>Set with the org.apache.catalina.connector.USE_BODY_ENCODING_FOR_QUERY_STRING system property</ns2:entry>
+    <ns2:entry>/system-property=org.apache.catalina.connector.USE_BODY_ENCODING_FOR_QUERY_STRING:add(value=EAP4のuseBodyEncodingForURI設定値)	/system-property=org.apache.catalina.connector.USE_BODY_ENCODING_FOR_QUERY_STRING:add(value=useBodyEncodingForURI setting value in EAP4)</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>8</ns2:entry>
+    <ns2:entry>emptySessionPath</ns2:entry>
+    <ns2:entry>No corresponding parameter in EAP6? (The way to set the path for a Session cookie has changed in EAP5. What about in EAP6?)</ns2:entry>
+    <ns2:entry/>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>9</ns2:entry>
+    <ns2:entry>enableLookups</ns2:entry>
+    <ns2:entry>enable-lookups</ns2:entry>
+    <ns2:entry>/subsystem=web/connector=ajp:write-attribute(name=enable-lookups,value=enable-lookups setting value in EAP4)</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>10</ns2:entry>
+    <ns2:entry>redirectPort</ns2:entry>
+    <ns2:entry>redirect-port</ns2:entry>
+    <ns2:entry>/subsystem=web/connector=ajp:write-attribute(name=redirect-port,value=enable-lookups setting value in EAP4)</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>11</ns2:entry>
+    <ns2:entry>schema</ns2:entry>
+    <ns2:entry>schema</ns2:entry>
+    <ns2:entry>/subsystem=web/connector=ajp:write-attribute(name=schema,value=enable-lookups setting value in EAP4)</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>12</ns2:entry>
+    <ns2:entry>secure</ns2:entry>
+    <ns2:entry>secure</ns2:entry>
+    <ns2:entry>/subsystem=web/connector=ajp:write-attribute(name=secure,value=enable-lookups setting value in EAP4)</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+                            </ns2:tbody>
+                        </ns2:tgroup>
+                    </ns2:table>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_14">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Migration of the jvmRoute setting</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>The jvmRoute setting was configured by the jvmRoute attribute of Engine tags within the server.xml file, in JBoss EAP4, but the AJP connector setting is configured with management CLI in JBoss EAP6. Although the operation set by the system properties using management CLI is mentioned, it is recommended to define the system properties</ns2:para>
+                    <ns2:table frame="all">
+                        <ns2:title>Support for AJP connector attributes in JBoss EAP4/EAP6 and management CLI when an attribute in question is configured in JBossEAP6</ns2:title>
+                        <ns2:tgroup cols="5">
+                            <ns2:tbody>
+<ns2:row>
+    <ns2:entry>#</ns2:entry>
+    <ns2:entry>Setting jvmRoute in JBooss EAP4</ns2:entry>
+    <ns2:entry>Setting jvmRoute in JBooss EAP4</ns2:entry>
+    <ns2:entry>Management CLI operations in JBooss EAP6</ns2:entry>
+    <ns2:entry>Notes</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>1</ns2:entry>
+    <ns2:entry>Configured by jvmRoute attributes of Engine tags in server.xml</ns2:entry>
+    <ns2:entry>Configured by the system property, jvmRoute</ns2:entry>
+    <ns2:entry>/system-property=jvmRoute:add(value=jvmRoute setting value in EAP4)</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+                            </ns2:tbody>
+                        </ns2:tgroup>
+                    </ns2:table>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_17">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Migration of Bean session pool setting</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>EJB containers get Bean instances from an instance pool. Unless the instance pool setting for this Bean is configured explicitly in jboss.xml of a deployment descriptor, the default values are applied based on the setting in $jboss.home/{profile}/conf/standardjboss.xml and the size of the instance pool is determined.</ns2:para>
+                    <ns2:para>This book shows how to configure a Bean instance pool using the management CLI in JBoss EAP6.</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>When the instance pool tuning is not performed explicitly in the deployment descriptor, jboss.xml </ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>When the instance pool tuning is performed explicitly in the deployment descriptor, jboss.xml</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_20">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>When the instance pool tuning is not performed explicitly in the deployment descriptor, jboss.xml
+		</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>In JBoss EAP4, an instance pool is configured based on the following container setting in $jboss.home/{profile}/conf/standardjboss.xml. If it is not configured in standardjboss.xml, 100 is set as the maximum value of the instance pool size. Since the default maximum value of the instance pool size is 20 in EAP 6, we show here how to set the value (100) applied by default in JBoss EAP 4.</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>Setting example of a SLSB default container from standardjboss.xml in JBoss EAP4
+			</ns2:title>
+                        <ns2:programlisting language="xml">
+				<ns2:textobject>
+<ns2:textdata fileref="standardjboss-slsb.xml"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_21">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>When the instance pool tuning is performed explicitly in the jboss.xml file, of a deployment descriptor</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>If a ”Standard Stateless SessionBean” is specified by the attribute: extends (of container-configuration tags in jboss.xml), there is a possibility that the size of a Bean instance pool has been customized by extending a ”Standard Stateful SessionBean”, in the container setting of $jboss.home/{profile}/conf/standardjboss.xml. When the size of an instance pool specific to the Bean is customized in jboss.xml like this, you need to undertake the following migration tasks.
+        </ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>Register an instance pool specific to the Bean with the management CLI and configure the instance pool. The instance pool name can be specified optionally. For example, it can be specified as &quot;CustomerServicePool&quot; when you configure the pool for &quot;CustomerService&quot;.
+                </ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                    <ns2:figure>
+                        <ns2:title>Setting example of an instance pool in JBossEAP5 (jboss.xml)</ns2:title>
+                        <ns2:programlisting language="xml">
+                <ns2:textobject>
+<ns2:textdata fileref="jboss-eap5-session-pool-turning.xml"/>
+                            </ns2:textobject>
+            </ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_22">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>aaa</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Configure the default instance pool setting with management CLI in JBoss EAP6. If the instance pool setting is not configured explicitly in jboss-ejb3.xml, this setting will be applied to the Bean.</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>Default instance pool setting of SLSB with management CLI in JBoss EAP</ns2:title>
+                        <ns2:programlisting language="text">
+				<ns2:textobject>
+<ns2:textdata fileref="default-slsb-pool-turning.cli"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_23">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>aaa</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:figure>
+                        <ns2:para>If a Bean-specific instance pool is configured for EJB in JBoss EAP6, register the Bean-specific instance pool with management CLI. When you apply the pool registered here to a Bean, you need to configure the instance pool in the EJB deployment descriptor, jboss-ejb3.xml. </ns2:para>
+                        <ns2:programlisting language="text">
+				<ns2:textobject>
+<ns2:textdata fileref="custom-slsb-pool-turning.cli"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_24">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>When the instance pool tuning is not performed explicitly in the deployment descriptor jboss.xml
+		</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>In JBoss EAP4, the instance pool setting is configured based on the following container setting in $jboss.home/{profile}/conf/standardjboss.xml. If it is not configured in standardjboss.xml, 100 is set as the maximum value of instance pool size. Since the default maximum value of an instance pool is 20 in EAP 6, we show here how to set the value (100) applied by default in JBoss EAP 4.</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>Setting example of an MDB default container from standardjboss.xml in JBoss EAP4
+			</ns2:title>
+                        <ns2:programlisting language="xml">
+				<ns2:textobject>
+<ns2:textdata fileref="standardjboss-mdb.xml"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_25">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>aaa</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Configure the default instance pool setting by management CLI in JBoss EAP6. If the instance pool setting was not configured explicitly in jboss-ejb3.xml, this setting will be applied to the Bean. </ns2:para>
+                    <ns2:para/>
+                    <ns2:programlisting language="text">
+                <ns2:textobject>
+                            <ns2:textdata fileref="default-mdb-pool-turning.cli"/>
+                        </ns2:textobject>
+            </ns2:programlisting>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_26">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>When the instance pool tuning is performed explicitly in jboss.xml of deployment descriptor</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>If a ”Standard Message Driven Bean” is specified by the attribute: extends (of container-configuration tags in jboss.xml), there is a possibility that the size of a Bean instance pool is customized by extending a ”Standard Stateful SessionBean” in the container setting of $jboss.home/{profile}/conf/standardjboss.xml. When the size of a Bean instance pool is customized in jboss.xml like this, you need to do the following migration tasks.
+        </ns2:para>
+                    <ns2:figure>
+                        <ns2:title>Setting example of an instance pool in JBossEAP5 (jboss.xml)</ns2:title>
+                        <ns2:programlisting language="xml">
+                <ns2:textobject>
+<ns2:textdata fileref="jboss-eap5-mdb-pool-turning.xml"/>
+                            </ns2:textobject>
+            </ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>Remove all of the container-configurations tags defined in jboss.xml</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Create a deployment descriptor file (jboss-ejb3.xml）and configure the instant pool reference setting for a Bean in question. A value set by bean-instance-pool-ref should be in the form of {Bean name}Pool</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Register an instance pool with the management CLI. Use the value set up by bean-instance-pool-ref mentioned above for an instance pool name</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_27">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>aaa</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>If a Bean-specific instance pool is configured for EJB in JBoss EAP6, register the Bean specific instance pool through the management CLI. When you apply the pool registered here to a Bean, you need to configure the instance pool in the EJB deployment descriptor, jboss-ejb3.xml.</ns2:para>
+                    <ns2:programlisting language="text">
+                <ns2:textobject>
+                            <ns2:textdata fileref="custom-mdb-pool-turning.cli"/>
+                        </ns2:textobject>
+            </ns2:programlisting>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_28">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Migration of the EJB deployment descriptor</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Migrate a deployment descriptor (jboss.xml) for JBoss EAP 4 to jboss-ejb3.xml for JBoss EAP 6. As an example, we show here how to migrate it by using a TPCW Bean used in TPCW. 
+        </ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>Migrate Beans and the reference setting of the Beans defined in a deployment descriptor (jboss.xml) for JBoss EAP 4</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                    <ns2:figure>
+                        <ns2:title>Deployment descriptor for JBoss EAP 4 (jboss.xml of TPCW)</ns2:title>
+                        <ns2:programlisting language="xml">
+                <ns2:textobject>
+<ns2:textdata fileref="jboss.tpcw.xml"/>
+                            </ns2:textobject>
+            </ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:figure>
+                        <ns2:title>Deployment descriptor for JBoss EAP 6 (jboss-ejb3.xml of TPCW)</ns2:title>
+                        <ns2:programlisting language="xml">
+                <ns2:textobject>
+<ns2:textdata fileref="jboss-ejb3.tpcw.xml"/>
+                            </ns2:textobject>
+            </ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_30">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>What is not recommended in Servlet 2.5</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>The following is a list of functions not recommended in Servlet 3.0. If one of the following APIs is used, you will need to correct it to use another API. </ns2:para>
+                    <ns2:para>Interfaces not recommended</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.SingleThreadModel
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpSessionContext
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.resource.spi.security.GenericCredential
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.SingleThreadModel
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpSessionContext
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.jsp.el.FunctionMapper
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.jsp.el.VariableResolver
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.jsp.el.VariableResolver
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                    <ns2:para>Classes not recommended</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para> javax.faces.application.StateManager.SerializedView
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para> javax.faces.el.MethodBinding
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.faces.el.PropertyResolver
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.faces.el.ValueBinding
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.faces.el.VariableResolver
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.faces.webapp.AttributeTag
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.faces.webapp.ConverterTag
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para> javax.faces.webapp.UIComponentBodyTag
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.faces.webapp.UIComponentTag
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.faces.webapp.ValidatorTag
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpUtils
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.jsp.el.Expression
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.jsp.el.ExpressionEvaluator
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.xml.soap.SOAPElementFactory
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                    <ns2:para>Methods not recommended</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpServletResponse.encodeRedirectUrl(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpServletResponse.encodeUrl(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpSessionContext.getIds()
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.ServletRequest.getRealPath(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.UnavailableException.getServlet()
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.ServletContext.getServlet(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para> javax.servlet.ServletContext.getServletNames()
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.ServletContext.getServlets()
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpSessionContext.getSession(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpSession.getSessionContext()
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpSession.getValue(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpSession.getValueNames()
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para> javax.servlet.http.HttpServletRequest.isRequestedSessionIdFromUrl()
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.ServletContext.log(Exception, String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para> javax.servlet.http.HttpSession.putValue(String, Object)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para> javax.servlet.http.HttpSession.removeValue(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para> javax.servlet.http.HttpServletResponse.setStatus(int, String)
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                    <ns2:para>There are many others. For further details, see the following URLs</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>http://java.sun.com/javaee/5/docs/api/
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>http://java.sun.com/javaee/5/docs/api/deprecated-list.html
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_32">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>What is not recommended in Servlet 3.0</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>The following is a list of functions not recommended in Servlet 3.0. If any of the following APIs are used, you will need to change that API to another.
+		</ns2:para>
+                    <ns2:para>Methods not recommended</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpServletResponseWrapper.encodeRedirectUrl(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpServletResponseWrapper.encodeUrl(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpServletRequestWrapper.isRequestedSessionIdFromUrl()
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpServletResponseWrapper.setStatus(int,
+					String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.ServletRequestWrapper.getRealPath(String)
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_33">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Migration of a Web deployment descriptor (jboss-web.xml)</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para/>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_34">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>InitialContext setting for JNDI</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para/>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_37">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Call from within a container of an AP server</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>There are several ways to configure JNDIs when you migrate to JBoss. More generic way is to put a file called &quot;jndi.properties&quot; in a class path on runtime and configure parameters to be read from the file. In JBossEAP4,  since the jndi.properties file normally exists in the $JBOSS_CONFIG/conf folder and what is set in a file in question is read, you do not need to configure parameters on the application side for calls from a container. Likewise in JBoss EAP6, you do need to configure them explicitly. The following is a code which enables JNDI lookup</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>JNDI lookup call from inside a container of an AP server</ns2:title>
+                        <ns2:programlisting language="text">
+                <ns2:textobject>
+<ns2:textdata fileref="jndi-initcontext.txt"/>
+                            </ns2:textobject>
+            </ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_38">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Call from the container of the AP server</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>JNDI lookup call from outside a container of an AP server is needed like an EJB client. When a JNDI lookup call from outside a container of an AP server is needed, you need to configure properties for arguments of InitialContext in the following way
+		</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>JNDI lookup call from inside a container of an EAP4 AP server</ns2:title>
+                        <ns2:programlisting language="text">
+				<ns2:textobject>
+<ns2:textdata fileref="eap5-external-jndi-initcontext.txt"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:figure>
+                        <ns2:title>JNDI lookup call from inside a container of an EAP6 AP server</ns2:title>
+                        <ns2:programlisting language="text">
+				<ns2:textobject>
+<ns2:textdata fileref="eap6-external-jndi-initcontext.txt"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:para>For EJB clients, you need to put the following property file (jboss-ejb-client.properties) in place and set the class path to it.
+		</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>jboss-ejb-client.properties</ns2:title>
+                        <ns2:programlisting language="text">
+				<ns2:textobject>
+<ns2:textdata fileref="jboss-ejb-client.properties"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_39">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Migration of Web cluster setting</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>We show here how to migrate the following settings for Web cluster.
+		</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>Migration of JGroup setting</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>Migration of replication setting</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_42">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Migration of JGroup protocol stack setting</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>We show here how to migrate JGroup protocol stacks used for the communication among nodes when JBoss cluster is used. The JGroup protocol stack setting in JBoss EAP4 is determined by tags specified under a config tag in the web cluster jboss-service.xml file. A UDP or TCP tag can be configured. </ns2:para>
+                    <ns2:figure>
+                        <ns2:title>The JGroup protocol stack setting in JBoss EAP4 (/opt/jboss4/current/server/myserver/deploy/jboss-web-cluster.sar/META-INF/jboss-service.xml)</ns2:title>
+                        <ns2:programlisting language="xml">
+                <ns2:textobject>
+<ns2:textdata fileref="jboss-web-cluster.jgroup.protocol.xml"/>
+                            </ns2:textobject>
+            </ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:para>The JGroup protocol stack setting in JBoss EAP6 is configured with management CLI. In JBoss EAP6, UDP is set by default for Group protocol stacks (there is no need to set this manually).</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_43">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Migration of JGroup FC setting</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>We show here how to migrate the FC setting used for a JBoss cluster.The JGroup FC setting in JBoss EAP4 is determined by FC tags in the web cluster jboss-service.xml file. When FC tags are commented out, the FC setting will be invalid. </ns2:para>
+                    <ns2:figure>
+                        <ns2:title>The JGroup FC setting in JBoss EAP4 (/opt/jboss4/current/server/myserver/deploy/jboss-web-cluster.sar/META-INF/jboss-service.xml)
+			</ns2:title>
+                        <ns2:programlisting language="xml">
+				<ns2:textobject>
+<ns2:textdata fileref="jboss-web-cluster.jgroup.fc.xml"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:para>The JGroup FC setting in JBoss EAP6 is configured with the management CLI as follows. Since the FC setting is enabled by default in JBoss EAP6, we show here how to disable the FC setting.</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>Disabling the FC setting with the management CLI in JBoss EAP6</ns2:title>
+                        <ns2:programlisting language="text">
+				<ns2:textobject>
+<ns2:textdata fileref="eap6-cluster.jgroup.fc.cli"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_44">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Migration of the replication setting</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para/>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_45">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Replication mode setting</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>The JBoss EAP4 replication setting information is replicated to all nodes in a cluster group, with All-to-All replication or using Budy replication. Both of the replications can be configured. In the JBoss EAP4 replication mode setting, buddyReplicationEnabled tags in jboss-service.xml of Web cluster are set to false, so by default All-to-All replication is set.</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>JBoss EAP4 replication mode setting (/opt/jboss4/current/server/myserver/deploy/jboss-web-cluster.sar/META-INF/jboss-service.xml)</ns2:title>
+                        <ns2:programlisting language="xml">
+                <ns2:textobject>
+<ns2:textdata fileref="eap6-cluster.repl.xml"/>
+                            </ns2:textobject>
+            </ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:para>In the JBoss EAP6 replication mode setting, implementation of the cache function is changed from JBoss Cache to infinispan, and the replication mode is also changed. Replication mode is set by default in JBoss EAP 6, and works the same as All-to-All replication in JBoss EAP 5.</ns2:para>
+                    <ns2:para>Replication mode</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>The replication information is replicated to all of the nodes in a cluster group. It works the same as All-to-All replication in JBoss EAP 5</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                    <ns2:para>Distribution mode</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>The new cache function deployed in JBoss EAP 6 replicates the data to only the certain nodes in a cluster group. A backup server is not specified (such as Buddy replication), and  the number of data replications specified are distributed to nodes in a cluster group.</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_46">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>The Replication sync setting</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>The JBoss EAP4 replication sync setting is configured by CacheMode in the jboss-service.xml file of a web cluster. In JBoss EAP6, the REPL_ASYNC attribute is set by default for asynchronous mode replication. For sync mode, you can set the REPL_SYNC attribute. </ns2:para>
+                    <ns2:figure>
+                        <ns2:title>JBoss EAP4 replication sync setting (/opt/jboss4/current/server/myserver/deploy/jboss-web-cluster.sar/META-INF/jboss-service.xml)</ns2:title>
+                        <ns2:programlisting language="xml">
+                <ns2:textobject>
+<ns2:textdata fileref="eap6-cluster.repl.async.xml"/>
+                            </ns2:textobject>
+            </ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:para>The JBoss EAP6 replication sync setting is configured as asynchronous, needing no configuration. </ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_47">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Migration of EntityBean deployment descriptor (jboss.xml)</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>This section shows how to configure the CMP Entity Bean container setting using the management CLI in JBoss EAP6.</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>When the instance pool tuning is not performed explicitly in a deployment descriptor, jboss.xml</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>When the instance pool tuning is performed explicitly in a deployment descriptor, jboss.xml</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_48">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Migration of the CMPBean setting</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Unless Entity Bean CMP setting is configured explicitly in a deployment descriptor, jboss.xml, the settings for &quot;Standard CMP 2.x EntityBean&quot; and &quot;Clustered CMP 2.x EntityBean&quot; are applied by default, and the container setting is determined. This section shows how to port them in the following cases.</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>When tuning for Entity Bean CMP setting is not performed explicitly in a deployment descriptor, jboss.xml</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>When tuning for Entity Bean CMP setting is performed explicitly in a deployment descriptor, jboss.xml</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+    </DocBookList>
+    <SearchInfomationList>
+        <SearchInfomation searchInfoId="searchInfo_1">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//datasource[@pool-name]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_2">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//datasource[@jndi-name]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_3">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//datasource[@jta]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_4">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//datasource[@spy]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_5">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//datasource[@use-ccm]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_6">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//datasource[@use-ccm]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_7">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//connection-url</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_8">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//driver-class</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_9">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//new-connection-sql</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_10">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//transaction-isolation</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_11">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//min-pool-size</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_12">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//max-pool-size</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_13">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//prefill</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_14">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//use-strict-min</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_15">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//transaction-isolation</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_16">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//flush-strategy</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_17">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//user-name</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_18">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//password</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_19">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//background-validation</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_20">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//use-fast-fail</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_21">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//idle-timeout-minutes</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_22">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//xa-resource-timeout</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_23">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//track-statements</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_24">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//prepared-statement-cache-size</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_52">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//check-valid-connection-sql</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_53">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//validate-on-match</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Define this attribute as one parameter with CLI. In this CLI setting, set one parameter as one line.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_89">
+            <FileType>.*ds.xml</FileType>
+            <SearchKey1>jdbc:postgres</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>10</LineNumber>
+                <LineNumberContents>Create the module.xml file and use 10 lines</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_90">
+            <FileType>.*ds.xml</FileType>
+            <SearchKey1>jdbc:oracle</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>10</LineNumber>
+                <LineNumberContents>Create the module.xml file and use 10 lines</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_91">
+            <FileType>.*ds.xml</FileType>
+            <SearchKey1>jdbc:sqlserver</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>10</LineNumber>
+                <LineNumberContents>Create the module.xml file and use 10 lines</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_34">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@port]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>不明</LineNumber>
+                <LineNumberContents>TODO: check procedures to change a port number</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_35">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@protocol]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Use management CLI step number and one line </LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_36">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@maxThreads]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Use management CLI step number and one line </LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_37">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@connectionTimeout]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Use management CLI step number and one line </LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_38">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@emptySessionPath]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Use management CLI step number and one line </LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_39">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@protocol]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Use management CLI step number and one line </LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_40">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@enableLookups]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Use management CLI step number and one line </LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_41">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@redirectPort]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Use management CLI step number and one line </LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_54">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@scheme]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Use management CLI step number and one line </LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_55">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@secure=&quot;true&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Use management CLI step number and one line </LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_42">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Engine[@jvmRoute]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>since it can be configured with one system property, use one line</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_45">
+            <FileType>jboss.xml</FileType>
+            <SearchKey1>//enterprise-beans/session</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Since SLSB default instance pool can be set with one line in management CLI, use one line</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_43">
+            <FileType>jboss.xml</FileType>
+            <SearchKey1>//container-configuration[@extends=&quot;Standard Stateless SessionBean&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Since SLSB's Bean-specific instance pool can be set with one line in management CLI, use one line</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_44">
+            <FileType>jboss.xml</FileType>
+            <SearchKey1>//container-configuration[@extends=&quot;Clustered Stateless SessionBean&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Since SLSB's Bean-specific instance pool can be set with one line in management CLI, use one line</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_46">
+            <FileType>jboss.xml</FileType>
+            <SearchKey1>//enterprise-beans/message-driven</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Since MDB's default instance pool can be set with one line in management CLI, use one line</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_48">
+            <FileType>jboss.xml</FileType>
+            <SearchKey1>//container-configuration[@extends=&quot;Standard Message Driven Bean&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Since MDB's Bean-specific instance pool can be set with one line in management CLI, use one line</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_49">
+            <FileType>jboss.xml</FileType>
+            <SearchKey1>//container-configuration[@extends=&quot;Singleton Message Driven Bean&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Since Singleton Message Driven BeanMDB's Bean-specific instance pool can be set with one line in management CLI, use one line</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_50">
+            <FileType>jboss.xml</FileType>
+            <SearchKey1>//container-configuration[@extends=&quot;Standard Message Inflow Driven Bean&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Since Standard Message Inflow Driven Bean's Bean-specific instance pool can be set with one line in management CLI, use one</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_51">
+            <FileType>jboss.xml</FileType>
+            <SearchKey1></SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>TODO:SE manual calculation</LineNumber>
+                <LineNumberContents>Since jboss-ejb3.xml which is equivalent to jboss.xml needs to be created, make step numbers of jboss.xml itself line numbers.</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_92">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.http\.HttpServletResponseWrapper</SearchKey1>
+            <SearchKey2>encodeRedirectUrl\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Calculate it as one step by replacing with an alternative class method</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_93">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.http\.\*</SearchKey1>
+            <SearchKey2>encodeRedirectUrl\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Calculate it as one step by replacing with an alternative class method</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_94">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.http\.HttpServletResponseWrapper</SearchKey1>
+            <SearchKey2>encodeUrl\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Calculate it as one step by replacing with an alternative class method</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_95">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.http\.\*</SearchKey1>
+            <SearchKey2>encodeUrl\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Calculate it as one step by replacing with an alternative class method</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_96">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.http\.HttpServletResponseWrapper</SearchKey1>
+            <SearchKey2>isRequestedSessionIdFromUrl\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Calculate it as one step by replacing with an alternative class method</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_97">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.http\.\*</SearchKey1>
+            <SearchKey2>isRequestedSessionIdFromUrl\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Calculate it as one step by replacing with an alternative class method</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_98">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.http\.HttpServletResponseWrapper</SearchKey1>
+            <SearchKey2>setStatus\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Calculate it as one step by replacing with an alternative class method</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_99">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.http\.\*</SearchKey1>
+            <SearchKey2>setStatus\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Calculate it as one step by replacing with an alternative class method</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_100">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.ServletRequestWrapper</SearchKey1>
+            <SearchKey2>getRealPath\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Calculate it as one step by replacing with an alternative class method</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_101">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.\*</SearchKey1>
+            <SearchKey2>getRealPath\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Calculate it as one step by replacing with an alternative class method</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_62">
+            <FileType>*.java</FileType>
+            <SearchKey1>InitialContext\(</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>0</LineNumber>
+                <LineNumberContents>Since migration is not required, make line number zero</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_56">
+            <FileType>*.properties</FileType>
+            <SearchKey1>org\.jnp\.interfaces\.NamingContextFactory</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Because one property is changed, use one line</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_57">
+            <FileType>*.properties</FileType>
+            <SearchKey1>jnp://</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Because one property is changed, use one line</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_58">
+            <FileType>*.properties</FileType>
+            <SearchKey1>org\.jboss\.naming:org\.jnp\.interfaces</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Because one property is changed, use one line</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_59">
+            <FileType>*.java</FileType>
+            <SearchKey1>org\.jnp\.interfaces\.NamingContextFactory</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Because one property is changed, use one line</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_60">
+            <FileType>*.java</FileType>
+            <SearchKey1>jnp://</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Because one property is changed, use one line</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_61">
+            <FileType>*.java</FileType>
+            <SearchKey1>org\.jboss\.naming:org\.jnp\.interfaces</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>Because one property is changed, use one line</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_81">
+            <FileType>jboss-service.xml</FileType>
+            <SearchKey1>//config/UDP</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>0</LineNumber>
+                <LineNumberContents>Since UDP is set by default in JBoss EAP6, porting is not particularly needed, making step number 0</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_82">
+            <FileType>jboss-service.xml</FileType>
+            <SearchKey1>//config/TCP</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>0</LineNumber>
+                <LineNumberContents>Since UDP is set by default in JBoss EAP6, porting is not particularly needed, making step number 0</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_83">
+            <FileType>jboss-service.xml</FileType>
+            <SearchKey1>//config/FC</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>0</LineNumber>
+                <LineNumberContents>When you configure FC setting, FC setting is enabled by default in JBoss EAP6. Therefore, porting is not needed, making porting line number 0</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_84">
+            <FileType>jboss-service.xml</FileType>
+            <SearchKey1>max_credits</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>2</LineNumber>
+                <LineNumberContents>The FC setting is enabled by default in JBoss EAP6. Since porting is not needed and two lines are needed to be run in management CLI to disable FC setting, use two lines</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_85">
+            <FileType>jboss-service.xml</FileType>
+            <SearchKey1>buddyReplicationEnabled[text()=&quot;false&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>0</LineNumber>
+                <LineNumberContents>For alltoall, since it is equivalent to EAP6's default replication and the setting is not needed, use 0 step</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_86">
+            <FileType>jboss-service.xml</FileType>
+            <SearchKey1>buddyReplicationEnabled[text()=&quot;true&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>TODO: reasoning of line number</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_87">
+            <FileType>jboss-service.xml</FileType>
+            <SearchKey1>attribute[text()=&quot;REPL_ASYNC&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>0</LineNumber>
+                <LineNumberContents>Since the asynchronous setting is used by default in JBoss EAP6 and no migration efforts are needed, use 0 step</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_88">
+            <FileType>jboss-service.xml</FileType>
+            <SearchKey1>attribute[text()=&quot;REPL_SYNC&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>TODO: reasoning of line number</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+    </SearchInfomationList>
+</PortabilityKnowhow>
