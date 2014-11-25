@@ -140,6 +140,13 @@ public final class ApplicationPropertiesUtil {
     
     public static final String OPEN_CHECKITEM_ENTRY_VIEW = "labelOpenCheckEntryItemView";
     
+    public static final String MVC_FRAMEWORK_M = "mvcFrameworkM";
+    
+    public static final String MVC_FRAMEWORK_V = "mvcFrameworkV";
+    
+    public static final String MVC_FRAMEWORK_C = "mvcFrameworkC";
+    
+    public static final String MVC_FRAMEWORK_S = "mvcFrameworkSpecific";
 
     /** Resource bundle */
     private static ResourceBundle resourceBundle = null;
