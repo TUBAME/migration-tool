@@ -48,11 +48,17 @@ public enum PortabilityFactorEnum implements DefineEnumOperator {
     DBMSChange(ApplicationPropertiesUtil
             .getProperty(ApplicationPropertiesUtil.DBMS_CHANGE)),
     
-    FRAMEWORK(ApplicationPropertiesUtil
-            .getProperty(ApplicationPropertiesUtil.FRAMEWORK)),
-    
-    FRAMEWORK_NON_BACKWARD_COMPATI(ApplicationPropertiesUtil
-            .getProperty(ApplicationPropertiesUtil.FRAMEWORK_NON_BACKWARD_COMPATI));
+    MVC_FRAMEWORK_M(ApplicationPropertiesUtil
+                    .getProperty(ApplicationPropertiesUtil.MVC_FRAMEWORK_M)),
+                    
+    MVC_FRAMEWORK_V(ApplicationPropertiesUtil
+                            .getProperty(ApplicationPropertiesUtil.MVC_FRAMEWORK_V)),
+                            
+    MVC_FRAMEWORK_C(ApplicationPropertiesUtil
+                                    .getProperty(ApplicationPropertiesUtil.MVC_FRAMEWORK_C)),
+                                    
+    MVC_FRAMEWORK_S(ApplicationPropertiesUtil
+            .getProperty(ApplicationPropertiesUtil.MVC_FRAMEWORK_S));
     
 
     /** Member variable of type String */

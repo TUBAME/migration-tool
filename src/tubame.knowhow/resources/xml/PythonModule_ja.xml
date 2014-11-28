@@ -7,23 +7,13 @@
 			</ModuleDescription>
 		</SearchModule>
 		<SearchModule>
-			<ModuleName>ext_report_generator.py</ModuleName>
-			<ModuleDescription>ナレッジベース検索および依存性結果の結果ファイルであるjbmファイル及びgjbmファイルを入力に、TUBAMEの移植性レポートファイルを生成する。
+			<ModuleName>ext_search_xml_definedclass.py</ModuleName>
+			<ModuleDescription>xmlに定義されたクラスを検索する。
 			
-			検索キーワード1はレポート出力先を変更するためのオプション設定です。
-			デフォルトはeclipse\plugins\tubame.portability-*/report配下にレポートを出力する。出力先を変更したい場合は、	検索キーワード1にフルパスでレポート出力ディレクトリを指定する。
-			
-			検索キーワード1:c://report
-			
-			検索キーワード2は依存性検索ツールのパッケージ円グラフのためのオプション設定です。依存性検索の結果、移行先の環境で利用できない多くのパッケージが存在する場合に、一部のパッケージをまとめて
-			集計したい場合に有効である。
-			例えば、weblogicからはじまるパッケージ(weblogic.A,weblogic.B,...)をweblogicとしてまとめ、org.apache.strutsをstrutsとしてまとめて集計した場合は、
-			以下のように検索キーワード2を指定する。
-			
-			検索キーワード2:weblogic=weblogic;struts=org.apache.struts
-			
-			この形でレポート出力すると、パッケージの円グラフの集計はweblogic,strutsにカテゴライズされ、集計される
-			</ModuleDescription>
+利用例.struts-config.xmlのactionタグのtype属性で
+指定されたjavaファイルを検知したい場合は、検索キーワード1にxpathを指定する。
+
+検索キーワード1://*[local-name() = 'action-mappings']/*[local-name() = 'action']/@type</ModuleDescription>
 		</SearchModule>
 	</SearchModuleList>
 </PortabilitySearchModule>
