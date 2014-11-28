@@ -56,9 +56,12 @@ public enum PortabilityFactorEnum implements DefineEnumOperator {
                             
     MVC_FRAMEWORK_C(ApplicationPropertiesUtil
                                     .getProperty(ApplicationPropertiesUtil.MVC_FRAMEWORK_C)),
-                                    
-    MVC_FRAMEWORK_S(ApplicationPropertiesUtil
-            .getProperty(ApplicationPropertiesUtil.MVC_FRAMEWORK_S));
+                           
+    MVC_FRAMEWORK_SPEC_NON_COMPATI(ApplicationPropertiesUtil
+                                            .getProperty(ApplicationPropertiesUtil.MVC_FRAMEWORK_SPEC_NON_COMPATI)),
+                                            
+   MVC_FRAMEWORK_SPEC_COMPATI(ApplicationPropertiesUtil
+            .getProperty(ApplicationPropertiesUtil.MVC_FRAMEWORK_SPEC_COMPATI));
     
 
     /** Member variable of type String */
