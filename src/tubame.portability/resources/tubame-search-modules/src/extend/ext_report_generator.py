@@ -155,6 +155,17 @@ class ResultJsWriter(object):
                  
             result_body = result_tpl % (num1,num1,num2,num2,num3,num3,num4,num4,num5)
             body = RESULT_JS_TPL2 % (self.dirname,result_body)
+        
+        elif self.dirname.startswith("StrutsFrameworkKnowhowFactorGraphSumCalclator"):
+            num1, num2,num3 ,num4, num5 = input['mvcFrameworkM'],input['mvcFrameworkV'],input['mvcFrameworkC'],input['mvcFrameworkSpecificNonBackwardCompati'],input['mvcFrameworkSpecificBackwardCompati']
+            
+            if "ja" in locale.getdefaultlocale()[0]:
+                result_tpl ='''[{"data": [[0, 0],[0, %s],[1, %s]], "label": "Model機能にともなう修正"}, {"data": [[0, %s],[1, %s]], "label": "View機能にともなう修正"}, {"data": [[0, %s],[1, %s]], "label": "Controller機能にともなう修正"},{"data": [[0, %s],[1, %s]], "label": "MVCフレーム独自機能(上位互換なし)の修正"},{"data": [[1, %s]], "label": "MVCフレーム独自機能(上位互換あり)の修正"}]'''
+            else:
+                result_tpl ='''[{"data": [[0, 0],[0, %s],[1, %s]], "label": "Migration Items related to porting of Model function"}, {"data": [[0, %s],[1, %s]], "label": "Migration Items  related to porting of View function"}, {"data": [[0, %s],[1, %s]], "label": "Migration Items  related to porting of Controller function"},{"data": [[0, %s],[1, %s]], "label": "Specific features of the MVC framework(Non-Backward-Compatible)"},{"data": [[1, %s]], "label": "Specific features of the MVC framework(Backward-Compatible)"}]'''
+                 
+            result_body = result_tpl % (num1,num1,num2,num2,0,num3,num4,num4,num5)
+            body = RESULT_JS_TPL2 % (self.dirname,result_body)
         #エラー集計 For depends
         elif "DependsErrSumCalclator" in self.dirname:
             RESULT_JS_TPL='''
@@ -347,7 +358,7 @@ class FrameworkKnowhowDegreeOfDifficultySumCalclator(Calclator):
         self.type = type
 
     def calcBefore(self):
-        if self.type == "fromFw":
+        if self.type == "fromFw" or self.type == "fromStrutsFw":
             '''factorが移行元フレームワーク独自機能(上位互換あり)及びMVCFrameworkSpecific(BackwardCompati）のものは削除する'''
             labels = self.data.keys()
             for label in labels:
@@ -355,11 +366,27 @@ class FrameworkKnowhowDegreeOfDifficultySumCalclator(Calclator):
                 delTargets = self.getDeltarget(calcModels)
                 for delTarget in delTargets:
                     calcModels.remove(delTarget)
+                    
+        if self.type == "fromStrutsFw":
+            '''strutsPlugin対応を想定し、factorがコントローラ機能のものは削除する'''
+            labels = self.data.keys()
+            for label in labels:
+                calcModels = self.data.get(label)
+                delTargets = self.getDelTargetForStrutsPlugin(calcModels)
+                for delTarget in delTargets:
+                    calcModels.remove(delTarget)
                 
     def getDeltarget(self,calcModels):
         results = []
         for calcModel in calcModels:
             if calcModel.factor == "MVCフレームワーク独自機能(上位互換あり)" or calcModel.factor =="MVCFrameworkSpecific(BackwardCompati)":
+                results.append(calcModel)
+        return results
+    
+    def getDelTargetForStrutsPlugin(self,calcModels):
+        results = []
+        for calcModel in calcModels:
+            if calcModel.factor == "MVCフレームワーク(Controller機能)" or calcModel.factor =="MVCFramework(Controller)":
                 results.append(calcModel)
         return results
     
@@ -495,7 +522,7 @@ class FrameworkKnowhowFactorSumCalclator(KnowhowDegreeOfDifficultySumCalclator):
             labels = self.data.keys()
             for label in labels:
                 calcModels = self.data.get(label)
-                delTargets = self.getCalcModelsFromStrutsFw(calcModels)
+                delTargets = self.getDelTargetForStrutsPlugin(calcModels)
                 for delTarget in delTargets:
                     calcModels.remove(delTarget)
                          
@@ -507,13 +534,13 @@ class FrameworkKnowhowFactorSumCalclator(KnowhowDegreeOfDifficultySumCalclator):
                 results.append(calcModel)
         return results
     
-    def getCalcModelsFromStrutsFw(self,calcModels):
+    def getDelTargetForStrutsPlugin(self,calcModels):
         results = []
-        '''struts2へのバージョンアップはstruts1プラグインを想定し、controller移行は、グラフに積み上げない'''
         for calcModel in calcModels:
-            if calcModel.factor == "MVCフレームワーク(Controller機能)" or calcModel.factor =="MVCFramework(Controller)" :
+            if calcModel.factor == "MVCフレームワーク(Controller機能)" or calcModel.factor =="MVCFramework(Controller)":
                 results.append(calcModel)
         return results
+    
     
     def createResultMap(self,calReuslt):
         resultMap ={'mvcFrameworkM':0,'mvcFrameworkV':0,'mvcFrameworkC':0,'mvcFrameworkSpecificNonBackwardCompati':0,'mvcFrameworkSpecificBackwardCompati':0}
@@ -541,6 +568,16 @@ class FrameworkKnowhowFactorGraphSumCalclator(KnowhowFactorSumCalclator):
         KnowhowFactorSumCalclator.__init__(self,type,inputsModels)
         
 
+class StrutsFrameworkKnowhowFactorGraphSumCalclator(KnowhowFactorSumCalclator):
+    """Calculators of factor bars graph for the knowledge-based search.
+    
+    """
+    def __init__(self,type,inputsModels):
+        '''
+        Constructor
+        '''
+        KnowhowFactorSumCalclator.__init__(self,type,inputsModels)
+        
 class KnowhowMigrationItemCalclator(Calclator):
     """Calculators of migration item  for the knowledge-based search.
     
@@ -998,7 +1035,8 @@ def getCheckListInformationPath():
         return filepath
     raise Exception("checkListInformation.xml or checkListInformation_ja.xml is required in search target dir")
 
-def getTemplateTypeFromGenTargetDir(gen_path,REPORT_TYPE_FILE=".report_tpl.json",REPORT_TYPES=["ap","mvc"]):
+
+def getTemplateTypeFromGenTargetDir(gen_path,REPORT_TYPE_FILE=".report_tpl.json",REPORT_TYPES=["ap","mvc","struts"]):
     base = os.path.dirname(os.path.abspath(gen_path))
     reportTypeJsonFile = os.path.normpath(os.path.join(base, ".//"+REPORT_TYPE_FILE))
     if not os.path.isfile(reportTypeJsonFile):
@@ -1021,7 +1059,19 @@ def filterCalcators(templateType,calcators):
     return new_calcs
 
 
-
+def removeOtherReport(templateType,outputdir):
+    REPORT_TYPE_DICT= {'ap':"TubameReport",'mvc':"TubameMVCFrameworkReport",'struts':"TubameStrutsFrameworkReport"}
+    types = REPORT_TYPE_DICT.keys()
+    for type in types:
+        if type != templateType:
+            delTargetFile = REPORT_TYPE_DICT[type]
+            deltarget_ja = os.path.normpath(os.path.join(outputdir, ".//"+delTargetFile+"_ja.html"))
+            deltarget_en = os.path.normpath(os.path.join(outputdir, ".//"+delTargetFile+"_en.html"))
+            if os.path.isfile(deltarget_ja):
+                os.remove(deltarget_ja)
+            if os.path.isfile(deltarget_en):
+                os.remove(deltarget_en)
+                
 """
 ・TUBAMEレポート出力を行う。
 検索キー1はレポート出力ディレクトリを指定できる。オプショナルでデフォルトはeclipse\plugins\tubame.portability*\resources/report配下にレポートを出力する
@@ -1084,8 +1134,9 @@ def ext_search(pNo, pPriority, pFlag, pList, pGenTargetDir, pRules, pInputCsv, p
     calcators = [{"calclator":"KnowhowDegreeOfDifficultySumCalclator", "type": "fromAp","condtions":condtions1,"execCreateResultMap":True,"tpl" :["ap"]},
                  {"calclator":"KnowhowDegreeOfDifficultySumCalclator", "type": "toAp","condtions":condtions1,"execCreateResultMap":True,"tpl" :["ap"]} ,
                  {"calclator":"FrameworkKnowhowDegreeOfDifficultySumCalclator", "type": "fromFw","condtions":condtions1,"execCreateResultMap":True,"tpl" :["mvc"]} ,
+                 {"calclator":"FrameworkKnowhowDegreeOfDifficultySumCalclator", "type": "fromStrutsFw","condtions":condtions1,"execCreateResultMap":True,"tpl" :["struts"]} ,
                  {"calclator":"FrameworkKnowhowDegreeOfDifficultySumCalclator", "type": "toFw","condtions":condtions1,"execCreateResultMap":True,"tpl" :["mvc"]} ,
-                 {"calclator":"KnowhowMigrationItemCalclator","type":"","condtions":condtions1,"execCreateResultMap":False,"tpl" :["ap","mvc"]},
+                 {"calclator":"KnowhowMigrationItemCalclator","type":"","condtions":condtions1,"execCreateResultMap":False,"tpl" :["ap","mvc","struts"]},
                  {"calclator":"KnowhowFactorSumCalclator", "type": "fromAp","condtions":condtions2,"execCreateResultMap":True,"tpl" :["ap"]} ,
                  {"calclator":"KnowhowFactorSumCalclator", "type": "toAp","condtions":condtions2,"execCreateResultMap":True,"tpl" :["ap"]} ,
                  #{"calclator":"FrameworkKnowhowFactorSumCalclator", "type": "fromStrutsFw","condtions":condtions3,"execCreateResultMap":True} ,
@@ -1094,9 +1145,12 @@ def ext_search(pNo, pPriority, pFlag, pList, pGenTargetDir, pRules, pInputCsv, p
                  {"calclator":"KnowhowFileCategorySumCalclator", "type": "fromAp","condtions":condtions2,"execCreateResultMap":True,"tpl" :["ap"]}, 
                  {"calclator":"KnowhowFileCategorySumCalclator", "type": "toAp","condtions":condtions2,"execCreateResultMap":True,"tpl" :["ap"]},
                  {"calclator":"FrameworkKnowhowFileCategorySumCalclator", "type": "fromFw","condtions":condtions3,"execCreateResultMap":True,"tpl" :["mvc"]}, 
+                 {"calclator":"FrameworkKnowhowFileCategorySumCalclator", "type": "fromStrutsFw","condtions":condtions3,"execCreateResultMap":True,"tpl" :["struts"]},
                  {"calclator":"FrameworkKnowhowFileCategorySumCalclator", "type": "toFw","condtions":condtions3,"execCreateResultMap":True,"tpl" :["mvc"]},
+                 {"calclator":"FrameworkKnowhowFileCategorySumCalclator", "type": "fromStrutsFw","condtions":condtions3,"execCreateResultMap":True,"tpl" :["struts"]},
                  {"calclator":"KnowhowFactorGraphSumCalclator","type":"graph","condtions":condtions2,"execCreateResultMap":True,"tpl" :["ap"]},
                  {"calclator":"FrameworkKnowhowFactorGraphSumCalclator","type":"graph","condtions":condtions3,"execCreateResultMap":True,"tpl" :["mvc"]},
+                 {"calclator":"StrutsFrameworkKnowhowFactorGraphSumCalclator","type":"graph","condtions":condtions3,"execCreateResultMap":True,"tpl" :["struts"]},
                  {"calclator":"DependsErrSumCalclator", "type":"","condtions":"Java:f2=Java;Jsp:f2=Jsp;Xml:f2=Xml","execCreateResultMap":True,"tpl" :["ap","mvc"]},
                  {"calclator":"DependsPackagePicGrapthSumCalclator", "type":pDependPackageGroupingRules,"condtions":"Java:f2=Java;Jsp:f2=Jsp","execCreateResultMap":False,"tpl" :["ap","mvc"]},
                  {"calclator":"DependsPackageSumCalclator","type":"","condtions":"Java:f2=Java;Jsp:f2=Jsp","execCreateResultMap":False,"tpl" :["ap","mvc"]},
@@ -1140,6 +1194,6 @@ def ext_search(pNo, pPriority, pFlag, pList, pGenTargetDir, pRules, pInputCsv, p
             pGenTargetDir  = os.path.normpath(os.path.join(base, "../../../report/"))
 
         copyToOutputDir(pGenTargetDir)
-
+        removeOtherReport(templateType,pGenTargetDir)
 if __name__ == '__main__':
     pass
