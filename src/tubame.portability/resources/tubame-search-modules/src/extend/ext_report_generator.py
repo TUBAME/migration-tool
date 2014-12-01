@@ -16,6 +16,7 @@ import abc
 import codecs
 import locale
 import shutil
+import json
 
 from lxml import etree
 
@@ -127,11 +128,12 @@ class ResultJsWriter(object):
         #ファイル別集計 For Knowhow
         elif "KnowhowFileCategorySumCalclator" in self.dirname:
             body = RESULT_JS_TPL1 % (self.dirname,input)
+            
         #移植項目集計用 For Knowhow
         elif "KnowhowMigrationItemCalclator" in self.dirname:
             body = self.createJsTpl3(input)
         #要因別棒グラフ For Knowhow
-        elif "KnowhowFactorGraphSumCalclator" in self.dirname:
+        elif self.dirname.startswith("KnowhowFactorGraphSumCalclator"):
             num1, num2,num3 = input['JavaEESpecChange']+input['JavaVersionUpgradeChange']+input['APlibrary']+input['DBMSChange'],input['ApServerDependsDepricatedChange'],input['WeblogicSpecChange']+input['ApServerDependsChange']
             
             if "ja" in locale.getdefaultlocale()[0]:
@@ -142,7 +144,17 @@ class ResultJsWriter(object):
                  
             result_body = result_tpl % (num1,num1,num2,num2,num3)
             body = RESULT_JS_TPL2 % (self.dirname,result_body)
-        
+            
+        elif self.dirname.startswith("FrameworkKnowhowFactorGraphSumCalclator"):
+            num1, num2,num3 ,num4, num5 = input['mvcFrameworkM'],input['mvcFrameworkV'],input['mvcFrameworkC'],input['mvcFrameworkSpecificNonBackwardCompati'],input['mvcFrameworkSpecificBackwardCompati']
+            
+            if "ja" in locale.getdefaultlocale()[0]:
+                result_tpl ='''[{"data": [[0, 0],[0, %s],[1, %s]], "label": "Model機能にともなう修正"}, {"data": [[0, %s],[1, %s]], "label": "View機能にともなう修正"}, {"data": [[0, %s],[1, %s]], "label": "Controller機能にともなう修正"},{"data": [[0, %s],[1, %s]], "label": "MVCフレーム独自機能(上位互換なし)の修正"},{"data": [[1, %s]], "label": "MVCフレーム独自機能(上位互換あり)の修正"}]'''
+            else:
+                result_tpl ='''[{"data": [[0, 0],[0, %s],[1, %s]], "label": "Migration Items related to porting of Model function"}, {"data": [[0, %s],[1, %s]], "label": "Migration Items  related to porting of View function"}, {"data": [[0, %s],[1, %s]], "label": "Migration Items  related to porting of Controller function"},{"data": [[0, %s],[1, %s]], "label": "Specific features of the MVC framework(Non-Backward-Compatible)"},{"data": [[1, %s]], "label": "Specific features of the MVC framework(Backward-Compatible)"}]'''
+                 
+            result_body = result_tpl % (num1,num1,num2,num2,num3,num3,num4,num4,num5)
+            body = RESULT_JS_TPL2 % (self.dirname,result_body)
         #エラー集計 For depends
         elif "DependsErrSumCalclator" in self.dirname:
             RESULT_JS_TPL='''
@@ -306,11 +318,12 @@ class KnowhowDegreeOfDifficultySumCalclator(Calclator):
             labels = self.data.keys()
             for label in labels:
                 calcModels = self.data.get(label)
-                delTargets = self.getCalcModelsByAPServerSpec(calcModels)
+                delTargets = self.getCalcModelsFromAp(calcModels)
                 for delTarget in delTargets:
                     calcModels.remove(delTarget)
+   
                 
-    def getCalcModelsByAPServerSpec(self,calcModels):
+    def getCalcModelsFromAp(self,calcModels):
         results = []
         for calcModel in calcModels:
             if calcModel.factor == "AP server specific" or calcModel.factor =="AP サーバ固有" or calcModel.factor == "Weblogic specific" or calcModel.factor == "Weblogic 固有":
@@ -322,6 +335,38 @@ class KnowhowDegreeOfDifficultySumCalclator(Calclator):
         return Calclator.createBasedResultMap(self, resultMap, calReuslt)
         
                 
+class FrameworkKnowhowDegreeOfDifficultySumCalclator(Calclator):
+    """Calculators of difficulty for each of the knowledge-based search.
+    
+    """
+    def __init__(self,type,inputsModels):
+        '''
+        Constructor
+        '''
+        Calclator.__init__(self,self.__class__.__name__ + "_"+type,inputsModels)
+        self.type = type
+
+    def calcBefore(self):
+        if self.type == "fromFw":
+            '''factorが移行元フレームワーク独自機能(上位互換あり)及びMVCFrameworkSpecific(BackwardCompati）のものは削除する'''
+            labels = self.data.keys()
+            for label in labels:
+                calcModels = self.data.get(label)
+                delTargets = self.getDeltarget(calcModels)
+                for delTarget in delTargets:
+                    calcModels.remove(delTarget)
+                
+    def getDeltarget(self,calcModels):
+        results = []
+        for calcModel in calcModels:
+            if calcModel.factor == "MVCフレームワーク独自機能(上位互換あり)" or calcModel.factor =="MVCFrameworkSpecific(BackwardCompati)":
+                results.append(calcModel)
+        return results
+    
+    def createResultMap(self,calReuslt):
+        resultMap ={'High':0,'Middle':0,'Low1':0,'Low2':0,'Unknown1':0,'Unknown2':0}
+        return Calclator.createBasedResultMap(self, resultMap, calReuslt)
+    
 
 class KnowhowFileCategorySumCalclator(KnowhowDegreeOfDifficultySumCalclator):
     
@@ -377,7 +422,36 @@ class KnowhowFileCategorySumCalclator(KnowhowDegreeOfDifficultySumCalclator):
         return Calclator.createBasedResultMap(self, resultMap, calReuslt)
    
     
-
+class FrameworkKnowhowFileCategorySumCalclator(FrameworkKnowhowDegreeOfDifficultySumCalclator,KnowhowFileCategorySumCalclator):
+    
+    def __init__(self,type,inputsModels):
+        '''
+        Constructor
+        '''
+        FrameworkKnowhowDegreeOfDifficultySumCalclator.__init__(self,type,inputsModels)
+        self.type = type
+        
+    def calcBefore(self):
+        FrameworkKnowhowDegreeOfDifficultySumCalclator.calcBefore(self)
+        '''self.dataのマップにあるすべてのオブジェクトをext種別でマップしなおす'''
+        self.exts = self.getAllExts()
+        calcModels = self.getAllData()
+        newMap ={}
+        for ext in self.exts:
+            list =[] 
+            for calcModel in calcModels:
+                if calcModel.ext == ext:
+                    list.append(calcModel)
+            newMap[ext] = list
+        self.data = newMap
+        
+    def createResultMap(self,calReuslt):
+        resultMap = {'java':0,'jsp':0,'xml':0,'properties':0}
+        exts = self.exts
+        for ext in exts:
+            resultMap[ext] = 0
+        return Calclator.createBasedResultMap(self, resultMap, calReuslt)
+    
 class KnowhowFactorSumCalclator(KnowhowDegreeOfDifficultySumCalclator):
     """Calculators of factor for the knowledge-based search.
     
@@ -394,6 +468,57 @@ class KnowhowFactorSumCalclator(KnowhowDegreeOfDifficultySumCalclator):
     def createResultMap(self,calReuslt):
         resultMap ={'WeblogicSpecChange':0,'ApServerDependsChange':0,'ApServerDependsDepricatedChange':0,'JavaEESpecChange':0,'JavaVersionUpgradeChange':0,'APlibrary':0,'DBMSChange':0}
         return Calclator.createBasedResultMap(self, resultMap, calReuslt)
+
+class FrameworkKnowhowFactorSumCalclator(KnowhowDegreeOfDifficultySumCalclator):
+    """Calculators of factor for the knowledge-based search.
+    
+    """
+    
+    def __init__(self,type,inputsModels):
+        '''
+        Constructor
+        '''
+        KnowhowDegreeOfDifficultySumCalclator.__init__(self,type,inputsModels)
+        self.type = type
+        
+    def calcBefore(self):
+        if self.type == "fromFw":
+            '''factorが移行元フレームワーク独自機能(上位互換あり)及びMVCFrameworkSpecific(BackwardCompati）のものは削除する'''
+            labels = self.data.keys()
+            for label in labels:
+                calcModels = self.data.get(label)
+                delTargets = self.getCalcModelsFromFw(calcModels)
+                for delTarget in delTargets:
+                    calcModels.remove(delTarget)
+        elif self.type == "fromStrutsFw":
+            '''factorが移行元フレームワーク独自機能(上位互換あり)及びMVCFrameworkSpecific(BackwardCompati）及びMVCフレームワーク(Controller機能)、MVCFramework(Controller)のものは削除する'''
+            labels = self.data.keys()
+            for label in labels:
+                calcModels = self.data.get(label)
+                delTargets = self.getCalcModelsFromStrutsFw(calcModels)
+                for delTarget in delTargets:
+                    calcModels.remove(delTarget)
+                         
+    def getCalcModelsFromFw(self,calcModels):
+        results = []
+        '''移行元フレームワークのバージョンアップ時には、MVCフレームワーク独自機能(上位互換あり)はグラフに積み上げない'''
+        for calcModel in calcModels:
+            if calcModel.factor == "MVCフレームワーク独自機能(上位互換あり)" or calcModel.factor =="MVCFrameworkSpecific(BackwardCompati)":
+                results.append(calcModel)
+        return results
+    
+    def getCalcModelsFromStrutsFw(self,calcModels):
+        results = []
+        '''struts2へのバージョンアップはstruts1プラグインを想定し、controller移行は、グラフに積み上げない'''
+        for calcModel in calcModels:
+            if calcModel.factor == "MVCフレームワーク(Controller機能)" or calcModel.factor =="MVCFramework(Controller)" :
+                results.append(calcModel)
+        return results
+    
+    def createResultMap(self,calReuslt):
+        resultMap ={'mvcFrameworkM':0,'mvcFrameworkV':0,'mvcFrameworkC':0,'mvcFrameworkSpecificNonBackwardCompati':0,'mvcFrameworkSpecificBackwardCompati':0}
+        return Calclator.createBasedResultMap(self, resultMap, calReuslt)
+    
         
 class KnowhowFactorGraphSumCalclator(KnowhowFactorSumCalclator):
     """Calculators of factor bars graph for the knowledge-based search.
@@ -405,6 +530,16 @@ class KnowhowFactorGraphSumCalclator(KnowhowFactorSumCalclator):
         '''
         KnowhowFactorSumCalclator.__init__(self,type,inputsModels)
 
+class FrameworkKnowhowFactorGraphSumCalclator(KnowhowFactorSumCalclator):
+    """Calculators of factor bars graph for the knowledge-based search.
+    
+    """
+    def __init__(self,type,inputsModels):
+        '''
+        Constructor
+        '''
+        KnowhowFactorSumCalclator.__init__(self,type,inputsModels)
+        
 
 class KnowhowMigrationItemCalclator(Calclator):
     """Calculators of migration item  for the knowledge-based search.
@@ -862,6 +997,31 @@ def getCheckListInformationPath():
     if os.path.isfile(filepath):
         return filepath
     raise Exception("checkListInformation.xml or checkListInformation_ja.xml is required in search target dir")
+
+def getTemplateTypeFromGenTargetDir(gen_path,REPORT_TYPE_FILE=".report_tpl.json",REPORT_TYPES=["ap","mvc"]):
+    base = os.path.dirname(os.path.abspath(gen_path))
+    reportTypeJsonFile = os.path.normpath(os.path.join(base, ".//"+REPORT_TYPE_FILE))
+    if not os.path.isfile(reportTypeJsonFile):
+        return REPORT_TYPES[0]
+    f = open(reportTypeJsonFile, 'r')
+    jsondata= json.load(f)
+    type=jsondata['template'] 
+    if type ==None:
+        return REPORT_TYPES[0]
+    if type in REPORT_TYPES:
+        return type
+    else:
+        return REPORT_TYPES[0]
+    
+def filterCalcators(templateType,calcators):
+    new_calcs = []
+    for calcator in calcators:
+        if templateType in calcator['tpl']:
+            new_calcs.append(calcator)
+    return new_calcs
+
+
+
 """
 ・TUBAMEレポート出力を行う。
 検索キー1はレポート出力ディレクトリを指定できる。オプショナルでデフォルトはeclipse\plugins\tubame.portability*\resources/report配下にレポートを出力する
@@ -908,33 +1068,43 @@ def ext_search(pNo, pPriority, pFlag, pList, pGenTargetDir, pRules, pInputCsv, p
     else:
         pDependPackageGroupingRules = []
     
-
+        
     
+        
     sets = locale.getdefaultlocale()
     if "ja" in sets[0]:
         condtions1 = "High:f10=高;Middle:f10=中;Low1:f10=低1;Low2:f10=低2;Unknown1:f10=不明1;Unknown2:f10=不明2"
         condtions2 = "WeblogicSpecChange:f9=Weblogic 固有;ApServerDependsChange:f9=AP サーバ固有;ApServerDependsDepricatedChange:f9=AP サーバ仕様の変更;JavaEESpecChange:f9=JSP/Servlet 仕様の変更;JavaVersionUpgradeChange:f9=Java バージョンアップによる変更;APlibrary:f9=AP 使用ライブラリ;DBMSChange:f9=DBMS の変更"
-    
+        condtions3 = "mvcFrameworkM:f9=MVCフレームワーク(Model機能);mvcFrameworkC:f9=MVCフレームワーク(Controller機能);mvcFrameworkV:f9=MVCフレームワーク(View機能);mvcFrameworkSpecificNonBackwardCompati:f9=MVCフレームワーク独自機能(上位互換なし);mvcFrameworkSpecificBackwardCompati:f9=MVCフレームワーク独自機能(上位互換あり)"
     else:
         condtions1 = "High:f10=High;Middle:f10=Middle;Low1:f10=Low1;Low2:f10=Low1;Unknown1:f10=Unknown1;Unknown2:f10=Unknown2"
         condtions2 = "WeblogicSpecChange:f9=Weblogic specific;ApServerDependsChange:f9=AP server specific;ApServerDependsDepricatedChange:f9=AP server specification change;JavaEESpecChange:f9=JSP/servelet specification change;JavaVersionUpgradeChange:f9=Java version upgrade change;APlibrary:f9=AP library;DBMSChange:f9=DBMS change"
-        
-    calcators = [{"calclator":"KnowhowDegreeOfDifficultySumCalclator", "type": "fromAp","condtions":condtions1,"execCreateResultMap":True},
-                 {"calclator":"KnowhowDegreeOfDifficultySumCalclator", "type": "toAp","condtions":condtions1,"execCreateResultMap":True} ,
-                 {"calclator":"KnowhowMigrationItemCalclator","type":"","condtions":condtions1,"execCreateResultMap":False},
-                 {"calclator":"KnowhowFactorSumCalclator", "type": "fromAp","condtions":condtions2,"execCreateResultMap":True} ,
-                 {"calclator":"KnowhowFactorSumCalclator", "type": "toAp","condtions":condtions2,"execCreateResultMap":True} ,
-                 {"calclator":"KnowhowFileCategorySumCalclator", "type": "fromAp","condtions":condtions2,"execCreateResultMap":True}, 
-                 {"calclator":"KnowhowFileCategorySumCalclator", "type": "toAp","condtions":condtions2,"execCreateResultMap":True},
-                 {"calclator":"KnowhowFactorGraphSumCalclator","type":"graph","condtions":condtions2,"execCreateResultMap":True},
-                 
-                 {"calclator":"DependsErrSumCalclator", "type":"","condtions":"Java:f2=Java;Jsp:f2=Jsp;Xml:f2=Xml","execCreateResultMap":True},
-                 {"calclator":"DependsPackagePicGrapthSumCalclator", "type":pDependPackageGroupingRules,"condtions":"Java:f2=Java;Jsp:f2=Jsp","execCreateResultMap":False},
-                 {"calclator":"DependsPackageSumCalclator","type":"","condtions":"Java:f2=Java;Jsp:f2=Jsp","execCreateResultMap":False},
-                 {"calclator":"DependsJspUsedTldFileSumCalclator","type":"","condtions":"Jsp:f2=Jsp","execCreateResultMap":False},
-                 {"calclator":"DependsXmlUsedSchemaFileSumCalclator","type":"","condtions":"Xml:f2=Xml","execCreateResultMap":False}
+        condtions3 = "mvcFrameworkM:f9=MVCFramework(Model);mvcFrameworkC:f9=MVCFramework(Controller);mvcFrameworkV:f9=MVCFramework(View);mvcFrameworkSpecificNonBackwardCompati:f9=MVCFrameworkSpecific(BackwardCompati);mvcFrameworkSpecificBackwardCompati:f9=MVCFrameworkSpecific(NonBackwardCompati)"
+
+    calcators = [{"calclator":"KnowhowDegreeOfDifficultySumCalclator", "type": "fromAp","condtions":condtions1,"execCreateResultMap":True,"tpl" :["ap"]},
+                 {"calclator":"KnowhowDegreeOfDifficultySumCalclator", "type": "toAp","condtions":condtions1,"execCreateResultMap":True,"tpl" :["ap"]} ,
+                 {"calclator":"FrameworkKnowhowDegreeOfDifficultySumCalclator", "type": "fromFw","condtions":condtions1,"execCreateResultMap":True,"tpl" :["mvc"]} ,
+                 {"calclator":"FrameworkKnowhowDegreeOfDifficultySumCalclator", "type": "toFw","condtions":condtions1,"execCreateResultMap":True,"tpl" :["mvc"]} ,
+                 {"calclator":"KnowhowMigrationItemCalclator","type":"","condtions":condtions1,"execCreateResultMap":False,"tpl" :["ap","mvc"]},
+                 {"calclator":"KnowhowFactorSumCalclator", "type": "fromAp","condtions":condtions2,"execCreateResultMap":True,"tpl" :["ap"]} ,
+                 {"calclator":"KnowhowFactorSumCalclator", "type": "toAp","condtions":condtions2,"execCreateResultMap":True,"tpl" :["ap"]} ,
+                 #{"calclator":"FrameworkKnowhowFactorSumCalclator", "type": "fromStrutsFw","condtions":condtions3,"execCreateResultMap":True} ,
+                 {"calclator":"FrameworkKnowhowFactorSumCalclator", "type": "fromFw","condtions":condtions3,"execCreateResultMap":True,"tpl" :["mvc"]} ,
+                 {"calclator":"FrameworkKnowhowFactorSumCalclator", "type": "toFw","condtions":condtions3,"execCreateResultMap":True,"tpl" :["mvc"]} ,
+                 {"calclator":"KnowhowFileCategorySumCalclator", "type": "fromAp","condtions":condtions2,"execCreateResultMap":True,"tpl" :["ap"]}, 
+                 {"calclator":"KnowhowFileCategorySumCalclator", "type": "toAp","condtions":condtions2,"execCreateResultMap":True,"tpl" :["ap"]},
+                 {"calclator":"FrameworkKnowhowFileCategorySumCalclator", "type": "fromFw","condtions":condtions3,"execCreateResultMap":True,"tpl" :["mvc"]}, 
+                 {"calclator":"FrameworkKnowhowFileCategorySumCalclator", "type": "toFw","condtions":condtions3,"execCreateResultMap":True,"tpl" :["mvc"]},
+                 {"calclator":"KnowhowFactorGraphSumCalclator","type":"graph","condtions":condtions2,"execCreateResultMap":True,"tpl" :["ap"]},
+                 {"calclator":"FrameworkKnowhowFactorGraphSumCalclator","type":"graph","condtions":condtions3,"execCreateResultMap":True,"tpl" :["mvc"]},
+                 {"calclator":"DependsErrSumCalclator", "type":"","condtions":"Java:f2=Java;Jsp:f2=Jsp;Xml:f2=Xml","execCreateResultMap":True,"tpl" :["ap","mvc"]},
+                 {"calclator":"DependsPackagePicGrapthSumCalclator", "type":pDependPackageGroupingRules,"condtions":"Java:f2=Java;Jsp:f2=Jsp","execCreateResultMap":False,"tpl" :["ap","mvc"]},
+                 {"calclator":"DependsPackageSumCalclator","type":"","condtions":"Java:f2=Java;Jsp:f2=Jsp","execCreateResultMap":False,"tpl" :["ap","mvc"]},
+                 {"calclator":"DependsJspUsedTldFileSumCalclator","type":"","condtions":"Jsp:f2=Jsp","execCreateResultMap":False,"tpl" :["ap","mvc"]},
+                 {"calclator":"DependsXmlUsedSchemaFileSumCalclator","type":"","condtions":"Xml:f2=Xml","execCreateResultMap":False,"tpl" :["ap","mvc"]}
                 ]
-    
+    templateType=getTemplateTypeFromGenTargetDir(pGenTargetDir)
+    calcators = filterCalcators(templateType,calcators)
     #getresultの親ディレクトリが存在する場合は、削除する。
     deleteJsParentDir(calcators)
     
