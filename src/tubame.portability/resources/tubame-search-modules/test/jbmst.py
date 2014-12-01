@@ -210,10 +210,13 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(True, os.path.isdir(self.getReportPath()), "レポート出力ディレクトリが生成されていない")
         self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameReport_ja.html"), "レポートファイルが生成されていない")
         self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameReport_en.html"), "レポートファイルが生成されていない")
-         
+        self.assertEqual(False, os.path.isfile(self.getReportPath()+"//TubameMVCFrameworkReport_ja.html"), "関係ないレポートファイルが生成されている")
+        self.assertEqual(False, os.path.isfile(self.getReportPath()+"//TubameMVCFrameworkReport_en.html"), "関係ないレポートファイルが生成されている")
          
     def testTubameKnowhowReportJaToCustomOutputDir(self):
-        
+        if os.path.exists(self.getReportPath()+"//..//.report_tpl.json"):
+            os.remove(self.getReportPath()+"//..//.report_tpl.json")
+            
         body = "1,*.jbm,%s,,ext_report_generator.py,Unknown,," % self.getReportPath()
         f = codecs.open(self.getBasePath()+"/input_csv/"+self._testMethodName+".csv", "w", "utf-8")
         f.write(body)
@@ -230,8 +233,66 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameReport_ja.html"), "レポートファイルが生成されていない")
         self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameReport_en.html"), "レポートファイルが生成されていない")
          
+    def testTubameFrameworkKnowhowReportJaToCustomOutputDir(self):
+        
+        body = "1,*.jbm,%s,,ext_report_generator.py,Unknown,," % self.getReportPath()
+        f = codecs.open(self.getBasePath()+"/input_csv/"+self._testMethodName+".csv", "w", "utf-8")
+        f.write(body)
+        f.close()
+        
+        #reportディレクトリの有無
+        if os.path.isdir(self.getReportPath()+"/report"):
+             shutil.rmtree(self.getReportPath()+"/report")
+        
+        body = '''{"template":"mvc"}'''
+        f = codecs.open(self.getReportPath()+"//..//.report_tpl.json", "w", "utf-8")
+        f.write(body)
+        f.close()
+        
+        self.searchExecute()
+        hitfile = "knowhow_result.jbm"
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(True, os.path.isdir(self.getReportPath()), "レポート出力ディレクトリが生成されていない")
+        self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameMVCFrameworkReport_ja.html"), "レポートファイルが生成されていない")
+        self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameMVCFrameworkReport_en.html"), "レポートファイルが生成されていない")
+        self.assertEqual(False, os.path.isfile(self.getReportPath()+"//TubameReport_ja.html"), "関係ないレポートファイルが生成されている")
+        self.assertEqual(False, os.path.isfile(self.getReportPath()+"//TubameReport_en.html"), "関係ないレポートファイルが生成されている")
+        
+    def testTubameStrutsKnowhowReportJaToCustomOutputDir(self):
+        
+        body = "1,*.jbm,%s,,ext_report_generator.py,Unknown,," % self.getReportPath()
+        f = codecs.open(self.getBasePath()+"/input_csv/"+self._testMethodName+".csv", "w", "utf-8")
+        f.write(body)
+        f.close()
+        
+        #reportディレクトリの有無
+        if os.path.isdir(self.getReportPath()+"/report"):
+             shutil.rmtree(self.getReportPath()+"/report")
+        
+        body = '''{"template":"struts"}'''
+        f = codecs.open(self.getReportPath()+"//..//.report_tpl.json", "w", "utf-8")
+        f.write(body)
+        f.close()
+        
+        self.searchExecute()
+        hitfile = "knowhow_result.jbm"
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(True, os.path.isdir(self.getReportPath()), "レポート出力ディレクトリが生成されていない")
+        self.assertEqual(False, os.path.isfile(self.getReportPath()+"//TubameMVCFrameworkReport_ja.html"), "関係ないレポートファイルが生成されている")
+        self.assertEqual(False, os.path.isfile(self.getReportPath()+"//TubameMVCFrameworkReport_en.html"), "関係ないレポートファイルが生成されている")
+        self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameStrutsFrameworkReport_ja.html"), "レポートファイルが生成されていない")
+        self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameStrutsFrameworkReport_en.html"), "レポートファイルが生成されていない")
+         
+
+        os.remove(self.getReportPath()+"//..//.report_tpl.json")
+        
 
     def testTubameReportGeneratorInputNotCsvJbm(self):
+        
+        if os.path.exists(self.getReportPath()+"//..//.report_tpl.json"):
+            os.remove(self.getReportPath()+"//..//.report_tpl.json")
+        
+        print "testTubameReportGeneratorInputNotCsvJbm start"
         body = "1,*.jbm,%s,,ext_report_generator.py,Unknown,," % self.getReportPath()
         f = codecs.open(self.getBasePath()+"/input_csv/"+self._testMethodName+".csv", "w", "utf-8")
         f.write(body)
@@ -244,7 +305,7 @@ class JbmstTestCase(unittest.TestCase):
         self.searchExecute()
         self.assertEqual(True, os.path.isdir(self.getReportPath()), "レポート出力ディレクトリが生成されていない")
         self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameReport_ja.html"), "レポートファイルが生成されていない")
-        self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameReport_en.html"), "レポートファイルが生成されていない")
+        #self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameReport_en.html"), "レポートファイルが生成されていない")
         
     def testTubameXpathSearchSearchParamEscape(self):
         try:
@@ -302,7 +363,7 @@ class JbmstTestCase(unittest.TestCase):
         
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
-        tests = ['testTubameXpathSearchUsedSchemaNotFind']
+        tests = ['testTubameReportGeneratorInputNotCsvJbm']
         unittest.TestSuite.__init__(self, map(JbmstTestCase, tests))
 
 if __name__ == '__main__':
