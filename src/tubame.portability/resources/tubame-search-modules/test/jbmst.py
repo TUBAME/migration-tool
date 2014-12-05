@@ -72,7 +72,15 @@ class JbmstTestCase(unittest.TestCase):
         base = os.path.dirname(os.path.abspath(__file__))
         testResouceDir = os.path.normpath(os.path.join(base, "resource//report"))
         return testResouceDir
-        
+    
+    def getPluginReportTplPath(self):
+        base = os.path.dirname(os.path.abspath(__file__))
+        return os.path.normpath(os.path.join(base, "../../report/.report_tpl.json"))
+    
+    def getInputCsvFolderDir(self,inputCsvdir):
+        base = os.path.dirname(os.path.abspath(__file__))
+        base2 = os.path.normpath(os.path.join(base, inputCsvdir))
+        return os.path.normpath(os.path.join(base2, ".."))
 
     def testStandardFileSearch(self):
         self.searchExecute()
@@ -214,9 +222,6 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(False, os.path.isfile(self.getReportPath()+"//TubameMVCFrameworkReport_en.html"), "関係ないレポートファイルが生成されている")
          
     def testTubameKnowhowReportJaToCustomOutputDir(self):
-        if os.path.exists(self.getReportPath()+"//..//.report_tpl.json"):
-            os.remove(self.getReportPath()+"//..//.report_tpl.json")
-            
         body = "1,*.jbm,%s,,ext_report_generator.py,Unknown,," % self.getReportPath()
         f = codecs.open(self.getBasePath()+"/input_csv/"+self._testMethodName+".csv", "w", "utf-8")
         f.write(body)
@@ -240,14 +245,20 @@ class JbmstTestCase(unittest.TestCase):
         f.write(body)
         f.close()
         
+        reportTypeJsonFile= self.getPluginReportTplPath()
+        if os.path.exists(reportTypeJsonFile): 
+            os.remove(reportTypeJsonFile)
+
+  
+        body = "{ \"template\" : \"mvc\" }"
+        f = codecs.open(reportTypeJsonFile, "w", "utf-8")
+        f.write(body)
+        f.close()
+        
         #reportディレクトリの有無
         if os.path.isdir(self.getReportPath()+"/report"):
              shutil.rmtree(self.getReportPath()+"/report")
         
-        body = '''{"template":"mvc"}'''
-        f = codecs.open(self.getReportPath()+"//..//.report_tpl.json", "w", "utf-8")
-        f.write(body)
-        f.close()
         
         self.searchExecute()
         hitfile = "knowhow_result.jbm"
@@ -258,6 +269,8 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(False, os.path.isfile(self.getReportPath()+"//TubameReport_ja.html"), "関係ないレポートファイルが生成されている")
         self.assertEqual(False, os.path.isfile(self.getReportPath()+"//TubameReport_en.html"), "関係ないレポートファイルが生成されている")
         
+        os.remove(reportTypeJsonFile)
+        
     def testTubameStrutsKnowhowReportJaToCustomOutputDir(self):
         
         body = "1,*.jbm,%s,,ext_report_generator.py,Unknown,," % self.getReportPath()
@@ -265,14 +278,19 @@ class JbmstTestCase(unittest.TestCase):
         f.write(body)
         f.close()
         
+        reportTypeJsonFile= self.getPluginReportTplPath()
+        if os.path.exists(reportTypeJsonFile): 
+            os.remove(reportTypeJsonFile)
+
+  
+        body = "{ \"template\" : \"struts\" }"
+        f = codecs.open(reportTypeJsonFile, "w", "utf-8")
+        f.write(body)
+        f.close()
+        
         #reportディレクトリの有無
         if os.path.isdir(self.getReportPath()+"/report"):
              shutil.rmtree(self.getReportPath()+"/report")
-        
-        body = '''{"template":"struts"}'''
-        f = codecs.open(self.getReportPath()+"//..//.report_tpl.json", "w", "utf-8")
-        f.write(body)
-        f.close()
         
         self.searchExecute()
         hitfile = "knowhow_result.jbm"
@@ -284,14 +302,10 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameStrutsFrameworkReport_en.html"), "レポートファイルが生成されていない")
          
 
-        os.remove(self.getReportPath()+"//..//.report_tpl.json")
+        os.remove(reportTypeJsonFile)
         
 
     def testTubameReportGeneratorInputNotCsvJbm(self):
-        
-        if os.path.exists(self.getReportPath()+"//..//.report_tpl.json"):
-            os.remove(self.getReportPath()+"//..//.report_tpl.json")
-        
         print "testTubameReportGeneratorInputNotCsvJbm start"
         body = "1,*.jbm,%s,,ext_report_generator.py,Unknown,," % self.getReportPath()
         f = codecs.open(self.getBasePath()+"/input_csv/"+self._testMethodName+".csv", "w", "utf-8")
@@ -363,7 +377,7 @@ class JbmstTestCase(unittest.TestCase):
         
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
-        tests = ['testTubameReportGeneratorInputNotCsvJbm']
+        tests = ['testTubameStrutsKnowhowReportJaToCustomOutputDir']
         unittest.TestSuite.__init__(self, map(JbmstTestCase, tests))
 
 if __name__ == '__main__':

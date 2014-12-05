@@ -1012,7 +1012,9 @@ def copyToOutputDir(outputDir):
     fromdir = os.path.normpath(os.path.join(base, "../resources/report"))
     shutil.copytree(fromdir,outputDir)
    
-        
+def getReportTplJonFilePath(REPORT_TYPE_JSON_FILE=".report_tpl.json"):
+    base = os.path.dirname(os.path.abspath(__file__))
+    return os.path.normpath(os.path.join(base, "../resources/"+REPORT_TYPE_JSON_FILE))
     
 def deleteJsParentDir(calclators):
     for calclator in calclators:
@@ -1036,9 +1038,9 @@ def getCheckListInformationPath():
     raise Exception("checkListInformation.xml or checkListInformation_ja.xml is required in search target dir")
 
 
-def getTemplateTypeFromGenTargetDir(gen_path,REPORT_TYPE_FILE=".report_tpl.json",REPORT_TYPES=["ap","mvc","struts"]):
-    base = os.path.dirname(os.path.abspath(gen_path))
-    reportTypeJsonFile = os.path.normpath(os.path.join(base, ".//"+REPORT_TYPE_FILE))
+def getTemplateTypeFromPluginReportDir(REPORT_TYPES=["ap","mvc","struts"],REPORT_TYPE_JSON_FILE=".report_tpl.json"):
+    pluginReportFolder = getPluginReportDir()
+    reportTypeJsonFile = os.path.join(pluginReportFolder, REPORT_TYPE_JSON_FILE)
     if not os.path.isfile(reportTypeJsonFile):
         return REPORT_TYPES[0]
     f = open(reportTypeJsonFile, 'r')
@@ -1072,6 +1074,10 @@ def removeOtherReport(templateType,outputdir):
             if os.path.isfile(deltarget_en):
                 os.remove(deltarget_en)
                 
+def getPluginReportDir():
+    base = os.path.dirname(os.path.abspath(__file__))
+    return os.path.normpath(os.path.join(base, "../../../report/"))
+                        
 """
 ・TUBAMEレポート出力を行う。
 検索キー1はレポート出力ディレクトリを指定できる。オプショナルでデフォルトはeclipse\plugins\tubame.portability*\resources/report配下にレポートを出力する
@@ -1118,9 +1124,6 @@ def ext_search(pNo, pPriority, pFlag, pList, pGenTargetDir, pRules, pInputCsv, p
     else:
         pDependPackageGroupingRules = []
     
-        
-    
-        
     sets = locale.getdefaultlocale()
     if "ja" in sets[0]:
         condtions1 = "High:f10=高;Middle:f10=中;Low1:f10=低1;Low2:f10=低2;Unknown1:f10=不明1;Unknown2:f10=不明2"
@@ -1157,7 +1160,7 @@ def ext_search(pNo, pPriority, pFlag, pList, pGenTargetDir, pRules, pInputCsv, p
                  {"calclator":"DependsJspUsedTldFileSumCalclator","type":"","condtions":"Jsp:f2=Jsp","execCreateResultMap":False,"tpl" :["ap","mvc"]},
                  {"calclator":"DependsXmlUsedSchemaFileSumCalclator","type":"","condtions":"Xml:f2=Xml","execCreateResultMap":False,"tpl" :["ap","mvc"]}
                 ]
-    templateType=getTemplateTypeFromGenTargetDir(pGenTargetDir)
+    templateType=getTemplateTypeFromPluginReportDir()
     calcators = filterCalcators(templateType,calcators)
     #getresultの親ディレクトリが存在する場合は、削除する。
     deleteJsParentDir(calcators)
