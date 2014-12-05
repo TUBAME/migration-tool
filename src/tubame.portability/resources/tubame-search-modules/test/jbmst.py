@@ -349,8 +349,15 @@ class JbmstTestCase(unittest.TestCase):
         
     def testTubameXpathSearchUsedSchemaNotFind(self):
         self.searchExecute()
-        self.assertEqual(self.rslt_steps, None)
+        self.assertNotEqual(self.rslt_steps, None)
+        self.assertEqual(int(self.rslt_hit), 1)
         
+    def testTubameXpathSearchUsedEntityXml(self):
+        #self.assertRaises(Exception, self.searchExecute())
+        self.searchExecute()
+        self.assertEqual(self.rslt_steps, None)
+            
+        #self.assertEqual(int(self.rslt_hit), 1)
         
     def testIgnoreXMLFileSearch(self):
         body = "search_target\\testIgnoreXMLFileSearch\\web.xml"
@@ -377,7 +384,7 @@ class JbmstTestCase(unittest.TestCase):
         
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
-        tests = ['testTubameStrutsKnowhowReportJaToCustomOutputDir']
+        tests = ['testTubameXpathSearchUsedEntityXml']
         unittest.TestSuite.__init__(self, map(JbmstTestCase, tests))
 
 if __name__ == '__main__':

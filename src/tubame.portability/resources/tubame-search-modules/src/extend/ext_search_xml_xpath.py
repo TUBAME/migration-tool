@@ -13,7 +13,7 @@ import os
 import sys
 import re
 from lxml import etree
-
+from lxml import html
 
 
 
@@ -62,9 +62,12 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
     for fname in pList:
         try :
             g_targetFilePath = fname
-            tree = etree.parse(fname) # 返値はElementTree型
-            elem = tree.getroot() # ルート要素を取得(Element型)
-    
+            #tree = etree.parse(fname) # 返値はElementTree型
+            #elem = tree.getroot() # ルート要素を取得(Element型)
+            line = open(fname, 'rU').read()
+            elem = html.fromstring(line)
+            if elem == None:
+                continue
             pathList = elem.xpath(xPath)
             rsl_list = []
     
@@ -76,11 +79,9 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
                 no_Results.extend(rsl_list)
                     #検索結果を表示する
             common_module.print_csv(pNo, pPriority, pFlag, fname, rsl_list, pChapterNo, pCheck_Status)
+            
         except Exception ,ex:
-            if 'Document is empty'  in ex.message :
-                continue
-            else:
-               raise ex
+            raise ex
              
             
     #結果が存在しない場合は結果なしのCSVを出力
