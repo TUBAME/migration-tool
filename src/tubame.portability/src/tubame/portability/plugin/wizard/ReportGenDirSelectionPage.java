@@ -29,6 +29,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
 
+import tubame.portability.model.ReportTemplateType;
 import tubame.portability.model.generated.model.WebLogic;
 import tubame.portability.util.FileUtil;
 import tubame.portability.util.PluginUtil;
@@ -54,6 +55,8 @@ public class ReportGenDirSelectionPage extends AbstractJbmSelectionPage {
      */
     private Text outSourceDirectoryText;
 
+	private Combo reportTemplateCombo;
+
 
     /**
      * Constructor.<br/>
@@ -66,7 +69,11 @@ public class ReportGenDirSelectionPage extends AbstractJbmSelectionPage {
         this.resource = resource;
     }
 
-    /**
+    public Combo getReportTemplateCombo() {
+		return reportTemplateCombo;
+	}
+
+	/**
      * {@inheritDoc}
      */
     public String getTargetText() {
@@ -168,6 +175,19 @@ public class ReportGenDirSelectionPage extends AbstractJbmSelectionPage {
         button.setText(getReferenceButtonLabelString());
         button.addSelectionListener(new BrowseDirectoryButtonSelectionListener(
                 outSourceDirectoryText));
+        
+        
+        Group group2 = new Group(composite, SWT.SHADOW_NONE);
+        group2.setText("レポートテンプレート選択");
+        group2.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+        group2.setLayout(new GridLayout());
+        
+        reportTemplateCombo = new Combo(group2, SWT.READ_ONLY);
+        ReportTemplateType[] values = ReportTemplateType.values();
+        for (ReportTemplateType reportTemplateType : values) {
+        	reportTemplateCombo.add(reportTemplateType.getValue());
+		}
+        
     }
 
 
@@ -181,6 +201,7 @@ public class ReportGenDirSelectionPage extends AbstractJbmSelectionPage {
             setErrorMessage(getErrorOutputDirectoryNotEnteredString());
             return false;
         }
+        
         // Project reality check
         if (!PluginUtil.projectExists(getOutSourceFolderText())) {
             setErrorMessage(getErrorProjectNotValue());
@@ -190,12 +211,23 @@ public class ReportGenDirSelectionPage extends AbstractJbmSelectionPage {
         if (!isProjectOpen(getOutSourceFolderText(), getErrorProjectNotOpen())) {
             return false;
         }
+        
+        //template check
+        if (this.getReportTemplateCombo().getText()=="") {
+            setErrorMessage(ResourceUtil.ERR_NOTSELECT_TPL);
+            return false;
+        }
         return true;
     }
 
 
 
-    /**
+    private String getTemplateText() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/**
      * {@inheritDoc}
      */
     @Override

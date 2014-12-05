@@ -129,6 +129,9 @@ public class ApplicationPropertyUtil extends NLS {
 	public static String REPORTGEN_OUTPUT_DIR;
 	
 	public static String KNOWLEDGE_DIR;
+	
+	public static String REPORT_TEMPORARY_JSON;
+	
 
     static {
         // initialize resource bundle

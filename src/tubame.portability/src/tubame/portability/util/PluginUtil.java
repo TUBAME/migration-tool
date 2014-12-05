@@ -350,6 +350,8 @@ public class PluginUtil {
         }
         return pluginDirectory;
     }
+    
+    
 
     /**
      * Get ActiveWorkbenchWindow.

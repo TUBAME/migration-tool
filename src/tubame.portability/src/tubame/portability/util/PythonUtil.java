@@ -128,6 +128,13 @@ public class PythonUtil {
         return filePath;
     }
     
+    public static String getReportTplPath()
+            throws IOException {
+        String filePath = PluginUtil.getResolvedPluginDir() + ApplicationPropertyUtil.REPORT_TEMPORARY_JSON;
+        LOGGER.info(filePath);
+        return filePath;
+    }
+    
     
     public static String getPyPath()
             throws IOException {

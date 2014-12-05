@@ -145,6 +145,15 @@ public class MessageUtil extends NLS {
 	public static String INF_SEARCH_REPORTGEN_NON;
 	public static String ERR_REPORTGEN_CHKLISTXML_NON;
 	
+	public static String REPORT_TPL_APSERVER;
+	
+	public static String REPORT_TPL_MVCFRAMWORK;
+	public static String REPORT_TPL_STRUTSFRAMWORK;
+	
+	public static String ERR_GET_REPORT_TPL;
+	
+	
+	
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, MessageUtil.class);

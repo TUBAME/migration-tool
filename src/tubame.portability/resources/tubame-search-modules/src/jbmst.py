@@ -89,8 +89,8 @@ if hasattr(sys,"setdefaultencoding"):
 # Initial processing
 if bPARAMETER_CHECK:
     input_csv_file = sys.argv[1]            # Run Parameters [1] (search files)
-    search_dir = sys.argv[2]                # Run Parameters [1] (Search target folder)
-
+    search_dir = sys.argv[2]
+# Run Parameters [1] (Search target folder)
 # Set the path to the file list of the key search_target
 # Ex) search_targets_map = { "*.java": "A","B"
 #                            "*.jsp" : "C","D"
@@ -180,7 +180,6 @@ for tempRow in tempCSVLine:
             ext_search_module = sys.modules[load_module_name]
     
             jbmst_common.searchTarget=search_target
-    
             if ext_search_module.paramCheck(search_str1,search_str2) != 0:
                 raise IOError, 'Invalid search keyword parameter (line %d): %s' % (count,input_csv_file)
     

@@ -222,6 +222,7 @@ def load_ignorelist(IGNORE_LIST="ignore.list"):
     ignore_list=[]
     base = os.path.dirname(os.path.abspath(__file__))+ "./.."
     ignore_listfile = os.path.normpath(os.path.join(base, IGNORE_LIST))
+    
     if os.path.exists(ignore_listfile):
         f = open(ignore_listfile, "r")
         for line in f:

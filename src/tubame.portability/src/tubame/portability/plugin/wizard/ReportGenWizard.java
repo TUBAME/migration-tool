@@ -18,15 +18,20 @@
  */
 package tubame.portability.plugin.wizard;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.text.MessageFormat;
 import java.util.regex.Pattern;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -34,6 +39,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import tubame.portability.logic.search.ReportGenSearchToolWithProgress;
+import tubame.portability.model.ReportTemplateType;
 import tubame.portability.util.FileUtil;
 import tubame.portability.util.FileVisitor;
 import tubame.portability.util.PluginUtil;
@@ -50,6 +56,8 @@ import tubame.portability.util.resource.ResourceUtil;
  * 
  */
 public class ReportGenWizard extends Wizard implements INewWizard {
+	
+	private static final String REPORT_TPL_FILENAME= ".report_tpl.json";
 	/**
 	 * Logger
 	 */
@@ -124,6 +132,7 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 						+ "] OutSourceFolderText=["
 						+ reportGenDirSelectionPage.getOutSourceFolderText()
 						+ "]"));
+		
 		boolean validate = reportGenDirSelectionPage.textValidate();
 		// False if you get caught in the validate
 		if (!validate) {
@@ -151,6 +160,10 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 					PluginUtil.getActiveWorkbenchShell());
 
 			PluginUtil.getPluginDir();
+			createReportTemplateTypeFile(
+					this.reportGenDirSelectionPage.getReportTemplateCombo().getText(),
+					PythonUtil.getReportTplPath());
+			
 			dialog.run(true, true, progress);
 			if (progress.isFileOut()) {
 				String reportGenerationPath = PythonUtil.getReportGenerationPath();
@@ -177,11 +190,6 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 				return false;
 			}
 
-		} catch (IOException e) {
-			LOGGER.error(String.format(MessageUtil.LOG_ERR_PROC_ABNORMAL_END,
-					MessageUtil.LOG_INFO_PROC_NAME_REPORTGEN), e);
-			PluginUtil.viewErrorDialog(getDialogTitle(), getErrorRunFalse()+ StringUtil.LINE_SEPARATOR + e.getMessage(), e);
-			return false;
 		} catch (InterruptedException e) {
 			// Cancellation
 			LOGGER.debug(MessageUtil.INF_CANCEL);
@@ -195,7 +203,13 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 			PluginUtil.viewErrorDialog(getDialogTitle(), getErrorRunFalse()
 					+ StringUtil.LINE_SEPARATOR + e.getMessage(), e);
 			return false;
-		}
+		}catch (Exception e) {
+			LOGGER.error(String.format(MessageUtil.LOG_ERR_PROC_ABNORMAL_END,
+					MessageUtil.LOG_INFO_PROC_NAME_REPORTGEN), e);
+			PluginUtil.viewErrorDialog(getDialogTitle(), getErrorRunFalse()+ StringUtil.LINE_SEPARATOR + e.getMessage(), e);
+			return false;
+		} 
+		
 		return true;
 		// catch (WorkbenchException e) {
 		// LOGGER.error(String.format(MessageUtil.LOG_ERR_PROC_ABNORMAL_END_P,
@@ -215,6 +229,55 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 		// return false;
 		// }
 
+	}
+
+	private void createReportTemplateTypeFile(String reportTypeVal, String outputFullPath) {
+		File targetFile = new File(outputFullPath);
+		if(targetFile.exists()){
+			targetFile.delete();
+		}
+		 String reportTemplateId = getReportTemplateId(reportTypeVal);
+		 if (reportTemplateId== null){
+			 throw new IllegalStateException(MessageUtil.ERR_GET_REPORT_TPL);
+		 }
+
+		 BufferedOutputStream bufferedOutputStream = null;
+		 try {
+			bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(targetFile));
+			StringBuffer stringBuffer = new StringBuffer();
+			stringBuffer.append("{ \"template\" : \"" +reportTemplateId + "\"  }");
+			byte[] bytes = stringBuffer.toString().getBytes();
+			bufferedOutputStream.write(bytes);
+			
+		} catch (Exception e) {
+			throw new IllegalStateException(MessageUtil.ERR_GET_REPORT_TPL,e);
+		}finally{
+			if (bufferedOutputStream !=null){
+				try {
+					bufferedOutputStream.close();
+				} catch (IOException e) {
+					;
+				}
+			}
+		}
+	}
+	
+	
+	private void deleteReportTemplateTypeFile(String outputFullPath){
+		File file = new File(outputFullPath);
+		if(file.exists()){
+			file.delete();
+		}
+	}
+
+	private String getReportTemplateId(String reportTypeVal) {
+		 ReportTemplateType[] values = ReportTemplateType.values();
+		 for (ReportTemplateType reportTemplateType : values) {
+			if(reportTypeVal.equals(reportTemplateType.getValue())){
+				return reportTemplateType.getId();
+			}
+		}
+		return null;
 	}
 
 	private void copyReport(final String reportGenerationPath, String target) throws IOException {
