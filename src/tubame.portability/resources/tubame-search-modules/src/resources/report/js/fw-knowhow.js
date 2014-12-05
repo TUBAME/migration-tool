@@ -29,8 +29,9 @@ jQuery(document).ready(function() {
 			$("#toFw_factor1").text(factorToApresult.mvcFrameworkM);
 			$("#toFw_factor2").text(factorToApresult.mvcFrameworkV);
 			$("#toFw_factor3").text(factorToApresult.mvcFrameworkC );
-			$("#toFw_factor4").text(factorToApresult.mvcFrameworkSpecificBackwardCompati)
-			$("#toFw_factor5").text(factorToApresult.mvcFrameworkSpecificNonBackwardCompati)
+			$("#toFw_factor4").text(factorToApresult.mvcFrameworkSpecificNonBackwardCompati);
+			$("#toFw_factor5").text(factorToApresult.mvcFrameworkSpecificBackwardCompati);
+			
 			
 			//
 			var fileFromApResult = $.fn.FrameworkKnowhowFileCategorySumCalclator_fromFw_getResult();

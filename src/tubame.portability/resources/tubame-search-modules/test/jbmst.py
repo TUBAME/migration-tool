@@ -271,6 +271,38 @@ class JbmstTestCase(unittest.TestCase):
         
         os.remove(reportTypeJsonFile)
         
+    def testTubameFrameworkKnowhowReportJaNotIncludeModelFactor(self):
+        body = "1,*.jbm,%s,,ext_report_generator.py,Unknown,," % self.getReportPath()
+        f = codecs.open(self.getBasePath()+"/input_csv/"+self._testMethodName+".csv", "w", "utf-8")
+        f.write(body)
+        f.close()
+        
+        reportTypeJsonFile= self.getPluginReportTplPath()
+        if os.path.exists(reportTypeJsonFile): 
+            os.remove(reportTypeJsonFile)
+
+  
+        body = "{ \"template\" : \"mvc\" }"
+        f = codecs.open(reportTypeJsonFile, "w", "utf-8")
+        f.write(body)
+        f.close()
+        
+        #reportディレクトリの有無
+        if os.path.isdir(self.getReportPath()+"/report"):
+             shutil.rmtree(self.getReportPath()+"/report")
+        
+        
+        self.searchExecute()
+        hitfile = "knowhow_result.jbm"
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(True, os.path.isdir(self.getReportPath()), "レポート出力ディレクトリが生成されていない")
+        self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameMVCFrameworkReport_ja.html"), "レポートファイルが生成されていない")
+        self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameMVCFrameworkReport_en.html"), "レポートファイルが生成されていない")
+        self.assertEqual(False, os.path.isfile(self.getReportPath()+"//TubameReport_ja.html"), "関係ないレポートファイルが生成されている")
+        self.assertEqual(False, os.path.isfile(self.getReportPath()+"//TubameReport_en.html"), "関係ないレポートファイルが生成されている")
+        
+        os.remove(reportTypeJsonFile)
+     
     def testTubameStrutsKnowhowReportJaToCustomOutputDir(self):
         
         body = "1,*.jbm,%s,,ext_report_generator.py,Unknown,," % self.getReportPath()
@@ -384,7 +416,7 @@ class JbmstTestCase(unittest.TestCase):
         
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
-        tests = ['testTubameXpathSearchUsedEntityXml']
+        tests = ['testTubameFrameworkKnowhowReportJaNotIncludeModelFactor']
         unittest.TestSuite.__init__(self, map(JbmstTestCase, tests))
 
 if __name__ == '__main__':

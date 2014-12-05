@@ -134,7 +134,7 @@ class ResultJsWriter(object):
             body = self.createJsTpl3(input)
         #要因別棒グラフ For Knowhow
         elif self.dirname.startswith("KnowhowFactorGraphSumCalclator"):
-            num1, num2,num3 = input['JavaEESpecChange']+input['JavaVersionUpgradeChange']+input['APlibrary']+input['DBMSChange'],input['ApServerDependsDepricatedChange'],input['WeblogicSpecChange']+input['ApServerDependsChange']
+            num1, num2,num3 = input.get('JavaEESpecChange',0)+input.get('JavaVersionUpgradeChange',0)+input.get('APlibrary',0)+input.get('DBMSChange',0),input.get('ApServerDependsDepricatedChange',0),input.get('WeblogicSpecChange',0)+input.get('ApServerDependsChange',0)
             
             if "ja" in locale.getdefaultlocale()[0]:
                 result_tpl ='''[{"data": [[0, 0],[0, %s],[1, %s]], "label": "JavaSE/JavaEEバージョンアップに伴う修正"}, {"data": [[0, %s],[1, %s]], "label": "APサーバ非推奨機能に関する修正"}, {"data": [[1, %s]], "label": "APサーバ固有機能に関する修正"}]'''
@@ -146,7 +146,8 @@ class ResultJsWriter(object):
             body = RESULT_JS_TPL2 % (self.dirname,result_body)
             
         elif self.dirname.startswith("FrameworkKnowhowFactorGraphSumCalclator"):
-            num1, num2,num3 ,num4, num5 = input['mvcFrameworkM'],input['mvcFrameworkV'],input['mvcFrameworkC'],input['mvcFrameworkSpecificNonBackwardCompati'],input['mvcFrameworkSpecificBackwardCompati']
+            
+            num1, num2,num3 ,num4, num5 = input.get('mvcFrameworkM',0),input.get('mvcFrameworkV',0),input.get('mvcFrameworkC',0),input.get('mvcFrameworkSpecificNonBackwardCompati',0),input.get('mvcFrameworkSpecificBackwardCompati',0)
             
             if "ja" in locale.getdefaultlocale()[0]:
                 result_tpl ='''[{"data": [[0, 0],[0, %s],[1, %s]], "label": "Model機能にともなう修正"}, {"data": [[0, %s],[1, %s]], "label": "View機能にともなう修正"}, {"data": [[0, %s],[1, %s]], "label": "Controller機能にともなう修正"},{"data": [[0, %s],[1, %s]], "label": "MVCフレーム独自機能(上位互換なし)の修正"},{"data": [[1, %s]], "label": "MVCフレーム独自機能(上位互換あり)の修正"}]'''
@@ -157,7 +158,7 @@ class ResultJsWriter(object):
             body = RESULT_JS_TPL2 % (self.dirname,result_body)
         
         elif self.dirname.startswith("StrutsFrameworkKnowhowFactorGraphSumCalclator"):
-            num1, num2,num3 ,num4, num5 = input['mvcFrameworkM'],input['mvcFrameworkV'],input['mvcFrameworkC'],input['mvcFrameworkSpecificNonBackwardCompati'],input['mvcFrameworkSpecificBackwardCompati']
+            num1, num2,num3 ,num4, num5 = input.get('mvcFrameworkM',0),input.get('mvcFrameworkV',0),input.get('mvcFrameworkC',0),input.get('mvcFrameworkSpecificNonBackwardCompati',0),input.get('mvcFrameworkSpecificBackwardCompati',0)
             
             if "ja" in locale.getdefaultlocale()[0]:
                 result_tpl ='''[{"data": [[0, 0],[0, %s],[1, %s]], "label": "Model機能にともなう修正"}, {"data": [[0, %s],[1, %s]], "label": "View機能にともなう修正"}, {"data": [[0, %s],[1, %s]], "label": "Controller機能にともなう修正"},{"data": [[0, %s],[1, %s]], "label": "MVCフレーム独自機能(上位互換なし)の修正"},{"data": [[1, %s]], "label": "MVCフレーム独自機能(上位互換あり)の修正"}]'''
