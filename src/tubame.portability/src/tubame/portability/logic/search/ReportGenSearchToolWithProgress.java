@@ -43,7 +43,6 @@ public class ReportGenSearchToolWithProgress extends SearchToolWithProgress {
             // Converted into a relative path an absolute path, to write the
             // results to file jbm
             line = FileUtil.getRelativePath(root + File.separator, line);
-            System.out.println("line:"+line);
             isNormal(reader, line);
             if (isTargetFilePath(line)) {
                 continue;

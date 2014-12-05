@@ -166,7 +166,7 @@ public class ResourceUtil extends NLS {
 	
 	public static String KNOWHOW_SELECT_LABEL;
 	
-	public static String ERR_NOTSELECT_TPL;
+	public static String SELECT_TPL;
     
 
     static {

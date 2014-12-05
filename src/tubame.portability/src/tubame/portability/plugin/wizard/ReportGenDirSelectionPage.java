@@ -178,7 +178,7 @@ public class ReportGenDirSelectionPage extends AbstractJbmSelectionPage {
         
         
         Group group2 = new Group(composite, SWT.SHADOW_NONE);
-        group2.setText("レポートテンプレート選択");
+        group2.setText(ResourceUtil.SELECT_TPL);
         group2.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
         group2.setLayout(new GridLayout());
         
@@ -214,7 +214,7 @@ public class ReportGenDirSelectionPage extends AbstractJbmSelectionPage {
         
         //template check
         if (this.getReportTemplateCombo().getText()=="") {
-            setErrorMessage(ResourceUtil.ERR_NOTSELECT_TPL);
+            setErrorMessage(ResourceUtil.SELECT_TPL);
             return false;
         }
         return true;
