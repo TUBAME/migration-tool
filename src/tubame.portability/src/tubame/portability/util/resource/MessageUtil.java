@@ -152,6 +152,8 @@ public class MessageUtil extends NLS {
 	
 	public static String ERR_GET_REPORT_TPL;
 	
+	public static String INF_START_KNOWHOW_SEARCH;
+	
 	
 	
     static {
