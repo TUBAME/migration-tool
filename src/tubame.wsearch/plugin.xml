@@ -60,6 +60,11 @@
 
 	<extension point="org.eclipse.ui.preferencePages">
 		<page
+			class="tubame.portability.plugin.preferences.TubamePreferenceTop"
+			id="tubame.portability.plugin.preferences.TubamePreferenceTopPage"
+		>
+		</page>
+		<page category="tubame.portability.plugin.preferences.TubamePreferenceTopPage"
 			class="tubame.wsearch.ui.preferences.WSearchPreferenceTop"
 			id="tubame.wsearch.ui.preferences.Page1" name="%preferences.Page1.name">
 		</page>
