@@ -236,6 +236,17 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 		if(targetFile.exists()){
 			targetFile.delete();
 		}
+		
+		try {
+			//デフォルトではreportディレクトリが存在しないため、reportディレクトリの存在有無確認を行い、ディレクトリを作成する。
+			if(!targetFile.getParentFile().exists()){
+				targetFile.getParentFile().mkdir();
+			}
+			targetFile.createNewFile();
+		} catch (IOException e1) {
+			throw new IllegalStateException(MessageUtil.ERR_GET_REPORT_TPL,e1);
+		}
+		
 		 String reportTemplateId = getReportTemplateId(reportTypeVal);
 		 if (reportTemplateId== null){
 			 throw new IllegalStateException(MessageUtil.ERR_GET_REPORT_TPL);
