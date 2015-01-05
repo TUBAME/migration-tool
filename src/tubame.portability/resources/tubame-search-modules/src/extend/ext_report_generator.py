@@ -129,6 +129,15 @@ class ResultJsWriter(object):
         elif "KnowhowFileCategorySumCalclator" in self.dirname:
             body = RESULT_JS_TPL1 % (self.dirname,input)
             
+        elif "KnowhowDegreeOfDifficultyHitCountSumCalclator" in self.dirname:
+            body = RESULT_JS_TPL1 % (self.dirname,input)
+            
+        elif "FrameworkKnowhowFactorHitCountSumCalclator" in self.dirname:
+            body = RESULT_JS_TPL1 % (self.dirname,input)
+            
+        elif "ApServerKnowhowFactorHitCountSumCalclator" in self.dirname:
+            body = RESULT_JS_TPL1 % (self.dirname,input)
+               
         #移植項目集計用 For Knowhow
         elif "KnowhowMigrationItemCalclator" in self.dirname:
             body = self.createJsTpl3(input)
@@ -159,7 +168,6 @@ class ResultJsWriter(object):
         
         elif self.dirname.startswith("StrutsFrameworkKnowhowFactorGraphSumCalclator"):
             num1, num2,num3 ,num4, num5 = input.get('mvcFrameworkM',0),input.get('mvcFrameworkV',0),input.get('mvcFrameworkC',0),input.get('mvcFrameworkSpecificNonBackwardCompati',0),input.get('mvcFrameworkSpecificBackwardCompati',0)
-            
             if "ja" in locale.getdefaultlocale()[0]:
                 result_tpl ='''[{"data": [[0, 0],[0, %s],[1, %s]], "label": "Model機能にともなう修正"}, {"data": [[0, %s],[1, %s]], "label": "View機能にともなう修正"}, {"data": [[0, %s],[1, %s]], "label": "Controller機能にともなう修正"},{"data": [[0, %s],[1, %s]], "label": "MVCフレーム独自機能(上位互換なし)の修正"},{"data": [[1, %s]], "label": "MVCフレーム独自機能(上位互換あり)の修正"}]'''
             else:
@@ -507,7 +515,6 @@ class FrameworkKnowhowFactorSumCalclator(KnowhowDegreeOfDifficultySumCalclator):
         Constructor
         '''
         KnowhowDegreeOfDifficultySumCalclator.__init__(self,type,inputsModels)
-        self.type = type
         
     def calcBefore(self):
         if self.type == "fromFw":
@@ -588,7 +595,10 @@ class KnowhowMigrationItemCalclator(Calclator):
         '''
         Constructor
         '''
-        Calclator.__init__(self,self.__class__.__name__,inputsModels)
+        if type != None and type !="":
+            Calclator.__init__(self,self.__class__.__name__ + "_"+type,inputsModels)
+        else:
+            Calclator.__init__(self,self.__class__.__name__,inputsModels)
         
     def calcBefore(self):
         '''self.dataのマップにあるすべてのオブジェクトをid種別でマップしなおす'''
@@ -647,7 +657,7 @@ class KnowhowMigrationItemCalclator(Calclator):
                      setattr(calcResult, 'portabilityFactor', checkListInfoMap['portabilityFactor'])
                      setattr(calcResult, 'guideRef', checkListInfoMap['guideRef'])
                      #同じIDであれば、line_basicはどれでも同じはずなので、リストの最初のline_basicを取得する
-                     setattr(calcResult, 'lineBasic', calcModels[0].line_basic)
+                     setattr(calcResult, 'lineBasic', "\""+ calcModels[0].line_basic+"\"")
                      setattr(calcResult, 'manualCheckStatus',self.getmanualCheckStatus(calcModels,checkListInfoMap['visualConfirm']))
                      
         return calcResults
@@ -694,7 +704,133 @@ class KnowhowMigrationItemCalclator(Calclator):
         pass
 
 
+class KnowhowDegreeOfDifficultyHitCountSumCalclator(KnowhowMigrationItemCalclator):
+    """Calculators of factor bars graph for the knowledge-based search.
+    
+    """
+    def __init__(self,type,inputsModels):
+        '''
+        Constructor
+        '''
+        self.type = type
+        KnowhowMigrationItemCalclator.__init__(self,type,inputsModels)
+        
+    def calc(self):
+        '''パッケージ毎のクラス情報についても取得するため、オーバライドする'''
+        return KnowhowMigrationItemCalclator.calc(self)
+    
+    def createResultMap(self,calReuslt):
+        '''難易度別で集計する'''
+        sets = locale.getdefaultlocale()
+        if "ja" in sets[0]:
+            resultMap = {u"低1":0,u"低2":0,u"中":0,u"高":0,u"不明1":0,u"不明2":0}
+        else:
+            resultMap = {"Low1":0,"Low2":0,"Middle":0,"High":0,"Unknown1":0,"Unknown2":0}
+            
+        for result in calReuslt:
+            degree = getattr(result, "degreeDetail")
+            factor = getattr(result, "portabilityFactor")
+            if self.type == u'fromStrutsFw':
+                if factor ==u"MVCフレームワーク(Controller機能)" or factor =="MVCFramework(Controller)":
+                    continue
+            elif self.type == u'fromFw':
+                if factor == u"MVCフレームワーク独自機能(上位互換あり)" or factor =="MVCFrameworkSpecific(BackwardCompati)":
+                    continue
+            elif self.type == 'fromAp':
+                if factor == "Weblogic specific" or factor == u"Weblogic 固有 " or factor == "AP server specific" or factor == u"AP サーバ固有":
+                    continue
+            if resultMap.has_key(degree):
+                resultMap[degree]= resultMap[degree] + getattr(result, "hitTotal")
+        
+        if "ja" in sets[0]:
+            return {"Low1":resultMap[u'低1'],"Low2":resultMap[u'低2'],"Middle":resultMap[u'中'],"High":resultMap[u'高'],"Unknown1":resultMap[u'不明1'],"Unknown2":resultMap[u'不明2']}
+        return resultMap
 
+class ApServerKnowhowFactorHitCountSumCalclator(KnowhowMigrationItemCalclator):
+    """Calculators of factor bars graph for the knowledge-based search.
+    
+    """
+    def __init__(self,type,inputsModels):
+        '''
+        Constructor
+        '''
+        KnowhowMigrationItemCalclator.__init__(self,type,inputsModels)
+        
+    def calc(self):
+        '''パッケージ毎のクラス情報についても取得するため、オーバライドする'''
+        return KnowhowMigrationItemCalclator.calc(self)
+    
+    def createResultMap(self,calReuslt):
+        '''要因別で集計する'''
+        resultMap = {"javaAndJavaEESpecChange":0,"ApServerDepricatedChange":0,"ApServerSpecficChange":0}
+        langval = locale.getdefaultlocale()[0]
+        for result in calReuslt:
+            factor = getattr(result, "portabilityFactor")
+            if "ja" in langval:
+                if factor == u'JSP/Servlet 仕様の変更' or factor == u'Java バージョンアップによる変更':
+                    resultMap['javaAndJavaEESpecChange']= resultMap['javaAndJavaEESpecChange'] + getattr(result, "hitTotal")
+                elif factor == u'AP サーバ仕様の変更':
+                    resultMap['ApServerDepricatedChange']= resultMap['ApServerDepricatedChange'] + getattr(result, "hitTotal")
+                elif factor == u'Weblogic 固有' or factor == u'AP サーバ固有' or factor == u'AP 使用ライブラリ' or factor == u'DBMS の変更':
+                    resultMap['ApServerSpecficChange']= resultMap['ApServerSpecficChange'] + getattr(result, "hitTotal")
+            else:
+                if factor == 'JSP/servelet specification change' or factor == u'Java version upgrade change':
+                    resultMap['javaAndJavaEESpecChange']= resultMap['javaAndJavaEESpecChange'] + getattr(result, "hitTotal")
+                elif factor == u'AP server specification change':
+                    resultMap['ApServerDepricatedChange']= resultMap['ApServerDepricatedChange'] + getattr(result, "hitTotal")
+                elif factor == u'Weblogic specific' or factor == u'AP server specific' or factor == u'AP library' or factor == u'DBMS の変更':
+                    resultMap['ApServerSpecficChange']= resultMap['ApServerSpecficChange'] + getattr(result, "hitTotal")
+        return resultMap
+            
+class FrameworkKnowhowFactorHitCountSumCalclator(KnowhowMigrationItemCalclator):
+    """Calculators of factor bars graph for the knowledge-based search.
+    
+    """
+    def __init__(self,type,inputsModels):
+        '''
+        Constructor
+        '''
+        self.type = type
+        KnowhowMigrationItemCalclator.__init__(self,type,inputsModels)
+        
+#    def calcBefore(self):
+#        FrameworkKnowhowFactorSumCalclator.calcBefore(self)
+        
+    def calc(self):
+        
+        '''パッケージ毎のクラス情報についても取得するため、オーバライドする'''
+        return KnowhowMigrationItemCalclator.calc(self)
+    
+#    def createResultMap(self,calReuslt):
+#        '''難易度別で集計する'''
+#        if "ja" in sets[0]:
+#            resultMap = {u"MVCフレームワーク(Model機能)":0,u"MVCフレームワーク(Controller機能)":0,u"MVCフレームワーク(View機能)":0,u"MVCフレームワーク独自機能(上位互換なし)":0,u"MVCフレームワーク独自機能(上位互換あり)":0}
+#        else:
+#            resultMap = {"MVCFramework(Model)":0,"MVCFramework(Controller)":0,"MVCFramework(View)":0,"MVCFrameworkSpecific(BackwardCompati)":0,"MVCFrameworkSpecific(NonBackwardCompati)":0}
+#            
+    def createResultMap(self,calReuslt):
+        '''難易度別で集計する'''
+        sets = locale.getdefaultlocale()
+        if "ja" in sets[0]:
+            resultMap = {u"MVCフレームワーク(Model機能)":0,u"MVCフレームワーク(Controller機能)":0,u"MVCフレームワーク(View機能)":0,u"MVCフレームワーク独自機能(上位互換なし)":0,u"MVCフレームワーク独自機能(上位互換あり)":0}
+        else:
+            resultMap = {"MVCFramework(Model)":0,"MVCFramework(Controller)":0,"MVCFramework(View)":0,"MVCFrameworkSpecific(BackwardCompati)":0,"MVCFrameworkSpecific(NonBackwardCompati)":0}
+            
+        for result in calReuslt:
+            factor = getattr(result, "portabilityFactor")
+            if self.type == u'fromStrutsFw':
+                if factor ==u"MVCフレームワーク(Controller機能)" or factor =="MVCFramework(Controller)":
+                    continue
+            elif self.type == u'fromFw':
+                if factor == u"MVCフレームワーク独自機能(上位互換あり)" or factor =="MVCFrameworkSpecific(BackwardCompati)":
+                    continue
+            if resultMap.has_key(factor):
+                resultMap[factor]= resultMap[factor] + getattr(result, "hitTotal")
+        if "ja" in sets[0]:
+            return {"MVCFramework_Model":resultMap[u'MVCフレームワーク(Model機能)'],"MVCFramework_Controller":resultMap[u'MVCフレームワーク(Controller機能)'],"MVCFramework_View":resultMap[u'MVCフレームワーク(View機能)'],"MVCFrameworkSpecific_BackwardCompati":resultMap[u'MVCフレームワーク独自機能(上位互換あり)'],"MVCFrameworkSpecific_NonBackwardCompati":resultMap[u'MVCフレームワーク独自機能(上位互換なし)']}
+        else:
+            return {"MVCFramework_Model":resultMap['MVCFramework(Model)'],"MVCFramework_Controller":resultMap['MVCFramework(Controller)'],"MVCFramework_View":resultMap['MVCFramework(View)'],"MVCFrameworkSpecific_BackwardCompati":resultMap['MVCFrameworkSpecific(BackwardCompati)'],"MVCFrameworkSpecific_NonBackwardCompati":resultMap['MVCFrameworkSpecific(NonBackwardCompati)']}
+    
 class DependsErrSumCalclator(Calclator):
     """Calculators of error for aggregation in dependence Search.
     
@@ -991,13 +1127,29 @@ def createKnowledgeBaseCalcModelMap(ruleName,fieldNum,compareValue,dataFile,DEFA
     
     return knowledgeBaseCalcModels
 
+def createKnowledgeBaseCalcModelMap2(ruleName,fieldNum,compareValue,dataFile,DEFAULT_LEVEL_FIELD_NUMS=1,DEFAULT_STEP_FIELD_NUMS=12,DEFAULT_STEP_TOTAL_FIELD_NUMS=13,DEFAULT_FACTOR_FIELD_NUMS=9,DEFAULT_TARGETFILE_NUMS=2,DEFAULT_GUIDE_FIELD_NUM=11,DEFAULT_HIT_FIELD_NUMS=3,DEFAUL_MANUAL_CHECK_STATUS=8,DEF_HIT_LINE=4):
+    knowledgeBaseCalcModels =[]
+    f = codecs.open(dataFile, "r", "utf-8")
+    rows = csv.reader(f)
+    for row in rows:
+        if row[fieldNum-1] == compareValue and row[DEFAULT_STEP_TOTAL_FIELD_NUMS-1] != ""  and row[DEFAULT_HIT_FIELD_NUMS-1] != "" and row[DEFAULT_HIT_FIELD_NUMS-1] != 0 and row[3] != '0':
+            knowledgeBaseCalcModels.append(KnowledgeBaseCalcModel(ruleName,row[DEFAULT_STEP_TOTAL_FIELD_NUMS-1],row[DEFAULT_FACTOR_FIELD_NUMS-1],getExt(row[DEFAULT_TARGETFILE_NUMS-1]),row[0],row[DEFAULT_HIT_FIELD_NUMS-1],row[10],row[DEFAUL_MANUAL_CHECK_STATUS-1]))
+    
+    return knowledgeBaseCalcModels
+
+
+
+    
 
 def createInputsModel(calcName,pRuleList,pDataFile):
     models =[]
     for rule in pRuleList:
         ruleName,fieldNum ,compareValue = getRuleName(rule.split("=")[0]),getFieldNum(rule.split("=")[0]),rule.split("=")[1]
         if "Knowhow" in calcName:
-            models = models +createKnowledgeBaseCalcModelMap(ruleName,int(fieldNum),compareValue,pDataFile)
+            if "KnowhowHitCountDegreeDifficultySumCalclator" in calcName:
+                pass
+            else:
+                models = models +createKnowledgeBaseCalcModelMap2(ruleName,int(fieldNum),compareValue,pDataFile)
         else:
             models = models +createDependsCalcModelMap(ruleName,int(fieldNum),compareValue,pDataFile)
         
@@ -1141,6 +1293,15 @@ def ext_search(pNo, pPriority, pFlag, pList, pGenTargetDir, pRules, pInputCsv, p
                  {"calclator":"FrameworkKnowhowDegreeOfDifficultySumCalclator", "type": "fromStrutsFw","condtions":condtions1,"execCreateResultMap":True,"tpl" :["struts"]} ,
                  {"calclator":"FrameworkKnowhowDegreeOfDifficultySumCalclator", "type": "toFw","condtions":condtions1,"execCreateResultMap":True,"tpl" :["mvc","struts"]} ,
                  {"calclator":"KnowhowMigrationItemCalclator","type":"","condtions":condtions1,"execCreateResultMap":False,"tpl" :["ap","mvc","struts"]},
+                 {"calclator":"KnowhowDegreeOfDifficultyHitCountSumCalclator", "type": "fromAp","condtions":condtions1,"execCreateResultMap":True,"tpl" :["ap"]} ,
+                 {"calclator":"KnowhowDegreeOfDifficultyHitCountSumCalclator", "type": "toAp","condtions":condtions1,"execCreateResultMap":True,"tpl" :["ap"]} ,
+                 {"calclator":"KnowhowDegreeOfDifficultyHitCountSumCalclator", "type": "fromFw","condtions":condtions1,"execCreateResultMap":True,"tpl" :["mvc"]} ,
+                 {"calclator":"KnowhowDegreeOfDifficultyHitCountSumCalclator", "type": "fromStrutsFw","condtions":condtions1,"execCreateResultMap":True,"tpl" :["struts"]} ,
+                 {"calclator":"KnowhowDegreeOfDifficultyHitCountSumCalclator", "type": "toFw","condtions":condtions1,"execCreateResultMap":True,"tpl" :["mvc","struts"]} ,
+                 {"calclator":"FrameworkKnowhowFactorHitCountSumCalclator", "type": "fromFw","condtions":condtions1,"execCreateResultMap":True,"tpl" :["mvc"]} ,
+                 {"calclator":"FrameworkKnowhowFactorHitCountSumCalclator", "type": "fromStrutsFw","condtions":condtions1,"execCreateResultMap":True,"tpl" :["struts"]} ,
+                 {"calclator":"FrameworkKnowhowFactorHitCountSumCalclator", "type": "toFw","condtions":condtions1,"execCreateResultMap":True,"tpl" :["mvc","struts"]} ,
+                 {"calclator":"ApServerKnowhowFactorHitCountSumCalclator","type":"","condtions":condtions1,"execCreateResultMap":True,"tpl" :["ap"]},
                  {"calclator":"KnowhowFactorSumCalclator", "type": "fromAp","condtions":condtions2,"execCreateResultMap":True,"tpl" :["ap"]} ,
                  {"calclator":"KnowhowFactorSumCalclator", "type": "toAp","condtions":condtions2,"execCreateResultMap":True,"tpl" :["ap"]} ,
                  {"calclator":"FrameworkKnowhowFactorSumCalclator", "type": "fromStrutsFw","condtions":condtions3,"execCreateResultMap":True,"tpl" :["struts"]} ,

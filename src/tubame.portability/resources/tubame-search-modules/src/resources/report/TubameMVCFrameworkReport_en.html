@@ -16,7 +16,7 @@ xmlns:doc="http://docbook.org/ns/docbook">
 				font-weight: bold;
 				text-align: center;
 				margin: 50px 0 0;
-			}
+			}
 		</style>
 		<!-- third party lib -->
 		<script type="text/javascript" src="js/jquery.js"></script>
@@ -126,7 +126,7 @@ xmlns:doc="http://docbook.org/ns/docbook">
 				<a name="N1024F"></a>
 				<p class="title">
 					<b>Table&nbsp;1.&nbsp;The aggregate result of the difficulty
-					level </b>
+					level (In parentheses is the number of search results)</b>
 				</p>
 				<div class="table-contents">
 					<table
@@ -146,7 +146,7 @@ xmlns:doc="http://docbook.org/ns/docbook">
 							<tr>
 								<th>-</th>
 								<th>High</th>
-								<th>Middle</th>
+								<th>Medium</th>
 								<th>Low2</th>
 								<th>Low1</th>
 								<th>Unknown Difficulty</th>
@@ -174,13 +174,63 @@ xmlns:doc="http://docbook.org/ns/docbook">
 							</tr>
 						</tbody>
 					</table>
+					
+					<table border="0" summary="Note">
+						<tr>
+							<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+						</tr>
+						<tr>
+							<td valign="top" align="left">
+							<p>
+								Difficulty legend
+							</p>
+							<div class="itemizedlist">
+								<ul class="itemizedlist" style="list-style-type: disc; ">
+									<li class="listitem">
+										<p>
+											Low1
+										</p>
+										<p>
+											Items that involve a low level of difficulty(can be processed by simple
+replacement)
+										</p>
+									</li>
+									<li class="listitem">
+										<p>
+											Low2
+										</p>
+										<p>
+											Items that involve a low level of difficulty(cannot be processed by simple replacement.)
+										</p>
+									</li>
+									<li class="listitem">
+										<p>
+											Medium
+										</p>
+										<p>
+											Items that involve  a Medium level of difficulty(Requires minor rewriting of the implementation.)
+										</p>
+									</li>
+									<li class="listitem">
+										<p>
+											High
+										</p>
+										<p>
+											Items that involve  a Hign level of difficulty(Requires major rewriting of the implementation involving major changes
+to the implementation, settings and other changes)
+										</p>
+									</li>
+								</ul>
+							</div><p></p></td>
+						</tr>
+					</table>
 				</div>
 			</div>
 			<br class="table-break">
 			<div class="table">
 				<a name="N1025D"></a>
 				<p class="title">
-					<b>Table&nbsp;2.&nbsp;The aggregate result of the porting factor</b>
+					<b>Table&nbsp;2.&nbsp;The aggregate result of the porting factor(In parentheses is the number of search results)</b>
 				</p>
 				<div class="table-contents">
 					<table summary="The aggregate result of the porting factor
@@ -223,7 +273,7 @@ xmlns:doc="http://docbook.org/ns/docbook">
 							<tr>
 								<td>Factor5</td>
 								<td>Specific features of the MVC framework(Backward-Compatible)</td>
-								<td id="toFw_factor4"></td>
+								<td id="toFw_factor5"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -508,15 +558,19 @@ xmlns:doc="http://docbook.org/ns/docbook">
 					</div>
 				</div>
 			</div>
-			<script type="text/javascript" src="js/FrameworkKnowhowDegreeOfDifficultySumCalclator_fromFw/getresult.js"></script>
-			<script type="text/javascript" src="js/FrameworkKnowhowDegreeOfDifficultySumCalclator_toFw/getresult.js"></script>
-			<script type="text/javascript" src="js/FrameworkKnowhowFactorSumCalclator_fromFw/getresult.js"></script>
-			<script type="text/javascript" src="js/FrameworkKnowhowFactorSumCalclator_toFw/getresult.js"></script>
-			<script type="text/javascript" src="js/FrameworkKnowhowFactorGraphSumCalclator_graph/getresult.js"></script>
-			<script type="text/javascript" src="js/FrameworkKnowhowFileCategorySumCalclator_fromFw/getresult.js"></script>
-			<script type="text/javascript" src="js/FrameworkKnowhowFileCategorySumCalclator_toFw/getresult.js"></script>
-			<script type="text/javascript" src="js/KnowhowMigrationItemCalclator/getresult.js"></script>
-			<script type="text/javascript" src="js/fw-knowhow.js"></script>
+		<script type="text/javascript" src="js/FrameworkKnowhowDegreeOfDifficultySumCalclator_fromFw/getresult.js"></script>
+		<script type="text/javascript" src="js/KnowhowDegreeOfDifficultyHitCountSumCalclator_fromFw/getresult.js"></script>
+		<script type="text/javascript" src="js/FrameworkKnowhowDegreeOfDifficultySumCalclator_toFw/getresult.js"></script>
+		<script type="text/javascript" src="js/KnowhowDegreeOfDifficultyHitCountSumCalclator_toFw/getresult.js"></script>
+		<script type="text/javascript" src="js/FrameworkKnowhowFactorHitCountSumCalclator_toFw/getresult.js"></script>
+		<script type="text/javascript" src="js/FrameworkKnowhowFactorSumCalclator_fromFw/getresult.js"></script>
+		<script type="text/javascript" src="js/FrameworkKnowhowFactorSumCalclator_toFw/getresult.js"></script>
+		<script type="text/javascript" src="js/FrameworkKnowhowFactorGraphSumCalclator_graph/getresult.js"></script>
+		<script type="text/javascript" src="js/FrameworkKnowhowFileCategorySumCalclator_fromFw/getresult.js"></script>
+		<script type="text/javascript" src="js/FrameworkKnowhowFileCategorySumCalclator_toFw/getresult.js"></script>
+		<script type="text/javascript" src="js/KnowhowMigrationItemCalclator/getresult.js"></script>
+		<script type="text/javascript" src="js/fw-knowhow.js"></script>
+
 			
 			<script type="text/javascript"
 			src="js/DependsPackagePicGrapthSumCalclator/getresult.js"></script>

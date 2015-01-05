@@ -16,7 +16,7 @@ xmlns:doc="http://docbook.org/ns/docbook">
 				font-weight: bold;
 				text-align: center;
 				margin: 50px 0 0;
-			}
+			}
 		</style>
 		<!-- third party lib -->
 		<script type="text/javascript" src="js/jquery.js"></script>
@@ -130,7 +130,7 @@ xmlns:doc="http://docbook.org/ns/docbook">
 				</p>
 				<div class="table-contents">
 					<table
-					summary="The aggregate result of the difficulty level
+					summary="The aggregate result of the difficulty level(In parentheses is the number of search results)
 
 					"
 					border="1">
@@ -146,7 +146,7 @@ xmlns:doc="http://docbook.org/ns/docbook">
 							<tr>
 								<th>-</th>
 								<th>High</th>
-								<th>Middle</th>
+								<th>Medium</th>
 								<th>Low2</th>
 								<th>Low1</th>
 								<th>Unknown Difficulty</th>
@@ -174,13 +174,63 @@ xmlns:doc="http://docbook.org/ns/docbook">
 							</tr>
 						</tbody>
 					</table>
+					
+					<table border="0" summary="Note">
+						<tr>
+							<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+						</tr>
+						<tr>
+							<td valign="top" align="left">
+							<p>
+								Difficulty legend
+							</p>
+							<div class="itemizedlist">
+								<ul class="itemizedlist" style="list-style-type: disc; ">
+									<li class="listitem">
+										<p>
+											Low1
+										</p>
+										<p>
+											Items that involve a low level of difficulty(can be processed by simple
+replacement)
+										</p>
+									</li>
+									<li class="listitem">
+										<p>
+											Low2
+										</p>
+										<p>
+											Items that involve a low level of difficulty(cannot be processed by simple replacement.)
+										</p>
+									</li>
+									<li class="listitem">
+										<p>
+											Medium
+										</p>
+										<p>
+											Items that involve  a Medium level of difficulty(Requires minor rewriting of the implementation.)
+										</p>
+									</li>
+									<li class="listitem">
+										<p>
+											High
+										</p>
+										<p>
+											Items that involve  a Hign level of difficulty(Requires major rewriting of the implementation involving major changes
+to the implementation, settings and other changes)
+										</p>
+									</li>
+								</ul>
+							</div><p></p></td>
+						</tr>
+					</table>
 				</div>
 			</div>
 			<br class="table-break">
 			<div class="table">
 				<a name="N1025D"></a>
 				<p class="title">
-					<b>Table&nbsp;2.&nbsp;The aggregate result of the porting factor</b>
+					<b>Table&nbsp;2.&nbsp;The aggregate result of the porting factor(In parentheses is the number of search results)</b>
 				</p>
 				<div class="table-contents">
 					<table summary="The aggregate result of the porting factor
@@ -223,7 +273,7 @@ xmlns:doc="http://docbook.org/ns/docbook">
 							<tr>
 								<td>Factor5</td>
 								<td>Specific features of the MVC framework(Backward-Compatible)</td>
-								<td id="toFw_factor4"></td>
+								<td id="toFw_factor5"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -239,6 +289,28 @@ xmlns:doc="http://docbook.org/ns/docbook">
 				<div class="figure-contents">
 					<div id="graph"></div>
 				</div>
+				
+				<div class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+				<table border="0" summary="Important">
+					<tr>
+						<td valign="top" align="center" rowspan="2" width="25"><img alt="[Important]" src="images/important.png"></td><th align="left">Important</th>
+					</tr>
+					<tr>
+						<td valign="top" align="left">
+						<p>
+							In the figure 1, the number of the lines about the migration items related to porting of controller function
+ is not intentionally included in a graph of the version up to Struts 2.
+the controller is reusable,if you use the Struts1 Plugin that are provided with Struts2.
+In struts version up on the above figure1, excluded factor3.
+If you do not want to use the Struts1 plugin , it is necessary to porting the Controller, please appropriately adjusted .
+						</p><a href="http://struts.apache.org/docs/struts-1-plugin.html">Struts1 Plugin</a>
+						<p>
+							SpringMVC migration  on the above figure1, total porting line of migrating items(factor 3)
+based on the number of class defined action in actionMapping, is calculated by the number of classes * 100 lines.
+						</p></td>
+					</tr>
+				</table>
+			</div>
 			</div>
 			<br class="figure-break">
 		</div>
@@ -510,25 +582,22 @@ xmlns:doc="http://docbook.org/ns/docbook">
 			</div>
 			
 				<script type="text/javascript" src="js/FrameworkKnowhowDegreeOfDifficultySumCalclator_fromStrutsFw/getresult.js"></script>
+				<script type="text/javascript" src="js/KnowhowDegreeOfDifficultyHitCountSumCalclator_fromStrutsFw/getresult.js"></script>
 				<script type="text/javascript" src="js/FrameworkKnowhowDegreeOfDifficultySumCalclator_toFw/getresult.js"></script>
+				<script type="text/javascript" src="js/KnowhowDegreeOfDifficultyHitCountSumCalclator_toFw/getresult.js"></script>
 				<script type="text/javascript" src="js/FrameworkKnowhowFactorSumCalclator_fromFw/getresult.js"></script>
 				<script type="text/javascript" src="js/FrameworkKnowhowFactorSumCalclator_toFw/getresult.js"></script>
+				<script type="text/javascript" src="js/FrameworkKnowhowFactorHitCountSumCalclator_toFw/getresult.js"></script>
 				<script type="text/javascript" src="js/StrutsFrameworkKnowhowFactorGraphSumCalclator_graph/getresult.js"></script>
 				<script type="text/javascript" src="js/FrameworkKnowhowFileCategorySumCalclator_fromStrutsFw/getresult.js"></script>
 				<script type="text/javascript" src="js/FrameworkKnowhowFileCategorySumCalclator_toFw/getresult.js"></script>
 				<script type="text/javascript" src="js/KnowhowMigrationItemCalclator/getresult.js"></script>
 				<script type="text/javascript" src="js/struts-knowhow.js"></script>
-			
-			<script type="text/javascript"
-			src="js/DependsPackagePicGrapthSumCalclator/getresult.js"></script>
-			<script type="text/javascript"
-			src="js/DependsErrSumCalclator/getresult.js"></script>
-			<script type="text/javascript"
-			src="js/DependsPackageSumCalclator/getresult.js"></script>
-			<script type="text/javascript"
-			src="js/DependsJspUsedTldFileSumCalclator/getresult.js"></script>
-			<script type="text/javascript"
-			src="js/DependsXmlUsedSchemaFileSumCalclator/getresult.js"></script>
-			<script type="text/javascript" src="js/depends.js"></script>
+				<script type="text/javascript" src="js/DependsPackagePicGrapthSumCalclator/getresult.js"></script>
+				<script type="text/javascript" src="js/DependsErrSumCalclator/getresult.js"></script>
+				<script type="text/javascript" src="js/DependsPackageSumCalclator/getresult.js"></script>
+				<script type="text/javascript" src="js/DependsJspUsedTldFileSumCalclator/getresult.js"></script>
+				<script type="text/javascript" src="js/DependsXmlUsedSchemaFileSumCalclator/getresult.js"></script>
+				<script type="text/javascript" src="js/depends.js"></script>
 	</BODY>
 </HTML>

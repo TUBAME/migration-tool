@@ -11,7 +11,22 @@ jQuery(document).ready(function() {
 							+ fromApresult.Low2 + fromApresult.Low1
 							+ fromApresult.Unknown1
 							+ fromApresult.Unknown2);
+							
 			//
+			var fromApresult = $.fn.KnowhowDegreeOfDifficultyHitCountSumCalclator_fromFw_getResult();
+			$("#fromFw_High").append('('+fromApresult.High +')');
+			$("#fromFw_Middle").append('('+fromApresult.Middle+')');
+			$("#fromFw_Low2").append('('+fromApresult.Low2+')');
+			$("#fromFw_Low1").append('('+fromApresult.Low1+')');
+			var num = parseInt(fromApresult.Unknown1) + parseInt(fromApresult.Unknown2);
+			$("#fromFw_Unknown").append('('+num+')');
+			num = fromApresult.High + fromApresult.Middle
+							+ fromApresult.Low2 + fromApresult.Low1
+							+ fromApresult.Unknown1
+							+ fromApresult.Unknown2
+			$("#fromFw_Total").append('('+num+')');
+			
+			
 			var toApresult = $.fn.FrameworkKnowhowDegreeOfDifficultySumCalclator_toFw_getResult();
 			$("#toFw_High").text(toApresult.High);
 			$("#toFw_Middle").text(toApresult.Middle);
@@ -23,6 +38,19 @@ jQuery(document).ready(function() {
 							+ toApresult.Low2 + toApresult.Low1
 							+ toApresult.Unknown1
 							+ toApresult.Unknown2);
+							
+			var toApresult = $.fn.KnowhowDegreeOfDifficultyHitCountSumCalclator_toFw_getResult();
+			$("#toFw_High").append('('+toApresult.High+')');
+			$("#toFw_Middle").append('('+toApresult.Middle+')');
+			$("#toFw_Low2").append('('+toApresult.Low2+')');
+			$("#toFw_Low1").append('('+toApresult.Low1+')');
+			num = parseInt(toApresult.Unknown1) + parseInt(toApresult.Unknown2);
+			$("#toFw_Unknown").append('('+num+')');
+			num = toApresult.High + toApresult.Middle
+							+ toApresult.Low2 + toApresult.Low1
+							+ toApresult.Unknown1
+							+ toApresult.Unknown2
+			$("#toFw_Total").append('('+num+')');
 			
 			//
 			var factorToApresult = $.fn.FrameworkKnowhowFactorSumCalclator_toFw_getResult();
@@ -32,6 +60,13 @@ jQuery(document).ready(function() {
 			$("#toFw_factor4").text(factorToApresult.mvcFrameworkSpecificNonBackwardCompati);
 			$("#toFw_factor5").text(factorToApresult.mvcFrameworkSpecificBackwardCompati);
 			
+			
+			var factorToApresult = $.fn.FrameworkKnowhowFactorHitCountSumCalclator_toFw_getResult();
+			$("#toFw_factor1").append('('+factorToApresult.MVCFramework_Model+')');
+			$("#toFw_factor2").append('('+factorToApresult.MVCFramework_View+')');
+			$("#toFw_factor3").append('('+factorToApresult.MVCFramework_Controller+')');
+			$("#toFw_factor4").append('('+factorToApresult.MVCFrameworkSpecific_NonBackwardCompati+')');
+			$("#toFw_factor5").append('('+factorToApresult.MVCFrameworkSpecific_BackwardCompati+')');
 			
 			//
 			var fileFromApResult = $.fn.FrameworkKnowhowFileCategorySumCalclator_fromFw_getResult();

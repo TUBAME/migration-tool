@@ -16,7 +16,7 @@ xmlns:doc="http://docbook.org/ns/docbook">
 				font-weight: bold;
 				text-align: center;
 				margin: 50px 0 0;
-			}
+			}
 		</style>
 		<!-- third party lib -->
 		<script type="text/javascript" src="js/jquery.js"></script>
@@ -110,7 +110,7 @@ xmlns:doc="http://docbook.org/ns/docbook">
 			<div class="table">
 				<a name="N1024F"></a>
 				<p class="title">
-					<b>Table&nbsp;1.&nbsp;難易度別の移植概算ライン数 </b>
+					<b>Table&nbsp;1.&nbsp;難易度別の移植概算ライン数(括弧内は検索箇所数)</b>
 				</p>
 				<div class="table-contents">
 					<table summary="難易度別の移植概算ライン数
@@ -138,23 +138,70 @@ xmlns:doc="http://docbook.org/ns/docbook">
 						<tbody>
 							<tr>
 								<td>Struts2へのバージョンアップ</td>
-								<td id="fromFw_High"></td>
-								<td id="fromFw_Middle"></td>
-								<td id="fromFw_Low2"></td>
-								<td id="fromFw_Low1"></td>
-								<td id="fromFw_Unknown"></td>
-								<td id="fromFw_Total"></td>
+								<td id="fromFw_High"><span id="hitCount_fromFw_High" /></td>
+								<td id="fromFw_Middle"><span id="hitCount_fromFw_Middle" /></td>
+								<td id="fromFw_Low2"><span id="hitCount_fromFw_Low2" /></td>
+								<td id="fromFw_Low1"><span id="hitCount_fromFw_Low1" /></td>
+								<td id="fromFw_Unknown"><span id="hitCount_fromFw_Unknown" /></td>
+								<td id="fromFw_Total"><span id="hitCount_fromFw_Total" /></td>
 							</tr>
 							<tr>
 								<td>SpringMVCへの移植</td>
-								<td id="toFw_High"></td>
-								<td id="toFw_Middle"></td>
-								<td id="toFw_Low2"></td>
-								<td id="toFw_Low1"></td>
-								<td id="toFw_Unknown"></td>
-								<td id="toFw_Total"></td>
+								<td id="toFw_High"><span id="hitCount_toFw_High" /></td>
+								<td id="toFw_Middle"><span id="hitCount_toFw_Middle" /></td>
+								<td id="toFw_Low2"><span id="hitCount_toFw_Low2" /></td>
+								<td id="toFw_Low1"><span id="hitCount_toFw_Low1" /></td>
+								<td id="toFw_Unknown"><span id="hitCount_toFw_Unknown" /></td>
+								<td id="toFw_Total"><span id="hitCount_toFw_Total" /></td>
 							</tr>
 						</tbody>
+					</table>
+					<table border="0" summary="Note">
+						<tr>
+							<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+						</tr>
+						<tr>
+							<td valign="top" align="left">
+							<p>
+								難易度凡例
+							</p>
+							<div class="itemizedlist">
+								<ul class="itemizedlist" style="list-style-type: disc; ">
+									<li class="listitem">
+										<p>
+											低1
+										</p>
+										<p>
+											置き換えレベルで対応可能なもの(実装をまったく意識せずに変換できるもの)
+										</p>
+									</li>
+									<li class="listitem">
+										<p>
+											低2
+										</p>
+										<p>
+											軽微な修正で実装内容を考慮し、移植するもの
+										</p>
+									</li>
+									<li class="listitem">
+										<p>
+											中
+										</p>
+										<p>
+											実装内容を考慮した小規模な修正が必要(担当者1名が1箇所につき半日～1日の修正が必要)
+										</p>
+									</li>
+									<li class="listitem">
+										<p>
+											高
+										</p>
+										<p>
+											実装内容の大規模な修正が必要で、実装や設定等の大幅な見直しが必要(担当者1名が1箇所につき1日以上の修正が必要で、APロジックや設定の大幅な見直しが必要)
+										</p>
+									</li>
+								</ul>
+							</div><p></p></td>
+						</tr>
 					</table>
 				</div>
 			</div>
@@ -162,7 +209,7 @@ xmlns:doc="http://docbook.org/ns/docbook">
 			<div class="table">
 				<a name="N1025D"></a>
 				<p class="title">
-					<b>Table&nbsp;2.&nbsp;移植発生要因別の移植概算ライン数 </b>
+					<b>Table&nbsp;2.&nbsp;移植発生要因別の移植概算ライン数 (括弧内は検索箇所数)</b>
 				</p>
 				<div class="table-contents">
 					<table summary="移植発生要因別の移植概算ライン数
@@ -184,27 +231,27 @@ xmlns:doc="http://docbook.org/ns/docbook">
 							<tr>
 								<td>要因1</td>
 								<td>Model機能移行に伴う修正</td>
-								<td id="toFw_factor1"></td>
+								<td id="toFw_factor1"><span id="hitCount_toFw_factor1" /></td>
 							</tr>
 							<tr>
 								<td>要因2</td>
 								<td>View機能移行に伴う修正</td>
-								<td id="toFw_factor2"></td>
+								<td id="toFw_factor2"><span id="hitCount_toFw_factor2" /></td>
 							</tr>
 							<tr>
 								<td>要因3</td>
 								<td>Controller機能移行に伴う修正</td>
-								<td id="toFw_factor3"></td>
+								<td id="toFw_factor3"><span id="hitCount_toFw_factor3" /></td>
 							</tr>
 							<tr>
 								<td>要因4</td>
 								<td>移行元フレームワーク独自機能(上位互換なし)</td>
-								<td id="toFw_factor4"></td>
+								<td id="toFw_factor4"><span id="hitCount_toFw_factor4" /></td>
 							</tr>
 							<tr>
 								<td>要因5</td>
 								<td>移行元フレームワーク独自機能(上位互換あり)</td>
-								<td id="toFw_factor5"></td>
+								<td id="toFw_factor5"><span id="hitCount_toFw_factor5" /></td>
 							</tr>
 						</tbody>
 					</table>
@@ -229,14 +276,13 @@ xmlns:doc="http://docbook.org/ns/docbook">
 						<td valign="top" align="left">
 						<p>
 							Struts2へのバージョンアップの移植概算ラインは、要因3のController機能移行に伴う修正を意図的に計上していません。
-							これは、Struts2で提供されているStrutプラグインを利用する場合、Controller機能部分が再利用可能となるためです。
-							Strutプラグインを利用しない場合は、Struts2へのバージョンアップでも	移植する対象となりますので、適宜調整ください。
-						</p>
+							これは、Struts2で提供されているStruts 1 プラグインを利用する場合、Controller機能部分は移植不要になるためです。
+							Struts 1 プラグインを利用しない場合は、Struts2へのバージョンアップでも	移植する対象となりますので、適宜調整ください。
+						</p><a href="http://struts.apache.org/docs/struts-1-plugin.html">［参考］Struts 1 Plugin</a>
 						<p>
 							また、要因3のController機能移行に伴う修正の移植ステップ数は、struts-config.xmlにあるactionMappingにあるactionクラス数を元に
 							actionクラス数  * 100ステップで計上しているので、注意すること。
-						</p>
-						</td>
+						</p></td>
 					</tr>
 				</table>
 			</div>
@@ -497,9 +543,12 @@ xmlns:doc="http://docbook.org/ns/docbook">
 					</div>
 				</div>
 				<script type="text/javascript" src="js/FrameworkKnowhowDegreeOfDifficultySumCalclator_fromStrutsFw/getresult.js"></script>
+				<script type="text/javascript" src="js/KnowhowDegreeOfDifficultyHitCountSumCalclator_fromStrutsFw/getresult.js"></script>
 				<script type="text/javascript" src="js/FrameworkKnowhowDegreeOfDifficultySumCalclator_toFw/getresult.js"></script>
+				<script type="text/javascript" src="js/KnowhowDegreeOfDifficultyHitCountSumCalclator_toFw/getresult.js"></script>
 				<script type="text/javascript" src="js/FrameworkKnowhowFactorSumCalclator_fromFw/getresult.js"></script>
 				<script type="text/javascript" src="js/FrameworkKnowhowFactorSumCalclator_toFw/getresult.js"></script>
+				<script type="text/javascript" src="js/FrameworkKnowhowFactorHitCountSumCalclator_toFw/getresult.js"></script>
 				<script type="text/javascript" src="js/StrutsFrameworkKnowhowFactorGraphSumCalclator_graph/getresult.js"></script>
 				<script type="text/javascript" src="js/FrameworkKnowhowFileCategorySumCalclator_fromStrutsFw/getresult.js"></script>
 				<script type="text/javascript" src="js/FrameworkKnowhowFileCategorySumCalclator_toFw/getresult.js"></script>

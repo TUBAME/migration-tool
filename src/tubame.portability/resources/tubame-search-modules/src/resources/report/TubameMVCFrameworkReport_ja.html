@@ -118,7 +118,7 @@
 		<div class="table">
 			<a name="N1024F"></a>
 			<p class="title">
-				<b>Table&nbsp;1.&nbsp;難易度別の移植概算ライン数 </b>
+				<b>Table&nbsp;1.&nbsp;難易度別の移植概算ライン数 (括弧内は検索箇所数)</b>
 			</p>
 			<div class="table-contents">
 				<table summary="難易度別の移植概算ライン数
@@ -164,13 +164,62 @@
 						</tr>
 					</tbody>
 				</table>
+				
+				<table border="0" summary="Note">
+						<tr>
+							<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+						</tr>
+						<tr>
+							<td valign="top" align="left">
+							<p>
+								難易度凡例
+							</p>
+							<div class="itemizedlist">
+								<ul class="itemizedlist" style="list-style-type: disc; ">
+									<li class="listitem">
+										<p>
+											低1
+										</p>
+										<p>
+											置き換えレベルで対応可能なもの(実装をまったく意識せずに変換できるもの)
+										</p>
+									</li>
+									<li class="listitem">
+										<p>
+											低2
+										</p>
+										<p>
+											軽微な修正で実装内容を考慮し、移植するもの
+										</p>
+									</li>
+									<li class="listitem">
+										<p>
+											中
+										</p>
+										<p>
+											実装内容を考慮した小規模な修正が必要(担当者1名が1箇所につき半日～1日の修正が必要)
+										</p>
+									</li>
+									<li class="listitem">
+										<p>
+											高
+										</p>
+										<p>
+											実装内容の大規模な修正が必要で、実装や設定等の大幅な見直しが必要(担当者1名が1箇所につき1日以上の修正が必要で、APロジックや設定の大幅な見直しが必要)
+										</p>
+									</li>
+								</ul>
+							</div><p></p></td>
+						</tr>
+					</table>
+					
 			</div>
 		</div>
 		<br class="table-break">
 		<div class="table">
 			<a name="N1025D"></a>
 			<p class="title">
-				<b>Table&nbsp;2.&nbsp;移植発生要因別の移植概算ライン数 </b>
+				<b>Table&nbsp;2.&nbsp;移植発生要因別の移植概算ライン数 (括弧内は検索箇所数)</b>
 			</p>
 			<div class="table-contents">
 				<table summary="移植発生要因別の移植概算ライン数
@@ -491,7 +540,10 @@
 		</div>
 	</div>
 <script type="text/javascript" src="js/FrameworkKnowhowDegreeOfDifficultySumCalclator_fromFw/getresult.js"></script>
+<script type="text/javascript" src="js/KnowhowDegreeOfDifficultyHitCountSumCalclator_fromFw/getresult.js"></script>
 <script type="text/javascript" src="js/FrameworkKnowhowDegreeOfDifficultySumCalclator_toFw/getresult.js"></script>
+<script type="text/javascript" src="js/KnowhowDegreeOfDifficultyHitCountSumCalclator_toFw/getresult.js"></script>
+<script type="text/javascript" src="js/FrameworkKnowhowFactorHitCountSumCalclator_toFw/getresult.js"></script>
 <script type="text/javascript" src="js/FrameworkKnowhowFactorSumCalclator_fromFw/getresult.js"></script>
 <script type="text/javascript" src="js/FrameworkKnowhowFactorSumCalclator_toFw/getresult.js"></script>
 <script type="text/javascript" src="js/FrameworkKnowhowFactorGraphSumCalclator_graph/getresult.js"></script>

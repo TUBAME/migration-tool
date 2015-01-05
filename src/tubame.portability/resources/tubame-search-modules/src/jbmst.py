@@ -188,7 +188,7 @@ for tempRow in tempCSVLine:
             except Exception, inst:
                 errorFilePath = ext_search_module.getErrorFilePath()
                 error = inst
-                raise Exception, 'Failed search (line %d): %s \r\n%s' % (count,input_csv_file, error)
+                raise Exception, 'Failed search (line %d): %s r\n%s' % (count,input_csv_file, error)
             continue
     
         isHit = 0;

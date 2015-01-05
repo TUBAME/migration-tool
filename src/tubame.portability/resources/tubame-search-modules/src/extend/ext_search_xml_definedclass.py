@@ -13,6 +13,7 @@ import os
 import sys
 import re
 from lxml import etree
+from lxml import html
 
 
 
@@ -62,9 +63,12 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
     for fname in pList:
         try :
             g_targetFilePath = fname
-            tree = etree.parse(fname) # 返値はElementTree型
-            elem = tree.getroot() # ルート要素を取得(Element型)
-    
+            #tree = etree.parse(fname) # 返値はElementTree型
+            #elem = tree.getroot() # ルート要素を取得(Element型)
+            line = open(fname, 'rU').read()
+            elem = html.fromstring(line)
+            if elem == None:
+                continue
             pathList = elem.xpath(xPath)
             defined_class_list = []
     
@@ -72,10 +76,7 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
                 defined_class_list.append(path)
                 
         except Exception ,ex:
-            if 'Document is empty'  in ex.message :
-                continue
-            else:
-               raise ex
+            raise ex
            
     rslt_list=[]
     for defined_class_fullname in defined_class_list:
