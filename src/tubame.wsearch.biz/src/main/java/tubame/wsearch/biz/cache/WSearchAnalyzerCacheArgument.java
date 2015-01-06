@@ -38,18 +38,27 @@ public class WSearchAnalyzerCacheArgument extends BasicCacheLoadArgument {
      *            A proxy that read of cache, implementing an operation for of
      *            and destruction
      */
-    public WSearchAnalyzerCacheArgument(CacheBase.TYPE type, String path,
+	public WSearchAnalyzerCacheArgument(CacheBase.TYPE type, String path,
             String searchTargetPath,
-            CacheProxy<WSearchAnalyzerCacheArgument> proxy) {
+            CacheProxy<WSearchAnalyzerCacheArgument> proxy,
+            String searchTargetProjectPath) {
         super(type, path);
         this.searchTargetPath = searchTargetPath;
         this.proxy = proxy;
+        this.searchTargetProjectPath = searchTargetProjectPath;
     }
 
-    /**
+    public String getSearchTargetProjectPath() {
+		return searchTargetProjectPath;
+	}
+
+	/**
      * Path of cache file (relative path)
      */
     private String searchTargetPath;
+    
+    
+    private String searchTargetProjectPath;
 
     /**
      * A proxy that read of cache, implementing an operation for of and

@@ -199,12 +199,13 @@ public class ConfirmationGenericSearchWizard extends Wizard implements
             return false;
         }
         IProject selectedProject = PluginUtil.getSelectedProject();
+        
         String selectionDir = selectedProject.getName();
         String stateDir = Activator.getDefault().getStateLocation()
                 .toOSString();
         WSearchAnalyzerCacheArgument cacheArgument = new WSearchAnalyzerCacheArgument(
                 TYPE.ANALYZE, stateDir, selectionDir,
-                new AnalyzerCacheLoaderDelegate());
+                new AnalyzerCacheLoaderDelegate(),this.getRealProjectPath());
         try {
             this.bizDomain.cacheInit(cacheArgument, this.resource);
         } catch (WSearchBizException e1) {
@@ -261,6 +262,10 @@ public class ConfirmationGenericSearchWizard extends Wizard implements
 		String outputPath = this.confirmationGenericSearchPage.getOutputPlace().getText();
 		String outputPathExecludeProjectName = getOutputPathExecludeProjectName(this.resource.getProject().getName(),outputPath);
 		return this.resource.getProject().getLocation().toOSString() + File.separator + outputPathExecludeProjectName;
+	}
+	
+	public String getRealProjectPath(){
+		return this.resource.getProject().getLocation().toOSString();
 	}
 
 	private String getOutputPathExecludeProjectName(String projectName, String includeProjectNameVal) {

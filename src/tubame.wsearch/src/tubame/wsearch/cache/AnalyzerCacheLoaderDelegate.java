@@ -97,7 +97,7 @@ public class AnalyzerCacheLoaderDelegate implements
         this.clsNameCache = new ArrayList<String>();
 
         // Output to file
-        createCacheData((new Path(target)));
+        createCacheData((new Path(loaderArgument.getSearchTargetProjectPath())));
 
         // File output
         try {
