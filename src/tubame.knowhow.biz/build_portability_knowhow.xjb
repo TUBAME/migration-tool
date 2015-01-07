@@ -9,6 +9,8 @@
 		<xjc:simple />
 	</jxb:globalBindings>
 
+
+
 	<jxb:bindings schemaLocation="src/main/resources/xsd/docbook.xsd">
 		<jxb:bindings
 			node="//xs:attributeGroup[@name='db.common.attributes']/xs:attribute[@name='version']">
@@ -22,9 +24,2236 @@
 			node="//xs:attributeGroup[@name='db.common.attributes']/xs:attribute[@ref='xml:lang']">
 			<jxb:property name="xmlLang" />
 		</jxb:bindings>
+
 		<jxb:bindings
 			node="//xs:element[@name='table']/xs:complexType/xs:attribute[@name='title']">
 			<jxb:property name="titleAttribute" />
 		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='title']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="titleRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='titleabbrev']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="titleabbrevRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='subtitle']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="subtitleRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='info']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="infoRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='subjectset']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="subjectsetRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='subject']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="subjectRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='subjectterm']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="subjecttermRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='keywordset']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="keywordsetRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='keyword']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="keywordRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='procedure']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="procedureRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='step']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="stepRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='stepalternatives']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="stepalternativesRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='substeps']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="substepsRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='sidebar']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="sidebarRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='abstract']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="abstractRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='personblurb']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="personblurbRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='blockquote']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="blockquoteRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='attribution']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="attributionRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='bridgehead']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="bridgeheadRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='remark']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="remarkRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='epigraph']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="epigraphRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='footnote']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="footnoteRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='formalpara']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="formalparaRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='para']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="paraRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='simpara']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="simparaRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='itemizedlist']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="itemizedlistRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='orderedlist']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="orderedlistRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='listitem']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="listitemRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='segmentedlist']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="segmentedlistRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='segtitle']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="segtitleRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='seglistitem']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="seglistitemRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='seg']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="segRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='simplelist']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="simplelistRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='member']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="memberRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='variablelist']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="variablelistRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='varlistentry']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="varlistentryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='term']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="termRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='example']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="exampleRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='informalexample']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="informalexampleRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='literallayout']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="literallayoutRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='screen']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="screenRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='screenshot']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="screenshotRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='figure']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="figureRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='informalfigure']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="informalfigureRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='mediaobject']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="mediaobjectRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='inlinemediaobject']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="inlinemediaobjectRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='videoobject']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="videoobjectRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='audioobject']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="audioobjectRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='imageobject']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="imageobjectRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='textobject']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="textobjectRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='videodata']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="videodataRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='audiodata']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="audiodataRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='imagedata']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="imagedataRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='textdata']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="textdataRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='caption']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="captionRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='address']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="addressRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='street']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="streetRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='pob']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="pobRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='postcode']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="postcodeRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='city']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="cityRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='state']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="stateRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='country']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="countryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='phone']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="phoneRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='fax']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="faxRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='otheraddr']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="otheraddrRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='affiliation']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="affiliationRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='shortaffil']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="shortaffilRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='jobtitle']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="jobtitleRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='orgname']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="orgnameRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='orgdiv']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="orgdivRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='artpagenums']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="artpagenumsRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='personname']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="personnameRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='author']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="authorRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='authorgroup']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="authorgroupRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='collab']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="collabRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='authorinitials']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="authorinitialsRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='person']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="personRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='org']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="orgRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='confgroup']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="confgroupRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='confdates']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="confdatesRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='conftitle']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="conftitleRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='confnum']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="confnumRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='confsponsor']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="confsponsorRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='contractnum']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="contractnumRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='contractsponsor']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="contractsponsorRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='copyright']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="copyrightRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='year']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="yearRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='holder']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="holderRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='cover']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="coverRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='date']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="dateRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='edition']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="editionRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='editor']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="editorRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='biblioid']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="biblioidRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='citebiblioid']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="citebiblioidRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='bibliosource']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="bibliosourceRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='bibliorelation']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="bibliorelationRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='bibliocoverage']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="bibliocoverageRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='legalnotice']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="legalnoticeRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='othercredit']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="othercreditRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='pagenums']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="pagenumsRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='contrib']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="contribRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='honorific']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="honorificRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='firstname']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="firstnameRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='surname']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="surnameRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='lineage']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="lineageRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='othername']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="othernameRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='printhistory']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="printhistoryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='pubdate']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="pubdateRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='publisher']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="publisherRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='publishername']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="publishernameRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='releaseinfo']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="releaseinfoRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='revhistory']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="revhistoryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='revision']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="revisionRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='revnumber']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="revnumberRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='revremark']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="revremarkRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='revdescription']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="revdescriptionRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='seriesvolnums']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="seriesvolnumsRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='volumenum']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="volumenumRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='issuenum']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="issuenumRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='package']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="packageRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='email']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="emailRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='lineannotation']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="lineannotationRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='parameter']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="parameterRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='replaceable']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="replaceableRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='uri']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="uriRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='abbrev']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="abbrevRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='acronym']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="acronymRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='citation']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="citationRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='citerefentry']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="citerefentryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='refentrytitle']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="refentrytitleRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='manvolnum']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="manvolnumRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='citetitle']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="citetitleRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='emphasis']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="emphasisRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='foreignphrase']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="foreignphraseRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='phrase']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="phraseRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='quote']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="quoteRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='subscript']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="subscriptRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='superscript']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="superscriptRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='trademark']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="trademarkRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='wordasword']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="wordaswordRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='footnoteref']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="footnoterefRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='xref']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="xrefRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='link']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="linkRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='olink']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="olinkRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='anchor']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="anchorRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='alt']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="altRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='set']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="setRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='book']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="bookRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='dedication']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="dedicationRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='acknowledgements']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="acknowledgementsRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='colophon']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="colophonRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='appendix']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="appendixRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='chapter']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="chapterRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='part']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="partRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='preface']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="prefaceRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='partintro']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="partintroRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='section']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="sectionRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='simplesect']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="simplesectRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='article']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="articleRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='annotation']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="annotationRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='extendedlink']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="extendedlinkRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='locator']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="locatorRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='arc']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="arcRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='sect1']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="sect1RoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='sect2']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="sect2RoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='sect3']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="sect3RoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='sect4']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="sect4RoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='sect5']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="sect5RoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='reference']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="referenceRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='refentry']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="refentryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='refmeta']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="refmetaRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='refmiscinfo']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="refmiscinfoRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='refnamediv']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="refnamedivRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='refdescriptor']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="refdescriptorRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='refname']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="refnameRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='refpurpose']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="refpurposeRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='refclass']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="refclassRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='refsynopsisdiv']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="refsynopsisdivRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='refsection']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="refsectionRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='refsect1']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="refsect1RoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='refsect2']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="refsect2RoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='refsect3']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="refsect3RoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='glosslist']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="glosslistRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='glossentry']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="glossentryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='glossdef']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="glossdefRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='glosssee']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="glossseeRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='glossseealso']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="glossseealsoRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='firstterm']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="firsttermRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='glossterm']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="glosstermRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='glossary']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="glossaryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='glossdiv']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="glossdivRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='termdef']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="termdefRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='biblioentry']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="biblioentryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='bibliomixed']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="bibliomixedRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='biblioset']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="bibliosetRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='bibliomset']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="bibliomsetRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='bibliomisc']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="bibliomiscRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='bibliography']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="bibliographyRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='bibliodiv']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="bibliodivRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='bibliolist']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="bibliolistRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='biblioref']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="bibliorefRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='itermset']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="itermsetRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='indexterm']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="indextermRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='primary']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="primaryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='secondary']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="secondaryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='tertiary']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="tertiaryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='see']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="seeRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='seealso']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="seealsoRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='index']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="indexRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='setindex']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="setindexRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='indexdiv']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="indexdivRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='indexentry']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="indexentryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='primaryie']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="primaryieRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='secondaryie']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="secondaryieRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='tertiaryie']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="tertiaryieRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='seeie']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="seeieRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='seealsoie']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="seealsoieRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='toc']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="tocRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='tocdiv']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="tocdivRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='tocentry']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="tocentryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='task']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="taskRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='tasksummary']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="tasksummaryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='taskprerequisites']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="taskprerequisitesRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='taskrelated']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="taskrelatedRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='calloutlist']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="calloutlistRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='callout']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="calloutRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='programlistingco']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="programlistingcoRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='areaspec']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="areaspecRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='area']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="areaRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='areaset']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="areasetRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='screenco']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="screencoRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='imageobjectco']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="imageobjectcoRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='co']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="coRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='coref']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="corefRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='productionset']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="productionsetRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='production']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="productionRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='lhs']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="lhsRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='rhs']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="rhsRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='nonterminal']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="nonterminalRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='constraint']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="constraintRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='productionrecap']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="productionrecapRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='constraintdef']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="constraintdefRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='tgroup']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="tgroupRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='colspec']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="colspecRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='spanspec']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="spanspecRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='thead']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="theadRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='tfoot']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="tfootRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='tbody']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="tbodyRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='row']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="rowRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='entry']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="entryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='entrytbl']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="entrytblRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='table']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="tableRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='informaltable']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="informaltableRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='msgset']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="msgsetRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='msgentry']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="msgentryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='simplemsgentry']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="simplemsgentryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='msg']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="msgRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='msgmain']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="msgmainRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='msgsub']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="msgsubRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='msgrel']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="msgrelRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='msgtext']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="msgtextRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='msginfo']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="msginfoRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='msglevel']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="msglevelRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='msgorig']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="msgorigRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='msgaud']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="msgaudRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='msgexplan']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="msgexplanRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='qandaset']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="qandasetRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='qandadiv']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="qandadivRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='qandaentry']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="qandaentryRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='question']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="questionRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='answer']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="answerRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='label']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="labelRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='equation']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="equationRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='informalequation']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="informalequationRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='inlineequation']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="inlineequationRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='mathphrase']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="mathphraseRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='markup']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="markupRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='tag']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="tagRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='symbol']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="symbolRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='token']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="tokenRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='literal']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="literalRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='code']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="codeRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='constant']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="constantRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='productname']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="productnameRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='productnumber']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="productnumberRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='database']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="databaseRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='application']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="applicationRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='hardware']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="hardwareRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='guibutton']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="guibuttonRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='guiicon']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="guiiconRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='guilabel']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="guilabelRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='guimenu']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="guimenuRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='guimenuitem']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="guimenuitemRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='guisubmenu']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="guisubmenuRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='menuchoice']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="menuchoiceRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='mousebutton']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="mousebuttonRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='keycap']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="keycapRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='keycode']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="keycodeRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='keycombo']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="keycomboRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='keysym']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="keysymRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='accel']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="accelRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='shortcut']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="shortcutRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='prompt']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="promptRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='envar']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="envarRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='filename']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="filenameRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='command']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="commandRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='computeroutput']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="computeroutputRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='userinput']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="userinputRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='cmdsynopsis']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="cmdsynopsisRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='arg']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="argRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='group']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="groupRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='sbr']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="sbrRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='synopfragment']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="synopfragmentRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='synopfragmentref']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="synopfragmentrefRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='synopsis']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="synopsisRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='funcsynopsis']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="funcsynopsisRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='funcsynopsisinfo']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="funcsynopsisinfoRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='funcprototype']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="funcprototypeRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='funcdef']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="funcdefRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='function']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="functionRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='void']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="voidRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='varargs']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="varargsRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='paramdef']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="paramdefRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='funcparams']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="funcparamsRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='classsynopsis']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="classsynopsisRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='classsynopsisinfo']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="classsynopsisinfoRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='ooclass']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="ooclassRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='oointerface']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="oointerfaceRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='ooexception']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="ooexceptionRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='modifier']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="modifierRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='interfacename']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="interfacenameRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='exceptionname']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="exceptionnameRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='fieldsynopsis']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="fieldsynopsisRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='initializer']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="initializerRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='constructorsynopsis']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="constructorsynopsisRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='destructorsynopsis']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="destructorsynopsisRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='methodsynopsis']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="methodsynopsisRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='methodname']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="methodnameRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='methodparam']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="methodparamRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='varname']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="varnameRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='returnvalue']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="returnvalueRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='type']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="typeRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='classname']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="classnameRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='programlisting']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="programlistingRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='caution']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="cautionRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='important']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="importantRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='note']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="noteRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='tip']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="tipRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='warning']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="warningRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='errorcode']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="errorcodeRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='errorname']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="errornameRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='errortext']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="errortextRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='errortype']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="errortypeRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='systemitem']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="systemitemRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='option']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="optionRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='optional']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="optionalRoleAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='property']/xs:complexType/xs:attribute[@name='role']">
+			<jxb:property name="propertyRoleAttribute" />
+		</jxb:bindings>
+
+		<jxb:bindings
+			node="//xs:element[@name='simplelist']/xs:complexType/xs:attribute[@name='type']">
+			<jxb:property name="simplelistTypeAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='bibliorelation']/xs:complexType/xs:attribute[@name='type']">
+			<jxb:property name="bibliorelationTypeAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='uri']/xs:complexType/xs:attribute[@name='type']">
+			<jxb:property name="uriTypeAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='olink']/xs:complexType/xs:attribute[@name='type']">
+			<jxb:property name="olinkTypeAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='indexterm']/xs:complexType/xs:attribute[@name='type']">
+			<jxb:property name="indextermTypeAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='index']/xs:complexType/xs:attribute[@name='type']">
+			<jxb:property name="indexTypeAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='setindex']/xs:complexType/xs:attribute[@name='type']">
+			<jxb:property name="setindexTypeAttribute" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='fieldsynopsis']/xs:complexType/xs:sequence/xs:element[@ref='docbook:type']">
+			<jxb:property name="fieldsynopsisDocBookType" />
+		</jxb:bindings>
+
+		<jxb:bindings
+			node="//xs:element[@name='table']//xs:complexType//xs:choice//xs:sequence//xs:element[@ref='docbook:title']">
+			<jxb:property name="tableDocBookTitle" />
+		</jxb:bindings>
+
+
+		<jxb:bindings
+			node="//xs:element[@name='caption']/xs:complexType/xs:attribute[@name='title']">
+			<jxb:property name="captionTitleAttribute" />
+		</jxb:bindings>
+
+		
+
+		<jxb:bindings
+			node="//xs:element[@name='informaltable']/xs:complexType/xs:attribute[@name='title']">
+			<jxb:property name="captionTitleAttribute" />
+		</jxb:bindings>
+		
+		<jxb:bindings
+			node="//xs:element[@name='thead']/xs:complexType/xs:attribute[@name='title']">
+			<jxb:property name="theadTitleAttribute" />
+		</jxb:bindings>
+		
+		<jxb:bindings
+			node="//xs:element[@name='tbody']/xs:complexType/xs:attribute[@name='title']">
+			<jxb:property name="tbodyTitleAttribute" />
+		</jxb:bindings>
+
+		<jxb:bindings
+			node="//xs:element[@name='tfoot']/xs:complexType/xs:attribute[@name='title']">
+			<jxb:property name="tbodyTitleAttribute" />
+		</jxb:bindings>
 	</jxb:bindings>
+
+
+
+
 </jxb:bindings>
