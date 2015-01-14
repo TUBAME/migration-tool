@@ -1,6 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:docbook="http://docbook.org/ns/docbook" elementFormDefault="qualified"
-	targetNamespace="http://docbook.org/ns/docbook">
+	elementFormDefault="qualified" targetNamespace="http://docbook.org/ns/docbook"
+	xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:docbook="http://docbook.org/ns/docbook">
+	<xs:import namespace="http://www.w3.org/1999/xlink"
+		schemaLocation="xlink.xsd" />
 	<xs:import namespace="http://www.w3.org/XML/1998/namespace"
 		schemaLocation="xml.xsd" />
 	<xs:attributeGroup name="db.common.attributes">
@@ -44,6 +47,22 @@
 	</xs:attributeGroup>
 	<xs:attributeGroup name="db.common.linking.attributes">
 		<xs:attribute name="linkend" type="xs:IDREF" />
+		<xs:attribute ref="xlink:href" />
+       
+        
+		 <xs:attribute ref="xlink:type" /> 
+		
+
+      
+		  <xs:attribute ref="xlink:role" />
+      
+		<xs:attribute ref="xlink:arcrole" />
+
+		<xs:attribute ref="xlink:title" />
+
+		
+		<xs:attribute ref="xlink:show" />
+		<xs:attribute ref="xlink:actuate" />
 	</xs:attributeGroup>
 	<xs:element name="title">
 		<xs:complexType mixed="true">
@@ -7529,12 +7548,15 @@
 		<xs:complexType>
 			<xs:attribute name="role" />
 			<xs:attributeGroup ref="docbook:db.common.attributes" />
+			<xs:attribute ref="xlink:label" />
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="arc">
 		<xs:complexType>
 			<xs:attribute name="role" />
 			<xs:attributeGroup ref="docbook:db.common.attributes" />
+			<xs:attribute ref="xlink:from" />
+			<xs:attribute ref="xlink:to" />
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="sect1">
