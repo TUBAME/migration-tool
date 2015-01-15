@@ -50,15 +50,15 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class Rhs {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "lineannotation", namespace = "http://docbook.org/ns/docbook", type = Lineannotation.class, required = false),
         @XmlElementRef(name = "nonterminal", namespace = "http://docbook.org/ns/docbook", type = Nonterminal.class, required = false),
-        @XmlElementRef(name = "sbr", namespace = "http://docbook.org/ns/docbook", type = Sbr.class, required = false)
+        @XmlElementRef(name = "sbr", namespace = "http://docbook.org/ns/docbook", type = Sbr.class, required = false),
+        @XmlElementRef(name = "lineannotation", namespace = "http://docbook.org/ns/docbook", type = Lineannotation.class, required = false)
     })
     @XmlMixed
     protected List<Object> content;
     @XmlAttribute(name = "role")
     @XmlSchemaType(name = "anySimpleType")
-    protected String role;
+    protected String rhsRoleAttribute;
     @XmlAttribute(name = "id", namespace = "http://www.w3.org/XML/1998/namespace")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -122,6 +122,27 @@ public class Rhs {
     @XmlIDREF
     @XmlSchemaType(name = "IDREF")
     protected Object linkend;
+    @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink")
+    @XmlSchemaType(name = "anySimpleType")
+    protected String href;
+    @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink")
+    @XmlSchemaType(name = "anySimpleType")
+    protected String type;
+    @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink")
+    @XmlSchemaType(name = "anySimpleType")
+    protected String role;
+    @XmlAttribute(name = "arcrole", namespace = "http://www.w3.org/1999/xlink")
+    @XmlSchemaType(name = "anySimpleType")
+    protected String arcrole;
+    @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink")
+    @XmlSchemaType(name = "anySimpleType")
+    protected String title;
+    @XmlAttribute(name = "show", namespace = "http://www.w3.org/1999/xlink")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String show;
+    @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String actuate;
 
     /**
      * Gets the value of the content property.
@@ -141,10 +162,10 @@ public class Rhs {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * {@link Nonterminal }
-     * {@link Lineannotation }
      * {@link Sbr }
+     * {@link Nonterminal }
+     * {@link String }
+     * {@link Lineannotation }
      * 
      * 
      */
@@ -156,27 +177,27 @@ public class Rhs {
     }
 
     /**
-     * Gets the value of the role property.
+     * Gets the value of the rhsRoleAttribute property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getRole() {
-        return role;
+    public String getRhsRoleAttribute() {
+        return rhsRoleAttribute;
     }
 
     /**
-     * Sets the value of the role property.
+     * Sets the value of the rhsRoleAttribute property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setRole(String value) {
-        this.role = value;
+    public void setRhsRoleAttribute(String value) {
+        this.rhsRoleAttribute = value;
     }
 
     /**
@@ -657,6 +678,174 @@ public class Rhs {
      */
     public void setLinkend(Object value) {
         this.linkend = value;
+    }
+
+    /**
+     * Gets the value of the href property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getHref() {
+        return href;
+    }
+
+    /**
+     * Sets the value of the href property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setHref(String value) {
+        this.href = value;
+    }
+
+    /**
+     * Gets the value of the type property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * Sets the value of the type property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setType(String value) {
+        this.type = value;
+    }
+
+    /**
+     * Gets the value of the role property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRole() {
+        return role;
+    }
+
+    /**
+     * Sets the value of the role property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRole(String value) {
+        this.role = value;
+    }
+
+    /**
+     * Gets the value of the arcrole property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getArcrole() {
+        return arcrole;
+    }
+
+    /**
+     * Sets the value of the arcrole property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setArcrole(String value) {
+        this.arcrole = value;
+    }
+
+    /**
+     * Gets the value of the title property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * Sets the value of the title property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTitle(String value) {
+        this.title = value;
+    }
+
+    /**
+     * Gets the value of the show property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getShow() {
+        return show;
+    }
+
+    /**
+     * Sets the value of the show property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setShow(String value) {
+        this.show = value;
+    }
+
+    /**
+     * Gets the value of the actuate property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getActuate() {
+        return actuate;
+    }
+
+    /**
+     * Sets the value of the actuate property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setActuate(String value) {
+        this.actuate = value;
     }
 
 }

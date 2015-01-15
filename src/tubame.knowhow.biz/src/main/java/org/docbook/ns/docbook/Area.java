@@ -61,7 +61,7 @@ public class Area {
     protected Alt alt;
     @XmlAttribute(name = "role")
     @XmlSchemaType(name = "anySimpleType")
-    protected String role;
+    protected String areaRoleAttribute;
     @XmlAttribute(name = "units")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String units;
@@ -164,27 +164,27 @@ public class Area {
     }
 
     /**
-     * Gets the value of the role property.
+     * Gets the value of the areaRoleAttribute property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getRole() {
-        return role;
+    public String getAreaRoleAttribute() {
+        return areaRoleAttribute;
     }
 
     /**
-     * Sets the value of the role property.
+     * Sets the value of the areaRoleAttribute property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setRole(String value) {
-        this.role = value;
+    public void setAreaRoleAttribute(String value) {
+        this.areaRoleAttribute = value;
     }
 
     /**

@@ -42,7 +42,7 @@ public class Co {
 
     @XmlAttribute(name = "role")
     @XmlSchemaType(name = "anySimpleType")
-    protected String role;
+    protected String coRoleAttribute;
     @XmlAttribute(name = "linkends")
     @XmlIDREF
     @XmlSchemaType(name = "IDREFS")
@@ -111,27 +111,27 @@ public class Co {
     protected String annotations;
 
     /**
-     * Gets the value of the role property.
+     * Gets the value of the coRoleAttribute property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getRole() {
-        return role;
+    public String getCoRoleAttribute() {
+        return coRoleAttribute;
     }
 
     /**
-     * Sets the value of the role property.
+     * Sets the value of the coRoleAttribute property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setRole(String value) {
-        this.role = value;
+    public void setCoRoleAttribute(String value) {
+        this.coRoleAttribute = value;
     }
 
     /**

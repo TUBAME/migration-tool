@@ -23,6 +23,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.attributes"/>
  *       &lt;attribute name="role" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
+ *       &lt;attribute ref="{http://www.w3.org/1999/xlink}from"/>
+ *       &lt;attribute ref="{http://www.w3.org/1999/xlink}to"/>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -37,7 +39,15 @@ public class Arc {
 
     @XmlAttribute(name = "role")
     @XmlSchemaType(name = "anySimpleType")
-    protected String role;
+    protected String arcRoleAttribute;
+    @XmlAttribute(name = "from", namespace = "http://www.w3.org/1999/xlink")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlSchemaType(name = "NMTOKEN")
+    protected String from;
+    @XmlAttribute(name = "to", namespace = "http://www.w3.org/1999/xlink")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlSchemaType(name = "NMTOKEN")
+    protected String to;
     @XmlAttribute(name = "id", namespace = "http://www.w3.org/XML/1998/namespace")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -99,27 +109,75 @@ public class Arc {
     protected String annotations;
 
     /**
-     * Gets the value of the role property.
+     * Gets the value of the arcRoleAttribute property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getRole() {
-        return role;
+    public String getArcRoleAttribute() {
+        return arcRoleAttribute;
     }
 
     /**
-     * Sets the value of the role property.
+     * Sets the value of the arcRoleAttribute property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setRole(String value) {
-        this.role = value;
+    public void setArcRoleAttribute(String value) {
+        this.arcRoleAttribute = value;
+    }
+
+    /**
+     * Gets the value of the from property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getFrom() {
+        return from;
+    }
+
+    /**
+     * Sets the value of the from property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setFrom(String value) {
+        this.from = value;
+    }
+
+    /**
+     * Gets the value of the to property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTo() {
+        return to;
+    }
+
+    /**
+     * Sets the value of the to property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTo(String value) {
+        this.to = value;
     }
 
     /**

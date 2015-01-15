@@ -66,31 +66,31 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class Personname {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "lineage", namespace = "http://docbook.org/ns/docbook", type = Lineage.class, required = false),
-        @XmlElementRef(name = "alt", namespace = "http://docbook.org/ns/docbook", type = Alt.class, required = false),
-        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
-        @XmlElementRef(name = "inlinemediaobject", namespace = "http://docbook.org/ns/docbook", type = Inlinemediaobject.class, required = false),
-        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
-        @XmlElementRef(name = "honorific", namespace = "http://docbook.org/ns/docbook", type = Honorific.class, required = false),
-        @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
-        @XmlElementRef(name = "replaceable", namespace = "http://docbook.org/ns/docbook", type = Replaceable.class, required = false),
-        @XmlElementRef(name = "firstname", namespace = "http://docbook.org/ns/docbook", type = Firstname.class, required = false),
-        @XmlElementRef(name = "xref", namespace = "http://docbook.org/ns/docbook", type = Xref.class, required = false),
-        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
-        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false),
-        @XmlElementRef(name = "link", namespace = "http://docbook.org/ns/docbook", type = Link.class, required = false),
-        @XmlElementRef(name = "biblioref", namespace = "http://docbook.org/ns/docbook", type = Biblioref.class, required = false),
         @XmlElementRef(name = "phrase", namespace = "http://docbook.org/ns/docbook", type = Phrase.class, required = false),
-        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
-        @XmlElementRef(name = "olink", namespace = "http://docbook.org/ns/docbook", type = Olink.class, required = false),
+        @XmlElementRef(name = "alt", namespace = "http://docbook.org/ns/docbook", type = Alt.class, required = false),
+        @XmlElementRef(name = "othername", namespace = "http://docbook.org/ns/docbook", type = Othername.class, required = false),
+        @XmlElementRef(name = "link", namespace = "http://docbook.org/ns/docbook", type = Link.class, required = false),
         @XmlElementRef(name = "surname", namespace = "http://docbook.org/ns/docbook", type = Surname.class, required = false),
-        @XmlElementRef(name = "othername", namespace = "http://docbook.org/ns/docbook", type = Othername.class, required = false)
+        @XmlElementRef(name = "remark", namespace = "http://docbook.org/ns/docbook", type = Remark.class, required = false),
+        @XmlElementRef(name = "biblioref", namespace = "http://docbook.org/ns/docbook", type = Biblioref.class, required = false),
+        @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
+        @XmlElementRef(name = "anchor", namespace = "http://docbook.org/ns/docbook", type = Anchor.class, required = false),
+        @XmlElementRef(name = "replaceable", namespace = "http://docbook.org/ns/docbook", type = Replaceable.class, required = false),
+        @XmlElementRef(name = "lineage", namespace = "http://docbook.org/ns/docbook", type = Lineage.class, required = false),
+        @XmlElementRef(name = "inlinemediaobject", namespace = "http://docbook.org/ns/docbook", type = Inlinemediaobject.class, required = false),
+        @XmlElementRef(name = "xref", namespace = "http://docbook.org/ns/docbook", type = Xref.class, required = false),
+        @XmlElementRef(name = "indexterm", namespace = "http://docbook.org/ns/docbook", type = Indexterm.class, required = false),
+        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
+        @XmlElementRef(name = "honorific", namespace = "http://docbook.org/ns/docbook", type = Honorific.class, required = false),
+        @XmlElementRef(name = "firstname", namespace = "http://docbook.org/ns/docbook", type = Firstname.class, required = false),
+        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
+        @XmlElementRef(name = "olink", namespace = "http://docbook.org/ns/docbook", type = Olink.class, required = false)
     })
     @XmlMixed
     protected List<Object> content;
     @XmlAttribute(name = "role")
     @XmlSchemaType(name = "anySimpleType")
-    protected String role;
+    protected String personnameRoleAttribute;
     @XmlAttribute(name = "id", namespace = "http://www.w3.org/XML/1998/namespace")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -154,6 +154,27 @@ public class Personname {
     @XmlIDREF
     @XmlSchemaType(name = "IDREF")
     protected Object linkend;
+    @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink")
+    @XmlSchemaType(name = "anySimpleType")
+    protected String href;
+    @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink")
+    @XmlSchemaType(name = "anySimpleType")
+    protected String type;
+    @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink")
+    @XmlSchemaType(name = "anySimpleType")
+    protected String role;
+    @XmlAttribute(name = "arcrole", namespace = "http://www.w3.org/1999/xlink")
+    @XmlSchemaType(name = "anySimpleType")
+    protected String arcrole;
+    @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink")
+    @XmlSchemaType(name = "anySimpleType")
+    protected String title;
+    @XmlAttribute(name = "show", namespace = "http://www.w3.org/1999/xlink")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String show;
+    @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String actuate;
 
     /**
      * Gets the value of the content property.
@@ -173,26 +194,26 @@ public class Personname {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Lineage }
      * {@link Alt }
-     * {@link Indexterm }
-     * {@link Inlinemediaobject }
-     * {@link Superscript }
+     * {@link Phrase }
+     * {@link Othername }
+     * {@link Link }
+     * {@link Remark }
+     * {@link Surname }
      * {@link Annotation }
-     * {@link Honorific }
-     * {@link Replaceable }
-     * {@link Firstname }
-     * {@link Xref }
-     * {@link Subscript }
+     * {@link Biblioref }
      * {@link Anchor }
      * {@link String }
-     * {@link Link }
-     * {@link Biblioref }
-     * {@link Remark }
-     * {@link Phrase }
+     * {@link Replaceable }
+     * {@link Lineage }
+     * {@link Indexterm }
+     * {@link Xref }
+     * {@link Inlinemediaobject }
+     * {@link Subscript }
+     * {@link Honorific }
+     * {@link Firstname }
      * {@link Olink }
-     * {@link Surname }
-     * {@link Othername }
+     * {@link Superscript }
      * 
      * 
      */
@@ -204,27 +225,27 @@ public class Personname {
     }
 
     /**
-     * Gets the value of the role property.
+     * Gets the value of the personnameRoleAttribute property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getRole() {
-        return role;
+    public String getPersonnameRoleAttribute() {
+        return personnameRoleAttribute;
     }
 
     /**
-     * Sets the value of the role property.
+     * Sets the value of the personnameRoleAttribute property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setRole(String value) {
-        this.role = value;
+    public void setPersonnameRoleAttribute(String value) {
+        this.personnameRoleAttribute = value;
     }
 
     /**
@@ -705,6 +726,174 @@ public class Personname {
      */
     public void setLinkend(Object value) {
         this.linkend = value;
+    }
+
+    /**
+     * Gets the value of the href property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getHref() {
+        return href;
+    }
+
+    /**
+     * Sets the value of the href property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setHref(String value) {
+        this.href = value;
+    }
+
+    /**
+     * Gets the value of the type property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * Sets the value of the type property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setType(String value) {
+        this.type = value;
+    }
+
+    /**
+     * Gets the value of the role property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRole() {
+        return role;
+    }
+
+    /**
+     * Sets the value of the role property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRole(String value) {
+        this.role = value;
+    }
+
+    /**
+     * Gets the value of the arcrole property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getArcrole() {
+        return arcrole;
+    }
+
+    /**
+     * Sets the value of the arcrole property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setArcrole(String value) {
+        this.arcrole = value;
+    }
+
+    /**
+     * Gets the value of the title property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * Sets the value of the title property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTitle(String value) {
+        this.title = value;
+    }
+
+    /**
+     * Gets the value of the show property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getShow() {
+        return show;
+    }
+
+    /**
+     * Sets the value of the show property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setShow(String value) {
+        this.show = value;
+    }
+
+    /**
+     * Gets the value of the actuate property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getActuate() {
+        return actuate;
+    }
+
+    /**
+     * Sets the value of the actuate property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setActuate(String value) {
+        this.actuate = value;
     }
 
 }

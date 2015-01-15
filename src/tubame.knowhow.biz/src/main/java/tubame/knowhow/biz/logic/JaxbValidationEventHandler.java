@@ -19,19 +19,30 @@
 package tubame.knowhow.biz.logic;
 
 import java.util.Map;
+import java.util.Set;
 
 import javax.xml.bind.ValidationEvent;
 import javax.xml.bind.ValidationEventHandler;
 import javax.xml.bind.ValidationEventLocator;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Validation process of JAXB.<br/>
  */
 public class JaxbValidationEventHandler implements ValidationEventHandler {
+	
+	   /** Logger */
+    private static final Logger LOGGER = LoggerFactory
+            .getLogger(JaxbValidationEventHandler.class);
+    
     /** Error information storage map **/
     private Map<String, Integer> errMap;
     /** Return value of Validation at the time */
     private boolean returnValidationError;
+
+	private Throwable linkedException;
 
     /**
      * Constructor.<br/>
@@ -67,11 +78,25 @@ public class JaxbValidationEventHandler implements ValidationEventHandler {
     public boolean handleEvent(ValidationEvent event) {
         if (event.getSeverity() == ValidationEvent.FATAL_ERROR
                 || event.getSeverity() == ValidationEvent.ERROR) {
+        	this.returnValidationError = true;
+        	String message = event.getMessage();
             ValidationEventLocator locator = event.getLocator();
             errMap.put("line", locator.getLineNumber());
             errMap.put("column", locator.getColumnNumber());
-            return returnValidationError;
+            linkedException = event.getLinkedException();
         }
         return true;
     }
+
+	public Throwable getLinkedException() {
+		return linkedException;
+	}
+
+	public boolean isReturnValidationError() {
+		return returnValidationError;
+	}
+	
+	public String getErrLineInfo(){
+		return " line:"+errMap.get("line")+",column:"+errMap.get("column");
+	}
 }

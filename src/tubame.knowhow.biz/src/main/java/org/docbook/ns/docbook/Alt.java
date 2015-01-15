@@ -49,7 +49,7 @@ public class Alt {
     protected List<Object> content;
     @XmlAttribute(name = "role")
     @XmlSchemaType(name = "anySimpleType")
-    protected String role;
+    protected String altRoleAttribute;
     @XmlAttribute(name = "id", namespace = "http://www.w3.org/XML/1998/namespace")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -141,27 +141,27 @@ public class Alt {
     }
 
     /**
-     * Gets the value of the role property.
+     * Gets the value of the altRoleAttribute property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getRole() {
-        return role;
+    public String getAltRoleAttribute() {
+        return altRoleAttribute;
     }
 
     /**
-     * Sets the value of the role property.
+     * Sets the value of the altRoleAttribute property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setRole(String value) {
-        this.role = value;
+    public void setAltRoleAttribute(String value) {
+        this.altRoleAttribute = value;
     }
 
     /**

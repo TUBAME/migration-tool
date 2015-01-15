@@ -79,7 +79,7 @@ public class Imagedata {
     protected Info info;
     @XmlAttribute(name = "role")
     @XmlSchemaType(name = "anySimpleType")
-    protected String role;
+    protected String imagedataRoleAttribute;
     @XmlAttribute(name = "format")
     @XmlSchemaType(name = "anySimpleType")
     protected String format;
@@ -200,27 +200,27 @@ public class Imagedata {
     }
 
     /**
-     * Gets the value of the role property.
+     * Gets the value of the imagedataRoleAttribute property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getRole() {
-        return role;
+    public String getImagedataRoleAttribute() {
+        return imagedataRoleAttribute;
     }
 
     /**
-     * Sets the value of the role property.
+     * Sets the value of the imagedataRoleAttribute property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setRole(String value) {
-        this.role = value;
+    public void setImagedataRoleAttribute(String value) {
+        this.imagedataRoleAttribute = value;
     }
 
     /**

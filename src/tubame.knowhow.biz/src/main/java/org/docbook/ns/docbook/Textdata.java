@@ -47,7 +47,7 @@ public class Textdata {
     protected Info info;
     @XmlAttribute(name = "role")
     @XmlSchemaType(name = "anySimpleType")
-    protected String role;
+    protected String textdataRoleAttribute;
     @XmlAttribute(name = "format")
     @XmlSchemaType(name = "anySimpleType")
     protected String format;
@@ -146,27 +146,27 @@ public class Textdata {
     }
 
     /**
-     * Gets the value of the role property.
+     * Gets the value of the textdataRoleAttribute property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getRole() {
-        return role;
+    public String getTextdataRoleAttribute() {
+        return textdataRoleAttribute;
     }
 
     /**
-     * Sets the value of the role property.
+     * Sets the value of the textdataRoleAttribute property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setRole(String value) {
-        this.role = value;
+    public void setTextdataRoleAttribute(String value) {
+        this.textdataRoleAttribute = value;
     }
 
     /**

@@ -62,7 +62,7 @@ public class Areaset {
     protected List<Area> areas;
     @XmlAttribute(name = "role")
     @XmlSchemaType(name = "anySimpleType")
-    protected String role;
+    protected String areasetRoleAttribute;
     @XmlAttribute(name = "units")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String units;
@@ -167,27 +167,27 @@ public class Areaset {
     }
 
     /**
-     * Gets the value of the role property.
+     * Gets the value of the areasetRoleAttribute property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getRole() {
-        return role;
+    public String getAreasetRoleAttribute() {
+        return areasetRoleAttribute;
     }
 
     /**
-     * Sets the value of the role property.
+     * Sets the value of the areasetRoleAttribute property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setRole(String value) {
-        this.role = value;
+    public void setAreasetRoleAttribute(String value) {
+        this.areasetRoleAttribute = value;
     }
 
     /**

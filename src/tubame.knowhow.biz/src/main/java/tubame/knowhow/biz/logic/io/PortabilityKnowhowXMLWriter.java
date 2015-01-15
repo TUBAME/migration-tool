@@ -18,19 +18,26 @@
  */
 package tubame.knowhow.biz.logic.io;
 
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.PipedInputStream;
+import java.io.PipedOutputStream;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.ValidationEventHandler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
 import tubame.knowhow.biz.exception.JbmException;
+import tubame.knowhow.biz.logic.JaxbValidationEventHandler;
 import tubame.knowhow.biz.model.generated.knowhow.PortabilityKnowhow;
 import tubame.knowhow.biz.util.JaxbUtil;
 import tubame.knowhow.biz.util.resource.ApplicationPropertiesUtil;
@@ -44,51 +51,46 @@ import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
  */
 public class PortabilityKnowhowXMLWriter implements PortabilityKnowhowWrite {
 
-    /** Logger */
-    private static final Logger LOGGER = LoggerFactory
-            .getLogger(PortabilityKnowhowXMLWriter.class);
+	/** Logger */
+	private static final Logger LOGGER = LoggerFactory.getLogger(PortabilityKnowhowXMLWriter.class);
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void write(String filepath, PortabilityKnowhow portabilityKnowhow)
-            throws JbmException, IOException {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void write(String filepath, PortabilityKnowhow portabilityKnowhow) throws JbmException, IOException {
+		Marshaller marshaller = null;
+		OutputStream xmlOutputStream = null;
+		try {
+			LOGGER.trace(MessagePropertiesUtil.getMessage(MessagePropertiesUtil.LOG_START_PORTABILITY_KNOWHOW_WRITER));
+			// Generate the output stream from a file path
+			xmlOutputStream = new FileOutputStream(filepath);
+			// Generation of marshaler
+			marshaller = JaxbUtil.getMarshaller(PortabilityKnowhow.class,
+					ApplicationPropertiesUtil.getProperty(ApplicationPropertiesUtil.PORTABILITYKNOWHOWSCHEMA_PATH));
+			marshaller.marshal(portabilityKnowhow, xmlOutputStream);
+			 
+			LOGGER.trace(MessagePropertiesUtil.getMessage(MessagePropertiesUtil.LOG_STOP_PORTABILITY_KNOWHOW_WRITER));
+		} catch (FileNotFoundException e) {
+			throw new JbmException(MessagePropertiesUtil.getMessage(MessagePropertiesUtil.ERROR_FILE_SAVE_FAILURE), e);
+		} catch (JAXBException e) {
+			throw new JbmException(MessagePropertiesUtil.getMessage(MessagePropertiesUtil.ERROR_FILE_SAVE_FAILURE), e);
+		} catch (SAXException e) {
+			throw new JbmException(MessagePropertiesUtil.getMessage(MessagePropertiesUtil.ERROR_FILE_SAVE_FAILURE), e);
+		} finally {
+			if (xmlOutputStream != null) {
+				xmlOutputStream.close();
+			}
+			JaxbValidationEventHandler eventHandler;
+			try {
+				eventHandler = (JaxbValidationEventHandler) marshaller.getEventHandler();
+				if(eventHandler.isReturnValidationError()){
+					throw new JbmException(MessagePropertiesUtil.getMessage(MessagePropertiesUtil.JAXB_ERROR_EVENT_KNOWHOW_MARSHALL), eventHandler.getLinkedException());
+				}
+			} catch (JAXBException e) {
+				;
+			}
 
-        OutputStream xmlOutputStream = null;
-        try {
-            LOGGER.trace(MessagePropertiesUtil
-                    .getMessage(MessagePropertiesUtil.LOG_START_PORTABILITY_KNOWHOW_WRITER));
-            // Generate the output stream from a file path
-            xmlOutputStream = new FileOutputStream(filepath);
-            // Generation of marshaler
-            Marshaller marshaller = JaxbUtil
-                    .getMarshaller(
-                            PortabilityKnowhow.class,
-                            ApplicationPropertiesUtil
-                                    .getProperty(ApplicationPropertiesUtil.PORTABILITYKNOWHOWSCHEMA_PATH));
-            marshaller.marshal(portabilityKnowhow, xmlOutputStream);
-            LOGGER.trace(MessagePropertiesUtil
-                    .getMessage(MessagePropertiesUtil.LOG_STOP_PORTABILITY_KNOWHOW_WRITER));
-        } catch (FileNotFoundException e) {
-            throw new JbmException(
-                    MessagePropertiesUtil
-                            .getMessage(MessagePropertiesUtil.ERROR_FILE_SAVE_FAILURE),
-                    e);
-        } catch (JAXBException e) {
-            throw new JbmException(
-                    MessagePropertiesUtil
-                            .getMessage(MessagePropertiesUtil.ERROR_FILE_SAVE_FAILURE),
-                    e);
-        } catch (SAXException e) {
-            throw new JbmException(
-                    MessagePropertiesUtil
-                            .getMessage(MessagePropertiesUtil.ERROR_FILE_SAVE_FAILURE),
-                    e);
-        } finally {
-            if (xmlOutputStream != null) {
-                xmlOutputStream.close();
-            }
-        }
-    }
+		}
+	}
 }

@@ -96,8 +96,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *         &lt;element ref="{http://docbook.org/ns/docbook}title"/>
  *         &lt;element ref="{http://docbook.org/ns/docbook}titleabbrev"/>
  *       &lt;/choice>
- *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.attributes"/>
  *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.linking.attributes"/>
+ *       &lt;attGroup ref="{http://docbook.org/ns/docbook}db.common.attributes"/>
  *       &lt;attribute name="role" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -114,79 +114,104 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class Bibliomixed {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "bibliomisc", namespace = "http://docbook.org/ns/docbook", type = Bibliomisc.class, required = false),
-        @XmlElementRef(name = "wordasword", namespace = "http://docbook.org/ns/docbook", type = Wordasword.class, required = false),
         @XmlElementRef(name = "productnumber", namespace = "http://docbook.org/ns/docbook", type = Productnumber.class, required = false),
-        @XmlElementRef(name = "title", namespace = "http://docbook.org/ns/docbook", type = Title.class, required = false),
-        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
-        @XmlElementRef(name = "legalnotice", namespace = "http://docbook.org/ns/docbook", type = Legalnotice.class, required = false),
-        @XmlElementRef(name = "editor", namespace = "http://docbook.org/ns/docbook", type = Editor.class, required = false),
-        @XmlElementRef(name = "cover", namespace = "http://docbook.org/ns/docbook", type = Cover.class, required = false),
-        @XmlElementRef(name = "abstract", namespace = "http://docbook.org/ns/docbook", type = Abstract.class, required = false),
-        @XmlElementRef(name = "seriesvolnums", namespace = "http://docbook.org/ns/docbook", type = Seriesvolnums.class, required = false),
-        @XmlElementRef(name = "publisher", namespace = "http://docbook.org/ns/docbook", type = Publisher.class, required = false),
-        @XmlElementRef(name = "date", namespace = "http://docbook.org/ns/docbook", type = Date.class, required = false),
-        @XmlElementRef(name = "biblioset", namespace = "http://docbook.org/ns/docbook", type = Biblioset.class, required = false),
-        @XmlElementRef(name = "bibliorelation", namespace = "http://docbook.org/ns/docbook", type = Bibliorelation.class, required = false),
-        @XmlElementRef(name = "bibliocoverage", namespace = "http://docbook.org/ns/docbook", type = Bibliocoverage.class, required = false),
-        @XmlElementRef(name = "authorinitials", namespace = "http://docbook.org/ns/docbook", type = Authorinitials.class, required = false),
-        @XmlElementRef(name = "publishername", namespace = "http://docbook.org/ns/docbook", type = Publishername.class, required = false),
-        @XmlElementRef(name = "author", namespace = "http://docbook.org/ns/docbook", type = Author.class, required = false),
-        @XmlElementRef(name = "citetitle", namespace = "http://docbook.org/ns/docbook", type = Citetitle.class, required = false),
-        @XmlElementRef(name = "contractnum", namespace = "http://docbook.org/ns/docbook", type = Contractnum.class, required = false),
-        @XmlElementRef(name = "personblurb", namespace = "http://docbook.org/ns/docbook", type = Personblurb.class, required = false),
-        @XmlElementRef(name = "contractsponsor", namespace = "http://docbook.org/ns/docbook", type = Contractsponsor.class, required = false),
-        @XmlElementRef(name = "pagenums", namespace = "http://docbook.org/ns/docbook", type = Pagenums.class, required = false),
-        @XmlElementRef(name = "mediaobject", namespace = "http://docbook.org/ns/docbook", type = Mediaobject.class, required = false),
         @XmlElementRef(name = "glossterm", namespace = "http://docbook.org/ns/docbook", type = Glossterm.class, required = false),
-        @XmlElementRef(name = "productname", namespace = "http://docbook.org/ns/docbook", type = Productname.class, required = false),
-        @XmlElementRef(name = "biblioid", namespace = "http://docbook.org/ns/docbook", type = Biblioid.class, required = false),
-        @XmlElementRef(name = "org", namespace = "http://docbook.org/ns/docbook", type = Org.class, required = false),
-        @XmlElementRef(name = "collab", namespace = "http://docbook.org/ns/docbook", type = Collab.class, required = false),
-        @XmlElementRef(name = "confgroup", namespace = "http://docbook.org/ns/docbook", type = Confgroup.class, required = false),
-        @XmlElementRef(name = "footnote", namespace = "http://docbook.org/ns/docbook", type = Footnote.class, required = false),
-        @XmlElementRef(name = "subjectset", namespace = "http://docbook.org/ns/docbook", type = Subjectset.class, required = false),
-        @XmlElementRef(name = "titleabbrev", namespace = "http://docbook.org/ns/docbook", type = Titleabbrev.class, required = false),
-        @XmlElementRef(name = "firstterm", namespace = "http://docbook.org/ns/docbook", type = Firstterm.class, required = false),
-        @XmlElementRef(name = "bibliomset", namespace = "http://docbook.org/ns/docbook", type = Bibliomset.class, required = false),
-        @XmlElementRef(name = "person", namespace = "http://docbook.org/ns/docbook", type = Person.class, required = false),
-        @XmlElementRef(name = "releaseinfo", namespace = "http://docbook.org/ns/docbook", type = Releaseinfo.class, required = false),
-        @XmlElementRef(name = "subtitle", namespace = "http://docbook.org/ns/docbook", type = Subtitle.class, required = false),
-        @XmlElementRef(name = "phrase", namespace = "http://docbook.org/ns/docbook", type = Phrase.class, required = false),
-        @XmlElementRef(name = "bibliosource", namespace = "http://docbook.org/ns/docbook", type = Bibliosource.class, required = false),
-        @XmlElementRef(name = "citebiblioid", namespace = "http://docbook.org/ns/docbook", type = Citebiblioid.class, required = false),
-        @XmlElementRef(name = "printhistory", namespace = "http://docbook.org/ns/docbook", type = Printhistory.class, required = false),
-        @XmlElementRef(name = "address", namespace = "http://docbook.org/ns/docbook", type = Address.class, required = false),
-        @XmlElementRef(name = "copyright", namespace = "http://docbook.org/ns/docbook", type = Copyright.class, required = false),
-        @XmlElementRef(name = "orgname", namespace = "http://docbook.org/ns/docbook", type = Orgname.class, required = false),
-        @XmlElementRef(name = "pubdate", namespace = "http://docbook.org/ns/docbook", type = Pubdate.class, required = false),
-        @XmlElementRef(name = "revhistory", namespace = "http://docbook.org/ns/docbook", type = Revhistory.class, required = false),
-        @XmlElementRef(name = "citerefentry", namespace = "http://docbook.org/ns/docbook", type = Citerefentry.class, required = false),
-        @XmlElementRef(name = "itermset", namespace = "http://docbook.org/ns/docbook", type = Itermset.class, required = false),
-        @XmlElementRef(name = "abbrev", namespace = "http://docbook.org/ns/docbook", type = Abbrev.class, required = false),
-        @XmlElementRef(name = "quote", namespace = "http://docbook.org/ns/docbook", type = Quote.class, required = false),
-        @XmlElementRef(name = "keywordset", namespace = "http://docbook.org/ns/docbook", type = Keywordset.class, required = false),
-        @XmlElementRef(name = "authorgroup", namespace = "http://docbook.org/ns/docbook", type = Authorgroup.class, required = false),
-        @XmlElementRef(name = "acronym", namespace = "http://docbook.org/ns/docbook", type = Acronym.class, required = false),
-        @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
+        @XmlElementRef(name = "legalnotice", namespace = "http://docbook.org/ns/docbook", type = Legalnotice.class, required = false),
         @XmlElementRef(name = "extendedlink", namespace = "http://docbook.org/ns/docbook", type = Extendedlink.class, required = false),
-        @XmlElementRef(name = "emphasis", namespace = "http://docbook.org/ns/docbook", type = Emphasis.class, required = false),
+        @XmlElementRef(name = "citerefentry", namespace = "http://docbook.org/ns/docbook", type = Citerefentry.class, required = false),
+        @XmlElementRef(name = "editor", namespace = "http://docbook.org/ns/docbook", type = Editor.class, required = false),
+        @XmlElementRef(name = "itermset", namespace = "http://docbook.org/ns/docbook", type = Itermset.class, required = false),
         @XmlElementRef(name = "artpagenums", namespace = "http://docbook.org/ns/docbook", type = Artpagenums.class, required = false),
+        @XmlElementRef(name = "revhistory", namespace = "http://docbook.org/ns/docbook", type = Revhistory.class, required = false),
+        @XmlElementRef(name = "annotation", namespace = "http://docbook.org/ns/docbook", type = Annotation.class, required = false),
+        @XmlElementRef(name = "seriesvolnums", namespace = "http://docbook.org/ns/docbook", type = Seriesvolnums.class, required = false),
+        @XmlElementRef(name = "releaseinfo", namespace = "http://docbook.org/ns/docbook", type = Releaseinfo.class, required = false),
+        @XmlElementRef(name = "collab", namespace = "http://docbook.org/ns/docbook", type = Collab.class, required = false),
+        @XmlElementRef(name = "authorgroup", namespace = "http://docbook.org/ns/docbook", type = Authorgroup.class, required = false),
+        @XmlElementRef(name = "author", namespace = "http://docbook.org/ns/docbook", type = Author.class, required = false),
+        @XmlElementRef(name = "acronym", namespace = "http://docbook.org/ns/docbook", type = Acronym.class, required = false),
+        @XmlElementRef(name = "date", namespace = "http://docbook.org/ns/docbook", type = Date.class, required = false),
+        @XmlElementRef(name = "address", namespace = "http://docbook.org/ns/docbook", type = Address.class, required = false),
+        @XmlElementRef(name = "authorinitials", namespace = "http://docbook.org/ns/docbook", type = Authorinitials.class, required = false),
+        @XmlElementRef(name = "firstterm", namespace = "http://docbook.org/ns/docbook", type = Firstterm.class, required = false),
+        @XmlElementRef(name = "mediaobject", namespace = "http://docbook.org/ns/docbook", type = Mediaobject.class, required = false),
+        @XmlElementRef(name = "footnote", namespace = "http://docbook.org/ns/docbook", type = Footnote.class, required = false),
+        @XmlElementRef(name = "quote", namespace = "http://docbook.org/ns/docbook", type = Quote.class, required = false),
+        @XmlElementRef(name = "phrase", namespace = "http://docbook.org/ns/docbook", type = Phrase.class, required = false),
+        @XmlElementRef(name = "publisher", namespace = "http://docbook.org/ns/docbook", type = Publisher.class, required = false),
         @XmlElementRef(name = "othercredit", namespace = "http://docbook.org/ns/docbook", type = Othercredit.class, required = false),
-        @XmlElementRef(name = "foreignphrase", namespace = "http://docbook.org/ns/docbook", type = Foreignphrase.class, required = false),
+        @XmlElementRef(name = "pubdate", namespace = "http://docbook.org/ns/docbook", type = Pubdate.class, required = false),
+        @XmlElementRef(name = "citebiblioid", namespace = "http://docbook.org/ns/docbook", type = Citebiblioid.class, required = false),
         @XmlElementRef(name = "volumenum", namespace = "http://docbook.org/ns/docbook", type = Volumenum.class, required = false),
+        @XmlElementRef(name = "orgname", namespace = "http://docbook.org/ns/docbook", type = Orgname.class, required = false),
         @XmlElementRef(name = "footnoteref", namespace = "http://docbook.org/ns/docbook", type = Footnoteref.class, required = false),
-        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
-        @XmlElementRef(name = "coref", namespace = "http://docbook.org/ns/docbook", type = Coref.class, required = false),
-        @XmlElementRef(name = "issuenum", namespace = "http://docbook.org/ns/docbook", type = Issuenum.class, required = false),
+        @XmlElementRef(name = "contractnum", namespace = "http://docbook.org/ns/docbook", type = Contractnum.class, required = false),
+        @XmlElementRef(name = "cover", namespace = "http://docbook.org/ns/docbook", type = Cover.class, required = false),
+        @XmlElementRef(name = "bibliomset", namespace = "http://docbook.org/ns/docbook", type = Bibliomset.class, required = false),
         @XmlElementRef(name = "edition", namespace = "http://docbook.org/ns/docbook", type = Edition.class, required = false),
-        @XmlElementRef(name = "personname", namespace = "http://docbook.org/ns/docbook", type = Personname.class, required = false)
+        @XmlElementRef(name = "productname", namespace = "http://docbook.org/ns/docbook", type = Productname.class, required = false),
+        @XmlElementRef(name = "abbrev", namespace = "http://docbook.org/ns/docbook", type = Abbrev.class, required = false),
+        @XmlElementRef(name = "printhistory", namespace = "http://docbook.org/ns/docbook", type = Printhistory.class, required = false),
+        @XmlElementRef(name = "personname", namespace = "http://docbook.org/ns/docbook", type = Personname.class, required = false),
+        @XmlElementRef(name = "person", namespace = "http://docbook.org/ns/docbook", type = Person.class, required = false),
+        @XmlElementRef(name = "biblioset", namespace = "http://docbook.org/ns/docbook", type = Biblioset.class, required = false),
+        @XmlElementRef(name = "biblioid", namespace = "http://docbook.org/ns/docbook", type = Biblioid.class, required = false),
+        @XmlElementRef(name = "citetitle", namespace = "http://docbook.org/ns/docbook", type = Citetitle.class, required = false),
+        @XmlElementRef(name = "bibliomisc", namespace = "http://docbook.org/ns/docbook", type = Bibliomisc.class, required = false),
+        @XmlElementRef(name = "publishername", namespace = "http://docbook.org/ns/docbook", type = Publishername.class, required = false),
+        @XmlElementRef(name = "titleabbrev", namespace = "http://docbook.org/ns/docbook", type = Titleabbrev.class, required = false),
+        @XmlElementRef(name = "coref", namespace = "http://docbook.org/ns/docbook", type = Coref.class, required = false),
+        @XmlElementRef(name = "personblurb", namespace = "http://docbook.org/ns/docbook", type = Personblurb.class, required = false),
+        @XmlElementRef(name = "confgroup", namespace = "http://docbook.org/ns/docbook", type = Confgroup.class, required = false),
+        @XmlElementRef(name = "bibliorelation", namespace = "http://docbook.org/ns/docbook", type = Bibliorelation.class, required = false),
+        @XmlElementRef(name = "foreignphrase", namespace = "http://docbook.org/ns/docbook", type = Foreignphrase.class, required = false),
+        @XmlElementRef(name = "copyright", namespace = "http://docbook.org/ns/docbook", type = Copyright.class, required = false),
+        @XmlElementRef(name = "org", namespace = "http://docbook.org/ns/docbook", type = Org.class, required = false),
+        @XmlElementRef(name = "subscript", namespace = "http://docbook.org/ns/docbook", type = Subscript.class, required = false),
+        @XmlElementRef(name = "emphasis", namespace = "http://docbook.org/ns/docbook", type = Emphasis.class, required = false),
+        @XmlElementRef(name = "bibliosource", namespace = "http://docbook.org/ns/docbook", type = Bibliosource.class, required = false),
+        @XmlElementRef(name = "superscript", namespace = "http://docbook.org/ns/docbook", type = Superscript.class, required = false),
+        @XmlElementRef(name = "contractsponsor", namespace = "http://docbook.org/ns/docbook", type = Contractsponsor.class, required = false),
+        @XmlElementRef(name = "keywordset", namespace = "http://docbook.org/ns/docbook", type = Keywordset.class, required = false),
+        @XmlElementRef(name = "abstract", namespace = "http://docbook.org/ns/docbook", type = Abstract.class, required = false),
+        @XmlElementRef(name = "bibliocoverage", namespace = "http://docbook.org/ns/docbook", type = Bibliocoverage.class, required = false),
+        @XmlElementRef(name = "pagenums", namespace = "http://docbook.org/ns/docbook", type = Pagenums.class, required = false),
+        @XmlElementRef(name = "title", namespace = "http://docbook.org/ns/docbook", type = Title.class, required = false),
+        @XmlElementRef(name = "issuenum", namespace = "http://docbook.org/ns/docbook", type = Issuenum.class, required = false),
+        @XmlElementRef(name = "subjectset", namespace = "http://docbook.org/ns/docbook", type = Subjectset.class, required = false),
+        @XmlElementRef(name = "subtitle", namespace = "http://docbook.org/ns/docbook", type = Subtitle.class, required = false),
+        @XmlElementRef(name = "wordasword", namespace = "http://docbook.org/ns/docbook", type = Wordasword.class, required = false)
     })
     @XmlMixed
     protected List<Object> content;
     @XmlAttribute(name = "role")
     @XmlSchemaType(name = "anySimpleType")
+    protected String bibliomixedRoleAttribute;
+    @XmlAttribute(name = "linkend")
+    @XmlIDREF
+    @XmlSchemaType(name = "IDREF")
+    protected Object linkend;
+    @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink")
+    @XmlSchemaType(name = "anySimpleType")
+    protected String href;
+    @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink")
+    @XmlSchemaType(name = "anySimpleType")
+    protected String type;
+    @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink")
+    @XmlSchemaType(name = "anySimpleType")
     protected String role;
+    @XmlAttribute(name = "arcrole", namespace = "http://www.w3.org/1999/xlink")
+    @XmlSchemaType(name = "anySimpleType")
+    protected String arcrole;
+    @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink")
+    @XmlSchemaType(name = "anySimpleType")
+    protected String title;
+    @XmlAttribute(name = "show", namespace = "http://www.w3.org/1999/xlink")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String show;
+    @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String actuate;
     @XmlAttribute(name = "id", namespace = "http://www.w3.org/XML/1998/namespace")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -246,10 +271,6 @@ public class Bibliomixed {
     @XmlAttribute(name = "annotations")
     @XmlSchemaType(name = "anySimpleType")
     protected String annotations;
-    @XmlAttribute(name = "linkend")
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object linkend;
 
     /**
      * Gets the value of the content property.
@@ -269,74 +290,74 @@ public class Bibliomixed {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Bibliomisc }
      * {@link Productnumber }
-     * {@link Wordasword }
-     * {@link Title }
-     * {@link Legalnotice }
-     * {@link Superscript }
-     * {@link Editor }
-     * {@link Cover }
-     * {@link Abstract }
-     * {@link Seriesvolnums }
-     * {@link Publisher }
-     * {@link Biblioset }
-     * {@link Date }
-     * {@link Bibliorelation }
-     * {@link Bibliocoverage }
-     * {@link Publishername }
-     * {@link Authorinitials }
-     * {@link Author }
-     * {@link Contractnum }
-     * {@link Citetitle }
-     * {@link Personblurb }
-     * {@link Contractsponsor }
-     * {@link Pagenums }
-     * {@link Mediaobject }
      * {@link Glossterm }
-     * {@link Productname }
-     * {@link Biblioid }
-     * {@link Footnote }
-     * {@link Confgroup }
-     * {@link Collab }
-     * {@link Org }
-     * {@link Subjectset }
-     * {@link Firstterm }
-     * {@link Titleabbrev }
-     * {@link Bibliomset }
-     * {@link Releaseinfo }
-     * {@link Person }
-     * {@link Bibliosource }
-     * {@link Phrase }
-     * {@link Subtitle }
-     * {@link Citebiblioid }
-     * {@link Printhistory }
-     * {@link Address }
-     * {@link Copyright }
-     * {@link Orgname }
-     * {@link Pubdate }
-     * {@link Revhistory }
-     * {@link Abbrev }
-     * {@link Itermset }
+     * {@link Legalnotice }
+     * {@link Extendedlink }
+     * {@link Editor }
      * {@link Citerefentry }
-     * {@link Keywordset }
-     * {@link Quote }
+     * {@link Itermset }
+     * {@link Annotation }
+     * {@link Revhistory }
+     * {@link Artpagenums }
+     * {@link Seriesvolnums }
+     * {@link Releaseinfo }
+     * {@link Collab }
      * {@link Authorgroup }
      * {@link Acronym }
-     * {@link Annotation }
-     * {@link Emphasis }
-     * {@link Extendedlink }
-     * {@link Artpagenums }
+     * {@link Author }
+     * {@link Date }
+     * {@link Address }
+     * {@link Authorinitials }
+     * {@link Footnote }
+     * {@link Mediaobject }
+     * {@link Firstterm }
+     * {@link Publisher }
+     * {@link Phrase }
+     * {@link Quote }
      * {@link Othercredit }
-     * {@link Foreignphrase }
-     * {@link Volumenum }
-     * {@link Footnoteref }
-     * {@link Subscript }
-     * {@link Coref }
+     * {@link Pubdate }
+     * {@link Citebiblioid }
      * {@link String }
-     * {@link Issuenum }
+     * {@link Volumenum }
+     * {@link Orgname }
+     * {@link Footnoteref }
+     * {@link Contractnum }
+     * {@link Cover }
+     * {@link Bibliomset }
+     * {@link Productname }
      * {@link Edition }
+     * {@link Abbrev }
+     * {@link Printhistory }
      * {@link Personname }
+     * {@link Biblioset }
+     * {@link Person }
+     * {@link Biblioid }
+     * {@link Bibliomisc }
+     * {@link Citetitle }
+     * {@link Publishername }
+     * {@link Titleabbrev }
+     * {@link Coref }
+     * {@link Confgroup }
+     * {@link Personblurb }
+     * {@link Bibliorelation }
+     * {@link Foreignphrase }
+     * {@link Copyright }
+     * {@link Org }
+     * {@link Emphasis }
+     * {@link Subscript }
+     * {@link Bibliosource }
+     * {@link Superscript }
+     * {@link Contractsponsor }
+     * {@link Keywordset }
+     * {@link Pagenums }
+     * {@link Bibliocoverage }
+     * {@link Abstract }
+     * {@link Title }
+     * {@link Subjectset }
+     * {@link Issuenum }
+     * {@link Subtitle }
+     * {@link Wordasword }
      * 
      * 
      */
@@ -345,6 +366,102 @@ public class Bibliomixed {
             content = new ArrayList<Object>();
         }
         return this.content;
+    }
+
+    /**
+     * Gets the value of the bibliomixedRoleAttribute property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getBibliomixedRoleAttribute() {
+        return bibliomixedRoleAttribute;
+    }
+
+    /**
+     * Sets the value of the bibliomixedRoleAttribute property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setBibliomixedRoleAttribute(String value) {
+        this.bibliomixedRoleAttribute = value;
+    }
+
+    /**
+     * Gets the value of the linkend property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Object }
+     *     
+     */
+    public Object getLinkend() {
+        return linkend;
+    }
+
+    /**
+     * Sets the value of the linkend property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Object }
+     *     
+     */
+    public void setLinkend(Object value) {
+        this.linkend = value;
+    }
+
+    /**
+     * Gets the value of the href property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getHref() {
+        return href;
+    }
+
+    /**
+     * Sets the value of the href property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setHref(String value) {
+        this.href = value;
+    }
+
+    /**
+     * Gets the value of the type property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * Sets the value of the type property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setType(String value) {
+        this.type = value;
     }
 
     /**
@@ -369,6 +486,102 @@ public class Bibliomixed {
      */
     public void setRole(String value) {
         this.role = value;
+    }
+
+    /**
+     * Gets the value of the arcrole property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getArcrole() {
+        return arcrole;
+    }
+
+    /**
+     * Sets the value of the arcrole property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setArcrole(String value) {
+        this.arcrole = value;
+    }
+
+    /**
+     * Gets the value of the title property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * Sets the value of the title property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTitle(String value) {
+        this.title = value;
+    }
+
+    /**
+     * Gets the value of the show property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getShow() {
+        return show;
+    }
+
+    /**
+     * Sets the value of the show property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setShow(String value) {
+        this.show = value;
+    }
+
+    /**
+     * Gets the value of the actuate property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getActuate() {
+        return actuate;
+    }
+
+    /**
+     * Sets the value of the actuate property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setActuate(String value) {
+        this.actuate = value;
     }
 
     /**
@@ -825,30 +1038,6 @@ public class Bibliomixed {
      */
     public void setAnnotations(String value) {
         this.annotations = value;
-    }
-
-    /**
-     * Gets the value of the linkend property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     
-     */
-    public Object getLinkend() {
-        return linkend;
-    }
-
-    /**
-     * Sets the value of the linkend property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
-     */
-    public void setLinkend(Object value) {
-        this.linkend = value;
     }
 
 }

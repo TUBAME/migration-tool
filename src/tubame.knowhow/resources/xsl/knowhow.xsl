@@ -133,7 +133,7 @@
 		<xsl:apply-templates select="knowhow:ChildChapter" />
 	</xsl:template>
 	<xsl:template match="knowhow:ChildChapter">
-		<a name="tubame_{knowhow:ChildCapterNo}"></a>
+		<a id="{knowhow:ChapterCategoryRefKey}" name="tubame_{knowhow:ChildCapterNo}"></a>
 		<h3 class="title">
 			<xsl:value-of select="knowhow:ChildCapterNo" />
 			<xsl:call-template name="displayCategoryName">

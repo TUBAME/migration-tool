@@ -46,7 +46,7 @@ public class Audiodata {
     protected Info info;
     @XmlAttribute(name = "role")
     @XmlSchemaType(name = "anySimpleType")
-    protected String role;
+    protected String audiodataRoleAttribute;
     @XmlAttribute(name = "format")
     @XmlSchemaType(name = "anySimpleType")
     protected String format;
@@ -142,27 +142,27 @@ public class Audiodata {
     }
 
     /**
-     * Gets the value of the role property.
+     * Gets the value of the audiodataRoleAttribute property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getRole() {
-        return role;
+    public String getAudiodataRoleAttribute() {
+        return audiodataRoleAttribute;
     }
 
     /**
-     * Sets the value of the role property.
+     * Sets the value of the audiodataRoleAttribute property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setRole(String value) {
-        this.role = value;
+    public void setAudiodataRoleAttribute(String value) {
+        this.audiodataRoleAttribute = value;
     }
 
     /**

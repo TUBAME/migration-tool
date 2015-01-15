@@ -233,6 +233,7 @@ public final class MessagePropertiesUtil {
     public static final String OPEN_KNOWHOW_ENTRY_VIEW = "openKnowhowEntryView";
     /** Failed to read the know-how XML. Know-how XML is empty */
     public static final String ERROR_READ_KNOWHWOW_XML_EMPTY = "errorReadKnowhowXmlEmpty";
+    
     /**
      * Input value is invalid. Please specify the folder under the present
      * know-how XML file output destination
@@ -300,6 +301,8 @@ public final class MessagePropertiesUtil {
     public static final String LOG_START_CONVERT_HTML = "logStartConvertHtml";
     /** Conversion to HTML is completed. (Log) */
     public static final String LOG_STOP_CONVERT_HTML = "logStopConvertHtml";
+    
+    public static final String JAXB_ERROR_EVENT_KNOWHOW_MARSHALL = "jaxbErrorEventKnowhowMarshall";
 
     /** Resource bundle */
     private static ResourceBundle resourceBundle = null;

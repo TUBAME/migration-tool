@@ -21,6 +21,8 @@ package tubame.knowhow.plugin.ui.editor.multi;
 import java.io.IOException;
 import java.util.List;
 
+import javax.xml.bind.JAXBException;
+
 import tubame.common.util.CmnFileUtil;
 import tubame.common.util.CmnStringUtil;
 
@@ -38,6 +40,7 @@ import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.part.FileEditorInput;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.xml.sax.SAXParseException;
 
 import tubame.knowhow.biz.exception.JbmException;
 import tubame.knowhow.biz.util.resource.ApplicationPropertiesUtil;
@@ -268,7 +271,7 @@ public class MaintenanceKnowhowMultiPageEditor extends FormEditor implements Edi
 				MaintenanceKnowhowMultiPageEditor.LOGGER.info(MessagePropertiesUtil
 						.getMessage(MessagePropertiesUtil.LOG_PERFORMFINISH_KNOWHOW_EDITOR_SAVE));
 			} catch (JbmException e) {
-				openErrorDialog(MessagePropertiesUtil.getMessage(MessagePropertiesUtil.ERROR_FILE_SAVE_FAILURE), e);
+				openErrorDialog(e.getMessage(), e);
 			}
 
 			IViewPart opendView = PluginUtil.isOpendView(KnowhowEntryCheckItemView.ID);

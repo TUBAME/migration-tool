@@ -176,7 +176,7 @@ public class Annotation {
     protected List<Object> itemizedlistsAndOrderedlistsAndProcedures;
     @XmlAttribute(name = "role")
     @XmlSchemaType(name = "anySimpleType")
-    protected String role;
+    protected String annotationRoleAttribute;
     @XmlAttribute(name = "annotates")
     @XmlSchemaType(name = "anySimpleType")
     protected String annotates;
@@ -378,27 +378,27 @@ public class Annotation {
     }
 
     /**
-     * Gets the value of the role property.
+     * Gets the value of the annotationRoleAttribute property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getRole() {
-        return role;
+    public String getAnnotationRoleAttribute() {
+        return annotationRoleAttribute;
     }
 
     /**
-     * Sets the value of the role property.
+     * Sets the value of the annotationRoleAttribute property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setRole(String value) {
-        this.role = value;
+    public void setAnnotationRoleAttribute(String value) {
+        this.annotationRoleAttribute = value;
     }
 
     /**

@@ -160,7 +160,7 @@ public class Callout {
     protected List<Object> itemizedlistsAndOrderedlistsAndProcedures;
     @XmlAttribute(name = "role")
     @XmlSchemaType(name = "anySimpleType")
-    protected String role;
+    protected String calloutRoleAttribute;
     @XmlAttribute(name = "arearefs", required = true)
     @XmlIDREF
     @XmlSchemaType(name = "IDREFS")
@@ -309,27 +309,27 @@ public class Callout {
     }
 
     /**
-     * Gets the value of the role property.
+     * Gets the value of the calloutRoleAttribute property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getRole() {
-        return role;
+    public String getCalloutRoleAttribute() {
+        return calloutRoleAttribute;
     }
 
     /**
-     * Sets the value of the role property.
+     * Sets the value of the calloutRoleAttribute property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setRole(String value) {
-        this.role = value;
+    public void setCalloutRoleAttribute(String value) {
+        this.calloutRoleAttribute = value;
     }
 
     /**

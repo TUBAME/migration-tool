@@ -37,7 +37,7 @@ public class Anchor {
 
     @XmlAttribute(name = "role")
     @XmlSchemaType(name = "anySimpleType")
-    protected String role;
+    protected String anchorRoleAttribute;
     @XmlAttribute(name = "id", namespace = "http://www.w3.org/XML/1998/namespace")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -99,27 +99,27 @@ public class Anchor {
     protected String annotations;
 
     /**
-     * Gets the value of the role property.
+     * Gets the value of the anchorRoleAttribute property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getRole() {
-        return role;
+    public String getAnchorRoleAttribute() {
+        return anchorRoleAttribute;
     }
 
     /**
-     * Sets the value of the role property.
+     * Sets the value of the anchorRoleAttribute property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setRole(String value) {
-        this.role = value;
+    public void setAnchorRoleAttribute(String value) {
+        this.anchorRoleAttribute = value;
     }
 
     /**
