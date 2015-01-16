@@ -129,7 +129,8 @@
 			                <url>http://sourceforge.net/projects/docbook/files/docbook-xsl/1.78.1/${docbook.xsl.release}.zip/download</url>
 			                <unpack>true</unpack>
 			                <outputDirectory>${project.build.directory}</outputDirectory>
-			                 </configuration>
+			                <outputFileName>${docbook.xsl.release}.zip</outputFileName>
+			            </configuration>
 			        </execution>
 			    </executions>
             </plugin>
