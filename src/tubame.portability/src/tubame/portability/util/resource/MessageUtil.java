@@ -154,6 +154,9 @@ public class MessageUtil extends NLS {
 	
 	public static String INF_START_KNOWHOW_SEARCH;
 	
+	public static String UNZIP_INTERRUPT_ERR;
+	
+	
 	
 	
     static {

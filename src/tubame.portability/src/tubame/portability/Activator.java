@@ -18,6 +18,8 @@
  */
 package tubame.portability;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.MissingResourceException;
 import java.util.PropertyResourceBundle;
@@ -42,7 +44,9 @@ import org.slf4j.LoggerFactory;
 
 import tubame.portability.logic.InitializePotability;
 import tubame.portability.plugin.dialog.ErrorDialog;
+import tubame.portability.util.FileUtil;
 import tubame.portability.util.PluginUtil;
+import tubame.portability.util.PythonUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
 
@@ -63,6 +67,9 @@ public class Activator extends AbstractUIPlugin {
     private static Activator plugin;
 
 	private ResourceBundle resourceBundle;
+	
+	
+	private static String OS_NAME;
 
     /**
      * The constructor.<br/>
@@ -88,7 +95,14 @@ public class Activator extends AbstractUIPlugin {
             this.resourceBundle = null;
         }
         
-        
+        OS_NAME = System.getProperty("os.name").toLowerCase();
+        if(isSupportPyPlatform() && !isExistJbmstModulePath()){
+        	//win又はmacの場合で、かつ、JbmstModuleが存在しない場合に、bin配下のjbmstを実行可能にするようために、bin配下のjbmst_{os}.zipを展開する。
+        	String jbmstModuleZipPath = getJbmstModuleZipPath();
+        	File file = new File(jbmstModuleZipPath);
+        	FileUtil.unzip(file,file.getParentFile());
+        	
+        }
         // Bundling
         CmnJbmToolsLoggingUtil.configureLoggerForPlugin(PLUGIN_ID, Activator
                 .getDefault().getStateLocation().toFile(),
@@ -104,7 +118,12 @@ public class Activator extends AbstractUIPlugin {
         InitializePotability.initializeMarshaller();
     }
 
-    /*
+    private boolean isExistJbmstModulePath() throws IOException {
+		String jbmstModulePath = getJbmstModulePath();
+		return new File(jbmstModulePath).exists();
+	}
+
+	/*
      * (non-Javadoc)
      * 
      * @see
@@ -242,4 +261,40 @@ public class Activator extends AbstractUIPlugin {
         }
         return display;
     }
+    
+    public static boolean isLinuxPlatform() {
+        return OS_NAME.startsWith("linux");
+    }
+
+    public static boolean isMacPlatform() {
+        return OS_NAME.startsWith("mac");
+    }
+
+    public static boolean isWindowsPlatform() {
+        return OS_NAME.startsWith("windows");
+    }
+    
+    public static boolean isSupportPyPlatform(){
+    	return isWindowsPlatform();
+    }
+    
+    public static String getJbmstModulePath() throws IOException{
+    	if(isWindowsPlatform()){
+    		return PythonUtil.getWinSearchModulePath();
+    	}else if (isMacPlatform()){
+    		return PythonUtil.getMacSearchModulePath();
+    	}
+    	return null;
+    }
+    
+
+    public static String getJbmstModuleZipPath() throws IOException{
+    	if(isWindowsPlatform()){
+    		return PythonUtil.getWinSearchModuleZipPath();
+    	}else if (isMacPlatform()){
+    		return PythonUtil.getMacSearchModuleZipPath();
+    	}
+    	return null;
+    }
+    
 }

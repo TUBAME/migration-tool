@@ -132,6 +132,14 @@ public class ApplicationPropertyUtil extends NLS {
 	
 	public static String REPORT_TEMPORARY_JSON;
 	
+	public static String WIN_PYTHON_SEARCH_MODULE;
+	
+	public static String MAC_PYTHON_SEARCH_MODULE;
+	
+	public static String WIN_PYTHON_SEARCH_MODULE_ZIP;
+	
+	public static String MAC_PYTHON_SEARCH_MODULE_ZIP;
+	
 
     static {
         // initialize resource bundle
