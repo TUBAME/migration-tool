@@ -27,14 +27,14 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
-import tubame.common.util.CmnFileUtil;
-
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import tubame.common.util.CmnFileUtil;
+import tubame.portability.Activator;
 import tubame.portability.exception.JbmException;
 import tubame.portability.exception.JbmException.ERROR_LEVEL;
 import tubame.portability.logic.CheckListInformationFactory;
@@ -171,8 +171,14 @@ public abstract class AbstractSearchToolWithProgress implements
             // Third and fourth parameter is the user input value, but because
             // Validation is done,
             // I will that there is no vulnerability also this item.
-            ProcessBuilder builder = createProcessBuilder(getPythonExePath(),
-                    getPythonModulePath(), inputKeywordFilePath, inputDirectory);
+            ProcessBuilder builder = null;
+            if(Activator.isSupportPyPlatform()){
+            	builder = createPlatformProcessBuilder(Activator.getJbmstModulePath(), inputKeywordFilePath, inputDirectory);
+            }else{
+                builder = createProcessBuilder(getPythonExePath(),
+                        getPythonModulePath(), inputKeywordFilePath, inputDirectory);
+               
+            }
             builder.redirectErrorStream(true);
 
             // The run python
@@ -238,6 +244,16 @@ public abstract class AbstractSearchToolWithProgress implements
         return new ProcessBuilder(pythonRuntimePath, pythonModulePath,
                 inputKeywordFilePath, inputDirectory);
     }
+    
+    
+    protected ProcessBuilder createPlatformProcessBuilder(
+            String jbmstModulePath, String inputKeywordFilePath,
+            String inputDirectory) {
+        return new ProcessBuilder(jbmstModulePath, inputKeywordFilePath,
+        		inputDirectory);
+    }
+    
+    
 
     /**
      * It reads all the results from the Reader, and return the results in the

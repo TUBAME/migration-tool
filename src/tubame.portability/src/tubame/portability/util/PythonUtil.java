@@ -143,6 +143,33 @@ public class PythonUtil {
         return filePath;
     }
     
+    public static String getWinSearchModulePath() throws IOException {
+        String temp = PluginUtil.getResolvedPluginDir()
+                + ApplicationPropertyUtil.WIN_PYTHON_SEARCH_MODULE;
+        LOGGER.info(temp);
+        return temp;
+    }
     
+    public static String getWinSearchModuleZipPath() throws IOException {
+        String temp = PluginUtil.getResolvedPluginDir()
+                + ApplicationPropertyUtil.WIN_PYTHON_SEARCH_MODULE_ZIP;
+        return temp;
+    }
+    
+    public static String getMacSearchModulePath() throws IOException {
+        String temp = PluginUtil.getResolvedPluginDir()
+                + ApplicationPropertyUtil.MAC_PYTHON_SEARCH_MODULE;
+        LOGGER.info(temp);
+        return temp;
+    }
+    
+    public static String getMacSearchModuleZipPath() throws IOException {
+        String temp = PluginUtil.getResolvedPluginDir()
+                + ApplicationPropertyUtil.MAC_PYTHON_SEARCH_MODULE_ZIP;
+        LOGGER.info(temp);
+        return temp;
+    }
+    
+  
     
 }
