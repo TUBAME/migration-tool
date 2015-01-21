@@ -4,10 +4,3 @@
 *.jar
 *.war
 *.ear
-*.pyc
-
-#auto generated classes
-src/tubame.knowhow.biz/src/main/java/org/docbook/ns/docbook/*.java
-src/tubame.knowhow.biz/src/main/java/tubame/knowhow/biz/model/generated/knowhow/*.java
-src/tubame.knowhow.biz/src/main/java/tubame/knowhow/biz/model/generated/python/*.java
-
