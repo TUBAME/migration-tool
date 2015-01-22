@@ -41,17 +41,16 @@ public class SelectionItemExpandAndContractAction extends Action {
 			JbmEditorMigrationRow row = (JbmEditorMigrationRow) selectedItem.getData();
 			if (row.getLevel() == JbmEditorMigrationRow.LEVEL_FIRST) {
 				if (expand) {
+					//TODO:サブエレメントを強制的にexpandしたかったが、方法が不明.
 					selectedItem.setExpanded(false);
-					row.setExpand(false);
-//					this.setText(MessageUtil.ITEM_EXPAND);
 				} else {
-					selectedItem.setExpanded(true);
-					row.setExpand(true);
-//					this.setText(MessageUtil.ITEM_COLLAPSE);
+					//TODO:サブエレメントを強制的にexpandしたかったが、方法が不明.
+					treeViewer.setAutoExpandLevel(4);
 				}
 			}
 		}
 
 	}
-
+	
+	
 }

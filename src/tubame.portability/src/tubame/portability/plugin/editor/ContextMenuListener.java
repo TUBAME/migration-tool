@@ -76,8 +76,11 @@ public class ContextMenuListener implements IMenuListener {
             Point point = this.editor.getMouseClickPoint();
             ConfirmItemChangeActionFactory.setAction(manager,
                     this.editor.getTreeViewer(), point);
-            expandAndContractActionToMenu(manager, this.editor.getTreeViewer(), point);
             
+            ViewerCell cell = this.editor.getTreeViewer().getCell(point);
+            if(cell != null && cell.getColumnIndex()==0){
+            	expandAndContractActionToMenu(manager, this.editor.getTreeViewer(), point);
+            }
         }
     }
     
