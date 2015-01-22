@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>tubame</groupId>
 	<artifactId>tubame-wsearch-biz</artifactId>
-	<version>1.0.0</version>
 	<packaging>bundle</packaging>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+	<parent>
+		<groupId>tubame</groupId>
+		<artifactId>tubame-parent</artifactId>
+		<version>1.0.4-SNAPSHOT</version>
+	</parent>
 
 	<dependencies>
 		<dependency>
@@ -39,7 +39,6 @@
 		</dependency>
 	</dependencies>
 
-
 	<build>
 		<plugins>
 
@@ -48,9 +47,9 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<encoding>UTF-8</encoding>
+					<source>${project.build.java.version}</source>
+					<target>${project.build.java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
 
@@ -83,8 +82,7 @@
 						<phase>install</phase>
 						<configuration>
 							<target>
-								<property name="wsearch_ui_eclipse_pj_path"
-									value="${basedir}/../tubame.wsearch" />
+								<property name="wsearch_ui_eclipse_pj_path" value="${basedir}/../tubame.wsearch" />
 								<copy
 									file="${basedir}/target/${project.artifactId}-${project.version}.jar"
 									tofile="${wsearch_ui_eclipse_pj_path}/lib/${project.artifactId}-${project.version}.jar"

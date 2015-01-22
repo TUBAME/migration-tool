@@ -1,22 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>tubame</groupId>
 	<artifactId>tubame.wsearch</artifactId>
-	<version>1.0.2.qualifier</version>
 	<packaging>eclipse-plugin</packaging>
-	<properties>
-		<tycho-version>0.18.1</tycho-version>
-	</properties>
 
-	<repositories>
-		<!-- add Juno repository to resolve dependencies -->
-		<repository>
-			<id>Kepler</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/kepler/</url>
-		</repository>
-	</repositories>
+	<parent>
+		<groupId>tubame</groupId>
+		<artifactId>tubame-parent</artifactId>
+		<version>1.0.4-SNAPSHOT</version>
+	</parent>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -32,13 +25,13 @@
 		<dependency>
 			<groupId>tubame</groupId>
 			<artifactId>tubame-common</artifactId>
-			<version>1.0.0</version>
+			<version>${project.version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>tubame</groupId>
 			<artifactId>tubame-wsearch-biz</artifactId>
-			<version>1.0.0</version>
+			<version>${project.version}</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>

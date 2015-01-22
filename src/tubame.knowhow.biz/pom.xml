@@ -1,13 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>tubame</groupId>
 	<artifactId>tubame-knowhow-biz</artifactId>
-	<version>1.0.0</version>
 	<packaging>bundle</packaging>
 
+	<parent>
+		<groupId>tubame</groupId>
+		<artifactId>tubame-parent</artifactId>
+		<version>1.0.4-SNAPSHOT</version>
+	</parent>
+
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<xalan.version>2.7.1</xalan.version>
 		<docbook.xsl.release>docbook-xsl-1.78.1</docbook.xsl.release>
 	</properties>
@@ -88,9 +91,9 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<encoding>UTF-8</encoding>
+					<source>${project.build.java.version}</source>
+					<target>${project.build.java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
 
@@ -113,27 +116,27 @@
 					</instructions>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
-			    <groupId>com.googlecode.maven-download-plugin</groupId>
-			    <artifactId>download-maven-plugin</artifactId>
-			    <version>1.2.0</version>
-			    <executions>
-			        <execution>
-			            <id>install-docbook-xsl</id>
-			            <phase>install</phase>
-			            <goals>
-			                <goal>wget</goal>
-			            </goals>
-			            <configuration>
-			                <url>http://sourceforge.net/projects/docbook/files/docbook-xsl/1.78.1/${docbook.xsl.release}.zip/download</url>
-			                <unpack>true</unpack>
-			                <outputDirectory>${project.build.directory}</outputDirectory>
-			                <outputFileName>${docbook.xsl.release}.zip</outputFileName>
-			            </configuration>
-			        </execution>
-			    </executions>
-            </plugin>
+				<groupId>com.googlecode.maven-download-plugin</groupId>
+				<artifactId>download-maven-plugin</artifactId>
+				<version>1.2.0</version>
+				<executions>
+					<execution>
+						<id>install-docbook-xsl</id>
+						<phase>install</phase>
+						<goals>
+							<goal>wget</goal>
+						</goals>
+						<configuration>
+							<url>http://sourceforge.net/projects/docbook/files/docbook-xsl/1.78.1/${docbook.xsl.release}.zip/download</url>
+							<unpack>true</unpack>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+							<outputFileName>${docbook.xsl.release}.zip</outputFileName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
@@ -157,7 +160,7 @@
 							<goal>run</goal>
 						</goals>
 					</execution>
-						
+
 					<execution>
 						<id>install</id>
 						<phase>install</phase>
@@ -170,7 +173,6 @@
 									tofile="${knowhow_ui_eclipse_pj_path}/lib/xalan27.jar"
 									overwrite="true" />
 
-                         
 								<copy
 									file="${basedir}/target/${project.artifactId}-${project.version}.jar"
 									tofile="${knowhow_ui_eclipse_pj_path}/lib/${project.artifactId}-${project.version}.jar"
