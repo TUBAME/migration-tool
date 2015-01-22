@@ -6,6 +6,12 @@
 	<version>1.0.0</version>
 	<packaging>bundle</packaging>
 
+	<parent>
+		<groupId>tubame</groupId>
+		<artifactId>tubame-parent</artifactId>
+		<version>1.0.4-SNAPSHOT</version>
+	</parent>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<xalan.version>2.7.1</xalan.version>
@@ -113,27 +119,27 @@
 					</instructions>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
-			    <groupId>com.googlecode.maven-download-plugin</groupId>
-			    <artifactId>download-maven-plugin</artifactId>
-			    <version>1.2.0</version>
-			    <executions>
-			        <execution>
-			            <id>install-docbook-xsl</id>
-			            <phase>install</phase>
-			            <goals>
-			                <goal>wget</goal>
-			            </goals>
-			            <configuration>
-			                <url>http://sourceforge.net/projects/docbook/files/docbook-xsl/1.78.1/${docbook.xsl.release}.zip/download</url>
-			                <unpack>true</unpack>
-			                <outputDirectory>${project.build.directory}</outputDirectory>
-			                <outputFileName>${docbook.xsl.release}.zip</outputFileName>
-			            </configuration>
-			        </execution>
-			    </executions>
-            </plugin>
+				<groupId>com.googlecode.maven-download-plugin</groupId>
+				<artifactId>download-maven-plugin</artifactId>
+				<version>1.2.0</version>
+				<executions>
+					<execution>
+						<id>install-docbook-xsl</id>
+						<phase>install</phase>
+						<goals>
+							<goal>wget</goal>
+						</goals>
+						<configuration>
+							<url>http://sourceforge.net/projects/docbook/files/docbook-xsl/1.78.1/${docbook.xsl.release}.zip/download</url>
+							<unpack>true</unpack>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+							<outputFileName>${docbook.xsl.release}.zip</outputFileName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
@@ -157,7 +163,7 @@
 							<goal>run</goal>
 						</goals>
 					</execution>
-						
+
 					<execution>
 						<id>install</id>
 						<phase>install</phase>
@@ -170,7 +176,7 @@
 									tofile="${knowhow_ui_eclipse_pj_path}/lib/xalan27.jar"
 									overwrite="true" />
 
-                         
+
 								<copy
 									file="${basedir}/target/${project.artifactId}-${project.version}.jar"
 									tofile="${knowhow_ui_eclipse_pj_path}/lib/${project.artifactId}-${project.version}.jar"

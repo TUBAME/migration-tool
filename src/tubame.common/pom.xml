@@ -6,6 +6,12 @@
 	<version>1.0.0</version>
 	<packaging>bundle</packaging>
 
+	<parent>
+		<groupId>tubame</groupId>
+		<artifactId>tubame-parent</artifactId>
+		<version>1.0.4-SNAPSHOT</version>
+	</parent>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -35,7 +41,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
+
 
 
 	<build>
@@ -71,7 +77,7 @@
 					</instructions>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
@@ -82,13 +88,10 @@
 						<phase>install</phase>
 						<configuration>
 							<target>
-								<property name="knowhow_ui_eclipse_pj_path"
-									value="${basedir}/../tubame.knowhow" />
-								<property name="wsearch_ui_eclipse_pj_path"
-									value="${basedir}/../tubame.wsearch" />
-								<property name="portability_ui_eclipse_pj_path"
-									value="${basedir}/../tubame.portability" />
-									
+								<property name="knowhow_ui_eclipse_pj_path" value="${basedir}/../tubame.knowhow" />
+								<property name="wsearch_ui_eclipse_pj_path" value="${basedir}/../tubame.wsearch" />
+								<property name="portability_ui_eclipse_pj_path" value="${basedir}/../tubame.portability" />
+
 								<copy
 									file="${basedir}/target/${project.artifactId}-${project.version}.jar"
 									tofile="${knowhow_ui_eclipse_pj_path}/lib/${project.artifactId}-${project.version}.jar"
@@ -101,7 +104,7 @@
 									file="${basedir}/target/${project.artifactId}-${project.version}.jar"
 									tofile="${portability_ui_eclipse_pj_path}/lib/${project.artifactId}-${project.version}.jar"
 									overwrite="true" />
-									
+
 							</target>
 						</configuration>
 						<goals>
