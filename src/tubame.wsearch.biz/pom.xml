@@ -6,6 +6,12 @@
 	<version>1.0.0</version>
 	<packaging>bundle</packaging>
 
+	<parent>
+		<groupId>tubame</groupId>
+		<artifactId>tubame-parent</artifactId>
+		<version>1.0.4-SNAPSHOT</version>
+	</parent>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -83,8 +89,7 @@
 						<phase>install</phase>
 						<configuration>
 							<target>
-								<property name="wsearch_ui_eclipse_pj_path"
-									value="${basedir}/../tubame.wsearch" />
+								<property name="wsearch_ui_eclipse_pj_path" value="${basedir}/../tubame.wsearch" />
 								<copy
 									file="${basedir}/target/${project.artifactId}-${project.version}.jar"
 									tofile="${wsearch_ui_eclipse_pj_path}/lib/${project.artifactId}-${project.version}.jar"
