@@ -177,13 +177,16 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
 			// TODO: classcast発生するの...closeエディターなので影響なし？
 			// PluginUtil.closeEditor(jbmSearchSelectionPage.getOutJbmFileText());
 
-			String pythonExePath = PythonUtil.getPythonExePath();
-			if (!new File(pythonExePath).exists()) {
-				String message = Activator.getResourceString(JbmSearchWizard.class.getName()
-						+ ".errmsg.notfound.python");
-				ErrorDialog.openErrorDialog(Activator.getActiveWorkbenchShell(), new Exception(message), message);
-				return false;
+			if(!Activator.isSupportPyPlatform()){
+				String pythonExePath = PythonUtil.getPythonExePath();
+				if (!new File(pythonExePath).exists()) {
+					String message = Activator.getResourceString(JbmSearchWizard.class.getName()
+							+ ".errmsg.notfound.python");
+					ErrorDialog.openErrorDialog(Activator.getActiveWorkbenchShell(), new Exception(message), message);
+					return false;
+				}
 			}
+
 			// Convert an existing format file knowhowXML
 			// knowhow.xml > keywordSearch.csv
 			// knowhow.xml > checkListInformation.xml
