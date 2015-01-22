@@ -141,6 +141,7 @@ public class ConfirmItemChangeActionFactory {
             }
         }
         ConfirmItemChangeActionFactory.addAction(isMenuView, manager, cell);
+        
     }
 
     /**
