@@ -175,8 +175,19 @@ public class JbmEditorMigrationRow implements MigrationEditorRow {
      * One row of data in CSV format (hold the value only the first level)
      */
     private String writeData;
+    
+    
+    private boolean expand = true;
 
-    /**
+    public boolean isExpand() {
+		return expand;
+	}
+
+	public void setExpand(boolean expand) {
+		this.expand = expand;
+	}
+
+	/**
      * Get No.<br/>
      * 
      * @return No

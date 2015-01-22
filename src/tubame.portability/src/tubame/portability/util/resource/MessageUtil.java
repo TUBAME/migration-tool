@@ -156,6 +156,11 @@ public class MessageUtil extends NLS {
 	
 	public static String UNZIP_INTERRUPT_ERR;
 	
+
+	public static String ITEM_EXPAND;
+	public static String ITEM_COLLAPSE;
+	public static String ALL_EXPAND;
+	public static String ALL_COLLAPSE;
 	
 	
 	

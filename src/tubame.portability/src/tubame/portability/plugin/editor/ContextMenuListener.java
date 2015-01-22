@@ -20,10 +20,17 @@ package tubame.portability.plugin.editor;
 
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.widgets.TreeItem;
 
 import tubame.portability.model.JbmEditorMigrationRow;
 import tubame.portability.plugin.action.ConfirmItemChangeActionFactory;
+import tubame.portability.plugin.action.AllItemExpandAndCollapseAction;
+import tubame.portability.plugin.action.SelectionItemExpandAndContractAction;
+import tubame.portability.util.resource.MessageUtil;
 
 /**
  * Right-click the mouse at the time, the control to display the context menu.<br/>
@@ -39,6 +46,13 @@ public class ContextMenuListener implements IMenuListener {
      * Access to the Editor
      */
     private final MigrationEditorOperation editor;
+    
+    
+    private final AllItemExpandAndCollapseAction allExpandtAction = new AllItemExpandAndCollapseAction(MessageUtil.ALL_EXPAND,true);
+    
+    private final AllItemExpandAndCollapseAction allContractAction = new AllItemExpandAndCollapseAction(MessageUtil.ALL_COLLAPSE,false);
+    
+    private final SelectionItemExpandAndContractAction selectionItemExpandAndContractAction = new SelectionItemExpandAndContractAction(true);
 
     /**
      * Constructor.<br/>
@@ -62,6 +76,29 @@ public class ContextMenuListener implements IMenuListener {
             Point point = this.editor.getMouseClickPoint();
             ConfirmItemChangeActionFactory.setAction(manager,
                     this.editor.getTreeViewer(), point);
+            expandAndContractActionToMenu(manager, this.editor.getTreeViewer(), point);
+            
         }
     }
+    
+    void expandAndContractActionToMenu(IMenuManager manager,TreeViewer viewer,
+            Point mousePoint){
+        // Get the selected row
+        TreeItem[] selectedItems = viewer.getTree().getSelection();
+
+        for (TreeItem selectedItem : selectedItems) {
+            JbmEditorMigrationRow row = (JbmEditorMigrationRow) selectedItem
+                    .getData();
+        	if (row.getLevel() == JbmEditorMigrationRow.LEVEL_FIRST) {
+        		selectionItemExpandAndContractAction.setExpand(row.isExpand());
+        		
+        		manager.add(selectionItemExpandAndContractAction);
+        		manager.add(new Separator());
+        		manager.add(allExpandtAction);
+        		manager.add(allContractAction);
+        		
+        		
+            }
+        }
+	}
 }
