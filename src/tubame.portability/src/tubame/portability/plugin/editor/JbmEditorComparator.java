@@ -57,6 +57,15 @@ public class JbmEditorComparator extends AbstractEditorComparator {
         if (index == JbmEditorEnum.INDEX_NO.getCode()) {
             return numComparator(value1, value2);
         }
+        //" 大項目" 
+        if( index == JbmEditorEnum.BIG_ITEM.getCode()){
+        	return value1.compareTo(value2);
+        }
+        
+        //" 中項目" 
+        if( index == JbmEditorEnum.MIDDLE_ITEM.getCode()){
+        	return value1.compareTo(value2);
+        }
         // "Count"
         if (index == JbmEditorEnum.HIT_NUM.getCode()) {
             return intComparator(Integer.valueOf(value1),
@@ -87,7 +96,7 @@ public class JbmEditorComparator extends AbstractEditorComparator {
             return intComparator(data1, data2);
         }
         // Number of lines
-        if (index == JbmEditorEnum.LINE_NUM.getCode()) {
+        if (index == JbmEditorEnum.LINE_NUM.getCode() || index == JbmEditorEnum.TOTAL_LINE.getCode()) {
             return lineNumComparator(value1, value2);
         }
         return nRet;
