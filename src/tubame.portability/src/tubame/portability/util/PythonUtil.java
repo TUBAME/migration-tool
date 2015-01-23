@@ -170,6 +170,19 @@ public class PythonUtil {
         return temp;
     }
     
+    public static String getLinuxSearchModulePath() throws IOException {
+        String temp = PluginUtil.getResolvedPluginDir()
+                + ApplicationPropertyUtil.LINUX_PYTHON_SEARCH_MODULE;
+        LOGGER.info(temp);
+        return temp;
+    }
+    
+    public static String getLinuxSearchModuleZipPath() throws IOException {
+        String temp = PluginUtil.getResolvedPluginDir()
+                + ApplicationPropertyUtil.LINUX_PYTHON_SEARCH_MODULE_ZIP;
+        LOGGER.info(temp);
+        return temp;
+    }
   
     
 }
