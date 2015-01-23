@@ -97,7 +97,7 @@ public class Activator extends AbstractUIPlugin {
         
         OS_NAME = System.getProperty("os.name").toLowerCase();
         if(isSupportPyPlatform() && !isExistJbmstModulePath()){
-        	//win又はmacの場合で、かつ、JbmstModuleが存在しない場合に、bin配下のjbmstを実行可能にするようために、bin配下のjbmst_{os}.zipを展開する。
+        	//win,linux又はmacの場合で、かつ、JbmstModuleが存在しない場合に、bin配下のjbmstを実行可能にするようために、bin配下のjbmst_{os}.zipを展開する。
         	String jbmstModuleZipPath = getJbmstModuleZipPath();
         	File file = new File(jbmstModuleZipPath);
         	FileUtil.unzip(file,file.getParentFile());
@@ -275,7 +275,7 @@ public class Activator extends AbstractUIPlugin {
     }
     
     public static boolean isSupportPyPlatform(){
-    	return isWindowsPlatform();
+    	return isWindowsPlatform() || isLinuxPlatform() || isMacPlatform();
     }
     
     public static String getJbmstModulePath() throws IOException{
@@ -283,6 +283,8 @@ public class Activator extends AbstractUIPlugin {
     		return PythonUtil.getWinSearchModulePath();
     	}else if (isMacPlatform()){
     		return PythonUtil.getMacSearchModulePath();
+    	}else if (isLinuxPlatform()){
+    		return PythonUtil.getLinuxSearchModulePath();
     	}
     	return null;
     }
@@ -293,6 +295,8 @@ public class Activator extends AbstractUIPlugin {
     		return PythonUtil.getWinSearchModuleZipPath();
     	}else if (isMacPlatform()){
     		return PythonUtil.getMacSearchModuleZipPath();
+    	}else if (isLinuxPlatform()){
+    		return PythonUtil.getLinuxSearchModuleZipPath();
     	}
     	return null;
     }
