@@ -140,6 +140,12 @@ public class ApplicationPropertyUtil extends NLS {
 	
 	public static String MAC_PYTHON_SEARCH_MODULE_ZIP;
 	
+	public static String LINUX_PYTHON_SEARCH_MODULE;
+	
+	public static String LINUX_PYTHON_SEARCH_MODULE_ZIP;
+	
+	
+	
 
     static {
         // initialize resource bundle
