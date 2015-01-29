@@ -65,7 +65,7 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
             #tree = etree.parse(fname) # 返値はElementTree型
             #elem = tree.getroot() # ルート要素を取得(Element型)
             line = open(fname, 'rU').read()
-            elem = html.fromstring(line)
+            elem = etree.fromstring(line)
             if elem == None:
                 continue
             pathList = elem.xpath(xPath)
