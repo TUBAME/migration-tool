@@ -381,15 +381,16 @@ class JbmstTestCase(unittest.TestCase):
         
     def testTubameXpathSearchUsedSchemaNotFind(self):
         self.searchExecute()
-        self.assertNotEqual(self.rslt_steps, None)
-        self.assertEqual(int(self.rslt_hit), 1)
+        #検索対象のxmlファイルで外部スキーマを参照している場合は、local-nameを利用して検索する必要がある.
+        #lxmlでtree.fromstring(xmlcontent)の場合はlocal-nameが必須で、html.fromstring(xmlcontent)の場合は
+        #local-nameは必須ではない。本来は、xpath的にはlocal-nameを省略した指定のみで検索したかったが、mac環境のみhtml.fromstring
+        #を利用した場合に、soureline(行カウント)が取れなくなったため、tree.fromstringに修正した。
+        # http://stackoverflow.com/questions/3538248/any-one-have-an-example-that-uses-the-element-sourceline-method-from-lxml-html
+        self.assertEqual(self.rslt_steps, None)
         
     def testTubameXpathSearchUsedEntityXml(self):
-        #self.assertRaises(Exception, self.searchExecute())
-        self.searchExecute()
-        self.assertEqual(self.rslt_steps, None)
-            
-        #self.assertEqual(int(self.rslt_hit), 1)
+		self.searchExecute()
+		self.assertEqual(self.rslt_steps, None)
         
     def testIgnoreXMLFileSearch(self):
         body = "search_target\\testIgnoreXMLFileSearch\\web.xml"
