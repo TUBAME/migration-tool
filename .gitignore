@@ -1,6 +1,2 @@
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
+# source code of main branch files #
+src/
