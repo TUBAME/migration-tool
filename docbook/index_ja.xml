@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<PortabilityKnowhow xmlns="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:ns2="http://docbook.org/ns/docbook">
-    <PortabilityKnowhowTitle>tubame-site</PortabilityKnowhowTitle>
+<PortabilityKnowhow xmlns="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:ns2="http://docbook.org/ns/docbook" xmlns:ns3="http://www.w3.org/1999/xlink">
+    <PortabilityKnowhowTitle>TUBAMEコミュニティページ（日本語版）
+</PortabilityKnowhowTitle>
     <EntryViewList>
         <EntryCategory>
             <EntryCategoryRefKey>category_7</EntryCategoryRefKey>
@@ -54,7 +55,7 @@
         </Chapter>
         <Chapter>
             <ChapterNo>3.</ChapterNo>
-            <ChapterName>Quickstart</ChapterName>
+            <ChapterName>Documentation</ChapterName>
             <ChildChapter>
                 <ChildCapterNo>3.1.</ChildCapterNo>
                 <ChapterCategoryRefKey>category_18</ChapterCategoryRefKey>
@@ -79,19 +80,19 @@
             <KnowhowRefKey>knowhow_8</KnowhowRefKey>
         </Category>
         <Category categoryId="category_10" appropriate="true">
-            <CategoryName>TUBAME</CategoryName>
+            <CategoryName>TUBAMEとは</CategoryName>
             <KnowhowRefKey>knowhow_11</KnowhowRefKey>
         </Category>
         <Category categoryId="category_14" appropriate="false">
-            <CategoryName>TUBAME UseCase</CategoryName>
+            <CategoryName>ユースケース</CategoryName>
             <KnowhowRefKey>knowhow_15</KnowhowRefKey>
         </Category>
         <Category categoryId="category_15" appropriate="true">
-            <CategoryName>TUBAMEツール概要</CategoryName>
+            <CategoryName>ツール概要</CategoryName>
             <KnowhowRefKey>knowhow_16</KnowhowRefKey>
         </Category>
         <Category categoryId="category_17" appropriate="true">
-            <CategoryName>TUBAMEツールの取得方法</CategoryName>
+            <CategoryName>ツールの取得方法</CategoryName>
             <KnowhowRefKey>knowhow_17</KnowhowRefKey>
         </Category>
         <Category categoryId="category_18" appropriate="true">
@@ -99,7 +100,7 @@
             <KnowhowRefKey>knowhow_18</KnowhowRefKey>
         </Category>
         <Category categoryId="category_20" appropriate="true">
-            <CategoryName>フォーラム</CategoryName>
+            <CategoryName>ユーザフォーラム</CategoryName>
             <KnowhowRefKey>knowhow_19</KnowhowRefKey>
         </Category>
         <Category categoryId="category_21" appropriate="true">
@@ -114,7 +115,7 @@
         </KnowhowInfomation>
         <KnowhowInfomation knowhowId="knowhow_11" knowhowDetailRefKey="knowhowDetail_11">
             <KnowhowNo>1</KnowhowNo>
-            <KnowhowName>Welcome To Tubame</KnowhowName>
+            <KnowhowName>Welcome to TUBAME</KnowhowName>
         </KnowhowInfomation>
         <KnowhowInfomation knowhowId="knowhow_15" knowhowDetailRefKey="knowhowDetail_15">
             <KnowhowNo>1</KnowhowNo>
@@ -150,8 +151,8 @@
                 <ns2:section>
                     <ns2:note>
                         <ns2:para>日本でTUBAMEは、燕が家に巣を作るとその家に幸福をもたらすという、言い伝えがありますが、このツールを利用してJBossを
-				利用することで、幸福が訪れることをお祈りします。
-			</ns2:para>
+利用することで、幸福が訪れることをお祈りします。
+</ns2:para>
                         <ns2:para>supported by ntt and redhat</ns2:para>
                     </ns2:note>
                 </ns2:section>
@@ -160,36 +161,25 @@
         <DocBook articleId="knowhowDetail_11">
             <ns2:article>
                 <ns2:info>
-                    <ns2:title>Welcome To Tubame</ns2:title>
+                    <ns2:title>Welcome to TUBAME</ns2:title>
                 </ns2:info>
                 <ns2:section>
-                    <ns2:para>TUBAMEは商用APサーバからJBoss、またはJBoss同士のマイグレーション時に必要な修正箇所の抽出や修正工数の算出ができるツールです。複数のサブツールを備えており、Eclipseプラグインとして利用することができます。OSS製品としてTUBAMEコミュニティで公開されておりますので是非ご活用ください。
-		</ns2:para>
+                    <ns2:para>TUBAMEはJavaアプリケーションのマイグレーション時に必要となる、修正箇所の算出や修正工数の算出を自動で行うためのツールです。自動化により作業工数の削減や人的ミスの防止が可能となり、併せてマイグレーションに関わるノウハウを提供しているため作業精度の向上にも役立ちます。
+</ns2:para>
+                    <ns2:para>複数のサブツールを備えており、Eclipseプラグインとして利用することができます。OSS製品としてTUBAMEコミュニティで公開されておりますので是非ご活用ください。
+</ns2:para>
                     <ns2:para>
-			TUBAMEはJBossへのスムーズな移行を支援するために用意されたツールで、以下3つのツールから構成されています。
-		</ns2:para>
+TUBAMEはJavaアプリケーションのスムーズな移植を支援するために用意されたツールで、以下3つのツールから構成されています。
+</ns2:para>
                     <ns2:orderedlist>
                         <ns2:listitem>
                             <ns2:para>
-					<ns2:application>依存性検索ツール(tubame.wsearch)</ns2:application>
-					<ns2:itemizedlist>
+<ns2:application>ナレッジベース検索ツール(tubame.portability)
+</ns2:application>
+<ns2:itemizedlist>
     <ns2:listitem>
-        <ns2:para>移行先の環境(ミドルウェア)で利用できないJavaパッケージやクラス情報を自動で抽出します</ns2:para>
-    </ns2:listitem>
-    <ns2:listitem>
-        <ns2:para>移行先の環境として、ライブラリ情報を別途設定することで、フレームワークについても、移行先の環境で利用できないAPI情報を抽出します
-							</ns2:para>
-    </ns2:listitem>
-</ns2:itemizedlist>
-				</ns2:para>
-                        </ns2:listitem>
-                        <ns2:listitem>
-                            <ns2:para>
-					<ns2:application>ナレッジベース検索ツール(tubame.portability)</ns2:application>
-					<ns2:itemizedlist>
-    <ns2:listitem>
-        <ns2:para>依存性検索機能では検出できない移植項目をTUBAMEコミュニティで管理しているナレッジベースより検索します
-							</ns2:para>
+        <ns2:para>TUBAMEコミュニティで管理しているナレッジベースより検索します
+</ns2:para>
     </ns2:listitem>
     <ns2:listitem>
         <ns2:para>修正項目毎に移植難易度や修正工数を表します</ns2:para>
@@ -198,21 +188,36 @@
         <ns2:para>修正項目毎に修正ガイドラインを参照することで修正方法が確認できます</ns2:para>
     </ns2:listitem>
 </ns2:itemizedlist>
-				</ns2:para>
+</ns2:para>
                         </ns2:listitem>
                         <ns2:listitem>
                             <ns2:para>
-					<ns2:application>ナレッジ管理ツール(tubame.knowhow)</ns2:application>
-					<ns2:itemizedlist>
+<ns2:application>依存性検索ツール(tubame.wsearch)</ns2:application>
+<ns2:itemizedlist>
     <ns2:listitem>
-        <ns2:para>ナレッジベース検索に必要なナレッジを登録及び編集できます。</ns2:para>
+        <ns2:para>移行先の環境(ミドルウェア)で利用できないJavaパッケージやクラス情報を自動で抽出します
+</ns2:para>
     </ns2:listitem>
     <ns2:listitem>
-        <ns2:para>ナレッジコンテンツの作成から、検索条件の設定まで、ナレッジベース検索で必要な情報をこのツールだけで設定が出来ます
-							</ns2:para>
+        <ns2:para>移行先の環境として、ライブラリ情報を別途設定することで、フレームワークについても、移行先の環境で利用できないAPI情報を抽出します
+</ns2:para>
     </ns2:listitem>
 </ns2:itemizedlist>
-				</ns2:para>
+</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>
+<ns2:application>ナレッジ管理ツール(tubame.knowhow)</ns2:application>
+<ns2:itemizedlist>
+    <ns2:listitem>
+        <ns2:para>ナレッジベース検索に必要なナレッジを登録及び編集できます</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>ナレッジコンテンツの作成から、検索条件の設定まで、ナレッジベース検索で必要な情報をこのツールだけで設定できます
+</ns2:para>
+    </ns2:listitem>
+</ns2:itemizedlist>
+</ns2:para>
                         </ns2:listitem>
                     </ns2:orderedlist>
                     <ns2:note>
@@ -233,7 +238,8 @@
                     <ns2:title>ユースケース</ns2:title>
                 </ns2:info>
                 <ns2:section>
-                    <ns2:para>TUBAMEは移行の検討段階から実際の移植フェーズまで幅広く利用できます。以下に移行検討のフェーズ及び実際の移植フェーズでのユースケースについて紹介します。</ns2:para>
+                    <ns2:para>TUBAMEは移行の検討段階から実際の移植フェーズまで幅広く利用できます。以下に移行検討のフェーズ及び実際の移植フェーズでのユースケースについて紹介します。
+</ns2:para>
                     <ns2:figure>
                         <ns2:title>移植性検討フェーズにおける各ツールの機能について</ns2:title>
                         <ns2:mediaobject>
@@ -256,7 +262,7 @@
         <DocBook articleId="knowhowDetail_16">
             <ns2:article>
                 <ns2:info>
-                    <ns2:title>Tubameツール概要</ns2:title>
+                    <ns2:title>TUBAMEツール概要</ns2:title>
                 </ns2:info>
                 <ns2:section>
                     <ns2:orderedlist>
@@ -270,33 +276,86 @@
     </ns2:imageobject>
 </ns2:mediaobject>
                             </ns2:figure>
-                            <ns2:warning>
+                            <ns2:note>
 <ns2:itemizedlist>
     <ns2:listitem>
         <ns2:para>マイグレーションナレッジXML</ns2:para>
-        <ns2:para>必須パラメータである。必須パラメータとなります。移行ナレッジはTUBAMEコミュニティからダウンロードするかまたはナレッジ管理ツールで自ら作成することも出来ます。
-							</ns2:para>
+        <ns2:para>ナレッジベース検索ツール使用時には必須のファイルとなります。移行ナレッジはTUBAMEコミュニティからダウンロード、または、ナレッジ管理ツールで自ら作成することもできます。
+</ns2:para>
     </ns2:listitem>
     <ns2:listitem>
-        <ns2:para>マイグレーションガイド</ns2:para>
-        <ns2:para>オプショナルです。移行ガイド表示を行う場合、TUBAMEコミュニティからダウンロードして、ナレッジベース検索ツール内の所定の場所に配置します。(...eclipse/plugins/tubame.portability-*/resources/guideフォルダを作成して、index.htmlとcssフォルダを配置してください)
-							</ns2:para>
+        <ns2:para>マイグレーションガイド（修正ガイドライン）</ns2:para>
+        <ns2:para>ナレッジベース検索ツール使用時には任意のファイルとなります。検索結果からマイグレーションガイドの参照を行う場合、TUBAMEコミュニティからダウンロードしたマイグレーションガイド（HTML）を任意の場所に配置し、Preference（TUBAME
+-&gt; ナレッジベース検索ツール -&gt;
+マイグレーションガイド設定）でマイグレーションガイドのパスを設定してください。
+</ns2:para>
     </ns2:listitem>
 </ns2:itemizedlist>
-<ns2:para>マイグレーションナレッジXML及びマイグレーションガイドは以下より取得可能です</ns2:para>
+                            </ns2:note>
+                            <ns2:note>
+<ns2:para>現在、コミュニティで公開されているマイグレーションナレッジXML及びマイグレーションガイドは以下よりダウンロード可能です。
+</ns2:para>
+<ns2:para>ダウンロードしたファイルを検索対象のプロジェクト配下に配置し、マイグレーションガイドのパス設定を行い、ナレッジベース検索実行時にマイグレーションナレッジXMLを参照することで利用可能です。
+</ns2:para>
 <ns2:itemizedlist>
     <ns2:listitem>
-        <ns2:para>JBossEAP4-&gt;6</ns2:para>
-        <ns2:para>https://github.com/TUBAME/migration-knowledge/releases/download/EAP4toEAP6/EAP4to6.zip
-									</ns2:para>
+        <ns2:para>
+<ns2:command ns3:href="https://github.com/TUBAME/migration-knowledge/releases/download/EAP4toEAP6/EAP4to6.zip">JBossEAP4-&gt;JBossEAP6</ns2:command>
+（マイグレーションガイドの参照は
+<ns2:command ns3:href="http://htmlpreview.github.io/?https://github.com/TUBAME/migration-knowledge/blob/master/EAP4toEAP6/Japanese/Guideline/index.html">こちら</ns2:command>
+）
+</ns2:para>
     </ns2:listitem>
     <ns2:listitem>
-        <ns2:para>WLS9-&gt;JBossEAP6</ns2:para>
-        <ns2:para>https://github.com/TUBAME/migration-knowledge/releases/download/WLS9toEAP6/WLS9ToEAP6.zip
-									</ns2:para>
+        <ns2:para>
+<ns2:command ns3:href="https://github.com/TUBAME/migration-knowledge/releases/download/WLS9toEAP6/WLS9ToEAP6.zip">WebLogic9-&gt;JBossEAP6</ns2:command>
+（マイグレーションガイドの参照は
+<ns2:command ns3:href="http://htmlpreview.github.io/?https://github.com/TUBAME/migration-knowledge/blob/master/WLS9ToEAP6/Japanese/Guideline/JBossMigrationKnowhowWLS9toEAP6.html">こちら</ns2:command>
+）
+</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>
+<ns2:command ns3:href="https://github.com/TUBAME/user-knowledge/releases/download/WAS6toJBossEAP6/WAS6toJBossEAP6.zip">WebSphere6-&gt;JBossEAP6</ns2:command>
+（マイグレーションガイドの参照は
+<ns2:command ns3:href="http://htmlpreview.github.io/?https://github.com/TUBAME/user-knowledge/blob/master/Japanese/WAS6toJBossEAP6/Guideline/index.html">こちら</ns2:command>
+）
+</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>
+<ns2:command ns3:href="https://github.com/TUBAME/user-knowledge/releases/download/tomcat5.5to6.0jp/tomcat5.5to6.0jp.zip">Tomcat5.5-&gt;Tomcat6.0</ns2:command>
+（マイグレーションガイドの参照は
+<ns2:command ns3:href="http://htmlpreview.github.io/?https://github.com/TUBAME/user-knowledge/blob/master/Japanese/Tomcat5.5to6.0/Guideline/index.html">こちら</ns2:command>
+）
+</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>
+<ns2:command ns3:href="https://github.com/TUBAME/user-knowledge/releases/download/tomcat5.5to7.0jp/tomcat5.5to7.0jp.zip">Tomcat5.5-&gt;Tomcat7.0</ns2:command>
+（マイグレーションガイドの参照は
+<ns2:command ns3:href="http://htmlpreview.github.io/?https://github.com/TUBAME/user-knowledge/blob/master/Japanese/Tomcat5.5to7.0/Guideline/index.html">こちら</ns2:command>
+）
+</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>
+<ns2:command ns3:href="https://github.com/TUBAME/user-knowledge/releases/download/tomcat6.0to7.0jp/tomcat6.0to7.0jp.zip">Tomcat6.0-&gt;Tomcat7.0</ns2:command>
+（マイグレーションガイドの参照は
+<ns2:command ns3:href="http://htmlpreview.github.io/?https://github.com/TUBAME/user-knowledge/blob/master/Japanese/Tomcat6.0to7.0/Guideline/index.html">こちら</ns2:command>
+）
+</ns2:para>
+    </ns2:listitem>
+    <ns2:listitem>
+        <ns2:para>
+<ns2:command ns3:href="https://github.com/TUBAME/user-knowledge/releases/download/tomcat7.0to8.0jp/tomcat7.0to8.0jp.zip">Tomcat7.0-&gt;Tomcat8.0</ns2:command>
+（マイグレーションガイドの参照は
+<ns2:command ns3:href="http://htmlpreview.github.io/?https://github.com/TUBAME/user-knowledge/blob/master/Japanese/Tomcat7.0to8.0/Guideline/index.html">こちら</ns2:command>
+）
+</ns2:para>
     </ns2:listitem>
 </ns2:itemizedlist>
-                            </ns2:warning>
+                            </ns2:note>
                         </ns2:listitem>
                         <ns2:listitem>
                             <ns2:para>移植性検索ツール</ns2:para>
@@ -308,25 +367,28 @@
     </ns2:imageobject>
 </ns2:mediaobject>
                             </ns2:figure>
-                            <ns2:warning>
+                            <ns2:note>
 <ns2:itemizedlist>
     <ns2:listitem>
         <ns2:para>移行先環境のライブラリ情報</ns2:para>
-        <ns2:para>必須パラメータとなります。デフォルトではJBossEAP6が移行先となっています。
-							</ns2:para>
-        <ns2:para>移行先をデフォルトのJBossEAP6以外として依存性検索を行う場合、依存性検索ツールに以下の何れかのライブラリ設定を行います。
-							</ns2:para>
+        <ns2:para>移植性検索ツール使用時には必須の情報となります。デフォルトではJBossEAP6が移行先ライブラリとして設定されています。
+</ns2:para>
+        <ns2:para>移行先ライブラリをデフォルトのJBossEAP6から変更したい、また、フレームワークなどの別のライブラリを追加したい場合、ライブラリ情報をPreference（TUBAME
+-&gt; 依存性検索ツール -&gt;
+ライブラリ設定）で設定してください。移行先ライブラリとして設定する情報は以下になります。
+</ns2:para>
         <ns2:orderedlist>
             <ns2:listitem>
-                <ns2:para>移行先ライブラリ情報として、移行先のバイナリ(path/zip)を指定する</ns2:para>
+                <ns2:para>移行先ライブラリのバイナリ（zip）を指定する</ns2:para>
             </ns2:listitem>
             <ns2:listitem>
-                <ns2:para>移行先ライブラリ情報として、移行先のライブラリを含むMavenリポジトリ(zip)を指定する</ns2:para>
+                <ns2:para>移行先ライブラリを含むMavenリポジトリ（zip）を指定する
+</ns2:para>
             </ns2:listitem>
         </ns2:orderedlist>
     </ns2:listitem>
 </ns2:itemizedlist>
-                            </ns2:warning>
+                            </ns2:note>
                         </ns2:listitem>
                     </ns2:orderedlist>
                 </ns2:section>
@@ -338,21 +400,27 @@
                     <ns2:title>body</ns2:title>
                 </ns2:info>
                 <ns2:section>
-                    <ns2:para>最新版のツールは以下より取得可能です</ns2:para>
-                    <ns2:para>https://github.com/TUBAME/migration-tool/releases/download/tubame-plugins-1.0.1/tubame-plugins101.zip</ns2:para>
+                    <ns2:para>最新版（Ver1.0.3）のツールは以下より取得可能です。</ns2:para>
+                    <ns2:para>
+<ns2:command ns3:href="https://github.com/TUBAME/migration-tool/releases/tag/v1.0.3">https://github.com/TUBAME/migration-tool/releases/tag/v1.0.3
+</ns2:command>
+</ns2:para>
+                    <ns2:para>zipファイル内の以下のファイルが各種ツールのEclipseプラグインになります。</ns2:para>
                     <ns2:itemizedlist>
                         <ns2:listitem>
                             <ns2:para>ナレッジベース検索ツール</ns2:para>
-                            <ns2:para>tubame-plugins101/tubame.portability-1.0.1.201401070709
-				</ns2:para>
+                            <ns2:para>tubame-plugins103/tubame.portability-1.0.3v201407310552
+</ns2:para>
                         </ns2:listitem>
                         <ns2:listitem>
                             <ns2:para>依存性検索ツール</ns2:para>
-                            <ns2:para>tubame-plugins101/tubame.wsearch-1.0.1.201401070641</ns2:para>
+                            <ns2:para>tubame-plugins103/tubame.wsearch-1.0.3v201407310544
+</ns2:para>
                         </ns2:listitem>
                         <ns2:listitem>
                             <ns2:para>ナレッジ管理ツール</ns2:para>
-                            <ns2:para>tubame-plugins101/tubame.knowhow-1.0.1.201401070639</ns2:para>
+                            <ns2:para>tubame-plugins103/tubame.knowhow-1.0.3v201407310542
+</ns2:para>
                         </ns2:listitem>
                     </ns2:itemizedlist>
                 </ns2:section>
@@ -364,38 +432,44 @@
                     <ns2:title>body</ns2:title>
                 </ns2:info>
                 <ns2:section>
-                    <ns2:para>QuickStartは以下より参照可能です</ns2:para>
+                    <ns2:para>各ツールのインストール方法および利用方法は以下に記載されています。</ns2:para>
                     <ns2:itemizedlist>
                         <ns2:listitem>
-                            <ns2:para>ナレッジベース検索ツール</ns2:para>
-                            <ns2:para>http://tubame.github.io/migration-tool/portability_ja.html
-				</ns2:para>
+                            <ns2:para>
+<ns2:command ns3:href="http://tubame.github.io/migration-tool/portability_ja.html">ナレッジベース検索ツール</ns2:command>
+</ns2:para>
                         </ns2:listitem>
                         <ns2:listitem>
-                            <ns2:para>依存性検索ツール</ns2:para>
-                            <ns2:para>http://tubame.github.io/migration-tool/wsearch_ja.html
-				</ns2:para>
+                            <ns2:para>
+<ns2:command ns3:href="http://tubame.github.io/migration-tool/wsearch_ja.html">依存性検索ツール</ns2:command>
+</ns2:para>
                         </ns2:listitem>
                         <ns2:listitem>
-                            <ns2:para>ナレッジ管理ツール</ns2:para>
-                            <ns2:para>http://tubame.github.io/migration-tool/knowhow_ja.html
-				</ns2:para>
-                            <ns2:warning>
-<ns2:para>ナレッジについては、皆様からもマイグレーションナレッジを募集しています。ナレッジをTUBAMEコミュニティへ投稿する方法は以下をご確認ください。
-					</ns2:para>
-<ns2:itemizedlist>
-    <ns2:listitem>
-        <ns2:para>ナレッジ管理ツールによるTUBAMEコミュニティへのナレッジ投稿方法</ns2:para>
-        <ns2:para>http://tubame.github.io/user-knowledge/post_knowledge.html
-							</ns2:para>
-    </ns2:listitem>
-</ns2:itemizedlist>
-                            </ns2:warning>
+                            <ns2:para>
+<ns2:command ns3:href="http://tubame.github.io/migration-tool/knowhow_ja.html">ナレッジ管理ツール</ns2:command>
+</ns2:para>
                         </ns2:listitem>
                     </ns2:itemizedlist>
                     <ns2:note>
-                        <ns2:para>レポート生成機能については以下をご確認ください</ns2:para>
-                        <ns2:para>http://tubame.github.io/migration-tool/reportgen_ja.html</ns2:para>
+                        <ns2:para>マイグレーションナレッジについては、皆様からの投稿も募集しております。ナレッジをTUBAMEコミュニティへ投稿する方法は以下をご確認ください。
+</ns2:para>
+                        <ns2:itemizedlist>
+                            <ns2:listitem>
+<ns2:para>
+<ns2:command ns3:href="http://tubame.github.io/user-knowledge/post_knowledge.html">ナレッジ管理ツールによるTUBAMEコミュニティへのナレッジ投稿方法</ns2:command>
+</ns2:para>
+                            </ns2:listitem>
+                        </ns2:itemizedlist>
+                    </ns2:note>
+                    <ns2:note>
+                        <ns2:para>レポート生成機能（Ver1.3.0より追加）については以下をご確認ください。</ns2:para>
+                        <ns2:itemizedlist>
+                            <ns2:listitem>
+<ns2:para>
+<ns2:command ns3:href="http://tubame.github.io/migration-tool/reportgen_ja.html">レポート生成機能</ns2:command>
+</ns2:para>
+                            </ns2:listitem>
+                        </ns2:itemizedlist>
                     </ns2:note>
                 </ns2:section>
             </ns2:article>
@@ -406,13 +480,10 @@
                     <ns2:title>body</ns2:title>
                 </ns2:info>
                 <ns2:section>
-                    <ns2:itemizedlist>
-                        <ns2:listitem>
-                            <ns2:para>ユーザフォーラム</ns2:para>
-                            <ns2:para>https://groups.google.com/d/forum/tubame-users
-				</ns2:para>
-                        </ns2:listitem>
-                    </ns2:itemizedlist>
+                    <ns2:para>
+<ns2:command ns3:href="https://groups.google.com/d/forum/tubame-users">https://groups.google.com/d/forum/tubame-users
+</ns2:command>
+</ns2:para>
                 </ns2:section>
             </ns2:article>
         </DocBook>
@@ -422,13 +493,10 @@
                     <ns2:title>body</ns2:title>
                 </ns2:info>
                 <ns2:section>
-                    <ns2:itemizedlist>
-                        <ns2:listitem>
-                            <ns2:para>開発プロジェクト</ns2:para>
-                            <ns2:para>https://github.com/TUBAME/migration-tool
-				</ns2:para>
-                        </ns2:listitem>
-                    </ns2:itemizedlist>
+                    <ns2:para>
+<ns2:command ns3:href="https://github.com/TUBAME/migration-tool">https://github.com/TUBAME/migration-tool
+</ns2:command>
+</ns2:para>
                 </ns2:section>
             </ns2:article>
         </DocBook>
