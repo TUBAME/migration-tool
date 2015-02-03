@@ -101,7 +101,11 @@ public class Activator extends AbstractUIPlugin {
         	String jbmstModuleZipPath = getJbmstModuleZipPath();
         	File file = new File(jbmstModuleZipPath);
         	FileUtil.unzip(file,file.getParentFile());
-        	
+        	File jbmstExe = new File(getJbmstModulePath());
+        	if(jbmstExe.exists()){
+        		//linux,macでの実行できるように
+        		jbmstExe.setExecutable(true, true);
+        	}
         }
         // Bundling
         CmnJbmToolsLoggingUtil.configureLoggerForPlugin(PLUGIN_ID, Activator

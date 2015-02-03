@@ -144,7 +144,7 @@ public class ApplicationPropertyUtil extends NLS {
 	
 	public static String LINUX_PYTHON_SEARCH_MODULE_ZIP;
 	
-	
+	public static String LANG;
 	
 
     static {
