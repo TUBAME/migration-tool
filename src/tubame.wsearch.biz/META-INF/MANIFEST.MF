@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1420521643365
-Build-Jdk: 1.8.0_25
-Built-By: kwatanabe
+Bnd-LastModified: 1423129631741
+Build-Jdk: 1.7.0_71
+Built-By: n-kyou
 Bundle-ManifestVersion: 2
 Bundle-Name: tubame-wsearch-biz
 Bundle-SymbolicName: tubame.wsearch-biz
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.4.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
 Embed-Dependency: *;scope=compile|runtime;inline=true;artifactId=!slf4j-
  api

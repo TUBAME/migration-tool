@@ -19,6 +19,30 @@
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>install</id>
+						<phase>install</phase>
+						<configuration>
+							<target>
+								<property name="parent_path" value="${basedir}/.." />
+								<copy
+									file="${basedir}/target/${project.artifactId}-${project.version}.jar"
+									tofile="${parent_path}/plugins/${project.artifactId}-${project.version}.zip"
+									overwrite="true" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
