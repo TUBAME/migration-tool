@@ -24,6 +24,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
 import java.text.MessageFormat;
 import java.util.regex.Pattern;
 
@@ -35,6 +36,7 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -68,6 +70,9 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 	 * Screen the Wizard uses
 	 */
 	private final ReportGenDirSelectionPage reportGenDirSelectionPage;
+	
+	
+	 private File showHtmlUrl;
 
 	/**
 	 * Get the title of the screen.<br/>
@@ -148,6 +153,11 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 //					.getFileFullPath(reportGenDirSelectionPage.getTargetText());
 			
 			String target = reportGenDirSelectionPage.getSearchTargetDirPath();
+			
+			String reportDir = target + File.separator + "tubame-report";
+			if(new File(reportDir).exists()){
+				removeDir(reportDir,true);
+			}
 			existCheckListInformationForReportGen(target);
 			
 			// Search process
@@ -178,9 +188,23 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 				// PluginUtil.openEditor(
 				// jbmSearchSelectionPage.getOutJbmFileText(),
 				// PluginUtil.getSearchEditorId());
+				
+				setShowHtmlURL(reportGenDirSelectionPage.getOutputFullPath());
+				
 				LOGGER.info(String.format(MessageUtil.LOG_INFO_PROC_END,
 						MessageUtil.LOG_INFO_PROC_NAME_REPORTGEN));
 				PluginUtil.viewInfoDialog(getDialogTitle(), getRunComplete());
+				
+
+				if(showHtmlUrl!=null){
+					String projectOutputPath = this.reportGenDirSelectionPage.getOutSourceFolderText() + File.separator + "tubame-report";
+					
+					if(PluginUtil.viewQuestionDialog(getDialogTitle(),
+							projectOutputPath + MessageUtil.CONFIRM_RERPORT_SHOW_BROWSER)){
+						PlatformUI.getWorkbench().getBrowserSupport().getExternalBrowser().openURL(showHtmlUrl.toURI().toURL());	
+					}
+				}
+				 
 			} else {
 				LOGGER.info(String.format(MessageUtil.LOG_INFO_PROC_END_P,
 						MessageUtil.LOG_INFO_PROC_NAME_REPORTGEN,
@@ -298,10 +322,12 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 		if(tubameReportDir.exists()){
 			removeDir(tubameReportDir.getAbsolutePath(),true);
 		}
-		
 		FileVisitor.walkFileTree(new File(reportGenerationPath), new FileVisitor() {
+			
+			final 
             @Override
             public FileVisitResult visitFile(File file) throws IOException {
+
             	String relative = getRelative(reportGenerationPath, file);
             	LOGGER.info("copy to:"+tubameReportDirFullPath+ relative);
             	FileUtil.copyFile(file, new File(tubameReportDirFullPath+ relative));
@@ -325,6 +351,28 @@ public class ReportGenWizard extends Wizard implements INewWizard {
         });		
 	}
 	
+	private void setShowHtmlURL(String target) throws IOException {
+		showHtmlUrl = null;
+		File tubameReportDir = new File(target + File.separator +"tubame-report");
+		FileVisitor.walkFileTree(tubameReportDir, new FileVisitor() {
+
+			@Override
+            public FileVisitResult visitFile(File file) throws IOException {
+            	if(file.getName().endsWith(ApplicationPropertyUtil.LANG+".html")){
+            		showHtmlUrl = file;
+            	}
+                return FileVisitResult.CONTINUE;
+            }
+
+            @Override
+            public FileVisitResult preVisitDirectory(File dir)
+                    throws IOException {
+                return FileVisitResult.CONTINUE;
+            }
+            
+        });
+		
+	}
 	
 	private void existCheckListInformationForReportGen(String inputDir) throws IOException {
 			FileVisitor.walkFileTree(new File(inputDir), new FileVisitor() {

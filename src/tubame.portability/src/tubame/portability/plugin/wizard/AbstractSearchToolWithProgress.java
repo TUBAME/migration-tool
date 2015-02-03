@@ -26,6 +26,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -43,6 +44,7 @@ import tubame.portability.util.CsvUtil;
 import tubame.portability.util.FileUtil;
 import tubame.portability.util.PythonUtil;
 import tubame.portability.util.StringUtil;
+import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
 import tubame.portability.util.resource.ResourceUtil;
 
@@ -147,7 +149,8 @@ public abstract class AbstractSearchToolWithProgress implements
     /**
      * {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings("null")
+	@Override
     public void run(IProgressMonitor monitor) throws InvocationTargetException,
             InterruptedException {
         isFileOut = false;
@@ -172,6 +175,9 @@ public abstract class AbstractSearchToolWithProgress implements
             // Validation is done,
             // I will that there is no vulnerability also this item.
             ProcessBuilder builder = null;
+            
+
+            
             if(Activator.isSupportPyPlatform()){
             	builder = createPlatformProcessBuilder(Activator.getJbmstModulePath(), inputKeywordFilePath, inputDirectory);
             }else{
@@ -180,7 +186,8 @@ public abstract class AbstractSearchToolWithProgress implements
                
             }
             builder.redirectErrorStream(true);
-
+            Map<String, String> environment = builder.environment();
+            environment.put("TUBAME_LANG",ApplicationPropertyUtil.LANG);
             // The run python
             process = builder.start();
             inputStream = process.getInputStream();

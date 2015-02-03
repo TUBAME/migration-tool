@@ -161,8 +161,7 @@ public class MessageUtil extends NLS {
 	public static String ITEM_COLLAPSE;
 	public static String ALL_EXPAND;
 	public static String ALL_COLLAPSE;
-	
-	
+	public static String CONFIRM_RERPORT_SHOW_BROWSER;
 	
     static {
         // initialize resource bundle

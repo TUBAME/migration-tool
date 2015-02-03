@@ -721,8 +721,8 @@ class KnowhowDegreeOfDifficultyHitCountSumCalclator(KnowhowMigrationItemCalclato
     
     def createResultMap(self,calReuslt):
         '''難易度別で集計する'''
-        sets = locale.getdefaultlocale()
-        if "ja" in sets[0]:
+        lang = getLang()
+        if "ja" in lang:
             resultMap = {u"低1":0,u"低2":0,u"中":0,u"高":0,u"不明1":0,u"不明2":0}
         else:
             resultMap = {"Low1":0,"Low2":0,"Middle":0,"High":0,"Unknown1":0,"Unknown2":0}
@@ -742,7 +742,7 @@ class KnowhowDegreeOfDifficultyHitCountSumCalclator(KnowhowMigrationItemCalclato
             if resultMap.has_key(degree):
                 resultMap[degree]= resultMap[degree] + getattr(result, "hitTotal")
         
-        if "ja" in sets[0]:
+        if "ja" in lang:
             return {"Low1":resultMap[u'低1'],"Low2":resultMap[u'低2'],"Middle":resultMap[u'中'],"High":resultMap[u'高'],"Unknown1":resultMap[u'不明1'],"Unknown2":resultMap[u'不明2']}
         return resultMap
 
@@ -810,8 +810,8 @@ class FrameworkKnowhowFactorHitCountSumCalclator(KnowhowMigrationItemCalclator):
 #            
     def createResultMap(self,calReuslt):
         '''難易度別で集計する'''
-        sets = locale.getdefaultlocale()
-        if "ja" in sets[0]:
+        lang = getLang()
+        if "ja" in lang:
             resultMap = {u"MVCフレームワーク(Model機能)":0,u"MVCフレームワーク(Controller機能)":0,u"MVCフレームワーク(View機能)":0,u"MVCフレームワーク独自機能(上位互換なし)":0,u"MVCフレームワーク独自機能(上位互換あり)":0}
         else:
             resultMap = {"MVCFramework(Model)":0,"MVCFramework(Controller)":0,"MVCFramework(View)":0,"MVCFrameworkSpecific(BackwardCompati)":0,"MVCFrameworkSpecific(NonBackwardCompati)":0}
@@ -826,7 +826,7 @@ class FrameworkKnowhowFactorHitCountSumCalclator(KnowhowMigrationItemCalclator):
                     continue
             if resultMap.has_key(factor):
                 resultMap[factor]= resultMap[factor] + getattr(result, "hitTotal")
-        if "ja" in sets[0]:
+        if "ja" in lang:
             return {"MVCFramework_Model":resultMap[u'MVCフレームワーク(Model機能)'],"MVCFramework_Controller":resultMap[u'MVCフレームワーク(Controller機能)'],"MVCFramework_View":resultMap[u'MVCフレームワーク(View機能)'],"MVCFrameworkSpecific_BackwardCompati":resultMap[u'MVCフレームワーク独自機能(上位互換あり)'],"MVCFrameworkSpecific_NonBackwardCompati":resultMap[u'MVCフレームワーク独自機能(上位互換なし)']}
         else:
             return {"MVCFramework_Model":resultMap['MVCFramework(Model)'],"MVCFramework_Controller":resultMap['MVCFramework(Controller)'],"MVCFramework_View":resultMap['MVCFramework(View)'],"MVCFrameworkSpecific_BackwardCompati":resultMap['MVCFrameworkSpecific(BackwardCompati)'],"MVCFrameworkSpecific_NonBackwardCompati":resultMap['MVCFrameworkSpecific(NonBackwardCompati)']}
@@ -1230,6 +1230,18 @@ def removeOtherReport(templateType,outputdir):
 def getPluginReportDir():
     base = os.path.dirname(os.path.abspath(__file__))
     return os.path.normpath(os.path.join(base, "../../../report/"))
+
+
+def getLang(LANG="en"):
+	#mac環境(mac 10.6.8)で実行するとlocale.getdefaultlocal()[0]がNoneになる
+	if locale.getdefaultlocale()[0] != None:
+		return locale.getdefaultlocale()[0]
+ 	elif os.environ.get('LANG') !=None:
+ 		return os.environ.get('LANG')
+ 	elif os.environ.get('TUBAME_LANG') !=None:
+ 		return os.environ.get('TUBAME_LANG')
+ 	return LANG
+			
                         
 """
 ・TUBAMEレポート出力を行う。
@@ -1277,8 +1289,8 @@ def ext_search(pNo, pPriority, pFlag, pList, pGenTargetDir, pRules, pInputCsv, p
     else:
         pDependPackageGroupingRules = []
     
-    sets = locale.getdefaultlocale()
-    if "ja" in sets[0]:
+    lang = getLang()
+    if "ja" in lang:
         condtions1 = "High:f10=高;Middle:f10=中;Low1:f10=低1;Low2:f10=低2;Unknown1:f10=不明1;Unknown2:f10=不明2"
         condtions2 = "WeblogicSpecChange:f9=Weblogic 固有;ApServerDependsChange:f9=AP サーバ固有;ApServerDependsDepricatedChange:f9=AP サーバ仕様の変更;JavaEESpecChange:f9=JSP/Servlet 仕様の変更;JavaVersionUpgradeChange:f9=Java バージョンアップによる変更;APlibrary:f9=AP 使用ライブラリ;DBMSChange:f9=DBMS の変更"
         condtions3 = "mvcFrameworkM:f9=MVCフレームワーク(Model機能);mvcFrameworkC:f9=MVCフレームワーク(Controller機能);mvcFrameworkV:f9=MVCフレームワーク(View機能);mvcFrameworkSpecificNonBackwardCompati:f9=MVCフレームワーク独自機能(上位互換なし);mvcFrameworkSpecificBackwardCompati:f9=MVCフレームワーク独自機能(上位互換あり)"
@@ -1325,9 +1337,7 @@ def ext_search(pNo, pPriority, pFlag, pList, pGenTargetDir, pRules, pInputCsv, p
     calcators = filterCalcators(templateType,calcators)
     #getresultの親ディレクトリが存在する場合は、削除する。
     deleteJsParentDir(calcators)
-    
     global g_targetFilePath
-    
     #検索対象ファイルリスト中の全ファイルを対象とする
     for fname in pList:
         ext = common_module.getExtension(fname)
@@ -1335,7 +1345,6 @@ def ext_search(pNo, pPriority, pFlag, pList, pGenTargetDir, pRules, pInputCsv, p
             rsl_list.append(1)
             common_module.print_csv(pNo, pPriority, pFlag, fname, [1], pChapterNo, pCheck_Status)
             g_targetFilePath = fname
-
             for calcator in calcators:
                 if ext=="jbm" and  not "Knowhow" in calcator.get('calclator'):
                     continue
@@ -1349,9 +1358,8 @@ def ext_search(pNo, pPriority, pFlag, pList, pGenTargetDir, pRules, pInputCsv, p
                     if calcator.get('execCreateResultMap'):
                         results = calcator_instance.createResultMap(results)
                     calcator_instance.jswriter.save(results)
-    #if len(rsl_list) == 0:
-    #        common_module.print_csv4(pNo, pPriority, pFlag,common_module.searchTarget , pChapterNo, pCheck_Status)
-            
+    if len(rsl_list) == 0:
+    	pass
     else:
         if pGenTargetDir == "":
             base = os.path.dirname(os.path.abspath(__file__))
