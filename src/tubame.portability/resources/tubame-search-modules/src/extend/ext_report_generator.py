@@ -102,6 +102,7 @@ class ResultJsWriter(object):
         f.close()
             
     def save(self,input):
+        lang = getLang()
         self.makeDir(self.JS_BASE_DIR+self.dirname)
         RESULT_JS_TPL1='''
         (function($) {
@@ -144,8 +145,8 @@ class ResultJsWriter(object):
         #要因別棒グラフ For Knowhow
         elif self.dirname.startswith("KnowhowFactorGraphSumCalclator"):
             num1, num2,num3 = input.get('JavaEESpecChange',0)+input.get('JavaVersionUpgradeChange',0)+input.get('APlibrary',0)+input.get('DBMSChange',0),input.get('ApServerDependsDepricatedChange',0),input.get('WeblogicSpecChange',0)+input.get('ApServerDependsChange',0)
-            
-            if "ja" in locale.getdefaultlocale()[0]:
+            lang = getLang() 
+            if "ja" in lang:
                 result_tpl ='''[{"data": [[0, 0],[0, %s],[1, %s]], "label": "JavaSE/JavaEEバージョンアップに伴う修正"}, {"data": [[0, %s],[1, %s]], "label": "APサーバ非推奨機能に関する修正"}, {"data": [[1, %s]], "label": "APサーバ固有機能に関する修正"}]'''
                  
             else:
@@ -158,7 +159,7 @@ class ResultJsWriter(object):
             
             num1, num2,num3 ,num4, num5 = input.get('mvcFrameworkM',0),input.get('mvcFrameworkV',0),input.get('mvcFrameworkC',0),input.get('mvcFrameworkSpecificNonBackwardCompati',0),input.get('mvcFrameworkSpecificBackwardCompati',0)
             
-            if "ja" in locale.getdefaultlocale()[0]:
+            if "ja" in lang:
                 result_tpl ='''[{"data": [[0, 0],[0, %s],[1, %s]], "label": "Model機能にともなう修正"}, {"data": [[0, %s],[1, %s]], "label": "View機能にともなう修正"}, {"data": [[0, %s],[1, %s]], "label": "Controller機能にともなう修正"},{"data": [[0, %s],[1, %s]], "label": "MVCフレーム独自機能(上位互換なし)の修正"},{"data": [[1, %s]], "label": "MVCフレーム独自機能(上位互換あり)の修正"}]'''
             else:
                 result_tpl ='''[{"data": [[0, 0],[0, %s],[1, %s]], "label": "Migration Items related to porting of Model function"}, {"data": [[0, %s],[1, %s]], "label": "Migration Items  related to porting of View function"}, {"data": [[0, %s],[1, %s]], "label": "Migration Items  related to porting of Controller function"},{"data": [[0, %s],[1, %s]], "label": "Specific features of the MVC framework(Non-Backward-Compatible)"},{"data": [[1, %s]], "label": "Specific features of the MVC framework(Backward-Compatible)"}]'''
@@ -168,7 +169,7 @@ class ResultJsWriter(object):
         
         elif self.dirname.startswith("StrutsFrameworkKnowhowFactorGraphSumCalclator"):
             num1, num2,num3 ,num4, num5 = input.get('mvcFrameworkM',0),input.get('mvcFrameworkV',0),input.get('mvcFrameworkC',0),input.get('mvcFrameworkSpecificNonBackwardCompati',0),input.get('mvcFrameworkSpecificBackwardCompati',0)
-            if "ja" in locale.getdefaultlocale()[0]:
+            if "ja" in lang:
                 result_tpl ='''[{"data": [[0, 0],[0, %s],[1, %s]], "label": "Model機能にともなう修正"}, {"data": [[0, %s],[1, %s]], "label": "View機能にともなう修正"}, {"data": [[0, %s],[1, %s]], "label": "Controller機能にともなう修正"},{"data": [[0, %s],[1, %s]], "label": "MVCフレーム独自機能(上位互換なし)の修正"},{"data": [[1, %s]], "label": "MVCフレーム独自機能(上位互換あり)の修正"}]'''
             else:
                 result_tpl ='''[{"data": [[0, 0],[0, %s],[1, %s]], "label": "Migration Items related to porting of Model function"}, {"data": [[0, %s],[1, %s]], "label": "Migration Items  related to porting of View function"}, {"data": [[0, %s],[1, %s]], "label": "Migration Items  related to porting of Controller function"},{"data": [[0, %s],[1, %s]], "label": "Specific features of the MVC framework(Non-Backward-Compatible)"},{"data": [[1, %s]], "label": "Specific features of the MVC framework(Backward-Compatible)"}]'''
@@ -763,7 +764,7 @@ class ApServerKnowhowFactorHitCountSumCalclator(KnowhowMigrationItemCalclator):
     def createResultMap(self,calReuslt):
         '''要因別で集計する'''
         resultMap = {"javaAndJavaEESpecChange":0,"ApServerDepricatedChange":0,"ApServerSpecficChange":0}
-        langval = locale.getdefaultlocale()[0]
+        langval = getLang()
         for result in calReuslt:
             factor = getattr(result, "portabilityFactor")
             if "ja" in langval:
@@ -1232,7 +1233,7 @@ def getPluginReportDir():
     return os.path.normpath(os.path.join(base, "../../../report/"))
 
 
-def getLang(LANG="en"):
+def getLang(LANG="ja"):
 	#mac環境(mac 10.6.8)で実行するとlocale.getdefaultlocal()[0]がNoneになる
 	if locale.getdefaultlocale()[0] != None:
 		return locale.getdefaultlocale()[0]
