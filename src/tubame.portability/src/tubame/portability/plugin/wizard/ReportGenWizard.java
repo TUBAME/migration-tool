@@ -40,8 +40,10 @@ import org.eclipse.ui.PlatformUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import tubame.portability.Activator;
 import tubame.portability.logic.search.ReportGenSearchToolWithProgress;
 import tubame.portability.model.ReportTemplateType;
+import tubame.portability.plugin.preferences.MigrationGuidePreferencePage;
 import tubame.portability.util.FileUtil;
 import tubame.portability.util.FileVisitor;
 import tubame.portability.util.PluginUtil;
@@ -179,9 +181,8 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 				String reportGenerationPath = PythonUtil.getReportGenerationPath();
 				
 				// copy reportGenerationPath 
-				copyReport(reportGenerationPath,reportGenDirSelectionPage.getOutputFullPath());
-				// Refresh
-				PluginUtil.refreshWorkSpace(dialog.getProgressMonitor());
+				copyReport(reportGenerationPath,reportGenDirSelectionPage.getOutputFullPath() +File.separator +"tubame-report");
+
 				// // Open Perspective
 				// PluginUtil.openSeachPerspective();
 				// // Open the editor
@@ -193,7 +194,16 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 				
 				LOGGER.info(String.format(MessageUtil.LOG_INFO_PROC_END,
 						MessageUtil.LOG_INFO_PROC_NAME_REPORTGEN));
+				
+				
+				copyGuideToReport(reportDir);
+				
+				// Refresh
+				PluginUtil.refreshWorkSpace(dialog.getProgressMonitor());
+				
 				PluginUtil.viewInfoDialog(getDialogTitle(), getRunComplete());
+				
+				
 				
 
 				if(showHtmlUrl!=null){
@@ -252,6 +262,19 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 		// + StringUtil.LINE_SEPARATOR + e.getMessage(), e);
 		// return false;
 		// }
+
+	}
+
+	private void copyGuideToReport(String reportDir) throws IOException {
+		String guidePath = Activator.getPreferences(MigrationGuidePreferencePage.PREF_KEY_GUIDE_INDEX_PATH);
+		if(guidePath!=null){
+			String guildFolder = new File(guidePath).getParent();
+			File copyDestDir = new File(reportDir +File.separator + "guide");
+			if(!copyDestDir.exists()){
+				copyDestDir.mkdirs();
+			}
+			copyReport(guildFolder, reportDir +File.separator + "guide");
+		}
 
 	}
 
@@ -317,7 +340,7 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 
 	private void copyReport(final String reportGenerationPath, String target) throws IOException {
 		LOGGER.info("reportGenerationPath:"+reportGenerationPath);
-		File tubameReportDir = new File(target + File.separator +"tubame-report");
+		File tubameReportDir = new File(target);
 		final String tubameReportDirFullPath = tubameReportDir.getAbsolutePath();
 		if(tubameReportDir.exists()){
 			removeDir(tubameReportDir.getAbsolutePath(),true);
