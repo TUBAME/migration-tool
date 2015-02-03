@@ -957,6 +957,6 @@ public class PluginUtil {
 	}
 	
 	public static String getKnowledgeDir() throws IOException{
-		return new File(PluginUtil.getResolvedPluginDir()+ ApplicationPropertyUtil.KNOWLEDGE_DIR).toPath().toFile().getCanonicalPath();
+		return new File(PluginUtil.getResolvedPluginDir()+ ApplicationPropertyUtil.KNOWLEDGE_DIR).getCanonicalPath();
 	}
 }
