@@ -579,6 +579,10 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
                     getConfirmString())) {
                 setErrorMessage(getErrorFileUpdateConfirm());
                 return false;
+            }else{
+            	PluginUtil.closeEditor(FileUtil.getFile(getOutJbmFileText()).getPath());
+            	FileUtil.getFile(getOutJbmFileText()).delete();
+            	
             }
         }
         return true;

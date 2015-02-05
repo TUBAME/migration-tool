@@ -298,9 +298,10 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
 				}else if (result.equals(Status.OK_STATUS) && searchToolWithProgress.isFileOut()) {
 					// Open Perspective
 					try {
-						// PluginUtil.refreshWorkSpace(arg0);
+						
 						selectedJbmFile.getProject().refreshLocal(IResource.DEPTH_INFINITE, null);
 						PluginUtil.openSeachPerspective();
+						// Refresh
 						PluginUtil.openEditor(selectedJbmFile, PluginUtil.getSearchEditorId());
 						LOGGER.info(String.format(MessageUtil.LOG_INFO_PROC_END, MessageUtil.LOG_INFO_PROC_NAME_SEARCH));
 						PluginUtil.viewInfoDialog(getDialogTitle(), getRunComplete());
@@ -355,6 +356,7 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
 					bufferedWriter.flush();
 					bufferedWriter.close();
 				} catch (IOException e) {
+					LOGGER.error("createIgnoreFile error",e);
 					;
 				}
 			}
