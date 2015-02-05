@@ -18,8 +18,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.ui.dialogs,
  org.eclipse.ui.forms.editor
 Bundle-ClassPath: .,
- lib/tubame-common-1.0.0.jar,
- lib/tubame-knowhow-biz-1.0.0.jar,
- lib/xalan27.jar
- 
+ lib/xalan27.jar,
+ lib/tubame-common-1.0.4-SNAPSHOT.jar,
+ lib/tubame-knowhow-biz-1.0.4-SNAPSHOT.jar
 Bundle-Vendor: %plugin.provider
