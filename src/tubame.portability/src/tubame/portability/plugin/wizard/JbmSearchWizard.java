@@ -328,7 +328,7 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
 	private void createIgnoreFile(List<String> ignoreFileList) {
 		File parentFile = null;
 		try {
-			parentFile = new File(PythonUtil.getPythonSearchModulePath()).getParentFile();
+			parentFile = new File(Activator.getJbmstModulePath()).getParentFile();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 			return;
@@ -373,17 +373,26 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
 			public FileVisitResult visitFile(File file) throws IOException {
 				String targetFile = null;
 				if (isXml(file.getName())) {
+					targetFile = getRelative(searchTargetFile.getParentFile().getPath() + File.separator, file);
 					if (isCheckListInformation(file.getName())) {
-						targetFile = getRelative(searchTargetFile.getParentFile().getPath() + File.separator, file);
 						LOGGER.debug("ignore targetfile:" + targetFile);
 						ignoreList.add(targetFile);
 					} else if (FileUtil.isKnowHowXml(file)) {
-						targetFile = getRelative(searchTargetFile.getParentFile().getPath() + File.separator, file);
+						LOGGER.debug("ignore targetfile:" + targetFile);
+						ignoreList.add(targetFile);
+					} else if (isDocbookTemplate(file)){
 						LOGGER.debug("ignore targetfile:" + targetFile);
 						ignoreList.add(targetFile);
 					}
 				}
 				return super.visitFile(file);
+			}
+
+			private boolean isDocbookTemplate(File file) {
+				if(file.getName().startsWith("tmp_docbook") &&  file.getParentFile().getName().equals("work")){
+					return true;
+				}
+				return false;
 			}
 
 			private boolean isXml(String fileName) {
