@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry exported="true" kind="lib" path="lib/xalan27.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/tubame-knowhow-biz-1.0.0.jar" sourcepath="/tubame.knowhow.biz"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="lib/tubame-common-1.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/tubame-common-1.0.4-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/tubame-knowhow-biz-1.0.4-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
