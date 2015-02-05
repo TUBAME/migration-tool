@@ -15,19 +15,19 @@ public class SelectionItemExpandAndContractAction extends Action {
 		return expand;
 	}
 
-	public void setExpand(boolean expand) {
+	public void setLabel(boolean expand) {
 		if(expand){
 			this.setText(MessageUtil.ITEM_COLLAPSE);
 		}else{
 			this.setText(MessageUtil.ITEM_EXPAND);
 		}
-		this.expand = expand;
+		
 	}
 
 	private boolean expand;
 
 	public SelectionItemExpandAndContractAction(boolean expand) {
-		setExpand(expand);
+		setLabel(expand);
 	}
 
 	@Override
@@ -40,13 +40,15 @@ public class SelectionItemExpandAndContractAction extends Action {
 		for (TreeItem selectedItem : selectedItems) {
 			JbmEditorMigrationRow row = (JbmEditorMigrationRow) selectedItem.getData();
 			if (row.getLevel() == JbmEditorMigrationRow.LEVEL_FIRST) {
-				if (expand) {
-					//TODO:サブエレメントを強制的にexpandしたかったが、方法が不明.
+				
+				if (selectedItem.getExpanded()) {
 					selectedItem.setExpanded(false);
+					
 				} else {
-					//TODO:サブエレメントを強制的にexpandしたかったが、方法が不明.
-					treeViewer.setAutoExpandLevel(4);
+					selectedItem.setExpanded(true);
+//					//TODO:サブエレメントを強制的にexpandしたかったが、方法が不明.
 				}
+				row.setExpand(!row.isExpand());
 			}
 		}
 

@@ -107,7 +107,7 @@ public class JbmEditorPart extends AbstractJbmEditorPart {
 	/**
 	 * No column size
 	 */
-	private static final int NO_COLUMN_SIZE = 40;
+	private static final int NO_COLUMN_SIZE = 50;
 	/**
 	 * Line number size
 	 */
