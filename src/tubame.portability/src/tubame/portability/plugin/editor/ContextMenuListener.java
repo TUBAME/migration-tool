@@ -93,7 +93,9 @@ public class ContextMenuListener implements IMenuListener {
             JbmEditorMigrationRow row = (JbmEditorMigrationRow) selectedItem
                     .getData();
         	if (row.getLevel() == JbmEditorMigrationRow.LEVEL_FIRST) {
-        		selectionItemExpandAndContractAction.setExpand(row.isExpand());
+        		
+        		
+        		selectionItemExpandAndContractAction.setLabel(selectedItem.getExpanded());
         		
         		manager.add(selectionItemExpandAndContractAction);
         		manager.add(new Separator());

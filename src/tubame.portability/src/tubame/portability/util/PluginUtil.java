@@ -761,7 +761,7 @@ public class PluginUtil {
                         .getFile().getFullPath().toString();
                 // Close the editor If a file with the same name is already open
 
-                if (filePathReplacedBySlash.equals(openedFile)) {
+                if (filePathReplacedBySlash.endsWith((openedFile))) {
                     PluginUtil.getActiveWorkbenchWindow().getActivePage()
                             .closeEditor(editor.getEditor(false), false);
                 }
