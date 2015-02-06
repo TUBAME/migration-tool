@@ -1,0 +1,25 @@
+## Tool's files ignore ##
+
+# Java's ignore files #
+*.class
+*.jar
+*.war
+*.ear
+
+# Eclipse's ignore files #
+*.pydevproject
+bin/
+.settings/
+.project
+.classpath
+
+# Maven's ignore files #
+target/
+
+# Python's ignore files #
+*.py[cod]
+*.manifest
+*.spec
+jbmst/
+
+plugins/
