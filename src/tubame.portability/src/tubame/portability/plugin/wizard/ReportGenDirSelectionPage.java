@@ -21,6 +21,8 @@ package tubame.portability.plugin.wizard;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -187,6 +189,14 @@ public class ReportGenDirSelectionPage extends AbstractJbmSelectionPage {
         for (ReportTemplateType reportTemplateType : values) {
         	reportTemplateCombo.add(reportTemplateType.getValue());
 		}
+        
+        reportTemplateCombo.addModifyListener(new ModifyListener() {
+			
+			@Override
+			public void modifyText(ModifyEvent arg0) {
+				setPageComplete(textValidate());
+			}
+		});
         
     }
 
