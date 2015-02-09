@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1423026143913
-Build-Jdk: 1.7.0_45
-Built-By: kwatanabe
+Bnd-LastModified: 1423129630462
+Build-Jdk: 1.7.0_71
+Built-By: n-kyou
 Bundle-ManifestVersion: 2
 Bundle-Name: tubame-knowhow-biz
 Bundle-SymbolicName: tubame.knowhow-biz
@@ -160,23 +160,25 @@ Export-Package: java_cup.runtime;version="1.0.4.SNAPSHOT",javax.xml;vers
  uses:="org.xml.sax,org.xml.sax.helpers";version="1.0.4.SNAPSHOT",org.xm
  l.sax.helpers;uses:="org.xml.sax";version="1.0.4.SNAPSHOT",properties.k
  nowhow;version="1.0.4.SNAPSHOT",trax;version="1.0.4.SNAPSHOT",tubame.kn
- owhow.biz.exception;uses:="org.slf4j";version="1.0.4.SNAPSHOT",tubame.k
- nowhow.biz.logic;uses:="javax.xml.bind,org.docbook.ns.docbook,tubame.kn
- owhow.biz.exception,tubame.knowhow.biz.logic.converter,tubame.knowhow.b
- iz.logic.io,tubame.knowhow.biz.model.generated.knowhow,tubame.knowhow.b
- iz.model.generated.python";version="1.0.4.SNAPSHOT",tubame.knowhow.biz.
- logic.converter;uses:="tubame.knowhow.biz.model.generated.knowhow,tubam
+ owhow.biz;version="1.0.4.SNAPSHOT",tubame.knowhow.biz.exception;uses:="
+ org.slf4j";version="1.0.4.SNAPSHOT",tubame.knowhow.biz.logic;uses:="jav
+ ax.xml.bind,org.docbook.ns.docbook,tubame.knowhow.biz.exception,tubame.
+ knowhow.biz.logic.converter,tubame.knowhow.biz.logic.io,tubame.knowhow.
+ biz.model.generated.knowhow,tubame.knowhow.biz.model.generated.python";
+ version="1.0.4.SNAPSHOT",tubame.knowhow.biz.logic.converter;uses:="tuba
+ me.knowhow.biz.model.generated.knowhow,tubame.knowhow.biz.model.generat
+ ed.python";version="1.0.4.SNAPSHOT",tubame.knowhow.biz.logic.io;uses:="
+ javax.xml.parsers,org.docbook.ns.docbook,org.w3c.dom,org.xml.sax,tubame
+ .knowhow.biz.exception,tubame.knowhow.biz.model.generated.knowhow,tubam
  e.knowhow.biz.model.generated.python";version="1.0.4.SNAPSHOT",tubame.k
- nowhow.biz.logic.io;uses:="javax.xml.parsers,org.docbook.ns.docbook,org
- .w3c.dom,org.xml.sax,tubame.knowhow.biz.exception,tubame.knowhow.biz.mo
- del.generated.knowhow,tubame.knowhow.biz.model.generated.python";versio
- n="1.0.4.SNAPSHOT",tubame.knowhow.biz.model;version="1.0.4.SNAPSHOT",tu
- bame.knowhow.biz.model.generated.knowhow;uses:="javax.xml.bind.annotati
- on,org.docbook.ns.docbook";version="1.0.4.SNAPSHOT",tubame.knowhow.biz.
- model.generated.python;uses:="javax.xml.bind.annotation";version="1.0.4
- .SNAPSHOT",tubame.knowhow.biz.util;uses:="javax.xml.bind,javax.xml.vali
- dation,org.xml.sax";version="1.0.4.SNAPSHOT",tubame.knowhow.biz.util.re
- source;version="1.0.4.SNAPSHOT",xsd;version="1.0.4.SNAPSHOT"
+ nowhow.biz.model;version="1.0.4.SNAPSHOT",tubame.knowhow.biz.model.gene
+ rated;version="1.0.4.SNAPSHOT",tubame.knowhow.biz.model.generated.knowh
+ ow;uses:="javax.xml.bind.annotation,org.docbook.ns.docbook";version="1.
+ 0.4.SNAPSHOT",tubame.knowhow.biz.model.generated.python;uses:="javax.xm
+ l.bind.annotation";version="1.0.4.SNAPSHOT",tubame.knowhow.biz.util;use
+ s:="javax.xml.bind,javax.xml.validation,org.xml.sax";version="1.0.4.SNA
+ PSHOT",tubame.knowhow.biz.util.resource;version="1.0.4.SNAPSHOT",xsd;ve
+ rsion="1.0.4.SNAPSHOT"
 Import-Package: javax.naming,javax.swing,javax.swing.border,javax.swing.
  event,javax.swing.text,javax.xml.bind,javax.xml.bind.annotation,javax.x
  ml.bind.annotation.adapters,org.apache.xerces.parsers,org.apache.xml.se
