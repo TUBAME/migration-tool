@@ -186,7 +186,10 @@ for tempRow in tempCSVLine:
             try :
                 ext_search_module.ext_search(no,priority,flag,target_list,search_str1,search_str2,input_csv_file,search_dir,chapter_no,check_Status)
             except Exception, inst:
-                errorFilePath = ext_search_module.getErrorFilePath()
+                try:
+                    errorFilePath = ext_search_module.getErrorFilePath()
+                except NameError:
+                    errorFilePath = "None"
                 error = inst
                 raise Exception, 'Failed search (line %d): %s r\n%s' % (count,input_csv_file, error)
             continue
