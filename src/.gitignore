@@ -19,7 +19,6 @@ target/
 # Python's ignore files #
 *.py[cod]
 *.manifest
-*.spec
 jbmst/
 
 plugins/
