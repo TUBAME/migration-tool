@@ -30,6 +30,7 @@ import tubame.portability.model.JbmEditorMigrationRow;
 import tubame.portability.plugin.action.ConfirmItemChangeActionFactory;
 import tubame.portability.plugin.action.AllItemExpandAndCollapseAction;
 import tubame.portability.plugin.action.SelectionItemExpandAndContractAction;
+import tubame.portability.plugin.action.ShowCodeViewerAction;
 import tubame.portability.util.resource.MessageUtil;
 
 /**
@@ -47,12 +48,13 @@ public class ContextMenuListener implements IMenuListener {
      */
     private final MigrationEditorOperation editor;
     
-    
     private final AllItemExpandAndCollapseAction allExpandtAction = new AllItemExpandAndCollapseAction(MessageUtil.ALL_EXPAND,true);
     
     private final AllItemExpandAndCollapseAction allContractAction = new AllItemExpandAndCollapseAction(MessageUtil.ALL_COLLAPSE,false);
     
     private final SelectionItemExpandAndContractAction selectionItemExpandAndContractAction = new SelectionItemExpandAndContractAction(true);
+    
+    private final ShowCodeViewerAction tubameCodeViewShowAction = new ShowCodeViewerAction();
 
     /**
      * Constructor.<br/>
@@ -80,11 +82,27 @@ public class ContextMenuListener implements IMenuListener {
             ViewerCell cell = this.editor.getTreeViewer().getCell(point);
             if(cell != null && cell.getColumnIndex()==0){
             	expandAndContractActionToMenu(manager, this.editor.getTreeViewer(), point);
+            }else if (cell != null && cell.getColumnIndex()!=11 && cell.getColumnIndex()!=12){
+            	tubameCodeViewShowActionToMenu(manager, this.editor.getTreeViewer(), point);
             }
         }
     }
     
-    void expandAndContractActionToMenu(IMenuManager manager,TreeViewer viewer,
+    private void tubameCodeViewShowActionToMenu(IMenuManager manager, TreeViewer treeViewer, Point point) {
+        // Get the selected row
+        TreeItem[] selectedItems = treeViewer.getTree().getSelection();
+
+        for (TreeItem selectedItem : selectedItems) {
+            JbmEditorMigrationRow row = (JbmEditorMigrationRow) selectedItem
+                    .getData();
+        	if (row.getLevel() == JbmEditorMigrationRow.LEVEL_THIRD) {
+        		manager.add(tubameCodeViewShowAction);
+            }
+        }
+		
+	}
+
+	void expandAndContractActionToMenu(IMenuManager manager,TreeViewer viewer,
             Point mousePoint){
         // Get the selected row
         TreeItem[] selectedItems = viewer.getTree().getSelection();
@@ -93,16 +111,11 @@ public class ContextMenuListener implements IMenuListener {
             JbmEditorMigrationRow row = (JbmEditorMigrationRow) selectedItem
                     .getData();
         	if (row.getLevel() == JbmEditorMigrationRow.LEVEL_FIRST) {
-        		
-        		
         		selectionItemExpandAndContractAction.setLabel(selectedItem.getExpanded());
-        		
         		manager.add(selectionItemExpandAndContractAction);
         		manager.add(new Separator());
         		manager.add(allExpandtAction);
         		manager.add(allContractAction);
-        		
-        		
             }
         }
 	}

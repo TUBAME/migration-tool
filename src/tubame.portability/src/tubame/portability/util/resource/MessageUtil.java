@@ -163,6 +163,10 @@ public class MessageUtil extends NLS {
 	public static String ALL_COLLAPSE;
 	public static String CONFIRM_RERPORT_SHOW_BROWSER;
 	
+	
+	public static String ERR_OPEN_CODE_VIEWER;
+
+	public static String MSG_OPEN_CODE_VIEWER;
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, MessageUtil.class);

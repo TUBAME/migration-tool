@@ -152,6 +152,8 @@ public class PluginUtil {
      */
     private static final String ERROR_LOG_VIEW_ID = "org.eclipse.pde.runtime.LogView"; //$NON-NLS-1$
 
+	private static final String SOURCE_CODE_VIEW_ID = "SourceCodeView";
+
     /**
      * Default constructor.<br/>
      * Disable the instance generation from other class.<br/>
@@ -959,4 +961,8 @@ public class PluginUtil {
 	public static String getKnowledgeDir() throws IOException{
 		return new File(PluginUtil.getResolvedPluginDir()+ ApplicationPropertyUtil.KNOWLEDGE_DIR).getCanonicalPath();
 	}
+	
+	public static String getSourceCodeViewId() {
+        return PluginUtil.SOURCE_CODE_VIEW_ID;
+    }
 }

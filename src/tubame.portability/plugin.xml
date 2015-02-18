@@ -33,6 +33,13 @@
 			class="tubame.portability.plugin.view.ConvertView"
 			category="tubame.portability.category" name="%view.ConvertView.name"
 			restorable="true" />
+  <view
+        category="tubame.portability.category"
+        class="tubame.portability.plugin.view.SourceCodeView"
+        id="SourceCodeView"
+        name="%view.SourceCodeView.name"
+        restorable="true">
+  </view>
 	</extension>
 
 	<!-- org.eclipse.ui.actionSets -->
