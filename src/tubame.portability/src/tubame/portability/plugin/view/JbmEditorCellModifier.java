@@ -108,20 +108,33 @@ public class JbmEditorCellModifier implements ICellModifier {
                         .getActiveEditor();
                 JbmEditorMigrationRow row = (JbmEditorMigrationRow) item
                         .getData();
+                boolean isUpdateStatus = false;
                 // Input value setting
                 if (property
                         .equals(ApplicationPropertyUtil.EDIT_COLUMN_LINENUM)) {
-                    modifyLineNumber(value, row);
+                	isUpdateStatus = isUpdateVal(value,row.getLineNumber());
+                	if(isUpdateStatus){
+                		modifyLineNumber(value, row);
+                	}
+                    
                 } else {
-                    modifyLineNumberContents(value, row);
+                	isUpdateStatus=isUpdateVal(value,row.getLineNumberContents());
+                	if(isUpdateStatus){
+                		modifyLineNumberContents(value, row);
+                	}
                 }
-                jbmEditorTreeViewer.refresh(row);
-                // Change notification
-                row.updateWriteData();
-                editor.setDirty(true);
+                if(isUpdateStatus){
+                    jbmEditorTreeViewer.refresh(row);
+                    // Change notification
+                    row.updateWriteData();
+                    editor.setDirty(true);
+                }
+
             }
         }
     }
+    
+    
 
     /**
      * Set the cell number of lines after editing.<br/>
@@ -196,5 +209,16 @@ public class JbmEditorCellModifier implements ICellModifier {
         } catch (NumberFormatException e) {
             return false;
         }
+    }
+    
+    
+    private boolean isUpdateVal(Object originaVal,Object updateVal){
+    	if (originaVal instanceof String) {
+			String originalValStr = (String) originaVal;
+			if(originalValStr.equals("")){
+				return false;
+			}
+		}
+    	return !originaVal.equals(updateVal);
     }
 }
