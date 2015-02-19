@@ -147,6 +147,17 @@ public class ApplicationPropertyUtil extends NLS {
 	public static String LANG;
 	
 
+	
+	public static String CODE_VIEWER_HTML;
+	
+	public static String CODE_VIEWER_READ_CHARSET;
+	
+	public static String CODE_VIEWER_WRITE_CHARSET;
+	
+	public static String CODE_VIEWER_TPL_DIR;
+	
+	public static String CODE_VIEWER_REC_BASE_LENGTH;
+
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, ApplicationPropertyUtil.class);

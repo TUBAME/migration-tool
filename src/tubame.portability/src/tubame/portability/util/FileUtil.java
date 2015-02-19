@@ -20,11 +20,15 @@ package tubame.portability.util;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.nio.channels.ClosedByInterruptException;
 import java.util.Enumeration;
@@ -344,6 +348,26 @@ public class FileUtil {
 			out.write(buffer, 0, readCount);
 		}
 	}
+	
+	
+	public static String getContent(File target)throws IOException {
+		String line = null;
+		BufferedReader br = null;
+		StringBuffer buffer = new StringBuffer();
+		try {
+			br = new BufferedReader(new InputStreamReader(new FileInputStream(target), "UTF-8"));
+			while( (line= br.readLine()) != null){
+				buffer.append(line);
+			}
+		} catch (IOException e) {
+			throw e;
+		}finally{
+			if(br!=null){
+				br.close();
+			}
+		}
+		return buffer.toString();
+	}
 
 	private static void copy(InputStream in, File file) throws IOException {
 		OutputStream out = new FileOutputStream(file);
@@ -353,4 +377,6 @@ public class FileUtil {
 			out.close();
 		}
 	}
+	
+
 }
