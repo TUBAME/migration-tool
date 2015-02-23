@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/tubame.feature_1.0.4.qualifier.jar" id="tubame.feature" version="1.0.4.qualifier"/>
+</site>
