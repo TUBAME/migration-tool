@@ -286,6 +286,13 @@ public class ReportGenDirSelectionPage extends AbstractJbmSelectionPage {
 		return resource.getLocation().toOSString();
 	}
 	
+	
+	public String getSearchTargetFullPath(){
+		return  this.resource.getLocation().toOSString();
+	}
+	
+	
+
 	public String getSearchTargetDirPath(){
 		return resource.getLocation().toOSString();
 	}
