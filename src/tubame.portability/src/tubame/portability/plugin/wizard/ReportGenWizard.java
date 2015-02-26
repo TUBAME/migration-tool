@@ -151,8 +151,7 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 			LOGGER.info(String.format(MessageUtil.LOG_INFO_PROC_START,
 					MessageUtil.LOG_INFO_PROC_NAME_REPORTGEN));
 
-			String target = PluginUtil
-					.getFileFullPath(reportGenDirSelectionPage.getTargetText());
+			String target = reportGenDirSelectionPage.getSearchTargetFullPath();
 			
 			String reportDir = reportGenDirSelectionPage.getOutputFullPath() + File.separator + "tubame-report";
 			if(new File(reportDir).exists()){
