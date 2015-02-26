@@ -40,6 +40,7 @@ import tubame.portability.exception.JbmException;
 import tubame.portability.exception.JbmException.ERROR_LEVEL;
 import tubame.portability.logic.CheckListInformationFactory;
 import tubame.portability.logic.JbmAccessFactory;
+import tubame.portability.plugin.preferences.PythonPreferencePage;
 import tubame.portability.util.CsvUtil;
 import tubame.portability.util.FileUtil;
 import tubame.portability.util.PythonUtil;
@@ -178,12 +179,11 @@ public abstract class AbstractSearchToolWithProgress implements
             
 
             
-            if(Activator.isSupportPyPlatform()){
+            if(!PythonPreferencePage.isPyUse() && Activator.isSupportPyPlatform()){
             	builder = createPlatformProcessBuilder(Activator.getJbmstModulePath(), inputKeywordFilePath, inputDirectory);
             }else{
                 builder = createProcessBuilder(getPythonExePath(),
                         getPythonModulePath(), inputKeywordFilePath, inputDirectory);
-               
             }
             builder.redirectErrorStream(true);
             Map<String, String> environment = builder.environment();
