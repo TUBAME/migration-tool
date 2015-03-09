@@ -20,9 +20,7 @@ package tubame.knowhow.plugin.ui.action;
 
 import java.lang.reflect.InvocationTargetException;
 
-import tubame.common.util.CmnFileUtil;
-import tubame.common.util.CmnStringUtil;
-
+import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.viewers.ISelection;
@@ -30,10 +28,11 @@ import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import tubame.common.util.CmnFileUtil;
 import tubame.knowhow.biz.exception.JbmException;
 import tubame.knowhow.biz.util.resource.ApplicationPropertiesUtil;
 import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
-
 import tubame.knowhow.plugin.logic.FileManagement;
 import tubame.knowhow.plugin.logic.FileManagement.XML_TYPE;
 import tubame.knowhow.plugin.ui.dialog.ConfirmDialog;
@@ -67,7 +66,8 @@ public class DocBookViewerMenuAction implements IEditorActionDelegate {
                 knowhowDetailFilePath)) {
             try {
                 String temporaryHtmlFilePath = getTemporaryHtmlFilePath(knowhowMultiPageEditor
-                        .getKnowhowDetailRelativeFilePath());
+                        .getKnowhowSelectionProject());
+                
                 // HTML save processing (Passing of XLS file)
                 ProgressMonitorDialog dialog = new ProgressMonitorDialog(
                         PluginUtil.getActiveWorkbenchShell());
@@ -102,29 +102,15 @@ public class DocBookViewerMenuAction implements IEditorActionDelegate {
                         .getMessage(MessagePropertiesUtil.LOG_OPEN_ECLIPSE_STANDARD_WEBBROWSER));
     }
 
-    /**
-     * Get the HTML file path of know-how detail.<br/>
-     * 
-     * @param knowhowDetailRelativeFilePath
-     *            know-how detail attachment relative path
-     * @return Know-how detailHTML file path (full path)
-     */
-    private String getTemporaryHtmlFilePath(String knowhowDetailRelativeFilePath) {
+    
+    private String getTemporaryHtmlFilePath(IProject project) {
         String temporaryHtmlFilePath = null;
-        if (CmnStringUtil.isEmpty(FileManagement.getDocBookHtmlTempFilePath())) {
-            String projcetPath = PluginUtil
-                    .getProject(knowhowDetailRelativeFilePath).getLocation()
-                    .toString();
-            temporaryHtmlFilePath = projcetPath
-                    + CmnFileUtil.FILE_SEPARATOR
-                    + ApplicationPropertiesUtil
-                            .getProperty(ApplicationPropertiesUtil.TEMPORARY_HTML_KNOWHOWDETAIL);
-            FileManagement.setDocBookHtmlTempFilePath(temporaryHtmlFilePath);
-        } else {
-            temporaryHtmlFilePath = FileManagement.getDocBookHtmlTempFilePath();
-        }
+        temporaryHtmlFilePath = project.getLocation().toOSString()
+                + CmnFileUtil.FILE_SEPARATOR 
+                + ApplicationPropertiesUtil
+                        .getProperty(ApplicationPropertiesUtil.TEMPORARY_HTML_KNOWHOWDETAIL);
+        FileManagement.setDocBookHtmlTempFilePath(temporaryHtmlFilePath);
         return temporaryHtmlFilePath;
-
     }
 
     /**

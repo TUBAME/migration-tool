@@ -73,6 +73,7 @@ public class CommencementPage extends WizardPage {
     protected CommencementPage(String pageName, IStructuredSelection selection) {
         super(pageName);
         this.selection = selection;
+        
     }
 
     /**

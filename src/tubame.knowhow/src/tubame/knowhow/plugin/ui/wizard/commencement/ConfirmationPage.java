@@ -19,16 +19,10 @@
 package tubame.knowhow.plugin.ui.wizard.commencement;
 
 import java.io.File;
-import java.io.IOException;
 
-import tubame.common.util.CmnFileUtil;
-import tubame.common.util.CmnStringUtil;
-
-import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TreeSelection;
@@ -42,12 +36,13 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+
+import tubame.common.util.CmnFileUtil;
+import tubame.common.util.CmnStringUtil;
 import tubame.knowhow.biz.exception.JbmException;
 import tubame.knowhow.biz.util.resource.ApplicationPropertiesUtil;
 import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
-
 import tubame.knowhow.plugin.ui.wizard.listener.BrowseFileButtonSelectionListener;
-import tubame.knowhow.util.PluginUtil;
 import tubame.knowhow.util.resource.ResourceUtil;
 
 /**
@@ -64,6 +59,7 @@ public class ConfirmationPage extends WizardPage {
     private String knowhowFileName;
     /** Import file */
     private File importFile;
+	private IProject selectionProject;
     /** Project name that is selected in the Package Explorer */
     private static String selectedProjectPath = CmnStringUtil.EMPTY;
 
@@ -177,6 +173,10 @@ public class ConfirmationPage extends WizardPage {
     public String outputFilePath() {
         return this.outputPlace.getText();
     }
+    
+    public String getOutputFilePathExcludeProjectName() {
+    	return this.outputPlace.getText().substring(this.selectionProject.getName().length()+ File.separator.length());
+    }
 
     /**
      * Generate IFile.<br/>
@@ -186,15 +186,16 @@ public class ConfirmationPage extends WizardPage {
      *             Jbm exception
      */
     protected IFile createNewFile() throws JbmException {
-        try {
-            IContainer container = ResourcesPlugin.getWorkspace().getRoot();
-            return PluginUtil.createIFile(container, outputFilePath(), true);
-        } catch (IOException e) {
-            throw new JbmException(
-                    MessagePropertiesUtil
-                            .getMessage(MessagePropertiesUtil.FAIL_CREATE_FILE),
-                    e);
-        }
+    	IFile file = this.selectionProject.getFile(this.getOutputFilePathExcludeProjectName());
+    	if(!file.exists()){
+    		try {
+    			file.getLocation().toFile().createNewFile();
+			} catch (Exception e) {
+				throw new JbmException(MessagePropertiesUtil.FAIL_CREATE_FILE,e);
+			}
+    	}
+    	return file;
+    		
     }
 
     /**
@@ -229,26 +230,33 @@ public class ConfirmationPage extends WizardPage {
             return;
         }
         Object type = ((TreeSelection) selection).getFirstElement();
-        String project = CmnStringUtil.EMPTY;
 
         // The selected object, in the case of projects that are open
         if (type instanceof IProject) {
-            if (PluginUtil.isProjectOpen(((IProject) type).getName())) {
-                project = ((IProject) type).getName();
+        	IProject tmpProject = (IProject) type;
+            if (tmpProject.isOpen()) {
+                selectionProject = (IProject) type;
             }
         }
+        String project = null;
         // For folders
         if (type instanceof IFolder) {
             project = ((IFolder) type).getProject().getName();
+            selectionProject = ((IFolder) type).getProject();
         }
         // If the file
         if (type instanceof IFile) {
             project = ((IFile) type).getProject().getName();
+            selectionProject = ((IFile) type).getProject();
         }
-        ConfirmationPage.selectedProjectPath = project;
+        ConfirmationPage.selectedProjectPath = selectionProject.getName();
     }
 
-    /**
+    public IProject getSelectionProject() {
+		return selectionProject;
+	}
+
+	/**
      * {@inheritDoc}
      */
     @Override

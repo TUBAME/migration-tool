@@ -303,6 +303,8 @@ public final class MessagePropertiesUtil {
     public static final String LOG_STOP_CONVERT_HTML = "logStopConvertHtml";
     
     public static final String JAXB_ERROR_EVENT_KNOWHOW_MARSHALL = "jaxbErrorEventKnowhowMarshall";
+    
+    public static final String ERR_OUTPUT_DIR_NOT_EXIST= "errorNotExistOutputDirectory";
 
     /** Resource bundle */
     private static ResourceBundle resourceBundle = null;
