@@ -18,17 +18,15 @@
  */
 package tubame.knowhow.plugin.ui.editor.multi;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.List;
-
-import javax.xml.bind.JAXBException;
-
-import tubame.common.util.CmnFileUtil;
-import tubame.common.util.CmnStringUtil;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
@@ -40,15 +38,15 @@ import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.part.FileEditorInput;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.xml.sax.SAXParseException;
 
+import tubame.common.util.CmnFileUtil;
+import tubame.common.util.CmnStringUtil;
 import tubame.knowhow.biz.exception.JbmException;
 import tubame.knowhow.biz.util.resource.ApplicationPropertiesUtil;
 import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
 import tubame.knowhow.plugin.logic.FileManagement;
 import tubame.knowhow.plugin.logic.KnowhowManagement;
 import tubame.knowhow.plugin.model.view.PortabilityKnowhowListViewData;
-import tubame.knowhow.plugin.model.view.PortabilityKnowhowListViewOperation;
 import tubame.knowhow.plugin.ui.dialog.ErrorDialog;
 import tubame.knowhow.plugin.ui.editor.multi.checkitem.CheckItemFieldsPage;
 import tubame.knowhow.plugin.ui.editor.multi.docbook.KnowhowDetailEditor;
@@ -57,8 +55,6 @@ import tubame.knowhow.plugin.ui.editor.multi.documentation.DocumentationFormPage
 import tubame.knowhow.plugin.ui.editor.multi.documentation.KnowhowEditorTreeViewer;
 import tubame.knowhow.plugin.ui.editor.multi.listener.KnowhowEditorPartListener;
 import tubame.knowhow.plugin.ui.view.KnowhowEntryCheckItemView;
-import tubame.knowhow.plugin.ui.view.KnowhowEntryView;
-import tubame.knowhow.util.FileUtil;
 import tubame.knowhow.util.PluginUtil;
 import tubame.knowhow.util.ViewUtil;
 import tubame.knowhow.util.resource.ResourceUtil;
@@ -87,7 +83,18 @@ public class MaintenanceKnowhowMultiPageEditor extends FormEditor implements Edi
 	private KnowhowDetailEditor knowhowDetailEditor;
 	/** Know-how detail cache file */
 	private String knowhowDetailTempFile;
+	
 	private boolean createdKnowhowEditor = false;
+	
+	private IProject knowhowSelectionProject;
+
+	public IProject getKnowhowSelectionProject() {
+		return knowhowSelectionProject;
+	}
+
+	public void setKnowhowSelectionProject(IProject knowhowSelectionProject) {
+		this.knowhowSelectionProject = knowhowSelectionProject;
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -181,10 +188,23 @@ public class MaintenanceKnowhowMultiPageEditor extends FormEditor implements Edi
 	 */
 	private void storageKnowhowDetailInputFile() throws IOException {
 		IFileEditorInput fileInput = (IFileEditorInput) super.getEditorInput();
-		IContainer container = ResourcesPlugin.getWorkspace().getRoot();
+		knowhowSelectionProject = fileInput.getFile().getProject();
 		String workDir = fileInput.getFile().getProject().getName()
 				+ ApplicationPropertiesUtil.getProperty(ApplicationPropertiesUtil.WORK_DIRECTORY);
-		FileUtil.createWorkDir(container, workDir);
+		
+		IFolder workFolder = knowhowSelectionProject.getFolder(ApplicationPropertiesUtil.getProperty(ApplicationPropertiesUtil.WORK_DIRECTORY));
+		if(!workFolder.exists()){
+			try {
+				workFolder.create(true,true,null);
+			} catch (CoreException e) {
+				throw new IOException(e);
+			}
+		}
+		
+		
+		//FileUtil.createWorkDir(container, workDir);
+		//knowhowDetailTempFileはproject名から始まるパスである。workspaceにimportしていない場合は、ただしくパスが取れないので、getKnowhowDetailTempFileメソッドで
+		//ただしく取れるように修正する
 		knowhowDetailTempFile = workDir
 				+ ApplicationPropertiesUtil.getProperty(ApplicationPropertiesUtil.DOCBOOK_TEMPORARY_PATH);
 	}
@@ -237,18 +257,33 @@ public class MaintenanceKnowhowMultiPageEditor extends FormEditor implements Edi
 	 *             IO exception
 	 */
 	private IFile createKnowhowDetailFile() throws IOException {
-		IContainer container = ResourcesPlugin.getWorkspace().getRoot();
 		// Get File information selected
 		storageKnowhowDetailInputFile();
+
 		if (knowhowDetailEditor.getKnowhowDetailType() != null) {
 			clearKnowhowDetail();
 		}
-		if (CmnFileUtil.fileExists(getKnowhowDetailTempFile())) {
-			return PluginUtil.createIFile(container, knowhowDetailTempFile, false);
-		}
-		IFile file = PluginUtil.createIFile(container, knowhowDetailTempFile, true);
+//		if (CmnFileUtil.fileExists(getKnowhowDetailTempFile())) {
+//			return PluginUtil.createIFile(container, knowhowDetailTempFile, false);
+//		}
+//		IFile file = PluginUtil.createIFile(container, knowhowDetailTempFile, true);
+		IFile file = createKnowhowDetailTempFileUseIProject();
 		PluginUtil.refreshWorkSpace();
 		return file;
+	}
+	
+	
+	private IFile createKnowhowDetailTempFileUseIProject() throws IOException{
+		String targetFile = ApplicationPropertiesUtil.getProperty(ApplicationPropertiesUtil.WORK_DIRECTORY)+ ApplicationPropertiesUtil.getProperty(ApplicationPropertiesUtil.DOCBOOK_TEMPORARY_PATH);
+		IFile file = this.knowhowSelectionProject.getFile(targetFile);
+		if(!file.exists()){
+			File genFile = file.getLocation().toFile();
+			if(!genFile.exists()){
+					genFile.createNewFile();
+			}
+		}
+		return file;
+		
 	}
 
 	/**
@@ -265,7 +300,7 @@ public class MaintenanceKnowhowMultiPageEditor extends FormEditor implements Edi
 			PluginUtil.getKnowhowEntryViewTreeViewer().refresh();
 			doSaveCheck();
 			try {
-				KnowhowManagement.unCheckWrite(fileLocationFullPath, PluginUtil.getKnowhowEntryViewTreeViewer()
+				KnowhowManagement.unCheckWrite(this.knowhowSelectionProject,fileLocationFullPath, PluginUtil.getKnowhowEntryViewTreeViewer()
 						.getInputEntry(), documentationFormPage.getTreeViewer().getInputEntry());
 				super.commitPages(true);
 				MaintenanceKnowhowMultiPageEditor.LOGGER.info(MessagePropertiesUtil
@@ -390,7 +425,11 @@ public class MaintenanceKnowhowMultiPageEditor extends FormEditor implements Edi
 	public void updateDocumentationFormPage() throws JbmException {
 		MaintenanceKnowhowMultiPageEditor.LOGGER.debug(CmnStringUtil.EMPTY);
 		this.getTreeViewerOperator().setEntryListData(documentationFormPage.createEntryOperation());
-		knowhowDetailEditor.update();
+		
+		if(this.getEditorInput()!=null){
+			knowhowDetailEditor.update();	
+		}
+//		knowhowDetailEditor.updatePartControl(this.getEditorInput());
 	}
 
 	/**
@@ -568,8 +607,15 @@ public class MaintenanceKnowhowMultiPageEditor extends FormEditor implements Edi
 	 */
 	public String getKnowhowDetailTempFile() {
 		MaintenanceKnowhowMultiPageEditor.LOGGER.debug(CmnStringUtil.EMPTY);
-		return PluginUtil.getFileFullPath(knowhowDetailTempFile);
+		return getKnowhowDetailTempIFile().getLocation().toOSString();
 	}
+	
+	public IFile getKnowhowDetailTempIFile() {
+		String target = ApplicationPropertiesUtil.getProperty(ApplicationPropertiesUtil.WORK_DIRECTORY) + File.separator +  
+		ApplicationPropertiesUtil.getProperty(ApplicationPropertiesUtil.DOCBOOK_TEMPORARY_PATH);
+		return this.knowhowSelectionProject.getFile(target);
+	}
+	
 
 	/**
 	 * Get the path relative to the project know-how of attachment.<br/>

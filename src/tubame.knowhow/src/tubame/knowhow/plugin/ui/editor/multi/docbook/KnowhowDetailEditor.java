@@ -20,6 +20,7 @@ package tubame.knowhow.plugin.ui.editor.multi.docbook;
 
 import tubame.common.util.CmnStringUtil;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.ui.IEditorInput;
@@ -28,9 +29,9 @@ import org.eclipse.ui.texteditor.IDocumentProviderExtension;
 import org.eclipse.wst.sse.ui.StructuredTextEditor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import tubame.knowhow.biz.exception.JbmException;
 import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
-
 import tubame.knowhow.plugin.logic.KnowhowManagement;
 import tubame.knowhow.plugin.model.view.KnowhowDetailType;
 import tubame.knowhow.plugin.ui.dialog.ErrorDialog;
@@ -201,5 +202,9 @@ public class KnowhowDetailEditor extends StructuredTextEditor {
             }
         }
         return false;
+    }
+    
+    public IProject selectionKnowhowProject(){
+    	return this.maintenanceKnowhowMultiPageEditor.getKnowhowSelectionProject();
     }
 }

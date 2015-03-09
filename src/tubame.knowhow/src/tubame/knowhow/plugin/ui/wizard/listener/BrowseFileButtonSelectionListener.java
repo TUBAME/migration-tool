@@ -18,12 +18,6 @@
  */
 package tubame.knowhow.plugin.ui.wizard.listener;
 
-import java.io.IOException;
-
-import tubame.common.util.CmnFileUtil;
-import tubame.common.util.CmnStringUtil;
-
-import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -39,9 +33,10 @@ import org.eclipse.ui.model.WorkbenchContentProvider;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tubame.knowhow.biz.exception.JbmException;
-import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
 
+import tubame.common.util.CmnFileUtil;
+import tubame.common.util.CmnStringUtil;
+import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
 import tubame.knowhow.plugin.ui.wizard.commencement.ConfirmationPage;
 import tubame.knowhow.util.PluginUtil;
 import tubame.knowhow.util.resource.ResourceUtil;
@@ -58,6 +53,8 @@ public class BrowseFileButtonSelectionListener implements SelectionListener {
     private Text outputPlace;
     /** Page */
     private ConfirmationPage page;
+    
+    
 
     /**
      * Constructor.<br/>
@@ -114,39 +111,23 @@ public class BrowseFileButtonSelectionListener implements SelectionListener {
      */
     private IFolder folderBrowse() {
         String filePath = page.outputFilePath();
+        String filePathExcludeProjectName = page.getOutputFilePathExcludeProjectName();
         if (CmnStringUtil.isEmpty(filePath)) {
             return null;
         }
         // Create dialog
-        ElementTreeSelectionDialog dialog = new ElementTreeSelectionDialog(
-                null, new WorkbenchLabelProvider(),
+        final ElementTreeSelectionDialog dialog = new ElementTreeSelectionDialog(
+                PluginUtil.getActiveWorkbenchShell(), new WorkbenchLabelProvider(),
                 new WorkbenchContentProvider());
 
         // Set the resources that are displayed in the dialog
-        IProject project = PluginUtil.getProject(filePath);
-        dialog.setInput(getDialogInput(project));
-        dialog.setMessage(getDialogMessage(project));
+//        IProject project = PluginUtil.getProject(filePath);
+//        this.page.getSelectionProject();
+        IProject selectionProject = this.page.getSelectionProject();
+        dialog.setInput(selectionProject);
+        dialog.setMessage(getDialogMessage( this.page.getSelectionProject()));
         dialog.setTitle(ResourceUtil.selectOutput);
         dialog.setHelpAvailable(false);
-
-        // Acquisition Check to see if the file has been entered in the text
-        // box, and if it is filled
-        if (!CmnStringUtil.isEmpty(filePath)) {
-            try {
-                IContainer container = ResourcesPlugin.getWorkspace().getRoot();
-                dialog.setInitialSelection(PluginUtil.createIFile(container,
-                        filePath, false));
-            } catch (IOException e) {
-                JbmException
-                        .outputExceptionLog(
-                                LOGGER,
-                                e,
-                                MessagePropertiesUtil
-                                        .getMessage(MessagePropertiesUtil.FAIL_CREATE_FILE));
-
-            }
-        }
-
         // Add ViewerFileter
         dialog.addFilter(new ViewerFilter() {
             /**
@@ -161,7 +142,7 @@ public class BrowseFileButtonSelectionListener implements SelectionListener {
                 return false;
             }
         });
-        dialog.getFirstResult();
+//        dialog.getFirstResult();
         // Open the dialog.
         if (dialog.open() == Window.OK) {
             Object result = dialog.getFirstResult();
@@ -169,6 +150,7 @@ public class BrowseFileButtonSelectionListener implements SelectionListener {
                 return (IFolder) result;
             }
         }
+       
         return null;
     }
 
@@ -183,7 +165,7 @@ public class BrowseFileButtonSelectionListener implements SelectionListener {
      */
     private IResource getDialogInput(IProject project) {
         if (project != null) {
-            return project;
+            return (IResource) project;
         } else {
             return (IResource) ResourcesPlugin.getWorkspace();
         }

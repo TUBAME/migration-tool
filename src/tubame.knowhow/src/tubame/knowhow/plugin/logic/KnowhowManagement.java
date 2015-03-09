@@ -18,6 +18,7 @@
  */
 package tubame.knowhow.plugin.logic;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
@@ -27,6 +28,8 @@ import org.docbook.ns.docbook.Info;
 import org.docbook.ns.docbook.Para;
 import org.docbook.ns.docbook.Section;
 import org.docbook.ns.docbook.Title;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.jobs.Job;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -147,9 +150,11 @@ public final class KnowhowManagement {
      * @throws JbmException
      *             If it fails the file write
      */
-    public static void unCheckWrite(String filePath,
+    public static void unCheckWrite(IProject selectionProject ,String filePath,
             List<PortabilityKnowhowListViewOperation> inputKnowhoEntry,
             List<EntryOperator> inputChapterEntry) throws JbmException {
+    	
+    	
         KnowhowManagement.LOGGER.debug(KnowhowManagement.LOGGER_FILEPATH
                 + filePath + "[inputKnowhoEntry]" + inputKnowhoEntry
                 + "[inputChapterEntry]" + inputChapterEntry);
@@ -160,11 +165,18 @@ public final class KnowhowManagement {
                 .getEntryToKnowhowXmlConvert().convertKnowhowEntry(
                         KnowhowManagement.subjectName, inputKnowhoEntry,
                         inputChapterEntry, knowhowDetailTypes);
-        PortabilityKnowhowFacade.write(filePath, portabilityKnowhow);
+        String filePathExcludeProjectPath = getFilePathExcludeProjectPath(selectionProject,filePath);
+        IFile file = selectionProject.getFile(filePathExcludeProjectPath);
+        
+        PortabilityKnowhowFacade.write(file.getLocation().toOSString(), portabilityKnowhow);
         PluginUtil.refreshFile(filePath, null);
     }
 
-    /**
+    private static String getFilePathExcludeProjectPath(IProject selectionProject, String filePath) {
+		return filePath.substring(selectionProject.getLocation().toOSString().length() + File.separator.length());
+	}
+
+	/**
      * Write to a temporary file DocBook data.<br/>
      * 
      * @param filePath

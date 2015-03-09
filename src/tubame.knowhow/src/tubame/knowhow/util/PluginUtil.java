@@ -106,9 +106,13 @@ public final class PluginUtil {
         try {
             IWorkbenchPage page = PlatformUI.getWorkbench()
                     .getActiveWorkbenchWindow().getActivePage();
-            PluginUtil.refreshFile(
-                    PluginUtil.getFileFullPath(iFile.getFullPath().toString()),
-                    null);
+            
+            try {
+				iFile.refreshLocal(IResource.DEPTH_ZERO, null);
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
             IDE.openEditor(page, iFile,
                     PluginUtil.getMaintenanceKnowhowEditorId());
         } catch (PartInitException e) {
@@ -308,7 +312,7 @@ public final class PluginUtil {
      * 
      * @return String
      */
-    private static String getWorkspaceRoot() {
+    public static String getWorkspaceRoot() {
         return ResourcesPlugin.getWorkspace().getRoot().getLocation()
                 .toOSString();
     }
@@ -607,10 +611,10 @@ public final class PluginUtil {
         if (projectName.equals(CmnStringUtil.EMPTY)) {
             return false;
         }
-        if (!ResourcesPlugin.getWorkspace().getRoot().getProject(projectName)
-                .exists()) {
-            return false;
-        }
+//        if (!ResourcesPlugin.getWorkspace().getRoot().getProject(projectName)
+//                .exists()) {
+//            return false;
+//        }
         return true;
     }
 

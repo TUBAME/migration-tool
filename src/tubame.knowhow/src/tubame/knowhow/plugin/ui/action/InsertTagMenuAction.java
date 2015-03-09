@@ -18,12 +18,9 @@
  */
 package tubame.knowhow.plugin.ui.action;
 
-import tubame.common.util.CmnStringUtil;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.text.BadLocationException;
@@ -41,9 +38,10 @@ import org.eclipse.ui.model.WorkbenchContentProvider;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import tubame.common.util.CmnStringUtil;
 import tubame.knowhow.biz.exception.JbmException;
 import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
-
 import tubame.knowhow.plugin.logic.KnowhowManagement;
 import tubame.knowhow.plugin.ui.dialog.ErrorDialog;
 import tubame.knowhow.plugin.ui.dialog.TableTagDialog;
@@ -247,12 +245,13 @@ public class InsertTagMenuAction implements IEditorActionDelegate {
      * @return File
      */
     protected IFile fileBrowse() {
-        String filePath = PluginUtil.getKnowhowEditor()
-                .getKnowhowDetailRelativeFilePath();
         ElementTreeSelectionDialog dialog = new ElementTreeSelectionDialog(
                 null, new WorkbenchLabelProvider(),
                 new WorkbenchContentProvider());
-        IProject project = PluginUtil.getProject(filePath);
+        
+        
+        IProject project = PluginUtil.getKnowhowEditor().getKnowhowSelectionProject();
+        
         dialog.setInput(getDialogInput(project));
         dialog.setMessage(getDialogMessage(project));
         dialog.setTitle(ResourceUtil.selectImageFile);
@@ -317,7 +316,8 @@ public class InsertTagMenuAction implements IEditorActionDelegate {
         if (project != null) {
             return project;
         } else {
-            return (IResource) ResourcesPlugin.getWorkspace();
+        	return null;
+//            return (IResource) ResourcesPlugin.getWorkspace();
         }
     }
 
