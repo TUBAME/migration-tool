@@ -1,0 +1,1725 @@
+<HTML xmlns:knowhow="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:doc="http://docbook.org/ns/docbook">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JBossEAP4からJBossEAP6へのマイグレーションガイド</title>
+<link href="css/knowhow.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/prettify.js"></script>
+<meta content="DocBook XSL Stylesheets V1.78.1" name="generator">
+</HEAD>
+<BODY>
+<H1 class="title">JBossEAP4からJBossEAP6へのマイグレーションガイド</H1>
+<div class="toc">
+<p>
+<b>Index</b>
+</p>
+<dl class="toc">
+<dt>
+<span class="1."><a href="#tubame_1.">1.サーバ設定の移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.1."><a href="#tubame_1.1.">1.1.JDBCドライバの移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2."><a href="#tubame_1.2.">1.2.データソース設定の移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.2.1."><a href="#tubame_1.2.1.">1.2.1.IronJacamarを利用してデータソース定義ファイルを作成する</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2.2."><a href="#tubame_1.2.2.">1.2.2.データソース設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.3."><a href="#tubame_1.3.">1.3.Webコンテナの移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.3.1."><a href="#tubame_1.3.1.">1.3.1.AJPコネクター設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.3.2."><a href="#tubame_1.3.2.">1.3.2.jvmRoute設定の移行</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.4."><a href="#tubame_1.4.">1.4.Webクラスタ設定の移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.4.1."><a href="#tubame_1.4.1.">1.4.1.JGroup設定の移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.4.1.1."><a href="#tubame_1.4.1.1.">1.4.1.1.JGroupプロトコルスタックの設定移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.4.1.2."><a href="#tubame_1.4.1.2.">1.4.1.2.JGroupのFC設定移行</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.4.2."><a href="#tubame_1.4.2.">1.4.2.レプリケーション設定の移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.4.2.1."><a href="#tubame_1.4.2.1.">1.4.2.1.レプリケーションのモード設定移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.4.2.2."><a href="#tubame_1.4.2.2.">1.4.2.2.レプリケーションの同期設定移行</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.5."><a href="#tubame_1.5.">1.5.EJBコンテナの移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.5.1."><a href="#tubame_1.5.1.">1.5.1.Beanのインスタンスプールの設定移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.5.1.1."><a href="#tubame_1.5.1.1.">1.5.1.1.SLSBインスタンスプールの設定移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.5.1.1.1."><a href="#tubame_1.5.1.1.1.">1.5.1.1.1.SLSBインスタンスプール設定移行(インスタンスプール未設定)</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.5.1.1.2."><a href="#tubame_1.5.1.1.2.">1.5.1.1.2.SLSBインスタンスプール設定移行(インスタンスプール設定あり)</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.5.1.2."><a href="#tubame_1.5.1.2.">1.5.1.2.MDBインスタンスプールの設定移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.5.1.2.1."><a href="#tubame_1.5.1.2.1.">1.5.1.2.1.MDBインスタンスプール設定移行(インスタンスプール未設定)</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.5.1.2.2."><a href="#tubame_1.5.1.2.2.">1.5.1.2.2.MDBインスタンスプール設定移行(インスタンスプール設定あり)</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>
+<span class="2."><a href="#tubame_2.">2.アプリケーションの移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.1."><a href="#tubame_2.1.">2.1.Servetの移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.1.1."><a href="#tubame_2.1.1.">2.1.1.Servletの非推奨APIについて</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.1.1.1."><a href="#tubame_2.1.1.1.">2.1.1.1.Servlet2.5で既に非推奨となる機能</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.1.1.2."><a href="#tubame_2.1.1.2.">2.1.1.2.Servlet3.0で非推奨となる機能</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.2."><a href="#tubame_2.2.">2.2.JNDIの移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.2.1."><a href="#tubame_2.2.1.">2.2.1.JNDIルックアップ呼び出し設定の移行(APサーバのコンテナ内)</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.2.2."><a href="#tubame_2.2.2.">2.2.2.JNDIルックアップ呼び出し設定の移行(APサーバのコンテナ外)</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.3."><a href="#tubame_2.3.">2.3.デプロイメントデスクリプタの移行</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.3.1."><a href="#tubame_2.3.1.">2.3.1.EJBのデプロイメントデスクリプタの移行</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.3.2."><a href="#tubame_2.3.2.">2.3.2.Webデプロイメントデスクリプタの移行</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<HR>
+<a name="tubame_1."></a>
+<h2 class="title">1.サーバ設定の移行</h2>
+<br>
+<a name="tubame_1.1."></a>
+<h3 class="title">1.1.JDBCドライバの移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBoss
+			EAP4ではJDBCドライバは$jboss.home/server/{profile}/lib配下に配置するだけでJBossがロードできたが、JBoss
+			EAP6の場合、JDBCドライバをモジュールとして登録するか、JDBCドライバをモジュールとして登録する。JBoss
+			EAP6にPostgesSQLのJDBCドライバをモジュールとして登録する方法を示す。
+		</p>
+<p></p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>JDBCドライバモジュール定義ファイル(module.xml)を作成する</p>
+<div class="figure">
+<a name="N10E50"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;PostgresSQLのJDBCドライバ用module.xml</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+						
+&lt;module xmlns="urn:jboss:module:1.0" name="org.postgresql"&gt;
+  &lt;resources&gt;  
+    &lt;resource-root path="postgresql-9.0-801.jdbc4.jar"/&gt;
+  &lt;/resources&gt;
+  &lt;dependencies&gt;
+     &lt;module name="javax.api"/&gt;
+     &lt;module name="javax.transaction.api"/&gt;
+  &lt;/dependencies&gt;
+&lt;/module&gt;
+					</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+<li class="listitem">
+<p>JDBCドライバモジュールの登録に必要なファイルを配置する</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+<p>JBossのモジュールディレクトリ配下に$jboss.modules.dir/org/postgresqlフォルダを作成
+						</p>
+</li>
+<li class="listitem">
+<p>module.xmlを$jboss.modules.dir/org/postgresql配下にコピー
+						</p>
+</li>
+<li class="listitem">
+<p>JDBCドライバ(jdbc4*.jar)を$jboss.modules.dir/org/postgresql配下にコピーする
+						</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+<p>管理CLIよりJDBCドライバモジュールの登録を行う</p>
+<div class="figure">
+<a name="N10E6A"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;JBoss EAP6の管理CLIよりJDBCドライバモジュールの登録を行う。ドライバー名は任意で、{driver-name}と表記する。</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+						
+/subsystem=datasources/jdbc-driver={driver-name}:add(driver-name={driver-name},driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource,driver-module-name=org.postgresql)
+
+					</pre>
+</div>
+</div>
+<br class="figure-break">
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_1.2."></a>
+<h3 class="title">1.2.データソース設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>本書ではJBoss Commnutiyのironjacamarから提供される移行ツールを利用した移行方法について述べる。</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.1."></a>
+<h3 class="title">1.2.1.IronJacamarを利用してデータソース定義ファイルを作成する</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>以下の「JBoss_Enterprise_Application_Platform-6-Migration_Guide.pdf」の手順を参考にIronJacamarをインストールして、データソース設定ファイルの変換を行ってください。JBoss
+			EAP4のデータソース定義ファイルはjboss.home/server/{profile}/lib/*-ds.xmlファイルになります。移行対象は業務アプリケーションで利用しているデータソース定義ファイルになるので、該当のデータソース定義ファイルのみIronJacamarが提供するconverterを利用して変換してください。
+		</p>
+<p>https://access.redhat.com/knowledge/docs/en-US/JBoss_Enterprise_Application_Platform/6/pdf/Migration_Guide/JBoss_Enterprise_Application_Platform-6-Migration_Guide-en-US.pdf
+		</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.2."></a>
+<h3 class="title">1.2.2.データソース設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBossEAP5のデータソース定義ファイルはそのままJBoss EAP
+			6で利用することは推奨されないため、IronJacamarから作成されたデータソース定義ファイルの設定内容より管理CLIを利用してデータソース設定を行う必要がある。
+		</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>JBoss EAP5の
+					データソース定義ファイルに、non-tx-datasourceタグが設定されている場合は管理CLIのdata-sourceコマンドを利用して、データソースの登録設定を行う。
+				</p>
+</li>
+<li class="listitem">
+<p>JBoss EAP5の
+					データソース定義ファイルに、local-tx-datasourceタグまたはtx-datasourcタグが設定されている場合は管理CLIのdata-sourceコマンドを利用して、データソースの登録設定を行う。
+				</p>
+</li>
+</ul>
+</div>
+<p>以下に「データソース定義ファイルの属性とdata-source及びxa-data-sourceコマンドの対応表」および、管理CLIからのデータソース登録例を示す。
+		</p>
+<div class="table">
+<a name="N10D46"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;データソース定義ファイルの属性とdata-source及びxa-data-sourceコマンドで指定するパラメータの対応表
+			</b>
+</p>
+<div class="table-contents">
+<table summary="データソース定義ファイルの属性とdata-source及びxa-data-sourceコマンドで指定するパラメータの対応表
+			" border="1">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td>#</td><td>データソース定義ファイルの属性値</td><td>xa-data-sourceコマンドで指定するパラメータ</td><td>備考</td>
+</tr>
+<tr>
+<td>1</td><td>pool-name</td><td>-name</td><td>xa-data-sourceコマンドの必須パラメータ。</td>
+</tr>
+<tr>
+<td>2</td><td>jndi-name</td><td>--jndi-name</td><td>xa-data-sourceコマンドの必須パラメータ</td>
+</tr>
+<tr>
+<td>3</td><td>対応なし</td><td>--driver-name</td><td>xa-data-sourceコマンドの必須パラメータ。事前にPostgres用のドライバーを登録する必要があります。
+						</td>
+</tr>
+<tr>
+<td>4</td><td>jta</td><td>--jta</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>5</td><td>spy</td><td>--spy</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>6</td><td>use-ccm</td><td>--use-ccm</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>7</td><td>use-java-context</td><td>--use-java-context</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>8</td><td>connection-url</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>9</td><td>driver-class</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>10</td><td>new-connection-sql</td><td>--new-connection-sql</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>11</td><td>transaction-isolation</td><td>--transaction-isolation</td><td>
+						</td>
+</tr>
+<tr>
+<td>12</td><td>min-pool-size</td><td>--min-pool-size</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>13</td><td>max-pool-size</td><td>--max-pool-size</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>14</td><td>prefill</td><td>--pool-prefill</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>15</td><td>use-strict-min</td><td>--pool-use-strict-min</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>16</td><td>flush-strategy</td><td>--flush-strategy</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>17</td><td>user-name</td><td>--user-name</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>18</td><td>password</td><td>--password </td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>19</td><td>check-valid-connection-sql</td><td>--check-valid-connection-sql</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>20</td><td>validate-on-match</td><td>--validate-on-match</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>21</td><td>background-validation</td><td>--background-validation</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>22</td><td>use-fast-fail</td><td>--use-fast-fail</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>23</td><td>idle-timeout-minutes</td><td>--idle-timeout-minutes</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>24</td><td>xa-resource-timeout</td><td>--xa-resource-timeout</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>25</td><td>track-statements</td><td>--track-statements</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>26</td><td>prepared-statement-cache-size</td><td>--prepared-statement-cache-size</td><td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br class="table-break">
+<div class="figure">
+<a name="N10E28"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;data-sourceコマンドを利用した非XAのデータソース登録例。ドライバ名は{driver-name}として、データソース名は{datasource-name}と表記する
+			</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+				
+#datasouceコマンドよりデータソース登録
+data-source add --name={datasource-name} --jndi-name=java:jboss/resources/jdbc/{datasource-name} --driver-name={driver-name} --use-java-context=true --jta=true --max-pool-size=100 --min-pool-size=100 --pool-prefill=true --idle-timeout-minutes=0 --check-valid-connection-sql="select 1" --prepared-statements-cache-size=50 --driver-class=org.postgresql.Driver --connection-url=jdbc:postgresql://localhost:5432/testdb --user-name=postgres --password=postgres
+			</pre>
+</div>
+</div>
+<br class="figure-break">
+<div class="figure">
+<a name="N10E32"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;xa-data-sourceコマンドを利用したXAデータソース登録およびxa-datasource-propertiesの設定例。ドライバ名は{driver-name}として、データソース名は{datasource-name}と表記する
+			</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+				
+#xa-datasouceコマンドよりデータソース登録
+xa-data-source add --name={datasource-name} --jndi-name=java:jboss/resources/jdbc/{datasource-name} --driver-name={driver-name} --use-java-context=true --jta=true --max-pool-size=100 --min-pool-size=100 --pool-prefill=true --idle-timeout-minutes=0 --check-valid-connection-sql="select 1" --prepared-statements-cache-size=50 --xa-datasource-class=org.postgresql.xa.PGXADataSource
+#通常のオペレーションでxa-datasource-propertiesを追加
+/subsystem=datasources/xa-data-source=appDS/xa-datasource-properties=ServerName:add(value="localhost")
+/subsystem=datasources/xa-data-source=appDS/xa-datasource-properties=PortNumber:add(value="5432")
+/subsystem=datasources/xa-data-source=appDS/xa-datasource-properties=DatabaseName:add(value="testdb")
+/subsystem=datasources/xa-data-source=appDS/xa-datasource-properties=User:add(value="postgres")
+/subsystem=datasources/xa-data-source=appDS/xa-datasource-properties=Password:add(value="postgres")
+
+			</pre>
+</div>
+</div>
+<br class="figure-break">
+<p>なお、XA対応のxa-data-sourceコマンドではJBossEAP5のデータソース定義ファイルで設定しているconnection-urlで指定しているDBサーバ名、ポート、ユーザ名、パスワードは設定できないため、
+			管理CLIの通常のオペレーションでxa-datasource-propertiesに追加設定を行っている。
+		</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.3."></a>
+<h3 class="title">1.3.Webコンテナの移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Webコンテナの設定移行</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.3.1."></a>
+<h3 class="title">1.3.1.AJPコネクター設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>AJPコネクター設定はJBoss EAP4では$jboss.home/{profile}/deploy/jboss-web.deployer/server.xmlのConnectorタグにより設定されていたが、JBoss EAP
+			6ではAJPコネクター設定を管理CLIより設定を行う。</p>
+<div class="table">
+<a name="N10E8C"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;JBoss EAP4とJBoss EAP6のAJPコネクター属性の対応</b>
+</p>
+<div class="table-contents">
+<table summary="JBoss EAP4とJBoss EAP6のAJPコネクター属性の対応" border="1">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td>#</td><td>JBooss EAP4 のAJPコネクター属性</td><td>JBooss EAP6 のAJPコネクター属性</td><td>JBooss EAP6 の管理CLIオペレーション</td><td>備考</td>
+</tr>
+<tr>
+<td>1</td><td>port</td><td>&nbsp;</td><td>ソケットバンディングのポートオフセット機能を利用する。</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>2</td><td>protocol</td><td>protocol</td><td>設定不要</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>3</td><td>maxThreads</td><td>max-connections</td><td>/subsystem=web/connector=ajp:write-attribute(name=max-connections,value=EAP4のmaxThreads設定値)</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>4</td><td>minSpareThreads</td><td>EAP6該当パラメータなし</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>5</td><td>maxSpareThreads</td><td>EAP6該当パラメータなし</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>6</td><td>connectionTimeout</td><td>org.apache.coyote.ajp.DEFAULT_CONNECTION_TIMEOUTシステムプロパティで設定</td><td>/system-property=org.apache.coyote.ajp.DEFAULT_CONNECTION_TIMEOUT:add(value=EAP4のconnectionTimeout設定値)</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>7</td><td>useBodyEncodingForURI</td><td>org.apache.catalina.connector.USE_BODY_ENCODING_FOR_QUERY_STRINGシステムプロパティで指定</td><td>/system-property=org.apache.catalina.connector.USE_BODY_ENCODING_FOR_QUERY_STRING:add(value=EAP4のuseBodyEncodingForURI設定値)</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>8</td><td>emptySessionPath</td><td>EAP6該当パラメータなし?(EAP5でちがう方法でSessionのクッキーのパスを設定するようになったが、EAP6では？？？)</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>9</td><td>enableLookups</td><td>enable-lookups</td><td>/subsystem=web/connector=ajp:write-attribute(name=enable-lookups,value=EAP4のenable-lookups設定値)</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>10</td><td>redirectPort</td><td>redirect-port</td><td>/subsystem=web/connector=ajp:write-attribute(name=redirect-port,value=EAP4のenable-lookups設定値)</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>11</td><td>schema</td><td>schema</td><td>/subsystem=web/connector=ajp:write-attribute(name=schema,value=EAP4のenable-lookups設定値)</td><td>&nbsp;</td>
+</tr>
+<tr>
+<td>12</td><td>secure</td><td>secure</td><td>/subsystem=web/connector=ajp:write-attribute(name=secure,value=EAP4のenable-lookups設定値)</td><td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br class="table-break">
+</div>
+<br>
+<br>
+<a name="tubame_1.3.2."></a>
+<h3 class="title">1.3.2.jvmRoute設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>jvmRoute設定はJBoss EAP4では$jboss.home/{profile}/deploy/jboss-web.deployer/server.xmlのEngineタグのjvmRoute属性により設定されていたが、JBoss EAP
+			6ではAJPコネクター設定を管理CLIより設定を行う。なお、システムプロパティを管理CLIで設定していオペレーションについて記載している。</p>
+<div class="table">
+<a name="N10F1E"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;JBoss EAP4とJBoss EAP6のAJPコネクター属性の対応と、該当する属性をJBossEAP6で設定する場合の管理CLI</b>
+</p>
+<div class="table-contents">
+<table summary="JBoss EAP4とJBoss EAP6のAJPコネクター属性の対応と、該当する属性をJBossEAP6で設定する場合の管理CLI" border="1">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td>#</td><td>JBooss EAP4 のjvmRoute設定</td><td>JBooss EAP4 のjvmRoute設定</td><td>JBooss EAP6 の管理CLIオペレーション</td><td>備考</td>
+</tr>
+<tr>
+<td>1</td><td>server.xmlのEngineタグのjvmRoute属性により設定</td><td>システムプロパティjvmRouteにより設定</td><td>/system-property=jvmRoute:add(value=EAP4のjvmRoute設定値)</td><td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br class="table-break">
+</div>
+<br>
+<br>
+<a name="tubame_1.4."></a>
+<h3 class="title">1.4.Webクラスタ設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Webクラスタ設定として以下の設定項目の移行方法について示す。
+		</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>JGroup設定の移行</p>
+</li>
+<li class="listitem">
+<p>レプリケーション設定の移行</p>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_1.4.1."></a>
+<h3 class="title">1.4.1.JGroup設定の移行</h3>
+<br>
+<br>
+<a name="tubame_1.4.1.1."></a>
+<h3 class="title">1.4.1.1.JGroupプロトコルスタックの設定移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBossのクラスタ時にノード間の通信で利用するJGroupプロトコルスタックの設定移行を示す。JBoss EAP4のJGroupプロトコルスタックの設定は、webクラスタのjboss-service.xmlのconfigタグ配下に指定されているタグによって決定され、UDP又はTCPタグが設定可能である。</p>
+<div class="figure">
+<a name="N11152"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;JBoss EAP4のJGroupプロトコルスタックの設定(/opt/jboss4/current/server/myserver/deploy/jboss-web-cluster.sar/META-INF/jboss-service.xml)</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+                
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;config&gt;
+        &lt;UDP mcast_addr="${jboss.partition.udpGroup:230.1.2.7}" 
+             mcast_port="${jboss.webpartition.mcast_port:45577}"
+         tos="8"
+         ucast_recv_buf_size="20000000"
+         ucast_send_buf_size="640000"
+         mcast_recv_buf_size="25000000"
+         mcast_send_buf_size="640000"
+         loopback="false"
+         discard_incompatible_packets="true"
+         enable_bundling="true"
+         max_bundle_size="64000"
+         max_bundle_timeout="30"
+         use_incoming_packet_handler="true"
+         use_outgoing_packet_handler="false"
+         ip_ttl="${jgroups.udp.ip_ttl:2}"
+         down_thread="false" up_thread="false"/&gt;
+      &lt;PING timeout="2000"
+         down_thread="false" up_thread="false" num_initial_members="3"/&gt;
+      &lt;MERGE2 max_interval="100000"
+         down_thread="false" up_thread="false" min_interval="20000"/&gt;
+      &lt;FD_SOCK down_thread="false" up_thread="false"/&gt;
+      &lt;FD timeout="10000" max_tries="5" down_thread="false" up_thread="false" shun="true"/&gt;
+      &lt;VERIFY_SUSPECT timeout="1500" down_thread="false" up_thread="false"/&gt;
+      &lt;pbcast.NAKACK max_xmit_size="60000"
+               use_mcast_xmit="false" gc_lag="0"
+               retransmit_timeout="300,600,1200,2400,4800"
+               down_thread="false" up_thread="false"
+               discard_delivered_msgs="true"/&gt;
+      &lt;UNICAST timeout="300,600,1200,2400,3600"
+         down_thread="false" up_thread="false"/&gt;
+      &lt;pbcast.STABLE stability_delay="1000" desired_avg_gossip="50000"
+               down_thread="false" up_thread="false"
+               max_bytes="400000"/&gt;
+      &lt;pbcast.GMS print_local_addr="true" join_timeout="3000"
+               down_thread="false" up_thread="false"
+               join_retry_timeout="2000" shun="true"
+               view_bundling="true"
+               view_ack_collection_timeout="5000"/&gt;
+      &lt;!--
+      &lt;FC max_credits="2000000" down_thread="false" up_thread="false"
+          min_threshold="0.10"/&gt;
+      --&gt;
+      &lt;FRAG2 frag_size="60000" down_thread="false" up_thread="false"/&gt;
+      &lt;pbcast.STATE_TRANSFER down_thread="false" up_thread="false" use_flush="false"/&gt;
+    &lt;/config&gt;
+
+            </pre>
+</div>
+</div>
+<br class="figure-break">
+<p>JBoss EAP6のJGroupプロトコルスタックの設定は、管理CLIにより設定するが、JBoss EAP6 の場合、GroupプロトコルスタックのデフォルトがUDPであり、特に設定は不要である。</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.4.1.2."></a>
+<h3 class="title">1.4.1.2.JGroupのFC設定移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBoss
+			EAP4のJGroupのFC設定は、webクラスタのjboss-service.xmlのFCタグによって決定される。FCタグがコメントされている場合は、FC設定が無効となる。
+		</p>
+<div class="figure">
+<a name="N1116A"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;JBoss EAP4のJGroupのFC設定(/opt/jboss4/current/server/myserver/deploy/jboss-web-cluster.sar/META-INF/jboss-service.xml)
+			</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+				
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;config&gt;
+     ...
+	  &lt;!--
+	    &lt;FC max_credits="2000000" down_thread="false" up_thread="false" min_threshold="0.10"/&gt;
+	   --&gt;
+     ...
+     &lt;/config&gt;
+
+			</pre>
+</div>
+</div>
+<br class="figure-break">
+<p>JBoss EAP6のJGroupのFC設定は、管理CLIにより以下のように設定する。JBoss EAP6
+			の場合もデフォルトでFC設定が有効のため、FC設定を無効化する方法を示す。</p>
+<div class="figure">
+<a name="N11176"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;JBoss EAP6の管理CLIによるFC無効化設定</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+				
+./subsystem=jgroups/stack=udp/:remove-protocol(type=UFC)
+./subsystem=jgroups/stack=udp/:remove-protocol(type=MFC)
+
+			</pre>
+</div>
+</div>
+<br class="figure-break">
+</div>
+<br>
+<br>
+<a name="tubame_1.4.2."></a>
+<h3 class="title">1.4.2.レプリケーション設定の移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p></p>
+</div>
+<br>
+<br>
+<a name="tubame_1.4.2.1."></a>
+<h3 class="title">1.4.2.1.レプリケーションのモード設定移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBoss EAP4のレプリケーションのモード設定は、レプリケーション情報はクラスタグループ内の全てのノードに対して複製されるAll-to-Allレプリケーション及び一部のサーバにデータの複製をクラスタグループ内のノードへ配布するBuddyレプリケーションが設定可能である。JBoss EAP4のレプリケーションモードの設定はwebクラスタのjboss-service.xmlのbuddyReplicationEnabledタグがfalseに設定されてるため、デフォルトでAll-to-Allレプリケーションが設定される</p>
+<div class="figure">
+<a name="N11197"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;JBoss EAP4のレプリケーションのモード設定(/opt/jboss4/current/server/myserver/deploy/jboss-web-cluster.sar/META-INF/jboss-service.xml)</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+                
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+...
+&lt;attribute name="BuddyReplicationConfig"&gt;
+	&lt;config&gt;
+		&lt;buddyReplicationEnabled&gt;false&lt;/buddyReplicationEnabled&gt;
+		&lt;buddyLocatorClass&gt;org.jboss.cache.buddyreplication.NextMemberBuddyLocator
+		&lt;/buddyLocatorClass&gt;
+		&lt;buddyLocatorProperties&gt;
+			numBuddies = 1
+			ignoreColocatedBuddies = true
+		&lt;/buddyLocatorProperties&gt;
+
+		&lt;buddyPoolName&gt;default&lt;/buddyPoolName&gt;
+		&lt;buddyCommunicationTimeout&gt;2000&lt;/buddyCommunicationTimeout&gt;
+
+		&lt;autoDataGravitation&gt;false&lt;/autoDataGravitation&gt;
+		&lt;dataGravitationRemoveOnFind&gt;true&lt;/dataGravitationRemoveOnFind&gt;
+		&lt;dataGravitationSearchBackupTrees&gt;true
+		&lt;/dataGravitationSearchBackupTrees&gt;
+
+	&lt;/config&gt;
+&lt;/attribute&gt;
+...
+
+            </pre>
+</div>
+</div>
+<br class="figure-break">
+<p>JBoss EAP6のレプリケーションのモード設定はキャッシュ機構の実装がJBoss Cacheからinfinispanに変更され、レプリケーションモードも変わっている。JBoss EAP 6ではデフォルトでReplicationモードが設定されるため、JBoss EAP 5のAll-to-Allレプリケーションと同等のため、設定は不要である</p>
+<p>Replicationモード</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>レプリケーション情報はクラスタグループ内の全てのノードに対して複製される。JBoss EAP 5のAll-to-Allレプリケーションと同等</p>
+</li>
+</ul>
+</div>
+<p>Distributionモード</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>JBoss EAP 6より採用された新しいキャシュ機能で、クラスタグループ内の一部のノードにのみデータを複製する。バディレプリケーションのようにバックアップサーバを指定するのではなく、指定した数のデータの複製をクラスタグループ内のノードへ配布する。</p>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_1.4.2.2."></a>
+<h3 class="title">1.4.2.2.レプリケーションの同期設定移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBoss EAP4のレプリケーションの同期設定は、webクラスタのjboss-service.xmlのCacheModeにより設定されてる。JBoss EAP6のデフォルトがREPL_ASYNCで非同期モードでのレプリケーションがｊ設定される。REPL_SYNCの場合は同期モードになる。</p>
+<div class="figure">
+<a name="N111BB"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;JBoss EAP4のレプリケーションの同期設定(/opt/jboss4/current/server/myserver/deploy/jboss-web-cluster.sar/META-INF/jboss-service.xml)</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+                
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+     ...
+        &lt;!-- Valid modes are LOCAL, REPL_ASYNC and REPL_SYNC
+             
+             If you use REPL_SYNC and a UDP-based ClusterConfig
+             we recommend you comment out the FC (flow control)
+             protocol in the ClusterConfig section below.
+        --&gt;
+        &lt;attribute name="CacheMode"&gt;REPL_ASYNC&lt;/attribute&gt;
+      ...
+
+
+            </pre>
+</div>
+</div>
+<br class="figure-break">
+<p>JBoss EAP6のレプリケーションの同期設定は非同期が設定され、設定は不要である</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.5."></a>
+<h3 class="title">1.5.EJBコンテナの移行</h3>
+<br>
+<br>
+<a name="tubame_1.5.1."></a>
+<h3 class="title">1.5.1.Beanのインスタンスプールの設定移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>EJBコンテナは、Beanのインスタンスをインスタンスプールから取得する。このBeanのインスタンスプール設定はデプロイメントデスクリプタのjboss.xmlで明示的に設定しない限り、$jboss.home/{profile}/conf/standardjboss.xmlにある設定からフォルトが適用され、インスタンスプールのサイズが決定される。</p>
+<p>本書では以下のケースのBeanインスタンスプール設定をJBoss EAP6の管理CLIで設定する方法を示す。</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>デプロイメントデスクリプタjboss.xmlで明示的にインスタンスプールのチューニングをしていない場合</p>
+</li>
+<li class="listitem">
+<p>デプロイメントデスクリプタjboss.xmlで明示的にインスタンスプールのチューニングをしている場合</p>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_1.5.1.1."></a>
+<h3 class="title">1.5.1.1.SLSBインスタンスプールの設定移行</h3>
+<br>
+<br>
+<a name="tubame_1.5.1.1.1."></a>
+<h3 class="title">1.5.1.1.1.SLSBインスタンスプール設定移行(インスタンスプール未設定)</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBoss EAP
+			4では$jboss.home/{profile}/conf/standardjboss.xmlの以下のコンテナ設定にしたがって、インスタンスプールの設定が行われる。standardjboss.xmlで設定を行っていない場合は、インスタンスプールのサイズの最大値に100が設定される。JBoss
+			EAP 6ではデフォルトのインスタンスプールのサイズの最大値が20のため、ここではJBoss EAP 4 のデフォルトで適用される値(100)を設定する方法を示す。</p>
+<div class="figure">
+<a name="N10F5B"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;JBoss EAP4のstandardjboss.xmlによるSLSBのデフォルトコンテナ設定例
+			</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+				
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;!DOCTYPE jboss PUBLIC
+   "-//JBoss//DTD JBOSS 4.2//EN"
+   "http://www.jboss.org/j2ee/dtd/jboss_4_2.dtd"&gt;
+&lt;jboss&gt;
+    &lt;container-configuration&gt;
+      &lt;container-name&gt;Standard Stateless SessionBean&lt;/container-name&gt;
+      &lt;call-logging&gt;false&lt;/call-logging&gt;
+      &lt;invoker-proxy-binding-name&gt;stateless-unified-invoker&lt;/invoker-proxy-binding-name&gt;
+      &lt;container-interceptors&gt;
+        &lt;interceptor&gt;org.jboss.ejb.plugins.ProxyFactoryFinderInterceptor&lt;/interceptor&gt;
+        &lt;interceptor&gt;org.jboss.ejb.plugins.LogInterceptor&lt;/interceptor&gt;
+        &lt;interceptor&gt;org.jboss.ejb.plugins.SecurityInterceptor&lt;/interceptor&gt;
+        &lt;!-- CMT --&gt;
+        &lt;interceptor transaction="Container"&gt;org.jboss.ejb.plugins.TxInterceptorCMT&lt;/interceptor&gt;
+        &lt;interceptor transaction="Container"&gt;org.jboss.ejb.plugins.CallValidationInterceptor&lt;/interceptor&gt;
+        &lt;interceptor transaction="Container"&gt;org.jboss.ejb.plugins.StatelessSessionInstanceInterceptor&lt;/interceptor&gt;
+        &lt;!-- BMT --&gt;
+        &lt;interceptor transaction="Bean"&gt;org.jboss.ejb.plugins.StatelessSessionInstanceInterceptor&lt;/interceptor&gt;
+        &lt;interceptor transaction="Bean"&gt;org.jboss.ejb.plugins.TxInterceptorBMT&lt;/interceptor&gt;
+        &lt;interceptor transaction="Bean"&gt;org.jboss.ejb.plugins.CallValidationInterceptor&lt;/interceptor&gt;
+        &lt;interceptor&gt;org.jboss.resource.connectionmanager.CachedConnectionInterceptor&lt;/interceptor&gt;
+      &lt;/container-interceptors&gt;
+      &lt;instance-pool&gt;org.jboss.ejb.plugins.StatelessSessionInstancePool&lt;/instance-pool&gt;
+      &lt;instance-cache&gt;&lt;/instance-cache&gt;
+      &lt;persistence-manager&gt;&lt;/persistence-manager&gt;
+      &lt;container-pool-conf&gt;
+        &lt;MaximumSize&gt;100&lt;/MaximumSize&gt;
+      &lt;/container-pool-conf&gt;
+    &lt;/container-configuration&gt;
+
+    &lt;container-configuration&gt;
+      &lt;container-name&gt;Clustered Stateless SessionBean&lt;/container-name&gt;
+      &lt;call-logging&gt;false&lt;/call-logging&gt;
+      &lt;invoker-proxy-binding-name&gt;clustered-stateless-unified-invoker&lt;/invoker-proxy-binding-name&gt;
+      &lt;container-interceptors&gt;
+        &lt;interceptor&gt;org.jboss.ejb.plugins.ProxyFactoryFinderInterceptor&lt;/interceptor&gt;
+        &lt;interceptor&gt;org.jboss.ejb.plugins.CleanShutdownInterceptor&lt;/interceptor&gt;
+        &lt;interceptor&gt;org.jboss.ejb.plugins.LogInterceptor&lt;/interceptor&gt;
+        &lt;interceptor&gt;org.jboss.ejb.plugins.SecurityInterceptor&lt;/interceptor&gt;
+        &lt;!-- CMT --&gt;
+        &lt;interceptor transaction="Container"&gt;org.jboss.ejb.plugins.TxInterceptorCMT&lt;/interceptor&gt;
+        &lt;interceptor transaction="Container"&gt;org.jboss.ejb.plugins.CallValidationInterceptor&lt;/interceptor&gt;
+        &lt;interceptor transaction="Container"&gt;org.jboss.ejb.plugins.StatelessSessionInstanceInterceptor&lt;/interceptor&gt;
+        &lt;!-- BMT --&gt;
+        &lt;interceptor transaction="Bean"&gt;org.jboss.ejb.plugins.StatelessSessionInstanceInterceptor&lt;/interceptor&gt;
+        &lt;interceptor transaction="Bean"&gt;org.jboss.ejb.plugins.TxInterceptorBMT&lt;/interceptor&gt;
+        &lt;interceptor transaction="Bean"&gt;org.jboss.ejb.plugins.CallValidationInterceptor&lt;/interceptor&gt;
+        &lt;interceptor&gt;org.jboss.resource.connectionmanager.CachedConnectionInterceptor&lt;/interceptor&gt;
+      &lt;/container-interceptors&gt;
+      &lt;instance-pool&gt;org.jboss.ejb.plugins.StatelessSessionInstancePool&lt;/instance-pool&gt;
+      &lt;instance-cache&gt;&lt;/instance-cache&gt;
+      &lt;persistence-manager&gt;&lt;/persistence-manager&gt;
+      &lt;container-pool-conf&gt;
+        &lt;MaximumSize&gt;100&lt;/MaximumSize&gt;
+      &lt;/container-pool-conf&gt;
+      &lt;cluster-config&gt;
+         &lt;partition-name&gt;${jboss.partition.name:DefaultPartition}&lt;/partition-name&gt;
+      &lt;/cluster-config&gt;
+    &lt;/container-configuration&gt;
+  &lt;/container-configurations&gt;
+&lt;/jboss&gt;
+
+			</pre>
+</div>
+</div>
+<br class="figure-break">
+</div>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBoss EAP6のデフォルトのインスタンスプール設定は管理CLIにより設定する。jboss-ejb3.xmlなどで明示的にインスタンスプールの設定をしなかった場合にはこの設定がBeanに適用される。</p>
+<div class="figure">
+<a name="N10F8B"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;JBoss EAP6の管理CLIにおけるSLSBのデフォルトインスタンスプール設定</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+				
+/subsystem=ejb3/strict-max-bean-instance-pool=slsb-strict-max-pool:write-attribute(name=max-pool-size,value=100)
+
+			</pre>
+</div>
+</div>
+<br class="figure-break">
+</div>
+<br>
+<br>
+<a name="tubame_1.5.1.1.2."></a>
+<h3 class="title">1.5.1.1.2.SLSBインスタンスプール設定移行(インスタンスプール設定あり)</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>jboss.xmlのcontainer-configurationタグのextends属性で&rdquo;Standard Stateless SessionBean&rdquo;を指定している場合、$jboss.home/{profile}/conf/standardjboss.xmlで設定しているコンテナ設定の&rdquo;Standard Stateful SessionBean&rdquo;を拡張して、Beanインスタンスプールのサイズをカスタマイズしている可能性がある。このようにjboss.xmlでBean固有のインスタンスプールのサイズをカスタマイズしている場合、以下の移行作業を行う必要がある。
+        </p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>管理CLIよりBean固有のインスタンスプールの登録を行い、インスタンスプールの設定を行う。インスタンスプール名は任意である。例としてBean「CustomerService」のプールを設定するとして「CustomerServicePool」とする
+                </p>
+</li>
+</ul>
+</div>
+<div class="figure">
+<a name="N10F75"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;JBossEAP5におけるインスタンスプール設定例(jboss.xml)</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+                
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;enterprise-beans&gt;
+&lt;session&gt;
+  &lt;ejb-name&gt;○○○&lt;/ejb-name&gt;
+  &lt;jndi-name&gt;△△△&lt;/jndi-name&gt;
+  &lt;configuration-name&gt;XXX Stateless Session Bean&lt;/configuration-name&gt;
+    &lt;/session&gt;
+&lt;/enterprise-beans&gt;
+
+&lt;container-configurations&gt;
+  &lt;container-configuration
+    extends =&rdquo;Standard Stateless SessionBean&rdquo;&gt;
+    &lt;container-name&gt;XXX Stateless Session Bean&lt;/container-name&gt;
+    &lt;container-pool-conf&gt;                                 
+      &lt;MinimumSize&gt;□□□&lt;/MinimumSize&gt;                   
+      &lt;MaximumSize&gt;■■■&lt;/MaximumSize&gt;                                    
+    &lt;/container-pool-conf&gt;
+  &lt;/container-configurations&gt;
+&lt;/jboss&gt;
+            </pre>
+</div>
+</div>
+<br class="figure-break">
+</div>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<div class="figure">
+<a name="N10F9F"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;</b>
+</p>
+<div class="figure-contents">
+<p>JBoss EAP6のEJBにBean固有のインスタンスプール設定する場合、管理CLIによりBean固有のインスタンスプールを登録する。なお、ここで登録したプールをBeanに適用する場合は、EJBのデプロイメントデスクリプタjboss-ejb3.xmlでインスタンスプールの設定を行う必要がある。</p>
+<pre class="programlisting">
+				
+/subsystem=ejb3/strict-max-bean-instance-pool=CustomerServicePool:add (max-pool-size=100)
+
+			</pre>
+</div>
+</div>
+<br class="figure-break">
+</div>
+<br>
+<br>
+<a name="tubame_1.5.1.2."></a>
+<h3 class="title">1.5.1.2.MDBインスタンスプールの設定移行</h3>
+<br>
+<br>
+<a name="tubame_1.5.1.2.1."></a>
+<h3 class="title">1.5.1.2.1.MDBインスタンスプール設定移行(インスタンスプール未設定)</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBoss EAP
+			4では$jboss.home/{profile}/conf/standardjboss.xmlの以下のコンテナ設定にしたがって、インスタンスプールの設定が行われる。standardjboss.xmlで設定を行っていない場合は、インスタンスプールのサイズの最大値に100が設定される。JBoss
+			EAP 6ではデフォルトのインスタンスプールのサイズの最大値が20のため、ここではEAP4のデフォルトで適用される値を設定(100）を設定する方法を示す。</p>
+<div class="figure">
+<a name="N10FB5"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;JBoss EAP4のstandardjboss.xmlによるMDBのデフォルトコンテナ設定例
+			</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+				
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;!DOCTYPE jboss PUBLIC
+   "-//JBoss//DTD JBOSS 4.2//EN"
+   "http://www.jboss.org/j2ee/dtd/jboss_4_2.dtd"&gt;
+&lt;jboss&gt;
+    
+    &lt;container-configuration&gt;
+      &lt;container-name&gt;Standard Message Driven Bean&lt;/container-name&gt;
+      &lt;call-logging&gt;false&lt;/call-logging&gt;
+      &lt;invoker-proxy-binding-name&gt;message-driven-bean&lt;/invoker-proxy-binding-name&gt;
+      &lt;container-interceptors&gt;
+        &lt;interceptor&gt;org.jboss.ejb.plugins.ProxyFactoryFinderInterceptor&lt;/interceptor&gt;
+        &lt;interceptor&gt;org.jboss.ejb.plugins.LogInterceptor&lt;/interceptor&gt;
+        &lt;interceptor&gt;org.jboss.ejb.plugins.RunAsSecurityInterceptor&lt;/interceptor&gt;
+        &lt;!-- CMT --&gt;
+        &lt;interceptor transaction="Container"&gt;org.jboss.ejb.plugins.TxInterceptorCMT&lt;/interceptor&gt;
+        &lt;interceptor transaction="Container"&gt;org.jboss.ejb.plugins.CallValidationInterceptor&lt;/interceptor&gt;
+        &lt;interceptor transaction="Container"&gt;org.jboss.ejb.plugins.MessageDrivenInstanceInterceptor&lt;/interceptor&gt;
+        &lt;!-- BMT --&gt;
+        &lt;interceptor transaction="Bean"&gt;org.jboss.ejb.plugins.MessageDrivenInstanceInterceptor&lt;/interceptor&gt;
+        &lt;interceptor transaction="Bean"&gt;org.jboss.ejb.plugins.MessageDrivenTxInterceptorBMT&lt;/interceptor&gt;
+        &lt;interceptor transaction="Bean"&gt;org.jboss.ejb.plugins.CallValidationInterceptor&lt;/interceptor&gt;
+        &lt;interceptor&gt;org.jboss.resource.connectionmanager.CachedConnectionInterceptor&lt;/interceptor&gt;
+      &lt;/container-interceptors&gt;
+      &lt;instance-pool&gt;org.jboss.ejb.plugins.MessageDrivenInstancePool&lt;/instance-pool&gt;
+      &lt;instance-cache&gt;&lt;/instance-cache&gt;
+      &lt;persistence-manager&gt;&lt;/persistence-manager&gt;
+      &lt;container-pool-conf&gt;
+        &lt;MaximumSize&gt;100&lt;/MaximumSize&gt;
+      &lt;/container-pool-conf&gt;
+    &lt;/container-configuration&gt;
+
+    &lt;container-configuration&gt;
+      &lt;container-name&gt;Singleton Message Driven Bean&lt;/container-name&gt;
+      &lt;call-logging&gt;false&lt;/call-logging&gt;
+      &lt;invoker-proxy-binding-name&gt;singleton-message-driven-bean&lt;/invoker-proxy-binding-name&gt;
+      &lt;container-interceptors&gt;
+        &lt;interceptor&gt;org.jboss.ejb.plugins.ProxyFactoryFinderInterceptor&lt;/interceptor&gt;
+        &lt;interceptor&gt;org.jboss.ejb.plugins.LogInterceptor&lt;/interceptor&gt;
+        &lt;interceptor&gt;org.jboss.ejb.plugins.RunAsSecurityInterceptor&lt;/interceptor&gt;
+        &lt;!-- CMT --&gt;
+        &lt;interceptor transaction="Container"&gt;org.jboss.ejb.plugins.TxInterceptorCMT&lt;/interceptor&gt;
+        &lt;interceptor transaction="Container"&gt;org.jboss.ejb.plugins.CallValidationInterceptor&lt;/interceptor&gt;
+        &lt;interceptor transaction="Container"&gt;org.jboss.ejb.plugins.MessageDrivenInstanceInterceptor&lt;/interceptor&gt;
+        &lt;!-- BMT --&gt;
+        &lt;interceptor transaction="Bean"&gt;org.jboss.ejb.plugins.MessageDrivenInstanceInterceptor&lt;/interceptor&gt;
+        &lt;interceptor transaction="Bean"&gt;org.jboss.ejb.plugins.MessageDrivenTxInterceptorBMT&lt;/interceptor&gt;
+        &lt;interceptor transaction="Bean"&gt;org.jboss.ejb.plugins.CallValidationInterceptor&lt;/interceptor&gt;
+        &lt;interceptor&gt;org.jboss.resource.connectionmanager.CachedConnectionInterceptor&lt;/interceptor&gt;
+      &lt;/container-interceptors&gt;
+      &lt;instance-pool&gt;org.jboss.ejb.plugins.MessageDrivenInstancePool&lt;/instance-pool&gt;
+      &lt;instance-cache&gt;&lt;/instance-cache&gt;
+      &lt;persistence-manager&gt;&lt;/persistence-manager&gt;
+      &lt;container-pool-conf&gt;
+        &lt;MaximumSize&gt;100&lt;/MaximumSize&gt;
+      &lt;/container-pool-conf&gt;
+    &lt;/container-configuration&gt;
+
+    &lt;container-configuration&gt;
+      &lt;container-name&gt;Standard Message Inflow Driven Bean&lt;/container-name&gt;
+      &lt;call-logging&gt;false&lt;/call-logging&gt;
+      &lt;invoker-proxy-binding-name&gt;message-inflow-driven-bean&lt;/invoker-proxy-binding-name&gt;
+      &lt;container-interceptors&gt;
+        &lt;interceptor&gt;org.jboss.ejb.plugins.ProxyFactoryFinderInterceptor&lt;/interceptor&gt;
+        &lt;interceptor&gt;org.jboss.ejb.plugins.LogInterceptor&lt;/interceptor&gt;
+        &lt;interceptor&gt;org.jboss.ejb.plugins.RunAsSecurityInterceptor&lt;/interceptor&gt;
+        &lt;!-- CMT --&gt;
+        &lt;interceptor transaction="Container"&gt;org.jboss.ejb.plugins.TxInterceptorCMT&lt;/interceptor&gt;
+        &lt;interceptor transaction="Container"&gt;org.jboss.ejb.plugins.CallValidationInerceptor&lt;/interceptor&gt;
+        &lt;interceptor transaction="Container"&gt;org.jboss.ejb.plugins.MessageDrivenInstanceInterceptor&lt;/interceptor&gt;
+        &lt;!-- BMT --&gt;
+        &lt;interceptor transaction="Bean"&gt;org.jboss.ejb.plugins.MessageDrivenInstanceInterceptor&lt;/interceptor&gt;
+        &lt;interceptor transaction="Bean"&gt;org.jboss.ejb.plugins.MessageDrivenTxInterceptorBMT&lt;/interceptor&gt;
+        &lt;interceptor transaction="Bean"&gt;org.jboss.ejb.plugins.CallValidationInterceptor&lt;/interceptor&gt;
+        &lt;interceptor&gt;org.jboss.resource.connectionmanager.CachedConnectionInterceptor&lt;/interceptor&gt;
+      &lt;/container-interceptors&gt;
+      &lt;instance-pool&gt;org.jboss.ejb.plugins.MessageDrivenInstancePool&lt;/instance-pool&gt;
+      &lt;instance-cache&gt;&lt;/instance-cache&gt;
+      &lt;persistence-manager&gt;&lt;/persistence-manager&gt;
+      &lt;container-pool-conf&gt;
+        &lt;MaximumSize&gt;100&lt;/MaximumSize&gt;
+      &lt;/container-pool-conf&gt;
+    &lt;/container-configuration&gt;
+
+  &lt;/container-configurations&gt;
+
+&lt;/jboss&gt;
+
+			</pre>
+</div>
+</div>
+<br class="figure-break">
+</div>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBoss EAP6のデフォルトのインスタンスプール設定は管理CLIにより設定する。jboss-ejb3.xmlなどで明示的にインスタンスプールの設定をしなかった場合にはこの設定がBeanに適用される。</p>
+<p></p>
+<pre class="programlisting">
+                
+/subsystem=ejb3/strict-max-bean-instance-pool=mdb-strict-max-pool:write-attribute(name=max-pool-size,value=100)
+
+            </pre>
+</div>
+<br>
+<br>
+<a name="tubame_1.5.1.2.2."></a>
+<h3 class="title">1.5.1.2.2.MDBインスタンスプール設定移行(インスタンスプール設定あり)</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>jboss.xmlのcontainer-configurationタグのextends属性で&rdquo;Standard Message Driven Bean&rdquo;を指定している場合、$jboss.home/{profile}/conf/standardjboss.xmlで設定しているコンテナ設定の&rdquo;Standard Stateful SessionBean&rdquo;を拡張して、Beanインスタンスプールのサイズをカスタマイズしている可能性がある。このようにjboss.xmlでBeanインスタンスプールのサイズをカスタマイズしてい場合、以下の移行作業を行う必要がある。
+        </p>
+<div class="figure">
+<a name="N10FDF"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;JBossEAP5におけるインスタンスプール設定例(jboss.xml)</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+                
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;enterprise-beans&gt;
+    &lt;message-driven&gt;
+      &lt;ejb-name&gt;○○○&lt;/ejb-name&gt;
+      &lt;destination-jndi-name&gt;●●●&lt;/destination-jndi-name&gt;
+      &lt;configuration-name&gt;Message Driven Bean&lt;/configuration-name&gt;
+    &lt;/message-driven&gt;
+  &lt;/enterprise-beans&gt;
+  &lt;container-configurations&gt;
+    &lt;container-configuration extends="Standard Message Driven Bean"&gt;
+      &lt;container-name&gt;Message Driven Bean&lt;/container-name&gt;
+		&lt;invoker-proxy-binding-name&gt;
+		message-driven-bean
+		&lt;/invoker-proxy-binding-name&gt;
+		&lt;container-pool-conf&gt;                                    
+			&lt;MinimumSize&gt;□□□&lt;/MinimumSize&gt;                      
+			&lt;MaximumSize&gt;△△△&lt;/MaximumSize&gt;             
+		&lt;/container-pool-conf&gt;
+    &lt;/container-configuration&gt;
+  &lt;/container-configurations&gt;
+
+            </pre>
+</div>
+</div>
+<br class="figure-break">
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>jboss.xmlで定義しているcontainer-configurationsのタグ全体を削除する</p>
+</li>
+<li class="listitem">
+<p>デプロイメントデスクリプタファイル(jboss-ejb3.xml）を作成し、該当Beanに対してインスタンスプールのリファレンス設定を行う。ここではbean-instance-pool-refで設定する値は{Bean名}Poolとする</p>
+</li>
+<li class="listitem">
+<p>管理CLIによりインスタンスプールの登録を行う。インスタンスプール名は上記のbean-instance-pool-refで設定した値を利用する</p>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBoss EAP6のEJBにBean固有のインスタンスプール設定する場合、管理CLIによりBean固有のインスタンスプールを登録する。なお、ここで登録したプールをBeanに適用する場合は、EJBのデプロイメントデスクリプタjboss-ejb3.xmlでインスタンスプールの設定を行う必要がある。</p>
+<pre class="programlisting">
+                
+/subsystem=ejb3/strict-max-bean-instance-pool=QueueReciverBeanPool:add (max-pool-size=100)
+
+            </pre>
+</div>
+<br>
+<br>
+<a name="tubame_2."></a>
+<h2 class="title">2.アプリケーションの移行</h2>
+<br>
+<a name="tubame_2.1."></a>
+<h3 class="title">2.1.Servetの移行</h3>
+<br>
+<br>
+<a name="tubame_2.1.1."></a>
+<h3 class="title">2.1.1.Servletの非推奨APIについて</h3>
+<br>
+<br>
+<a name="tubame_2.1.1.1."></a>
+<h3 class="title">2.1.1.1.Servlet2.5で既に非推奨となる機能</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>以下はServlet 2.5で既に非推奨となってい機能一覧であり、推奨されていないAPIが利用されている場合は、代替となるAPIを利用するように修正する必要がある。</p>
+<p>推奨されていないインタフェース</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>javax.servlet.SingleThreadModel
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSessionContext
+				</p>
+</li>
+<li class="listitem">
+<p>javax.resource.spi.security.GenericCredential
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.SingleThreadModel
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSessionContext
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.jsp.el.FunctionMapper
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.jsp.el.VariableResolver
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.jsp.el.VariableResolver
+				</p>
+</li>
+</ul>
+</div>
+<p>推奨されていないクラス</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p> javax.faces.application.StateManager.SerializedView
+				</p>
+</li>
+<li class="listitem">
+<p> javax.faces.el.MethodBinding
+				</p>
+</li>
+<li class="listitem">
+<p>javax.faces.el.PropertyResolver
+				</p>
+</li>
+<li class="listitem">
+<p>javax.faces.el.ValueBinding
+				</p>
+</li>
+<li class="listitem">
+<p>javax.faces.el.VariableResolver
+				</p>
+</li>
+<li class="listitem">
+<p>javax.faces.webapp.AttributeTag
+				</p>
+</li>
+<li class="listitem">
+<p>javax.faces.webapp.ConverterTag
+				</p>
+</li>
+<li class="listitem">
+<p> javax.faces.webapp.UIComponentBodyTag
+				</p>
+</li>
+<li class="listitem">
+<p>javax.faces.webapp.UIComponentTag
+				</p>
+</li>
+<li class="listitem">
+<p>javax.faces.webapp.ValidatorTag
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpUtils
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.jsp.el.Expression
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.jsp.el.ExpressionEvaluator
+				</p>
+</li>
+<li class="listitem">
+<p>javax.xml.soap.SOAPElementFactory
+				</p>
+</li>
+</ul>
+</div>
+<p>推奨されていないメソッド</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>javax.servlet.http.HttpServletResponse.encodeRedirectUrl(String)
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpServletResponse.encodeUrl(String)
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSessionContext.getIds()
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.ServletRequest.getRealPath(String)
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.UnavailableException.getServlet()
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.ServletContext.getServlet(String)
+				</p>
+</li>
+<li class="listitem">
+<p> javax.servlet.ServletContext.getServletNames()
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.ServletContext.getServlets()
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSessionContext.getSession(String)
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSession.getSessionContext()
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSession.getValue(String)
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSession.getValueNames()
+				</p>
+</li>
+<li class="listitem">
+<p> javax.servlet.http.HttpServletRequest.isRequestedSessionIdFromUrl()
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.ServletContext.log(Exception, String)
+				</p>
+</li>
+<li class="listitem">
+<p> javax.servlet.http.HttpSession.putValue(String, Object)
+				</p>
+</li>
+<li class="listitem">
+<p> javax.servlet.http.HttpSession.removeValue(String)
+				</p>
+</li>
+<li class="listitem">
+<p> javax.servlet.http.HttpServletResponse.setStatus(int, String)
+				</p>
+</li>
+</ul>
+</div>
+<p>この他多数。詳細は下記のURLを参照のこと</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>http://java.sun.com/javaee/5/docs/api/
+				</p>
+</li>
+<li class="listitem">
+<p>http://java.sun.com/javaee/5/docs/api/deprecated-list.html
+				</p>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_2.1.1.2."></a>
+<h3 class="title">2.1.1.2.Servlet3.0で非推奨となる機能</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>以下はServlet
+			3.0で非推奨となっていた一覧であり、推奨されていないAPIが利用されている場合は、代替となるAPIを利用するように修正する必要がある。
+		</p>
+<p>推奨されていないメソッド</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>javax.servlet.http.HttpServletResponseWrapper.encodeRedirectUrl(String)
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpServletResponseWrapper.encodeUrl(String)
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpServletRequestWrapper.isRequestedSessionIdFromUrl()
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpServletResponseWrapper.setStatus(int,
+					String)
+				</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.ServletRequestWrapper.getRealPath(String)
+				</p>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_2.2."></a>
+<h3 class="title">2.2.JNDIの移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p></p>
+</div>
+<br>
+<br>
+<a name="tubame_2.2.1."></a>
+<h3 class="title">2.2.1.JNDIルックアップ呼び出し設定の移行(APサーバのコンテナ内)</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBossに移行する際に、JNDIの設定は幾つかの方法があるが、より汎用性が高いのは、実行時のクラスパス内に「jndi.properties」というファイルを置き、そのファイルからこれらのパラメータが読み込まれるように設定する方法である。JBossEAP4の場合通常は$JBOSS_CONFIG/confディレクトリにjndi.propertiesファイルがあり、該当ファイルで設定した内容が読み込まれため、コンテナ内からの呼び出しに限ってはアプリケーション側でパラメータを設定する必要がない。JBoss EAP6も同様に明示的な設定は必要ない。以下のようなコードでJndiルックアップが可能である </p>
+<div class="figure">
+<a name="N110FD"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;APサーバのコンテナ内からのJNDIルックアップ呼び出し</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+                
+InitialContext initialContext = new InitialContext();
+
+            </pre>
+</div>
+</div>
+<br class="figure-break">
+</div>
+<br>
+<br>
+<a name="tubame_2.2.2."></a>
+<h3 class="title">2.2.2.JNDIルックアップ呼び出し設定の移行(APサーバのコンテナ外)</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>EJBクライアントなどのようにAPサーバのコンテナ外からのJNDIルックアップ呼び出しが必要な場合に、APサーバのコンテナ外からのJNDIルックアップ呼び出しが必要である。APサーバのコンテナ外からのJNDIルックアップ呼び出しを行う場合、InitialContextの引数に以下のようにプロパティを設定する必要がある
+		</p>
+<div class="figure">
+<a name="N11113"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;EAP4のAPサーバのコンテナ内からのJNDIルックアップ呼び出し</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+				
+Properties props = new Properties();
+props.put(InitialContext.INITIAL_CONTEXT_FACTORY,"org.jnp.interfaces.NamingContextFactory");
+props.put(InitialContext.PROVIDER_URL, "jnp://localhost:1099");
+props.put(InitialContext.URL_PKG_PREFIXES, "org.jboss.naming:org.jnp.interfaces");
+InitialContext initialContext = new InitialContext(props);
+
+			</pre>
+</div>
+</div>
+<br class="figure-break">
+<div class="figure">
+<a name="N1111D"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;EAP6のAPサーバのコンテナ内からのJNDIルックアップ呼び出し</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+				
+Properties props = new Properties();
+props.put(InitialContext.INITIAL_CONTEXT_FACTORY,"org.jboss.naming.remote.client.InitialContextFactory");
+props.put(InitialContext.PROVIDER_URL, "remote://localhost:4447");
+props.put(InitialContext.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
+props.put(InitialContext.SECURITY_PRINCIPAL, "username");
+props.put(InitialContext.SECURITY_CREDENTIALS, "userpass");
+InitialContext initialContext = new InitialContext(props);
+
+			</pre>
+</div>
+</div>
+<br class="figure-break">
+<p>なお、EJBクライアントなどの場合、以下のようなプロパティファイル(jboss-ejb-client.properties)を配置して、クラスパスに通す必要がある
+		</p>
+<div class="figure">
+<a name="N11129"></a>
+<p class="title">
+<b>Figure&nbsp;3.&nbsp;jboss-ejb-client.properties</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+				
+remote.connectionprovider.create.options.org.xnio.Options.SSL_ENABLED=false
+remote.connections=default
+remote.connection.default.host=localhost
+remote.connection.default.port = 4447
+remote.connection.default.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMOUS=false
+
+
+#remote.connection.two.host=localhost
+#remote.connection.two.port = 4447
+#remote.connection.two.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMOUS=false
+
+			</pre>
+</div>
+</div>
+<br class="figure-break">
+</div>
+<br>
+<br>
+<a name="tubame_2.3."></a>
+<h3 class="title">2.3.デプロイメントデスクリプタの移行</h3>
+<br>
+<br>
+<a name="tubame_2.3.1."></a>
+<h3 class="title">2.3.1.EJBのデプロイメントデスクリプタの移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>JBoss EAP 4のデプロイメントデスクリプタ(jboss.xml)はJBoss EAP 6用のjboss-ejb3.xmlに移行を行う。
+        </p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>JBoss EAP 4のデプロイメントデスクリプタ(jboss.xml)の定義されたBean及びBeanのリファレンス設定をjboss-ejb3.xmlに移行する</p>
+</li>
+</ul>
+</div>
+<div class="figure">
+<a name="N11016"></a>
+<p class="title">
+<b>Figure&nbsp;1.&nbsp;JBoss EAP 4のデプロイメントデスクリプタ(TPCWのjboss.xml)</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+                
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;jboss xmlns="http://www.jboss.com/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.jboss.com/xml/ns/javaee
+ http://www.jboss.org/j2ee/schema/jboss_5_1.xsd"
+ version="5.1"&gt;
+  &lt;enterprise-beans&gt;
+    &lt;session&gt;
+      &lt;ejb-name&gt;TPCW&lt;/ejb-name&gt;
+      &lt;resource-ref&gt;
+        &lt;res-ref-name&gt;jdbc/tpcwDS&lt;/res-ref-name&gt;
+        &lt;jndi-name&gt;java:tpcwDS&lt;/jndi-name&gt;
+      &lt;/resource-ref&gt;
+    &lt;/session&gt;
+  &lt;/enterprise-beans&gt;
+&lt;/jboss&gt;
+
+            </pre>
+</div>
+</div>
+<br class="figure-break">
+<div class="figure">
+<a name="N11020"></a>
+<p class="title">
+<b>Figure&nbsp;2.&nbsp;JBoss EAP 6のデプロイメントデスクリプタ(TPCWのjboss-ejb3.xml)</b>
+</p>
+<div class="figure-contents">
+<pre class="programlisting">
+                
+&lt;?xml version="1.0"?&gt;  
+   &lt;jboss:ejb-jar xmlns:jboss="http://www.jboss.com/xml/ns/javaee"
+                  xmlns="http://java.sun.com/xml/ns/javaee"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://www.jboss.com/xml/ns/javaee http://www.jboss.org/j2ee/schema/jboss-ejb3-2_0.xsd
+                     http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd"
+                  version="3.1"
+                  impl-version="2.0"&gt;
+    &lt;enterprise-beans&gt;
+        
+       &lt;session&gt;
+            &lt;ejb-name&gt;TPCW&lt;/ejb-name&gt;
+            &lt;!-- This resource-ref has no corresponding res-type specified
+            neither in ejb-jar.xml nor in the bean as a @Resource (see EJBTHREE-1823
+            for the details) --&gt;
+            &lt;resource-ref&gt;
+                &lt;res-ref-name&gt;jdbc/tpcwDS&lt;/res-ref-name&gt;
+                &lt;jndi-name&gt;java:jboss/datasources/tpcwDS&lt;/jndi-name&gt;
+            &lt;/resource-ref&gt;
+        &lt;/session&gt;
+        
+    &lt;/enterprise-beans&gt;
+&lt;/jboss:ejb-jar&gt;
+
+            </pre>
+</div>
+</div>
+<br class="figure-break">
+</div>
+<br>
+<br>
+<a name="tubame_2.3.2."></a>
+<h3 class="title">2.3.2.Webデプロイメントデスクリプタの移行</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p></p>
+</div>
+<br>
+<br>
+</BODY>
+</HTML>
