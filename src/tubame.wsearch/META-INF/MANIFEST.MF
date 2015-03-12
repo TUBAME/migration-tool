@@ -14,6 +14,7 @@ Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: %plugin.provider
+Eclipse-BundleShape: dir
 Bundle-ClassPath: .,
  lib/tubame-common-1.0.4-SNAPSHOT.jar,
  lib/tubame-wsearch-biz-1.0.4-SNAPSHOT.jar
