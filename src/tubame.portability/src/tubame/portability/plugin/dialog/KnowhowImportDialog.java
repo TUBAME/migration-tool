@@ -2,6 +2,8 @@ package tubame.portability.plugin.dialog;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 
@@ -72,8 +74,9 @@ public class KnowhowImportDialog extends Dialog {
 		gd.horizontalSpan = 2;
 		knowledgeSelectCombo.setLayoutData(gd);
 		knowledgeNameMap = PluginUtil.getKnowledgeNamesFromPluginResource();
-		Set<String> knowledgeNames = knowledgeNameMap.keySet();
-		for (String knowledgeName : knowledgeNames) {
+		ArrayList<String> knowledgeNameMapKeyList = new ArrayList<String>(knowledgeNameMap.keySet());
+		Collections.sort(knowledgeNameMapKeyList);
+		for (String knowledgeName : knowledgeNameMapKeyList) {
 			knowledgeSelectCombo.add(knowledgeName);
 		}
 

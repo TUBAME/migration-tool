@@ -239,7 +239,16 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 					MessageUtil.LOG_INFO_PROC_NAME_REPORTGEN), e);
 			PluginUtil.viewErrorDialog(getDialogTitle(), getErrorRunFalse()+ StringUtil.LINE_SEPARATOR + e.getMessage(), e);
 			return false;
-		} 
+		}finally{
+			try {
+				String reportGenerationPath = PythonUtil.getReportGenerationPath();
+				if(new File(reportGenerationPath).exists()){
+					removeDir(reportGenerationPath,true);
+				}
+			} catch (IOException e) {
+				;
+			}
+		}
 		
 		return true;
 		// catch (WorkbenchException e) {
