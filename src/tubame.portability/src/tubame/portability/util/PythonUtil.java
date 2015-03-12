@@ -136,12 +136,6 @@ public class PythonUtil {
     }
     
     
-    public static String getPyPath()
-            throws IOException {
-        String filePath = PluginUtil.getResolvedPluginDir() + ApplicationPropertyUtil.REPORTGEN_OUTPUT_DIR;
-        LOGGER.info(filePath);
-        return filePath;
-    }
     
     public static String getWinSearchModulePath() throws IOException {
         String temp = PluginUtil.getResolvedPluginDir()

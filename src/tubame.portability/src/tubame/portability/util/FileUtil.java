@@ -285,7 +285,7 @@ public class FileUtil {
 			if (bufferedInputStream != null) {
 				bufferedInputStream.read(buff);
 				if (new String(buff)
-						.contains("<PortabilityKnowhow xmlns=\"http://generated.model.biz.knowhow.tubame/knowhow\" xmlns:ns2=\"http://docbook.org/ns/docbook\">")) {
+						.contains("<PortabilityKnowhow")) {
 					return true;
 				}
 			}
