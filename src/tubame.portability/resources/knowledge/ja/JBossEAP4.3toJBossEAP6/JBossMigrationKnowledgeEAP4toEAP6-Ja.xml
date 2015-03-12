@@ -1,0 +1,3421 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PortabilityKnowhow xmlns="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:ns2="http://docbook.org/ns/docbook">
+    <PortabilityKnowhowTitle>JBossMigration_EAP43_To_EAP6</PortabilityKnowhowTitle>
+    <EntryViewList>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_1</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_2</EntryCategoryRefKey>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_3</EntryCategoryRefKey>
+                </ChildEntry>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_4</EntryCategoryRefKey>
+                </ChildEntry>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_6</EntryCategoryRefKey>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_11</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_15</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_16</EntryCategoryRefKey>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_17</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_18</EntryCategoryRefKey>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_19</EntryCategoryRefKey>
+                    <ChildEntry>
+                        <EntryCategoryRefKey>category_21</EntryCategoryRefKey>
+                    </ChildEntry>
+                    <ChildEntry>
+                        <EntryCategoryRefKey>category_22</EntryCategoryRefKey>
+                    </ChildEntry>
+                </ChildEntry>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_20</EntryCategoryRefKey>
+                    <ChildEntry>
+                        <EntryCategoryRefKey>category_23</EntryCategoryRefKey>
+                    </ChildEntry>
+                    <ChildEntry>
+                        <EntryCategoryRefKey>category_24</EntryCategoryRefKey>
+                    </ChildEntry>
+                </ChildEntry>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_52</EntryCategoryRefKey>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_53</EntryCategoryRefKey>
+                </ChildEntry>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_25</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_26</EntryCategoryRefKey>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_51</EntryCategoryRefKey>
+                </ChildEntry>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_34</EntryCategoryRefKey>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_28</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_29</EntryCategoryRefKey>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_30</EntryCategoryRefKey>
+                </ChildEntry>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_33</EntryCategoryRefKey>
+                </ChildEntry>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_36</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_40</EntryCategoryRefKey>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_41</EntryCategoryRefKey>
+            </ChildEntry>
+        </EntryCategory>
+        <EntryCategory>
+            <EntryCategoryRefKey>category_42</EntryCategoryRefKey>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_45</EntryCategoryRefKey>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_46</EntryCategoryRefKey>
+                </ChildEntry>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_47</EntryCategoryRefKey>
+                </ChildEntry>
+            </ChildEntry>
+            <ChildEntry>
+                <EntryCategoryRefKey>category_48</EntryCategoryRefKey>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_50</EntryCategoryRefKey>
+                </ChildEntry>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_49</EntryCategoryRefKey>
+                </ChildEntry>
+            </ChildEntry>
+        </EntryCategory>
+    </EntryViewList>
+    <ChapterList>
+        <Chapter>
+            <ChapterNo>1.</ChapterNo>
+            <ChapterName>サーバ設定の移行</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>1.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_6</ChapterCategoryRefKey>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>1.2.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_2</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>1.2.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_3</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>1.2.2.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_4</ChapterCategoryRefKey>
+                </ChildChapter>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>1.3.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_11</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>1.3.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_15</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>1.3.2.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_16</ChapterCategoryRefKey>
+                </ChildChapter>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>1.4.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_42</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>1.4.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_45</ChapterCategoryRefKey>
+                    <ChildChapter>
+                        <ChildCapterNo>1.4.1.1.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_46</ChapterCategoryRefKey>
+                    </ChildChapter>
+                    <ChildChapter>
+                        <ChildCapterNo>1.4.1.2.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_47</ChapterCategoryRefKey>
+                    </ChildChapter>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>1.4.2.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_48</ChapterCategoryRefKey>
+                    <ChildChapter>
+                        <ChildCapterNo>1.4.2.1.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_50</ChapterCategoryRefKey>
+                    </ChildChapter>
+                    <ChildChapter>
+                        <ChildCapterNo>1.4.2.2.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_49</ChapterCategoryRefKey>
+                    </ChildChapter>
+                </ChildChapter>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>1.5.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_17</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>1.5.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_18</ChapterCategoryRefKey>
+                    <ChildChapter>
+                        <ChildCapterNo>1.5.1.1.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_19</ChapterCategoryRefKey>
+                        <ChildChapter>
+                            <ChildCapterNo>1.5.1.1.1.</ChildCapterNo>
+                            <ChapterCategoryRefKey>category_21</ChapterCategoryRefKey>
+                        </ChildChapter>
+                        <ChildChapter>
+                            <ChildCapterNo>1.5.1.1.2.</ChildCapterNo>
+                            <ChapterCategoryRefKey>category_22</ChapterCategoryRefKey>
+                        </ChildChapter>
+                    </ChildChapter>
+                    <ChildChapter>
+                        <ChildCapterNo>1.5.1.2.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_20</ChapterCategoryRefKey>
+                        <ChildChapter>
+                            <ChildCapterNo>1.5.1.2.1.</ChildCapterNo>
+                            <ChapterCategoryRefKey>category_23</ChapterCategoryRefKey>
+                        </ChildChapter>
+                        <ChildChapter>
+                            <ChildCapterNo>1.5.1.2.2.</ChildCapterNo>
+                            <ChapterCategoryRefKey>category_24</ChapterCategoryRefKey>
+                        </ChildChapter>
+                    </ChildChapter>
+                </ChildChapter>
+            </ChildChapter>
+        </Chapter>
+        <Chapter>
+            <ChapterNo>2.</ChapterNo>
+            <ChapterName>アプリケーションの移行</ChapterName>
+            <ChildChapter>
+                <ChildCapterNo>2.1.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_28</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>2.1.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_29</ChapterCategoryRefKey>
+                    <ChildChapter>
+                        <ChildCapterNo>2.1.1.1.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_30</ChapterCategoryRefKey>
+                    </ChildChapter>
+                    <ChildChapter>
+                        <ChildCapterNo>2.1.1.2.</ChildCapterNo>
+                        <ChapterCategoryRefKey>category_33</ChapterCategoryRefKey>
+                    </ChildChapter>
+                </ChildChapter>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>2.2.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_36</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>2.2.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_40</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>2.2.2.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_41</ChapterCategoryRefKey>
+                </ChildChapter>
+            </ChildChapter>
+            <ChildChapter>
+                <ChildCapterNo>2.3.</ChildCapterNo>
+                <ChapterCategoryRefKey>category_25</ChapterCategoryRefKey>
+                <ChildChapter>
+                    <ChildCapterNo>2.3.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_26</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>2.3.2.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_34</ChapterCategoryRefKey>
+                </ChildChapter>
+            </ChildChapter>
+        </Chapter>
+    </ChapterList>
+    <CategoryList>
+        <Category categoryId="category_1" appropriate="true">
+            <CategoryName>データソースの移行</CategoryName>
+        </Category>
+        <Category categoryId="category_2" appropriate="true">
+            <CategoryName>データソース設定の移行</CategoryName>
+            <KnowhowRefKey>knowhow_2</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_3" appropriate="true">
+            <CategoryName>IronJacamarを利用してデータソース定義ファイルを作成する</CategoryName>
+            <KnowhowRefKey>knowhow_3</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_4" appropriate="true">
+            <CategoryName>データソース設定の移行</CategoryName>
+            <KnowhowRefKey>knowhow_4</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_6" appropriate="true">
+            <CategoryName>JDBCドライバの移行</CategoryName>
+            <KnowhowRefKey>knowhow_5</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_11" appropriate="true">
+            <CategoryName>Webコンテナの移行</CategoryName>
+            <KnowhowRefKey>knowhow_9</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_15" appropriate="true">
+            <CategoryName>AJPコネクター設定の移行</CategoryName>
+            <KnowhowRefKey>knowhow_13</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_16" appropriate="true">
+            <CategoryName>jvmRoute設定の移行</CategoryName>
+            <KnowhowRefKey>knowhow_14</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_17" appropriate="true">
+            <CategoryName>EJBコンテナの移行</CategoryName>
+        </Category>
+        <Category categoryId="category_18" appropriate="true">
+            <CategoryName>Beanのインスタンスプールの設定移行</CategoryName>
+            <KnowhowRefKey>knowhow_17</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_19" appropriate="true">
+            <CategoryName>SLSBインスタンスプールの設定移行</CategoryName>
+        </Category>
+        <Category categoryId="category_21" appropriate="true">
+            <CategoryName>SLSBインスタンスプール設定移行(インスタンスプール未設定)</CategoryName>
+            <KnowhowRefKey>knowhow_20</KnowhowRefKey>
+            <KnowhowRefKey>knowhow_22</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_22" appropriate="true">
+            <CategoryName>SLSBインスタンスプール設定移行(インスタンスプール設定あり)</CategoryName>
+            <KnowhowRefKey>knowhow_21</KnowhowRefKey>
+            <KnowhowRefKey>knowhow_23</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_20" appropriate="true">
+            <CategoryName>MDBインスタンスプールの設定移行</CategoryName>
+        </Category>
+        <Category categoryId="category_23" appropriate="true">
+            <CategoryName>MDBインスタンスプール設定移行(インスタンスプール未設定)</CategoryName>
+            <KnowhowRefKey>knowhow_24</KnowhowRefKey>
+            <KnowhowRefKey>knowhow_25</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_24" appropriate="true">
+            <CategoryName>MDBインスタンスプール設定移行(インスタンスプール設定あり)</CategoryName>
+            <KnowhowRefKey>knowhow_26</KnowhowRefKey>
+            <KnowhowRefKey>knowhow_27</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_52" appropriate="true">
+            <CategoryName>EntityBeanのコンテナ設定</CategoryName>
+        </Category>
+        <Category categoryId="category_53" appropriate="true">
+            <CategoryName>CMPBean設定の移行</CategoryName>
+            <KnowhowRefKey>knowhow_48</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_25" appropriate="true">
+            <CategoryName>デプロイメントデスクリプタの移行</CategoryName>
+        </Category>
+        <Category categoryId="category_26" appropriate="true">
+            <CategoryName>EJBのデプロイメントデスクリプタの移行</CategoryName>
+            <KnowhowRefKey>knowhow_28</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_51" appropriate="true">
+            <CategoryName>EntityBeanのデプロイメントデスクリプタ(jboss.xml)の移行</CategoryName>
+            <KnowhowRefKey>knowhow_47</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_34" appropriate="true">
+            <CategoryName>Webデプロイメントデスクリプタの移行</CategoryName>
+            <KnowhowRefKey>knowhow_33</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_28" appropriate="true">
+            <CategoryName>Servetの移行</CategoryName>
+        </Category>
+        <Category categoryId="category_29" appropriate="true">
+            <CategoryName>Servletの非推奨APIについて</CategoryName>
+        </Category>
+        <Category categoryId="category_30" appropriate="true">
+            <CategoryName>Servlet2.5で既に非推奨となる機能</CategoryName>
+            <KnowhowRefKey>knowhow_30</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_33" appropriate="true">
+            <CategoryName>Servlet3.0で非推奨となる機能</CategoryName>
+            <KnowhowRefKey>knowhow_32</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_36" appropriate="true">
+            <CategoryName>JNDIの移行</CategoryName>
+            <KnowhowRefKey>knowhow_34</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_40" appropriate="true">
+            <CategoryName>JNDIルックアップ呼び出し設定の移行(APサーバのコンテナ内)</CategoryName>
+            <KnowhowRefKey>knowhow_37</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_41" appropriate="true">
+            <CategoryName>JNDIルックアップ呼び出し設定の移行(APサーバのコンテナ外)</CategoryName>
+            <KnowhowRefKey>knowhow_38</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_42" appropriate="true">
+            <CategoryName>Webクラスタ設定の移行</CategoryName>
+            <KnowhowRefKey>knowhow_39</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_45" appropriate="true">
+            <CategoryName>JGroup設定の移行</CategoryName>
+        </Category>
+        <Category categoryId="category_46" appropriate="true">
+            <CategoryName>JGroupプロトコルスタックの設定移行</CategoryName>
+            <KnowhowRefKey>knowhow_42</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_47" appropriate="true">
+            <CategoryName>JGroupのFC設定移行</CategoryName>
+            <KnowhowRefKey>knowhow_43</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_48" appropriate="true">
+            <CategoryName>レプリケーション設定の移行</CategoryName>
+            <KnowhowRefKey>knowhow_44</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_50" appropriate="true">
+            <CategoryName>レプリケーションのモード設定移行</CategoryName>
+            <KnowhowRefKey>knowhow_45</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_49" appropriate="true">
+            <CategoryName>レプリケーションの同期設定移行</CategoryName>
+            <KnowhowRefKey>knowhow_46</KnowhowRefKey>
+        </Category>
+    </CategoryList>
+    <KnowhowList>
+        <KnowhowInfomation knowhowId="knowhow_2" knowhowDetailRefKey="knowhowDetail_2">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>データソース設定の移行</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_3" knowhowDetailRefKey="knowhowDetail_3">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>IronJacamarを利用してデータソース定義ファイルを作成する</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_4" knowhowDetailRefKey="knowhowDetail_4">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>CLIによるデータソース設定</KnowhowName>
+            <CheckItem checkItemId="checkItem_1" searchRefKey="searchInfo_1" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>pool-name属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にpool-name属性が定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_2" searchRefKey="searchInfo_2" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>jndi-name属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にjndi-name属性が定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_3" searchRefKey="searchInfo_3" searchExistance="true">
+                <CheckItemNo>3</CheckItemNo>
+                <CheckItemName>jta属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にjta属性が定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_4" searchRefKey="searchInfo_4" searchExistance="true">
+                <CheckItemNo>4</CheckItemNo>
+                <CheckItemName>spy属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にpy属性が定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_5" searchRefKey="searchInfo_5" searchExistance="true">
+                <CheckItemNo>5</CheckItemNo>
+                <CheckItemName>use-ccm属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にuse-ccm属性が定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_6" searchRefKey="searchInfo_6" searchExistance="true">
+                <CheckItemNo>6</CheckItemNo>
+                <CheckItemName>use-java-context属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にuse-java-context属性が定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_7" searchRefKey="searchInfo_7" searchExistance="true">
+                <CheckItemNo>7</CheckItemNo>
+                <CheckItemName>connection-url属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にconnection-urlタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_8" searchRefKey="searchInfo_8" searchExistance="true">
+                <CheckItemNo>8</CheckItemNo>
+                <CheckItemName>driver-class属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にdriver-classタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_9" searchRefKey="searchInfo_9" searchExistance="true">
+                <CheckItemNo>9</CheckItemNo>
+                <CheckItemName>new-connection-sql属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にnew-connection-sqlタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_10" searchRefKey="searchInfo_10" searchExistance="true">
+                <CheckItemNo>10</CheckItemNo>
+                <CheckItemName>transaction-isolation属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にtransaction-isolationタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_11" searchRefKey="searchInfo_11" searchExistance="true">
+                <CheckItemNo>11</CheckItemNo>
+                <CheckItemName>min-pool-size属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にmin-pool-sizeタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_12" searchRefKey="searchInfo_12" searchExistance="true">
+                <CheckItemNo>12</CheckItemNo>
+                <CheckItemName>max-pool-size属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にmax-pool-sizeタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_13" searchRefKey="searchInfo_13" searchExistance="true">
+                <CheckItemNo>13</CheckItemNo>
+                <CheckItemName>prefill属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にprefillタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_14" searchRefKey="searchInfo_14" searchExistance="true">
+                <CheckItemNo>14</CheckItemNo>
+                <CheckItemName>use-strict-min属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にuse-strict-minタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_15" searchRefKey="searchInfo_15" searchExistance="true">
+                <CheckItemNo>15</CheckItemNo>
+                <CheckItemName>transaction-isolation属性の検索</CheckItemName>
+                <SearchProcess>*-ds-eap6.xmlにtransaction-isolationタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_16" searchRefKey="searchInfo_16" searchExistance="true">
+                <CheckItemNo>16</CheckItemNo>
+                <CheckItemName>flush-strategy属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にflush-strategyタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_17" searchRefKey="searchInfo_17" searchExistance="true">
+                <CheckItemNo>17</CheckItemNo>
+                <CheckItemName>user-name属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にuser-nameタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_18" searchRefKey="searchInfo_18" searchExistance="true">
+                <CheckItemNo>18</CheckItemNo>
+                <CheckItemName>password属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にpasswordタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_19" searchRefKey="searchInfo_19" searchExistance="true">
+                <CheckItemNo>19</CheckItemNo>
+                <CheckItemName>background-validation属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にbackground-validationタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_20" searchRefKey="searchInfo_20" searchExistance="true">
+                <CheckItemNo>20</CheckItemNo>
+                <CheckItemName>use-fast-fail属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にuse-fast-failタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_21" searchRefKey="searchInfo_21" searchExistance="true">
+                <CheckItemNo>21</CheckItemNo>
+                <CheckItemName>idle-timeout-minutes属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にidle-timeout-minutesタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_22" searchRefKey="searchInfo_22" searchExistance="true">
+                <CheckItemNo>22</CheckItemNo>
+                <CheckItemName>xa-resource-timeout属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にxa-resource-timeoutタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_23" searchRefKey="searchInfo_23" searchExistance="true">
+                <CheckItemNo>23</CheckItemNo>
+                <CheckItemName>track-statements属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にtrack-statementsタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_24" searchRefKey="searchInfo_24" searchExistance="true">
+                <CheckItemNo>24</CheckItemNo>
+                <CheckItemName>prepared-statement-cache-size属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にprepared-statement-cache-sizeタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_52" searchRefKey="searchInfo_52" searchExistance="true">
+                <CheckItemNo>25</CheckItemNo>
+                <CheckItemName>check-valid-connection-sql属性の検索</CheckItemName>
+                <SearchProcess>IronJacamarを利用して作成してデータソース定義ファイル(*-ds-eap6.xml)にcheck-valid-connection-sqlタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_53" searchRefKey="searchInfo_53" searchExistance="true">
+                <CheckItemNo>26</CheckItemNo>
+                <CheckItemName>validate-on-matchl属性の検索</CheckItemName>
+                <SearchProcess>*-ds-eap6.xmlにcheck-validate-on-matchタグが定義されていないか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_5" knowhowDetailRefKey="knowhowDetail_5">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>JDBCドライバの移行方法</KnowhowName>
+            <CheckItem checkItemId="checkItem_89" searchRefKey="searchInfo_89" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>postgresql用のドライバの検索</CheckItemName>
+                <SearchProcess>-ds.xmlを対象にjdbc:postgresqlで検索する</SearchProcess>
+                <PortabilityFactor></PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>アプリケーションとまったく関係のないデータソース定義ファイルがヒットしていないか確認する。</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_90" searchRefKey="searchInfo_90" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>oracle用のドライバの検索</CheckItemName>
+                <SearchProcess>-ds.xmlを対象にjdbc:oracleで検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>アプリケーションとまったく関係のないデータソース定義ファイルがヒットしていないか確認する。</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_91" searchRefKey="searchInfo_91" searchExistance="true">
+                <CheckItemNo>3</CheckItemNo>
+                <CheckItemName>mysql用のドライバの検索</CheckItemName>
+                <SearchProcess>-ds.xmlを対象にjdbc:sqlserverで検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>アプリケーションとまったく関係のないデータソース定義ファイルがヒットしていないか確認する。</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_9" knowhowDetailRefKey="knowhowDetail_9">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Webコンテナの設定移行</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_13" knowhowDetailRefKey="knowhowDetail_13">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>AJPコネクター設定の移行</KnowhowName>
+            <CheckItem checkItemId="checkItem_34" searchRefKey="searchInfo_34" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>AJPコネクタのport属性の検索</CheckItemName>
+                <SearchProcess>server.xmlのConnectorタグの属性portを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>HTTPコネクタのport属性でないことを確認する</VisualConfirm>
+                <HearingConfirm>JBossのフロントにApache(mod_jk）を利用した構成か</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_35" searchRefKey="searchInfo_35" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>AJPコネクタのprotocol属性の検索</CheckItemName>
+                <SearchProcess>server.xmlのConnectorタグの属性protocolを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>HTTPコネクタのport属性でないことを確認する</VisualConfirm>
+                <HearingConfirm>JBossのフロントにApache(mod_jk）を利用した構成か</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_36" searchRefKey="searchInfo_36" searchExistance="true">
+                <CheckItemNo>3</CheckItemNo>
+                <CheckItemName>AJPコネクタのmaxThreads属性の検索</CheckItemName>
+                <SearchProcess>server.xmlのConnectorタグの属性maxThreadsを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>HTTPコネクタのport属性でないことを確認する</VisualConfirm>
+                <HearingConfirm>JBossのフロントにApache(mod_jk）を利用した構成か</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_37" searchRefKey="searchInfo_37" searchExistance="true">
+                <CheckItemNo>4</CheckItemNo>
+                <CheckItemName>AJPコネクタのconnectionTimeout属性の検索</CheckItemName>
+                <SearchProcess>server.xmlのConnectorタグの属性connectionTimeoutを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>HTTPコネクタのport属性でないことを確認する</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_38" searchRefKey="searchInfo_38" searchExistance="true">
+                <CheckItemNo>5</CheckItemNo>
+                <CheckItemName>AJPコネクタのuseBodyEncodingForURI属性の検索</CheckItemName>
+                <SearchProcess>server.xmlのConnectorタグの属性emptySessionPathを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>HTTPコネクタのport属性でないことを確認する</VisualConfirm>
+                <HearingConfirm>JBossのフロントにApache(mod_jk）を利用した構成か</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_39" searchRefKey="searchInfo_39" searchExistance="true">
+                <CheckItemNo>6</CheckItemNo>
+                <CheckItemName>AJPコネクタのemptySessionPath属性の検索</CheckItemName>
+                <SearchProcess>server.xmlのConnectorタグの属性protocolを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>HTTPコネクタのport属性でないことを確認する</VisualConfirm>
+                <HearingConfirm>JBossのフロントにApache(mod_jk）を利用した構成か</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_40" searchRefKey="searchInfo_40" searchExistance="true">
+                <CheckItemNo>7</CheckItemNo>
+                <CheckItemName>AJPコネクタのenableLookups属性の検索</CheckItemName>
+                <SearchProcess>server.xmlのConnectorタグの属性enableLookupsを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>HTTPコネクタのport属性でないことを確認する</VisualConfirm>
+                <HearingConfirm>JBossのフロントにApache(mod_jk）を利用した構成か</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_41" searchRefKey="searchInfo_41" searchExistance="true">
+                <CheckItemNo>8</CheckItemNo>
+                <CheckItemName>AJPコネクタのredirectPort属性の検索</CheckItemName>
+                <SearchProcess>server.xmlのConnectorタグの属性redirectPortを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>HTTPコネクタのport属性でないことを確認する</VisualConfirm>
+                <HearingConfirm>JBossのフロントにApache(mod_jk）を利用した構成か</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_54" searchRefKey="searchInfo_54" searchExistance="true">
+                <CheckItemNo>9</CheckItemNo>
+                <CheckItemName>AJPコネクタのschema属性の検索</CheckItemName>
+                <SearchProcess>server.xmlのConnectorタグの属性schemeを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_55" searchRefKey="searchInfo_55" searchExistance="true">
+                <CheckItemNo>10</CheckItemNo>
+                <CheckItemName>AJPコネクタのsecure属性の検索</CheckItemName>
+                <SearchProcess>server.xmlのConnectorタグの属性secureの値がtrueで検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_14" knowhowDetailRefKey="knowhowDetail_14">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>jvmRoute設定の移行</KnowhowName>
+            <CheckItem checkItemId="checkItem_42" searchRefKey="searchInfo_42" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>jvmRoute設定の検索</CheckItemName>
+                <SearchProcess>server.xmlを対象にEngineタグのjvmRoute属性を検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_17" knowhowDetailRefKey="knowhowDetail_17">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Beanインスタンスプールの設定移行</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_20" knowhowDetailRefKey="knowhowDetail_20">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>デプロイメントデスクリプタにインスタンスプール未設定の場合のインスタンスプール設定の移行</KnowhowName>
+            <CheckItem checkItemId="checkItem_45" searchRefKey="searchInfo_45" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>jboss.xmlに明示的にインスタンスプール設定がされていないことを検索する</CheckItemName>
+                <SearchProcess>jboss.xmlにconfiguration-nameタグが存在しないことを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>jboss.xmlにconfiguration-nameタグが存在しないことを確認する。タグが存在する場合は、移植項目から除外する</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_22" knowhowDetailRefKey="knowhowDetail_22">
+            <KnowhowNo>2</KnowhowNo>
+            <KnowhowName>管理CLIによるSLSBのデフォルトのインスタンスプール設定(JBoss EAP 6)</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_21" knowhowDetailRefKey="knowhowDetail_21">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>jboss.xmlで明示的にインスタンスプールの設定を行っている場合の設定移行</KnowhowName>
+            <CheckItem checkItemId="checkItem_43" searchRefKey="searchInfo_43" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>jboss.xmlでのSLSBのインスタンスプールチューニング設定の有無を検索</CheckItemName>
+                <SearchProcess>jboss.xmlのcontainer-configurationタグのextends属性の値がStandard Stateless SessionBeanであるか検索</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_44" searchRefKey="searchInfo_44" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>jboss.xmlでのSLSBのインスタンスプールチューニング設定の有無を検索</CheckItemName>
+                <SearchProcess>jboss.xmlのcontainer-configurationタグのextends属性の値がClustered Stateless SessionBeanであるか検索</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_23" knowhowDetailRefKey="knowhowDetail_23">
+            <KnowhowNo>2</KnowhowNo>
+            <KnowhowName>管理CLIによるSLSBのBean個別のインスタンスプール設定(JBoss EAP 6)</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_24" knowhowDetailRefKey="knowhowDetail_24">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>jboss.xmlで明示的にインスタンスプールの設定を行っていない場合の設定移行</KnowhowName>
+            <CheckItem checkItemId="checkItem_46" searchRefKey="searchInfo_46" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>jboss.xmlに明示的にインスタンスプール設定がされていないことを検索する</CheckItemName>
+                <SearchProcess>jboss.xmlにconfiguration-nameタグが存在しないことを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>jboss.xmlにconfiguration-nameタグが存在しないことを確認する。タグが存在する場合は、移植項目から除外する</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_25" knowhowDetailRefKey="knowhowDetail_25">
+            <KnowhowNo>2</KnowhowNo>
+            <KnowhowName>管理CLIによるMDBのデフォルトのインスタンスプール設定(JBoss EAP 6)</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_26" knowhowDetailRefKey="knowhowDetail_26">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Singleton Message Driven Bean</KnowhowName>
+            <CheckItem checkItemId="checkItem_48" searchRefKey="searchInfo_48" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>jboss.xmlでのMDBのインスタンスプールチューニング設定の有無を検索</CheckItemName>
+                <SearchProcess>jboss.xmlのcontainer-configurationタグのextends属性の値がStandard Message Driven Beanであるか検索</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_49" searchRefKey="searchInfo_49" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>jboss.xmlでのシングルトンMDBのインスタンスプールチューニング設定の有無を検索</CheckItemName>
+                <SearchProcess>jboss.xmlのcontainer-configurationタグのextends属性の値がSingleton Message Driven Beanであるか検索</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_50" searchRefKey="searchInfo_50" searchExistance="true">
+                <CheckItemNo>3</CheckItemNo>
+                <CheckItemName>jboss.xmlでのメッセージインフローMDBのインスタンスプールチューニング設定の有無を検索</CheckItemName>
+                <SearchProcess>jboss.xmlのcontainer-configurationタグのextends属性の値がStandard Message Inflow Driven Beanであるか検索</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_27" knowhowDetailRefKey="knowhowDetail_27">
+            <KnowhowNo>2</KnowhowNo>
+            <KnowhowName>管理CLIによるMDBのBean個別のインスタンスプール設定(JBoss EAP 6)</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_48" knowhowDetailRefKey="knowhowDetail_48">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>CMPBean設定の移行</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_28" knowhowDetailRefKey="knowhowDetail_28">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>EJBのデプロイメントデスクリプタ(jboss.xml)の移行</KnowhowName>
+            <CheckItem checkItemId="checkItem_51" searchRefKey="searchInfo_51" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>JBossのEJBのデプロイメントデスクリプタ(jboss.xml)を検索する</CheckItemName>
+                <SearchProcess>jboss.xmlを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>該当のjboss.xmlがアプリケーションで利用しているjboss.xmlか確認すること。&#xD;
+（あきらかに違う場合などは、非移植項目とすること）</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_47" knowhowDetailRefKey="knowhowDetail_47">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>EntityBeanのデプロイメントデスクリプタ(jboss.xml)の移行</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_33" knowhowDetailRefKey="knowhowDetail_33">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Webデプロイメントデスクリプタ(jboss-web.xml)の移行</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_30" knowhowDetailRefKey="knowhowDetail_30">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Servlet 2.5で既に非推奨となる機能</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_32" knowhowDetailRefKey="knowhowDetail_32">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Servlet 3.0で非推奨となる機能</KnowhowName>
+            <CheckItem checkItemId="checkItem_92" searchRefKey="searchInfo_92" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>HttpServletResponseWrapper#encodeRedirectUrlの検索1</CheckItemName>
+                <SearchProcess>HttpServletResponseWrapperクラスのencodeRedirectUrlメソッド利用を検索する</SearchProcess>
+                <PortabilityFactor>JSP/Servlet仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>非推奨APIの利用有無を目視で確認する</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_93" searchRefKey="searchInfo_93" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>HttpServletResponseWrapper#encodeRedirectUrlの検索2</CheckItemName>
+                <SearchProcess>HttpServletResponseWrapperクラスのencodeRedirectUrlメソッド利用を検索する</SearchProcess>
+                <PortabilityFactor>JSP/Servlet仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>非推奨APIの利用有無を目視で確認する</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_94" searchRefKey="searchInfo_94" searchExistance="true">
+                <CheckItemNo>3</CheckItemNo>
+                <CheckItemName>HttpServletResponseWrapper#encodeUrlの検索1</CheckItemName>
+                <SearchProcess>HttpServletResponseWrapperクラスのencodeUrlメソッド利用を検索する</SearchProcess>
+                <PortabilityFactor>JSP/Servlet仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>非推奨APIの利用有無を目視で確認する</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_95" searchRefKey="searchInfo_95" searchExistance="true">
+                <CheckItemNo>4</CheckItemNo>
+                <CheckItemName>HttpServletResponseWrapper#encodeUrllの検索2</CheckItemName>
+                <SearchProcess>HttpServletResponseWrapperクラスのencodeUrlメソッド利用を検索する</SearchProcess>
+                <PortabilityFactor>JSP/Servlet仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>非推奨APIの利用有無を目視で確認する</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_96" searchRefKey="searchInfo_96" searchExistance="true">
+                <CheckItemNo>5</CheckItemNo>
+                <CheckItemName>HttpServletResponseWrapper#isRequestedSessionIdFromUrlの検索1</CheckItemName>
+                <SearchProcess>HttpServletResponseWrapperクラスのisRequestedSessionIdFromUrlメソッド利用を検索する</SearchProcess>
+                <PortabilityFactor>JSP/Servlet仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>非推奨APIの利用有無を目視で確認する</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_97" searchRefKey="searchInfo_97" searchExistance="true">
+                <CheckItemNo>6</CheckItemNo>
+                <CheckItemName>HttpServletResponseWrapper#isRequestedSessionIdFromUrlの検索2</CheckItemName>
+                <SearchProcess>HttpServletResponseWrapperクラスのisRequestedSessionIdFromUrlメソッド利用を検索する</SearchProcess>
+                <PortabilityFactor>JSP/Servlet仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>非推奨APIの利用有無を目視で確認する</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_98" searchRefKey="searchInfo_98" searchExistance="true">
+                <CheckItemNo>7</CheckItemNo>
+                <CheckItemName>HttpServletResponseWrapper#setStatusの検索1</CheckItemName>
+                <SearchProcess>HttpServletResponseWrapperクラスのsetStatusメソッド利用を検索する</SearchProcess>
+                <PortabilityFactor>JSP/Servlet仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>非推奨APIの利用有無を目視で確認する</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_99" searchRefKey="searchInfo_99" searchExistance="true">
+                <CheckItemNo>8</CheckItemNo>
+                <CheckItemName>HttpServletResponseWrapper#setStatusの検索2</CheckItemName>
+                <SearchProcess>HttpServletResponseWrapperクラスのsetStatusメソッド利用を検索する</SearchProcess>
+                <PortabilityFactor>JSP/Servlet仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>非推奨APIの利用有無を目視で確認する</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_100" searchRefKey="searchInfo_100" searchExistance="true">
+                <CheckItemNo>9</CheckItemNo>
+                <CheckItemName>ServletRequestWrapper#encodeRedirectUrlの検索1</CheckItemName>
+                <SearchProcess>ServletRequestWrapperクラスのgetRealPathメソッド利用を検索する</SearchProcess>
+                <PortabilityFactor>JSP/Servlet仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>非推奨APIの利用有無を目視で確認する</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_101" searchRefKey="searchInfo_101" searchExistance="true">
+                <CheckItemNo>10</CheckItemNo>
+                <CheckItemName>ServletRequestWrapper#encodeRedirectUrlの検索2</CheckItemName>
+                <SearchProcess>HttpServletResponseWrapperクラスのgetRealPathメソッド利用を検索する</SearchProcess>
+                <PortabilityFactor>JSP/Servlet仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>非推奨APIの利用有無を目視で確認する</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_34" knowhowDetailRefKey="knowhowDetail_34">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>JNDIのInitialContextの設定</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_37" knowhowDetailRefKey="knowhowDetail_37">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>APサーバのコンテナ内からのJNDIルックアップ呼び出し</KnowhowName>
+            <CheckItem checkItemId="checkItem_62" searchRefKey="searchInfo_62" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>javaコード内のInitialContextインスタンス生成検索</CheckItemName>
+                <SearchProcess>javaファイルを対象にInitialContextを引数ありで呼び出ししている箇所を検索する。</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>InitialContextが引数なしの場合は非移植項目にする。引数の指定がある場合、該当コードがAPサーバコンテナ内からの呼び出しであるか確認する。&#xD;
+APサーバコンテナ内部の場合は、本来、InitialContextに引数を設定する必要がないため、引数を設定しないように修正を行う必要があるため、移植項目となる。&#xD;
+APサーバコンテナ外の呼び出しの場合は、本項目では検知するのは正しくないため、非移植項目とする。</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_38" knowhowDetailRefKey="knowhowDetail_38">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>APサーバのコンテナ外からのJNDIルックアップ呼び出し</KnowhowName>
+            <CheckItem checkItemId="checkItem_56" searchRefKey="searchInfo_56" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>propetiesを利用したINITIAL_CONTEXT_FACTORY設定の検索</CheckItemName>
+                <SearchProcess>*.propertiesを対象にorg.jnp.interfaces.NamingContextFactoryを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>該当propertiesファイルが&#xD;
+$jboss.home/conf/jndi.propertiesファイルの場合は非移植項目とする。&#xD;
+それ以外の場合は、該当ファイルがコンテナ外からのJNDI呼び出しのための設定であることを確認する。&#xD;
+コンテナ外の呼び出しである場合はpropertiyの内容を変更する必要があるため、移植項目となる</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_57" searchRefKey="searchInfo_57" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>propetiesを利用したPROVIDER_URL設定の検索</CheckItemName>
+                <SearchProcess>*.propertiesを対象にjnp://を検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>該当propertiesファイルが&#xD;
+$jboss.home/conf/jndi.propertiesファイルの場合は非移植項目とする。&#xD;
+それ以外の場合は、該当ファイルがコンテナ外からのJNDI呼び出しのための設定であることを確認する。&#xD;
+コンテナ外の呼び出しである場合はpropertiyの内容を変更する必要があるため、移植項目となる</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_58" searchRefKey="searchInfo_58" searchExistance="true">
+                <CheckItemNo>3</CheckItemNo>
+                <CheckItemName>propetiesを利用したURL_PKG_PREFIXES設定の検索</CheckItemName>
+                <SearchProcess>該当propertiesファイルが&#xD;
+$jboss.home/conf/jndi.propertiesファイルの場合は非移植項目とする。</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>該当propertiesファイルが&#xD;
+$jboss.home/conf/jndi.propertiesファイルの場合は非移植項目とする。&#xD;
+それ以外の場合は、該当ファイルがコンテナ外からのJNDI呼び出しのための設定であることを確認する。&#xD;
+コンテナ外の呼び出しである場合は移植対象となる</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_59" searchRefKey="searchInfo_59" searchExistance="true">
+                <CheckItemNo>4</CheckItemNo>
+                <CheckItemName>Javaコード内のINITIAL_CONTEXT_FACTORY設定の検索</CheckItemName>
+                <SearchProcess>*.javaを対象にorg.jnp.interfaces.NamingContextFactoryを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>該当コードがAPサーバコンテナ外からの呼び出しであるか確認する。APサーバコンテナ外にかぎり、移植項目となる。&#xD;
+APサーバコンテナ内の呼び出しの場合も移植が必要であるが、本項目で検知するのはただしくないため、非移植項目とする。</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_60" searchRefKey="searchInfo_60" searchExistance="true">
+                <CheckItemNo>5</CheckItemNo>
+                <CheckItemName>Javaコード内のPROVIDER_URL設定の検索</CheckItemName>
+                <SearchProcess>該当コードがAPサーバコンテナ外からの呼び出しであるか確認する。APサーバコンテナ外にかぎり、移植項目となる。&#xD;
+APサーバコンテナ内の呼び出しの場合も移植が必要であるが、本項目で検知するのはただしくないため、非移植項目とする。</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>該当コードがAPサーバコンテナ外からの呼び出しであるか確認する。APサーバコンテナ外にかぎり、移植項目となる。&#xD;
+APサーバコンテナ内の呼び出しの場合も移植が必要であるが、本項目で検知するのはただしくないため、非移植項目とする。</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_61" searchRefKey="searchInfo_61" searchExistance="true">
+                <CheckItemNo>6</CheckItemNo>
+                <CheckItemName>Javaコード内のURL_PKG_PREFIXES設定の検索</CheckItemName>
+                <SearchProcess>該当コードがAPサーバコンテナ外からの呼び出しであるか確認する。APサーバコンテナ外にかぎり、移植項目となる。&#xD;
+APサーバコンテナ内の呼び出しの場合も移植が必要であるが、本項目で検知するのはただしくないため、非移植項目とする。</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>該当コードがAPサーバコンテナ外からの呼び出しであるか確認する。APサーバコンテナ外にかぎり、移植項目となる。&#xD;
+APサーバコンテナ内の呼び出しの場合も移植が必要であるが、本項目で検知するのはただしくないため、非移植項目とする。</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_39" knowhowDetailRefKey="knowhowDetail_39">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>Webクラスタ設定の移行</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_42" knowhowDetailRefKey="knowhowDetail_42">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>JGroupプロトコルスタックの設定移行</KnowhowName>
+            <CheckItem checkItemId="checkItem_81" searchRefKey="searchInfo_81" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>JGroupプロトコルスタックがUDPが検索する</CheckItemName>
+                <SearchProcess>jboss-service.xmlのconfigタグの子要素にUDPタグが存在するか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_82" searchRefKey="searchInfo_82" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>JGroupプロトコルスタックがTCPが検索する</CheckItemName>
+                <SearchProcess>jboss-service.xmlのconfigタグの子要素にTCPタグが存在するか確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_43" knowhowDetailRefKey="knowhowDetail_43">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>JGroupのFC設定移行</KnowhowName>
+            <CheckItem checkItemId="checkItem_83" searchRefKey="searchInfo_83" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>JGroupのFC設定がされていることを検索する</CheckItemName>
+                <SearchProcess>jboss-service.xmlのonfigタグ配下に子要素としてFCタグが存在することを確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm>FC設定がひつようか確認する必要がある。</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_84" searchRefKey="searchInfo_84" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>JGroupのFC設定がされていないことを検索する</CheckItemName>
+                <SearchProcess>jboss-service.xmlのonfigタグ配下に子要素としてFCタグが存在することを確認する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm>FC設定がコメントされていることを確認する。FC設定が有効の場合は、非移植項目とする。</VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_44" knowhowDetailRefKey="knowhowDetail_44">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>レプリケーション設定の移行</KnowhowName>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_45" knowhowDetailRefKey="knowhowDetail_45">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>レプリケーションのモード設定</KnowhowName>
+            <CheckItem checkItemId="checkItem_85" searchRefKey="searchInfo_85" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>レプリケーションモードがalltoallであることを検索する</CheckItemName>
+                <SearchProcess>jboss-service.xmlのbuddyReplicationEnabledタグの値がfalseであることを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm>APサーバのクラスタノード台数を確認</HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_86" searchRefKey="searchInfo_86" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>レプリケーションモードがbuddyであることを検索する</CheckItemName>
+                <SearchProcess>jboss-service.xmlのbuddyReplicationEnabledタグの値がtrueであることを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm>バディ相当の機能が必要か確認</HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_46" knowhowDetailRefKey="knowhowDetail_46">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>レプリケーションの同期設定</KnowhowName>
+            <CheckItem checkItemId="checkItem_87" searchRefKey="searchInfo_87" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>レプリケーションの同期設定が非同期であることを検索する</CheckItemName>
+                <SearchProcess>jboss-service.xmlのattributeタグの値がREPL_ASYNCであることを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+            <CheckItem checkItemId="checkItem_88" searchRefKey="searchInfo_88" searchExistance="true">
+                <CheckItemNo>2</CheckItemNo>
+                <CheckItemName>レプリケーションの同期設定が同期であることを検索する</CheckItemName>
+                <SearchProcess>jboss-service.xmlのattributeタグの値がREPL_SYNCであることを検索する</SearchProcess>
+                <PortabilityFactor>APサーバ仕様の変更</PortabilityFactor>
+                <PortabilityDegree>Low</PortabilityDegree>
+                <DegreeDetail>低2</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm>JBossのデフォルトは非同期モードであり、本当に同期モードにするひつようがあるか確認</HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+    </KnowhowList>
+    <DocBookList>
+        <DocBook articleId="knowhowDetail_2">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>データソース設定の移行方法</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>本書ではJBoss Commnutiyのironjacamarから提供される移行ツールを利用した移行方法について述べる。</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_3">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>IronJacamarを利用してデータソース定義ファイルを作成する</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>以下の「JBoss_Enterprise_Application_Platform-6-Migration_Guide.pdf」の手順を参考にIronJacamarをインストールして、データソース設定ファイルの変換を行ってください。JBoss
+			EAP4のデータソース定義ファイルはjboss.home/server/{profile}/lib/*-ds.xmlファイルになります。移行対象は業務アプリケーションで利用しているデータソース定義ファイルになるので、該当のデータソース定義ファイルのみIronJacamarが提供するconverterを利用して変換してください。
+		</ns2:para>
+                    <ns2:para>https://access.redhat.com/knowledge/docs/en-US/JBoss_Enterprise_Application_Platform/6/pdf/Migration_Guide/JBoss_Enterprise_Application_Platform-6-Migration_Guide-en-US.pdf
+		</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_4">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>CLIによるデータソース設定</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>JBossEAP5のデータソース定義ファイルはそのままJBoss EAP
+			6で利用することは推奨されないため、IronJacamarから作成されたデータソース定義ファイルの設定内容より管理CLIを利用してデータソース設定を行う必要がある。
+		</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>JBoss EAP5の
+					データソース定義ファイルに、non-tx-datasourceタグが設定されている場合は管理CLIのdata-sourceコマンドを利用して、データソースの登録設定を行う。
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>JBoss EAP5の
+					データソース定義ファイルに、local-tx-datasourceタグまたはtx-datasourcタグが設定されている場合は管理CLIのdata-sourceコマンドを利用して、データソースの登録設定を行う。
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                    <ns2:para>以下に「データソース定義ファイルの属性とdata-source及びxa-data-sourceコマンドの対応表」および、管理CLIからのデータソース登録例を示す。
+		</ns2:para>
+                    <ns2:table frame="all">
+                        <ns2:title>データソース定義ファイルの属性とdata-source及びxa-data-sourceコマンドで指定するパラメータの対応表
+			</ns2:title>
+                        <ns2:tgroup cols="3">
+                            <ns2:tbody>
+<ns2:row>
+    <ns2:entry>#</ns2:entry>
+    <ns2:entry>データソース定義ファイルの属性値</ns2:entry>
+    <ns2:entry>xa-data-sourceコマンドで指定するパラメータ</ns2:entry>
+    <ns2:entry>備考</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>1</ns2:entry>
+    <ns2:entry>pool-name</ns2:entry>
+    <ns2:entry>-name</ns2:entry>
+    <ns2:entry>xa-data-sourceコマンドの必須パラメータ。</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>2</ns2:entry>
+    <ns2:entry>jndi-name</ns2:entry>
+    <ns2:entry>--jndi-name</ns2:entry>
+    <ns2:entry>xa-data-sourceコマンドの必須パラメータ</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>3</ns2:entry>
+    <ns2:entry>対応なし</ns2:entry>
+    <ns2:entry>--driver-name</ns2:entry>
+    <ns2:entry>xa-data-sourceコマンドの必須パラメータ。事前にPostgres用のドライバーを登録する必要があります。
+						</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>4</ns2:entry>
+    <ns2:entry>jta</ns2:entry>
+    <ns2:entry>--jta</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>5</ns2:entry>
+    <ns2:entry>spy</ns2:entry>
+    <ns2:entry>--spy</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>6</ns2:entry>
+    <ns2:entry>use-ccm</ns2:entry>
+    <ns2:entry>--use-ccm</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>7</ns2:entry>
+    <ns2:entry>use-java-context</ns2:entry>
+    <ns2:entry>--use-java-context</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>8</ns2:entry>
+    <ns2:entry>connection-url</ns2:entry>
+    <ns2:entry/>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>9</ns2:entry>
+    <ns2:entry>driver-class</ns2:entry>
+    <ns2:entry/>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>10</ns2:entry>
+    <ns2:entry>new-connection-sql</ns2:entry>
+    <ns2:entry>--new-connection-sql</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>11</ns2:entry>
+    <ns2:entry>transaction-isolation</ns2:entry>
+    <ns2:entry>--transaction-isolation</ns2:entry>
+    <ns2:entry>
+						</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>12</ns2:entry>
+    <ns2:entry>min-pool-size</ns2:entry>
+    <ns2:entry>--min-pool-size</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>13</ns2:entry>
+    <ns2:entry>max-pool-size</ns2:entry>
+    <ns2:entry>--max-pool-size</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>14</ns2:entry>
+    <ns2:entry>prefill</ns2:entry>
+    <ns2:entry>--pool-prefill</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>15</ns2:entry>
+    <ns2:entry>use-strict-min</ns2:entry>
+    <ns2:entry>--pool-use-strict-min</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>16</ns2:entry>
+    <ns2:entry>flush-strategy</ns2:entry>
+    <ns2:entry>--flush-strategy</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>17</ns2:entry>
+    <ns2:entry>user-name</ns2:entry>
+    <ns2:entry>--user-name</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>18</ns2:entry>
+    <ns2:entry>password</ns2:entry>
+    <ns2:entry>--password </ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>19</ns2:entry>
+    <ns2:entry>check-valid-connection-sql</ns2:entry>
+    <ns2:entry>--check-valid-connection-sql</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>20</ns2:entry>
+    <ns2:entry>validate-on-match</ns2:entry>
+    <ns2:entry>--validate-on-match</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>21</ns2:entry>
+    <ns2:entry>background-validation</ns2:entry>
+    <ns2:entry>--background-validation</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>22</ns2:entry>
+    <ns2:entry>use-fast-fail</ns2:entry>
+    <ns2:entry>--use-fast-fail</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>23</ns2:entry>
+    <ns2:entry>idle-timeout-minutes</ns2:entry>
+    <ns2:entry>--idle-timeout-minutes</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>24</ns2:entry>
+    <ns2:entry>xa-resource-timeout</ns2:entry>
+    <ns2:entry>--xa-resource-timeout</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>25</ns2:entry>
+    <ns2:entry>track-statements</ns2:entry>
+    <ns2:entry>--track-statements</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>26</ns2:entry>
+    <ns2:entry>prepared-statement-cache-size</ns2:entry>
+    <ns2:entry>--prepared-statement-cache-size</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+                            </ns2:tbody>
+                        </ns2:tgroup>
+                    </ns2:table>
+                    <ns2:figure>
+                        <ns2:title>data-sourceコマンドを利用した非XAのデータソース登録例。ドライバ名は{driver-name}として、データソース名は{datasource-name}と表記する
+			</ns2:title>
+                        <ns2:programlisting language="text">
+				<ns2:textobject>
+<ns2:textdata fileref="add-data-source.cli"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:figure>
+                        <ns2:title>xa-data-sourceコマンドを利用したXAデータソース登録およびxa-datasource-propertiesの設定例。ドライバ名は{driver-name}として、データソース名は{datasource-name}と表記する
+			</ns2:title>
+                        <ns2:programlisting language="text">
+				<ns2:textobject>
+<ns2:textdata fileref="add-xa-data-source.cli"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:para>なお、XA対応のxa-data-sourceコマンドではJBossEAP5のデータソース定義ファイルで設定しているconnection-urlで指定しているDBサーバ名、ポート、ユーザ名、パスワードは設定できないため、
+			管理CLIの通常のオペレーションでxa-datasource-propertiesに追加設定を行っている。
+		</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_5">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title xml:lang="ja">JDBCドライバの移行方法</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>JBoss
+			EAP4ではJDBCドライバは$jboss.home/server/{profile}/lib配下に配置するだけでJBossがロードできたが、JBoss
+			EAP6の場合、JDBCドライバをモジュールとして登録するか、JDBCドライバをモジュールとして登録する。JBoss
+			EAP6にPostgesSQLのJDBCドライバをモジュールとして登録する方法を示す。
+		</ns2:para>
+                    <ns2:para/>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>JDBCドライバモジュール定義ファイル(module.xml)を作成する</ns2:para>
+                            <ns2:figure>
+<ns2:title>PostgresSQLのJDBCドライバ用module.xml</ns2:title>
+<ns2:programlisting language="text">
+						<ns2:textobject>
+        <ns2:textdata fileref="jdbc.module.xml"/>
+    </ns2:textobject>
+					</ns2:programlisting>
+                            </ns2:figure>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>JDBCドライバモジュールの登録に必要なファイルを配置する</ns2:para>
+                            <ns2:itemizedlist>
+<ns2:listitem>
+    <ns2:para>JBossのモジュールディレクトリ配下に$jboss.modules.dir/org/postgresqlフォルダを作成
+						</ns2:para>
+</ns2:listitem>
+<ns2:listitem>
+    <ns2:para>module.xmlを$jboss.modules.dir/org/postgresql配下にコピー
+						</ns2:para>
+</ns2:listitem>
+<ns2:listitem>
+    <ns2:para>JDBCドライバ(jdbc4*.jar)を$jboss.modules.dir/org/postgresql配下にコピーする
+						</ns2:para>
+</ns2:listitem>
+                            </ns2:itemizedlist>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>管理CLIよりJDBCドライバモジュールの登録を行う</ns2:para>
+                            <ns2:figure>
+<ns2:title>JBoss EAP6の管理CLIよりJDBCドライバモジュールの登録を行う。ドライバー名は任意で、{driver-name}と表記する。</ns2:title>
+<ns2:programlisting language="text">
+						<ns2:textobject>
+        <ns2:textdata fileref="add-postgres-driver.cli"/>
+    </ns2:textobject>
+					</ns2:programlisting>
+                            </ns2:figure>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_9">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Webコンテナの設定移行</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Webコンテナの設定移行</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_13">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>AJPコネクター設定の移行</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>AJPコネクター設定はJBoss EAP4では$jboss.home/{profile}/deploy/jboss-web.deployer/server.xmlのConnectorタグにより設定されていたが、JBoss EAP
+			6ではAJPコネクター設定を管理CLIより設定を行う。</ns2:para>
+                    <ns2:table frame="all">
+                        <ns2:title>JBoss EAP4とJBoss EAP6のAJPコネクター属性の対応</ns2:title>
+                        <ns2:tgroup cols="5">
+                            <ns2:tbody>
+<ns2:row>
+    <ns2:entry>#</ns2:entry>
+    <ns2:entry>JBooss EAP4 のAJPコネクター属性</ns2:entry>
+    <ns2:entry>JBooss EAP6 のAJPコネクター属性</ns2:entry>
+    <ns2:entry>JBooss EAP6 の管理CLIオペレーション</ns2:entry>
+    <ns2:entry>備考</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>1</ns2:entry>
+    <ns2:entry>port</ns2:entry>
+    <ns2:entry/>
+    <ns2:entry>ソケットバンディングのポートオフセット機能を利用する。</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>2</ns2:entry>
+    <ns2:entry>protocol</ns2:entry>
+    <ns2:entry>protocol</ns2:entry>
+    <ns2:entry>設定不要</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>3</ns2:entry>
+    <ns2:entry>maxThreads</ns2:entry>
+    <ns2:entry>max-connections</ns2:entry>
+    <ns2:entry>/subsystem=web/connector=ajp:write-attribute(name=max-connections,value=EAP4のmaxThreads設定値)</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>4</ns2:entry>
+    <ns2:entry>minSpareThreads</ns2:entry>
+    <ns2:entry>EAP6該当パラメータなし</ns2:entry>
+    <ns2:entry/>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>5</ns2:entry>
+    <ns2:entry>maxSpareThreads</ns2:entry>
+    <ns2:entry>EAP6該当パラメータなし</ns2:entry>
+    <ns2:entry/>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>6</ns2:entry>
+    <ns2:entry>connectionTimeout</ns2:entry>
+    <ns2:entry>org.apache.coyote.ajp.DEFAULT_CONNECTION_TIMEOUTシステムプロパティで設定</ns2:entry>
+    <ns2:entry>/system-property=org.apache.coyote.ajp.DEFAULT_CONNECTION_TIMEOUT:add(value=EAP4のconnectionTimeout設定値)</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>7</ns2:entry>
+    <ns2:entry>useBodyEncodingForURI</ns2:entry>
+    <ns2:entry>org.apache.catalina.connector.USE_BODY_ENCODING_FOR_QUERY_STRINGシステムプロパティで指定</ns2:entry>
+    <ns2:entry>/system-property=org.apache.catalina.connector.USE_BODY_ENCODING_FOR_QUERY_STRING:add(value=EAP4のuseBodyEncodingForURI設定値)</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>8</ns2:entry>
+    <ns2:entry>emptySessionPath</ns2:entry>
+    <ns2:entry>EAP6該当パラメータなし?(EAP5でちがう方法でSessionのクッキーのパスを設定するようになったが、EAP6では？？？)</ns2:entry>
+    <ns2:entry/>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>9</ns2:entry>
+    <ns2:entry>enableLookups</ns2:entry>
+    <ns2:entry>enable-lookups</ns2:entry>
+    <ns2:entry>/subsystem=web/connector=ajp:write-attribute(name=enable-lookups,value=EAP4のenable-lookups設定値)</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>10</ns2:entry>
+    <ns2:entry>redirectPort</ns2:entry>
+    <ns2:entry>redirect-port</ns2:entry>
+    <ns2:entry>/subsystem=web/connector=ajp:write-attribute(name=redirect-port,value=EAP4のenable-lookups設定値)</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>11</ns2:entry>
+    <ns2:entry>schema</ns2:entry>
+    <ns2:entry>schema</ns2:entry>
+    <ns2:entry>/subsystem=web/connector=ajp:write-attribute(name=schema,value=EAP4のenable-lookups設定値)</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>12</ns2:entry>
+    <ns2:entry>secure</ns2:entry>
+    <ns2:entry>secure</ns2:entry>
+    <ns2:entry>/subsystem=web/connector=ajp:write-attribute(name=secure,value=EAP4のenable-lookups設定値)</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+                            </ns2:tbody>
+                        </ns2:tgroup>
+                    </ns2:table>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_14">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>jvmRoute設定の移行</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>jvmRoute設定はJBoss EAP4では$jboss.home/{profile}/deploy/jboss-web.deployer/server.xmlのEngineタグのjvmRoute属性により設定されていたが、JBoss EAP
+			6ではAJPコネクター設定を管理CLIより設定を行う。なお、システムプロパティを管理CLIで設定していオペレーションについて記載している。</ns2:para>
+                    <ns2:table frame="all">
+                        <ns2:title>JBoss EAP4とJBoss EAP6のAJPコネクター属性の対応と、該当する属性をJBossEAP6で設定する場合の管理CLI</ns2:title>
+                        <ns2:tgroup cols="5">
+                            <ns2:tbody>
+<ns2:row>
+    <ns2:entry>#</ns2:entry>
+    <ns2:entry>JBooss EAP4 のjvmRoute設定</ns2:entry>
+    <ns2:entry>JBooss EAP4 のjvmRoute設定</ns2:entry>
+    <ns2:entry>JBooss EAP6 の管理CLIオペレーション</ns2:entry>
+    <ns2:entry>備考</ns2:entry>
+</ns2:row>
+<ns2:row>
+    <ns2:entry>1</ns2:entry>
+    <ns2:entry>server.xmlのEngineタグのjvmRoute属性により設定</ns2:entry>
+    <ns2:entry>システムプロパティjvmRouteにより設定</ns2:entry>
+    <ns2:entry>/system-property=jvmRoute:add(value=EAP4のjvmRoute設定値)</ns2:entry>
+    <ns2:entry/>
+</ns2:row>
+                            </ns2:tbody>
+                        </ns2:tgroup>
+                    </ns2:table>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_17">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Beanセッションプールの設定移行</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>EJBコンテナは、Beanのインスタンスをインスタンスプールから取得する。このBeanのインスタンスプール設定はデプロイメントデスクリプタのjboss.xmlで明示的に設定しない限り、$jboss.home/{profile}/conf/standardjboss.xmlにある設定からフォルトが適用され、インスタンスプールのサイズが決定される。</ns2:para>
+                    <ns2:para>本書では以下のケースのBeanインスタンスプール設定をJBoss EAP6の管理CLIで設定する方法を示す。</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>デプロイメントデスクリプタjboss.xmlで明示的にインスタンスプールのチューニングをしていない場合</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>デプロイメントデスクリプタjboss.xmlで明示的にインスタンスプールのチューニングをしている場合</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_20">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>デプロイメントデスクリプタjboss.xmlで明示的にインスタンスプールのチューニングをしていない場合
+		</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>JBoss EAP
+			4では$jboss.home/{profile}/conf/standardjboss.xmlの以下のコンテナ設定にしたがって、インスタンスプールの設定が行われる。standardjboss.xmlで設定を行っていない場合は、インスタンスプールのサイズの最大値に100が設定される。JBoss
+			EAP 6ではデフォルトのインスタンスプールのサイズの最大値が20のため、ここではJBoss EAP 4 のデフォルトで適用される値(100)を設定する方法を示す。</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>JBoss EAP4のstandardjboss.xmlによるSLSBのデフォルトコンテナ設定例
+			</ns2:title>
+                        <ns2:programlisting language="xml">
+				<ns2:textobject>
+<ns2:textdata fileref="standardjboss-slsb.xml"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_21">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>デプロイメントデスクリプタjboss.xmlで明示的にインスタンスプールのチューニングをしている場合</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>jboss.xmlのcontainer-configurationタグのextends属性で”Standard Stateless SessionBean”を指定している場合、$jboss.home/{profile}/conf/standardjboss.xmlで設定しているコンテナ設定の”Standard Stateful SessionBean”を拡張して、Beanインスタンスプールのサイズをカスタマイズしている可能性がある。このようにjboss.xmlでBean固有のインスタンスプールのサイズをカスタマイズしている場合、以下の移行作業を行う必要がある。
+        </ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>管理CLIよりBean固有のインスタンスプールの登録を行い、インスタンスプールの設定を行う。インスタンスプール名は任意である。例としてBean「CustomerService」のプールを設定するとして「CustomerServicePool」とする
+                </ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                    <ns2:figure>
+                        <ns2:title>JBossEAP5におけるインスタンスプール設定例(jboss.xml)</ns2:title>
+                        <ns2:programlisting language="xml">
+                <ns2:textobject>
+<ns2:textdata fileref="jboss-eap5-session-pool-turning.xml"/>
+                            </ns2:textobject>
+            </ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_22">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>aaa</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>JBoss EAP6のデフォルトのインスタンスプール設定は管理CLIにより設定する。jboss-ejb3.xmlなどで明示的にインスタンスプールの設定をしなかった場合にはこの設定がBeanに適用される。</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>JBoss EAP6の管理CLIにおけるSLSBのデフォルトインスタンスプール設定</ns2:title>
+                        <ns2:programlisting language="text">
+				<ns2:textobject>
+<ns2:textdata fileref="default-slsb-pool-turning.cli"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_23">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>aaa</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:figure>
+                        <ns2:para>JBoss EAP6のEJBにBean固有のインスタンスプール設定する場合、管理CLIによりBean固有のインスタンスプールを登録する。なお、ここで登録したプールをBeanに適用する場合は、EJBのデプロイメントデスクリプタjboss-ejb3.xmlでインスタンスプールの設定を行う必要がある。</ns2:para>
+                        <ns2:programlisting language="text">
+				<ns2:textobject>
+<ns2:textdata fileref="custom-slsb-pool-turning.cli"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_24">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>デプロイメントデスクリプタjboss.xmlで明示的にインスタンスプールのチューニングをしていない場合
+		</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>JBoss EAP
+			4では$jboss.home/{profile}/conf/standardjboss.xmlの以下のコンテナ設定にしたがって、インスタンスプールの設定が行われる。standardjboss.xmlで設定を行っていない場合は、インスタンスプールのサイズの最大値に100が設定される。JBoss
+			EAP 6ではデフォルトのインスタンスプールのサイズの最大値が20のため、ここではEAP4のデフォルトで適用される値を設定(100）を設定する方法を示す。</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>JBoss EAP4のstandardjboss.xmlによるMDBのデフォルトコンテナ設定例
+			</ns2:title>
+                        <ns2:programlisting language="xml">
+				<ns2:textobject>
+<ns2:textdata fileref="standardjboss-mdb.xml"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_25">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>aaa</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>JBoss EAP6のデフォルトのインスタンスプール設定は管理CLIにより設定する。jboss-ejb3.xmlなどで明示的にインスタンスプールの設定をしなかった場合にはこの設定がBeanに適用される。</ns2:para>
+                    <ns2:para/>
+                    <ns2:programlisting language="text">
+                <ns2:textobject>
+                            <ns2:textdata fileref="default-mdb-pool-turning.cli"/>
+                        </ns2:textobject>
+            </ns2:programlisting>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_26">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>デプロイメントデスクリプタjboss.xmlで明示的にインスタンスプールのチューニングをしている場合</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>jboss.xmlのcontainer-configurationタグのextends属性で”Standard Message Driven Bean”を指定している場合、$jboss.home/{profile}/conf/standardjboss.xmlで設定しているコンテナ設定の”Standard Stateful SessionBean”を拡張して、Beanインスタンスプールのサイズをカスタマイズしている可能性がある。このようにjboss.xmlでBeanインスタンスプールのサイズをカスタマイズしてい場合、以下の移行作業を行う必要がある。
+        </ns2:para>
+                    <ns2:figure>
+                        <ns2:title>JBossEAP5におけるインスタンスプール設定例(jboss.xml)</ns2:title>
+                        <ns2:programlisting language="xml">
+                <ns2:textobject>
+<ns2:textdata fileref="jboss-eap5-mdb-pool-turning.xml"/>
+                            </ns2:textobject>
+            </ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>jboss.xmlで定義しているcontainer-configurationsのタグ全体を削除する</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>デプロイメントデスクリプタファイル(jboss-ejb3.xml）を作成し、該当Beanに対してインスタンスプールのリファレンス設定を行う。ここではbean-instance-pool-refで設定する値は{Bean名}Poolとする</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>管理CLIによりインスタンスプールの登録を行う。インスタンスプール名は上記のbean-instance-pool-refで設定した値を利用する</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_27">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>aaa</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>JBoss EAP6のEJBにBean固有のインスタンスプール設定する場合、管理CLIによりBean固有のインスタンスプールを登録する。なお、ここで登録したプールをBeanに適用する場合は、EJBのデプロイメントデスクリプタjboss-ejb3.xmlでインスタンスプールの設定を行う必要がある。</ns2:para>
+                    <ns2:programlisting language="text">
+                <ns2:textobject>
+                            <ns2:textdata fileref="custom-mdb-pool-turning.cli"/>
+                        </ns2:textobject>
+            </ns2:programlisting>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_28">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>EJBのデプロイメントデスクリプタ)の移行</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>JBoss EAP 4のデプロイメントデスクリプタ(jboss.xml)はJBoss EAP 6用のjboss-ejb3.xmlに移行を行う。
+        </ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>JBoss EAP 4のデプロイメントデスクリプタ(jboss.xml)の定義されたBean及びBeanのリファレンス設定をjboss-ejb3.xmlに移行する</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                    <ns2:figure>
+                        <ns2:title>JBoss EAP 4のデプロイメントデスクリプタ(TPCWのjboss.xml)</ns2:title>
+                        <ns2:programlisting language="xml">
+                <ns2:textobject>
+<ns2:textdata fileref="jboss.tpcw.xml"/>
+                            </ns2:textobject>
+            </ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:figure>
+                        <ns2:title>JBoss EAP 6のデプロイメントデスクリプタ(TPCWのjboss-ejb3.xml)</ns2:title>
+                        <ns2:programlisting language="xml">
+                <ns2:textobject>
+<ns2:textdata fileref="jboss-ejb3.tpcw.xml"/>
+                            </ns2:textobject>
+            </ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_30">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Servlet 2.5で既に非推奨となるもの</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>以下はServlet 2.5で既に非推奨となってい機能一覧であり、推奨されていないAPIが利用されている場合は、代替となるAPIを利用するように修正する必要がある。</ns2:para>
+                    <ns2:para>推奨されていないインタフェース</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.SingleThreadModel
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpSessionContext
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.resource.spi.security.GenericCredential
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.SingleThreadModel
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpSessionContext
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.jsp.el.FunctionMapper
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.jsp.el.VariableResolver
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.jsp.el.VariableResolver
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                    <ns2:para>推奨されていないクラス</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para> javax.faces.application.StateManager.SerializedView
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para> javax.faces.el.MethodBinding
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.faces.el.PropertyResolver
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.faces.el.ValueBinding
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.faces.el.VariableResolver
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.faces.webapp.AttributeTag
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.faces.webapp.ConverterTag
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para> javax.faces.webapp.UIComponentBodyTag
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.faces.webapp.UIComponentTag
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.faces.webapp.ValidatorTag
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpUtils
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.jsp.el.Expression
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.jsp.el.ExpressionEvaluator
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.xml.soap.SOAPElementFactory
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                    <ns2:para>推奨されていないメソッド</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpServletResponse.encodeRedirectUrl(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpServletResponse.encodeUrl(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpSessionContext.getIds()
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.ServletRequest.getRealPath(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.UnavailableException.getServlet()
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.ServletContext.getServlet(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para> javax.servlet.ServletContext.getServletNames()
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.ServletContext.getServlets()
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpSessionContext.getSession(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpSession.getSessionContext()
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpSession.getValue(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpSession.getValueNames()
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para> javax.servlet.http.HttpServletRequest.isRequestedSessionIdFromUrl()
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.ServletContext.log(Exception, String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para> javax.servlet.http.HttpSession.putValue(String, Object)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para> javax.servlet.http.HttpSession.removeValue(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para> javax.servlet.http.HttpServletResponse.setStatus(int, String)
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                    <ns2:para>この他多数。詳細は下記のURLを参照のこと</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>http://java.sun.com/javaee/5/docs/api/
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>http://java.sun.com/javaee/5/docs/api/deprecated-list.html
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_32">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Servlet 3.0で非推奨となるもの</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>以下はServlet
+			3.0で非推奨となっていた一覧であり、推奨されていないAPIが利用されている場合は、代替となるAPIを利用するように修正する必要がある。
+		</ns2:para>
+                    <ns2:para>推奨されていないメソッド</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpServletResponseWrapper.encodeRedirectUrl(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpServletResponseWrapper.encodeUrl(String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpServletRequestWrapper.isRequestedSessionIdFromUrl()
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.http.HttpServletResponseWrapper.setStatus(int,
+					String)
+				</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>javax.servlet.ServletRequestWrapper.getRealPath(String)
+				</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_33">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Webデプロイメントデスクリプタ(jboss-web.xml)の移行</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para/>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_34">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>JNDIのInitialContextの設定</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para/>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_37">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>APサーバのコンテナ内からの呼び出し</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>JBossに移行する際に、JNDIの設定は幾つかの方法があるが、より汎用性が高いのは、実行時のクラスパス内に「jndi.properties」というファイルを置き、そのファイルからこれらのパラメータが読み込まれるように設定する方法である。JBossEAP4の場合通常は$JBOSS_CONFIG/confディレクトリにjndi.propertiesファイルがあり、該当ファイルで設定した内容が読み込まれため、コンテナ内からの呼び出しに限ってはアプリケーション側でパラメータを設定する必要がない。JBoss EAP6も同様に明示的な設定は必要ない。以下のようなコードでJndiルックアップが可能である </ns2:para>
+                    <ns2:figure>
+                        <ns2:title>APサーバのコンテナ内からのJNDIルックアップ呼び出し</ns2:title>
+                        <ns2:programlisting language="text">
+                <ns2:textobject>
+<ns2:textdata fileref="jndi-initcontext.txt"/>
+                            </ns2:textobject>
+            </ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_38">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>APサーバのコンテナ内からの呼び出し</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>EJBクライアントなどのようにAPサーバのコンテナ外からのJNDIルックアップ呼び出しが必要な場合に、APサーバのコンテナ外からのJNDIルックアップ呼び出しが必要である。APサーバのコンテナ外からのJNDIルックアップ呼び出しを行う場合、InitialContextの引数に以下のようにプロパティを設定する必要がある
+		</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>EAP4のAPサーバのコンテナ内からのJNDIルックアップ呼び出し</ns2:title>
+                        <ns2:programlisting language="text">
+				<ns2:textobject>
+<ns2:textdata fileref="eap5-external-jndi-initcontext.txt"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:figure>
+                        <ns2:title>EAP6のAPサーバのコンテナ内からのJNDIルックアップ呼び出し</ns2:title>
+                        <ns2:programlisting language="text">
+				<ns2:textobject>
+<ns2:textdata fileref="eap6-external-jndi-initcontext.txt"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:para>なお、EJBクライアントなどの場合、以下のようなプロパティファイル(jboss-ejb-client.properties)を配置して、クラスパスに通す必要がある
+		</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>jboss-ejb-client.properties</ns2:title>
+                        <ns2:programlisting language="text">
+				<ns2:textobject>
+<ns2:textdata fileref="jboss-ejb-client.properties"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_39">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Webクラスタ設定の移行</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Webクラスタ設定として以下の設定項目の移行方法について示す。
+		</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>JGroup設定の移行</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>レプリケーション設定の移行</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_42">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>JGroupプロトコルスタックの設定移行</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>JBossのクラスタ時にノード間の通信で利用するJGroupプロトコルスタックの設定移行を示す。JBoss EAP4のJGroupプロトコルスタックの設定は、webクラスタのjboss-service.xmlのconfigタグ配下に指定されているタグによって決定され、UDP又はTCPタグが設定可能である。</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>JBoss EAP4のJGroupプロトコルスタックの設定(/opt/jboss4/current/server/myserver/deploy/jboss-web-cluster.sar/META-INF/jboss-service.xml)</ns2:title>
+                        <ns2:programlisting language="xml">
+                <ns2:textobject>
+<ns2:textdata fileref="jboss-web-cluster.jgroup.protocol.xml"/>
+                            </ns2:textobject>
+            </ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:para>JBoss EAP6のJGroupプロトコルスタックの設定は、管理CLIにより設定するが、JBoss EAP6 の場合、GroupプロトコルスタックのデフォルトがUDPであり、特に設定は不要である。</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_43">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>JGroupのFC設定移行</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>JBoss
+			EAP4のJGroupのFC設定は、webクラスタのjboss-service.xmlのFCタグによって決定される。FCタグがコメントされている場合は、FC設定が無効となる。
+		</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>JBoss EAP4のJGroupのFC設定(/opt/jboss4/current/server/myserver/deploy/jboss-web-cluster.sar/META-INF/jboss-service.xml)
+			</ns2:title>
+                        <ns2:programlisting language="xml">
+				<ns2:textobject>
+<ns2:textdata fileref="jboss-web-cluster.jgroup.fc.xml"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:para>JBoss EAP6のJGroupのFC設定は、管理CLIにより以下のように設定する。JBoss EAP6
+			の場合もデフォルトでFC設定が有効のため、FC設定を無効化する方法を示す。</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>JBoss EAP6の管理CLIによるFC無効化設定</ns2:title>
+                        <ns2:programlisting language="text">
+				<ns2:textobject>
+<ns2:textdata fileref="eap6-cluster.jgroup.fc.cli"/>
+                            </ns2:textobject>
+			</ns2:programlisting>
+                    </ns2:figure>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_44">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>レプリケーション設定の移行</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para/>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_45">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>レプリケーションのモード設定</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>JBoss EAP4のレプリケーションのモード設定は、レプリケーション情報はクラスタグループ内の全てのノードに対して複製されるAll-to-Allレプリケーション及び一部のサーバにデータの複製をクラスタグループ内のノードへ配布するBuddyレプリケーションが設定可能である。JBoss EAP4のレプリケーションモードの設定はwebクラスタのjboss-service.xmlのbuddyReplicationEnabledタグがfalseに設定されてるため、デフォルトでAll-to-Allレプリケーションが設定される</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>JBoss EAP4のレプリケーションのモード設定(/opt/jboss4/current/server/myserver/deploy/jboss-web-cluster.sar/META-INF/jboss-service.xml)</ns2:title>
+                        <ns2:programlisting language="xml">
+                <ns2:textobject>
+<ns2:textdata fileref="eap6-cluster.repl.xml"/>
+                            </ns2:textobject>
+            </ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:para>JBoss EAP6のレプリケーションのモード設定はキャッシュ機構の実装がJBoss Cacheからinfinispanに変更され、レプリケーションモードも変わっている。JBoss EAP 6ではデフォルトでReplicationモードが設定されるため、JBoss EAP 5のAll-to-Allレプリケーションと同等のため、設定は不要である</ns2:para>
+                    <ns2:para>Replicationモード</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>レプリケーション情報はクラスタグループ内の全てのノードに対して複製される。JBoss EAP 5のAll-to-Allレプリケーションと同等</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                    <ns2:para>Distributionモード</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>JBoss EAP 6より採用された新しいキャシュ機能で、クラスタグループ内の一部のノードにのみデータを複製する。バディレプリケーションのようにバックアップサーバを指定するのではなく、指定した数のデータの複製をクラスタグループ内のノードへ配布する。</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_46">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>レプリケーションの同期設定</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>JBoss EAP4のレプリケーションの同期設定は、webクラスタのjboss-service.xmlのCacheModeにより設定されてる。JBoss EAP6のデフォルトがREPL_ASYNCで非同期モードでのレプリケーションがｊ設定される。REPL_SYNCの場合は同期モードになる。</ns2:para>
+                    <ns2:figure>
+                        <ns2:title>JBoss EAP4のレプリケーションの同期設定(/opt/jboss4/current/server/myserver/deploy/jboss-web-cluster.sar/META-INF/jboss-service.xml)</ns2:title>
+                        <ns2:programlisting language="xml">
+                <ns2:textobject>
+<ns2:textdata fileref="eap6-cluster.repl.async.xml"/>
+                            </ns2:textobject>
+            </ns2:programlisting>
+                    </ns2:figure>
+                    <ns2:para>JBoss EAP6のレプリケーションの同期設定は非同期が設定され、設定は不要である</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_47">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>EntityBeanのデプロイメントデスクリプタ(jboss.xml)の移行</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>本書では以下のケースのCMP Entity Beanのコンテナ設定をJBoss EAP6の管理CLIで設定する方法を示す。</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>デプロイメントデスクリプタjboss.xmlで明示的にインスタンスプールのチューニングをしていない場合</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>デプロイメントデスクリプタjboss.xmlで明示的にインスタンスプールのチューニングをしている場合</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_48">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>CMPBean設定の移行</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>Entity BeanのCMP設定はデプロイメントデスクリプタのjboss.xmlで明示的に設定しない限り、$jboss.home/{profile}/conf/standardjboss.xmlにある「Standard CMP 2.x EntityBean」及び「Clustered CMP 2.x EntityBean」設定が、デフォルトで適用され、コンテナの設定が決定される。本書では以下のケースの移植方法を示す。</ns2:para>
+                    <ns2:itemizedlist>
+                        <ns2:listitem>
+                            <ns2:para>デプロイメントデスクリプタjboss.xmlで明示的にEntity BeanのCMP設定のチューニングをしていない場合</ns2:para>
+                        </ns2:listitem>
+                        <ns2:listitem>
+                            <ns2:para>デプロイメントデスクリプタjboss.xmlで明示的にEntity BeanのCMP設定のチューニングをしている場合</ns2:para>
+                        </ns2:listitem>
+                    </ns2:itemizedlist>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+    </DocBookList>
+    <SearchInfomationList>
+        <SearchInfomation searchInfoId="searchInfo_1">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//datasource[@pool-name]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_2">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//datasource[@jndi-name]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_3">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//datasource[@jta]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_4">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//datasource[@spy]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_5">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//datasource[@use-ccm]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_6">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//datasource[@use-java-context]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_7">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//connection-url</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_8">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//driver-class</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_9">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//new-connection-sql</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_10">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//transaction-isolation</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_11">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//min-pool-size</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_12">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//max-pool-size</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_13">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//prefill</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_14">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//use-strict-min</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_15">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//transaction-isolation</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_16">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//flush-strategy</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_17">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//user-name</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_18">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//password</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_19">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//background-validation</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_20">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//use-fast-fail</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_21">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//idle-timeout-minutes</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_22">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//xa-resource-timeout</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_23">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//track-statements</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_24">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//prepared-statement-cache-size</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_52">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//check-valid-connection-sql</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_53">
+            <FileType>.*ds-eap6.xml</FileType>
+            <SearchKey1>//validate-on-match</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>CLIでこの属性を設定するに一つのパラメータとして定義する。このCLI設定は一つのパラメータを1ラインとして設定する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_89">
+            <FileType>.*ds.xml</FileType>
+            <SearchKey1>jdbc:postgres</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>10</LineNumber>
+                <LineNumberContents>module.xmlファイルの作成を10ラインとする。</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_90">
+            <FileType>.*ds.xml</FileType>
+            <SearchKey1>jdbc:oracle</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>10</LineNumber>
+                <LineNumberContents>module.xmlファイルの作成を10ラインとする。</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_91">
+            <FileType>.*ds.xml</FileType>
+            <SearchKey1>jdbc:sqlserver</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>10</LineNumber>
+                <LineNumberContents>module.xmlファイルの作成を10ラインとする。</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_34">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@port]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>不明</LineNumber>
+                <LineNumberContents>TODO :ポート番号を変更する場合の手順を調査する</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_35">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@protocol]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>管理CLIのステップ数とし１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_36">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@maxThreads]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>管理CLIのステップ数とし１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_37">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@connectionTimeout]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>管理CLIのステップ数とし１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_38">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@emptySessionPath]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>管理CLIのステップ数とし１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_39">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@protocol]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>管理CLIのステップ数とし１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_40">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@enableLookups]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>管理CLIのステップ数とし１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_41">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@redirectPort]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>管理CLIのステップ数とし１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_54">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@scheme]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>管理CLIのステップ数とし１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_55">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Connector[@secure=&quot;true&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>管理CLIのステップ数とし１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_42">
+            <FileType>server.xml</FileType>
+            <SearchKey1>//Engine[@jvmRoute]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>１つのシステムプロパティで設定できるので、１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_45">
+            <FileType>jboss.xml</FileType>
+            <SearchKey1>//enterprise-beans/session</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>管理CLIによるSLSBのデフォルトのインスタンスプール設定を１ラインで可能のため、１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_43">
+            <FileType>jboss.xml</FileType>
+            <SearchKey1>//container-configuration[@extends=&quot;Standard Stateless SessionBean&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>管理CLIによるSLSBのBean個別のインスタンスプールを設定は管理CLIの１ラインで設定できるため、１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_44">
+            <FileType>jboss.xml</FileType>
+            <SearchKey1>//container-configuration[@extends=&quot;Clustered Stateless SessionBean&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>管理CLIによるSLSBのBean個別のインスタンスプールを設定は管理CLIの１ラインで設定できるため、１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_46">
+            <FileType>jboss.xml</FileType>
+            <SearchKey1>//enterprise-beans/message-driven</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>管理CLIによるMDBのデフォルトのインスタンスプール設定を１ラインで可能のため、１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_48">
+            <FileType>jboss.xml</FileType>
+            <SearchKey1>//container-configuration[@extends=&quot;Standard Message Driven Bean&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>管理CLIによるMDBのBean個別のインスタンスプールを設定は管理CLIの１ラインで設定できるため、１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_49">
+            <FileType>jboss.xml</FileType>
+            <SearchKey1>//container-configuration[@extends=&quot;Singleton Message Driven Bean&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>管理CLIによるSingleton Message Driven BeanMDBのBean個別のインスタンスプールを設定は管理CLIの１ラインで設定できるため、１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_50">
+            <FileType>jboss.xml</FileType>
+            <SearchKey1>//container-configuration[@extends=&quot;Standard Message Inflow Driven Bean&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>管理CLIによるStandard Message Inflow Driven BeanのBean個別のインスタンスプールを設定は管理CLIの１ラインで設定できるため、１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_51">
+            <FileType>jboss.xml</FileType>
+            <SearchKey1></SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>TODO:SE手動算出</LineNumber>
+                <LineNumberContents>jboss.xmlと同等のjboss-ejb3.xmlを作成する必要があるため、jboss.xml自体のステップ数をライン数とする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_92">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.http\.HttpServletResponseWrapper</SearchKey1>
+            <SearchKey2>encodeRedirectUrl\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>代換クラス・メソッドで置き換えるとして1ステップとして算出</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_93">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.http\.\*</SearchKey1>
+            <SearchKey2>encodeRedirectUrl\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>代換クラス・メソッドで置き換えるとして1ステップとして算出</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_94">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.http\.HttpServletResponseWrapper</SearchKey1>
+            <SearchKey2>encodeUrl\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>代換クラス・メソッドで置き換えるとして1ステップとして算出</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_95">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.http\.\*</SearchKey1>
+            <SearchKey2>encodeUrl\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>代換クラス・メソッドで置き換えるとして1ステップとして算出</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_96">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.http\.HttpServletResponseWrapper</SearchKey1>
+            <SearchKey2>isRequestedSessionIdFromUrl\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>代換クラス・メソッドで置き換えるとして1ステップとして算出</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_97">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.http\.\*</SearchKey1>
+            <SearchKey2>isRequestedSessionIdFromUrl\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>代換クラス・メソッドで置き換えるとして1ステップとして算出</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_98">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.http\.HttpServletResponseWrapper</SearchKey1>
+            <SearchKey2>setStatus\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>代換クラス・メソッドで置き換えるとして1ステップとして算出</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_99">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.http\.\*</SearchKey1>
+            <SearchKey2>setStatus\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>代換クラス・メソッドで置き換えるとして1ステップとして算出</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_100">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.ServletRequestWrapper</SearchKey1>
+            <SearchKey2>getRealPath\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>代換クラス・メソッドで置き換えるとして1ステップとして算出</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_101">
+            <FileType>*.java</FileType>
+            <SearchKey1>javax\.servlet\.\*</SearchKey1>
+            <SearchKey2>getRealPath\(</SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>代換クラス・メソッドで置き換えるとして1ステップとして算出</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_62">
+            <FileType>*.java</FileType>
+            <SearchKey1>InitialContext\(</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>0</LineNumber>
+                <LineNumberContents>とくに移行の必要がないため、ライン数を0とする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_56">
+            <FileType>*.properties</FileType>
+            <SearchKey1>org\.jnp\.interfaces\.NamingContextFactory</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>１プロパティの変更のため、１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_57">
+            <FileType>*.properties</FileType>
+            <SearchKey1>jnp://</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>１プロパティの変更のため、１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_58">
+            <FileType>*.properties</FileType>
+            <SearchKey1>org\.jboss\.naming:org\.jnp\.interfaces</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>１プロパティの変更のため、１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_59">
+            <FileType>*.java</FileType>
+            <SearchKey1>org\.jnp\.interfaces\.NamingContextFactory</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>１プロパティの変更のため、１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_60">
+            <FileType>*.java</FileType>
+            <SearchKey1>jnp://</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>１プロパティの変更のため、１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_61">
+            <FileType>*.java</FileType>
+            <SearchKey1>org\.jboss\.naming:org\.jnp\.interfaces</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>１プロパティの変更のため、１ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_81">
+            <FileType>jboss-service.xml</FileType>
+            <SearchKey1>//config/UDP</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>0</LineNumber>
+                <LineNumberContents>JBoss EAP6のデフォルトがUDP設定のため、とくに移植する必要がないため、ステップ数を０とする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_82">
+            <FileType>jboss-service.xml</FileType>
+            <SearchKey1>//config/TCP</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>0</LineNumber>
+                <LineNumberContents>JBoss EAP6のデフォルトがUDP設定のため、とくに移植する必要がないため、ステップ数を０とする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_83">
+            <FileType>jboss-service.xml</FileType>
+            <SearchKey1>//config/FC</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>0</LineNumber>
+                <LineNumberContents>FC設定は行う場合、JBoss EAP6の場合はデフォルトでFC設定が有効のため、移植項目とならないため、移植ライン数としては0とする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_84">
+            <FileType>jboss-service.xml</FileType>
+            <SearchKey1>max_credits</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>2</LineNumber>
+                <LineNumberContents>FC設定は行う場合、JBoss EAP6の場合はデフォルトでFC設定が有効のため、移植項目とならないため、FC設定を無効にする管理CLIを２ライン実行する必要があるため、２ラインとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_85">
+            <FileType>jboss-service.xml</FileType>
+            <SearchKey1>buddyReplicationEnabled[text()=&quot;false&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>0</LineNumber>
+                <LineNumberContents>alltoallの場合は、EAP6のデフォルトのReplicationと同等のため、とくに設定が必要がないため、0ステップとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_86">
+            <FileType>jboss-service.xml</FileType>
+            <SearchKey1>buddyReplicationEnabled[text()=&quot;true&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>TODO:ライン数根拠</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_87">
+            <FileType>jboss-service.xml</FileType>
+            <SearchKey1>attribute[text()=&quot;REPL_ASYNC&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>0</LineNumber>
+                <LineNumberContents>JBossEAP6のデフォルトが非同期設定のため、移行作業が発生しないため、0ステップとする</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_88">
+            <FileType>jboss-service.xml</FileType>
+            <SearchKey1>attribute[text()=&quot;REPL_SYNC&quot;]</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule>ext_search_xml_xpath.py</PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>1</LineNumber>
+                <LineNumberContents>TODO:ライン数根拠</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+    </SearchInfomationList>
+</PortabilityKnowhow>

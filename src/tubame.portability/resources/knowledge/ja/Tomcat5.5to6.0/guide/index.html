@@ -1,0 +1,718 @@
+<HTML xmlns:knowhow="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:doc="http://docbook.org/ns/docbook">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Tomcat5.5.xから6.0.xへのマイグレーションガイド</title>
+<link href="css/knowhow.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/prettify.js"></script>
+<meta content="DocBook XSL Stylesheets V1.78.1" name="generator">
+</HEAD>
+<BODY>
+<H1 class="title">Tomcat5.5.xから6.0.xへのマイグレーションガイド</H1>
+<div class="toc">
+<p>
+<b>Index</b>
+</p>
+<dl class="toc">
+<dt>
+<span class="1."><a href="#tubame_1.">1.Java5必須</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.1."><a href="#tubame_1.1.">1.1.Java5必須</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2."><a href="#tubame_1.2.">1.2.J2EE非推奨API</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.2.1."><a href="#tubame_1.2.1.">1.2.1.Servlet非推奨API</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2.2."><a href="#tubame_1.2.2.">1.2.2.JSP非推奨API</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2.3."><a href="#tubame_1.2.3.">1.2.3.Servlet、JSP以外の非推奨API</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>
+<span class="2."><a href="#tubame_2.">2.ディレクトリ構造の変更</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.1."><a href="#tubame_2.1.">2.1.sharedライブラリ</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.2."><a href="#tubame_2.2.">2.2.Endorsedライブラリ</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.3."><a href="#tubame_2.3.">2.3.デフォルトWebアプリケーション</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.4."><a href="#tubame_2.4.">2.4.共有Webホスティング環境</a></span>
+</dt>
+</dl>
+</dd>
+<dt>
+<span class="3."><a href="#tubame_3.">3.内部のLogging APIパッケージ名の変更</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="3.1."><a href="#tubame_3.1.">3.1.Apache Commons Logging</a></span>
+</dt>
+</dl>
+</dd>
+<dt>
+<span class="4."><a href="#tubame_4.">4.Connectorの仕様変更</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="4.1."><a href="#tubame_4.1.">4.1.SSL設定</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="4.2."><a href="#tubame_4.2.">4.2.スレッドプール</a></span>
+</dt>
+</dl>
+</dd>
+<dt>
+<span class="5."><a href="#tubame_5.">5.クラスタリングのコンフィグレーションの変更</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="5.1."><a href="#tubame_5.1.">5.1.クラスタリング構成のサーバ設定</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="5.2."><a href="#tubame_5.2.">5.2.ThroughputInterceptor</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="5.3."><a href="#tubame_5.3.">5.3.Cluster用MBean</a></span>
+</dt>
+</dl>
+</dd>
+<dt>
+<span class="6."><a href="#tubame_6.">6.その他</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="6.1."><a href="#tubame_6.1.">6.1.FastCommonAccessLogValveクラス</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="6.2."><a href="#tubame_6.2.">6.2.changeSessionIdOnAuthentication属性</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="6.3."><a href="#tubame_6.3.">6.3.Administration Web Application の廃止</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="6.4."><a href="#tubame_6.4.">6.4.使用不可となった属性</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="6.5."><a href="#tubame_6.5.">6.5.ACTIVITY_CHECKフィールド</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="6.6."><a href="#tubame_6.6.">6.6.ServletOutputStreamクラス</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</div>
+<HR>
+<a name="tubame_1."></a>
+<h2 class="title">1.Java5必須</h2>
+<br>
+<a name="tubame_1.1."></a>
+<h3 class="title">1.1.Java5必須</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Tomcat6.0.xはServlet2.5に準拠するため、Java5以降が必須となる。</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2."></a>
+<h3 class="title">1.2.J2EE非推奨API</h3>
+<br>
+<br>
+<a name="tubame_1.2.1."></a>
+<h3 class="title">1.2.1.Servlet非推奨API</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>以下は、Servlet2.5で非推奨となったAPIの一覧であり、これらAPIを利用している場合には、代替となるAPIを利用するように修正する必要がある。</p>
+<p>推奨されていないインタフェース</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>javax.servlet.http.HttpSessionContext</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.SingleThreadModel</p>
+</li>
+</ul>
+</div>
+<p>推奨されていないクラス</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>javax.servlet.http.HttpUtils</p>
+</li>
+</ul>
+</div>
+<p>推奨されていないメソッド</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>javax.servlet.http.HttpServletRequest.isRequestedSessionIdFromUrl()</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpServletResponse.encodeRedirectUrl(String)</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpServletResponse.encodeUrl(String)</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpServletResponse.setStatus(int, String)</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSession.getSessionContext()</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSession.getValue(String)</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSession.getValueNames()</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSession.putValue(String, Object)</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSession.removeValue(String)</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSessionContext.getIds()</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.http.HttpSessionContext.getSession(String)</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.ServletContext.getServlet(String)</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.ServletContext.getServletNames()</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.ServletContext.getServlets()</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.ServletContext.log(Exception, String)</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.ServletRequest.getRealPath(String)</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.UnavailableException.getServlet()</p>
+</li>
+</ul>
+</div>
+<p>推奨されていないコンストラクタ</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>javax.servlet.UnavailableException(int, Servlet, String)</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.UnavailableException(Servlet, String)</p>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.2."></a>
+<h3 class="title">1.2.2.JSP非推奨API</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>以下は、JSP2.1で非推奨となったAPIの一覧であり、これらAPIを利用している場合には、代替となるAPIを利用するように修正する必要がある。</p>
+<p>推奨されていないインタフェース</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>javax.servlet.jsp.el.FunctionMapper</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.jsp.el.VariableResolver</p>
+</li>
+</ul>
+</div>
+<p>推奨されていないクラス</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>javax.servlet.jsp.el.Expression</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.jsp.el.ExpressionEvaluator</p>
+</li>
+</ul>
+</div>
+<p>推奨されていない例外</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>javax.servlet.jsp.el.ELException</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.jsp.el.ELParseException</p>
+</li>
+</ul>
+</div>
+<p>推奨されていないフィールド</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_TAG</p>
+</li>
+</ul>
+</div>
+<p>推奨されていないメソッド</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>javax.servlet.jsp.JspContext.getExpressionEvaluator()</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.jsp.JspContext.getVariableResolver()</p>
+</li>
+<li class="listitem">
+<p>javax.servlet.jsp.JspContext.getRootCause()</p>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_1.2.3."></a>
+<h3 class="title">1.2.3.Servlet、JSP以外の非推奨API</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Servlet、JSP以外にも、JAXB、JSF、EJB、JCAなどで非推奨となっているAPIを利用している場合も、代替となるAPIを利用するように修正する必要がある。</p>
+<p>詳細は下記のURLを参照のこと。</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>http://docs.oracle.com/javaee/5/api/</p>
+</li>
+<li class="listitem">
+<p>http://docs.oracle.com/javaee/5/api/deprecated-list.html</p>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_2."></a>
+<h2 class="title">2.ディレクトリ構造の変更</h2>
+<br>
+<a name="tubame_2.1."></a>
+<h3 class="title">2.1.sharedライブラリ</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Tomcat6.0.xにおいて、Tomcat5.5.xで使用していたcommon、shared、serverサブディレクトリがなくなり、単一のlibディレクトリとなった。</p>
+<p>Tomcat6.0.21以降、Tomcatは$CATALINA_BASE/libディレクトリと$CATALINA_HOME/libディレクトリの両方をサポートし、$CATALINA_BASE/libディレクトリ内のJARファイルとclassファイルは、CLASSPATHよりも優先される。</p>
+<p>●クラスローダ</p>
+<p>ディレクトリ構造の変更の結果として、common、shared、serverクラスタローダは一つのクラスローダにマージされた。実際、shared、serverクラスローダはデフォルトで設定されず、commonクラスローダはlibディレクトリにマッピングされている。</p>
+<p>この動作と構造は、conf/catalina.propertiesファイルを用いて変更することができる。</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>Tomcat5.5.xでcommon/lib、shared/lib、server/libディレクトリにjarファイルを配置して使用していた場合、Tomcat6.0.xのlibディレクトリにそれらを配置する必要がある。classファイルも同様。</p>
+</li>
+<li class="listitem">
+<p>Tomcat5.5.xのwebappsディレクトリに配置している独自のWebアプリケーションは、そのままTomcat6.0.xのwebappsディレクトリに移動する。</p>
+</li>
+<li class="listitem">
+<p>Tomcat5.5.xと同じディレクトリ構造でTomcat6.0.xを使用する場合、conf/catalina.propertiesファイルの"common.loader"、"server.loader"、"shared.loader"にそれぞれ設定する必要がある。設定例は以下のとおり。</p>
+<pre class="programlisting">
+                shared.loader=${catalina_base}/shared/classes,${catalina_base}/shared/lib/*.jar,
+                ${catalina_home}/shared/classes,${catalina_home}/shared/lib/*.jar
+                </pre>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_2.2."></a>
+<h3 class="title">2.2.Endorsedライブラリ</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>$CATALINA_HOME/common/endorsedサブディレクトリは、$CATALINA_HOME/endorsedディレクトリに置換される。</p>
+<p>ただし、このディレクトリはデフォルトでは存在しない。代わりのディレクトリを指定するための環境変数JAVA_ENDORSED_DIRは、setenv.batあるいはsetenv.shを使用することで設定できる。</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.3."></a>
+<h3 class="title">2.3.デフォルトWebアプリケーション</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>ManagerとHostManagerのWebアプリケーションは、server/webapps内には存在せず、全てのデフォルトのWebアプリケーションは、webappsディレクトリに配置される。</p>
+<p>HostのdeployOnStartupやautoDeployのオプションが許可されている場合、ManagerとHostManagerアプリケーションのMETA-INF/context.xmlファイルは、最初のTomcat起動時に、$CATALINA_BASE/conf/[engine_name]/[host_name]ディレクトリ内にコピーされることに注意すること。</p>
+</div>
+<br>
+<br>
+<a name="tubame_2.4."></a>
+<h3 class="title">2.4.共有Webホスティング環境</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>共有のWebホスティング環境を使用するとき、Webアプリケーション内のcontext.xmlの使用を禁止することを推奨する。</p>
+</div>
+<br>
+<br>
+<a name="tubame_3."></a>
+<h2 class="title">3.内部のLogging APIパッケージ名の変更</h2>
+<br>
+<a name="tubame_3.1."></a>
+<h3 class="title">3.1.Apache Commons Logging</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Tomcat5.5.xでは、Commons Logging を使用していたが、Tomcat6.0.xでは、JULIを直接使用している。</p>
+<p>WebアプリケーションにLog4jを使用する場合、Tomcat5.5.xではそのアプリケーションのServletログやContextに関するログもLog4jの設定にしたがって出力されるが、Tomcat6.0.xではこれらのログはJULIの設定にしたがう。つまりバージョン間でログの出力範囲が異なっていることに注意が必要。</p>
+<p>参考URL</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>http://tomcat.apache.org/tomcat-6.0-doc/logging.html</p>
+</li>
+<li class="listitem">
+<p>http://tomcat.apache.org/tomcat-6.0-doc/extras.html</p>
+</li>
+</ul>
+</div>
+<p>●commons-logging.jar</p>
+<p>commons-logging-api-jarライブラリは、Webアプリケーション用に提供されないため、Apache Commons Loggingを使用しているWebアプリケーションは、そのライブラリ独自のコピーを提供する必要がある。</p>
+<p>他のjarファイルと同様に、WEB-INF/libディレクトリにそれを配置することが推奨される。</p>
+</div>
+<br>
+<br>
+<a name="tubame_4."></a>
+<h2 class="title">4.Connectorの仕様変更</h2>
+<br>
+<a name="tubame_4.1."></a>
+<h3 class="title">4.1.SSL設定</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>全てのSSLを有効にするConnectorの場合、SSLEnabledフラグにtrueを設定しなければならない。</p>
+<pre class="programlisting">
+        &lt;Connector ...
+            SSLEnabled="true"
+              ... /&gt;
+        </pre>
+<p>Tomcat単体でSSL通信を行う場合、上記設定が必要となる。Apacheと連携してTomcatを動かす場合、ApacheにてSSL通信を行うため、Tomcatでの設定は不要となる。</p>
+</div>
+<br>
+<br>
+<a name="tubame_4.2."></a>
+<h3 class="title">4.2.スレッドプール</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Connectorスレッドプールは簡素化され、指定された最大値まで大きくなるが、小さくなることはない。（minSpareThreads属性など、スレッドプールの減少に関連付けられた属性は無視される。）</p>
+<p>リクエストが増減するスレッドプールを必要とする場合、Executorを設定したり、それを使うためにConnectorを設定する必要がある。</p>
+<p>参考URL</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>http://tomcat.apache.org/tomcat-6.0-doc/config/executor.html</p>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_5."></a>
+<h2 class="title">5.クラスタリングのコンフィグレーションの変更</h2>
+<br>
+<a name="tubame_5.1."></a>
+<h3 class="title">5.1.クラスタリング構成のサーバ設定</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>クラスタリングの構成はリファクタリングされた。クラスタを設定するにあたり、Tomcat5.5.xとTomcat6.0.xでserver.xmlで使用されるタグと属性の変更点と対応づけを以下に示す。</p>
+<div class="table">
+<a name="N1235A"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;server.xmlのクラスタに関する変更点</b>
+</p>
+<div class="table-contents">
+<table summary="server.xmlのクラスタに関する変更点" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td>Tomcat5.5.x</td><td>Tomcat6.0.x</td>
+</tr>
+<tr>
+<td>&lt;Cluster&gt; &lt;Membership&gt; mcastAddr</td><td>&lt;Cluster&gt; &lt;Channel&gt; &lt;Membership&gt; address</td>
+</tr>
+<tr>
+<td>&lt;Cluster&gt; &lt;Membership&gt; mcastPort</td><td>&lt;Cluster&gt; &lt;Channel&gt; &lt;Membership&gt; port</td>
+</tr>
+<tr>
+<td>&lt;Cluster&gt; &lt;Membership&gt; mcastFrequecy</td><td>&lt;Cluster&gt; &lt;Channel&gt; &lt;Membership&gt; frequency</td>
+</tr>
+<tr>
+<td>&lt;Cluster&gt; &lt;Membership&gt; mcastDropTime</td><td>&lt;Cluster&gt; &lt;Channel&gt; &lt;Membership&gt; dropTime</td>
+</tr>
+<tr>
+<td>&lt;Cluster&gt; &lt;Reciever&gt; tcpListenerAddress</td><td>&lt;Cluster&gt; &lt;Channel&gt; &lt;Reciever&gt; address</td>
+</tr>
+<tr>
+<td>&lt;Cluster&gt; &lt;Reciever&gt; tcpListenerPort</td><td>&lt;Cluster&gt; &lt;Channel&gt; &lt;Reciever&gt; port</td>
+</tr>
+<tr>
+<td>&lt;Cluster&gt; &lt;Reciever&gt; tcpSelectorTimeout</td><td>&lt;Cluster&gt; &lt;Channel&gt; &lt;Reciever&gt; selectorTimeout</td>
+</tr>
+<tr>
+<td>&lt;Cluster&gt; &lt;Sender&gt; replicationMode</td><td>&lt;Cluster&gt; &lt;Channel&gt; &lt;Cluster&gt; channelSendOptions</td>
+</tr>
+<tr>
+<td>&lt;Cluster&gt; &lt;Sender&gt; waitForAck</td><td>&lt;Cluster&gt; &lt;Channel&gt; &lt;Cluster&gt; channelSendOptions</td>
+</tr>
+<tr>
+<td>&lt;Cluster&gt; &lt;Sender&gt; resend</td><td>&lt;Cluster&gt; &lt;Channel&gt; &lt;Sender&gt; &lt;Transport&gt; maxRetryAttempts</td>
+</tr>
+<tr>
+<td>&lt;Cluster&gt; &lt;Sender&gt; maxPoolSocketLimit</td><td>&lt;Cluster&gt; &lt;Channel&gt; &lt;Sender&gt; &lt;Transport&gt; PoolSize</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br class="table-break">
+<p>下記の属性は非推奨。</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>&lt;Cluster&gt; doClusterLog</p>
+</li>
+<li class="listitem">
+<p>&lt;Cluster&gt; clusterLogName</p>
+</li>
+<li class="listitem">
+<p>&lt;Cluster&gt; &lt;Manager&gt; defaultMode</p>
+</li>
+<li class="listitem">
+<p>&lt;Cluster&gt; &lt;Manager&gt; domainReplication</p>
+<p>この属性は、DomainFilterInterceptorに代替され、以下のように設定する。</p>
+<pre class="programlisting">
+                &lt;Channel className="..." ... &gt;
+                    ...
+                  &lt;Interceptor
+                    className="org.apache.catalina.tribes.group.interceptors.DomainFilterInterceptor"
+                    domain="..."
+                    ...
+                &lt;/Channel&gt;
+                </pre>
+</li>
+</ul>
+</div>
+<p>参考URL</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>http://tomcat.apache.org/tomcat-6.0-doc/config/cluster.html</p>
+</li>
+<li class="listitem">
+<p>http://tomcat.apache.org/tomcat-6.0-doc/cluster-howto.html</p>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_5.2."></a>
+<h3 class="title">5.2.ThroughputInterceptor</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Tomcat5.5.xでは、セッションレプリケーションの送受信の統計情報をデフォルトで出力していたが、Tomcat6.0.xではデフォルトでは出力しない。出力する場合には、server.xmlに以下のように設定する必要がある。</p>
+<pre class="programlisting">
+        &lt;Channel className="..." ...&gt;
+           ...
+          &lt;Interceptor
+            className="org.apache.catalina.trivbes.group.interceptors.ThroughputInterceptor"
+           ...
+        &lt;/Channel&gt;
+        </pre>
+</div>
+<br>
+<br>
+<a name="tubame_5.3."></a>
+<h3 class="title">5.3.Cluster用MBean</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Tomcat6.0.xから、Cluster関係のMBeanを参照することができなくなった。</p>
+</div>
+<br>
+<br>
+<a name="tubame_6."></a>
+<h2 class="title">6.その他</h2>
+<br>
+<a name="tubame_6.1."></a>
+<h3 class="title">6.1.FastCommonAccessLogValveクラス</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>org.apache.catalina.valves.FastCommonAccessLogValveは非推奨となった。</p>
+<p>使用している場合には、org.apache.catalina.valves.AccessLogValveに変更する必要がある。</p>
+</div>
+<br>
+<br>
+<a name="tubame_6.2."></a>
+<h3 class="title">6.2.changeSessionIdOnAuthentication属性</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Tomcatの認証機能を使用している場合、changeSessionIdOnAuthentication属性のデフォルト値が変更されて、Tomcat5.5.xではfalseであったが、Tomcat6.0.xではtrueとなっている。</p>
+<p>Tomcat6.0.xでこの属性を無効にする場合（Tomcat5.5.xと同様の動作にする場合）、changeSessionIdOnAuthentication属性を設定する必要がある。</p>
+<pre class="programlisting">
+        &lt;Valve className="..."
+         ...
+          changeSessionIdOnAuthentication=&amp;quot;false&amp;quot;
+         ... /&gt;
+        </pre>
+</div>
+<br>
+<br>
+<a name="tubame_6.3."></a>
+<h3 class="title">6.3.Administration Web Application の廃止</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Tomcat6.0以降、Administration Web Applicationは廃止され、そのアプリケーションによる変更を検知する役割を持っていたStoreConfigLifecycleListenerも使用することができなくなった。</p>
+</div>
+<br>
+<br>
+<a name="tubame_6.4."></a>
+<h3 class="title">6.4.使用不可となった属性</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>設定ファイルで使用不可となった属性を以下に示す。</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>Connectorのstrategy属性</p>
+</li>
+<li class="listitem">
+<p>LoaderのuseSystemClassLoaderAsParent属性</p>
+<p>LoaderのAPIが変更され、親のクラスローダが常に関連付けられたコンテナから取得しているため、Tomcat6.0.xでは存在しない。</p>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_6.5."></a>
+<h3 class="title">6.5.ACTIVITY_CHECKフィールド</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Tomcatがリクエストの処理を行っている間、セッションの破棄がされないようにするには、conf/catalina.propertiesにおいて、ACTIVITY_CHECKをtrueに設定する必要がある。</p>
+<pre class="programlisting">
+        org.apache.catalina.session.StandardSession.ACTIVITY_CHECK=true
+        </pre>
+</div>
+<br>
+<br>
+<a name="tubame_6.6."></a>
+<h3 class="title">6.6.ServletOutputStreamクラス</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Tomcat6.0以降、ServletOutputStreamクラスのprint(String s)メソッドを使用している場合、パラメータの文字列にISO 8559-1以外が設定されると、CharConvertsionExceptionが発生する。</p>
+<p>ISO 8559-1以外が設定されても例外が発生しないようにするためには、以下の実装をすることで対応可能である。</p>
+<pre class="programlisting">
+        PrintWriter pw = response.getWriter();
+        pw.print(string);
+        </pre>
+</div>
+<br>
+<br>
+</BODY>
+</HTML>
