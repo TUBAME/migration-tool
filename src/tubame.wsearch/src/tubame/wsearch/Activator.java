@@ -641,10 +641,14 @@ public class Activator extends AbstractUIPlugin {
                 if (libraryRepositories == null) {
                     libraryRepositories = new HashMap<String, LibraryRepository>();
                 }
+                boolean enabled = node.getBoolean(ENABLED);
+                if(!enabled){
+                	continue;
+                }
                 String name = node.getString(NAME);
                 String url = node.getString(URL);
                 String description = node.getString(DESCRIPTION);
-                boolean enabled = node.getBoolean(ENABLED);
+                
                 boolean mavenType = node.getBoolean(MAVEN_TYPE);
                 boolean pluginEmbedded = node.getBoolean(PLUGIN_EMBEDDED);
                 Integer order = node.getInteger(ORDER);

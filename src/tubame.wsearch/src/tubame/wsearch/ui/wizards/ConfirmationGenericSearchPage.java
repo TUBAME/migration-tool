@@ -151,14 +151,6 @@ public class ConfirmationGenericSearchPage extends WizardPage {
         portabilityInfoGroup.setText(Activator
                 .getResourceString(ConfirmationGenericSearchPage.class
                         .getName() + ".label.advanced"));
-        Label label1 = new Label(portabilityInfoGroup, NONE);
-        label1.setText(Activator
-                .getResourceString(ConfirmationGenericSearchPage.class
-                        .getName() + ".label.SrcLibrary"));
-        Text originPortability = new Text(portabilityInfoGroup, SWT.MULTI
-                | SWT.BORDER | SWT.V_SCROLL | SWT.WRAP | SWT.READ_ONLY);
-
-        StringBuffer srcLibraryiesName = new StringBuffer();
         StringBuffer destLibraryiesName = new StringBuffer();
 
         List<LibraryRepository> libraryRepositories = new ArrayList<LibraryRepository>(
@@ -175,17 +167,8 @@ public class ConfirmationGenericSearchPage extends WizardPage {
         for (LibraryRepository libraryRepository : libraryRepositories) {
             if (libraryRepository.isEnabled()) {
                 destLibraryiesName.append(libraryRepository.getName() + "\n");
-            } else {
-                srcLibraryiesName.append(libraryRepository.getName() + "\n");
-            }
+            } 
         }
-        GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
-        gridData.horizontalAlignment = GridData.FILL;
-        gridData.verticalAlignment = GridData.FILL;
-        gridData.heightHint = originPortability.getLineHeight() * 3;
-
-        originPortability.setLayoutData(gridData);
-        originPortability.setText(srcLibraryiesName.toString());
 
         Label label2 = new Label(portabilityInfoGroup, NONE);
         label2.setText(Activator
@@ -197,7 +180,7 @@ public class ConfirmationGenericSearchPage extends WizardPage {
 
         GridData gridData2 = new GridData(GridData.FILL_HORIZONTAL);
         gridData2.horizontalAlignment = GridData.FILL;
-        gridData2.verticalAlignment = GridData.FILL;
+        gridData2.verticalAlignment = GridData.CENTER;
         gridData2.heightHint = destinationPortability.getLineHeight() * 3;
 
         destinationPortability.setLayoutData(gridData2);

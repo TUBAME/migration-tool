@@ -218,6 +218,9 @@ public class WSearchBizDomain {
 
         boolean enableChk = false;
         for (LibraryRepository libraryRepository : libraryRepositories) {
+        	if(!libraryRepository.isEnabled()){
+        		continue;
+        	}
             model = new LibraryModel();
             model.setLibName(libraryRepository.getName());
             if (libraryRepository.isPluginEmbedded()) {
