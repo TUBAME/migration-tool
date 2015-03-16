@@ -39,22 +39,22 @@ public enum WSearchEditorEnum {
      * Package
      */
     INDEX_PACKAGE(2, Activator.getResourceString(WSearchEditorEnum.class
-            .getName() + ".label.package"), 150, 2),
+            .getName() + ".label.package"), 400, 2),
     /**
      * Porting the original library
      */
     INDEX_SRC_LIBRARY(3, Activator.getResourceString(WSearchEditorEnum.class
-            .getName() + ".label.source"), 100, 3),
+            .getName() + ".label.source"), 0, 3),
     /**
      * Porting library
      */
     INDEX_DEST_LIBRARY(4, Activator.getResourceString(WSearchEditorEnum.class
-            .getName() + ".label.destination"), 100, 3),
+            .getName() + ".label.destination"), 0, 3),
     /**
      * Class
      */
     INDEX_CLAZZ(5, Activator.getResourceString(WSearchEditorEnum.class
-            .getName() + ".label.class"), 100, 3),
+            .getName() + ".label.class"), 150, 3),
     /**
      * Hits
      */

@@ -253,17 +253,26 @@ public class LibraryRepositoryPreferencePage extends PreferencePage implements
                         return arg0.getOrder() - arg1.getOrder();
                     }
                 });
-        tableViewer.setInput(libraryRepositories);
+       
         for (LibraryRepository repository : libraryRepositories) {
-            tableViewer.setChecked(repository, repository.isEnabled());
+        	if(Activator.isDefaultCache(repository)){
+        		tableViewer.setChecked(repository, true);
+        		repository.setEnabled(true);
+        	}else{
+        		repository.setEnabled(false);	
+        		tableViewer.setChecked(repository, false);
+        	}
         }
+        
+        tableViewer.setInput(libraryRepositories);
         tableViewer.refresh();
         cacheUseCheckButton[0].setSelection(true);
         cacheUseCheckButton[1].setSelection(false);
         super.performDefaults();
     }
 
-    /**
+
+	/**
      * Determine if there is a cache that is created by the user.<br/>
      * 
      * @return Determine if there is a cache that is created by the user
