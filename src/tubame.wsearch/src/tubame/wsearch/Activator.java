@@ -64,6 +64,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.service.prefs.BackingStoreException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import tubame.wsearch.biz.cache.CacheBase;
 import tubame.wsearch.biz.cache.WSearchLibraryCache;
 import tubame.wsearch.biz.cache.WSearchLibraryCacheArgument;
@@ -484,10 +485,11 @@ public class Activator extends AbstractUIPlugin {
      *            Whether embedded plug-in
      * @throws IOException
      *             It is Throw Failure to file input and output
+     * @throws XmlPullParserException 
      */
     public static void extractCacheDir(File targetZipPath,
             WSearchLibraryCacheArgument argument, boolean isEmbedded)
-            throws IOException {
+            throws IOException, XmlPullParserException {
 
         File file = new File(argument.getLibrary().getPath());
         String name = file.getName().split("\\.zip")[0];
@@ -503,13 +505,42 @@ public class Activator extends AbstractUIPlugin {
             if (libraryRepositories.containsKey(name)) {
                 return;
             }
-
+            Boolean defaultEnableCache = isDefaultEnableCache(createDestDir + File.separator+ name + File.separator + "pom.xml");
             addRepositoryEnableCache(name, argument.getLibrary().getPath()
-                    .toString(), "", true, true, isEmbedded);
+                    .toString(), "", defaultEnableCache, true, isEmbedded);
         }
     }
 
-    /**
+    private static Boolean isDefaultEnableCache(String checkTargetPomFile) throws IOException, XmlPullParserException {
+    	if(new File(checkTargetPomFile).exists()){
+    		PomReader pomReader = new PomReader();
+    		pomReader.loadPomFile(checkTargetPomFile);
+    		String artifactId = pomReader.getPomSetting().getArtifactId();
+    		if(isDefaultCacheName(artifactId)){
+    			return true;
+    		}else{
+    			return false;
+    		}
+    	}
+		return false;
+	}
+    
+    public static boolean isDefaultCache(LibraryRepository repository) {
+		if(repository.isPluginEmbedded() && isDefaultCacheName(repository.getName())){
+			return true;
+		}
+		return false;
+	}
+    
+    public static boolean isDefaultCacheName(String targetName) {
+		if(targetName.startsWith("eap6.2")){
+			return true;
+		}
+		return false;
+	}
+    
+
+	/**
      * Get a directory on which to base the library cache information.<br/>
      * 
      * @return Directory as the base of library information cache
