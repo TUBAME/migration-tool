@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <PortabilityKnowhow xmlns="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:ns2="http://docbook.org/ns/docbook" xmlns:ns3="http://www.w3.org/1999/xlink">
-    <PortabilityKnowhowTitle>Struts 1からSpring MVCへのマイグレーションナレッジ</PortabilityKnowhowTitle>
+    <PortabilityKnowhowTitle>FrameworkMigraion_Struts1_To_SpringMVC</PortabilityKnowhowTitle>
     <EntryViewList>
         <EntryCategory>
             <EntryCategoryRefKey>category_176</EntryCategoryRefKey>
