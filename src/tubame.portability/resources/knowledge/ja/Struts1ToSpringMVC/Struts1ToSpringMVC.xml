@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <PortabilityKnowhow xmlns="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:ns2="http://docbook.org/ns/docbook" xmlns:ns3="http://www.w3.org/1999/xlink">
-    <PortabilityKnowhowTitle>FrameworkMigration_Struts1_To_SpringMVC</PortabilityKnowhowTitle>
+    <PortabilityKnowhowTitle>Struts 1からSpring MVCへのマイグレーションナレッジ</PortabilityKnowhowTitle>
     <EntryViewList>
         <EntryCategory>
             <EntryCategoryRefKey>category_176</EntryCategoryRefKey>
@@ -192,6 +192,9 @@
                 <ChildEntry>
                     <EntryCategoryRefKey>category_471</EntryCategoryRefKey>
                     <ChildEntry>
+                        <EntryCategoryRefKey>category_680</EntryCategoryRefKey>
+                    </ChildEntry>
+                    <ChildEntry>
                         <EntryCategoryRefKey>category_565</EntryCategoryRefKey>
                     </ChildEntry>
                     <ChildEntry>
@@ -314,6 +317,9 @@
                 <EntryCategoryRefKey>category_334</EntryCategoryRefKey>
                 <ChildEntry>
                     <EntryCategoryRefKey>category_335</EntryCategoryRefKey>
+                    <ChildEntry>
+                        <EntryCategoryRefKey>category_677</EntryCategoryRefKey>
+                    </ChildEntry>
                     <ChildEntry>
                         <EntryCategoryRefKey>category_336</EntryCategoryRefKey>
                         <ChildEntry>
@@ -687,6 +693,9 @@
                 <ChildEntry>
                     <EntryCategoryRefKey>category_507</EntryCategoryRefKey>
                 </ChildEntry>
+                <ChildEntry>
+                    <EntryCategoryRefKey>category_678</EntryCategoryRefKey>
+                </ChildEntry>
             </ChildEntry>
         </EntryCategory>
         <EntryCategory>
@@ -834,9 +843,6 @@
             </ChildEntry>
             <ChildEntry>
                 <EntryCategoryRefKey>category_660</EntryCategoryRefKey>
-            </ChildEntry>
-            <ChildEntry>
-                <EntryCategoryRefKey>category_676</EntryCategoryRefKey>
             </ChildEntry>
             <ChildEntry>
                 <EntryCategoryRefKey>category_671</EntryCategoryRefKey>
@@ -1092,109 +1098,113 @@
                 <ChapterCategoryRefKey>category_471</ChapterCategoryRefKey>
                 <ChildChapter>
                     <ChildCapterNo>5.9.1.</ChildCapterNo>
-                    <ChapterCategoryRefKey>category_565</ChapterCategoryRefKey>
+                    <ChapterCategoryRefKey>category_680</ChapterCategoryRefKey>
                 </ChildChapter>
                 <ChildChapter>
                     <ChildCapterNo>5.9.2.</ChildCapterNo>
-                    <ChapterCategoryRefKey>category_566</ChapterCategoryRefKey>
+                    <ChapterCategoryRefKey>category_565</ChapterCategoryRefKey>
                 </ChildChapter>
                 <ChildChapter>
                     <ChildCapterNo>5.9.3.</ChildCapterNo>
-                    <ChapterCategoryRefKey>category_567</ChapterCategoryRefKey>
+                    <ChapterCategoryRefKey>category_566</ChapterCategoryRefKey>
                 </ChildChapter>
                 <ChildChapter>
                     <ChildCapterNo>5.9.4.</ChildCapterNo>
-                    <ChapterCategoryRefKey>category_568</ChapterCategoryRefKey>
+                    <ChapterCategoryRefKey>category_567</ChapterCategoryRefKey>
                 </ChildChapter>
                 <ChildChapter>
                     <ChildCapterNo>5.9.5.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_568</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>5.9.6.</ChildCapterNo>
                     <ChapterCategoryRefKey>category_474</ChapterCategoryRefKey>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.5.1.</ChildCapterNo>
+                        <ChildCapterNo>5.9.6.1.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_537</ChapterCategoryRefKey>
                     </ChildChapter>
                 </ChildChapter>
                 <ChildChapter>
-                    <ChildCapterNo>5.9.6.</ChildCapterNo>
+                    <ChildCapterNo>5.9.7.</ChildCapterNo>
                     <ChapterCategoryRefKey>category_482</ChapterCategoryRefKey>
                 </ChildChapter>
                 <ChildChapter>
-                    <ChildCapterNo>5.9.7.</ChildCapterNo>
+                    <ChildCapterNo>5.9.8.</ChildCapterNo>
                     <ChapterCategoryRefKey>category_483</ChapterCategoryRefKey>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.7.1.</ChildCapterNo>
+                        <ChildCapterNo>5.9.8.1.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_484</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.7.2.</ChildCapterNo>
+                        <ChildCapterNo>5.9.8.2.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_485</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.7.3.</ChildCapterNo>
+                        <ChildCapterNo>5.9.8.3.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_486</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.7.4.</ChildCapterNo>
+                        <ChildCapterNo>5.9.8.4.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_487</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.7.5.</ChildCapterNo>
+                        <ChildCapterNo>5.9.8.5.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_488</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.7.6.</ChildCapterNo>
+                        <ChildCapterNo>5.9.8.6.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_489</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.7.7.</ChildCapterNo>
+                        <ChildCapterNo>5.9.8.7.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_490</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.7.8.</ChildCapterNo>
+                        <ChildCapterNo>5.9.8.8.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_491</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.7.9.</ChildCapterNo>
+                        <ChildCapterNo>5.9.8.9.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_492</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.7.10.</ChildCapterNo>
+                        <ChildCapterNo>5.9.8.10.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_493</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.7.11.</ChildCapterNo>
+                        <ChildCapterNo>5.9.8.11.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_494</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.7.12.</ChildCapterNo>
+                        <ChildCapterNo>5.9.8.12.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_495</ChapterCategoryRefKey>
                     </ChildChapter>
                 </ChildChapter>
                 <ChildChapter>
-                    <ChildCapterNo>5.9.8.</ChildCapterNo>
+                    <ChildCapterNo>5.9.9.</ChildCapterNo>
                     <ChapterCategoryRefKey>category_475</ChapterCategoryRefKey>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.8.1.</ChildCapterNo>
+                        <ChildCapterNo>5.9.9.1.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_476</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.8.2.</ChildCapterNo>
+                        <ChildCapterNo>5.9.9.2.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_477</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.8.3.</ChildCapterNo>
+                        <ChildCapterNo>5.9.9.3.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_478</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.8.4.</ChildCapterNo>
+                        <ChildCapterNo>5.9.9.4.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_479</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.8.5.</ChildCapterNo>
+                        <ChildCapterNo>5.9.9.5.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_480</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>5.9.8.6.</ChildCapterNo>
+                        <ChildCapterNo>5.9.9.6.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_481</ChapterCategoryRefKey>
                     </ChildChapter>
                 </ChildChapter>
@@ -1256,434 +1266,438 @@
                 <ChapterCategoryRefKey>category_335</ChapterCategoryRefKey>
                 <ChildChapter>
                     <ChildCapterNo>6.1.1.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_677</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>6.1.2.</ChildCapterNo>
                     <ChapterCategoryRefKey>category_336</ChapterCategoryRefKey>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.1.1.</ChildCapterNo>
+                        <ChildCapterNo>6.1.2.1.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_337</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.1.2.</ChildCapterNo>
+                        <ChildCapterNo>6.1.2.2.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_338</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.1.3.</ChildCapterNo>
+                        <ChildCapterNo>6.1.2.3.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_339</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.1.4.</ChildCapterNo>
+                        <ChildCapterNo>6.1.2.4.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_340</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.1.5.</ChildCapterNo>
+                        <ChildCapterNo>6.1.2.5.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_341</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.1.6.</ChildCapterNo>
+                        <ChildCapterNo>6.1.2.6.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_342</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.1.7.</ChildCapterNo>
+                        <ChildCapterNo>6.1.2.7.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_343</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.1.8.</ChildCapterNo>
+                        <ChildCapterNo>6.1.2.8.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_344</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.1.9.</ChildCapterNo>
+                        <ChildCapterNo>6.1.2.9.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_345</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.1.10.</ChildCapterNo>
+                        <ChildCapterNo>6.1.2.10.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_346</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.1.11.</ChildCapterNo>
+                        <ChildCapterNo>6.1.2.11.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_347</ChapterCategoryRefKey>
                     </ChildChapter>
                 </ChildChapter>
                 <ChildChapter>
-                    <ChildCapterNo>6.1.2.</ChildCapterNo>
+                    <ChildCapterNo>6.1.3.</ChildCapterNo>
                     <ChapterCategoryRefKey>category_348</ChapterCategoryRefKey>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.2.1.</ChildCapterNo>
+                        <ChildCapterNo>6.1.3.1.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_349</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.2.2.</ChildCapterNo>
+                        <ChildCapterNo>6.1.3.2.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_350</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.2.3.</ChildCapterNo>
+                        <ChildCapterNo>6.1.3.3.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_351</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.2.4.</ChildCapterNo>
+                        <ChildCapterNo>6.1.3.4.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_352</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.2.5.</ChildCapterNo>
+                        <ChildCapterNo>6.1.3.5.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_353</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.2.6.</ChildCapterNo>
+                        <ChildCapterNo>6.1.3.6.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_354</ChapterCategoryRefKey>
                     </ChildChapter>
                 </ChildChapter>
                 <ChildChapter>
-                    <ChildCapterNo>6.1.3.</ChildCapterNo>
+                    <ChildCapterNo>6.1.4.</ChildCapterNo>
                     <ChapterCategoryRefKey>category_355</ChapterCategoryRefKey>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.1.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.1.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_356</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.2.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.2.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_357</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.3.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.3.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_358</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.4.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.4.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_359</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.5.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.5.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_360</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.6.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.6.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_361</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.7.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.7.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_362</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.8.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.8.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_363</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.9.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.9.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_364</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.10.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.10.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_365</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.11.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.11.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_366</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.12.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.12.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_367</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.13.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.13.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_368</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.14.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.14.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_369</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.15.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.15.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_370</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.16.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.16.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_371</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.17.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.17.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_372</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.18.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.18.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_373</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.19.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.19.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_374</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.20.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.20.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_375</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.21.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.21.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_376</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.22.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.22.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_377</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.23.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.23.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_378</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.24.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.24.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_379</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.25.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.25.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_380</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.26.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.26.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_381</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.27.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.27.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_382</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.28.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.28.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_383</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.3.29.</ChildCapterNo>
+                        <ChildCapterNo>6.1.4.29.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_384</ChapterCategoryRefKey>
                     </ChildChapter>
                 </ChildChapter>
                 <ChildChapter>
-                    <ChildCapterNo>6.1.4.</ChildCapterNo>
+                    <ChildCapterNo>6.1.5.</ChildCapterNo>
                     <ChapterCategoryRefKey>category_385</ChapterCategoryRefKey>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.1.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.1.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_386</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.2.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.2.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_387</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.3.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.3.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_388</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.4.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.4.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_389</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.5.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.5.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_390</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.6.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.6.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_391</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.7.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.7.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_392</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.8.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.8.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_393</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.9.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.9.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_394</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.10.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.10.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_395</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.11.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.11.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_396</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.12.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.12.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_397</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.13.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.13.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_398</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.14.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.14.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_399</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.15.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.15.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_400</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.16.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.16.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_401</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.17.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.17.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_402</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.18.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.18.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_403</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.19.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.19.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_404</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.20.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.20.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_405</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.21.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.21.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_406</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.22.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.22.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_407</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.23.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.23.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_408</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.24.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.24.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_409</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.25.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.25.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_410</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.26.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.26.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_411</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.27.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.27.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_412</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.28.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.28.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_413</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.4.29.</ChildCapterNo>
+                        <ChildCapterNo>6.1.5.29.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_414</ChapterCategoryRefKey>
                     </ChildChapter>
                 </ChildChapter>
                 <ChildChapter>
-                    <ChildCapterNo>6.1.5.</ChildCapterNo>
+                    <ChildCapterNo>6.1.6.</ChildCapterNo>
                     <ChapterCategoryRefKey>category_415</ChapterCategoryRefKey>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.5.1.</ChildCapterNo>
+                        <ChildCapterNo>6.1.6.1.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_416</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.5.2.</ChildCapterNo>
+                        <ChildCapterNo>6.1.6.2.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_417</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.5.3.</ChildCapterNo>
+                        <ChildCapterNo>6.1.6.3.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_418</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.5.4.</ChildCapterNo>
+                        <ChildCapterNo>6.1.6.4.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_419</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.5.5.</ChildCapterNo>
+                        <ChildCapterNo>6.1.6.5.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_420</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.5.6.</ChildCapterNo>
+                        <ChildCapterNo>6.1.6.6.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_421</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.5.7.</ChildCapterNo>
+                        <ChildCapterNo>6.1.6.7.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_422</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.5.8.</ChildCapterNo>
+                        <ChildCapterNo>6.1.6.8.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_423</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.5.9.</ChildCapterNo>
+                        <ChildCapterNo>6.1.6.9.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_424</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.5.10.</ChildCapterNo>
+                        <ChildCapterNo>6.1.6.10.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_425</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.5.11.</ChildCapterNo>
+                        <ChildCapterNo>6.1.6.11.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_426</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.5.12.</ChildCapterNo>
+                        <ChildCapterNo>6.1.6.12.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_427</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.5.13.</ChildCapterNo>
+                        <ChildCapterNo>6.1.6.13.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_428</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.5.14.</ChildCapterNo>
+                        <ChildCapterNo>6.1.6.14.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_429</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.5.15.</ChildCapterNo>
+                        <ChildCapterNo>6.1.6.15.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_430</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.5.16.</ChildCapterNo>
+                        <ChildCapterNo>6.1.6.16.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_431</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.5.17.</ChildCapterNo>
+                        <ChildCapterNo>6.1.6.17.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_432</ChapterCategoryRefKey>
                     </ChildChapter>
                 </ChildChapter>
                 <ChildChapter>
-                    <ChildCapterNo>6.1.6.</ChildCapterNo>
+                    <ChildCapterNo>6.1.7.</ChildCapterNo>
                     <ChapterCategoryRefKey>category_433</ChapterCategoryRefKey>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.6.1.</ChildCapterNo>
+                        <ChildCapterNo>6.1.7.1.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_434</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.6.2.</ChildCapterNo>
+                        <ChildCapterNo>6.1.7.2.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_435</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.6.3.</ChildCapterNo>
+                        <ChildCapterNo>6.1.7.3.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_436</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.6.4.</ChildCapterNo>
+                        <ChildCapterNo>6.1.7.4.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_437</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.6.5.</ChildCapterNo>
+                        <ChildCapterNo>6.1.7.5.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_438</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.6.6.</ChildCapterNo>
+                        <ChildCapterNo>6.1.7.6.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_439</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.6.7.</ChildCapterNo>
+                        <ChildCapterNo>6.1.7.7.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_440</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.6.8.</ChildCapterNo>
+                        <ChildCapterNo>6.1.7.8.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_441</ChapterCategoryRefKey>
                     </ChildChapter>
                     <ChildChapter>
-                        <ChildCapterNo>6.1.6.9.</ChildCapterNo>
+                        <ChildCapterNo>6.1.7.9.</ChildCapterNo>
                         <ChapterCategoryRefKey>category_442</ChapterCategoryRefKey>
                     </ChildChapter>
                 </ChildChapter>
                 <ChildChapter>
-                    <ChildCapterNo>6.1.7.</ChildCapterNo>
+                    <ChildCapterNo>6.1.8.</ChildCapterNo>
                     <ChapterCategoryRefKey>category_443</ChapterCategoryRefKey>
                 </ChildChapter>
             </ChildChapter>
@@ -1753,6 +1767,10 @@
                 <ChildChapter>
                     <ChildCapterNo>7.1.4.</ChildCapterNo>
                     <ChapterCategoryRefKey>category_507</ChapterCategoryRefKey>
+                </ChildChapter>
+                <ChildChapter>
+                    <ChildCapterNo>7.1.5.</ChildCapterNo>
+                    <ChapterCategoryRefKey>category_678</ChapterCategoryRefKey>
                 </ChildChapter>
             </ChildChapter>
         </Chapter>
@@ -1953,10 +1971,6 @@
             </ChildChapter>
             <ChildChapter>
                 <ChildCapterNo>8.9.</ChildCapterNo>
-                <ChapterCategoryRefKey>category_676</ChapterCategoryRefKey>
-            </ChildChapter>
-            <ChildChapter>
-                <ChildCapterNo>8.10.</ChildCapterNo>
                 <ChapterCategoryRefKey>category_671</ChapterCategoryRefKey>
             </ChildChapter>
         </Chapter>
@@ -2145,27 +2159,27 @@
             <CategoryName>ActionFormクラスの提供するユーティリティメソッドの移行</CategoryName>
         </Category>
         <Category categoryId="category_464" appropriate="true">
-            <CategoryName>getMultipartRequestHandler/setMultipartRequestHandler</CategoryName>
+            <CategoryName>ActionFormユーティリティメソッドgetMultipartRequestHandler/setMultipartRequestHandlerの移行</CategoryName>
             <KnowhowRefKey>knowhow_451</KnowhowRefKey>
         </Category>
         <Category categoryId="category_465" appropriate="true">
-            <CategoryName>getServletWrapper</CategoryName>
+            <CategoryName>ActionFormユーティリティメソッドgetServletWrapperの移行</CategoryName>
             <KnowhowRefKey>knowhow_452</KnowhowRefKey>
         </Category>
         <Category categoryId="category_466" appropriate="true">
-            <CategoryName>reset</CategoryName>
+            <CategoryName>ActionFormユーティリティメソッドresetの移行</CategoryName>
             <KnowhowRefKey>knowhow_453</KnowhowRefKey>
         </Category>
         <Category categoryId="category_467" appropriate="true">
-            <CategoryName>ActionForm#setServlet</CategoryName>
+            <CategoryName>ActionFormユーティリティメソッドsetServletの移行</CategoryName>
             <KnowhowRefKey>knowhow_454</KnowhowRefKey>
         </Category>
         <Category categoryId="category_468" appropriate="true">
-            <CategoryName>validate</CategoryName>
+            <CategoryName>ActionFormユーティリティメソッドvalidateの移行</CategoryName>
             <KnowhowRefKey>knowhow_455</KnowhowRefKey>
         </Category>
         <Category categoryId="category_469" appropriate="true">
-            <CategoryName>ActionForm#getServlet</CategoryName>
+            <CategoryName>ActionFormユーティリティメソッドgetServletの移行</CategoryName>
             <KnowhowRefKey>knowhow_456</KnowhowRefKey>
         </Category>
         <Category categoryId="category_470" appropriate="true">
@@ -2212,6 +2226,10 @@
             <CategoryName>Actionの移行</CategoryName>
             <KnowhowRefKey>knowhow_458</KnowhowRefKey>
         </Category>
+        <Category categoryId="category_680" appropriate="true">
+            <CategoryName>Actionの設定移行</CategoryName>
+            <KnowhowRefKey>knowhow_640</KnowhowRefKey>
+        </Category>
         <Category categoryId="category_565" appropriate="true">
             <CategoryName>シンプルなActionの移行</CategoryName>
             <KnowhowRefKey>knowhow_532</KnowhowRefKey>
@@ -2245,51 +2263,51 @@
             <KnowhowRefKey>knowhow_630</KnowhowRefKey>
         </Category>
         <Category categoryId="category_484" appropriate="true">
-            <CategoryName>Action#getServlet</CategoryName>
+            <CategoryName>ActionユーティリティメソッドgetServletの移行</CategoryName>
             <KnowhowRefKey>knowhow_469</KnowhowRefKey>
         </Category>
         <Category categoryId="category_485" appropriate="true">
-            <CategoryName>Action#setServlet</CategoryName>
+            <CategoryName>ActionユーティリティメソッドsetServletの移行</CategoryName>
             <KnowhowRefKey>knowhow_470</KnowhowRefKey>
         </Category>
         <Category categoryId="category_486" appropriate="true">
-            <CategoryName>execute</CategoryName>
+            <CategoryName>Actionユーティリティメソッドexecuteの移行</CategoryName>
             <KnowhowRefKey>knowhow_471</KnowhowRefKey>
         </Category>
         <Category categoryId="category_487" appropriate="true">
-            <CategoryName>addErrors</CategoryName>
+            <CategoryName>ActionユーティリティメソッドaddErrorsの移行</CategoryName>
             <KnowhowRefKey>knowhow_472</KnowhowRefKey>
         </Category>
         <Category categoryId="category_488" appropriate="true">
-            <CategoryName>addMessages</CategoryName>
+            <CategoryName>ActionユーティリティメソッドaddMessagesの移行</CategoryName>
             <KnowhowRefKey>knowhow_473</KnowhowRefKey>
         </Category>
         <Category categoryId="category_489" appropriate="true">
-            <CategoryName>Token管理</CategoryName>
+            <CategoryName>ActionユーティリティメソッドToken管理機能の移行</CategoryName>
             <KnowhowRefKey>knowhow_474</KnowhowRefKey>
         </Category>
         <Category categoryId="category_490" appropriate="true">
-            <CategoryName>getErrors</CategoryName>
+            <CategoryName>ActionユーティリティメソッドgetErrorsの移行</CategoryName>
             <KnowhowRefKey>knowhow_475</KnowhowRefKey>
         </Category>
         <Category categoryId="category_491" appropriate="true">
-            <CategoryName>Locale</CategoryName>
+            <CategoryName>ActionユーティリティメソッドLocaleの移行</CategoryName>
             <KnowhowRefKey>knowhow_476</KnowhowRefKey>
         </Category>
         <Category categoryId="category_492" appropriate="true">
-            <CategoryName>getMessages</CategoryName>
+            <CategoryName>ActionユーティリティメソッドgetMessagesの移行</CategoryName>
             <KnowhowRefKey>knowhow_477</KnowhowRefKey>
         </Category>
         <Category categoryId="category_493" appropriate="true">
-            <CategoryName>getResources</CategoryName>
+            <CategoryName>ActionユーティリティメソッドgetResourcesの移行</CategoryName>
             <KnowhowRefKey>knowhow_478</KnowhowRefKey>
         </Category>
         <Category categoryId="category_494" appropriate="true">
-            <CategoryName>isCancelled</CategoryName>
+            <CategoryName>ActionユーティリティメソッドisCancelledの移行</CategoryName>
             <KnowhowRefKey>knowhow_479</KnowhowRefKey>
         </Category>
         <Category categoryId="category_495" appropriate="true">
-            <CategoryName>saveErrors/saveMessages</CategoryName>
+            <CategoryName>ActionユーティリティメソッドsaveErrors/saveMessagesの移行</CategoryName>
             <KnowhowRefKey>knowhow_480</KnowhowRefKey>
         </Category>
         <Category categoryId="category_475" appropriate="true">
@@ -2372,54 +2390,57 @@
         </Category>
         <Category categoryId="category_335" appropriate="true">
             <CategoryName>Struts独自タグ</CategoryName>
-            <KnowhowRefKey>knowhow_324</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_677" appropriate="true">
+            <CategoryName>Struts独自タグの宣言の移行</CategoryName>
+            <KnowhowRefKey>knowhow_637</KnowhowRefKey>
         </Category>
         <Category categoryId="category_336" appropriate="true">
             <CategoryName>beanタグ</CategoryName>
             <KnowhowRefKey>knowhow_325</KnowhowRefKey>
         </Category>
         <Category categoryId="category_337" appropriate="true">
-            <CategoryName>bean:cookie</CategoryName>
+            <CategoryName>Struts独自タグbean:cookieの移行</CategoryName>
             <KnowhowRefKey>knowhow_326</KnowhowRefKey>
         </Category>
         <Category categoryId="category_338" appropriate="true">
-            <CategoryName>bean:define</CategoryName>
+            <CategoryName>Struts独自タグbean:defineの移行</CategoryName>
             <KnowhowRefKey>knowhow_327</KnowhowRefKey>
         </Category>
         <Category categoryId="category_339" appropriate="true">
-            <CategoryName>bean:header</CategoryName>
+            <CategoryName>Struts独自タグbean:headerの移行</CategoryName>
             <KnowhowRefKey>knowhow_328</KnowhowRefKey>
         </Category>
         <Category categoryId="category_340" appropriate="true">
-            <CategoryName>bean:include</CategoryName>
+            <CategoryName>Struts独自タグbean:includeの移行</CategoryName>
             <KnowhowRefKey>knowhow_329</KnowhowRefKey>
         </Category>
         <Category categoryId="category_341" appropriate="true">
-            <CategoryName>bean:message</CategoryName>
+            <CategoryName>Struts独自タグbean:messageの移行</CategoryName>
             <KnowhowRefKey>knowhow_330</KnowhowRefKey>
         </Category>
         <Category categoryId="category_342" appropriate="true">
-            <CategoryName>bean:page</CategoryName>
+            <CategoryName>Struts独自タグbean:pageの移行</CategoryName>
             <KnowhowRefKey>knowhow_331</KnowhowRefKey>
         </Category>
         <Category categoryId="category_343" appropriate="true">
-            <CategoryName>bean:parameter</CategoryName>
+            <CategoryName>Struts独自タグbean:parameterの移行</CategoryName>
             <KnowhowRefKey>knowhow_332</KnowhowRefKey>
         </Category>
         <Category categoryId="category_344" appropriate="true">
-            <CategoryName>bean:resource</CategoryName>
+            <CategoryName>Struts独自タグbean:resourceの移行</CategoryName>
             <KnowhowRefKey>knowhow_333</KnowhowRefKey>
         </Category>
         <Category categoryId="category_345" appropriate="true">
-            <CategoryName>bean:size</CategoryName>
+            <CategoryName>Struts独自タグbean:sizeの移行</CategoryName>
             <KnowhowRefKey>knowhow_334</KnowhowRefKey>
         </Category>
         <Category categoryId="category_346" appropriate="true">
-            <CategoryName>bean:struts</CategoryName>
+            <CategoryName>Struts独自タグbean:strutsの移行</CategoryName>
             <KnowhowRefKey>knowhow_335</KnowhowRefKey>
         </Category>
         <Category categoryId="category_347" appropriate="true">
-            <CategoryName>bean:write</CategoryName>
+            <CategoryName>Struts独自タグbean:writeの移行</CategoryName>
             <KnowhowRefKey>knowhow_336</KnowhowRefKey>
         </Category>
         <Category categoryId="category_348" appropriate="true">
@@ -2427,27 +2448,27 @@
             <KnowhowRefKey>knowhow_337</KnowhowRefKey>
         </Category>
         <Category categoryId="category_349" appropriate="true">
-            <CategoryName>bean-el:include</CategoryName>
+            <CategoryName>Struts独自タグbean-el:includeの移行</CategoryName>
             <KnowhowRefKey>knowhow_338</KnowhowRefKey>
         </Category>
         <Category categoryId="category_350" appropriate="true">
-            <CategoryName>bean-el:message</CategoryName>
+            <CategoryName>Struts独自タグbean-el:messageの移行</CategoryName>
             <KnowhowRefKey>knowhow_339</KnowhowRefKey>
         </Category>
         <Category categoryId="category_351" appropriate="true">
-            <CategoryName>bean-el:page</CategoryName>
+            <CategoryName>Struts独自タグbean-el:pageの移行</CategoryName>
             <KnowhowRefKey>knowhow_340</KnowhowRefKey>
         </Category>
         <Category categoryId="category_352" appropriate="true">
-            <CategoryName>bean-el:resource</CategoryName>
+            <CategoryName>Struts独自タグbean-el:resourceの移行</CategoryName>
             <KnowhowRefKey>knowhow_341</KnowhowRefKey>
         </Category>
         <Category categoryId="category_353" appropriate="true">
-            <CategoryName>bean-el:size</CategoryName>
+            <CategoryName>Struts独自タグbean-el:sizeの移行</CategoryName>
             <KnowhowRefKey>knowhow_342</KnowhowRefKey>
         </Category>
         <Category categoryId="category_354" appropriate="true">
-            <CategoryName>bean-el:struts</CategoryName>
+            <CategoryName>Struts独自タグbean-el:strutsの移行</CategoryName>
             <KnowhowRefKey>knowhow_343</KnowhowRefKey>
         </Category>
         <Category categoryId="category_355" appropriate="true">
@@ -2455,119 +2476,119 @@
             <KnowhowRefKey>knowhow_344</KnowhowRefKey>
         </Category>
         <Category categoryId="category_356" appropriate="true">
-            <CategoryName>html:base</CategoryName>
+            <CategoryName>Struts独自タグhtml:baseの移行</CategoryName>
             <KnowhowRefKey>knowhow_345</KnowhowRefKey>
         </Category>
         <Category categoryId="category_357" appropriate="true">
-            <CategoryName>html:button</CategoryName>
+            <CategoryName>Struts独自タグhtml:buttonの移行</CategoryName>
             <KnowhowRefKey>knowhow_346</KnowhowRefKey>
         </Category>
         <Category categoryId="category_358" appropriate="true">
-            <CategoryName>html:cancel</CategoryName>
+            <CategoryName>Struts独自タグhtml:cancelの移行</CategoryName>
             <KnowhowRefKey>knowhow_347</KnowhowRefKey>
         </Category>
         <Category categoryId="category_359" appropriate="true">
-            <CategoryName>html:checkbox</CategoryName>
+            <CategoryName>Struts独自タグhtml:checkboxの移行</CategoryName>
             <KnowhowRefKey>knowhow_348</KnowhowRefKey>
         </Category>
         <Category categoryId="category_360" appropriate="true">
-            <CategoryName>html:errors</CategoryName>
+            <CategoryName>Struts独自タグhtml:errorsの移行</CategoryName>
             <KnowhowRefKey>knowhow_349</KnowhowRefKey>
         </Category>
         <Category categoryId="category_361" appropriate="true">
-            <CategoryName>html:file</CategoryName>
+            <CategoryName>Struts独自タグhtml:fileの移行</CategoryName>
             <KnowhowRefKey>knowhow_350</KnowhowRefKey>
         </Category>
         <Category categoryId="category_362" appropriate="true">
-            <CategoryName>html:form</CategoryName>
+            <CategoryName>Struts独自タグhtml:formの移行</CategoryName>
             <KnowhowRefKey>knowhow_351</KnowhowRefKey>
         </Category>
         <Category categoryId="category_363" appropriate="true">
-            <CategoryName>html:frame</CategoryName>
+            <CategoryName>Struts独自タグhtml:frameの移行</CategoryName>
             <KnowhowRefKey>knowhow_352</KnowhowRefKey>
         </Category>
         <Category categoryId="category_364" appropriate="true">
-            <CategoryName>html:hidden</CategoryName>
+            <CategoryName>Struts独自タグhtml:hiddenの移行</CategoryName>
             <KnowhowRefKey>knowhow_353</KnowhowRefKey>
         </Category>
         <Category categoryId="category_365" appropriate="true">
-            <CategoryName>html:html</CategoryName>
+            <CategoryName>Struts独自タグhtml:htmlの移行</CategoryName>
             <KnowhowRefKey>knowhow_354</KnowhowRefKey>
         </Category>
         <Category categoryId="category_366" appropriate="true">
-            <CategoryName>html:image</CategoryName>
+            <CategoryName>Struts独自タグhtml:imageの移行</CategoryName>
             <KnowhowRefKey>knowhow_355</KnowhowRefKey>
         </Category>
         <Category categoryId="category_367" appropriate="true">
-            <CategoryName>html:img</CategoryName>
+            <CategoryName>Struts独自タグhtml:imgの移行</CategoryName>
             <KnowhowRefKey>knowhow_356</KnowhowRefKey>
         </Category>
         <Category categoryId="category_368" appropriate="true">
-            <CategoryName>html:javascript</CategoryName>
+            <CategoryName>Struts独自タグhtml:javascriptの移行</CategoryName>
             <KnowhowRefKey>knowhow_357</KnowhowRefKey>
         </Category>
         <Category categoryId="category_369" appropriate="true">
-            <CategoryName>html:link</CategoryName>
+            <CategoryName>Struts独自タグhtml:linkの移行</CategoryName>
             <KnowhowRefKey>knowhow_358</KnowhowRefKey>
         </Category>
         <Category categoryId="category_370" appropriate="true">
-            <CategoryName>html:messages</CategoryName>
+            <CategoryName>Struts独自タグhtml:messagesの移行</CategoryName>
             <KnowhowRefKey>knowhow_359</KnowhowRefKey>
         </Category>
         <Category categoryId="category_371" appropriate="true">
-            <CategoryName>html:multibox</CategoryName>
+            <CategoryName>Struts独自タグhtml:multiboxの移行</CategoryName>
             <KnowhowRefKey>knowhow_360</KnowhowRefKey>
         </Category>
         <Category categoryId="category_372" appropriate="true">
-            <CategoryName>html:option</CategoryName>
+            <CategoryName>Struts独自タグhtml:optionの移行</CategoryName>
             <KnowhowRefKey>knowhow_361</KnowhowRefKey>
         </Category>
         <Category categoryId="category_373" appropriate="true">
-            <CategoryName>html:options</CategoryName>
+            <CategoryName>Struts独自タグhtml:optionsの移行</CategoryName>
             <KnowhowRefKey>knowhow_362</KnowhowRefKey>
         </Category>
         <Category categoryId="category_374" appropriate="true">
-            <CategoryName>html:optionsCollection</CategoryName>
+            <CategoryName>Struts独自タグhtml:optionsCollectionの移行</CategoryName>
             <KnowhowRefKey>knowhow_363</KnowhowRefKey>
         </Category>
         <Category categoryId="category_375" appropriate="true">
-            <CategoryName>html:param</CategoryName>
+            <CategoryName>Struts独自タグhtml:paramの移行</CategoryName>
             <KnowhowRefKey>knowhow_364</KnowhowRefKey>
         </Category>
         <Category categoryId="category_376" appropriate="true">
-            <CategoryName>html:password</CategoryName>
+            <CategoryName>Struts独自タグhtml:passwordの移行</CategoryName>
             <KnowhowRefKey>knowhow_365</KnowhowRefKey>
         </Category>
         <Category categoryId="category_377" appropriate="true">
-            <CategoryName>html:radio</CategoryName>
+            <CategoryName>Struts独自タグhtml:radioの移行</CategoryName>
             <KnowhowRefKey>knowhow_366</KnowhowRefKey>
         </Category>
         <Category categoryId="category_378" appropriate="true">
-            <CategoryName>html:reset</CategoryName>
+            <CategoryName>Struts独自タグhtml:resetの移行</CategoryName>
             <KnowhowRefKey>knowhow_367</KnowhowRefKey>
         </Category>
         <Category categoryId="category_379" appropriate="true">
-            <CategoryName>html:rewrite</CategoryName>
+            <CategoryName>Struts独自タグhtml:rewriteの移行</CategoryName>
             <KnowhowRefKey>knowhow_368</KnowhowRefKey>
         </Category>
         <Category categoryId="category_380" appropriate="true">
-            <CategoryName>html:select</CategoryName>
+            <CategoryName>Struts独自タグhtml:selectの移行</CategoryName>
             <KnowhowRefKey>knowhow_369</KnowhowRefKey>
         </Category>
         <Category categoryId="category_381" appropriate="true">
-            <CategoryName>html:submit</CategoryName>
+            <CategoryName>Struts独自タグhtml:submitの移行</CategoryName>
             <KnowhowRefKey>knowhow_370</KnowhowRefKey>
         </Category>
         <Category categoryId="category_382" appropriate="true">
-            <CategoryName>html:text</CategoryName>
+            <CategoryName>Struts独自タグhtml:textの移行</CategoryName>
             <KnowhowRefKey>knowhow_371</KnowhowRefKey>
         </Category>
         <Category categoryId="category_383" appropriate="true">
-            <CategoryName>html:textarea</CategoryName>
+            <CategoryName>Struts独自タグhtml:textareaの移行</CategoryName>
             <KnowhowRefKey>knowhow_372</KnowhowRefKey>
         </Category>
         <Category categoryId="category_384" appropriate="true">
-            <CategoryName>html:xhtml</CategoryName>
+            <CategoryName>Struts独自タグhtml:xhtmlの移行</CategoryName>
             <KnowhowRefKey>knowhow_373</KnowhowRefKey>
         </Category>
         <Category categoryId="category_385" appropriate="true">
@@ -2575,119 +2596,119 @@
             <KnowhowRefKey>knowhow_374</KnowhowRefKey>
         </Category>
         <Category categoryId="category_386" appropriate="true">
-            <CategoryName>html-el:base</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:baseの移行</CategoryName>
             <KnowhowRefKey>knowhow_375</KnowhowRefKey>
         </Category>
         <Category categoryId="category_387" appropriate="true">
-            <CategoryName>html-el:button</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:buttonの移行</CategoryName>
             <KnowhowRefKey>knowhow_376</KnowhowRefKey>
         </Category>
         <Category categoryId="category_388" appropriate="true">
-            <CategoryName>html-el:cancel</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:cancelの移行</CategoryName>
             <KnowhowRefKey>knowhow_377</KnowhowRefKey>
         </Category>
         <Category categoryId="category_389" appropriate="true">
-            <CategoryName>html-el:checkbox</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:checkboxの移行</CategoryName>
             <KnowhowRefKey>knowhow_378</KnowhowRefKey>
         </Category>
         <Category categoryId="category_390" appropriate="true">
-            <CategoryName>html-el:errors</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:errorsの移行</CategoryName>
             <KnowhowRefKey>knowhow_379</KnowhowRefKey>
         </Category>
         <Category categoryId="category_391" appropriate="true">
-            <CategoryName>html-el:file</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:fileの移行</CategoryName>
             <KnowhowRefKey>knowhow_380</KnowhowRefKey>
         </Category>
         <Category categoryId="category_392" appropriate="true">
-            <CategoryName>html-el:form</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:formの移行</CategoryName>
             <KnowhowRefKey>knowhow_381</KnowhowRefKey>
         </Category>
         <Category categoryId="category_393" appropriate="true">
-            <CategoryName>html-el:frame</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:frameの移行</CategoryName>
             <KnowhowRefKey>knowhow_382</KnowhowRefKey>
         </Category>
         <Category categoryId="category_394" appropriate="true">
-            <CategoryName>html-el:hidden</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:hiddenの移行</CategoryName>
             <KnowhowRefKey>knowhow_383</KnowhowRefKey>
         </Category>
         <Category categoryId="category_395" appropriate="true">
-            <CategoryName>html-el:html</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:htmlの移行</CategoryName>
             <KnowhowRefKey>knowhow_384</KnowhowRefKey>
         </Category>
         <Category categoryId="category_396" appropriate="true">
-            <CategoryName>html-el:image</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:imageの移行</CategoryName>
             <KnowhowRefKey>knowhow_385</KnowhowRefKey>
         </Category>
         <Category categoryId="category_397" appropriate="true">
-            <CategoryName>html-el:img</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:imgの移行</CategoryName>
             <KnowhowRefKey>knowhow_386</KnowhowRefKey>
         </Category>
         <Category categoryId="category_398" appropriate="true">
-            <CategoryName>html-el:javascript</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:javascriptの移行</CategoryName>
             <KnowhowRefKey>knowhow_387</KnowhowRefKey>
         </Category>
         <Category categoryId="category_399" appropriate="true">
-            <CategoryName>html-el:link</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:linkの移行</CategoryName>
             <KnowhowRefKey>knowhow_388</KnowhowRefKey>
         </Category>
         <Category categoryId="category_400" appropriate="true">
-            <CategoryName>html-el:messages</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:messagesの移行</CategoryName>
             <KnowhowRefKey>knowhow_389</KnowhowRefKey>
         </Category>
         <Category categoryId="category_401" appropriate="true">
-            <CategoryName>html-el:multibox</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:multiboxの移行</CategoryName>
             <KnowhowRefKey>knowhow_390</KnowhowRefKey>
         </Category>
         <Category categoryId="category_402" appropriate="true">
-            <CategoryName>html-el:option</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:optionの移行</CategoryName>
             <KnowhowRefKey>knowhow_391</KnowhowRefKey>
         </Category>
         <Category categoryId="category_403" appropriate="true">
-            <CategoryName>html-el:options</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:optionsの移行</CategoryName>
             <KnowhowRefKey>knowhow_392</KnowhowRefKey>
         </Category>
         <Category categoryId="category_404" appropriate="true">
-            <CategoryName>html-el:optionsCollection</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:optionsCollectionの移行</CategoryName>
             <KnowhowRefKey>knowhow_393</KnowhowRefKey>
         </Category>
         <Category categoryId="category_405" appropriate="true">
-            <CategoryName>html-el:param</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:paramの移行</CategoryName>
             <KnowhowRefKey>knowhow_394</KnowhowRefKey>
         </Category>
         <Category categoryId="category_406" appropriate="true">
-            <CategoryName>html-el:password</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:passwordの移行</CategoryName>
             <KnowhowRefKey>knowhow_395</KnowhowRefKey>
         </Category>
         <Category categoryId="category_407" appropriate="true">
-            <CategoryName>html-el:radio</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:radioの移行</CategoryName>
             <KnowhowRefKey>knowhow_396</KnowhowRefKey>
         </Category>
         <Category categoryId="category_408" appropriate="true">
-            <CategoryName>html-el:reset</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:resetの移行</CategoryName>
             <KnowhowRefKey>knowhow_397</KnowhowRefKey>
         </Category>
         <Category categoryId="category_409" appropriate="true">
-            <CategoryName>html-el:rewrite</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:rewriteの移行</CategoryName>
             <KnowhowRefKey>knowhow_398</KnowhowRefKey>
         </Category>
         <Category categoryId="category_410" appropriate="true">
-            <CategoryName>html-el:select</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:selectの移行</CategoryName>
             <KnowhowRefKey>knowhow_399</KnowhowRefKey>
         </Category>
         <Category categoryId="category_411" appropriate="true">
-            <CategoryName>html-el:submit</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:submitの移行</CategoryName>
             <KnowhowRefKey>knowhow_400</KnowhowRefKey>
         </Category>
         <Category categoryId="category_412" appropriate="true">
-            <CategoryName>html-el:text</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:textの移行</CategoryName>
             <KnowhowRefKey>knowhow_401</KnowhowRefKey>
         </Category>
         <Category categoryId="category_413" appropriate="true">
-            <CategoryName>html-el:textarea</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:textareaの移行</CategoryName>
             <KnowhowRefKey>knowhow_402</KnowhowRefKey>
         </Category>
         <Category categoryId="category_414" appropriate="true">
-            <CategoryName>html-el:xhtml</CategoryName>
+            <CategoryName>Struts独自タグhtml-el:xhtmlの移行</CategoryName>
             <KnowhowRefKey>knowhow_403</KnowhowRefKey>
         </Category>
         <Category categoryId="category_415" appropriate="true">
@@ -2695,71 +2716,71 @@
             <KnowhowRefKey>knowhow_404</KnowhowRefKey>
         </Category>
         <Category categoryId="category_416" appropriate="true">
-            <CategoryName>logic:empty</CategoryName>
+            <CategoryName>Struts独自タグlogic:emptyの移行</CategoryName>
             <KnowhowRefKey>knowhow_405</KnowhowRefKey>
         </Category>
         <Category categoryId="category_417" appropriate="true">
-            <CategoryName>logic:equal</CategoryName>
+            <CategoryName>Struts独自タグlogic:equalの移行</CategoryName>
             <KnowhowRefKey>knowhow_406</KnowhowRefKey>
         </Category>
         <Category categoryId="category_418" appropriate="true">
-            <CategoryName>logic:forward</CategoryName>
+            <CategoryName>Struts独自タグlogic:forwardの移行</CategoryName>
             <KnowhowRefKey>knowhow_407</KnowhowRefKey>
         </Category>
         <Category categoryId="category_419" appropriate="true">
-            <CategoryName>logic:greaterEqual</CategoryName>
+            <CategoryName>Struts独自タグlogic:greaterEqualの移行</CategoryName>
             <KnowhowRefKey>knowhow_408</KnowhowRefKey>
         </Category>
         <Category categoryId="category_420" appropriate="true">
-            <CategoryName>logic:greaterThan</CategoryName>
+            <CategoryName>Struts独自タグlogic:greaterThanの移行</CategoryName>
             <KnowhowRefKey>knowhow_409</KnowhowRefKey>
         </Category>
         <Category categoryId="category_421" appropriate="true">
-            <CategoryName>logic:iterate</CategoryName>
+            <CategoryName>Struts独自タグlogic:iterateの移行</CategoryName>
             <KnowhowRefKey>knowhow_410</KnowhowRefKey>
         </Category>
         <Category categoryId="category_422" appropriate="true">
-            <CategoryName>logic:lessEqual</CategoryName>
+            <CategoryName>Struts独自タグlogic:lessEqualの移行</CategoryName>
             <KnowhowRefKey>knowhow_411</KnowhowRefKey>
         </Category>
         <Category categoryId="category_423" appropriate="true">
-            <CategoryName>logic:lessThan</CategoryName>
+            <CategoryName>Struts独自タグlogic:lessThanの移行</CategoryName>
             <KnowhowRefKey>knowhow_412</KnowhowRefKey>
         </Category>
         <Category categoryId="category_424" appropriate="true">
-            <CategoryName>logic:match</CategoryName>
+            <CategoryName>Struts独自タグlogic:matchの移行</CategoryName>
             <KnowhowRefKey>knowhow_413</KnowhowRefKey>
         </Category>
         <Category categoryId="category_425" appropriate="true">
-            <CategoryName>logic:messagesNotPresent</CategoryName>
+            <CategoryName>Struts独自タグlogic:messagesNotPresentの移行</CategoryName>
             <KnowhowRefKey>knowhow_414</KnowhowRefKey>
         </Category>
         <Category categoryId="category_426" appropriate="true">
-            <CategoryName>logic:messagesPresent</CategoryName>
+            <CategoryName>Struts独自タグlogic:messagesPresentの移行</CategoryName>
             <KnowhowRefKey>knowhow_415</KnowhowRefKey>
         </Category>
         <Category categoryId="category_427" appropriate="true">
-            <CategoryName>logic:notEmpty</CategoryName>
+            <CategoryName>Struts独自タグlogic:notEmptyの移行</CategoryName>
             <KnowhowRefKey>knowhow_416</KnowhowRefKey>
         </Category>
         <Category categoryId="category_428" appropriate="true">
-            <CategoryName>logic:notEqual</CategoryName>
+            <CategoryName>Struts独自タグlogic:notEqualの移行</CategoryName>
             <KnowhowRefKey>knowhow_417</KnowhowRefKey>
         </Category>
         <Category categoryId="category_429" appropriate="true">
-            <CategoryName>logic:notMatch</CategoryName>
+            <CategoryName>Struts独自タグlogic:notMatchの移行</CategoryName>
             <KnowhowRefKey>knowhow_418</KnowhowRefKey>
         </Category>
         <Category categoryId="category_430" appropriate="true">
-            <CategoryName>logic:notPresent</CategoryName>
+            <CategoryName>Struts独自タグlogic:notPresentの移行</CategoryName>
             <KnowhowRefKey>knowhow_419</KnowhowRefKey>
         </Category>
         <Category categoryId="category_431" appropriate="true">
-            <CategoryName>logic:present</CategoryName>
+            <CategoryName>Struts独自タグlogic:presentの移行</CategoryName>
             <KnowhowRefKey>knowhow_420</KnowhowRefKey>
         </Category>
         <Category categoryId="category_432" appropriate="true">
-            <CategoryName>logic:redirect</CategoryName>
+            <CategoryName>Struts独自タグlogic:redirectの移行</CategoryName>
             <KnowhowRefKey>knowhow_421</KnowhowRefKey>
         </Category>
         <Category categoryId="category_433" appropriate="true">
@@ -2767,47 +2788,47 @@
             <KnowhowRefKey>knowhow_422</KnowhowRefKey>
         </Category>
         <Category categoryId="category_434" appropriate="true">
-            <CategoryName>logic-el:forward</CategoryName>
+            <CategoryName>Struts独自タグlogic-el:forwardの移行</CategoryName>
             <KnowhowRefKey>knowhow_423</KnowhowRefKey>
         </Category>
         <Category categoryId="category_435" appropriate="true">
-            <CategoryName>logic-el:iterate</CategoryName>
+            <CategoryName>Struts独自タグlogic-el:iterateの移行</CategoryName>
             <KnowhowRefKey>knowhow_424</KnowhowRefKey>
         </Category>
         <Category categoryId="category_436" appropriate="true">
-            <CategoryName>logic-el:match</CategoryName>
+            <CategoryName>Struts独自タグlogic-el:matchの移行</CategoryName>
             <KnowhowRefKey>knowhow_425</KnowhowRefKey>
         </Category>
         <Category categoryId="category_437" appropriate="true">
-            <CategoryName>logic-el:messagesNotPresent</CategoryName>
+            <CategoryName>Struts独自タグlogic-el:messagesNotPresentの移行</CategoryName>
             <KnowhowRefKey>knowhow_426</KnowhowRefKey>
         </Category>
         <Category categoryId="category_438" appropriate="true">
-            <CategoryName>logic-el:messagesPresent</CategoryName>
+            <CategoryName>Struts独自タグlogic-el:messagesPresentの移行</CategoryName>
             <KnowhowRefKey>knowhow_427</KnowhowRefKey>
         </Category>
         <Category categoryId="category_439" appropriate="true">
-            <CategoryName>logic-el:notMatch</CategoryName>
+            <CategoryName>Struts独自タグlogic-el:notMatchの移行</CategoryName>
             <KnowhowRefKey>knowhow_428</KnowhowRefKey>
         </Category>
         <Category categoryId="category_440" appropriate="true">
-            <CategoryName>logic-el:notPresent</CategoryName>
+            <CategoryName>Struts独自タグlogic-el:notPresentの移行</CategoryName>
             <KnowhowRefKey>knowhow_429</KnowhowRefKey>
         </Category>
         <Category categoryId="category_441" appropriate="true">
-            <CategoryName>logic-el:present</CategoryName>
+            <CategoryName>Struts独自タグlogic-el:presentの移行</CategoryName>
             <KnowhowRefKey>knowhow_430</KnowhowRefKey>
         </Category>
         <Category categoryId="category_442" appropriate="true">
-            <CategoryName>logic-el:redirect</CategoryName>
+            <CategoryName>Struts独自タグlogic-el:redirectの移行</CategoryName>
             <KnowhowRefKey>knowhow_431</KnowhowRefKey>
         </Category>
         <Category categoryId="category_443" appropriate="true">
-            <CategoryName>nestedタグ</CategoryName>
+            <CategoryName>Struts独自タグnestedタグの移行</CategoryName>
             <KnowhowRefKey>knowhow_432</KnowhowRefKey>
         </Category>
         <Category categoryId="category_444" appropriate="true">
-            <CategoryName>入力値検証機能</CategoryName>
+            <CategoryName>入力値検証機能の移行</CategoryName>
             <KnowhowRefKey>knowhow_433</KnowhowRefKey>
         </Category>
         <Category categoryId="category_445" appropriate="true">
@@ -2815,26 +2836,26 @@
             <KnowhowRefKey>knowhow_434</KnowhowRefKey>
         </Category>
         <Category categoryId="category_446" appropriate="true">
-            <CategoryName>Struts Validatorの設定</CategoryName>
+            <CategoryName>Struts Validatorの設定移行</CategoryName>
             <KnowhowRefKey>knowhow_435</KnowhowRefKey>
         </Category>
         <Category categoryId="category_447" appropriate="true">
-            <CategoryName>XDocletによるStruts Validatorの設定</CategoryName>
+            <CategoryName>XDocletによるStruts Validatorの設定移行</CategoryName>
             <KnowhowRefKey>knowhow_436</KnowhowRefKey>
         </Category>
         <Category categoryId="category_448" appropriate="true">
-            <CategoryName>クライアントサイドの入力値検証機能</CategoryName>
+            <CategoryName>クライアントサイドの入力値検証機能移行</CategoryName>
             <KnowhowRefKey>knowhow_437</KnowhowRefKey>
         </Category>
         <Category categoryId="category_449" appropriate="true">
             <CategoryName>テンプレートエンジンの移行</CategoryName>
         </Category>
         <Category categoryId="category_450" appropriate="true">
-            <CategoryName>Struts-Tiles</CategoryName>
+            <CategoryName>テンプレートエンジンStruts-Tilesの移行</CategoryName>
             <KnowhowRefKey>knowhow_438</KnowhowRefKey>
         </Category>
         <Category categoryId="category_451" appropriate="true">
-            <CategoryName>Velocity</CategoryName>
+            <CategoryName>テンプレートエンジンVelocityの移行</CategoryName>
             <KnowhowRefKey>knowhow_439</KnowhowRefKey>
         </Category>
         <Category categoryId="category_675" appropriate="true">
@@ -2842,7 +2863,7 @@
             <KnowhowRefKey>knowhow_635</KnowhowRefKey>
         </Category>
         <Category categoryId="category_452" appropriate="true">
-            <CategoryName>FreeMarker</CategoryName>
+            <CategoryName>テンプレートエンジンFreeMarkerの移行</CategoryName>
             <KnowhowRefKey>knowhow_440</KnowhowRefKey>
         </Category>
         <Category categoryId="category_453" appropriate="true">
@@ -2854,11 +2875,11 @@
             <KnowhowRefKey>knowhow_487</KnowhowRefKey>
         </Category>
         <Category categoryId="category_504" appropriate="true">
-            <CategoryName>設定ファイルの移行</CategoryName>
+            <CategoryName>メッセージリソース設定の移行</CategoryName>
             <KnowhowRefKey>knowhow_488</KnowhowRefKey>
         </Category>
         <Category categoryId="category_505" appropriate="true">
-            <CategoryName>DynaActionForm/Lazy ActionForm</CategoryName>
+            <CategoryName>DynaActionForm/Lazy ActionFormの移行</CategoryName>
             <KnowhowRefKey>knowhow_489</KnowhowRefKey>
         </Category>
         <Category categoryId="category_506" appropriate="true">
@@ -2868,6 +2889,10 @@
         <Category categoryId="category_507" appropriate="true">
             <CategoryName>プラグインの移行</CategoryName>
             <KnowhowRefKey>knowhow_491</KnowhowRefKey>
+        </Category>
+        <Category categoryId="category_678" appropriate="true">
+            <CategoryName>Strutsのセッション IDの払い出し</CategoryName>
+            <KnowhowRefKey>knowhow_638</KnowhowRefKey>
         </Category>
         <Category categoryId="category_545" appropriate="true">
             <CategoryName>付録</CategoryName>
@@ -3060,10 +3085,6 @@
         <Category categoryId="category_660" appropriate="true">
             <CategoryName>Struts1のDownloadAction</CategoryName>
             <KnowhowRefKey>knowhow_622</KnowhowRefKey>
-        </Category>
-        <Category categoryId="category_676" appropriate="true">
-            <CategoryName>Struts1のセッション IDの払い出し</CategoryName>
-            <KnowhowRefKey>knowhow_636</KnowhowRefKey>
         </Category>
         <Category categoryId="category_671" appropriate="true">
             <CategoryName>フレームワーク比較【参考】</CategoryName>
@@ -3452,18 +3473,8 @@
         <KnowhowInfomation knowhowId="knowhow_458" knowhowDetailRefKey="knowhowDetail_458">
             <KnowhowNo>1</KnowhowNo>
             <KnowhowName>Actionの移行</KnowhowName>
-            <CheckItem checkItemId="checkItem_447" searchRefKey="searchInfo_447" searchExistance="true">
+            <CheckItem checkItemId="checkItem_451" searchRefKey="searchInfo_451" searchExistance="false">
                 <CheckItemNo>1</CheckItemNo>
-                <CheckItemName>Check Action</CheckItemName>
-                <SearchProcess>struts-config.xmlファイルでのAction設定をチェック</SearchProcess>
-                <PortabilityFactor>MVCフレームワーク(Controller機能)</PortabilityFactor>
-                <PortabilityDegree>Middle</PortabilityDegree>
-                <DegreeDetail>中</DegreeDetail>
-                <VisualConfirm></VisualConfirm>
-                <HearingConfirm></HearingConfirm>
-            </CheckItem>
-            <CheckItem checkItemId="checkItem_451" searchRefKey="searchInfo_451" searchExistance="true">
-                <CheckItemNo>2</CheckItemNo>
                 <CheckItemName>Check Action</CheckItemName>
                 <SearchProcess>Actionをextendsしたクラスをチェック</SearchProcess>
                 <PortabilityFactor>MVCフレームワーク(Controller機能)</PortabilityFactor>
@@ -3473,14 +3484,27 @@
                 <HearingConfirm></HearingConfirm>
             </CheckItem>
             <CheckItem checkItemId="checkItem_454" searchRefKey="searchInfo_454" searchExistance="true">
-                <CheckItemNo>3</CheckItemNo>
+                <CheckItemNo>2</CheckItemNo>
                 <CheckItemName>Check Action</CheckItemName>
-                <SearchProcess>struts-config.xmlにあるactionMappingのtype属性で指定されたクラスを検索する</SearchProcess>
+                <SearchProcess>Actionクラスをチェック。struts-config.xmlにあるactionMappingのtype属性で指定されたActionクラスを検索する</SearchProcess>
                 <PortabilityFactor>MVCフレームワーク(Controller機能)</PortabilityFactor>
                 <PortabilityDegree>Middle</PortabilityDegree>
                 <DegreeDetail>中</DegreeDetail>
-                <VisualConfirm>このチェック項目は、actionクラスの移行として、移行後の環境で、Controllerクラスをいくつ実装する必要があるか、struts-config.xmlにあるactionMappingにあるactionタグのtype属性で指定されたクラスを検知している。&#xD;
-デフォルトでは、javaのController移行は、この項目でステップ数が集計される。</VisualConfirm>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm></HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_640" knowhowDetailRefKey="knowhowDetail_640">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+            <CheckItem checkItemId="checkItem_466" searchRefKey="searchInfo_466" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>Check Action</CheckItemName>
+                <SearchProcess>struts-config.xmlファイルでのAction設定をチェック</SearchProcess>
+                <PortabilityFactor>MVCフレームワーク(Controller機能)</PortabilityFactor>
+                <PortabilityDegree>Middle</PortabilityDegree>
+                <DegreeDetail>中</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
                 <HearingConfirm></HearingConfirm>
             </CheckItem>
         </KnowhowInfomation>
@@ -3946,10 +3970,10 @@
                 <HearingConfirm></HearingConfirm>
             </CheckItem>
         </KnowhowInfomation>
-        <KnowhowInfomation knowhowId="knowhow_324" knowhowDetailRefKey="knowhowDetail_324">
+        <KnowhowInfomation knowhowId="knowhow_637" knowhowDetailRefKey="knowhowDetail_637">
             <KnowhowNo>1</KnowhowNo>
             <KnowhowName>Struts独自タグの移行</KnowhowName>
-            <CheckItem checkItemId="checkItem_462" searchRefKey="searchInfo_462" searchExistance="true">
+            <CheckItem checkItemId="checkItem_464" searchRefKey="searchInfo_464" searchExistance="true">
                 <CheckItemNo>1</CheckItemNo>
                 <CheckItemName>strutsタグライブラリ宣言の検索</CheckItemName>
                 <SearchProcess>jspファイルを対象にstrutsタグリブ宣言を検索</SearchProcess>
@@ -4069,7 +4093,7 @@
                 <CheckItemNo>1</CheckItemNo>
                 <CheckItemName>Check Struts-Taglib</CheckItemName>
                 <SearchProcess>Struts独自タグ（beanタグ）の利用をチェックする</SearchProcess>
-                <PortabilityFactor>MVCフレームワーク独自機能(上位互換なし）</PortabilityFactor>
+                <PortabilityFactor>MVCフレームワーク(View機能)</PortabilityFactor>
                 <PortabilityDegree>Unknown</PortabilityDegree>
                 <DegreeDetail>不明1</DegreeDetail>
                 <VisualConfirm></VisualConfirm>
@@ -4097,7 +4121,7 @@
                 <CheckItemNo>1</CheckItemNo>
                 <CheckItemName>Check Struts-Taglib</CheckItemName>
                 <SearchProcess>Struts独自タグ（beanタグ）の利用をチェックする</SearchProcess>
-                <PortabilityFactor>MVCフレームワーク独自機能(上位互換なし）</PortabilityFactor>
+                <PortabilityFactor>MVCフレームワーク(View機能)</PortabilityFactor>
                 <PortabilityDegree>NOT_TRN</PortabilityDegree>
                 <DegreeDetail>移植不可</DegreeDetail>
                 <VisualConfirm></VisualConfirm>
@@ -4171,7 +4195,7 @@
                 <CheckItemNo>1</CheckItemNo>
                 <CheckItemName>Check Struts-EL</CheckItemName>
                 <SearchProcess>Struts独自タグ（bean-elタグ）の利用をチェックする</SearchProcess>
-                <PortabilityFactor>MVCフレームワーク独自機能(上位互換なし）</PortabilityFactor>
+                <PortabilityFactor>MVCフレームワーク(View機能)</PortabilityFactor>
                 <PortabilityDegree>Unknown</PortabilityDegree>
                 <DegreeDetail>不明1</DegreeDetail>
                 <VisualConfirm></VisualConfirm>
@@ -4199,7 +4223,7 @@
                 <CheckItemNo>1</CheckItemNo>
                 <CheckItemName>Check Struts-EL</CheckItemName>
                 <SearchProcess>Struts独自タグ（bean-elタグ）の利用をチェックする</SearchProcess>
-                <PortabilityFactor>MVCフレームワーク独自機能(上位互換なし）</PortabilityFactor>
+                <PortabilityFactor>MVCフレームワーク(View機能)</PortabilityFactor>
                 <PortabilityDegree>NOT_TRN</PortabilityDegree>
                 <DegreeDetail>移植不可</DegreeDetail>
                 <VisualConfirm></VisualConfirm>
@@ -4385,7 +4409,7 @@
                 <CheckItemNo>1</CheckItemNo>
                 <CheckItemName>Check Struts-Taglib</CheckItemName>
                 <SearchProcess>Struts独自タグ（htmlタグ）の利用をチェックする</SearchProcess>
-                <PortabilityFactor>MVCフレームワーク独自機能(上位互換なし）</PortabilityFactor>
+                <PortabilityFactor>MVCフレームワーク(View機能)</PortabilityFactor>
                 <PortabilityDegree>Low</PortabilityDegree>
                 <DegreeDetail>低2</DegreeDetail>
                 <VisualConfirm></VisualConfirm>
@@ -4795,7 +4819,7 @@
                 <CheckItemNo>1</CheckItemNo>
                 <CheckItemName>Check Struts-EL</CheckItemName>
                 <SearchProcess>Struts独自タグ（html-elタグ）の利用をチェックする</SearchProcess>
-                <PortabilityFactor>MVCフレームワーク独自機能(上位互換なし）</PortabilityFactor>
+                <PortabilityFactor>MVCフレームワーク(View機能)</PortabilityFactor>
                 <PortabilityDegree>Low</PortabilityDegree>
                 <DegreeDetail>低2</DegreeDetail>
                 <VisualConfirm></VisualConfirm>
@@ -5613,7 +5637,7 @@
                 <CheckItemNo>1</CheckItemNo>
                 <CheckItemName>Check Configuration Files</CheckItemName>
                 <SearchProcess>メッセージリソースの設定をチェックする</SearchProcess>
-                <PortabilityFactor>MVCフレームワーク独自機能(上位互換あり）</PortabilityFactor>
+                <PortabilityFactor></PortabilityFactor>
                 <PortabilityDegree>Low</PortabilityDegree>
                 <DegreeDetail>低2</DegreeDetail>
                 <VisualConfirm></VisualConfirm>
@@ -5627,7 +5651,7 @@
                 <CheckItemNo>1</CheckItemNo>
                 <CheckItemName>Check Configuration Files</CheckItemName>
                 <SearchProcess>DynaActionForm/Lazy ActionFormの利用をチェックする</SearchProcess>
-                <PortabilityFactor>MVCフレームワーク独自機能(上位互換なし）</PortabilityFactor>
+                <PortabilityFactor></PortabilityFactor>
                 <PortabilityDegree>Middle</PortabilityDegree>
                 <DegreeDetail>中</DegreeDetail>
                 <VisualConfirm></VisualConfirm>
@@ -5700,6 +5724,20 @@
                 <DegreeDetail>高</DegreeDetail>
                 <VisualConfirm>ValidatorPluginの場合は、入力値検証機能の移行で対処するため、ここでの対処は不要</VisualConfirm>
                 <HearingConfirm>移行後の環境でもプラグインで提供している機能が必要か確認する</HearingConfirm>
+            </CheckItem>
+        </KnowhowInfomation>
+        <KnowhowInfomation knowhowId="knowhow_638" knowhowDetailRefKey="knowhowDetail_638">
+            <KnowhowNo>1</KnowhowNo>
+            <KnowhowName>body</KnowhowName>
+            <CheckItem checkItemId="checkItem_465" searchRefKey="searchInfo_465" searchExistance="true">
+                <CheckItemNo>1</CheckItemNo>
+                <CheckItemName>HttpServletRequest#getSession(false)を呼び出している箇所を検索する</CheckItemName>
+                <SearchProcess>HttpServletRequest#getSession(false)を呼び出している箇所を検索する</SearchProcess>
+                <PortabilityFactor>MVCフレームワーク独自機能(上位互換あり)</PortabilityFactor>
+                <PortabilityDegree>Middle</PortabilityDegree>
+                <DegreeDetail>中</DegreeDetail>
+                <VisualConfirm></VisualConfirm>
+                <HearingConfirm>SpringMVCではnullを返すことがあるため、業務要件に応じて修正可否を決定する必要がある。Struts1と同じ実装にする場合は、getSession(true)に変更する必要がある。strtus2でも同様にsessionidがstrutsによって払い出しを行う</HearingConfirm>
             </CheckItem>
         </KnowhowInfomation>
         <KnowhowInfomation knowhowId="knowhow_631" knowhowDetailRefKey="knowhowDetail_631">
@@ -5881,20 +5919,6 @@
         <KnowhowInfomation knowhowId="knowhow_622" knowhowDetailRefKey="knowhowDetail_622">
             <KnowhowNo>1</KnowhowNo>
             <KnowhowName>body</KnowhowName>
-        </KnowhowInfomation>
-        <KnowhowInfomation knowhowId="knowhow_636" knowhowDetailRefKey="knowhowDetail_636">
-            <KnowhowNo>1</KnowhowNo>
-            <KnowhowName>body</KnowhowName>
-            <CheckItem checkItemId="checkItem_463" searchRefKey="searchInfo_463" searchExistance="true">
-                <CheckItemNo>1</CheckItemNo>
-                <CheckItemName>HttpServletRequest#getSession(false)を呼び出している箇所を検索する</CheckItemName>
-                <SearchProcess>HttpServletRequest#getSession(false)を呼び出している箇所を検索する</SearchProcess>
-                <PortabilityFactor>MVCフレームワーク独自機能(上位互換あり)</PortabilityFactor>
-                <PortabilityDegree>Low</PortabilityDegree>
-                <DegreeDetail>低2</DegreeDetail>
-                <VisualConfirm></VisualConfirm>
-                <HearingConfirm>SpringMVCではnullを返すことがあるため、業務要件に応じて修正可否を決定する必要がある。Struts1と同じ実装にする場合は、getSession(true)に変更する必要がある。strtus2でも同様にsessionidがstrutsによって払い出しを行う</HearingConfirm>
-            </CheckItem>
         </KnowhowInfomation>
         <KnowhowInfomation knowhowId="knowhow_629" knowhowDetailRefKey="knowhowDetail_629">
             <KnowhowNo>1</KnowhowNo>
@@ -6579,17 +6603,6 @@ Viewの移行方針としては、アプリケーションの規模・複雑さ�
                 <ns2:section>
                     <ns2:para>ActionServlet、ActionMapping、RequestProcessorなどについて、Strutsが提供するものをそのまま利用している場合はそのまま移行先のフレームワークで相当する機能に置き換える。</ns2:para>
                     <ns2:para>Strutsが提供するものを拡張している場合は、その拡張が移行先のフレームワークでも必要か、また実装が可能かを検討する。</ns2:para>
-                </ns2:section>
-            </ns2:article>
-        </DocBook>
-        <DocBook articleId="knowhowDetail_324">
-            <ns2:article>
-                <ns2:info>
-                    <ns2:title>Struts独自タグの移行</ns2:title>
-                </ns2:info>
-                <ns2:section>
-                    <ns2:para>SpringMVCでは、独自タグとしてspring（<ns2:command ns3:href="http://www.springframework.org/tags">http://www.springframework.org/tags</ns2:command>）、form（<ns2:command ns3:href="http://www.springframework.org/tags/form">http://www.springframework.org/tags/form</ns2:command>）が提供されている。</ns2:para>
-                    <ns2:para xml:id="portingStrutsDependsTag">Struts1の独自タグとの比較については、以下の各項目を参照。</ns2:para>
                 </ns2:section>
             </ns2:article>
         </DocBook>
@@ -15609,7 +15622,18 @@ lang=&gt;ロケール名&lt;
                 </ns2:section>
             </ns2:article>
         </DocBook>
-        <DocBook articleId="knowhowDetail_636">
+        <DocBook articleId="knowhowDetail_637">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>Struts独自タグの移行</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:para>SpringMVCでは、独自タグとしてspring（<ns2:command ns3:href="http://www.springframework.org/tags">http://www.springframework.org/tags</ns2:command>）、form（<ns2:command ns3:href="http://www.springframework.org/tags/form">http://www.springframework.org/tags/form</ns2:command>）が提供されている。</ns2:para>
+                    <ns2:para xml:id="portingStrutsDependsTag">Struts1の独自タグとの比較については、以下の各項目を参照。</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_638">
             <ns2:article>
                 <ns2:info>
                     <ns2:title>body</ns2:title>
@@ -15641,6 +15665,17 @@ lang=&gt;ロケール名&lt;
                         </ns2:note>
 
 		</ns2:para>
+                </ns2:section>
+            </ns2:article>
+        </DocBook>
+        <DocBook articleId="knowhowDetail_640">
+            <ns2:article>
+                <ns2:info>
+                    <ns2:title>body</ns2:title>
+                </ns2:info>
+                <ns2:section>
+                    <ns2:title>body</ns2:title>
+                    <ns2:para>SpringMVCではコントーラクラスをController（@ControllerをつけたPOJO）を使用するため、コントローラクラスの設定ファイルの定義は不要である</ns2:para>
                 </ns2:section>
             </ns2:article>
         </DocBook>
@@ -15856,20 +15891,6 @@ lang=&gt;ロケール名&lt;
                 <AppropriateContents></AppropriateContents>
             </Appropriate>
         </SearchInfomation>
-        <SearchInfomation searchInfoId="searchInfo_447">
-            <FileType>*.xml</FileType>
-            <SearchKey1>&lt;action[\s]+</SearchKey1>
-            <SearchKey2></SearchKey2>
-            <PythonModule></PythonModule>
-            <LineNumberInfomation>
-                <LineNumber>TODO:SE 手動算出</LineNumber>
-                <LineNumberContents></LineNumberContents>
-                <Investigation></Investigation>
-            </LineNumberInfomation>
-            <Appropriate lineNumberAppropriate="true">
-                <AppropriateContents></AppropriateContents>
-            </Appropriate>
-        </SearchInfomation>
         <SearchInfomation searchInfoId="searchInfo_451">
             <FileType>*.java</FileType>
             <SearchKey1>import[\s]+org\.apache\.struts\.action\.Action;</SearchKey1>
@@ -15891,9 +15912,22 @@ lang=&gt;ロケール名&lt;
             <PythonModule>ext_search_xml_definedclass.py</PythonModule>
             <LineNumberInfomation>
                 <LineNumber>100</LineNumber>
-                <LineNumberContents>struts-config.xmlにあるactionMappingにあるactionクラス数を元に actionクラス数 * 100ステップで計上する。</LineNumberContents>
-                <Investigation>このチェック項目は、actionクラスの移行として、移行後の環境で、Controllerクラスをいくつ実装する必要があるか、struts-config.xmlにあるactionMappingにあるactionタグのtype属性で指定されたクラスを検知している。&#xD;
-デフォルトでは、javaのController移行は、この項目でステップ数が集計される。</Investigation>
+                <LineNumberContents>struts-config.xmlにあるactionMappingにあるactionクラス数をSpringMVCのコントローラクラスに移植する。ひとつのアクションクラスの移行につき100ステップで計上する。この100ステップには根拠はないため注意すること</LineNumberContents>
+                <Investigation></Investigation>
+            </LineNumberInfomation>
+            <Appropriate lineNumberAppropriate="true">
+                <AppropriateContents></AppropriateContents>
+            </Appropriate>
+        </SearchInfomation>
+        <SearchInfomation searchInfoId="searchInfo_466">
+            <FileType>*.xml</FileType>
+            <SearchKey1>&lt;action[\s]+</SearchKey1>
+            <SearchKey2></SearchKey2>
+            <PythonModule></PythonModule>
+            <LineNumberInfomation>
+                <LineNumber>0</LineNumber>
+                <LineNumberContents>コントローラクラスの設定はSpringMVCでは必要ないため。</LineNumberContents>
+                <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
                 <AppropriateContents></AppropriateContents>
@@ -16333,14 +16367,14 @@ lang=&gt;ロケール名&lt;
                 <AppropriateContents></AppropriateContents>
             </Appropriate>
         </SearchInfomation>
-        <SearchInfomation searchInfoId="searchInfo_462">
+        <SearchInfomation searchInfoId="searchInfo_464">
             <FileType>*.jsp</FileType>
             <SearchKey1>taglib</SearchKey1>
             <SearchKey2>struts</SearchKey2>
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>1</LineNumber>
-                <LineNumberContents>SpringMVCのタグライブラリの宣言に置き換えるため</LineNumberContents>
+                <LineNumberContents>難易度詳細が低1のものは置き換えレベルで対応可能であるためステップ数1を設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16354,7 +16388,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16368,7 +16402,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16382,7 +16416,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16396,7 +16430,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16410,7 +16444,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16424,7 +16458,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16438,7 +16472,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16452,7 +16486,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>0</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="false">
@@ -16466,7 +16500,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16494,7 +16528,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16508,7 +16542,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16522,7 +16556,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16536,7 +16570,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16550,7 +16584,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>0</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="false">
@@ -16564,7 +16598,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16592,7 +16626,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16606,7 +16640,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16620,7 +16654,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16634,7 +16668,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16648,7 +16682,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16662,7 +16696,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16676,7 +16710,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16690,7 +16724,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16704,7 +16738,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16718,7 +16752,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16732,7 +16766,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16746,7 +16780,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16760,7 +16794,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16774,7 +16808,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16788,7 +16822,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16802,7 +16836,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16816,7 +16850,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16830,7 +16864,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16844,7 +16878,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16858,7 +16892,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16872,7 +16906,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16886,7 +16920,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16900,7 +16934,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16914,7 +16948,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16928,7 +16962,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16942,7 +16976,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16956,7 +16990,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16970,7 +17004,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16984,7 +17018,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -16998,7 +17032,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17012,7 +17046,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17026,7 +17060,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17040,7 +17074,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17054,7 +17088,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17068,7 +17102,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17082,7 +17116,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17096,7 +17130,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17110,7 +17144,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17124,7 +17158,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17138,7 +17172,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17152,7 +17186,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17166,7 +17200,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17180,7 +17214,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17194,7 +17228,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17208,7 +17242,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17222,7 +17256,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17236,7 +17270,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17250,7 +17284,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17264,7 +17298,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17278,7 +17312,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17292,7 +17326,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17306,7 +17340,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17320,7 +17354,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17334,7 +17368,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17348,7 +17382,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17362,7 +17396,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17376,7 +17410,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17390,7 +17424,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17404,7 +17438,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17418,7 +17452,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17432,7 +17466,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17446,7 +17480,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17460,7 +17494,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17474,7 +17508,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17488,7 +17522,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17502,7 +17536,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17516,7 +17550,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17530,7 +17564,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17544,7 +17578,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17558,7 +17592,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17572,7 +17606,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17586,7 +17620,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17600,7 +17634,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17614,7 +17648,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17628,7 +17662,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17656,7 +17690,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17670,7 +17704,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17684,7 +17718,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17698,7 +17732,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17712,7 +17746,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17726,7 +17760,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17740,7 +17774,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17754,7 +17788,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17768,7 +17802,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -17992,7 +18026,7 @@ lang=&gt;ロケール名&lt;
             <PythonModule></PythonModule>
             <LineNumberInfomation>
                 <LineNumber>10</LineNumber>
-                <LineNumberContents></LineNumberContents>
+                <LineNumberContents>難易度詳細が低2はステップ数10を固定的に設定</LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
             <Appropriate lineNumberAppropriate="true">
@@ -18097,13 +18131,13 @@ lang=&gt;ロケール名&lt;
                 <AppropriateContents>移行対象のプラグイン毎に移行に必要な規模が変わるため</AppropriateContents>
             </Appropriate>
         </SearchInfomation>
-        <SearchInfomation searchInfoId="searchInfo_463">
+        <SearchInfomation searchInfoId="searchInfo_465">
             <FileType>*.java</FileType>
             <SearchKey1>import[\s]+javax\.servlet\.http\.HttpServletRequest;</SearchKey1>
             <SearchKey2>getSession\(false</SearchKey2>
             <PythonModule></PythonModule>
             <LineNumberInfomation>
-                <LineNumber>1</LineNumber>
+                <LineNumber>TODO:SE 手動算出</LineNumber>
                 <LineNumberContents></LineNumberContents>
                 <Investigation></Investigation>
             </LineNumberInfomation>
