@@ -221,6 +221,12 @@
           id="tubame.portability.plugin.preferences.MigrationGuidePreferencePage"
           name="%preferences.MigrationGuidePreferencePage">
     </page>
+    <page
+          category="tubame.portability.plugin.preferences.KnowledgeBasePreferenceTopPage"
+          class="tubame.portability.plugin.preferences.KnowledgePreferencePage"
+          id="tubame.portability.plugin.preferences.KnowledgePreferencePage"
+          name="%preferences.KnowledgePreferencePage">
+    </page>
  </extension>
 
 </plugin>

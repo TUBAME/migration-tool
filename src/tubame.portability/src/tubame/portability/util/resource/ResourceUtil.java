@@ -169,6 +169,14 @@ public class ResourceUtil extends NLS {
 	public static String SELECT_TPL;
     
 
+	public static String KNOWLEDGE_AUTO_IMPORT_LABEL;
+	
+	public static String KNOWLEDGE_AUTO_IMPORTED_CACHE_LABEL;
+	
+	public static String KNOWLEDGE_AUTO_IMPORTED_CACHE_LABEL_GROUP;
+	
+	public static String KNOWLEDGE_AUTO_IMPORT_LABEL_GROUP;
+	
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, ResourceUtil.class);

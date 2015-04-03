@@ -167,6 +167,8 @@ public class MessageUtil extends NLS {
 	public static String ERR_OPEN_CODE_VIEWER;
 
 	public static String MSG_OPEN_CODE_VIEWER;
+	
+	public static String WARN_KNOWLEDGE_IMPORT_ERR;
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, MessageUtil.class);

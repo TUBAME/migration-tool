@@ -962,6 +962,10 @@ public class PluginUtil {
 		return new File(PluginUtil.getResolvedPluginDir()+ ApplicationPropertyUtil.KNOWLEDGE_DIR).getCanonicalPath();
 	}
 	
+	public static String getKnowledgeZipFile() throws IOException{
+		return getKnowledgeDir()+File.separator +"migration-knowledge.zip";
+	}
+	
 	public static String getSourceCodeViewId() {
         return PluginUtil.SOURCE_CODE_VIEW_ID;
     }

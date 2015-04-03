@@ -340,6 +340,7 @@ public class FileUtil {
 
 	private static void copy(InputStream in, OutputStream out) throws IOException {
 		byte[] buffer = new byte[1024];
+		int available = in.available();
 		while (true) {
 			int readCount = in.read(buffer);
 			if (readCount < 0) {
@@ -376,6 +377,10 @@ public class FileUtil {
 		} finally {
 			out.close();
 		}
+	}
+	
+	public static void copyZipFile(InputStream in, File file) throws IOException{
+		copy(in,file);
 	}
 	
 

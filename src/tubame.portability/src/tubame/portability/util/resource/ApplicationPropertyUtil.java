@@ -157,6 +157,8 @@ public class ApplicationPropertyUtil extends NLS {
 	public static String CODE_VIEWER_TPL_DIR;
 	
 	public static String CODE_VIEWER_REC_BASE_LENGTH;
+	
+	public static String MIGRATION_KNOWLEDGE_DOWNLOAD_ENDPOINT_URL;
 
     static {
         // initialize resource bundle
