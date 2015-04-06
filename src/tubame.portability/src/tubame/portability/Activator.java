@@ -20,10 +20,13 @@ package tubame.portability;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.MissingResourceException;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import tubame.common.logging.CmnJbmToolsLoggingUtil;
 import tubame.knowhow.biz.util.resource.ApplicationPropertiesUtil;
@@ -45,6 +48,8 @@ import org.slf4j.LoggerFactory;
 import tubame.portability.logic.InitializePotability;
 import tubame.portability.plugin.dialog.ErrorDialog;
 import tubame.portability.util.FileUtil;
+import tubame.portability.util.GithubClient;
+import tubame.portability.util.GithubClient.GithubClientResponce;
 import tubame.portability.util.PluginUtil;
 import tubame.portability.util.PythonUtil;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
@@ -55,254 +60,262 @@ import tubame.portability.util.resource.MessageUtil;
  * It is called initialization and run, at the timing of the end of the Plugin.<br/>
  */
 public class Activator extends AbstractUIPlugin {
-    /**
-     * Logger
-     */
-    private static Logger LOGGER = LoggerFactory.getLogger(Activator.class);
+	/**
+	 * Logger
+	 */
+	private static Logger LOGGER = LoggerFactory.getLogger(Activator.class);
 
-    // The plug-in ID
-    public static final String PLUGIN_ID = "tubame.portability"; //$NON-NLS-1$
+	// The plug-in ID
+	public static final String PLUGIN_ID = "tubame.portability"; //$NON-NLS-1$
 
-    // The shared instance
-    private static Activator plugin;
+	// The shared instance
+	private static Activator plugin;
 
 	private ResourceBundle resourceBundle;
-	
-	
+
 	private static String OS_NAME;
 
-    /**
-     * The constructor.<br/>
-     */
-    public Activator() {
-    }
+	/**
+	 * The constructor.<br/>
+	 */
+	public Activator() {
+	}
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext
-     * )
-     */
-    @Override
-    public void start(BundleContext context) throws Exception {
-        super.start(context);
-        plugin = this;
-        try {
-            this.resourceBundle = PropertyResourceBundle
-                    .getBundle("resources.properties.message");
-        } catch (MissingResourceException x) {
-            this.resourceBundle = null;
-        }
-        
-        OS_NAME = System.getProperty("os.name").toLowerCase();
-        if(isSupportPyPlatform() && !isExistJbmstModulePath()){
-        	//win,linux又はmacの場合で、かつ、JbmstModuleが存在しない場合に、bin配下のjbmstを実行可能にするようために、bin配下のjbmst_{os}.zipを展開する。
-        	String jbmstModuleZipPath = getJbmstModuleZipPath();
-        	File file = new File(jbmstModuleZipPath);
-        	FileUtil.unzip(file,file.getParentFile());
-        	File jbmstExe = new File(getJbmstModulePath());
-        	if(jbmstExe.exists()){
-        		//linux,macでの実行できるように
-        		jbmstExe.setExecutable(true, true);
-        	}
-        }
-        // Bundling
-        CmnJbmToolsLoggingUtil.configureLoggerForPlugin(PLUGIN_ID, Activator
-                .getDefault().getStateLocation().toFile(),
-                getResources("/logback_template.xml"));
-        // Know-how Biz properties file bundle configuration
-        MessagePropertiesUtil.setBundle(getResources(
-                ApplicationPropertyUtil.PROPERTIES_PATH_MSG_KNOWHOW)
-                .openStream());
-        ApplicationPropertiesUtil.setBundle(getResources(
-                ApplicationPropertyUtil.PROPERTIES_PATH_APP_KNOWHOW)
-                .openStream());
-        // JAXB initial processing
-        InitializePotability.initializeMarshaller();
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext
+	 * )
+	 */
+	@Override
+	public void start(BundleContext context) throws Exception {
+		super.start(context);
+		plugin = this;
+		try {
+			this.resourceBundle = PropertyResourceBundle.getBundle("resources.properties.message");
+		} catch (MissingResourceException x) {
+			this.resourceBundle = null;
+		}
 
-    private boolean isExistJbmstModulePath() throws IOException {
+		OS_NAME = System.getProperty("os.name").toLowerCase();
+		if (isSupportPyPlatform() && !isExistJbmstModulePath()) {
+			// win,linux又はmacの場合で、かつ、JbmstModuleが存在しない場合に、bin配下のjbmstを実行可能にするようために、bin配下のjbmst_{os}.zipを展開する。
+			String jbmstModuleZipPath = getJbmstModuleZipPath();
+			File file = new File(jbmstModuleZipPath);
+			FileUtil.unzip(file, file.getParentFile());
+			File jbmstExe = new File(getJbmstModulePath());
+			if (jbmstExe.exists()) {
+				// linux,macでの実行できるように
+				jbmstExe.setExecutable(true, true);
+			}
+		}
+
+		// Bundling
+		CmnJbmToolsLoggingUtil.configureLoggerForPlugin(PLUGIN_ID, Activator.getDefault().getStateLocation().toFile(),
+				getResources("/logback_template.xml"));
+		// Know-how Biz properties file bundle configuration
+		MessagePropertiesUtil.setBundle(getResources(ApplicationPropertyUtil.PROPERTIES_PATH_MSG_KNOWHOW).openStream());
+		ApplicationPropertiesUtil.setBundle(getResources(ApplicationPropertyUtil.PROPERTIES_PATH_APP_KNOWHOW)
+				.openStream());
+		// JAXB initial processing
+		InitializePotability.initializeMarshaller();
+	}
+
+	
+
+	private boolean isExistJbmstModulePath() throws IOException {
 		String jbmstModulePath = getJbmstModulePath();
 		return new File(jbmstModulePath).exists();
 	}
 
 	/*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext
-     * )
-     */
-    @Override
-    public void stop(BundleContext context) throws Exception {
-        LOGGER.info(MessageUtil.INF_END);
-        plugin = null;
-        super.stop(context);
-    }
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext
+	 * )
+	 */
+	@Override
+	public void stop(BundleContext context) throws Exception {
+		LOGGER.info(MessageUtil.INF_END);
+		plugin = null;
+		super.stop(context);
+	}
 
-    /**
-     * Returns the shared instance.<br/>
-     * 
-     * @return the shared instance
-     */
-    public static Activator getDefault() {
-        return plugin;
-    }
+	/**
+	 * Returns the shared instance.<br/>
+	 * 
+	 * @return the shared instance
+	 */
+	public static Activator getDefault() {
+		return plugin;
+	}
 
-    /**
-     * Returns an image descriptor for the image file at the given.<br/>
-     * plug-in relative path.<br/>
-     * 
-     * @param path
-     *            the path
-     * @return the image descriptor
-     */
-    public static ImageDescriptor getImageDescriptor(String path) {
-        return imageDescriptorFromPlugin(PLUGIN_ID, path);
-    }
+	/**
+	 * Returns an image descriptor for the image file at the given.<br/>
+	 * plug-in relative path.<br/>
+	 * 
+	 * @param path
+	 *            the path
+	 * @return the image descriptor
+	 */
+	public static ImageDescriptor getImageDescriptor(String path) {
+		return imageDescriptorFromPlugin(PLUGIN_ID, path);
+	}
 
-    /**
-     * Read the resource file.<br/>
-     * 
-     * @param key
-     *            Resource key name
-     */
-    private static URL getResources(String key) {
-        return Activator.getDefault().getBundle().getResource(key);
-    }
-    
-    /**
-     * Get the value corresponding to the key from the message file by the
-     * resource bundle mechanism.<br/>
-     * 
-     * @param key
-     *            Message key
-     * @return Message
-     */
-    public static String getResourceString(String key) {
-        try {
-            return plugin.resourceBundle.getString(key);
-        } catch (MissingResourceException e) {
-            return key;
-        }
-    }
-    
-    /**
-     * Get a set of Plugin.
-     * 
-     * @return Setting Plugin
-     */
-    public static IEclipsePreferences getPreferences() {
-        IEclipsePreferences prefs = InstanceScope.INSTANCE.getNode(PLUGIN_ID);
-        return prefs;
-    }
-    
-    /**
-     * Save the settings of Plugin.<br/>
-     * 
-     */
-    public static void savePreferences(String key,String val) {
-        IEclipsePreferences prefs = getPreferences();
-        
-        try {
-        	prefs.put(key, val);
-            prefs.flush();
-        } catch (BackingStoreException e) {
-            String message = getResourceString(Activator.class.getName()
-                    + ".err.msg.PrefSaveFailed");
-            ErrorDialog.openErrorDialog(getActiveWorkbenchShell(), e, message);
-        }
-    }
-    
-    /**
-     * Save the settings of Plugin.<br/>
-     * 
-     */
-    public static String getPreferences(String key) {
-        IEclipsePreferences prefs = getPreferences();
-        if (prefs != null){
-        	return prefs.get(key, null);
-        }else{
-        	return null;
-        }
+	/**
+	 * Read the resource file.<br/>
+	 * 
+	 * @param key
+	 *            Resource key name
+	 */
+	private static URL getResources(String key) {
+		return Activator.getDefault().getBundle().getResource(key);
+	}
 
-    }
-    
-    
-    /**
-     * Get the shell of the active workbench.<br/>
-     * 
-     * @return shell Shell of workbench active
-     */
-    public static Shell getActiveWorkbenchShell() {
-        IWorkbenchWindow window = getActiveWorkbenchWindow();
-        return window != null ? window.getShell() : getStandardDisplay()
-                .getActiveShell();
-    }
-    /**
-     * Get the window of the workbench active.<br/>
-     * 
-     * @return IWorkbenchWindow Window of the workbench active
-     */
-    public static IWorkbenchWindow getActiveWorkbenchWindow() {
-        return Activator.getDefault().getWorkbench().getActiveWorkbenchWindow();
-    }
+	/**
+	 * Get the value corresponding to the key from the message file by the
+	 * resource bundle mechanism.<br/>
+	 * 
+	 * @param key
+	 *            Message key
+	 * @return Message
+	 */
+	public static String getResourceString(String key) {
+		try {
+			return plugin.resourceBundle.getString(key);
+		} catch (MissingResourceException e) {
+			return key;
+		}
+	}
 
-    /**
-     * Get the display.<br/>
-     * If the thread that is calling this method is in possession of the
-     * relevant display, <br/>
-     * get the related display, and get the default display if not in
-     * possession.<br/>
-     * 
-     * @return Display
-     */
-    private static Display getStandardDisplay() {
-        Display display = Display.getCurrent();
-        if (display == null) {
-            display = Display.getDefault();
-        }
-        return display;
-    }
-    
-    public static boolean isLinuxPlatform() {
-        return OS_NAME.startsWith("linux");
-    }
+	/**
+	 * Get a set of Plugin.
+	 * 
+	 * @return Setting Plugin
+	 */
+	public static IEclipsePreferences getPreferences() {
+		IEclipsePreferences prefs = InstanceScope.INSTANCE.getNode(PLUGIN_ID);
+		return prefs;
+	}
 
-    public static boolean isMacPlatform() {
-        return OS_NAME.startsWith("mac");
-    }
+	/**
+	 * Save the settings of Plugin.<br/>
+	 * 
+	 */
+	public static void savePreferences(String key, String val) {
+		IEclipsePreferences prefs = getPreferences();
 
-    public static boolean isWindowsPlatform() {
-        return OS_NAME.startsWith("windows");
-    }
-    
-    public static boolean isSupportPyPlatform(){
-    	return isWindowsPlatform() || isLinuxPlatform() || isMacPlatform();
-    }
-    
-    public static String getJbmstModulePath() throws IOException{
-    	if(isWindowsPlatform()){
-    		return PythonUtil.getWinSearchModulePath();
-    	}else if (isMacPlatform()){
-    		return PythonUtil.getMacSearchModulePath();
-    	}else if (isLinuxPlatform()){
-    		return PythonUtil.getLinuxSearchModulePath();
-    	}
-    	return null;
-    }
-    
+		try {
+			prefs.put(key, val);
+			prefs.flush();
+		} catch (BackingStoreException e) {
+			String message = getResourceString(Activator.class.getName() + ".err.msg.PrefSaveFailed");
+			ErrorDialog.openErrorDialog(getActiveWorkbenchShell(), e, message);
+		}
+	}
 
-    public static String getJbmstModuleZipPath() throws IOException{
-    	if(isWindowsPlatform()){
-    		return PythonUtil.getWinSearchModuleZipPath();
-    	}else if (isMacPlatform()){
-    		return PythonUtil.getMacSearchModuleZipPath();
-    	}else if (isLinuxPlatform()){
-    		return PythonUtil.getLinuxSearchModuleZipPath();
-    	}
-    	return null;
-    }
-    
+	/**
+	 * Save the settings of Plugin.<br/>
+	 * 
+	 */
+	public static String getPreferences(String key) {
+		IEclipsePreferences prefs = getPreferences();
+		if (prefs != null) {
+			return prefs.get(key, null);
+		} else {
+			return null;
+		}
+
+	}
+	
+	/**
+	 * Save the settings of Plugin.<br/>
+	 * 
+	 */
+	public static Boolean getBooleanFromPreferences(String key,Boolean defaultBoolean) {
+		IEclipsePreferences prefs = getPreferences();
+		if (prefs != null) {
+			return Boolean.valueOf(prefs.get(key, defaultBoolean.toString()));
+		} else {
+			return null;
+		}
+	}
+	
+
+	/**
+	 * Get the shell of the active workbench.<br/>
+	 * 
+	 * @return shell Shell of workbench active
+	 */
+	public static Shell getActiveWorkbenchShell() {
+		IWorkbenchWindow window = getActiveWorkbenchWindow();
+		return window != null ? window.getShell() : getStandardDisplay().getActiveShell();
+	}
+
+	/**
+	 * Get the window of the workbench active.<br/>
+	 * 
+	 * @return IWorkbenchWindow Window of the workbench active
+	 */
+	public static IWorkbenchWindow getActiveWorkbenchWindow() {
+		return Activator.getDefault().getWorkbench().getActiveWorkbenchWindow();
+	}
+
+	/**
+	 * Get the display.<br/>
+	 * If the thread that is calling this method is in possession of the
+	 * relevant display, <br/>
+	 * get the related display, and get the default display if not in
+	 * possession.<br/>
+	 * 
+	 * @return Display
+	 */
+	private static Display getStandardDisplay() {
+		Display display = Display.getCurrent();
+		if (display == null) {
+			display = Display.getDefault();
+		}
+		return display;
+	}
+
+	public static boolean isLinuxPlatform() {
+		return OS_NAME.startsWith("linux");
+	}
+
+	public static boolean isMacPlatform() {
+		return OS_NAME.startsWith("mac");
+	}
+
+	public static boolean isWindowsPlatform() {
+		return OS_NAME.startsWith("windows");
+	}
+
+	public static boolean isSupportPyPlatform() {
+		return isWindowsPlatform() || isLinuxPlatform() || isMacPlatform();
+	}
+
+	public static String getJbmstModulePath() throws IOException {
+		if (isWindowsPlatform()) {
+			return PythonUtil.getWinSearchModulePath();
+		} else if (isMacPlatform()) {
+			return PythonUtil.getMacSearchModulePath();
+		} else if (isLinuxPlatform()) {
+			return PythonUtil.getLinuxSearchModulePath();
+		}
+		return null;
+	}
+
+	public static String getJbmstModuleZipPath() throws IOException {
+		if (isWindowsPlatform()) {
+			return PythonUtil.getWinSearchModuleZipPath();
+		} else if (isMacPlatform()) {
+			return PythonUtil.getMacSearchModuleZipPath();
+		} else if (isLinuxPlatform()) {
+			return PythonUtil.getLinuxSearchModuleZipPath();
+		}
+		return null;
+	}
+
 }
