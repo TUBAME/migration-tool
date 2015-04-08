@@ -84,6 +84,8 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
 
 	private IProject selectedProject;
 
+	private Button importButton;
+
 	@Override
 	public void createControl(Composite parent) {
 		// TODO Auto-generated method stub
@@ -99,6 +101,7 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
 				LOGGER.warn(MessageUtil.WARN_KNOWLEDGE_IMPORT_ERR,e);
 			}
 		}
+		checkCacheKnowledge();
 
 	}
 
@@ -420,7 +423,7 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
 	
 		
 		// Search target folder selection button
-		Button importButton = new Button(group, SWT.NULL);
+		this.importButton = new Button(group, SWT.NULL);
 		importButton.setText(ResourceUtil.KNOWHOW_IMPORT_LABEL);
 		final String pjName = this.resource.getProject().getName();
 		// Set the operation when the button is pressed
@@ -448,16 +451,6 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
 
 		});
 		
-		File knowledgeDir = null;
-		try {
-			knowledgeDir = new File(PluginUtil.getResolvedPluginDir()+ ApplicationPropertyUtil.KNOWLEDGE_DIR);
-		} catch (IOException e2) {
-			;
-		}
-		
-		if(knowledgeDir!= null && !knowledgeDir.exists()){
-			importButton.setVisible(false);
-		}
 
 		IPath rawLocation = resource.getRawLocation();
 		if (rawLocation != null) {
@@ -533,6 +526,7 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
 	 */
 	@Override
 	public boolean addTextvalidate() {
+		
 		// Check of know-how XML file /////////////////////////////////////
 		// Not entered check
 		if (StringUtil.isEmpty(getKnowhowXmlFilePath())) {
@@ -596,6 +590,21 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
 			}
 		}
 		return true;
+	}
+
+	private void checkCacheKnowledge() {
+		File knowledgeDir = null;
+		try {
+			knowledgeDir = new File(PluginUtil.getResolvedPluginDir()+ ApplicationPropertyUtil.KNOWLEDGE_DIR);
+		} catch (IOException e2) {
+			importButton.setVisible(false);
+			
+		}
+		
+		if(knowledgeDir!= null && !knowledgeDir.exists()){
+			importButton.setVisible(false);
+		}
+		
 	}
 
 	/**
@@ -685,7 +694,6 @@ public class JbmSearchSelectionPage extends AbstractJbmSelectionPage {
 		Boolean booleanFromPreferences = Activator
 				.getBooleanFromPreferences(KnowledgePreferencePage.PREF_KEY_AUTO_IMPORTED_CACHE_USE,Boolean.TRUE);
 		if (booleanFromPreferences == Boolean.FALSE) {
-				// キャッシュ無効のため、キャッシュディレクトリを削除する。
 				deleteKnowledgeCacheDir();
 				return false;
 		}
