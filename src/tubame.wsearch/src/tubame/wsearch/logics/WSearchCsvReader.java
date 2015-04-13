@@ -311,7 +311,6 @@ public class WSearchCsvReader implements WSearchReader {
             return rowList;
 
         } catch (Exception e) {
-        	e.printStackTrace();
             throw new WSearchPluginException(e);
         }
     }
