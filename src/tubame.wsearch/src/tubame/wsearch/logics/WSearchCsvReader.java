@@ -239,6 +239,8 @@ public class WSearchCsvReader implements WSearchReader {
                 String targetFullPath = path.toOSString();
                 IProject findIProjectByPath = PluginUtil.findIProjectByPath(targetFullPath);
                 item.setFiles(targetFullPath.substring(findIProjectByPath.getLocation().toOSString().length()+File.separator.length()));
+                item.setTargetFullPath(targetFullPath);
+//                item.setFiles(targetFullPath);
                 
 
                 // Line
@@ -309,6 +311,7 @@ public class WSearchCsvReader implements WSearchReader {
             return rowList;
 
         } catch (Exception e) {
+        	e.printStackTrace();
             throw new WSearchPluginException(e);
         }
     }
@@ -331,6 +334,7 @@ public class WSearchCsvReader implements WSearchReader {
         row.setClazz(item.getClazz());
         row.setHitNum(item.getHitNum());
         row.setFiles(item.getFiles());
+        row.setTargetFullPath(item.getTargetFullPath());
         row.setRowNumber(item.getRowNumber());
         row.setDetail(item.getDetail());
         row.setNote(item.getNote());

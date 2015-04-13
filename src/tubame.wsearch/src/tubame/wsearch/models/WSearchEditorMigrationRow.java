@@ -130,8 +130,25 @@ public class WSearchEditorMigrationRow implements MigrationEditorRow {
      * Migrated files
      */
     private String files;
-
+    
+    
     /**
+     * Migrated files
+     */
+    private String targetFullPath;
+    
+    
+    
+
+    public String getTargetFullPath() {
+		return targetFullPath;
+	}
+
+	public void setTargetFullPath(String targetFullPath) {
+		this.targetFullPath = targetFullPath;
+	}
+
+	/**
      * Result detail
      */
     private String detail;
@@ -703,12 +720,12 @@ public class WSearchEditorMigrationRow implements MigrationEditorRow {
         sb.append(getClazz());
         sb.append("\"");
         sb.append(CmnStringUtil.CSV_DELIMITER);
+//        sb.append("\"");
+//        sb.append(getHitNum());
+//        sb.append("\"");
+//        sb.append(CmnStringUtil.CSV_DELIMITER);
         sb.append("\"");
-        sb.append(getHitNum());
-        sb.append("\"");
-        sb.append(CmnStringUtil.CSV_DELIMITER);
-        sb.append("\"");
-        sb.append(getFiles());
+        sb.append(getTargetFullPath());
         sb.append("\"");
         sb.append(CmnStringUtil.CSV_DELIMITER);
         sb.append("\"");
