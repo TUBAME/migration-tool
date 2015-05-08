@@ -50,7 +50,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
 import tubame.portability.exception.JbmException;
-import tubame.portability.logic.convert.ConvertWithProgress;
 import tubame.portability.model.CheckListInformation;
 import tubame.portability.util.PluginUtil;
 import tubame.portability.util.StringUtil;

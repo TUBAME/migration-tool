@@ -32,7 +32,6 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
 
 import tubame.portability.model.ReportTemplateType;
-import tubame.portability.model.generated.model.WebLogic;
 import tubame.portability.util.FileUtil;
 import tubame.portability.util.PluginUtil;
 import tubame.portability.util.StringUtil;
@@ -230,12 +229,6 @@ public class ReportGenDirSelectionPage extends AbstractJbmSelectionPage {
         return true;
     }
 
-
-
-    private String getTemplateText() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	/**
      * {@inheritDoc}

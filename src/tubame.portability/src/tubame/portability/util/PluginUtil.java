@@ -76,7 +76,6 @@ import tubame.portability.exception.JbmException;
 import tubame.portability.exception.JbmException.ERROR_LEVEL;
 import tubame.portability.model.DifficultyEnum;
 import tubame.portability.plugin.view.CheckListInformationView;
-import tubame.portability.plugin.view.ConvertView;
 import tubame.portability.plugin.view.WorkStatusView;
 import tubame.portability.util.resource.ApplicationPropertyUtil;
 import tubame.portability.util.resource.MessageUtil;
@@ -208,31 +207,7 @@ public class PluginUtil {
         return PluginUtil.EDITOR_SEARCH_ID;
     }
 
-    /**
-     * Get the conversion status view.<br/>
-     * 
-     * @return Conversion status view
-     * @throws JbmException
-     *             Perspective if open fails
-     */
-    public static ConvertView getConvertView() throws JbmException {
-        return (ConvertView) PluginUtil
-                .getViewPart(PluginUtil.VIEW_CONVERT_STATUS_ID);
-    }
 
-    /**
-     * Show the conversion status view.<br/>
-     */
-    public static void showConvertView() {
-        try {
-            PluginUtil.getActivePage().showView(
-                    PluginUtil.VIEW_CONVERT_STATUS_ID);
-        } catch (PartInitException e) {
-            JbmException.outputExceptionLog(e, LOGGER, ERROR_LEVEL.ERROR,
-                    new String[] { MessageUtil.ERR_WORK_STATUS_VIEW_OPEN,
-                            PluginUtil.VIEW_CONVERT_STATUS_ID });
-        }
-    }
 
     /**
      * Get the checklist view.<br/>
