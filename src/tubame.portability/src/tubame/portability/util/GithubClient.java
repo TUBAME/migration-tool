@@ -40,13 +40,13 @@ public class GithubClient {
 		HttpsURLConnection connection = (HttpsURLConnection) new URL(endpoint).openConnection();
 		connection.setConnectTimeout(CONNECT_TIMEOUT_MILLIS);
 		connection.setReadTimeout(READ_TIMEOUT_MILLIS);
-		connection.setRequestProperty("User-Agent", "TUBAME");
 		return connection;
 	}
 	
 	
     void prepareGetRequest(HttpsURLConnection connection,SUPPORTED_CONTENT contentType) throws IOException {
         connection.setRequestMethod("GET");
+		connection.setRequestProperty("User-Agent", "TUBAME");
         connection.setDoOutput(true);
     }
     
