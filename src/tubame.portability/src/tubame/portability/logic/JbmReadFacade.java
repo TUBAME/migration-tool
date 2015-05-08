@@ -24,7 +24,6 @@ import tubame.portability.exception.JbmException;
 import tubame.portability.logic.reader.JbmCsvReader;
 import tubame.portability.logic.reader.JbmReader;
 import tubame.portability.model.JbmEditorMigrationRow;
-import tubame.portability.model.generated.model.JbossMigrationConvertTool;
 
 /**
  * Jbm read Facade class.<br/>
@@ -46,21 +45,6 @@ public class JbmReadFacade {
         return this.createReaderFactory().read(filePath);
     }
 
-    /**
-     * Reads the JBM file and generate {@link JbossMigrationConvertTool}.<br/>
-     * {@link JbmCsvReader}<br/>
-     * 
-     * @param filePath
-     *            Read the target file path
-     * @return {@link JbmEditorMigrationRow}
-     * @throws JbmException
-     *             JBM file read failure
-     */
-    public JbossMigrationConvertTool readToJbossMigrationConvertTool(
-            String filePath) throws JbmException {
-        return this.createReaderFactory().readToJbossMigrationConvertTool(
-                filePath);
-    }
 
     /**
      * Generate JBM read Reader.<br/>

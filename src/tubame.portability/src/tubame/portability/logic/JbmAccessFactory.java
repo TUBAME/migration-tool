@@ -59,13 +59,5 @@ public class JbmAccessFactory {
         return new JbmWriteFacade();
     }
 
-    /**
-     * Get a file write Facade conversion result.<br/>
-     * Generate {@link ConvertWriteFacade}.<br/>
-     * 
-     * @return {@link ConvertWriteFacade}
-     */
-    public static ConvertWriteFacade getConvertFacade() {
-        return new ConvertWriteFacade();
-    }
+
 }

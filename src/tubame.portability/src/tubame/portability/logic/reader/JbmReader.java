@@ -22,7 +22,6 @@ import java.util.List;
 
 import tubame.portability.exception.JbmException;
 import tubame.portability.model.JbmEditorMigrationRow;
-import tubame.portability.model.generated.model.JbossMigrationConvertTool;
 
 /**
  * File write interface search results.<br/>
@@ -43,16 +42,4 @@ public interface JbmReader {
     public List<JbmEditorMigrationRow> read(String filePath)
             throws JbmException;
 
-    /**
-     * The Read the results file.<br/>
-     * Reads the JBM file, convert to {@link JbossMigrationConvertTool}.<br/>
-     * 
-     * @param filePath
-     *            Target file path
-     * @return Read data object
-     * @throws JbmException
-     *             File format error, file IO error
-     */
-    public JbossMigrationConvertTool readToJbossMigrationConvertTool(
-            String filePath) throws JbmException;
 }
