@@ -40,6 +40,7 @@ public class GithubClient {
 		HttpsURLConnection connection = (HttpsURLConnection) new URL(endpoint).openConnection();
 		connection.setConnectTimeout(CONNECT_TIMEOUT_MILLIS);
 		connection.setReadTimeout(READ_TIMEOUT_MILLIS);
+		connection.setRequestProperty("User-Agent", "TUBAME");
 		return connection;
 	}
 	
