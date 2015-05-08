@@ -28,11 +28,7 @@
 			class="tubame.portability.plugin.view.HtmlGuideView"
 			category="tubame.portability.category" name="%view.HtmlGuideView.name"
 			restorable="true" />
-		<!-- ConvertView -->
-		<view id="ConvertView"
-			class="tubame.portability.plugin.view.ConvertView"
-			category="tubame.portability.category" name="%view.ConvertView.name"
-			restorable="true" />
+		
   <view
         category="tubame.portability.category"
         class="tubame.portability.plugin.view.SourceCodeView"
@@ -147,19 +143,6 @@
 
 	<!-- org.eclipse.ui.popupMenus -->
 	<extension point="org.eclipse.ui.popupMenus">
-		<!-- ShowConvertViewAction -->
-		<objectContribution id="Contribution" objectClass="org.eclipse.core.resources.IFile"
-			nameFilter="*.cxml" adaptable="true">
-			<menu id="tubame.menu1" label="%menu.name"
-				path="additions">
-				<separator name="portability"/>
-			</menu>
-			<action id="ShowConvertAction"
-				class="tubame.portability.plugin.action.ShowConvertViewAction"
-				label="%menu.convert.view.name" menubarPath="tubame.menu1/portability"
-				enablesFor="1">
-			</action>
-		</objectContribution>
 		<!-- WizardAction -->
 		<objectContribution id="Contribution" objectClass="org.eclipse.core.resources.IResource"
 			adaptable="true">
@@ -167,7 +150,7 @@
 				path="additions">
 				<separator name="portability"/>
 			</menu>
-			<!-- ShowConvertWizardAction -->
+			
 			<!-- ShowSearchWizardAction -->
 			<action
 				class="tubame.portability.plugin.action.ShowSearchWizardAction"
