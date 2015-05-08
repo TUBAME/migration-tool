@@ -46,6 +46,7 @@ public class GithubClient {
 	
     void prepareGetRequest(HttpsURLConnection connection,SUPPORTED_CONTENT contentType) throws IOException {
         connection.setRequestMethod("GET");
+		connection.setRequestProperty("User-Agent", "TUBAME");
         connection.setDoOutput(true);
     }
     
