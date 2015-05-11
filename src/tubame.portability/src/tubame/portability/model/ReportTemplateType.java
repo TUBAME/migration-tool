@@ -6,9 +6,9 @@ public enum ReportTemplateType {
 
 	APSERVER("ap",MessageUtil.REPORT_TPL_APSERVER),
 	
-	MVCFRAMWORK("mvc",MessageUtil.REPORT_TPL_MVCFRAMWORK),
+	MVCFRAMWORK("mvc",MessageUtil.REPORT_TPL_MVCFRAMWORK);
 	
-	STRUTSFRAMWORK("struts",MessageUtil.REPORT_TPL_STRUTSFRAMWORK);
+//	STRUTSFRAMWORK("struts",MessageUtil.REPORT_TPL_STRUTSFRAMWORK);
 	
 	
     /** Member variable of type String */
