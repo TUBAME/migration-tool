@@ -1,0 +1,949 @@
+<HTML xmlns:knowhow="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:doc="http://docbook.org/ns/docbook">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Online Quick User Manual - Dependency Search</title>
+<link href="css/docbook.css" type="text/css" rel="stylesheet">
+<meta content="DocBook XSL Stylesheets V1.78.1" name="generator">
+</HEAD>
+<BODY>
+<H1 class="title">Online Quick User Manual - Dependency Search</H1>
+<div class="toc">
+<p>
+<b>Index</b>
+</p>
+<dl class="toc">
+<dt>
+<span class="1."><a href="#tubame_1.">1. Overview</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.1."><a href="#tubame_1.1.">1.1. Introduction to This Document</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2."><a href="#tubame_1.2.">1.2. Introduction to This Tool</a></span>
+</dt>
+</dl>
+</dd>
+<dt>
+<span class="2."><a href="#tubame_2.">2. Operating Environment</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.1."><a href="#tubame_2.1.">2.1. Hardware Requirements</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.2."><a href="#tubame_2.2.">2.2. Software Requirements</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.3."><a href="#tubame_2.3.">2.3. Prerequisite</a></span>
+</dt>
+</dl>
+</dd>
+<dt>
+<span class="3."><a href="#tubame_3.">3. Installing the Tool</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="3.1."><a href="#tubame_3.1.">3.1. Installing the Tool</a></span>
+</dt>
+</dl>
+</dd>
+<dt>
+<span class="4."><a href="#tubame_4.">4. How to Use</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="4.1."><a href="#tubame_4.1.">4.1. Operating Procedures</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="4.1.1."><a href="#tubame_4.1.1.">4.1.1. Creating Your Eclipse Project</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="4.1.2."><a href="#tubame_4.1.2.">4.1.2. Preparations</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="4.1.3."><a href="#tubame_4.1.3.">4.1.3. Conducting a Search</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="4.1.4."><a href="#tubame_4.1.4.">4.1.4. Checking Results</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="4.1.5."><a href="#tubame_4.1.5.">4.1.5. Working with View Menu</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>
+<span class="5."><a href="#tubame_5.">5. Uninstalling the Tool</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="5.1."><a href="#tubame_5.1.">5.1. Uninstalling the Tool</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</div>
+<HR>
+<a name="tubame_1."></a>
+<h2 class="title">1. Overview</h2>
+<br>
+<a name="tubame_1.1."></a>
+<h3 class="title">1.1. Introduction to This Document</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>This manual provides a brief description of procedures from installation through to use of the <span class="application">Dependency Search</span>.</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2."></a>
+<h3 class="title">1.2. Introduction to This Tool</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			Operating as an Eclipse plug-in, this tool automatically extracts the necessary information from the target environment to extract the code that will be necessary to port.
+			</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>Since the information needed for searches is automatically extracted from the target environment, it can extract the required code from any platform without relying on a specific platform.</p>
+<p>Also, the search information required for porting to <span class="application">JBoss EAP6</span> is included with the tool, there is no need to specify the target porting environment in the tool.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+        
+</p>
+<div class="table">
+<a name="N10247"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;Targeted resources</b>
+</p>
+<div class="table-contents">
+<table summary="Targeted resources" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>Item</th><th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Java  file</td><td>Information for all classes used by Java files is compared to the library information available at the target environment to extract classes that cannot be used or should not be used.</td>
+</tr>
+<tr>
+<td>JSP file</td><td>The Java class information and tag library information used by JSP files is compared to the library information available at the target environment to extract classes that cannot be used or should not be used.</td>
+</tr>
+<tr>
+<td>XML file</td><td>The DTD and XSD information of XML files is compared with the DTD and XSD information available at the target environment to extract the XML files that need be ported.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>
+<br class="table-break">
+      
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_2."></a>
+<h2 class="title">2. Operating Environment</h2>
+<br>
+<a name="tubame_2.1."></a>
+<h3 class="title">2.1. Hardware Requirements</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>It has been confirmed that the tool can operate in the following hardware environment.</p>
+<div class="table">
+<a name="N1026F"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;Hardware Requirements</b>
+</p>
+<div class="table-contents">
+<table summary="Hardware Requirements" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>Item</th><th>Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td><td>Pentium (R) Dual-Core CPU E5400 @2.70GHz (2 CPU) or the equivalent</td>
+</tr>
+<tr>
+<td>RAM</td><td>2012MB RAM  or more</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br class="table-break">
+</div>
+<br>
+<br>
+<a name="tubame_2.2."></a>
+<h3 class="title">2.2. Software Requirements</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>It has been confirmed that the tool can operate in the following software environment.</p>
+<div class="table">
+<a name="N10291"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;Software Requirements</b>
+</p>
+<div class="table-contents">
+<table summary="Software Requirements" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>Item</th><th>Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OS</td><td>Windows XP/7, RHEL6(*)Other Linux Compatible</td>
+</tr>
+<tr>
+<td>Java VM</td><td>
+							Oracle JRE 1.6 or more
+						</td>
+</tr>
+<tr>
+<td>IDE</td><td>
+							Eclipse 3.7 Indigo or Eclipse 4.3 Kepler
+						</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br class="table-break">
+</div>
+<br>
+<br>
+<a name="tubame_2.3."></a>
+<h3 class="title">2.3. Prerequisite</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+        None in particular.
+			</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>There is no  need to make all the preparations needed for a successful compilation. Searches can be performed as long as the target files are available.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+                    
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_3."></a>
+<h2 class="title">3. Installing the Tool</h2>
+<br>
+<a name="tubame_3.1."></a>
+<h3 class="title">3.1. Installing the Tool</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			Set up the operating environment described above. 
+			Perform the steps below after the required environment has been set up.
+		</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Download</p>
+<p>Download the plug-in.</p>
+<p>
+					
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>
+							https://github.com/TUBAME/migration-tool/releases
+
+							
+						</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+				
+</p>
+</li>
+<li class="listitem">
+<p>Unzip</p>
+<p>
+					Unzip the downloaded file. 
+					Unzipping the file creates the 
+					<code class="filename">tubame.wsearch_*</code> directory.
+					</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>The * part of the name varies with the version.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+					
+</p>
+<div class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Important">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Important]" src="images/important.png"></td><th align="left">Important</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>
+							Unzipping the file in Windows may fail due to path length limitations. 
+							If it fails, use a short path such as 
+							<code class="filename">C:\temp</code>
+							 for unzipping.
+						</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+				
+</p>
+</li>
+<li class="listitem">
+<p>Install in Eclipse.</p>
+<p>
+					Move or copy the unzipped directory to the 
+<code class="filename">plugins</code>
+directory under the Eclipse installation directory.
+				</p>
+</li>
+<li class="listitem">
+<p>Confirm installation.</p>
+<p>
+					Select the Eclipse menu as shown below.
+				</p>
+<p>
+					
+<span class="guimenu">Help</span> &rarr; <span class="guimenuitem">About Eclipse</span> &rarr; <span class="guimenuitem">Installation Details</span> &rarr; <span class="guimenuitem">Plug-ins</span>
+				
+</p>
+<p>
+					Confirm that the <span class="guilabel">Plug-in Id</span> column contains the <span class="guilabel">tubame.wsearch</span> plug-in name. 
+				</p>
+</li>
+<li class="listitem">
+<p>Complete installation.</p>
+<p>This completes the installation.</p>
+</li>
+</ol>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_4."></a>
+<h2 class="title">4. How to Use</h2>
+<br>
+<a name="tubame_4.1."></a>
+<h3 class="title">4.1. Operating Procedures</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>The following describes how to use the tool.</p>
+</div>
+<br>
+<br>
+<a name="tubame_4.1.1."></a>
+<h3 class="title">4.1.1. Creating Your Eclipse Project</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Perform the following steps.</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Start up Eclipse.</p>
+</li>
+<li class="listitem">
+<p>
+					Start up the project creation wizard.
+				</p>
+<p>
+					
+<span class="guimenu">File</span> &rarr; <span class="guimenuitem">New</span> &rarr; <span class="guimenuitem">Project...</span>
+				
+</p>
+</li>
+<li class="listitem">
+<p>
+                Create a <span class="guimenuitem">Java Project</span>.
+				</p>
+<p>
+					
+<span class="guimenu">Java Project</span> &rarr; <span class="guimenuitem">Next</span>
+				
+</p>
+<p>
+                    Use the <span class="guilabel">New Java Project</span> wizard to make the appropriate settings required by the environment of the item to be ported to create a project.
+				</p>
+<p>
+                
+</p>
+<div class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Important">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Important]" src="images/important.png"></td><th align="left">Important</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>Be sure to create a <span class="guilabel">Java Project</span>. The tool will not run normally in a project other than a <span class="guilabel">Java Project</span>.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+                
+</p>
+<p>
+                
+</p>
+<div class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Important">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Important]" src="images/important.png"></td><th align="left">Important</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>The targeted Java search files must be placed in the <span class="guilabel">Eclipse Source Folder</span>. </p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+                
+</p>
+<p>
+                
+</p>
+<div class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Important">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Important]" src="images/important.png"></td><th align="left">Important</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>As long as the placed source files have file names that Java can handle, directory and file names are not an issue.  However, if characters that Java cannot handle are included (e.g. hyphens), a search may end in failure.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+                
+</p>
+</li>
+</ol>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_4.1.2."></a>
+<h3 class="title">4.1.2. Preparations</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Perform the following steps.</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>
+					Specify the information required by the search.
+				</p>
+<p>
+                Specify the information required by the search as shown below.
+				</p>
+<p>
+					
+<span class="guimenu">Window</span> &rarr; <span class="guimenuitem">Preferences</span> &rarr; <span class="guimenuitem">Dependency Search</span> &rarr; <span class="guimenuitem">Library settings</span>
+				
+</p>
+<p>
+               The following information can be specified.
+					</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>
+								Library settings
+							</p>
+<p>
+                            These settings manage library information used for searches. Libraries whose checkboxes have been selected will be searched as available libraries at the target environment.
+							</p>
+<p>
+                            
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>The following settings can be made.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem">
+<p>
+                        
+<span class="guilabel">Name</span>
+                    
+</p>
+<p>Screen name.  Type a name.</p>
+</li>
+<li class="listitem">
+<p>
+                        
+<span class="guilabel">Library type</span>
+                    
+</p>
+<p>Select whether libraries will be compressed files (zip format) or directories.</p>
+</li>
+<li class="listitem">
+<p>
+                        
+<span class="guilabel">Path</span>
+                    
+</p>
+<p>Set the path of the libraries.</p>
+</li>
+<li class="listitem">
+<p>
+                        
+<span class="guilabel">Type</span>
+                    
+</p>
+<p>Select this checkbox for libraries in the Maven repository format.</p>
+</li>
+<li class="listitem">
+<p>
+                        
+<span class="guilabel">Description</span>
+                    
+</p>
+<p>Provide a description of the library.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p>
+                            
+</p>
+</li>
+<li class="listitem">
+<p>
+								Cache
+							</p>
+<p>
+                            Library information is extracted when a search starts.  A cache function has been provided to handle the comparatively heavy processing that search results involve. Specify whether or not the cache will be used. Since the cache does not exist during the first search, library information is extracted even if the cache is enabled.
+							</p>
+</li>
+</ul>
+</div>
+<p>
+				
+</p>
+</li>
+</ol>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_4.1.3."></a>
+<h3 class="title">4.1.3. Conducting a Search</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Perform the following steps.</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Select search resources.</p>
+<p>Right-click a resource you want to search and select the following menu.</p>
+<p>
+					
+<span class="guimenuitem">tubame</span> &rarr; <span class="guimenuitem">Dependency Search</span>
+				
+</p>
+</li>
+<li class="listitem">
+<p>Set search conditions.</p>
+<p>
+					Make the following entries. 
+					</p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr>
+<td>
+                            <span class="guilabel">Destination of output results</span>: Specifies a <code class="filename">gjbm</code> file to which to output the search results. </td>
+</tr>
+</table>
+<p>
+				
+</p>
+</li>
+<li class="listitem">
+<p>Conduct a search.</p>
+<p>
+					Click <span class="guimenuitem">Finish</span> to start the search.
+				</p>
+</li>
+</ol>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_4.1.4."></a>
+<h3 class="title">4.1.4. Checking Results</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>When the search ends, <span class="guilabel">Dependency Search Result view</span> appears in the Eclipse work view area. 
+			You can also open <span class="guilabel">Dependency Search Result view</span> by double clicking the <code class="filename">gjbm</code> search result file.
+		</p>
+<p>
+            Items displayed in <span class="guilabel">Dependency Search Result view</span> are described below. 
+		</p>
+<div class="table">
+<a name="N1042A"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;Items displayed in Dependency Search Result view</b>
+</p>
+<div class="table-contents">
+<table summary="Items displayed in Dependency Search Result view" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>Item</th><th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Header area</td><td>
+        Displays <span class="guilabel">error </span> instance,<span class="guilabel"> warning </span>instance and result file path information.
+                        <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>By default, up to <em class="parameter"><code>100</code></em> instances each will be displayed for <span class="guilabel">errors</span> and <span class="guilabel">warnings</span>, but no results will be displayed beyond that.</p>
+</td>
+</tr>
+</table>
+</div>
+    
+</td>
+</tr>
+<tr>
+<td>Result</td><td>Displays the results of comparing source and target.
+                            <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>There are the following classifications.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>
+                        
+<span class="guilabel">error</span>
+                    
+</p>
+<p>Indicates the code is deemed necessary for porting.</p>
+</li>
+<li class="listitem">
+<p>
+                        
+<span class="guilabel">warn</span>
+                    
+</p>
+<p>Items where porting is recommended or where the need for porting should be checked. </p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+                        
+</td>
+</tr>
+<tr>
+<td>Category</td><td>Displays found source categories.
+                            <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>There are the following classifications.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>
+                        
+<span class="guilabel">Java</span>
+                    
+</p>
+</li>
+<li class="listitem">
+<p>
+                        
+<span class="guilabel">XML</span>
+                    
+</p>
+</li>
+<li class="listitem">
+<p>
+                        
+<span class="guilabel">JSP</span>
+                    
+</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+                        
+</td>
+</tr>
+<tr>
+<td>Package</td><td>The package name is displayed for a Java file, otherwise <span class="quote">&ldquo;<span class="quote">-</span>&rdquo;</span> is displayed. </td>
+</tr>
+<tr>
+<td>Source library</td><td>Displays the name of the found source library.</td>
+</tr>
+<tr>
+<td>Target library</td><td>Displays the name of the found source library. Multiple hits are displayed comma-delimited. </td>
+</tr>
+<tr>
+<td>Class</td><td>Displays the class name, namespace, tag library path, schema path, etc. depending on what is found.</td>
+</tr>
+<tr>
+<td>Hit count</td><td>Displays found instances by package or class.</td>
+</tr>
+<tr>
+<td>File to be ported</td><td>Displays the name of the file to be ported.</td>
+</tr>
+<tr>
+<td>Line</td><td> Displays the line numbers of the files that will be ported.</td>
+</tr>
+<tr>
+<td>Result details</td><td> Displays the found reason.</td>
+</tr>
+<tr>
+<td>Remarks</td><td>Displays the name of the target library when a deprecated class is found.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br class="table-break">
+</div>
+<br>
+<br>
+<a name="tubame_4.1.5."></a>
+<h3 class="title">4.1.5. Working with View Menu</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+            The view menu allows you to take the following actions regarding items displayed in <span class="guilabel">Dependency Search Result view</span>.
+		</p>
+<div class="table">
+<a name="N104C3"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;View menu item</b>
+</p>
+<div class="table-contents">
+<table summary="View menu item" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>Item</th><th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Result filter</td><td>Allows you to set the result columns that should be displayed.</td>
+</tr>
+<tr>
+<td>Category filter</td><td>Allows you to set the category columns that should be displayed.</td>
+</tr>
+<tr>
+<td>Package filter</td><td>Allows you to set the package columns that should be displayed.</td>
+</tr>
+<tr>
+<td>Source library filter</td><td>Allows you to set the source library filter columns that should be displayed.</td>
+</tr>
+<tr>
+<td>Target library filter</td><td>Allows you to set the target library filter columns that should be displayed.</td>
+</tr>
+<tr>
+<td>Export to CSV</td><td>
+        Allows you to export items displayed in <span class="guilabel">Dependency Search Result view</span> to a CSV format file.</td>
+</tr>
+<tr>
+<td>Display instance settings</td><td>
+        Determines the maximum number of items displayed in <span class="guilabel">Dependency Search Result view</span>. The set value indicates the maximum number of instances displayed in the <span class="guilabel">error</span> and <span class="guilabel">warn</span> <span class="guilabel">result</span> columns.
+                        </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br class="table-break">
+</div>
+<br>
+<br>
+<a name="tubame_5."></a>
+<h2 class="title">5. Uninstalling the Tool</h2>
+<br>
+<a name="tubame_5.1."></a>
+<h3 class="title">5.1. Uninstalling the Tool</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			Delete the installed <code class="filename">tubame.wsearch_*</code>. This completes the uninstallation.
+			</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>The * part of the name varies with the version.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+			
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>
+					Add the 
+					<span class="command"><strong>-clean</strong></span>
+					 option when starting up Eclipse after deletion.
+				</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+		
+</p>
+</div>
+<br>
+<br>
+</BODY>
+</HTML>

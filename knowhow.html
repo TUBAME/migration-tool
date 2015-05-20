@@ -1,0 +1,1227 @@
+<HTML xmlns:knowhow="http://generated.model.biz.knowhow.tubame/knowhow" xmlns:doc="http://docbook.org/ns/docbook">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Online Quick User Manual - Knowledge Manager</title>
+<link href="css/docbook.css" type="text/css" rel="stylesheet">
+<meta content="DocBook XSL Stylesheets V1.78.1" name="generator">
+</HEAD>
+<BODY>
+<H1 class="title">Online Quick User Manual - Knowledge Manager</H1>
+<div class="toc">
+<p>
+<b>Index</b>
+</p>
+<dl class="toc">
+<dt>
+<span class="1."><a href="#tubame_1.">1. Overview</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="1.1."><a href="#tubame_1.1.">1.1. Introduction to This Document</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="1.2."><a href="#tubame_1.2.">1.2. Introduction to This Tool</a></span>
+</dt>
+</dl>
+</dd>
+<dt>
+<span class="2."><a href="#tubame_2.">2. Operating Environment</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="2.1."><a href="#tubame_2.1.">2.1. Hardware Requirements</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.2."><a href="#tubame_2.2.">2.2. Software Requirements</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="2.3."><a href="#tubame_2.3.">2.3. Prerequisite</a></span>
+</dt>
+</dl>
+</dd>
+<dt>
+<span class="3."><a href="#tubame_3.">3. Installing the Tool</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="3.1."><a href="#tubame_3.1.">3.1. Installing the Tool</a></span>
+</dt>
+</dl>
+</dd>
+<dt>
+<span class="4."><a href="#tubame_4.">4. How to Use</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="4.1."><a href="#tubame_4.1.">4.1. Operating Procedures</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="4.1.1."><a href="#tubame_4.1.1.">4.1.1. Creating Your Eclipse Project</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="4.1.2."><a href="#tubame_4.1.2.">4.1.2. Starting up the Tool</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="4.1.3."><a href="#tubame_4.1.3.">4.1.3. Creating Knowledge</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="4.1.4."><a href="#tubame_4.1.4.">4.1.4. Checking Knowledge Document</a></span>
+</dt>
+</dl>
+</dd>
+<dd>
+<dl>
+<dt>
+<span class="4.1.5."><a href="#tubame_4.1.5.">4.1.5. Saving Files</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>
+<span class="5."><a href="#tubame_5.">5. Uninstalling the Tool</a></span>
+</dt>
+<dd>
+<dl>
+<dt>
+<span class="5.1."><a href="#tubame_5.1.">5.1. Uninstalling the Tool</a></span>
+</dt>
+</dl>
+</dd>
+</dl>
+</div>
+<HR>
+<a name="tubame_1."></a>
+<h2 class="title">1. Overview</h2>
+<br>
+<a name="tubame_1.1."></a>
+<h3 class="title">1.1. Introduction to This Document</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>This manual provides a brief description of procedures from installation through to use of the <span class="application">Knowledge Manager</span>.</p>
+</div>
+<br>
+<br>
+<a name="tubame_1.2."></a>
+<h3 class="title">1.2. Introduction to This Tool</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+        Operating as an Eclipse plug-in, this tool allows you to easily create and manage knowledge on GUI. 
+        Knowledge allows you to set search conditions, difficulty in porting, porting man-hours (approximate number of lines to be ported) and other factors for extracting the code that needs to be ported. 
+			The registered knowledge is managed in the XML format. 
+			It handles mainly the following information.
+        </p>
+<div class="table">
+<a name="N1023E"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;Information handled by this tool</b>
+</p>
+<div class="table-contents">
+<table summary="Information handled by this tool" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>Item</th><th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Knowledge documents information</td><td>Document information can be exported in the HTML format. By copying exported files to the <span class="application">Knowledge-Based Search</span> makes it possible to link reference from search results. </td>
+</tr>
+<tr>
+<td>Search information regarding code that needs to be ported</td><td>Search information can be exported in the XML format. Using exported files as input to the <span class="application">Knowledge-Based Search</span> makes it possible to use them as search logic.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>
+<br class="table-break">
+      
+</p>
+</div>
+<br>
+<br>
+<a name="tubame_2."></a>
+<h2 class="title">2. Operating Environment</h2>
+<br>
+<a name="tubame_2.1."></a>
+<h3 class="title">2.1. Hardware Requirements</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>It has been confirmed that the tool can operate in the following hardware environment.</p>
+<div class="table">
+<a name="N10267"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;Hardware Requirements</b>
+</p>
+<div class="table-contents">
+<table summary="Hardware Requirements" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>Item</th><th>Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td><td>Pentium (R) Dual-Core CPU E5400 @2.70GHz (2 CPU) or the equivalent</td>
+</tr>
+<tr>
+<td>RAM</td><td>2012MB RAM  or more</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br class="table-break">
+</div>
+<br>
+<br>
+<a name="tubame_2.2."></a>
+<h3 class="title">2.2. Software Requirements</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>It has been confirmed that the tool can operate in the following software environment.</p>
+<div class="table">
+<a name="N10289"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;Software Requirements</b>
+</p>
+<div class="table-contents">
+<table summary="Software Requirements" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>Item</th><th>Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OS</td><td>Windows XP/7, RHEL6(*)Other Linux Compatible</td>
+</tr>
+<tr>
+<td>JavaVM</td><td>
+							Oracle JRE 1.6 or more
+						</td>
+</tr>
+<tr>
+<td>IDE</td><td>
+							Eclipse 3.7 Indigo or Eclipse 4.3 Kepler
+						</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br class="table-break">
+</div>
+<br>
+<br>
+<a name="tubame_2.3."></a>
+<h3 class="title">2.3. Prerequisite</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>None in particular.</p>
+</div>
+<br>
+<br>
+<a name="tubame_3."></a>
+<h2 class="title">3. Installing the Tool</h2>
+<br>
+<a name="tubame_3.1."></a>
+<h3 class="title">3.1. Installing the Tool</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Set up the operating environment described above. 
+			Perform the steps below after the required environment has been set up.
+		</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Download</p>
+<p>Download the plug-in.</p>
+<p>
+                
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>
+        https://github.com/TUBAME/migration-tool/releases
+    </p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+                
+</p>
+</li>
+<li class="listitem">
+<p>Unzip</p>
+<p>
+					Unzip the downloaded file. 
+					Unzipping the file creates the 
+					<code class="filename">tubame.knowhow_*</code> directory.
+					</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>The * part of the name varies with the version.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+					
+</p>
+<div class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Important">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Important]" src="images/important.png"></td><th align="left">Important</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>
+							Unzipping the file in Windows may fail due to path length limitations. 
+							If it fails, use a short path such as 
+							<code class="filename">C:\temp</code>
+							 for unzipping.
+						</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+				
+</p>
+</li>
+<li class="listitem">
+<p>Install in Eclipse.</p>
+<p>
+					Move or copy the unzipped directory to the 
+<code class="filename">plugins</code> 
+directory under the Eclipse installation directory.
+				</p>
+</li>
+<li class="listitem">
+<p>Confirm installation.</p>
+<p>
+					Select the Eclipse menu as shown below.
+				</p>
+<p>
+					
+<span class="guimenu">Help</span> &rarr; <span class="guimenuitem">About Eclipse</span> &rarr; <span class="guimenuitem">Installation Details</span> &rarr; <span class="guimenuitem">Plug-ins</span>
+				
+</p>
+<p>
+					Confirm that the <span class="guilabel">Plug-in Id</span> column contains the <span class="guilabel">tubame.knowhow</span>  plug-in name.
+				</p>
+</li>
+<li class="listitem">
+<p>Complete installation.</p>
+<p>This completes the installation.</p>
+</li>
+</ol>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_4."></a>
+<h2 class="title">4. How to Use</h2>
+<br>
+<a name="tubame_4.1."></a>
+<h3 class="title">4.1. Operating Procedures</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>The following describes how to use the tool.</p>
+</div>
+<br>
+<br>
+<a name="tubame_4.1.1."></a>
+<h3 class="title">4.1.1. Creating Your Eclipse Project</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Perform the following steps.</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Start up Eclipse.</p>
+</li>
+<li class="listitem">
+<p>
+					Start up the project creation wizard.
+				</p>
+<p>
+					
+<span class="guimenu">File</span> &rarr; <span class="guimenuitem">New</span> &rarr; <span class="guimenuitem">Project...</span>
+				
+</p>
+</li>
+<li class="listitem">
+<p>
+                Create a <span class="guimenuitem">project</span>.
+				</p>
+<p>
+					
+<span class="guimenu">Project</span> &rarr; <span class="guimenuitem">Next</span>
+				
+</p>
+<p>
+                    Use the <span class="guilabel">New Project</span> wizard to make the appropriate settings required by the environment of the item to be ported to create a project.
+				</p>
+</li>
+</ol>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_4.1.2."></a>
+<h3 class="title">4.1.2. Starting up the Tool</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>Perform the following steps.</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>
+					Start up Perspective.
+				</p>
+<p>
+					
+<span class="guimenu">Window</span> &rarr; <span class="guimenuitem">Open Perspective</span> &rarr; <span class="guimenuitem">Other</span> &rarr; <span class="guimenuitem">Knowledge Manager</span>
+				
+</p>
+</li>
+<li class="listitem">
+<p>Initialize the tool.</p>
+<p>
+					Starting up Perspective automatically starts tool initialization. Please wait until initialization completes.
+					</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>Initializing XML marshal/unmarshal classes can take time.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+					
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>
+							Initialization once started cannot be canceled. 
+							Clicking the <span class="guimenuitem">Cancel</span> button is ignored.
+						</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+				
+</p>
+</li>
+</ol>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_4.1.3."></a>
+<h3 class="title">4.1.3. Creating Knowledge</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>A method for creating knowledge is described below.</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>
+					Create a Knowledge XML file.
+				</p>
+<p>
+					
+<span class="guimenu">File</span> &rarr; <span class="guimenuitem">New</span> &rarr; <span class="guimenuitem">Other</span> &rarr; <span class="guimenuitem">Knowledge XML file</span>
+				
+</p>
+<p>
+                
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>To open a created <code class="filename">Knowledge XML</code> file, right-click the file and select the menu as shown below.
+					</p>
+<p>
+						
+<span class="guimenu">Open With</span> &rarr; <span class="guimenuitem">Other</span> &rarr; <span class="guimenuitem">Knowledge Editor</span>
+					
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+                
+</p>
+</li>
+<li class="listitem">
+<p>Work with Knowledge Entry view.</p>
+<p>
+					Use 
+					<span class="guilabel">Knowledge Entry view</span> 
+					to add, refer to, update and delete knowledge. 
+					Created knowledge can be used as an item to create documents and other data. 
+					Use either of the following methods to start up <span class="guilabel">Knowledge Entry view</span>.
+					</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>
+								Auto startup after creating knowledge XML.
+							</p>
+</li>
+<li class="listitem">
+<p>
+								Start up from Eclipse Show View menu.
+							</p>
+<p>
+								
+<span class="guimenu">Window</span> &rarr; <span class="guimenuitem">Show View</span> &rarr; <span class="guimenuitem">Other</span> &rarr; <span class="guimenuitem">Knowledge Manager</span> &rarr; <span class="guimenuitem">Knowledge Entry view</span>
+							
+</p>
+</li>
+</ul>
+</div>
+<p>
+				
+</p>
+</li>
+<li class="listitem">
+<p>
+					Create an item group that builds knowledge.
+				</p>
+<p>
+					Use the following steps to create items. Since there are no items to begin with, a 
+					<span class="guilabel">category</span> 
+					must be created.
+				</p>
+<p>
+					
+<span class="guimenu">(Select item)</span> &rarr; <span class="guimenuitem">Right-click</span> &rarr; <span class="guimenuitem">Registration menu</span> &rarr; <span class="guimenuitem">Start up registration wizard</span>
+					
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>
+							Only <span class="guilabel">categories</span> can be created when no item has been selected.
+						</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+					
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>In addition to the above methods, copy and paste can also be used to create items.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+
+					The following item types are used to build knowledge. 
+					A description of each item is given below.
+					</p>
+<div class="table">
+<a name="N103F8"></a>
+<p class="title">
+<b>Table&nbsp;1.&nbsp;Item types</b>
+</p>
+<div class="table-contents">
+<table summary="Item types" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>Item</th><th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category</td><td>An item corresponding to the chapters and sections that configure a document. It contains title information. </td>
+</tr>
+<tr>
+<td>Knowledge</td><td>
+										An item corresponding to knowledge content described in the chapters and sections that configure a document.  It contains 
+										<code class="sgmltag-element">DocBook#Artile</code>
+										format content information. 
+									</td>
+</tr>
+<tr>
+<td>Check item</td><td>
+										An item that contains information whether or not corresponding knowledge will need to be ported. 
+										It contains information such as <span class="guilabel">search processes</span>, 										<span class="guilabel">porting factors</span>, 
+										<span class="guilabel">difficulty</span>
+										 and other information. 
+									</td>
+</tr>
+<tr>
+<td>Search information</td><td>
+										A search logic item that the <span class="application">Knowledge-Based Search</span> 
+										uses during searches.
+									</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>
+<br class="table-break">
+				
+</p>
+</li>
+<li class="listitem">
+<p>
+					Work with the Knowledge Editor.
+				</p>
+<p>
+					This editor edits registered items and creates document configurations. 
+					The <span class="guilabel">Knowledge editor</span> 
+					contains the following tab types. 
+					A description of each tab is given below.
+					</p>
+<div class="table">
+<a name="N10430"></a>
+<p class="title">
+<b>Table&nbsp;2.&nbsp;Tab Types</b>
+</p>
+<div class="table-contents">
+<table summary="Tab Types" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>Item</th><th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Documentation</td><td>
+										Enables editing of the chapter configuration of HTML documents to be created.  
+										After creating a heading, 
+										<span class="guilabel">categories</span> 
+										can be dragged and dropped from the 
+										<span class="guilabel">Knowledge Entry view</span> to configure a document. 
+									</td>
+</tr>
+<tr>
+<td>Knowledge details</td><td>
+										An editor that edits knowledge content in the 
+										<code class="sgmltag-element">DocBook#Article</code>
+										format. In the editor, you can right-click to insert tag templates.
+										<div class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Important">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Important]" src="images/important.png"></td><th align="left">Important</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>
+												To prevent the creation of separate sections that corrupt the chapter configuration, the
+												<code class="sgmltag-element">&lt;section&gt;</code>
+												tag cannot be used.
+											</p>
+</td>
+</tr>
+</table>
+</div>
+									
+</td>
+</tr>
+<tr>
+<td>Check item</td><td>
+										Allows you to edit  <span class="guilabel">check item information</span>
+										and 
+										<span class="guilabel">search information</span>
+										selected in 
+										<span class="guilabel">Knowledge Entry view</span>.  
+									</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>
+<br class="table-break">
+					The following describes 
+					<span class="guilabel">check item information</span>
+					 and 
+					<span class="guilabel">search information</span> data entries that are edited in the 
+					<span class="guilabel">Check item</span>
+					 tab.
+					</p>
+<div class="table">
+<a name="N1046E"></a>
+<p class="title">
+<b>Table&nbsp;3.&nbsp;Check Item Information</b>
+</p>
+<div class="table-contents">
+<table summary="Check Item Information" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>Item</th><th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Search process</td><td>Provide an overview of which port items registered as knowledge should be searched and how they should be searched. 
+									</td>
+</tr>
+<tr>
+<td>Conduct a search</td><td>
+										Select this checkbox to conduct searches using the <span class="application">Knowledge-Based Search</span>.  
+									</td>
+</tr>
+<tr>
+<td>Porting factor</td><td>Searches items that correspond to the reason for the need to port code.</td>
+</tr>
+<tr>
+<td>Difficulty</td><td>
+										Selects the difficulty of porting work.
+
+										<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>The criteria used for selection are described below.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>
+    
+<span class="guilabel">High</span>
+
+</p>
+<p>Requires major rewriting of the implementation involving major changes to the implementation, settings and other changes.</p>
+</li>
+<li class="listitem">
+<p>
+    
+<span class="guilabel">Medium</span>
+
+</p>
+<p>Requires minor rewriting of the implementation.</p>
+</li>
+<li class="listitem">
+<p>
+    
+<span class="guilabel">Low</span>
+
+</p>
+<p>Can be handled by minor rewriting that does not affect implementation.</p>
+</li>
+<li class="listitem">
+<p>
+    
+<span class="guilabel">Unknown</span>
+
+</p>
+<p>Unknown difficulty</p>
+</li>
+<li class="listitem">
+<p>
+    
+<span class="guilabel">Impossible to port</span>
+
+</p>
+<p>Impossible to port</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+									
+</td>
+</tr>
+<tr>
+<td>Difficulty details</td><td>Selects difficulty details of porting work.
+
+										<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>The criteria used for selection are described below.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>
+    
+<span class="guilabel">High</span>
+
+</p>
+<p>Involves a <span class="guilabel">high</span> level of difficulty.</p>
+</li>
+<li class="listitem">
+<p>
+    
+<span class="guilabel">Medium</span>
+
+</p>
+<p>Involves a <span class="guilabel">Medium</span> level of difficulty.</p>
+</li>
+<li class="listitem">
+<p>
+    
+<span class="guilabel">Low 1</span>
+
+</p>
+<p>Items that involve a <span class="guilabel">low</span> level of difficulty but cannot be processed by simple replacement.</p>
+</li>
+<li class="listitem">
+<p>
+    
+<span class="guilabel">Low 2</span>
+
+</p>
+<p>Items that involve a <span class="guilabel">low</span> level of difficulty and can be processed by simple replacement.</p>
+</li>
+<li class="listitem">
+<p>
+    
+<span class="guilabel">Unknown 1</span>
+
+</p>
+<p>Difficulty is <span class="guilabel">unknown</span> and JBoss does not have a function for determining difficulty.</p>
+</li>
+<li class="listitem">
+<p>
+    
+<span class="guilabel">Unknown 2</span>
+
+</p>
+<p>Difficulty is <span class="guilabel">unknown</span> and it is not even known whether JBoss has an applicable function for determining difficulty.</p>
+</li>
+<li class="listitem">
+<p>
+    
+<span class="guilabel">Impossible to port</span>
+
+</p>
+<p>Involves a level of difficulty that makes <span class="guilabel">Impossible to port</span>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+    
+</td>
+</tr>
+<tr>
+<td>Visual check</td><td>Enter criteria or investigation methods of visual checks when set logical search conditions are not enough to define items that need to be ported. 
+									</td>
+</tr>
+<tr>
+<td>Inquiry check</td><td>Enter items to be checked with developers when the need for porting cannot be determined without checking with the developer.
+									</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>
+<br class="table-break">
+					
+</p>
+<div class="table">
+<a name="N10520"></a>
+<p class="title">
+<b>Table&nbsp;4.&nbsp;Search Information</b>
+</p>
+<div class="table-contents">
+<table summary="Search Information" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>Item</th><th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target search file</td><td>Enter the name of files subject to search.  Regular expressions can be used in entries. 
+									</td>
+</tr>
+<tr>
+<td>Search keyword 1</td><td>Enter the parameters that will be passed to the search module.  Regular expressions and XPath entries can be made.<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>The parameters that can be entered differ with the search module. Enter parameters using the search module overview as reference.</p>
+</td>
+</tr>
+</table>
+</div>
+    
+</td>
+</tr>
+<tr>
+<td>Search keyword 2</td><td>Enter the parameters that will be passed to the search module.  Regular expressions and XPath entries can be made.<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>The parameters that can be entered differ with the search module. Enter parameters using the search module overview as reference.</p>
+</td>
+</tr>
+</table>
+</div>
+    
+</td>
+</tr>
+<tr>
+<td>Search module</td><td>Select the module to search based on the search module overview.<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>If not selected, the standard search function is used for the search. The standard search function performs searches using <span class="guilabel">search keyword 1</span> and then <span class="guilabel">search keyword 2</span> to search files found among <span class="guilabel">Target search files</span>.</p>
+</td>
+</tr>
+</table>
+</div>
+    
+</td>
+</tr>
+<tr>
+<td>Search Module overview</td><td>Displays a description of the search module overview.</td>
+</tr>
+<tr>
+<td>Line count calculation</td><td>Select this checkbox when the value in the <span class="guilabel">Line count</span> field should be added as porting man-hours when a search returns a hit.</td>
+</tr>
+<tr>
+<td>Reason for not calculating</td><td>
+        Enter the reason when <span class="guilabel">line count calculation</span> should be ignored.</td>
+</tr>
+<tr>
+<td>Unknown/TODO</td><td>
+        When the <span class="guilabel">line count</span> is not finalized, select an applicable item.</td>
+</tr>
+<tr>
+<td>Line count</td><td>Enter the rough number of lines that should be rewritten during porting.</td>
+</tr>
+<tr>
+<td>Line count basis</td><td>Enter the reason for the entered <span class="guilabel">line count</span>.</td>
+</tr>
+<tr>
+<td>Investigation details</td><td>Enter the investigation method for calculating the number of lines that will be rewritten.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>
+<br class="table-break">
+				
+</p>
+</li>
+</ol>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_4.1.4."></a>
+<h3 class="title">4.1.4. Checking Knowledge Document</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>A standard Eclipse browser can be used to check a created knowledge document. 
+			The following two methods are provided.
+		</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>Check the entire document.</p>
+<p>
+					In the toolbar, the
+					<span class="guimenu">HTML Preview</span>
+					button allows you to check an entire document configured using the 
+					<span class="guilabel">Documentation </span> tab.
+				</p>
+</li>
+<li class="listitem">
+<p>Check single items.</p>
+<p>
+					The <span class="guilabel">Knowledge detail</span> 
+					tab allows you to check documents created using single items.
+				</p>
+<p>
+					
+<span class="guimenu">Knowledge details</span> &rarr; <span class="guimenuitem">Right-click</span> &rarr; <span class="guimenuitem">HTML Preview</span>
+				
+</p>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_4.1.5."></a>
+<h3 class="title">4.1.5. Saving Files</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>This feature allows you to export created knowledge as files. 
+			The following two methods are provided.
+		</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>Export to XML.</p>
+<p>
+					In the toolbar, the
+					<span class="guimenu">Export to XML</span>
+					button allows you to export files in the XML format.
+				</p>
+<p>
+                
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>Exported files can be re-edited using <span class="application">Knowledge Manager</span>.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+				
+</p>
+<p>
+                
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>Exported files can be used by <span class="application">Knowledge-Based Search</span> as input files.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+				
+</p>
+</li>
+<li class="listitem">
+<p>Export to HTML</p>
+<p>
+					In the toolbar, the
+					<span class="guimenu">Export to HTML</span>
+					button allows you to export files in the HTML format.
+				</p>
+<div class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Important">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Important]" src="images/important.png"></td><th align="left">Important</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>Exported files can be re-edited using <span class="application">Knowledge Manager</span>.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+                
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>Exported files can be used by <span class="application">Knowledge-Based Search</span> as input files.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+				
+</p>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+<a name="tubame_5."></a>
+<h2 class="title">5. Uninstalling the Tool</h2>
+<br>
+<a name="tubame_5.1."></a>
+<h3 class="title">5.1. Uninstalling the Tool</h3>
+<br>
+<div class="section">
+<div class="titlepage"></div>
+<p>
+			Delete the installed
+			<code class="filename">tubame.knowhow_*</code>. This completes the uninstallation.
+			</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>The * part of the name varies with the version.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+			
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<table border="0" summary="Note">
+<tr>
+<td valign="top" align="center" rowspan="2" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th>
+</tr>
+<tr>
+<td valign="top" align="left">
+<p>
+					Add the 
+					<span class="command"><strong>-clean</strong></span>
+					 option when starting up Eclipse after deletion.
+				</p>
+</td>
+</tr>
+</table>
+</div>
+<p>
+		
+</p>
+</div>
+<br>
+<br>
+</BODY>
+</HTML>
