@@ -126,6 +126,17 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_steps[1]), 12)
         self.assertEqual(int(self.rslt_steps[2]), 17)
         self.assertEqual(int(self.rslt_steps[3]), 17)
+        
+    def testKeyword1Windows31JXMLFileSearch(self):
+        self.searchExecute()
+       
+        hitfile = "struts-config.xml"
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertNotEqual(self.rslt_steps, None)
+        self.assertEqual(int(self.rslt_steps[0]), 6)
+        
+        
 
     def testKeyword2XMLFileSearch(self):
         self.searchExecute()
@@ -417,7 +428,7 @@ class JbmstTestCase(unittest.TestCase):
         
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
-        tests = ['testTubameFrameworkKnowhowReportJaNotIncludeModelFactor']
+        tests = ['testKeyword1Windows31JXMLFileSearch']
         unittest.TestSuite.__init__(self, map(JbmstTestCase, tests))
 
 if __name__ == '__main__':
