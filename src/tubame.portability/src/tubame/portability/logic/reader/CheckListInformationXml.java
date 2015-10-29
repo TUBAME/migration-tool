@@ -286,7 +286,7 @@ public class CheckListInformationXml implements CheckListInformationReader {
 				data = "";
 				break;
 			case XMLStreamReader.CHARACTERS:
-				data = reader.getText();
+				data += reader.getText();
 				break;
 			}
 			reader.next();
