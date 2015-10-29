@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="Windows-31J" ?>
+<!DOCTYPE struts-config PUBLIC
+  "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+  "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="formSample" type="sample.struts1.ActionFormSample"></form-bean>
+	</form-beans>
+
+	<action-mappings>
+		<action path="/sample" type="sample.struts1.ActionSample" name="formSample" scope="request">
+			<forward name="SampleView" path="/views/hello.jsp"></forward>
+		</action>
+	</action-mappings>
+</struts-config>

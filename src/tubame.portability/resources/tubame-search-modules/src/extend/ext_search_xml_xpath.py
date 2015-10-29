@@ -22,6 +22,8 @@ from lxml import html
 正常時は0を返却する
 """
 def paramCheck(pKey1,pKey2):
+    global unsupported_retry_counter
+    unsupported_retry_counter = 0
     #パラメータチェック
     if (len(pKey1) > 0):
         return 0
@@ -34,6 +36,25 @@ def getErrorFilePath():
     global g_targetFilePath
     return g_targetFilePath
 
+def checkUnsupportedEncoding(ex,UNSUPPORTED_ENCODING_STR='Unsupported encoding'):
+    if UNSUPPORTED_ENCODING_STR in ex.message:
+        token=ex.message.split(',')
+        if len(token) > 1:
+            unsuport_msg = token[0]
+            line_msg = token[1]
+            return dict(unsupportedEncoding=True, charset=unsuport_msg.split(UNSUPPORTED_ENCODING_STR)[1].strip(),lineNum=line_msg.split('line')[1].strip()) 
+    else:
+        return dict(unsupportedEncoding=False)
+    
+    
+def replaceUnsupportedCharset(checkedDict,body):
+    if str(checkedDict['charset']) == "Windows-31J" and int(checkedDict['lineNum']) == 1:
+        body= body.replace('Windows-31J','cp932',1)
+    return body
+    
+def isRetryForUnsupportedCharset(key):
+    return key != None and isinstance(key,dict)
+    
 """
 ・XMLファイルを検索キー1で指定されたXPATHで検索を行う。
 ・検索結果を以下の順で表示する。
@@ -58,6 +79,7 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
     # キー1をXPathで読める形に変形する
     xPath = pKey1
     global g_targetFilePath
+    global unsupported_retry_counter
     #検索対象ファイルリスト中の全ファイルを対象とする
     for fname in pList:
         try :
@@ -65,7 +87,12 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
             #tree = etree.parse(fname) # 返値はElementTree型
             #elem = tree.getroot() # ルート要素を取得(Element型)
             line = open(fname, 'rU').read()
+            
+            #pKey2がdictの場合、pythonがサポートしていない文字コード(Windows-31j)をcp932に置き換える
+            if isRetryForUnsupportedCharset(pKey2) == True:
+                line = replaceUnsupportedCharset(pKey2,line)
             elem = etree.fromstring(line)
+            
             if elem == None:
                 continue
             pathList = elem.xpath(xPath)
@@ -81,7 +108,25 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
             common_module.print_csv(pNo, pPriority, pFlag, fname, rsl_list, pChapterNo, pCheck_Status)
             
         except Exception ,ex:
-            raise ex
+            unsupported_retry_counter = unsupported_retry_counter + 1
+            checkedDict = checkUnsupportedEncoding(ex)
+
+            if checkedDict['unsupportedEncoding'] == True and unsupported_retry_counter == 1: 
+                pKey2 = checkedDict
+                try:
+                    ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir, pChapterNo, pCheck_Status)
+                    unsupported_retry_counter = 0
+                    pKey2 = None
+                except Exception ,ex:
+                    pKey2 = None
+                    raise ex
+            else:
+                raise ex
+                    
+                
+               
+                
+            
              
             
     #結果が存在しない場合は結果なしのCSVを出力
