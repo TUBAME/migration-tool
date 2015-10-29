@@ -76,7 +76,11 @@ class JbmstTestCase(unittest.TestCase):
     def getPluginReportTplPath(self):
         base = os.path.dirname(os.path.abspath(__file__))
         return os.path.normpath(os.path.join(base, "../../report/.report_tpl.json"))
-    
+
+    def getPluginReportTplDir(self):
+        base = os.path.dirname(os.path.abspath(__file__))
+        return os.path.normpath(os.path.join(base, "../../report"))
+
     def getInputCsvFolderDir(self,inputCsvdir):
         base = os.path.dirname(os.path.abspath(__file__))
         base2 = os.path.normpath(os.path.join(base, inputCsvdir))
@@ -260,7 +264,9 @@ class JbmstTestCase(unittest.TestCase):
         if os.path.exists(reportTypeJsonFile): 
             os.remove(reportTypeJsonFile)
 
-  
+        if not os.path.exists(self.getPluginReportTplDir()):
+            os.mkdir(self.getPluginReportTplDir())
+
         body = "{ \"template\" : \"mvc\" }"
         f = codecs.open(reportTypeJsonFile, "w", "utf-8")
         f.write(body)
@@ -281,6 +287,9 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(False, os.path.isfile(self.getReportPath()+"//TubameReport_en.html"), "関係ないレポートファイルが生成されている")
         
         os.remove(reportTypeJsonFile)
+
+        if os.path.isdir(self.getPluginReportTplDir()):
+             shutil.rmtree(self.getPluginReportTplDir())
         
     def testTubameFrameworkKnowhowReportJaNotIncludeModelFactor(self):
         body = "1,*.jbm,%s,,ext_report_generator.py,Unknown,," % self.getReportPath()
@@ -294,14 +303,16 @@ class JbmstTestCase(unittest.TestCase):
 
   
         body = "{ \"template\" : \"mvc\" }"
+
+        #reportディレクトリの有無
+        if not os.path.exists(self.getPluginReportTplDir()):
+            print 'mkdir ',self.getPluginReportTplDir()
+            os.mkdir(self.getPluginReportTplDir())
+
+
         f = codecs.open(reportTypeJsonFile, "w", "utf-8")
         f.write(body)
         f.close()
-        
-        #reportディレクトリの有無
-        if os.path.isdir(self.getReportPath()+"/report"):
-             shutil.rmtree(self.getReportPath()+"/report")
-        
         
         self.searchExecute()
         hitfile = "knowhow_result.jbm"
@@ -313,7 +324,13 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(False, os.path.isfile(self.getReportPath()+"//TubameReport_en.html"), "関係ないレポートファイルが生成されている")
         
         os.remove(reportTypeJsonFile)
-     
+        #reportディレクトリの有無
+        if os.path.isdir(self.getReportPath()+"/report"):
+             shutil.rmtree(self.getReportPath()+"/report")
+
+        if os.path.isdir(self.getPluginReportTplDir()):
+             shutil.rmtree(self.getPluginReportTplDir())
+
     def testTubameStrutsKnowhowReportJaToCustomOutputDir(self):
         
         body = "1,*.jbm,%s,,ext_report_generator.py,Unknown,," % self.getReportPath()
@@ -327,6 +344,12 @@ class JbmstTestCase(unittest.TestCase):
 
   
         body = "{ \"template\" : \"struts\" }"
+
+        #reportディレクトリの有無
+        if not os.path.exists(self.getPluginReportTplDir()):
+            print 'mkdir ',self.getPluginReportTplDir()
+            os.mkdir(self.getPluginReportTplDir())
+
         f = codecs.open(reportTypeJsonFile, "w", "utf-8")
         f.write(body)
         f.close()
@@ -346,24 +369,10 @@ class JbmstTestCase(unittest.TestCase):
          
 
         os.remove(reportTypeJsonFile)
-        
+        if os.path.isdir(self.getPluginReportTplDir()):
+             shutil.rmtree(self.getPluginReportTplDir())
 
-    def testTubameReportGeneratorInputNotCsvJbm(self):
-        print "testTubameReportGeneratorInputNotCsvJbm start"
-        body = "1,*.jbm,%s,,ext_report_generator.py,Unknown,," % self.getReportPath()
-        f = codecs.open(self.getBasePath()+"/input_csv/"+self._testMethodName+".csv", "w", "utf-8")
-        f.write(body)
-        f.close()
-        
-        #reportディレクトリの有無
-        if os.path.isdir(self.getReportPath()):
-             shutil.rmtree(self.getReportPath())
-             
-        self.searchExecute()
-        self.assertEqual(True, os.path.isdir(self.getReportPath()), "レポート出力ディレクトリが生成されていない")
-        self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameReport_ja.html"), "レポートファイルが生成されていない")
-        #self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameReport_en.html"), "レポートファイルが生成されていない")
-        
+
     def testTubameXpathSearchSearchParamEscape(self):
         try:
             self.searchExecute()
@@ -425,10 +434,26 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\exercise\\" + hitfile)
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertNotEqual(self.rslt_steps, None)
-        
+
+    def testTubameSqlSearchKey1CreateTable(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 38)
+
+    def testTubameSqlSearchKey1CreateTableKey2Varchar2(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 92)
+
+    def testTubameSqlSearchKey1AlterTableKey2AddConstraint(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 47)
+        self.assertEqual(int(self.rslt_steps[0]), 402)
+        self.assertEqual(int(self.rslt_steps[20]), 500)
+        self.assertEqual(int(self.rslt_steps[46]), 628)
+
+
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
-        tests = ['testKeyword1Windows31JXMLFileSearch']
+        tests = ['testTubameSqlSearchKey1CreateTable']
         unittest.TestSuite.__init__(self, map(JbmstTestCase, tests))
 
 if __name__ == '__main__':
