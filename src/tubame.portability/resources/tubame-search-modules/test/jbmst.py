@@ -441,7 +441,9 @@ class JbmstTestCase(unittest.TestCase):
     def testTubameXpathSearchUsedEntityXml(self):
         self.assertRaises(Exception,self.searchExecute())
         self.assertEqual(self.rslt_steps, None)
-        
+
+
+
     def testIgnoreXMLFileSearch(self):
         body = "search_target\\testIgnoreXMLFileSearch\\web.xml"
         f = codecs.open("../src/ignore.list", "w", "utf-8")
@@ -457,6 +459,8 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertNotEqual(self.rslt_steps, None)
+
+
         
     def testExtSearchXmlDefinedclass2(self):
         self.searchExecute()
@@ -464,6 +468,10 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\exercise\\" + hitfile)
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertNotEqual(self.rslt_steps, None)
+
+    def testExtSearchXmlDefinedclassFileNotFound(self):
+        self.searchExecute()
+        self.assertEqual(self.rslt_steps, None)
 
     def testTubameSqlSearchKey1CreateTable(self):
         self.searchExecute()
@@ -493,7 +501,3 @@ if __name__ == '__main__':
     #suite2 = JbmstTestSuite()
     alltests = unittest.TestSuite([suite1])
     unittest.TextTestRunner(verbosity=2).run(alltests)
-    
-         
-            
-                
