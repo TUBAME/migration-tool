@@ -21,6 +21,8 @@ package tubame.portability.plugin.editor;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.IDoubleClickListener;
@@ -147,15 +149,15 @@ public abstract class AbstractJbmEditorPart extends EditorPart implements
      */
     @Override
     public void doSave(IProgressMonitor monitor) {
-        // Get the path to the file you want to save
-        StringBuilder sb = new StringBuilder();
-        sb.append(EditorUtil.getWorkSpace(this));
-        sb.append(EditorUtil.getEditorOpenFileFullPath(this));
-        if (save(sb.toString(), getTreeViewer())) {
+    	IFile file = ((IFileEditorInput) this.getEditorInput()).getFile();
+    	// Get the path to the file you want to save
+    	String jbmFilePath = file.getLocation().toOSString();
+       
+        if (save(jbmFilePath, getTreeViewer())) {
             // The false flag editing
             setDirty(false);
             // Refresh
-            PluginUtil.refreshFile(sb.toString(), monitor);
+            PluginUtil.refreshFile(jbmFilePath, monitor);
         }
     }
 
