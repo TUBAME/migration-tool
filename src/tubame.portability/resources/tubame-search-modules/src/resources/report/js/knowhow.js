@@ -2,6 +2,7 @@ jQuery(document).ready(function() {
 		//
 	   try{
 			var fromApresult = $.fn.KnowhowDegreeOfDifficultySumCalclator_fromAp_getResult();
+			$("#fromAp_NotTrn").text(fromApresult.NOT_TRN);
 			$("#fromAp_High").text(fromApresult.High);
 			$("#fromAp_Middle").text(fromApresult.Middle);
 			$("#fromAp_Low2").text(fromApresult.Low2);
@@ -13,6 +14,7 @@ jQuery(document).ready(function() {
 							+ fromApresult.Unknown2);
 							
 			var fromApresult = $.fn.KnowhowDegreeOfDifficultyHitCountSumCalclator_fromAp_getResult();
+			$("#fromAp_NotTrn").append('('+fromApresult.NOT_TRN +')');
 			$("#fromAp_High").append('('+fromApresult.High +')');
 			$("#fromAp_Middle").append('('+fromApresult.Middle+')');
 			$("#fromAp_Low2").append('('+fromApresult.Low2+')');
@@ -26,6 +28,7 @@ jQuery(document).ready(function() {
 			$("#fromAp_Total").append('('+num+')');
 			//
 			var toApresult = $.fn.KnowhowDegreeOfDifficultySumCalclator_toAp_getResult();
+			$("#toAp_NotTrn").text(toApresult.NOT_TRN);
 			$("#toAp_High").text(toApresult.High);
 			$("#toAp_Middle").text(toApresult.Middle);
 			$("#toAp_Low2").text(toApresult.Low2);
@@ -39,6 +42,7 @@ jQuery(document).ready(function() {
 							+ toApresult.Unknown2);
 			
 			var toApresult = $.fn.KnowhowDegreeOfDifficultyHitCountSumCalclator_toAp_getResult();
+			$("#toAp_NotTrn").append('('+toApresult.NOT_TRN+')');
 			$("#toAp_High").append('('+toApresult.High+')');
 			$("#toAp_Middle").append('('+toApresult.Middle+')');
 			$("#toAp_Low2").append('('+toApresult.Low2+')');
@@ -100,7 +104,7 @@ jQuery(document).ready(function() {
 				stacked : true,
 				horizontal : horizontal,
 				barWidth : 0.6,
-				lineWidth : 1,
+				lineWidth : 0,
 				shadowSize : 0
 			},
 			grid : {
@@ -108,7 +112,7 @@ jQuery(document).ready(function() {
 				horizontalLines : !horizontal
 			},
 			xaxis : {
-				ticks : [ [ 0, "Todo your Edit (ex. WebLogic Version up)" ], [ 1, "Porting to JBossEAP" ] ]
+				ticks : [ [ 0, "Upgrading of the Application Server" ], [ 1, "Porting to Application Server" ] ]
 			},
 		});
 	}catch(e){

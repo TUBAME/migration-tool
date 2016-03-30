@@ -352,7 +352,7 @@ class KnowhowDegreeOfDifficultySumCalclator(Calclator):
         return results
     
     def createResultMap(self,calReuslt):
-        resultMap ={'High':0,'Middle':0,'Low1':0,'Low2':0,'Unknown1':0,'Unknown2':0}
+        resultMap ={'NOT_TRN':0,'High':0,'Middle':0,'Low1':0,'Low2':0,'Unknown1':0,'Unknown2':0}
         return Calclator.createBasedResultMap(self, resultMap, calReuslt)
         
                 
@@ -627,7 +627,7 @@ class KnowhowMigrationItemCalclator(Calclator):
                 map = {}
                 big = root.xpath("//description[@no='"+id +"']/big")[0].text
                 middle = root.xpath("//description[@no='"+id +"']/middle")[0].text
-                portabilityFactor = root.xpath("//description[@no='"+id +"']/portabilityFactor")[0].text
+                portabilityFactor = root.xpath("//description[@no='"+id +"']/portabilityFactor")[0].text    
                 degreeDetail = root.xpath("//description[@no='"+id +"']/degreeDetail")[0].text
                 visualConfirm = root.xpath("//description[@no='"+id +"']/visualConfirm")[0].text
                 map['id'] = id
@@ -724,13 +724,14 @@ class KnowhowDegreeOfDifficultyHitCountSumCalclator(KnowhowMigrationItemCalclato
         '''難易度別で集計する'''
         lang = getLang()
         if "ja" in lang:
-            resultMap = {u"低1":0,u"低2":0,u"中":0,u"高":0,u"不明1":0,u"不明2":0}
+            resultMap = {u"低1":0,u"低2":0,u"中":0,u"高":0,u"不明1":0,u"不明2":0,u"移植不可":0}
         else:
-            resultMap = {"Low1":0,"Low2":0,"Middle":0,"High":0,"Unknown1":0,"Unknown2":0}
-            
+            resultMap = {"Low1":0,"Low2":0,"Middle":0,"High":0,"Unknown1":0,"Unknown2":0,"NOT_TRN":0}
+
         for result in calReuslt:
             degree = getattr(result, "degreeDetail")
             factor = getattr(result, "portabilityFactor")
+
             if self.type == u'fromStrutsFw':
                 if factor ==u"MVCフレームワーク(Controller機能)" or factor =="MVCFramework(Controller)":
                     continue
@@ -741,10 +742,11 @@ class KnowhowDegreeOfDifficultyHitCountSumCalclator(KnowhowMigrationItemCalclato
                 if factor == "Weblogic specific" or factor == u"Weblogic 固有 " or factor == "AP server specific" or factor == u"AP サーバ固有":
                     continue
             if resultMap.has_key(degree):
+
                 resultMap[degree]= resultMap[degree] + getattr(result, "hitTotal")
         
         if "ja" in lang:
-            return {"Low1":resultMap[u'低1'],"Low2":resultMap[u'低2'],"Middle":resultMap[u'中'],"High":resultMap[u'高'],"Unknown1":resultMap[u'不明1'],"Unknown2":resultMap[u'不明2']}
+            return {"Low1":resultMap[u'低1'],"Low2":resultMap[u'低2'],"Middle":resultMap[u'中'],"High":resultMap[u'高'],"Unknown1":resultMap[u'不明1'],"Unknown2":resultMap[u'不明2'],"NOT_TRN":resultMap[u'移植不可']}
         return resultMap
 
 class ApServerKnowhowFactorHitCountSumCalclator(KnowhowMigrationItemCalclator):
@@ -1292,11 +1294,11 @@ def ext_search(pNo, pPriority, pFlag, pList, pGenTargetDir, pRules, pInputCsv, p
     
     lang = getLang()
     if "ja" in lang:
-        condtions1 = "High:f10=高;Middle:f10=中;Low1:f10=低1;Low2:f10=低2;Unknown1:f10=不明1;Unknown2:f10=不明2"
+        condtions1 = "NOT_TRN:f10=移植不可;High:f10=高;Middle:f10=中;Low1:f10=低1;Low2:f10=低2;Unknown1:f10=不明1;Unknown2:f10=不明2"
         condtions2 = "WeblogicSpecChange:f9=Weblogic 固有;ApServerDependsChange:f9=AP サーバ固有;ApServerDependsDepricatedChange:f9=AP サーバ仕様の変更;JavaEESpecChange:f9=JSP/Servlet 仕様の変更;JavaVersionUpgradeChange:f9=Java バージョンアップによる変更;APlibrary:f9=AP 使用ライブラリ;DBMSChange:f9=DBMS の変更"
         condtions3 = "mvcFrameworkM:f9=MVCフレームワーク(Model機能);mvcFrameworkC:f9=MVCフレームワーク(Controller機能);mvcFrameworkV:f9=MVCフレームワーク(View機能);mvcFrameworkSpecificNonBackwardCompati:f9=MVCフレームワーク独自機能(上位互換なし);mvcFrameworkSpecificBackwardCompati:f9=MVCフレームワーク独自機能(上位互換あり)"
     else:
-        condtions1 = "High:f10=High;Middle:f10=Middle;Low1:f10=Low1;Low2:f10=Low1;Unknown1:f10=Unknown1;Unknown2:f10=Unknown2"
+        condtions1 = "NOT_TRN:f10=NOT_TRN;High:f10=High;Middle:f10=Middle;Low1:f10=Low1;Low2:f10=Low1;Unknown1:f10=Unknown1;Unknown2:f10=Unknown2"
         condtions2 = "WeblogicSpecChange:f9=Weblogic specific;ApServerDependsChange:f9=AP server specific;ApServerDependsDepricatedChange:f9=AP server specification change;JavaEESpecChange:f9=JSP/servelet specification change;JavaVersionUpgradeChange:f9=Java version upgrade change;APlibrary:f9=AP library;DBMSChange:f9=DBMS change"
         condtions3 = "mvcFrameworkM:f9=MVCFramework(Model);mvcFrameworkC:f9=MVCFramework(Controller);mvcFrameworkV:f9=MVCFramework(View);mvcFrameworkSpecificNonBackwardCompati:f9=MVCFrameworkSpecific(BackwardCompati);mvcFrameworkSpecificBackwardCompati:f9=MVCFrameworkSpecific(NonBackwardCompati)"
 

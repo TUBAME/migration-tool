@@ -2,6 +2,7 @@ jQuery(document).ready(function() {
 		//
 	   try{
 			var fromApresult = $.fn.FrameworkKnowhowDegreeOfDifficultySumCalclator_fromFw_getResult();
+		    $("#fromFw_NotTrn").text(fromApresult.NOT_TRN);
 			$("#fromFw_High").text(fromApresult.High);
 			$("#fromFw_Middle").text(fromApresult.Middle);
 			$("#fromFw_Low2").text(fromApresult.Low2);
@@ -14,6 +15,7 @@ jQuery(document).ready(function() {
 							
 			//
 			var fromApresult = $.fn.KnowhowDegreeOfDifficultyHitCountSumCalclator_fromFw_getResult();
+			$("#fromFw_NotTrn").append('('+fromApresult.NOT_TRN +')');
 			$("#fromFw_High").append('('+fromApresult.High +')');
 			$("#fromFw_Middle").append('('+fromApresult.Middle+')');
 			$("#fromFw_Low2").append('('+fromApresult.Low2+')');
@@ -28,6 +30,7 @@ jQuery(document).ready(function() {
 			
 			
 			var toApresult = $.fn.FrameworkKnowhowDegreeOfDifficultySumCalclator_toFw_getResult();
+			$("#toFw_NotTrn").text(toApresult.NOT_TRN);
 			$("#toFw_High").text(toApresult.High);
 			$("#toFw_Middle").text(toApresult.Middle);
 			$("#toFw_Low2").text(toApresult.Low2);
@@ -40,6 +43,7 @@ jQuery(document).ready(function() {
 							+ toApresult.Unknown2);
 							
 			var toApresult = $.fn.KnowhowDegreeOfDifficultyHitCountSumCalclator_toFw_getResult();
+			$("#toFw_NotTrn").append('('+toApresult.NOT_TRN+')');
 			$("#toFw_High").append('('+toApresult.High+')');
 			$("#toFw_Middle").append('('+toApresult.Middle+')');
 			$("#toFw_Low2").append('('+toApresult.Low2+')');
@@ -106,7 +110,7 @@ jQuery(document).ready(function() {
 				stacked : true,
 				horizontal : horizontal,
 				barWidth : 0.65,
-				lineWidth : 1,
+				lineWidth : 0,
 				shadowSize : 0
 			},
 			grid : {
