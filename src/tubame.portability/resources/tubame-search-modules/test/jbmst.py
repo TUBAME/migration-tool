@@ -324,8 +324,8 @@ class JbmstTestCase(unittest.TestCase):
         
         os.remove(reportTypeJsonFile)
         #reportディレクトリの有無
-        if os.path.isdir(self.getReportPath()+"/report"):
-             shutil.rmtree(self.getReportPath()+"/report")
+        # if os.path.isdir(self.getReportPath()+"/report"):
+        #      shutil.rmtree(self.getReportPath()+"/report")
 
         if os.path.isdir(self.getPluginReportTplDir()):
              shutil.rmtree(self.getPluginReportTplDir())
@@ -442,7 +442,11 @@ class JbmstTestCase(unittest.TestCase):
         self.assertRaises(Exception,self.searchExecute())
         self.assertEqual(self.rslt_steps, None)
 
-
+    def testTubameXpathSearchBodyEmptyXml(self):
+        self.searchExecute()
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\weblogic.xml")
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(int(self.rslt_steps[0]), 1)
 
     def testIgnoreXMLFileSearch(self):
         body = "search_target\\testIgnoreXMLFileSearch\\web.xml"
