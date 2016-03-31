@@ -1,0 +1,1 @@
+1,*.xml,//*[local-name() = 'weblogic-web-app'],,ext_search_xml_xpath.py,Unknown,,

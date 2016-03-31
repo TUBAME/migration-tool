@@ -87,7 +87,8 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
             #tree = etree.parse(fname) # 返値はElementTree型
             #elem = tree.getroot() # ルート要素を取得(Element型)
             line = open(fname, 'rU').read()
-            
+            if line == None or line == "":
+                continue
             #pKey2がdictの場合、pythonがサポートしていない文字コード(Windows-31j)をcp932に置き換える
             if isRetryForUnsupportedCharset(pKey2) == True:
                 line = replaceUnsupportedCharset(pKey2,line)
