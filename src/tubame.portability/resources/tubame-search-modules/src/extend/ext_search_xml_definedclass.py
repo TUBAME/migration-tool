@@ -78,12 +78,16 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
         except Exception ,ex:
             raise ex
            
-    rslt_list=[]
-    for defined_class_fullname in defined_class_list:
-        packageName,className=common_module.getPackageAndClassName(defined_class_fullname)
-        findTarget =common_module.searchFileByPackageAndFileName(pTargetDir,packageName,className,[])
-        if findTarget !=None:
-            common_module.print_csv(pNo, pPriority, pFlag, findTarget, [1], pChapterNo, pCheck_Status)
+
+    if len(pList)!=0 and defined_class_list != None:
+        rslt_list=[]
+        for defined_class_fullname in defined_class_list:
+            packageName,className=common_module.getPackageAndClassName(defined_class_fullname)
+            findTarget =common_module.searchFileByPackageAndFileName(pTargetDir,packageName,className,[])
+            if findTarget !=None:
+                common_module.print_csv(pNo, pPriority, pFlag, findTarget, [1], pChapterNo, pCheck_Status)
+
+
     #結果が存在しない場合は結果なしのCSVを出力
     #if len(no_Results)==0 and len(pList)!=0:
     #    common_module.print_csv4(pNo, pPriority, pFlag,common_module.searchTarget , pChapterNo, pCheck_Status)

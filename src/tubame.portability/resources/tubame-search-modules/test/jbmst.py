@@ -306,7 +306,6 @@ class JbmstTestCase(unittest.TestCase):
 
         #reportディレクトリの有無
         if not os.path.exists(self.getPluginReportTplDir()):
-            print 'mkdir ',self.getPluginReportTplDir()
             os.mkdir(self.getPluginReportTplDir())
 
 
@@ -325,8 +324,8 @@ class JbmstTestCase(unittest.TestCase):
         
         os.remove(reportTypeJsonFile)
         #reportディレクトリの有無
-        if os.path.isdir(self.getReportPath()+"/report"):
-             shutil.rmtree(self.getReportPath()+"/report")
+        # if os.path.isdir(self.getReportPath()+"/report"):
+        #      shutil.rmtree(self.getReportPath()+"/report")
 
         if os.path.isdir(self.getPluginReportTplDir()):
              shutil.rmtree(self.getPluginReportTplDir())
@@ -347,7 +346,6 @@ class JbmstTestCase(unittest.TestCase):
 
         #reportディレクトリの有無
         if not os.path.exists(self.getPluginReportTplDir()):
-            print 'mkdir ',self.getPluginReportTplDir()
             os.mkdir(self.getPluginReportTplDir())
 
         f = codecs.open(reportTypeJsonFile, "w", "utf-8")
@@ -373,18 +371,50 @@ class JbmstTestCase(unittest.TestCase):
              shutil.rmtree(self.getPluginReportTplDir())
 
 
+    def testTubameKnowhowReportIncludeNotTran(self):
+        body = "1,*.jbm,%s,,ext_report_generator.py,Unknown,," % self.getReportPath()
+        f = codecs.open(self.getBasePath()+"/input_csv/"+self._testMethodName+".csv", "w", "utf-8")
+        f.write(body)
+        f.close()
+
+        reportTypeJsonFile= self.getPluginReportTplPath()
+        if os.path.exists(reportTypeJsonFile):
+            os.remove(reportTypeJsonFile)
+
+        if not os.path.exists(self.getPluginReportTplDir()):
+            os.mkdir(self.getPluginReportTplDir())
+
+        # body = "{ \"template\" : \"ap\" }"
+        # f = codecs.open(reportTypeJsonFile, "w", "utf-8")
+        # f.write(body)
+        # f.close()
+
+        #reportディレクトリの有無
+        if os.path.isdir(self.getReportPath()+"/report"):
+             shutil.rmtree(self.getReportPath()+"/report")
+
+
+        self.searchExecute()
+        hitfile = "result.jbm"
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(True, os.path.isdir(self.getReportPath()), "レポート出力ディレクトリが生成されていない")
+        self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameReport_ja.html"), "関係ないレポートファイルが生成されている")
+        self.assertEqual(True, os.path.isfile(self.getReportPath()+"//TubameReport_en.html"), "関係ないレポートファイルが生成されている")
+
+
+
+        if os.path.isdir(self.getPluginReportTplDir()):
+            shutil.rmtree(self.getPluginReportTplDir())
+
+
+
     def testTubameXpathSearchSearchParamEscape(self):
-        try:
-            self.searchExecute()
-        except Exceptin as e:
-            print 'occur error!!!!!'
-        hitfile = "hoge.xml"
-#         self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
-#         self.assertEqual(int(self.rslt_hit), 3)
-#         self.assertNotEqual(self.rslt_steps, None)
-#         self.assertEqual(int(self.rslt_steps[0]), 3)
-#         self.assertEqual(int(self.rslt_steps[1]), 4)
-#         self.assertEqual(int(self.rslt_steps[2]), 5)
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 3)
+        self.assertNotEqual(self.rslt_steps, None)
+        self.assertEqual(int(self.rslt_steps[0]), 3)
+        self.assertEqual(int(self.rslt_steps[1]), 4)
+        self.assertEqual(int(self.rslt_steps[2]), 5)
         
         
     def testTubameXpathSearchUsedSchemaFind(self):
@@ -396,7 +426,7 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_steps[0]), 3)
         
     def testTubameXpathSearchSearchInvalidParam(self):
-        self.searchExecute()
+        self.assertRaises(Exception,self.searchExecute())
         self.assertEqual(self.rslt_steps, None)
         
     def testTubameXpathSearchUsedSchemaNotFind(self):
@@ -409,9 +439,15 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(self.rslt_steps, None)
         
     def testTubameXpathSearchUsedEntityXml(self):
-		self.searchExecute()
-		self.assertEqual(self.rslt_steps, None)
-        
+        self.assertRaises(Exception,self.searchExecute())
+        self.assertEqual(self.rslt_steps, None)
+
+    def testTubameXpathSearchBodyEmptyXml(self):
+        self.searchExecute()
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\weblogic.xml")
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(int(self.rslt_steps[0]), 1)
+
     def testIgnoreXMLFileSearch(self):
         body = "search_target\\testIgnoreXMLFileSearch\\web.xml"
         f = codecs.open("../src/ignore.list", "w", "utf-8")
@@ -427,6 +463,8 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertNotEqual(self.rslt_steps, None)
+
+
         
     def testExtSearchXmlDefinedclass2(self):
         self.searchExecute()
@@ -434,6 +472,10 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\exercise\\" + hitfile)
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertNotEqual(self.rslt_steps, None)
+
+    def testExtSearchXmlDefinedclassFileNotFound(self):
+        self.searchExecute()
+        self.assertEqual(self.rslt_steps, None)
 
     def testTubameSqlSearchKey1CreateTable(self):
         self.searchExecute()
@@ -453,17 +495,13 @@ class JbmstTestCase(unittest.TestCase):
 
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
-        tests = ['testTubameSqlSearchKey1CreateTable']
+        tests = ['testTubameKnowhowReportIncludeNotTran']
         unittest.TestSuite.__init__(self, map(JbmstTestCase, tests))
 
 if __name__ == '__main__':
     #unittest.main()
-#     suite1 = unittest.TestLoader().loadTestsFromTestCase(JbmstTestCase)
-#     suite2 = unittest.makeSuite(JbmstTestCase)
-    suite1 = JbmstTestSuite()
+    suite1 = unittest.TestLoader().loadTestsFromTestCase(JbmstTestCase)
+    #suite2 = unittest.makeSuite(JbmstTestCase)
+    #suite2 = JbmstTestSuite()
     alltests = unittest.TestSuite([suite1])
     unittest.TextTestRunner(verbosity=2).run(alltests)
-    
-         
-            
-                
