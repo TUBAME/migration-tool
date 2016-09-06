@@ -16,8 +16,8 @@ class JbmstTestCase(unittest.TestCase):
 
         
     def setUp(self):
-        self.input = ".\\input_csv\\"
-        self.target = ".\\search_target\\"
+        self.input = "./input_csv/"
+        self.target = "./search_target/"
         self.rslt_number = None
         self.rslt_filepath = None
         self.rslt_hit = None
@@ -28,9 +28,9 @@ class JbmstTestCase(unittest.TestCase):
         print 'searchExecute'
         input = self.input + self._testMethodName + ".csv"
         target = self.target + self._testMethodName
-        cmd = "python ..\\src\\jbmst.py " + input + " " + target
+        cmd = "python ../src/jbmst.py " + input + " " + target
         
-        p = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+        p = subprocess.Popen(cmd, stdout=subprocess.PIPE,shell=True)
         result = p.stdout.read()
         print result
         if result != "":
@@ -38,7 +38,7 @@ class JbmstTestCase(unittest.TestCase):
             rsltList = result.split(',')
             if "," in result:
                 self.rslt_number = rsltList[0].strip()
-                self.rslt_filepath = rsltList[1].strip()
+                self.rslt_filepath = self.getNormpath(rsltList[1].strip())
                 self.rslt_hit = rsltList[2].strip()
                 steps = rsltList[3].strip()
                      
@@ -53,7 +53,7 @@ class JbmstTestCase(unittest.TestCase):
 
     def fileCompare(self,src_path,dest_path):
         base = os.path.dirname(os.path.abspath(__file__))
-        src_path = os.path.normpath(os.path.join(base, self.target + "\\"+self._testMethodName +"\\"+src_path))
+        src_path = os.path.normpath(os.path.join(base, self.target + "/"+self._testMethodName +"/"+src_path))
         dest_path = os.path.normpath(os.path.join(base, dest_path))
         src_f = codecs.open(src_path, "r", "utf-8")
         dest_f = codecs.open(dest_path, "r", "utf-8")
@@ -86,10 +86,14 @@ class JbmstTestCase(unittest.TestCase):
         base2 = os.path.normpath(os.path.join(base, inputCsvdir))
         return os.path.normpath(os.path.join(base2, ".."))
 
+    def getNormpath(self,target):
+        target = os.path.normpath(target)
+        return "./"+target.replace("\\",'/')
+
     def testStandardFileSearch(self):
         self.searchExecute()
         hitfile = "hoge.txt"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
         self.assertEqual(int(self.rslt_hit), 1)
         #self.assertEqual(self.rslt_steps, 1)
         self.assertNotEqual(self.rslt_steps, None)
@@ -98,14 +102,14 @@ class JbmstTestCase(unittest.TestCase):
     def testStandardFile1ExpressionSearch(self):
         self.searchExecute()
         hitfile = "config.xml"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertEqual(int(self.rslt_steps[0]), 1)
 
     def testStandardFile2ExpressionSearch(self):
         self.searchExecute()
         hitfile = "aaaconfig.xml"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 1)
@@ -114,7 +118,7 @@ class JbmstTestCase(unittest.TestCase):
     def testStandardFile3ExpressionSearch(self):
         self.searchExecute()
         hitfile = "web.xml"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 1)
@@ -123,7 +127,7 @@ class JbmstTestCase(unittest.TestCase):
         self.searchExecute()
         
         hitfile = "web.xml"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
         self.assertEqual(int(self.rslt_hit), 4)
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 12)
@@ -135,7 +139,7 @@ class JbmstTestCase(unittest.TestCase):
         self.searchExecute()
        
         hitfile = "struts-config.xml"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 6)
@@ -145,7 +149,7 @@ class JbmstTestCase(unittest.TestCase):
     def testKeyword2XMLFileSearch(self):
         self.searchExecute()
         hitfile = "web.xml"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 8)
@@ -153,7 +157,7 @@ class JbmstTestCase(unittest.TestCase):
     def testKeyword1JSPFileSearch(self):
         self.searchExecute()
         hitfile = "AlarmSearchControl.jsp"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
         self.assertEqual(int(self.rslt_hit), 2)
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 99)
@@ -162,7 +166,7 @@ class JbmstTestCase(unittest.TestCase):
     def testKeyword2JSPFileSearch(self):
         self.searchExecute()
         hitfile = "AlarmSearchControl.jsp"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
         self.assertEqual(int(self.rslt_hit), 8)
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 99)
@@ -177,7 +181,7 @@ class JbmstTestCase(unittest.TestCase):
     def testKeyword1JavaFileSearch(self):
         self.searchExecute()
         hitfile = "MedRecXMLProcessor.java"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 189)
@@ -185,7 +189,7 @@ class JbmstTestCase(unittest.TestCase):
     def testKeyword2JavaFileSearch(self):
         self.searchExecute()
         hitfile = "MedRecXMLProcessor.java"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
         self.assertEqual(int(self.rslt_hit), 2)
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 114)
@@ -194,7 +198,7 @@ class JbmstTestCase(unittest.TestCase):
     def testKeywordRegularExpressionJavaFileSearch(self):
         self.searchExecute()
         hitfile = "Hoge.java"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 2)
@@ -202,7 +206,7 @@ class JbmstTestCase(unittest.TestCase):
     def testKeywordRegularExpressionJSPFileSearch(self):
         self.searchExecute()
         hitfile = "Meta.jsp"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 1)
@@ -210,7 +214,7 @@ class JbmstTestCase(unittest.TestCase):
     def testKeywordRegularExpressionXMLFileSearch(self):
         self.searchExecute()
         hitfile = "web.xml"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
         self.assertEqual(int(self.rslt_hit), 2)
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 32)
@@ -420,7 +424,7 @@ class JbmstTestCase(unittest.TestCase):
     def testTubameXpathSearchUsedSchemaFind(self):
         self.searchExecute()
         hitfile = "weblogic.xml"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 3)
@@ -444,12 +448,12 @@ class JbmstTestCase(unittest.TestCase):
 
     def testTubameXpathSearchBodyEmptyXml(self):
         self.searchExecute()
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\weblogic.xml")
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/weblogic.xml")
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertEqual(int(self.rslt_steps[0]), 1)
 
     def testIgnoreXMLFileSearch(self):
-        body = "search_target\\testIgnoreXMLFileSearch\\web.xml"
+        body = "search_target/testIgnoreXMLFileSearch/web.xml"
         f = codecs.open("../src/ignore.list", "w", "utf-8")
         f.write(body)
         f.close()
@@ -460,7 +464,7 @@ class JbmstTestCase(unittest.TestCase):
     def testExtSearchXmlDefinedclass(self):
         self.searchExecute()
         hitfile = "UploadAction.java"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\" + hitfile)
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertNotEqual(self.rslt_steps, None)
 
@@ -469,7 +473,7 @@ class JbmstTestCase(unittest.TestCase):
     def testExtSearchXmlDefinedclass2(self):
         self.searchExecute()
         hitfile = "ImageAction.java"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"\\exercise\\" + hitfile)
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/exercise/" + hitfile)
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertNotEqual(self.rslt_steps, None)
 
