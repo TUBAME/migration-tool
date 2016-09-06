@@ -46,7 +46,7 @@ def extra_datas(mydir):
 def gen_jbmst_zip():
     import os
     import zipfile
-    search_modules_src_folder = os.path.dirname(os.path.abspath(__file__))
+    search_modules_src_folder = os.path.dirname(os.path.abspath('__file__'))
     search_modules_src_dist_folder = os.path.normpath(os.path.join(search_modules_src_folder, "./dist"))
     search_modules_bin_folder = os.path.normpath(os.path.join(search_modules_src_folder, "../bin"))
     if not os.path.exists(search_modules_bin_folder):
@@ -71,7 +71,7 @@ def gen_jbmst_zip():
 		zip.write(filepath, name)
 	zip.close()
 
-search_modules_src_folder = os.path.dirname(os.path.abspath(__file__))
+search_modules_src_folder = os.path.dirname(os.path.abspath('__file__'))
 a = Analysis(['jbmst.py'],
              pathex=[search_modules_src_folder],
              hiddenimports=[],
