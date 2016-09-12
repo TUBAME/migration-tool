@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>tubame.integration.test</artifactId>
+	<parent>
+		<groupId>tubame</groupId>
+		<version>1.1.0-SNAPSHOT</version>
+		<artifactId>tubame-parent</artifactId>
+	</parent>
+	<packaging>eclipse-test-plugin</packaging>
+
+	<repositories>
+		<repository>
+			<id>swtbot.repo</id>
+			<layout>p2</layout>
+			<url>${swtbot.url}</url>
+		</repository>
+	</repositories>
+
+	<properties>
+		<swtbot.url>http://download.eclipse.org/technology/swtbot/releases/2.3.0/</swtbot.url>
+	</properties>
+
+	<!-- swtbotより、テストする際に利用するプロジェクトをtargetフォルダにコピーする -->
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+							<encoding>UTF-8</encoding>
+							<resources>
+								<resource>
+									<directory>${basedir}/resources</directory>
+									<include>**/*</include>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

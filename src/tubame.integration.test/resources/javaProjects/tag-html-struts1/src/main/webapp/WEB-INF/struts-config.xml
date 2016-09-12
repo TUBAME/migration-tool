@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+
+  <form-beans>
+    <form-bean name="HelloWorldForm" type="struts1tospringmvc.tag.html.struts1.action.form.HelloWorldForm" />
+    <form-bean name="ButtonForm" type="struts1tospringmvc.tag.html.struts1.action.form.ButtonForm" />
+    <form-bean name="CheckboxForm" type="struts1tospringmvc.tag.html.struts1.action.form.CheckboxForm"/>
+    <form-bean name="HiddenForm" type="struts1tospringmvc.tag.html.struts1.action.form.HiddenForm" />
+    <form-bean name="HiddenIndexedForm" type="struts1tospringmvc.tag.html.struts1.action.form.HiddenIndexedForm"/>
+    <form-bean name="MessagesForm" type="struts1tospringmvc.tag.html.struts1.action.form.MessagesForm"/>
+    <form-bean name="MultiboxForm" type="struts1tospringmvc.tag.html.struts1.action.form.MultiboxForm"/>
+    <form-bean name="RadioForm" type="struts1tospringmvc.tag.html.struts1.action.form.RadioForm"/>
+    <form-bean name="RadioIndexedForm" type="struts1tospringmvc.tag.html.struts1.action.form.RadioIndexedForm"/>
+    <form-bean name="SelectForm" type="struts1tospringmvc.tag.html.struts1.action.form.SelectForm"/>
+    <form-bean name="TextForm" type="struts1tospringmvc.tag.html.struts1.action.form.TextForm"/>
+    <form-bean name="TextIndexedForm" type="struts1tospringmvc.tag.html.struts1.action.form.TextIndexedForm"/>
+    <form-bean name="TextAreaForm" type="struts1tospringmvc.tag.html.struts1.action.form.TextAreaForm"/>
+  </form-beans>
+
+  <action-mappings>
+    <action path="/Hello" type="struts1tospringmvc.tag.html.struts1.action.HelloAction">
+      <forward name="hello" path="/WEB-INF/view/hello.jsp" />
+    </action>
+    <action name="HelloWorldForm" type="struts1tospringmvc.tag.html.struts1.action.HelloWorldAction" path="/HelloWorld" scope="request" >
+      <forward name="hello-world" path="/WEB-INF/view/hello-world.jsp" />
+    </action>
+
+    <!-- html:button -->
+    <action path="/button" type="org.apache.struts.actions.ForwardAction" name="ButtonForm" parameter="/WEB-INF/view/button.jsp"/>
+    <action path="/button-result" type="org.apache.struts.actions.ForwardAction" name="ButtonForm"/>
+
+    <!-- html:checkbox -->
+    <action path="/checkbox" type="org.apache.struts.actions.ForwardAction" name="CheckboxForm" parameter="/WEB-INF/view/checkbox.jsp"/>
+    <action path="/checkbox-result" type="org.apache.struts.actions.ForwardAction" name="CheckboxForm" parameter="/WEB-INF/view/checkbox-result.jsp"/>
+
+    <!-- html:form -->
+    <action path="/form" type="org.apache.struts.actions.ForwardAction" parameter="/WEB-INF/view/form.jsp"/>
+    <action  path="/form-result" type="struts1tospringmvc.tag.html.struts1.action.FormAction" name="HelloWorldForm">
+      <forward name="form-result" path="/WEB-INF/view/form-result.jsp" />
+    </action>
+
+    <!-- html:hidden -->
+    <action path="/hidden" type="struts1tospringmvc.tag.html.struts1.action.HiddenAction" name="HiddenForm">
+      <forward name="hidden" path="/WEB-INF/view/hidden.jsp"/>
+    </action>
+    <action path="/hidden-result" type="org.apache.struts.actions.ForwardAction" name="HiddenForm" parameter="/WEB-INF/view/hidden-result.jsp"/>
+
+    <!-- html:hidden indexed -->
+    <action path="/hidden-indexed" type="struts1tospringmvc.tag.html.struts1.action.HiddenIndexedAction" name="HiddenIndexedForm">
+      <forward name="hidden-indexed" path="/WEB-INF/view/hidden-indexed.jsp"/>
+    </action>
+    <action path="/hidden-indexed-result" type="org.apache.struts.actions.ForwardAction" name="HiddenIndexedForm" parameter="/WEB-INF/view/hidden-indexed-result.jsp"/>
+
+    <!-- html:html -->
+    <action path="/html" type="org.apache.struts.actions.ForwardAction" parameter="/WEB-INF/view/html.jsp"/>
+    <action path="/html-locale" type="org.apache.struts.actions.ForwardAction" parameter="/WEB-INF/view/html-locale.jsp"/>
+
+    <!-- html:messages -->
+    <action path="/messages" type="org.apache.struts.actions.ForwardAction" parameter="/WEB-INF/view/messages.jsp"/>
+    <action path="/messages-result" type="struts1tospringmvc.tag.html.struts1.action.MessagesResultAction" name="MessagesForm">
+      <forward name="messages-result" path="/WEB-INF/view/messages-result.jsp"/>
+    </action>
+
+    <!-- html:multibox -->
+    <action path="/multibox" type="struts1tospringmvc.tag.html.struts1.action.MultiboxAction" name="MultiboxForm">
+      <forward name="multibox" path="/WEB-INF/view/multibox.jsp"/>
+    </action>
+    <action path="/multibox-result" type="struts1tospringmvc.tag.html.struts1.action.MultiBoxResultAction" name="MultiboxForm">
+      <forward name="multibox-result" path="/WEB-INF/view/multibox-result.jsp"/>
+    </action>
+
+    <!-- html:radio -->
+    <action path="/radio" type="struts1tospringmvc.tag.html.struts1.action.RadioAction">
+      <forward name="radio" path="/WEB-INF/view/radio.jsp"/>
+    </action>
+    <action path="/radio-result" type="org.apache.struts.actions.ForwardAction" name="RadioForm" parameter="/WEB-INF/view/radio-result.jsp"/>
+
+    <!-- html:radio indexed -->
+    <action path="/radio-indexed" type="struts1tospringmvc.tag.html.struts1.action.RadioIndexedAction" name="RadioIndexedForm">
+      <forward name="radio-indexed" path="/WEB-INF/view/radio-indexed.jsp"/>
+    </action>
+    <action path="/radio-indexed-result" type="org.apache.struts.actions.ForwardAction" name="RadioIndexedForm" parameter="/WEB-INF/view/radio-indexed-result.jsp"/>
+
+    <!-- html:rewrite -->
+    <action path="/rewrite" type="org.apache.struts.actions.ForwardAction" parameter="/WEB-INF/view/rewrite.jsp"/>
+    <action path="/rewrite-another-action" type="org.apache.struts.actions.ForwardAction" parameter="/WEB-INF/view/rewrite-another-action.jsp"/>
+
+    <!-- html:select -->
+    <action path="/select" type="struts1tospringmvc.tag.html.struts1.action.SelectAction" name="SelectForm">
+      <forward name="select" path="/WEB-INF/view/select.jsp"/>
+    </action>
+    <action path="/select-result1" type="org.apache.struts.actions.ForwardAction" name="SelectForm" parameter="/WEB-INF/view/select-result1.jsp"/>
+    <action path="/select-result2" type="org.apache.struts.actions.ForwardAction" name="SelectForm" parameter="/WEB-INF/view/select-result2.jsp"/>
+
+    <!-- html:text -->
+    <action path="/text" type="struts1tospringmvc.tag.html.struts1.action.TextAction" name="TextForm">
+      <forward name="text" path="/WEB-INF/view/text.jsp"/>
+    </action>
+    <action path="/text-result" type="struts1tospringmvc.tag.html.struts1.action.TextResultAction" name="TextForm">
+      <forward name="text-result" path="/WEB-INF/view/text-result.jsp"/>
+    </action>
+
+    <!-- html:text indexed -->
+    <action path="/text-indexed" type="struts1tospringmvc.tag.html.struts1.action.TextIndexedAction" name="TextIndexedForm">
+      <forward name="text-indexed" path="/WEB-INF/view/text-indexed.jsp"/>
+    </action>
+    <action path="/text-indexed-result" type="org.apache.struts.actions.ForwardAction" name="TextIndexedForm" parameter="/WEB-INF/view/text-indexed-result.jsp"/>
+
+    <!-- html:textarea -->
+    <action path="/textarea" type="org.apache.struts.actions.ForwardAction" name="TextAreaForm" parameter="/WEB-INF/view/textarea.jsp"/>
+    <action path="/textarea-result" type="org.apache.struts.actions.ForwardAction" name="TextAreaForm" parameter="/WEB-INF/view/textarea-result.jsp"/>
+
+  </action-mappings>
+
+  <message-resources parameter="ApplicationResource" />
+
+</struts-config>

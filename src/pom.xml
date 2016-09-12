@@ -12,8 +12,12 @@
 		<module>tubame.knowhow</module>
 		<module>tubame.portability</module>
 		<module>tubame.wsearch</module>
+		<!--
+		<module>tubame.integration.test</module>
+		-->
 		<module>tubame.feature</module>
 		<module>tubame.updatesite</module>
+		
 	</modules>
 
 	<properties>
@@ -77,15 +81,29 @@
 				</configuration>
 			</plugin>
 
+            <!-- for tubame.integration.test -->
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
 					<argLine>-Xmx512M</argLine>
+					<!-- 以下を追加すると、eclipse.jdtなどいろいろとダウンロードされる。
+					この定義がないと、tubame.integration.test(eclipse-test-plugin)での実行基盤となるEclipseにjdtがなくて、javaプロジェクトを作成できないため、追加した -->
+					<product>org.eclipse.sdk.ide</product>
+					<application>org.eclipse.ui.ide.workbench</application>
+					<dependencies>
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>org.eclipse.sdk.ide</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+					</dependencies>
 					<includes>
-						<include>**/test/*Test.java</include>
+						<include>**/TubameIT*.java</include>
 					</includes>
+					<useUIHarness>true</useUIHarness>
+                    <useUIThread>false</useUIThread>
 				</configuration>
 			</plugin>
 
@@ -109,5 +127,33 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		</build>
+	</build>
+	
+	<!-- for tubame.integration.test -->
+
+	<profiles>
+		<profile>
+			<id>osx</id>
+			<activation>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.eclipse.tycho</groupId>
+							<artifactId>tycho-surefire-plugin</artifactId>
+							<version>${tycho-version}</version>
+							<configuration>
+								<argLine>-XstartOnFirstThread -Xmx512M</argLine>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+	</profiles>
+	
 </project>
