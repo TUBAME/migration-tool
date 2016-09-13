@@ -52,6 +52,7 @@ public class TubameITSearchTest {
 	@Test
 	public void tubameDependenceSearch() throws Exception {
 		SwtBotUtil.selectProject(bot, TEST_PROJECT);
+		
 		selectMenu("tubame", "依存性検索");
 		execDependenceSearch();
 		// TODO: このスリープがないとテストに失敗する...
@@ -169,7 +170,10 @@ public class TubameITSearchTest {
 	
 	private void execKnowledgeSearch() {
 		SWTBot wizard = bot.activeShell().bot();
-		wizard.button("Finish").click();
+                SwtBotUtil.clickButtonAndWaitForWindowChange(wizard, wizard.button("Finish"));
+
+		//wizard.button("Finish").click();
+		//bot.button("Finish").click();
 		SWTBot bot2 = bot.shell("検索").bot();
 		bot2.button("OK").click();
 	}
@@ -194,8 +198,10 @@ public class TubameITSearchTest {
 		SWTBot wizardBot = shell.bot();
 
 		wizardBot.comboBox().setText(importJavaTargetDir.getAbsolutePath());
-		wizardBot.button("Browse...").click();
-		wizardBot.button("Finish").click();
+		wizardBot.button("Select All").click();
+                   
+		bot.activeShell().setFocus();
+		bot.button("Finish").click();
 	}
 
 	private File getImportJavaTargetDir(String testProject) {
