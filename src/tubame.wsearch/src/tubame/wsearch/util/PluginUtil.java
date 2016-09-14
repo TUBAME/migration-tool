@@ -21,6 +21,8 @@ package tubame.wsearch.util;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import tubame.common.util.CmnFileUtil;
 import tubame.common.util.CmnStringUtil;
@@ -130,6 +132,33 @@ public class PluginUtil {
 		}
 		return null;
 
+	}
+	
+	public static String getProjectPath(String targetFullPath) {
+		List<String> target = new ArrayList<>();
+		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+		for (IProject project : projects) {
+			String projectPath = project.getLocation().toOSString();
+			if(targetFullPath.startsWith(projectPath)){
+				target.add(projectPath);
+			}
+		}
+		return getMostLengthPath(target);
+
+	}
+
+	private static String getMostLengthPath(List<String> target) {
+		String mostNestPath = null;
+		for (String path : target) {
+			if (mostNestPath == null){
+				mostNestPath = path;
+			}else{
+				if (mostNestPath.length()< path.length()){
+					mostNestPath = path;
+				}
+			}
+		}
+		return mostNestPath;
 	}
 
 	/**

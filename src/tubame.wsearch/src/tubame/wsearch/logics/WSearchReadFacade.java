@@ -33,13 +33,14 @@ public class WSearchReadFacade {
      * 
      * @param filePath
      *            Read the target file path
+     * @param projectPath 
      * @return Row information to be displayed in the view
      * @throws WSearchPluginException
      *             File read failure
      */
-    public List<WSearchEditorMigrationRow> readNewJbm(String filePath)
+    public List<WSearchEditorMigrationRow> readNewJbm(String filePath, String projectPath)
             throws WSearchPluginException {
-        return this.createNewJbmReaderFactory().read(filePath);
+        return this.createNewJbmReaderFactory().read(filePath,projectPath);
     }
 
     /**
