@@ -28,14 +28,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import org.apache.maven.model.Plugin;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.IWorkbenchWindow;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -67,11 +62,11 @@ public class WSearchCsvReader implements WSearchReader {
      * {@inheritDoc}
      */
     @Override
-    public List<WSearchEditorMigrationRow> read(String filePath)
+    public List<WSearchEditorMigrationRow> read(String filePath,String projectPath)
             throws WSearchPluginException {
         // Read the file
         List<String> rowList = createListForFile(filePath);
-        return convert(rowList);
+        return convert(rowList,projectPath);
     }
 
     /**
@@ -146,11 +141,12 @@ public class WSearchCsvReader implements WSearchReader {
      * 
      * @param rowData
      *            Line data
+     * @param projectPath 
      * @return {@link WSearchEditorMigrationRow} list
      * @throws WSearchPluginException
      *             Format abnormal
      */
-    private List<WSearchEditorMigrationRow> convert(List<String> rowData)
+    private List<WSearchEditorMigrationRow> convert(List<String> rowData, String projectPath)
             throws WSearchPluginException {
         List<List<String>> rows = CSVUtil.parseCsv(rowData);
 
@@ -198,13 +194,6 @@ public class WSearchCsvReader implements WSearchReader {
             List<WSearchEditorMigrationRow> rowList = new ArrayList<WSearchEditorMigrationRow>(
                     rows.size());
 
-//            IWorkbenchWindow activeWorkbenchWindow = Activator.getActiveWorkbenchWindow();
-//            if(activeWorkbenchWindow!=null){
-//            	IWorkbenchPage activePage = activeWorkbenchWindow.getActivePage();
-//            	ISelection selection2 = activePage.getSelection();
-//            	ISelection selection = activeWorkbenchWindow.getSelectionService().getSelection();
-//            	System.out.println(selection2);
-//            }
 
             for (List<String> tokenList : rows) {
                 // Set a value to each variable from the row data
@@ -236,11 +225,9 @@ public class WSearchCsvReader implements WSearchReader {
                         tokenList.get(WSearchCsvEnum.TOKEN_INDEX_FILES
                                 .getIndex()));
                 
-                String targetFullPath = path.toOSString();
-                IProject findIProjectByPath = PluginUtil.findIProjectByPath(targetFullPath);
-                item.setFiles(targetFullPath.substring(findIProjectByPath.getLocation().toOSString().length()+File.separator.length()));
-                item.setTargetFullPath(targetFullPath);
-//                item.setFiles(targetFullPath);
+                String relativePath = path.toOSString();
+                item.setFiles(relativePath);
+                item.setTargetFullPath(projectPath+File.separator+relativePath);
                 
 
                 // Line
@@ -311,6 +298,7 @@ public class WSearchCsvReader implements WSearchReader {
             return rowList;
 
         } catch (Exception e) {
+        	e.printStackTrace();
             throw new WSearchPluginException(e);
         }
     }

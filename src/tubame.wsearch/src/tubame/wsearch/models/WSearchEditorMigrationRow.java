@@ -725,7 +725,7 @@ public class WSearchEditorMigrationRow implements MigrationEditorRow {
 //        sb.append("\"");
 //        sb.append(CmnStringUtil.CSV_DELIMITER);
         sb.append("\"");
-        sb.append(getTargetFullPath());
+        sb.append(getFiles());
         sb.append("\"");
         sb.append(CmnStringUtil.CSV_DELIMITER);
         sb.append("\"");

@@ -42,7 +42,6 @@ public class WSearchResultViewLauncher implements IEditorLauncher {
     @Override
     public void open(IPath file) {
         String filePath = file.toOSString();
-        System.out.println(filePath);
         IWorkspace ws = ResourcesPlugin.getWorkspace();
         filePath = file.makeRelativeTo(ws.getRoot().getLocation()).toString();
         for (IViewReference ref : PluginUtil.getActivePage()

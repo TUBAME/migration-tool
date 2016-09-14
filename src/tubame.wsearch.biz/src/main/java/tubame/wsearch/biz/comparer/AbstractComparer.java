@@ -47,6 +47,8 @@ import tubame.wsearch.biz.util.resource.ResourceUtil;
  */
 public abstract class AbstractComparer {
 
+	public static Integer PROJECT_DIRPATH_LENGTH;
+	
     /**
      * Result output stream
      */
@@ -180,6 +182,7 @@ public abstract class AbstractComparer {
             return;
         }
 
+        filePath = getRelativePathFromProject(filePath);
         synchronized (out) {
             StringBuilder str = new StringBuilder("\"").append(STATUS.WARN
                     .getValue());
@@ -254,6 +257,7 @@ public abstract class AbstractComparer {
             return;
         }
 
+        filePath = getRelativePathFromProject(filePath);
         synchronized (out) {
             StringBuilder str = new StringBuilder("\"").append(
                     status.getValue()).append("\",\"");
@@ -317,4 +321,9 @@ public abstract class AbstractComparer {
                             .getResourceString("default.csv.character.code")));
         }
     }
+
+	private String getRelativePathFromProject(String fullPath) {
+		int length = fullPath.length();
+		return fullPath.substring(PROJECT_DIRPATH_LENGTH,length);
+	}
 }

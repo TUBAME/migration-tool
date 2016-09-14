@@ -44,10 +44,12 @@ import tubame.common.util.CmnStringUtil;
 import tubame.wsearch.Activator;
 import tubame.wsearch.biz.cache.CacheBase.TYPE;
 import tubame.wsearch.biz.cache.WSearchAnalyzerCacheArgument;
+import tubame.wsearch.biz.comparer.AbstractComparer;
 import tubame.wsearch.biz.ex.WSearchBizException;
 import tubame.wsearch.biz.model.SearchFilter;
 import tubame.wsearch.cache.AnalyzerCacheLoaderDelegate;
 import tubame.wsearch.logics.WSearchBizDomain;
+import tubame.wsearch.logics.WSearchCsvReader;
 import tubame.wsearch.ui.dialog.ErrorDialog;
 import tubame.wsearch.util.PluginUtil;
 import tubame.wsearch.util.resource.ResourceUtil;
@@ -200,6 +202,7 @@ public class ConfirmationGenericSearchWizard extends Wizard implements
         }
         IProject selectedProject = PluginUtil.getSelectedProject();
         
+     
         String selectionDir = selectedProject.getName();
         String stateDir = Activator.getDefault().getStateLocation()
                 .toOSString();
@@ -213,13 +216,11 @@ public class ConfirmationGenericSearchWizard extends Wizard implements
             // Interrupt the process.
             return false;
         }
-//        String outputDirPath = selectedProject.getLocation()
-//                .removeLastSegments(1).toString()
-//                + CmnStringUtil.SLASH
-//                + confirmationGenericSearchPage.getOutputPlace().getText();
-        
         String outputDirPath = PluginUtil.getRealOutputDirPath(selectedProject,confirmationGenericSearchPage.getOutputPlace().getText());
-
+        setProjectDirPathLength(outputDirPath,confirmationGenericSearchPage.getOutputPlace().getText(),selectedProject.getName());
+        
+        
+        
         if (this.bizDomain.createAnalyzeAndCompareJobs(this.resource,
                 srcSearchFilters, outputDirPath)) {
             try {
@@ -242,7 +243,12 @@ public class ConfirmationGenericSearchWizard extends Wizard implements
         return true;
     }
 
-    /**
+    private void setProjectDirPathLength(String outputDirFullPath, String relativeDirPathUsingWizard,String projectName) {
+    	int projectParentDirLength = outputDirFullPath.length() - relativeDirPathUsingWizard.length();
+    	AbstractComparer.PROJECT_DIRPATH_LENGTH = projectParentDirLength+ projectName.length()+1;    	
+	}
+
+	/**
      * {@inheritDoc}
      */
     @Override

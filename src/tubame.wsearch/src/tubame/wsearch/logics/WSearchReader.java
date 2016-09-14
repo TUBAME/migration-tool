@@ -34,10 +34,11 @@ public interface WSearchReader {
      * 
      * @param filePath
      *            Target file path
+     * @param projectPath 
      * @return Read data object
      * @throws WSearchPluginException
      *             Exception information
      */
-    public List<WSearchEditorMigrationRow> read(String filePath)
+    public List<WSearchEditorMigrationRow> read(String filePath, String projectPath)
             throws WSearchPluginException;
 }
