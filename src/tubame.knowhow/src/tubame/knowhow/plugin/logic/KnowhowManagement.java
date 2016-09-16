@@ -431,7 +431,6 @@ public final class KnowhowManagement {
 
         // create Section
         Section section = new Section();
-        section.getTitlesAndTitleabbrevsAndSubtitles().add(title);
         Para para = new Para();
         para.getContent().add(ResourceUtil.temprateDocBookStr);
         section.getItemizedlistsAndOrderedlistsAndProcedures().add(para);
