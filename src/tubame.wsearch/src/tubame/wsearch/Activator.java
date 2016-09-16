@@ -1259,6 +1259,8 @@ public class Activator extends AbstractUIPlugin {
         xmlsubPackages.add(new WSPackage("xml/xml",
                 "^http://docbook\\.org/ns/docbook", true));
         xmlsubPackages.add(new WSPackage("xml/xml",
+                "^http://maven\\.apache\\.org/.*", true));
+        xmlsubPackages.add(new WSPackage("xml/xml",
                 "^http://generated\\.model\\.biz\\.knowhow\\.tubame/.*", true));
         addSrcSearchFilter(searchFilters, "xml/xml", xmlsubTargets,
                 xmlsubPackages, true, false);
