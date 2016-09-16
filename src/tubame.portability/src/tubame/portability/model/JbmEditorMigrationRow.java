@@ -18,10 +18,8 @@
  */
 package tubame.portability.model;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
@@ -754,9 +752,9 @@ public class JbmEditorMigrationRow implements MigrationEditorRow {
         case INDEX_NO:
             // No
             if (JbmEditorMigrationRow.LEVEL_FIRST == getLevel()) {
-//                text = getNo();
+                String orgNo = getNo();
             	Integer no = PythonUtil.PY_SEARCH_PROGRESS_STATUS_MAP.get(getNo());
-                text = Integer.toString(no);
+                text = Integer.toString(no)+"("+orgNo+")";
             }
             break;
         case HIT_NUM:

@@ -89,7 +89,7 @@ jQuery(document).ready(function() {
 			var migrationItems = $.fn.KnowhowMigrationItemCalclator_getResult();
 			for (var i = 0; i < migrationItems.length; i ++) {
 				  var migrationItem = migrationItems[i];
-				  $("#migrationItemList").append("<tr><td>"+migrationItem.major+"</td><td>"+migrationItem.minor+"</td><td>"+migrationItem.degreeDetail+"</td><td>"+migrationItem.portabilityFactor+"</td><td>"+migrationItem.guideRef+"</td><td>"+migrationItem.hitCount + "</td><td>"+migrationItem.lineBasic + "</td><td>"+migrationItem.stepCount + "</td><td>"+migrationItem.manualCheckStatus +"</td></tr>");
+				  $("#migrationItemList").append("<tr><td>"+migrationItem.major+"</td><td>"+migrationItem.minor+"</td><td>"+migrationItem.degreeDetail+"</td><td>"+migrationItem.portabilityFactor+"</td><td>"+migrationItem.guideRef+"</td><td>"+migrationItem.hitCount + "</td><td>"+migrationItem.lineBasic + "</td><td>"+migrationItem.stepCount + "</td><td>"+migrationItem.manualCheckStatus +"</td><td>"+migrationItem.id +"</td></tr>");
 			}
 	   }catch(e){
 		   
