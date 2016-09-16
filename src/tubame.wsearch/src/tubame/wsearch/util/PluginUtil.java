@@ -135,7 +135,7 @@ public class PluginUtil {
 	}
 	
 	public static String getProjectPath(String targetFullPath) {
-		List<String> target = new ArrayList<>();
+		List<String> target = new ArrayList();
 		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
 		for (IProject project : projects) {
 			String projectPath = project.getLocation().toOSString();
