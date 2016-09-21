@@ -1,6 +1,6 @@
 # -*- mode: python -*-
 
-"""The described how to distribute the TUBAME Search Modules For Windows.
+"""The described how to distribute the TUBAME Search Modules For Windows, Linux ,Mac.
  * Requirements
   * pyinstaller
   * lxml
@@ -10,19 +10,36 @@
    * cd migration-tool/src/tubame.portability/resources/tubame-search-modules/src
    
   * 2.execute pyinstaller
+   
    * pyinstaller jbmst.spec
-  
+   
+   ***linux only problem***
+   http://stackoverflow.com/questions/35477674/pyinstaller-attributeerror-module-object-has-no-attribute-rsa
+   
+   please fix the jbmst.py for pyinstaller ,becase 'import *' can not be recognized by pyinstaller, 
+   
+   ---
+   #from migration import *
+   from migration import jbmst_common,jbmst_search_default,jbmst_search_java,jbmst_search_jsp,jbmst_search_xml
+
+   #from extend import *
+   from extend import ext_search_xml_xpath,ext_report_generator,ext_search_xml_definedclass,ext_search_sql_parser
+   ---
+   
   * 3.compress a directory
     * manual compress
-     * compresses jbmst directory, and please locate it in the following folders.
+     * compresses dist/jbmst directory, and please locate it in the following folders.
       * win
-       * migration-tool/src/tubame.portability/resources/tubame-search-modules/bin/jbmst_win.zip
+       * migration-tool/src/tubame.portability/resources/tubame-search-modules/jbmst_win.zip
       * mac
-       * migration-tool/src/tubame.portability/resources/tubame-search-modules/bin/jbmst_mac.zip
+       * migration-tool/src/tubame.portability/resources/tubame-search-modules/jbmst_mac.zip
+      * linux
+       * migration-tool/src/tubame.portability/resources/tubame-search-modules/jbmst_linux.zip
        
   * 4. clean 
-    * delete migration-tool/src/tubame.portability/resources/tubame-search-modules/dist
-    * delete migration-tool/src/tubame.portability/resources/tubame-search-modules/build
+    * delete dir
+      * migration-tool/src/tubame.portability/resources/tubame-search-modules/dist
+      * migration-tool/src/tubame.portability/resources/tubame-search-modules/build
      
 """
 
