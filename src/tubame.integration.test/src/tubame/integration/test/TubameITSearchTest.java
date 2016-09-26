@@ -38,13 +38,13 @@ public class TubameITSearchTest {
 	private SWTWorkbenchBot bot;
 
 	private static final String OS_NAME = System.getProperty("os.name").toLowerCase();
-	
-	
+
 	@Before
 	public void before() {
 		bot = new SWTWorkbenchBot();
-		if(!SwtBotUtil.doesProjectExist(bot,TEST_PROJECT)){
+		if (!SwtBotUtil.doesProjectExist(bot, TEST_PROJECT)) {
 			copyClassPathAndProject();
+			copySettins();
 			importProject();
 		}
 	}
@@ -52,7 +52,7 @@ public class TubameITSearchTest {
 	@Test
 	public void tubameDependenceSearch() throws Exception {
 		SwtBotUtil.selectProject(bot, TEST_PROJECT);
-		
+
 		selectMenu("tubame", "依存性検索");
 		execDependenceSearch();
 		// TODO: このスリープがないとテストに失敗する...
@@ -60,28 +60,29 @@ public class TubameITSearchTest {
 
 		File outputJbmFile = getOutputFile("gjbm");
 		assertTrue(outputJbmFile.exists());
-		//TODO: 依存性検索結果のファイルに、ファイルパスがフルパスで出力されているので、相対パスにする必要がある。
-		//File expectedJbmFile = getExpectedFile("gjbm");
-		//assertEquals(readFileToString(expectedJbmFile, "UTF-8"), readFileToString(outputJbmFile, "UTF-8"));
+		// TODO: 依存性検索結果のファイルに、ファイルパスがフルパスで出力されているので、相対パスにする必要がある。
+		// File expectedJbmFile = getExpectedFile("gjbm");
+		// assertEquals(readFileToString(expectedJbmFile, "UTF-8"),
+		// readFileToString(outputJbmFile, "UTF-8"));
 	}
-	
+
 	@Test
 	public void tubameKnowledgeSearch() throws Exception {
 		SwtBotUtil.selectProject(bot, TEST_PROJECT);
 		selectMenu("tubame", "ナレッジベース検索");
 		execKnowledgeSearch();
-		
+
 		File outputJbmFile = getOutputFile("jbm");
 		assertTrue(outputJbmFile.exists());
 		File expectedJbmFile = null;
-		if(isWindowsPlatform()){
+		if (isWindowsPlatform()) {
 			expectedJbmFile = getExpectedFileFromknowledgeDir("jbm_win");
-		}else{
+		} else {
 			expectedJbmFile = getExpectedFileFromknowledgeDir("jbm_linux_mac");
 		}
 		assertEquals(readFileToString(expectedJbmFile, "UTF-8"), readFileToString(outputJbmFile, "UTF-8"));
 	}
-	
+
 	@Test
 	public void tubameReportGenerate() throws Exception {
 		SwtBotUtil.selectProject(bot, TEST_PROJECT);
@@ -89,35 +90,48 @@ public class TubameITSearchTest {
 		execReportGenerate();
 		confirmOK();
 		noShowReport();
-		
+
 		File dependenceResultFile = getOutputDependenceResultFileFromReportDir();
 		assertTrue(dependenceResultFile.exists());
 		File knowledgeResultFile = getOutputKnowledgeResultFileFromReportDir();
 		assertTrue(knowledgeResultFile.exists());
-		
-		File expectedDependenceResultFile = getExpectedDependenceResultFileFromReportDir();
-		assertEquals(readFileToString(expectedDependenceResultFile, "UTF-8"), readFileToString(dependenceResultFile, "UTF-8"));
-		File expectedKnowledgeResultFile = getExpectedKnowledgeResultFileFromReportDir();
-		assertEquals(readFileToString(expectedKnowledgeResultFile, "UTF-8"), readFileToString(knowledgeResultFile, "UTF-8"));
-	}
 
+		File expectedDependenceResultFile = getExpectedDependenceResultFileFromReportDir();
+		assertEquals(readFileToString(expectedDependenceResultFile, "UTF-8"),
+				readFileToString(dependenceResultFile, "UTF-8"));
+		File expectedKnowledgeResultFile = getExpectedKnowledgeResultFileFromReportDir();
+		assertEquals(readFileToString(expectedKnowledgeResultFile, "UTF-8"),
+				readFileToString(knowledgeResultFile, "UTF-8"));
+	}
 
 	private void copyClassPathAndProject() {
 		File parent1 = getImportJavaTargetDir(TEST_PROJECT);
-		File classPathfrom = new File(parent1,"_classpath");
-		File classPathDest = new File(parent1,".classpath");
-		copyFile(classPathfrom.getAbsolutePath(),classPathDest.getAbsolutePath());
-		File projectfrom = new File(parent1,"_project");
-		File projectDest = new File(parent1,".project");
-		copyFile(projectfrom.getAbsolutePath(),projectDest.getAbsolutePath());
+		File classPathfrom = new File(parent1, "_classpath");
+		File classPathDest = new File(parent1, ".classpath");
+		copyFile(classPathfrom.getAbsolutePath(), classPathDest.getAbsolutePath());
+		File projectfrom = new File(parent1, "_project");
+		File projectDest = new File(parent1, ".project");
+		copyFile(projectfrom.getAbsolutePath(), projectDest.getAbsolutePath());
 	}
 
-	
+	private void copySettins() {
+		File parent1 = getImportJavaTargetDir(TEST_PROJECT);
+		File settings = new File(parent1, "_settings");
+		File settingsDirFrom = new File(settings, "org.eclipse.jdt.core.prefs");
+		File settingsDirDest = new File(parent1, ".settings");
+		if (!settingsDirDest.exists()) {
+			settingsDirDest.mkdir();
+			File jdtPrefs = new File(settingsDirDest, "org.eclipse.jdt.core.prefs");
+			copyFile(settingsDirFrom.getAbsolutePath(), jdtPrefs.getAbsolutePath());
+		}
+
+	}
+
 	private void confirmOK() {
 		bot.button("OK").click();
 	}
-	
-	private void noShowReport(){
+
+	private void noShowReport() {
 		bot.button("No").click();
 	}
 
@@ -135,47 +149,58 @@ public class TubameITSearchTest {
 
 	private File getOutputFile(String ext) {
 		File importJavaTargetDir = getImportJavaTargetDir(TEST_PROJECT);
-		return new File(importJavaTargetDir, "result."+ext);
+		return new File(importJavaTargetDir, "result." + ext);
 	}
 
 	private File getExpectedFileFromknowledgeDir(String ext) {
 		File importJavaTargetDir = getImportJavaTargetDir(TEST_PROJECT);
-		File parent = new File(importJavaTargetDir.getAbsolutePath()+"/testCompareData/knowledge");
-		return new File(parent, "_result."+ext);
+		File parent = new File(importJavaTargetDir.getAbsolutePath() + "/testCompareData/knowledge");
+		return new File(parent, "_result." + ext);
 	}
-	
+
 	private File getOutputDependenceResultFileFromReportDir() {
 		File importJavaTargetDir = getImportJavaTargetDir(TEST_PROJECT);
-		File parent = new File(importJavaTargetDir.getAbsolutePath()+"/tubame-report/js/DependsPackagePicGrapthSumCalclator");
-		return new File(parent,"getresult.js");
+		File parent = new File(
+				importJavaTargetDir.getAbsolutePath() + "/tubame-report/js/DependsPackagePicGrapthSumCalclator");
+		return new File(parent, "getresult.js");
 	}
-	
+
 	private File getOutputKnowledgeResultFileFromReportDir() {
 		File importJavaTargetDir = getImportJavaTargetDir(TEST_PROJECT);
-		File parent = new File(importJavaTargetDir.getAbsolutePath()+"/tubame-report/js/KnowhowDegreeOfDifficultyHitCountSumCalclator_toFw");
-		return new File(parent,"getresult.js");
+		File parent = new File(importJavaTargetDir.getAbsolutePath()
+				+ "/tubame-report/js/KnowhowDegreeOfDifficultyHitCountSumCalclator_toFw");
+		return new File(parent, "getresult.js");
 	}
-	
+
 	private File getExpectedDependenceResultFileFromReportDir() {
 		File importJavaTargetDir = getImportJavaTargetDir(TEST_PROJECT);
-		File parent = new File(importJavaTargetDir.getAbsolutePath()+"/testCompareData/report/DependsPackagePicGrapthSumCalclator");
-		return new File(parent,"getresult.js");
+		File parent = new File(
+				importJavaTargetDir.getAbsolutePath() + "/testCompareData/report/DependsPackagePicGrapthSumCalclator");
+		return new File(parent, "getresult.js");
 	}
 
 	private File getExpectedKnowledgeResultFileFromReportDir() {
 		File importJavaTargetDir = getImportJavaTargetDir(TEST_PROJECT);
-		File parent = new File(importJavaTargetDir.getAbsolutePath()+"/testCompareData/report/KnowhowDegreeOfDifficultyHitCountSumCalclator_toFw");
-		return new File(parent,"getresult.js");
+		File parent = new File(importJavaTargetDir.getAbsolutePath()
+				+ "/testCompareData/report/KnowhowDegreeOfDifficultyHitCountSumCalclator_toFw");
+		return new File(parent, "getresult.js");
 	}
-	
+
 	private void execKnowledgeSearch() {
 		SWTBot wizard = bot.activeShell().bot();
-                SwtBotUtil.clickButtonAndWaitForWindowChange(wizard, wizard.button("Finish"));
+		SwtBotUtil.clickButtonAndWaitForWindowChange(wizard, wizard.button("Finish"));
+		
+		if(!isMac()){
+			bot.activeShell().bot();
+			// only mac env,fail in the next operation
+			SWTBot bot2 = bot.shell("検索").bot();
+			bot.button("OK").click();
+		}
 
-		//wizard.button("Finish").click();
-		//bot.button("Finish").click();
-		SWTBot bot2 = bot.shell("検索").bot();
-		bot2.button("OK").click();
+	}
+
+	private boolean isMac() {
+		return System.getProperty("os.name").toLowerCase().equals("mac");
 	}
 
 	private void selectMenu(String... menu) {
@@ -199,7 +224,7 @@ public class TubameITSearchTest {
 
 		wizardBot.comboBox().setText(importJavaTargetDir.getAbsolutePath());
 		wizardBot.button("Select All").click();
-                   
+
 		bot.activeShell().setFocus();
 		bot.button("Finish").click();
 	}
@@ -251,20 +276,19 @@ public class TubameITSearchTest {
 		} catch (Exception e) {
 			throw e;
 		} finally {
-			if(br != null){
+			if (br != null) {
 				br.close();
 			}
-			if(fileReader!=null){
+			if (fileReader != null) {
 				fileReader.close();
 			}
 		}
-		 if(stringBuffer.length()==0){
-		 new IllegalStateException(file.getAbsolutePath()+" size 0");
-		 }
+		if (stringBuffer.length() == 0) {
+			new IllegalStateException(file.getAbsolutePath() + " size 0");
+		}
 		return stringBuffer.toString();
 	}
-	
-	
+
 	public static boolean isLinuxPlatform() {
 		return OS_NAME.startsWith("linux");
 	}
@@ -276,33 +300,33 @@ public class TubameITSearchTest {
 	public static boolean isWindowsPlatform() {
 		return OS_NAME.startsWith("windows");
 	}
-	
+
 	public static boolean copyFile(String fromPath, String toPath) {
-        FileChannel fromChannel = null;
-        FileChannel toChannel = null;
-        try {
-            fromChannel = new FileInputStream(fromPath).getChannel();
-            toChannel = new FileOutputStream(toPath).getChannel();
-            fromChannel.transferTo(0, fromChannel.size(), toChannel);
-        } catch (IOException e) {
-            return false;
-        } finally {
-            if (fromChannel != null) {
-                try {
-                    fromChannel.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (toChannel != null) {
-                try {
-                    toChannel.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return true;
-    }
-	  
+		FileChannel fromChannel = null;
+		FileChannel toChannel = null;
+		try {
+			fromChannel = new FileInputStream(fromPath).getChannel();
+			toChannel = new FileOutputStream(toPath).getChannel();
+			fromChannel.transferTo(0, fromChannel.size(), toChannel);
+		} catch (IOException e) {
+			return false;
+		} finally {
+			if (fromChannel != null) {
+				try {
+					fromChannel.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			if (toChannel != null) {
+				try {
+					toChannel.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return true;
+	}
+
 }
