@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Test
 Bundle-SymbolicName: tubame.integration.test
-Bundle-Version: 1.1.1
+Bundle-Version: 1.1.1.qualifier
 Bundle-Activator: tubame.integration.test.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
