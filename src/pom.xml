@@ -12,9 +12,9 @@
 		<module>tubame.knowhow</module>
 		<module>tubame.portability</module>
 		<module>tubame.wsearch</module>
-		
+		<!--
 		<module>tubame.integration.test</module>
-		
+		-->
 		<module>tubame.feature</module>
 		<module>tubame.updatesite</module>
 		
