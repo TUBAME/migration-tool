@@ -1,182 +1,182 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1431053015589
-Build-Jdk: 1.7.0_40
+Bnd-LastModified: 1475459984519
+Build-Jdk: 1.8.0_92
 Built-By: kwatanabe
 Bundle-ManifestVersion: 2
 Bundle-Name: tubame-knowhow-biz
 Bundle-SymbolicName: tubame.knowhow-biz
-Bundle-Version: 1.1.0.SNAPSHOT
+Bundle-Version: 1.1.1.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
 Embed-Dependency: *;scope=compile|runtime;inline=true;artifactId=!slf4j-
  api
 Embed-Directory: lib
 Embed-Transitive: true
-Export-Package: java_cup.runtime;version="1.1.0.SNAPSHOT",javax.xml;vers
- ion="1.1.0.SNAPSHOT",javax.xml.datatype;uses:="javax.xml.namespace";ver
- sion="1.1.0.SNAPSHOT",javax.xml.namespace;version="1.1.0.SNAPSHOT",java
+Export-Package: java_cup.runtime;version="1.1.1.SNAPSHOT",javax.xml;vers
+ ion="1.1.1.SNAPSHOT",javax.xml.datatype;uses:="javax.xml.namespace";ver
+ sion="1.1.1.SNAPSHOT",javax.xml.namespace;version="1.1.1.SNAPSHOT",java
  x.xml.parsers;uses:="javax.xml.validation,org.w3c.dom,org.xml.sax,org.x
- ml.sax.helpers";version="1.1.0.SNAPSHOT",javax.xml.transform;version="1
- .1.0.SNAPSHOT",javax.xml.transform.dom;uses:="javax.xml.transform,org.w
- 3c.dom";version="1.1.0.SNAPSHOT",javax.xml.transform.sax;uses:="javax.x
- ml.transform,org.xml.sax,org.xml.sax.ext";version="1.1.0.SNAPSHOT",java
- x.xml.transform.stream;uses:="javax.xml.transform";version="1.1.0.SNAPS
+ ml.sax.helpers";version="1.1.1.SNAPSHOT",javax.xml.transform;version="1
+ .1.1.SNAPSHOT",javax.xml.transform.dom;uses:="javax.xml.transform,org.w
+ 3c.dom";version="1.1.1.SNAPSHOT",javax.xml.transform.sax;uses:="javax.x
+ ml.transform,org.xml.sax,org.xml.sax.ext";version="1.1.1.SNAPSHOT",java
+ x.xml.transform.stream;uses:="javax.xml.transform";version="1.1.1.SNAPS
  HOT",javax.xml.validation;uses:="javax.xml.transform,org.w3c.dom,org.w3
- c.dom.ls,org.xml.sax";version="1.1.0.SNAPSHOT",javax.xml.xpath;uses:="j
- avax.xml.namespace,org.xml.sax";version="1.1.0.SNAPSHOT",license;versio
- n="1.1.0.SNAPSHOT",org.apache.bcel;uses:="org.apache.bcel.classfile,org
- .apache.bcel.util";version="1.1.0.SNAPSHOT",org.apache.bcel.classfile;u
- ses:="org.apache.bcel,org.apache.bcel.util";version="1.1.0.SNAPSHOT",or
+ c.dom.ls,org.xml.sax";version="1.1.1.SNAPSHOT",javax.xml.xpath;uses:="j
+ avax.xml.namespace,org.xml.sax";version="1.1.1.SNAPSHOT",license;versio
+ n="1.1.1.SNAPSHOT",org.apache.bcel;uses:="org.apache.bcel.classfile,org
+ .apache.bcel.util";version="1.1.1.SNAPSHOT",org.apache.bcel.classfile;u
+ ses:="org.apache.bcel,org.apache.bcel.util";version="1.1.1.SNAPSHOT",or
  g.apache.bcel.generic;uses:="org.apache.bcel.classfile,org.apache.bcel.
- util";version="1.1.0.SNAPSHOT",org.apache.bcel.util;uses:="org.apache.b
- cel,org.apache.bcel.classfile,org.apache.bcel.generic";version="1.1.0.S
+ util";version="1.1.1.SNAPSHOT",org.apache.bcel.util;uses:="org.apache.b
+ cel,org.apache.bcel.classfile,org.apache.bcel.generic";version="1.1.1.S
  NAPSHOT",org.apache.bcel.verifier;uses:="javax.swing,javax.swing.event"
- ;version="1.1.0.SNAPSHOT",org.apache.bcel.verifier.exc;version="1.1.0.S
+ ;version="1.1.1.SNAPSHOT",org.apache.bcel.verifier.exc;version="1.1.1.S
  NAPSHOT",org.apache.bcel.verifier.statics;uses:="org.apache.bcel,org.ap
  ache.bcel.classfile,org.apache.bcel.generic,org.apache.bcel.verifier,or
- g.apache.bcel.verifier.exc";version="1.1.0.SNAPSHOT",org.apache.bcel.ve
+ g.apache.bcel.verifier.exc";version="1.1.1.SNAPSHOT",org.apache.bcel.ve
  rifier.structurals;uses:="org.apache.bcel,org.apache.bcel.generic,org.a
- pache.bcel.verifier";version="1.1.0.SNAPSHOT",org.apache.regexp;version
- ="1.1.0.SNAPSHOT",org.apache.xalan;version="1.1.0.SNAPSHOT",org.apache.
- xalan.client;version="1.1.0.SNAPSHOT",org.apache.xalan.extensions;uses:
+ pache.bcel.verifier";version="1.1.1.SNAPSHOT",org.apache.regexp;version
+ ="1.1.1.SNAPSHOT",org.apache.xalan;version="1.1.1.SNAPSHOT",org.apache.
+ xalan.client;version="1.1.1.SNAPSHOT",org.apache.xalan.extensions;uses:
  ="javax.xml.namespace,javax.xml.transform,javax.xml.xpath,org.apache.xa
  lan.templates,org.apache.xalan.transformer,org.apache.xml.utils,org.apa
  che.xpath,org.apache.xpath.functions,org.apache.xpath.objects,org.w3c.d
- om,org.w3c.dom.traversal";version="1.1.0.SNAPSHOT",org.apache.xalan.lib
+ om,org.w3c.dom.traversal";version="1.1.1.SNAPSHOT",org.apache.xalan.lib
  ;uses:="javax.xml.transform,org.apache.xalan.extensions,org.apache.xala
  n.templates,org.apache.xalan.transformer,org.apache.xml.serializer,org.
  apache.xpath,org.apache.xpath.objects,org.w3c.dom,org.xml.sax";version=
- "1.1.0.SNAPSHOT",org.apache.xalan.lib.sql;uses:="javax.naming,javax.xml
+ "1.1.1.SNAPSHOT",org.apache.xalan.lib.sql;uses:="javax.naming,javax.xml
  .transform,org.apache.xalan.extensions,org.apache.xml.dtm,org.apache.xm
  l.dtm.ref,org.apache.xml.utils,org.apache.xpath.objects,org.w3c.dom,org
- .xml.sax,org.xml.sax.ext";version="1.1.0.SNAPSHOT",org.apache.xalan.pro
+ .xml.sax,org.xml.sax.ext";version="1.1.1.SNAPSHOT",org.apache.xalan.pro
  cessor;uses:="javax.xml.transform,javax.xml.transform.sax,org.apache.xa
  lan.templates,org.apache.xml.utils,org.apache.xpath,org.w3c.dom,org.xml
- .sax,org.xml.sax.helpers";version="1.1.0.SNAPSHOT",org.apache.xalan.res
- ;uses:="org.apache.xpath.res";version="1.1.0.SNAPSHOT",org.apache.xalan
+ .sax,org.xml.sax.helpers";version="1.1.1.SNAPSHOT",org.apache.xalan.res
+ ;uses:="org.apache.xpath.res";version="1.1.1.SNAPSHOT",org.apache.xalan
  .serialize;uses:="javax.xml.transform,org.apache.xml.dtm,org.apache.xml
  .serializer,org.apache.xpath,org.apache.xpath.objects,org.xml.sax";vers
- ion="1.1.0.SNAPSHOT",org.apache.xalan.templates;uses:="javax.xml.transf
+ ion="1.1.1.SNAPSHOT",org.apache.xalan.templates;uses:="javax.xml.transf
  orm,org.apache.xalan.extensions,org.apache.xalan.processor,org.apache.x
  alan.transformer,org.apache.xml.dtm,org.apache.xml.serializer,org.apach
  e.xml.utils,org.apache.xml.utils.res,org.apache.xpath,org.apache.xpath.
  axes,org.apache.xpath.compiler,org.apache.xpath.functions,org.apache.xp
  ath.objects,org.apache.xpath.operations,org.w3c.dom,org.xml.sax.helpers
- ";version="1.1.0.SNAPSHOT",org.apache.xalan.trace;uses:="javax.xml.tran
+ ";version="1.1.1.SNAPSHOT",org.apache.xalan.trace;uses:="javax.xml.tran
  sform,org.apache.xalan.templates,org.apache.xalan.transformer,org.apach
  e.xml.utils,org.apache.xpath,org.apache.xpath.objects,org.w3c.dom,org.x
- ml.sax";version="1.1.0.SNAPSHOT",org.apache.xalan.transformer;uses:="ja
+ ml.sax";version="1.1.1.SNAPSHOT",org.apache.xalan.transformer;uses:="ja
  vax.xml.transform,javax.xml.transform.sax,org.apache.xalan.extensions,o
  rg.apache.xalan.templates,org.apache.xalan.trace,org.apache.xml.dtm,org
  .apache.xml.dtm.ref,org.apache.xml.serializer,org.apache.xml.utils,org.
  apache.xpath,org.apache.xpath.axes,org.apache.xpath.functions,org.apach
  e.xpath.objects,org.w3c.dom,org.w3c.dom.traversal,org.xml.sax,org.xml.s
- ax.ext,org.xml.sax.helpers";version="1.1.0.SNAPSHOT",org.apache.xalan.x
- slt;uses:="org.w3c.dom";version="1.1.0.SNAPSHOT",org.apache.xalan.xsltc
+ ax.ext,org.xml.sax.helpers";version="1.1.1.SNAPSHOT",org.apache.xalan.x
+ slt;uses:="org.w3c.dom";version="1.1.1.SNAPSHOT",org.apache.xalan.xsltc
  ;uses:="org.apache.xalan.xsltc.runtime,org.apache.xml.dtm,org.apache.xm
- l.serializer,org.w3c.dom,org.xml.sax";version="1.1.0.SNAPSHOT",org.apac
- he.xalan.xsltc.cmdline;version="1.1.0.SNAPSHOT",org.apache.xalan.xsltc.
- cmdline.getopt;version="1.1.0.SNAPSHOT",org.apache.xalan.xsltc.compiler
+ l.serializer,org.w3c.dom,org.xml.sax";version="1.1.1.SNAPSHOT",org.apac
+ he.xalan.xsltc.cmdline;version="1.1.1.SNAPSHOT",org.apache.xalan.xsltc.
+ cmdline.getopt;version="1.1.1.SNAPSHOT",org.apache.xalan.xsltc.compiler
  ;uses:="java_cup.runtime,org.apache.bcel.classfile,org.apache.bcel.gene
  ric,org.apache.xalan.xsltc.compiler.util,org.apache.xalan.xsltc.runtime
- ,org.xml.sax";version="1.1.0.SNAPSHOT",org.apache.xalan.xsltc.compiler.
+ ,org.xml.sax";version="1.1.1.SNAPSHOT",org.apache.xalan.xsltc.compiler.
  util;uses:="org.apache.bcel.classfile,org.apache.bcel.generic,org.apach
- e.xalan.xsltc.compiler";version="1.1.0.SNAPSHOT",org.apache.xalan.xsltc
+ e.xalan.xsltc.compiler";version="1.1.1.SNAPSHOT",org.apache.xalan.xsltc
  .dom;uses:="javax.xml.transform,org.apache.xalan.xsltc,org.apache.xalan
  .xsltc.runtime,org.apache.xalan.xsltc.util,org.apache.xml.dtm,org.apach
  e.xml.dtm.ref,org.apache.xml.dtm.ref.sax2dtm,org.apache.xml.serializer,
  org.apache.xml.utils,org.w3c.dom,org.xml.sax,org.xml.sax.ext";version="
- 1.1.0.SNAPSHOT",org.apache.xalan.xsltc.runtime;uses:="javax.xml.parsers
+ 1.1.1.SNAPSHOT",org.apache.xalan.xsltc.runtime;uses:="javax.xml.parsers
  ,javax.xml.transform,org.apache.xalan.xsltc,org.apache.xalan.xsltc.dom,
  org.apache.xml.dtm,org.apache.xml.serializer,org.w3c.dom,org.xml.sax";v
- ersion="1.1.0.SNAPSHOT",org.apache.xalan.xsltc.runtime.output;uses:="ja
+ ersion="1.1.1.SNAPSHOT",org.apache.xalan.xsltc.runtime.output;uses:="ja
  vax.xml.parsers,org.apache.xml.serializer,org.w3c.dom,org.xml.sax,org.x
- ml.sax.ext";version="1.1.0.SNAPSHOT",org.apache.xalan.xsltc.trax;uses:=
+ ml.sax.ext";version="1.1.1.SNAPSHOT",org.apache.xalan.xsltc.trax;uses:=
  "javax.xml.parsers,javax.xml.transform,javax.xml.transform.sax,org.apac
  he.xalan.xsltc,org.apache.xalan.xsltc.compiler,org.apache.xalan.xsltc.d
  om,org.apache.xalan.xsltc.runtime,org.apache.xalan.xsltc.runtime.output
  ,org.apache.xml.serializer,org.w3c.dom,org.xml.sax,org.xml.sax.ext,org.
- xml.sax.helpers";version="1.1.0.SNAPSHOT",org.apache.xalan.xsltc.util;v
- ersion="1.1.0.SNAPSHOT",org.apache.xml.dtm;uses:="javax.xml.transform,o
+ xml.sax.helpers";version="1.1.1.SNAPSHOT",org.apache.xalan.xsltc.util;v
+ ersion="1.1.1.SNAPSHOT",org.apache.xml.dtm;uses:="javax.xml.transform,o
  rg.apache.xml.utils,org.w3c.dom,org.xml.sax,org.xml.sax.ext";version="1
- .1.0.SNAPSHOT",org.apache.xml.dtm.ref;uses:="javax.xml.transform,org.ap
+ .1.1.SNAPSHOT",org.apache.xml.dtm.ref;uses:="javax.xml.transform,org.ap
  ache.xerces.parsers,org.apache.xml.dtm,org.apache.xml.utils,org.w3c.dom
  ,org.w3c.dom.traversal,org.xml.sax,org.xml.sax.ext,org.xml.sax.helpers"
- ;version="1.1.0.SNAPSHOT",org.apache.xml.dtm.ref.dom2dtm;uses:="javax.x
+ ;version="1.1.1.SNAPSHOT",org.apache.xml.dtm.ref.dom2dtm;uses:="javax.x
  ml.transform,javax.xml.transform.dom,org.apache.xml.dtm,org.apache.xml.
  dtm.ref,org.apache.xml.utils,org.w3c.dom,org.xml.sax,org.xml.sax.ext";v
- ersion="1.1.0.SNAPSHOT",org.apache.xml.dtm.ref.sax2dtm;uses:="javax.xml
+ ersion="1.1.1.SNAPSHOT",org.apache.xml.dtm.ref.sax2dtm;uses:="javax.xml
  .transform,org.apache.xml.dtm,org.apache.xml.dtm.ref,org.apache.xml.ser
  ializer,org.apache.xml.utils,org.xml.sax,org.xml.sax.ext";version="1.1.
- 0.SNAPSHOT",org.apache.xml.res;version="1.1.0.SNAPSHOT",org.apache.xml.
+ 1.SNAPSHOT",org.apache.xml.res;version="1.1.1.SNAPSHOT",org.apache.xml.
  serializer;uses:="javax.xml.transform,org.apache.xml.serializer.utils,o
  rg.w3c.dom,org.w3c.dom.ls,org.xml.sax,org.xml.sax.ext,org.xml.sax.helpe
- rs";version="1.1.0.SNAPSHOT",org.apache.xml.serializer.dom3;uses:="org.
- apache.xml.serializer,org.w3c.dom,org.w3c.dom.ls";version="1.1.0.SNAPSH
+ rs";version="1.1.1.SNAPSHOT",org.apache.xml.serializer.dom3;uses:="org.
+ apache.xml.serializer,org.w3c.dom,org.w3c.dom.ls";version="1.1.1.SNAPSH
  OT",org.apache.xml.serializer.utils;uses:="javax.xml.transform,org.w3c.
- dom,org.xml.sax";version="1.1.0.SNAPSHOT",org.apache.xml.utils;uses:="j
+ dom,org.xml.sax";version="1.1.1.SNAPSHOT",org.apache.xml.utils;uses:="j
  avax.xml.transform,org.w3c.dom,org.xml.sax,org.xml.sax.ext,org.xml.sax.
- helpers";version="1.1.0.SNAPSHOT",org.apache.xml.utils.res;version="1.1
- .0.SNAPSHOT",org.apache.xmlcommons;version="1.1.0.SNAPSHOT",org.apache.
+ helpers";version="1.1.1.SNAPSHOT",org.apache.xml.utils.res;version="1.1
+ .1.SNAPSHOT",org.apache.xmlcommons;version="1.1.1.SNAPSHOT",org.apache.
  xpath;uses:="javax.xml.transform,org.apache.xalan.extensions,org.apache
  .xml.dtm,org.apache.xml.utils,org.apache.xpath.axes,org.apache.xpath.co
  mpiler,org.apache.xpath.functions,org.apache.xpath.objects,org.apache.x
  path.operations,org.apache.xpath.patterns,org.w3c.dom,org.w3c.dom.trave
- rsal,org.xml.sax";version="1.1.0.SNAPSHOT",org.apache.xpath.axes;uses:=
+ rsal,org.xml.sax";version="1.1.1.SNAPSHOT",org.apache.xpath.axes;uses:=
  "javax.xml.transform,org.apache.xml.dtm,org.apache.xml.utils,org.apache
  .xpath,org.apache.xpath.compiler,org.apache.xpath.functions,org.apache.
  xpath.objects,org.apache.xpath.patterns,org.w3c.dom,org.w3c.dom.travers
- al,org.xml.sax";version="1.1.0.SNAPSHOT",org.apache.xpath.compiler;uses
+ al,org.xml.sax";version="1.1.1.SNAPSHOT",org.apache.xpath.compiler;uses
  :="javax.xml.transform,org.apache.xml.utils,org.apache.xpath,org.apache
- .xpath.patterns";version="1.1.0.SNAPSHOT",org.apache.xpath.domapi;uses:
- ="javax.xml.transform,org.w3c.dom,org.w3c.dom.xpath";version="1.1.0.SNA
+ .xpath.patterns";version="1.1.1.SNAPSHOT",org.apache.xpath.domapi;uses:
+ ="javax.xml.transform,org.w3c.dom,org.w3c.dom.xpath";version="1.1.1.SNA
  PSHOT",org.apache.xpath.functions;uses:="javax.xml.transform,org.apache
  .xml.utils,org.apache.xpath,org.apache.xpath.compiler,org.apache.xpath.
- objects,org.xml.sax";version="1.1.0.SNAPSHOT",org.apache.xpath.jaxp;use
+ objects,org.xml.sax";version="1.1.1.SNAPSHOT",org.apache.xpath.jaxp;use
  s:="javax.xml.namespace,javax.xml.transform,javax.xml.xpath,org.apache.
  xml.utils,org.apache.xpath,org.apache.xpath.functions,org.apache.xpath.
- objects,org.w3c.dom,org.xml.sax";version="1.1.0.SNAPSHOT",org.apache.xp
+ objects,org.w3c.dom,org.xml.sax";version="1.1.1.SNAPSHOT",org.apache.xp
  ath.objects;uses:="javax.xml.transform,org.apache.xml.dtm,org.apache.xm
  l.utils,org.apache.xpath,org.apache.xpath.axes,org.w3c.dom,org.w3c.dom.
- traversal,org.xml.sax,org.xml.sax.ext";version="1.1.0.SNAPSHOT",org.apa
+ traversal,org.xml.sax,org.xml.sax.ext";version="1.1.1.SNAPSHOT",org.apa
  che.xpath.operations;uses:="javax.xml.transform,org.apache.xalan.templa
  tes,org.apache.xml.utils,org.apache.xpath,org.apache.xpath.axes,org.apa
- che.xpath.objects";version="1.1.0.SNAPSHOT",org.apache.xpath.patterns;u
+ che.xpath.objects";version="1.1.1.SNAPSHOT",org.apache.xpath.patterns;u
  ses:="javax.xml.transform,org.apache.xml.dtm,org.apache.xpath,org.apach
- e.xpath.axes,org.apache.xpath.objects";version="1.1.0.SNAPSHOT",org.apa
- che.xpath.res;uses:="org.apache.xml.res";version="1.1.0.SNAPSHOT",org.d
+ e.xpath.axes,org.apache.xpath.objects";version="1.1.1.SNAPSHOT",org.apa
+ che.xpath.res;uses:="org.apache.xml.res";version="1.1.1.SNAPSHOT",org.d
  ocbook.ns.docbook;uses:="javax.xml.bind.annotation,javax.xml.bind.annot
- ation.adapters";version="1.1.0.SNAPSHOT",org.w3c.dom;version="1.1.0.SNA
- PSHOT",org.w3c.dom.bootstrap;uses:="org.w3c.dom";version="1.1.0.SNAPSHO
+ ation.adapters";version="1.1.1.SNAPSHOT",org.w3c.dom;version="1.1.1.SNA
+ PSHOT",org.w3c.dom.bootstrap;uses:="org.w3c.dom";version="1.1.1.SNAPSHO
  T",org.w3c.dom.css;uses:="org.w3c.dom,org.w3c.dom.stylesheets,org.w3c.d
- om.views";version="1.1.0.SNAPSHOT",org.w3c.dom.events;uses:="org.w3c.do
- m,org.w3c.dom.views";version="1.1.0.SNAPSHOT",org.w3c.dom.html;uses:="o
- rg.w3c.dom";version="1.1.0.SNAPSHOT",org.w3c.dom.ls;uses:="org.w3c.dom,
- org.w3c.dom.events,org.w3c.dom.traversal";version="1.1.0.SNAPSHOT",org.
- w3c.dom.ranges;uses:="org.w3c.dom";version="1.1.0.SNAPSHOT",org.w3c.dom
- .stylesheets;uses:="org.w3c.dom";version="1.1.0.SNAPSHOT",org.w3c.dom.t
- raversal;uses:="org.w3c.dom";version="1.1.0.SNAPSHOT",org.w3c.dom.views
- ;version="1.1.0.SNAPSHOT",org.w3c.dom.xpath;uses:="org.w3c.dom";version
- ="1.1.0.SNAPSHOT",org.xml.sax;version="1.1.0.SNAPSHOT",org.xml.sax.ext;
- uses:="org.xml.sax,org.xml.sax.helpers";version="1.1.0.SNAPSHOT",org.xm
- l.sax.helpers;uses:="org.xml.sax";version="1.1.0.SNAPSHOT",properties.k
- nowhow;version="1.1.0.SNAPSHOT",trax;version="1.1.0.SNAPSHOT",tubame.kn
- owhow.biz.exception;uses:="org.slf4j";version="1.1.0.SNAPSHOT",tubame.k
+ om.views";version="1.1.1.SNAPSHOT",org.w3c.dom.events;uses:="org.w3c.do
+ m,org.w3c.dom.views";version="1.1.1.SNAPSHOT",org.w3c.dom.html;uses:="o
+ rg.w3c.dom";version="1.1.1.SNAPSHOT",org.w3c.dom.ls;uses:="org.w3c.dom,
+ org.w3c.dom.events,org.w3c.dom.traversal";version="1.1.1.SNAPSHOT",org.
+ w3c.dom.ranges;uses:="org.w3c.dom";version="1.1.1.SNAPSHOT",org.w3c.dom
+ .stylesheets;uses:="org.w3c.dom";version="1.1.1.SNAPSHOT",org.w3c.dom.t
+ raversal;uses:="org.w3c.dom";version="1.1.1.SNAPSHOT",org.w3c.dom.views
+ ;version="1.1.1.SNAPSHOT",org.w3c.dom.xpath;uses:="org.w3c.dom";version
+ ="1.1.1.SNAPSHOT",org.xml.sax;version="1.1.1.SNAPSHOT",org.xml.sax.ext;
+ uses:="org.xml.sax,org.xml.sax.helpers";version="1.1.1.SNAPSHOT",org.xm
+ l.sax.helpers;uses:="org.xml.sax";version="1.1.1.SNAPSHOT",properties.k
+ nowhow;version="1.1.1.SNAPSHOT",trax;version="1.1.1.SNAPSHOT",tubame.kn
+ owhow.biz.exception;uses:="org.slf4j";version="1.1.1.SNAPSHOT",tubame.k
  nowhow.biz.logic;uses:="javax.xml.bind,org.docbook.ns.docbook,tubame.kn
  owhow.biz.exception,tubame.knowhow.biz.logic.converter,tubame.knowhow.b
  iz.logic.io,tubame.knowhow.biz.model.generated.knowhow,tubame.knowhow.b
- iz.model.generated.python";version="1.1.0.SNAPSHOT",tubame.knowhow.biz.
+ iz.model.generated.python";version="1.1.1.SNAPSHOT",tubame.knowhow.biz.
  logic.converter;uses:="tubame.knowhow.biz.model.generated.knowhow,tubam
- e.knowhow.biz.model.generated.python";version="1.1.0.SNAPSHOT",tubame.k
+ e.knowhow.biz.model.generated.python";version="1.1.1.SNAPSHOT",tubame.k
  nowhow.biz.logic.io;uses:="javax.xml.parsers,org.docbook.ns.docbook,org
  .w3c.dom,org.xml.sax,tubame.knowhow.biz.exception,tubame.knowhow.biz.mo
  del.generated.knowhow,tubame.knowhow.biz.model.generated.python";versio
- n="1.1.0.SNAPSHOT",tubame.knowhow.biz.model;version="1.1.0.SNAPSHOT",tu
+ n="1.1.1.SNAPSHOT",tubame.knowhow.biz.model;version="1.1.1.SNAPSHOT",tu
  bame.knowhow.biz.model.generated.knowhow;uses:="javax.xml.bind.annotati
- on,org.docbook.ns.docbook";version="1.1.0.SNAPSHOT",tubame.knowhow.biz.
- model.generated.python;uses:="javax.xml.bind.annotation";version="1.1.0
+ on,org.docbook.ns.docbook";version="1.1.1.SNAPSHOT",tubame.knowhow.biz.
+ model.generated.python;uses:="javax.xml.bind.annotation";version="1.1.1
  .SNAPSHOT",tubame.knowhow.biz.util;uses:="javax.xml.bind,javax.xml.vali
- dation,org.xml.sax";version="1.1.0.SNAPSHOT",tubame.knowhow.biz.util.re
- source;version="1.1.0.SNAPSHOT",xsd;version="1.1.0.SNAPSHOT"
+ dation,org.xml.sax";version="1.1.1.SNAPSHOT",tubame.knowhow.biz.util.re
+ source;version="1.1.1.SNAPSHOT",xsd;version="1.1.1.SNAPSHOT"
 Import-Package: javax.naming,javax.swing,javax.swing.border,javax.swing.
  event,javax.swing.text,javax.xml.bind,javax.xml.bind.annotation,javax.x
  ml.bind.annotation.adapters,org.apache.xerces.parsers,org.apache.xml.se
