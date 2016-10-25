@@ -22,8 +22,6 @@ limitations under the License.
 properties search process.
 Extension to search for the file processing of sh.
 Do not search for the comment statement
-以下のような、行末の\マークがある場合は、SELECT SMP.SAMPLE_NO,SMP.SAMPLE_NAME FROM S00.SMP_TABLE AS SMP WHERE　SMP.SAMPLE_NO = '{SAMPLE_NO}'
-として、検索を行う。この場合は、検索キーワード1にSELECT.*WHEREを指定すると1行目がヒットする。
 If only Search Keyword1, and returns the results of the search in Search Keyword1.
 If the Search Keyword2 is also present, and returns the results to find the search file again by the Search Keyword2.
 [Environment] Python 2.7
