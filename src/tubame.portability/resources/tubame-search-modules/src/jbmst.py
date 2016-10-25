@@ -214,6 +214,9 @@ for tempRow in tempCSVLine:
                 elif extension == "properties" :
                     result_line_cnt_list = jbmst_search_properties.searchByFile(filePath,search_str1,search_str2)
 
+                elif extension == "sh" or extension == "csh":
+                    result_line_cnt_list = jbmst_search_sh.searchByFile(filePath,search_str1,search_str2)
+
                 else:
                     result_line_cnt_list = jbmst_search_default.searchByFile(filePath,search_str1,search_str2)
 

@@ -122,10 +122,13 @@ If the Search Keyword2 is also present, and returns the results to find the sear
 
 @param pSearchFile:File to be searched
 @param pSearchStr1:Search Keyword1
-@param pSearchStr2:Search Keyword2 is ignore
+@param pSearchStr2:Search Keyword2
 @retutn List of lines that hit the search
 """
 def searchByFile(pSearchFile,pSearchStr1,pSearchStr2):
     result_hit_count_list = []
     result_hit_count_list = search_open_file(pSearchFile,pSearchStr1)
+    hit_total_cnt = len(result_hit_count_list)
+    if hit_total_cnt!= 0 and pSearchStr2 != "":
+        result_hit_count_list = search_open_file(pSearchFile,pSearchStr2)
     return result_hit_count_list

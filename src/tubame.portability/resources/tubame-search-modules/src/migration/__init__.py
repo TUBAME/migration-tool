@@ -24,4 +24,4 @@ Check file names defined exists in the migration folder.
 [Environment] Python 2.7
 """
 
-__all__ = ["jbmst_common", "jbmst_search_java", "jbmst_search_jsp", "jbmst_search_xml","jbmst_search_default", "jbmst_search_properties"]
+__all__ = ["jbmst_common", "jbmst_search_java", "jbmst_search_jsp", "jbmst_search_xml","jbmst_search_default", "jbmst_search_properties", "jbmst_search_sh"]

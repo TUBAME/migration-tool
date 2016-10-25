@@ -527,6 +527,17 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_steps[0]), 5)
         self.assertEqual(int(self.rslt_steps[1]), 13)
 
+    def testTubameShellSearchKeyword1(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 7)
+        self.assertEqual(int(self.rslt_steps[0]), 19)
+        self.assertEqual(int(self.rslt_steps[1]), 20)
+        self.assertEqual(int(self.rslt_steps[2]), 29)
+        self.assertEqual(int(self.rslt_steps[3]), 33)
+        self.assertEqual(int(self.rslt_steps[4]), 51)
+        self.assertEqual(int(self.rslt_steps[5]), 56)
+        self.assertEqual(int(self.rslt_steps[6]), 69)
+
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
         tests = ['testTubamePropertiesSearchKeyword1']
