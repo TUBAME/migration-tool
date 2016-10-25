@@ -496,14 +496,34 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_steps[20]), 500)
         self.assertEqual(int(self.rslt_steps[46]), 628)
 
+    def testTubameCSearchKeyword1(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 48)
+
+    def testTubameCSearchKeyword2(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 7)
+        self.assertEqual(int(self.rslt_steps[0]), 16)
+        self.assertEqual(int(self.rslt_steps[1]), 18)
+        self.assertEqual(int(self.rslt_steps[2]), 20)
+        self.assertEqual(int(self.rslt_steps[3]), 23)
+        self.assertEqual(int(self.rslt_steps[4]), 25)
+        self.assertEqual(int(self.rslt_steps[5]), 47)
+        self.assertEqual(int(self.rslt_steps[6]), 52)
+
+    def testTubameCSearchKeyword3(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(int(self.rslt_steps[0]), 49)
+
 
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
-        tests = ['testTubameKnowhowReportIncludeNotTran']
+        tests = ['testTubameCSearchKeyword3']
         unittest.TestSuite.__init__(self, map(JbmstTestCase, tests))
 
 if __name__ == '__main__':
-    #unittest.main()
+    unittest.main()
     suite1 = unittest.TestLoader().loadTestsFromTestCase(JbmstTestCase)
     #suite2 = unittest.makeSuite(JbmstTestCase)
     #suite2 = JbmstTestSuite()

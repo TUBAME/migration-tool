@@ -33,7 +33,7 @@ SINGLE_COMMENT = "SINGLE_COMMENT"
 MULTI_COMMENT = "MULTI_COMMENT"
 MULTI_COMMENT_END = "MULTI_COMMENT_END"
 JAVA_SOURCE = "JAVA_SOURCE"
-
+JAVA_SOURCE_EXCLUSION_END_OF_LINE_COMMENT = None
 """
 Check single comment, multi comment, whether the source is searched record,
  and returns a status corresponding to the type of statement.
@@ -42,9 +42,18 @@ Check single comment, multi comment, whether the source is searched record,
 @retutn Type of sentence of one line to search for file
 """
 def isSingleComment(pLine):
+    global JAVA_SOURCE_EXCLUSION_END_OF_LINE_COMMENT
+    JAVA_SOURCE_EXCLUSION_END_OF_LINE_COMMENT =None
     m = re.search("^\s*//",pLine)
     if m:
         return SINGLE_COMMENT
+    else:
+        #support end of line comment
+        m = re.search("(\s*\w*)//",pLine)
+        if m:
+            m = re.search("[^//]*",pLine)
+            if m != None:
+                JAVA_SOURCE_EXCLUSION_END_OF_LINE_COMMENT  =  m.group()
     m = re.search("^\s*/\*",pLine)
     if m:
         m = re.search("\*/\s*$",pLine)
@@ -52,6 +61,15 @@ def isSingleComment(pLine):
             return SINGLE_COMMENT
         else:
             return MULTI_COMMENT
+    else:
+        #support end of line comment
+        m = re.search("(\s*\w*)/\*.*\*/$",pLine)
+        if m:
+            result = m.group()
+            if result != None:
+                index = len(result)
+                JAVA_SOURCE_EXCLUSION_END_OF_LINE_COMMENT =pLine[:-index]
+
     return JAVA_SOURCE
 
 """
@@ -108,6 +126,9 @@ def search_open_file(pSearchFile,pSearchStr):
         else:
             if (line_status == JAVA_SOURCE):
                 # If this is not the comment text
+                # suuport end of line comment
+                if JAVA_SOURCE_EXCLUSION_END_OF_LINE_COMMENT != None:
+                    line = JAVA_SOURCE_EXCLUSION_END_OF_LINE_COMMENT
                 m = re.findall(pSearchStr,line)
                 if m:
                     for hit in m:
