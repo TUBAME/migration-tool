@@ -516,16 +516,26 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertEqual(int(self.rslt_steps[0]), 49)
 
+    def testTubamePropertiesSearchKeyword1(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(int(self.rslt_steps[0]), 2)
+
+    def testTubamePropertiesSearchKeyword2(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 2)
+        self.assertEqual(int(self.rslt_steps[0]), 5)
+        self.assertEqual(int(self.rslt_steps[1]), 13)
 
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
-        tests = ['testTubameCSearchKeyword3']
+        tests = ['testTubamePropertiesSearchKeyword1']
         unittest.TestSuite.__init__(self, map(JbmstTestCase, tests))
 
 if __name__ == '__main__':
     unittest.main()
-    suite1 = unittest.TestLoader().loadTestsFromTestCase(JbmstTestCase)
-    #suite2 = unittest.makeSuite(JbmstTestCase)
-    #suite2 = JbmstTestSuite()
-    alltests = unittest.TestSuite([suite1])
+    #suite1 = unittest.TestLoader().loadTestsFromTestCase(JbmstTestCase)
+    suite2 = unittest.makeSuite(JbmstTestCase)
+    suite2 = JbmstTestSuite()
+    alltests = unittest.TestSuite([suite2])
     unittest.TextTestRunner(verbosity=2).run(alltests)
