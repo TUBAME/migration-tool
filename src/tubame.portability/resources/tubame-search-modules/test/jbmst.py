@@ -477,6 +477,20 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertNotEqual(self.rslt_steps, None)
 
+
+    def testExtSearchXmlDefinedclass3(self):
+        self.searchExecute()
+        hitfile = "UploadAction.java"
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/sub1/" + hitfile)
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertNotEqual(self.rslt_steps, None)
+        result_line2 =self.rslt.split('\n')[2]
+        self.assertNotEqual(result_line2, None)
+        self.assertNotEqual(result_line2, "")
+        self.assertEqual(str(self.getNormpath(result_line2.split(',')[1])), self.target + self._testMethodName +"/sub2/" + hitfile)
+
+
+
     def testExtSearchXmlDefinedclassFileNotFound(self):
         self.searchExecute()
         self.assertEqual(self.rslt_steps, None)
@@ -537,6 +551,7 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_steps[4]), 51)
         self.assertEqual(int(self.rslt_steps[5]), 56)
         self.assertEqual(int(self.rslt_steps[6]), 69)
+
 
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):

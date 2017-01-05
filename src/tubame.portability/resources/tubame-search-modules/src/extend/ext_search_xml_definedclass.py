@@ -59,6 +59,7 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
     # キー1をXPathで読める形に変形する
     xPath = pKey1
     global g_targetFilePath
+    defined_class_list = []
     #検索対象ファイルリスト中の全ファイルを対象とする
     for fname in pList:
         try :
@@ -70,7 +71,7 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
             if elem == None:
                 continue
             pathList = elem.xpath(xPath)
-            defined_class_list = []
+
     
             for path in pathList:
                 defined_class_list.append(path)
