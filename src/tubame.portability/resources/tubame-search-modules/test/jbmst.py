@@ -477,6 +477,20 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_hit), 1)
         self.assertNotEqual(self.rslt_steps, None)
 
+
+    def testExtSearchXmlDefinedclass3(self):
+        self.searchExecute()
+        hitfile = "UploadAction.java"
+        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/sub1/" + hitfile)
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertNotEqual(self.rslt_steps, None)
+        result_line2 =self.rslt.split('\n')[2]
+        self.assertNotEqual(result_line2, None)
+        self.assertNotEqual(result_line2, "")
+        self.assertEqual(str(self.getNormpath(result_line2.split(',')[1])), self.target + self._testMethodName +"/sub2/" + hitfile)
+
+
+
     def testExtSearchXmlDefinedclassFileNotFound(self):
         self.searchExecute()
         self.assertEqual(self.rslt_steps, None)
@@ -496,16 +510,58 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_steps[20]), 500)
         self.assertEqual(int(self.rslt_steps[46]), 628)
 
+    def testTubameCSearchKeyword1(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 48)
+
+    def testTubameCSearchKeyword2(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 7)
+        self.assertEqual(int(self.rslt_steps[0]), 16)
+        self.assertEqual(int(self.rslt_steps[1]), 18)
+        self.assertEqual(int(self.rslt_steps[2]), 20)
+        self.assertEqual(int(self.rslt_steps[3]), 23)
+        self.assertEqual(int(self.rslt_steps[4]), 25)
+        self.assertEqual(int(self.rslt_steps[5]), 47)
+        self.assertEqual(int(self.rslt_steps[6]), 52)
+
+    def testTubameCSearchKeyword3(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(int(self.rslt_steps[0]), 49)
+
+    def testTubamePropertiesSearchKeyword1(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(int(self.rslt_steps[0]), 2)
+
+    def testTubamePropertiesSearchKeyword2(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 2)
+        self.assertEqual(int(self.rslt_steps[0]), 5)
+        self.assertEqual(int(self.rslt_steps[1]), 13)
+
+    def testTubameShellSearchKeyword1(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 7)
+        self.assertEqual(int(self.rslt_steps[0]), 19)
+        self.assertEqual(int(self.rslt_steps[1]), 20)
+        self.assertEqual(int(self.rslt_steps[2]), 29)
+        self.assertEqual(int(self.rslt_steps[3]), 33)
+        self.assertEqual(int(self.rslt_steps[4]), 51)
+        self.assertEqual(int(self.rslt_steps[5]), 56)
+        self.assertEqual(int(self.rslt_steps[6]), 69)
+
 
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
-        tests = ['testTubameKnowhowReportIncludeNotTran']
+        tests = ['testTubamePropertiesSearchKeyword1']
         unittest.TestSuite.__init__(self, map(JbmstTestCase, tests))
 
 if __name__ == '__main__':
-    #unittest.main()
-    suite1 = unittest.TestLoader().loadTestsFromTestCase(JbmstTestCase)
-    #suite2 = unittest.makeSuite(JbmstTestCase)
-    #suite2 = JbmstTestSuite()
-    alltests = unittest.TestSuite([suite1])
+    unittest.main()
+    #suite1 = unittest.TestLoader().loadTestsFromTestCase(JbmstTestCase)
+    suite2 = unittest.makeSuite(JbmstTestCase)
+    suite2 = JbmstTestSuite()
+    alltests = unittest.TestSuite([suite2])
     unittest.TextTestRunner(verbosity=2).run(alltests)

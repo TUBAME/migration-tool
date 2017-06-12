@@ -202,7 +202,7 @@ for tempRow in tempCSVLine:
                 jbmst_common.print_csv3(no,filePath,priority,flag,chapter_no,check_Status)
             else:
                 result_line_cnt_list = []
-                if extension == "java" :
+                if extension == "java" or extension == "c" or extension == "h" :
                     result_line_cnt_list = jbmst_search_java.searchByFile(filePath,search_str1,search_str2)
     
                 elif extension == "jsp" :
@@ -210,6 +210,13 @@ for tempRow in tempCSVLine:
     
                 elif extension == "xml" :
                     result_line_cnt_list = jbmst_search_xml.searchByFile(filePath,search_str1,search_str2)
+
+                elif extension == "properties" :
+                    result_line_cnt_list = jbmst_search_properties.searchByFile(filePath,search_str1,search_str2)
+
+                elif extension == "sh" or extension == "csh":
+                    result_line_cnt_list = jbmst_search_sh.searchByFile(filePath,search_str1,search_str2)
+
                 else:
                     result_line_cnt_list = jbmst_search_default.searchByFile(filePath,search_str1,search_str2)
 
