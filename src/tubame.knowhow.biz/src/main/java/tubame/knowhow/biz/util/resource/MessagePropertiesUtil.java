@@ -93,6 +93,8 @@ public final class MessagePropertiesUtil {
     public static final String ERROR_HTML_CONVERT = "errorHtmlConvert";
     /** Problem occurs in the HTML conversion process */
     public static final String ERROR_SAVE_DOCBOOK = "errorSaveDocBook";
+    
+    public static final String ERROR_SAVE_ASCIIDOC = "errorSaveAsciiDoc";
     /** attachment of know-how detail does not exist */
     public static final String NOT_EXIST_DOCBOOK_FILE = "notExistDocBookFile";
     /** Failed to get the know-how editor */
@@ -130,6 +132,9 @@ public final class MessagePropertiesUtil {
     public static final String PERFORM_SAVE_KNOWHOW_HTML = "performSaveKnowhowHtml";
     /** Preservation of know-how XML is complete */
     public static final String PERFORM_SAVE_KNOWHOW_XML = "performSaveKnowhowXml";
+    
+    public static final String PERFORM_SAVE_ASCII_DOC = "performSaveAsciiDoc";
+    public static final String LOG_START_SAVE_ASCIIDOC = "logStartSaveAsciiDoc";
     /** File does not exist */
     public static final String NOT_EXIST_FILE = "notExistFile";
     /** Convert to HTML */
@@ -297,6 +302,8 @@ public final class MessagePropertiesUtil {
     public static final String LOG_START_SAVE_XML = "logStartSaveXml";
     /** XML file save process is complete. (Log) */
     public static final String LOG_STOP_SAVE_XML = "logStopSaveXml";
+    
+    public static final String LOG_STOP_SAVE_ASCIIDOC = "logStopSaveAsciiDoc";
     /** Start conversion process to HTML. (Log) */
     public static final String LOG_START_CONVERT_HTML = "logStartConvertHtml";
     /** Conversion to HTML is completed. (Log) */
