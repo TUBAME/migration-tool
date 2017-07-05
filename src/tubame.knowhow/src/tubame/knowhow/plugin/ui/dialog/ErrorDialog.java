@@ -18,6 +18,9 @@
  */
 package tubame.knowhow.plugin.ui.dialog;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.IStatus;
@@ -88,9 +91,41 @@ public final class ErrorDialog {
             status = new Status(type, Activator.PLUGIN_ID, type, messasge,
                     e.getCause());
         }
+        
+        if (e != null && e.getCause()== null){
+        	status = new Status(type, Activator.PLUGIN_ID, type, messasge,
+                    e);
 
+        	        
+        }
         org.eclipse.jface.dialogs.ErrorDialog.openError(shell, null, null,
-                status);
+                    status);	
+        
+
+        
+    }
+    
+    public static void errorDialogWithStackTrace(Shell shell, String msg, Throwable t) {
+
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        t.printStackTrace(pw);
+
+        final String trace = sw.toString(); // stack trace as a string
+
+        // Temp holder of child statuses
+        List<Status> childStatuses = new ArrayList();
+
+        // Split output by OS-independend new-line
+        for (String line : trace.split(System.getProperty("line.separator"))) {
+            // build & add status
+            childStatuses.add(new Status(IStatus.ERROR, Activator.PLUGIN_ID, line));
+        }
+
+        MultiStatus ms = new MultiStatus(Activator.PLUGIN_ID, IStatus.ERROR,
+                childStatuses.toArray(new Status[] {}), // convert to array of statuses
+                t.getLocalizedMessage(), t);
+        org.eclipse.jface.dialogs.ErrorDialog.openError(shell, null,  msg, ms);	
     }
 
     /**

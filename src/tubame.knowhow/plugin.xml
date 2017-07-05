@@ -93,17 +93,24 @@
 			</action>
 			<action
 				class="tubame.knowhow.plugin.ui.action.SaveOutputAction"
-				icon="resources/icons/save_knowhow.png"
+				icon="resources/icons/blue-document-attribute-d.png"
 				id="tubame.knowhow.maintenance.portability.ui.actions.SaveKnowhowAction"
 				label="%action.label.3" style="push" toolbarPath="additions"
 				tooltip="%action.tooltip.0">
 			</action>
 			<action
 				class="tubame.knowhow.plugin.ui.action.SaveOutputAction"
-				icon="resources/icons/save_document.png"
+				icon="resources/icons/blue-document-attribute-h.png"
 				id="tubame.knowhow.maintenance.portability.ui.actions.SaveDocBookAction"
 				label="%action.label.4" style="push" toolbarPath="additions"
 				tooltip="%action.tooltip.1">
+			</action>
+			<action
+				class="tubame.knowhow.plugin.ui.action.SaveAsciiDocAction"
+				icon="resources/icons/blue-document-attribute.png"
+				id="tubame.knowhow.maintenance.portability.ui.actions.SaveAsciiDocAction"
+				label="%action.label.5" style="push" toolbarPath="additions"
+				tooltip="%action.tooltip.5">
 			</action>
 		</editorContribution>
 	</extension>

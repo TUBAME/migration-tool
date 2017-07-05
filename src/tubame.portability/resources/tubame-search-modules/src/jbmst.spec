@@ -4,6 +4,7 @@
  * Requirements
   * pyinstaller
   * lxml
+  * sqlparse
 
  * how to distribute
   * 1.change dir
@@ -20,7 +21,7 @@
    
    ---
    #from migration import *
-   from migration import jbmst_common,jbmst_search_default,jbmst_search_java,jbmst_search_jsp,jbmst_search_xml
+   from migration import jbmst_common,jbmst_search_default,jbmst_search_java,jbmst_search_jsp,jbmst_search_xml,jbmst_search_properties,jbmst_search_sh
 
    #from extend import *
    from extend import ext_search_xml_xpath,ext_report_generator,ext_search_xml_definedclass,ext_search_sql_parser
