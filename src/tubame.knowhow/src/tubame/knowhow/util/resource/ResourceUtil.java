@@ -238,6 +238,17 @@ public final class ResourceUtil extends NLS {
     public static String currentCategory;
     
     public static String checkItemNo;
+    
+    public static String saveAsciiDoc;
+    
+    public static String defaultKnowhowToDocBookXslPath;
+    
+    public static String defaultKnowhowRemovePrefixXslPath;
+    
+    public static String defaultKnowhowToAsciiDocXslPath;
+    
+    
+    
 
     static {
         NLS.initializeMessages(BUNDLE_NAME, ResourceUtil.class);

@@ -189,12 +189,12 @@ public class SaveOutputAction implements IEditorActionDelegate {
                 .getProperty(ApplicationPropertiesUtil.XML_EXTENSION) };
         dialog.setFilterExtensions(exts);
         dialog.setText(ResourceUtil.saveKnowhowXml);
-        dialog.setFileName(targetFileName);
+        dialog.setFileName("tubame_docbook.xml");
         String outputFilePath = dialog.open();
         if (outputFilePath != null) {
             SaveOutputAction.LOGGER.info(MessagePropertiesUtil
                     .getMessage(MessagePropertiesUtil.LOG_START_SAVE_XML));
-            FileManagement.outputXML(targetFilePath, outputFilePath);
+            FileManagement.outputDocBookXml(targetFilePath, outputFilePath);
             SaveOutputAction.LOGGER.info(MessagePropertiesUtil
                     .getMessage(MessagePropertiesUtil.LOG_STOP_SAVE_XML));
             ConfirmDialog
