@@ -553,15 +553,66 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_steps[6]), 69)
 
 
+    def testTubameSqlSearchKey1ForJava(self):
+        self.searchExecute()
+        self.assertEqual(self.rslt_steps, None)
+
+    def testTubameSqlSearchKey1ForJava2(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(int(self.rslt_steps[0]), 773)
+
+    def testTubameSqlSearchKey1ForJava3(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(int(self.rslt_steps[0]), 669)
+
+    def testTubameSqlSearchKey1ForJava4(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(int(self.rslt_steps[0]), 773)
+
+    def testTubameSqlSearchForProc1(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 142)
+        self.assertEqual(int(self.rslt_steps[1]), 145)
+
+
+    def testTubameSqlSearchForProc2(self):
+    #
+    #In sqlparse, if there is a single quotation in the comment statement, the content of the comment statement
+    #It can not be taken normally.
+    #
+    # Example of events.
+    #
+    #---
+    # // If it was too long, there's be no newline. In that case, we flush
+    # // To end of line so that it does not affect affect the next call.
+    #----
+    # Acquire missing information as follows.
+    #---
+    #// If it was too long, theret affect the next call.
+    #---
+    #Due to this event, line numbers may be shifted when searching.
+    #
+    #This test confirms that the line numbers are off.
+    #
+        self.searchExecute()
+        #self.assertEqual(int(self.rslt_steps[0]), 142)
+        self.assertEqual(int(self.rslt_steps[0]), 139)
+        #self.assertEqual(int(self.rslt_steps[1]), 145)
+        self.assertEqual(int(self.rslt_steps[1]), 141)
+
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
-        tests = ['testTubamePropertiesSearchKeyword1']
+        tests = ['testTubameSqlSearchKey1CreateTable']
         unittest.TestSuite.__init__(self, map(JbmstTestCase, tests))
 
 if __name__ == '__main__':
     unittest.main()
-    #suite1 = unittest.TestLoader().loadTestsFromTestCase(JbmstTestCase)
-    suite2 = unittest.makeSuite(JbmstTestCase)
-    suite2 = JbmstTestSuite()
-    alltests = unittest.TestSuite([suite2])
-    unittest.TextTestRunner(verbosity=2).run(alltests)
+    suite1 = unittest.TestLoader().loadTestsFromTestCase(JbmstTestCase)
+    # suite2 = unittest.makeSuite(JbmstTestCase)
+    # suite2 = JbmstTestSuite()
+    # alltests = unittest.TestSuite([suite2])
+    #unittest.TextTestRunner(verbosity=2).run(alltests)
+    unittest.TextTestRunner(verbosity=2).run(suite1)
