@@ -94,6 +94,12 @@ def check_encoding(data):
         raise LookupError
 
 
+def isSlashComment(pLine):
+    m = re.search("^\s*//",pLine)
+    if m:
+        return True
+    return False
+
 """
 sqlparserで取得したtoken配列から、検索対象の文字列(セミコロンまでのデータ）を取得する。
 また、行番号のカウント処理を行う.
@@ -101,8 +107,12 @@ sqlparserで取得したtoken配列から、検索対象の文字列(セミコ�
 """
 def searchGroup(list,lineNum,pKey1,pKey2,hit_count,rsl_list,key1_match=False):
     global g_search_str
+    global g_targetFileExt
     for item in list:
-        if item.is_group() and unicode(item.__repr__).find("of <Comment") == -1:
+        #print unicode(item.__repr__)
+        #item.is_group() method. It works when sqlparser version is 0.2.0. but It does not work  version 0.2.3
+        #if item.is_group() and unicode(item.__repr__).find("of <Comment") == -1:
+        if item.is_group and unicode(item.__repr__).find("of <Comment") == -1:
             #print '''group item ''',  item.__repr__
             lineNum,hit_count=searchGroup(item.tokens,lineNum,pKey1,pKey2,hit_count,rsl_list,key1_match=key1_match)
         elif unicode(item.__repr__).find("of <Single")!= -1:
@@ -114,25 +124,31 @@ def searchGroup(list,lineNum,pKey1,pKey2,hit_count,rsl_list,key1_match=False):
             #print 'comment_line_break_line = ',line_break_len,unicode(item)
             lineNum  = lineNum+line_break_len -1
         elif unicode(item.__repr__).find("of <Newline") != -1:
-            #print 'new_line_break_line = ',1,unicode(item)
             lineNum =lineNum + 1
         else:
+            #print unicode(item.__repr__)
             g_search_str += unicode(item)
+            #print "target:",g_search_str,",linenum:",lineNum+1
+            #print unicode(item.__repr__)
+
+            if g_targetFileExt == 'java' or g_targetFileExt == 'c' or g_targetFileExt == 'vc':
+                 if isSlashComment(g_search_str):
+                    continue
             #print 'search_target_line = ',g_search_str,'lineNum=',lineNum
             #print item.__repr__
+
             if pKey2=="":
                 match_cnt =search(pKey1,pKey2,g_search_str,key1_match)
                 if match_cnt != None:
                     if hit_count != match_cnt:
                         rsl_list.append(lineNum+1)
                         hit_count = match_cnt
-
+                        #print 'key1_match true =',g_search_str
             elif  pKey2 !="" and key1_match == False:
                 match_cnt =search(pKey1,pKey2,g_search_str)
                 if match_cnt != None:
                     #print 'key1_match false =',g_search_str,lineNum+1
                     key1_match = True
-
             elif pKey2 !="" and key1_match == True:
                 match_cnt =search(pKey1,pKey2,g_search_str,key1_skip=True)
                 if match_cnt != None:
@@ -140,6 +156,7 @@ def searchGroup(list,lineNum,pKey1,pKey2,hit_count,rsl_list,key1_match=False):
                         #print 'key2_match true =',g_search_str , match_cnt ,hit_count, 'num=',lineNum+1
                         rsl_list.append(lineNum+1)
                         hit_count = match_cnt
+
     return lineNum,hit_count
 
 
@@ -179,12 +196,15 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
 
     global g_targetFilePath
 
+    global g_targetFileExt
+
     global g_search_str
     g_search_str = u""
     rsl_list = []
     for fname in pList:
         try :
             g_targetFilePath = fname
+            g_targetFileExt = common_module.getExtension(fname)
             str,encoding = None,None
             body = open(fname, 'rU').read()
             sql_data,encoding = check_encoding(body)

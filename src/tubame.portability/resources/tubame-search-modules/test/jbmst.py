@@ -154,30 +154,6 @@ class JbmstTestCase(unittest.TestCase):
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 8)
 
-    def testKeyword1JSPFileSearch(self):
-        self.searchExecute()
-        hitfile = "AlarmSearchControl.jsp"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
-        self.assertEqual(int(self.rslt_hit), 2)
-        self.assertNotEqual(self.rslt_steps, None)
-        self.assertEqual(int(self.rslt_steps[0]), 99)
-        self.assertEqual(int(self.rslt_steps[1]), 177)
-
-    def testKeyword2JSPFileSearch(self):
-        self.searchExecute()
-        hitfile = "AlarmSearchControl.jsp"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
-        self.assertEqual(int(self.rslt_hit), 8)
-        self.assertNotEqual(self.rslt_steps, None)
-        self.assertEqual(int(self.rslt_steps[0]), 99)
-        self.assertEqual(int(self.rslt_steps[1]), 99)
-        self.assertEqual(int(self.rslt_steps[2]), 137)
-        self.assertEqual(int(self.rslt_steps[3]), 137)
-        self.assertEqual(int(self.rslt_steps[4]), 173)
-        self.assertEqual(int(self.rslt_steps[5]), 173)
-        self.assertEqual(int(self.rslt_steps[6]), 177)
-        self.assertEqual(int(self.rslt_steps[7]), 177)
-
     def testKeyword1JavaFileSearch(self):
         self.searchExecute()
         hitfile = "MedRecXMLProcessor.java"
@@ -203,13 +179,7 @@ class JbmstTestCase(unittest.TestCase):
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 2)
 
-    def testKeywordRegularExpressionJSPFileSearch(self):
-        self.searchExecute()
-        hitfile = "Meta.jsp"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
-        self.assertEqual(int(self.rslt_hit), 1)
-        self.assertNotEqual(self.rslt_steps, None)
-        self.assertEqual(int(self.rslt_steps[0]), 1)
+
 
     def testKeywordRegularExpressionXMLFileSearch(self):
         self.searchExecute()
@@ -553,15 +523,94 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_steps[6]), 69)
 
 
+    def testTubameSqlSearchKey1ForJava(self):
+        self.searchExecute()
+        self.assertEqual(self.rslt_steps, None)
+
+    def testTubameSqlSearchKey1ForJava2(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(int(self.rslt_steps[0]), 773)
+
+    def testTubameSqlSearchKey1ForJava3(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(int(self.rslt_steps[0]), 669)
+
+    def testTubameSqlSearchKey1ForJava4(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(int(self.rslt_steps[0]), 773)
+
+    def testTubameSqlSearchForProc1(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 142)
+        self.assertEqual(int(self.rslt_steps[1]), 145)
+
+    def testTubameStepCounterSearchForJava(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 571)
+
+    def testTubameStepCounterSearchForJsp(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 7)
+
+    def testTubameStepCounterSearchForProperties(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 10)
+
+    def testTubameStepCounterSearchForXml(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 31)
+
+    def testTubameStepCounterSearchForSql(self):
+        self.searchExecute()
+
+
+    def testTubameSqlSearchForProc2(self):
+    #
+    #In sqlparse, if there is a single quotation in the comment statement, the content of the comment statement
+    #It can not be taken normally.
+    #
+    # Example of events.
+    #
+    #---
+    # // If it was too long, there's be no newline. In that case, we flush
+    # // To end of line so that it does not affect affect the next call.
+    #----
+    # Acquire missing information as follows.
+    #---
+    #// If it was too long, theret affect the next call.
+    #---
+    #Due to this event, line numbers may be shifted when searching.
+    #
+    #This test confirms that the line numbers are off.
+    #
+        self.searchExecute()
+        #self.assertEqual(int(self.rslt_steps[0]), 142)
+        self.assertEqual(int(self.rslt_steps[0]), 139)
+        #self.assertEqual(int(self.rslt_steps[1]), 145)
+        self.assertEqual(int(self.rslt_steps[1]), 141)
+
+    def testKeyword1SqlFileSearch(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 92)
+
+    def testKeyword1DDLFileSearch(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 442)
+        self.assertEqual(int(self.rslt_steps[1]), 530)
+
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
-        tests = ['testTubamePropertiesSearchKeyword1']
+        tests = ['testTubameSqlSearchKey1CreateTable']
         unittest.TestSuite.__init__(self, map(JbmstTestCase, tests))
 
 if __name__ == '__main__':
     unittest.main()
-    #suite1 = unittest.TestLoader().loadTestsFromTestCase(JbmstTestCase)
-    suite2 = unittest.makeSuite(JbmstTestCase)
-    suite2 = JbmstTestSuite()
-    alltests = unittest.TestSuite([suite2])
-    unittest.TextTestRunner(verbosity=2).run(alltests)
+    suite1 = unittest.TestLoader().loadTestsFromTestCase(JbmstTestCase)
+    # suite2 = unittest.makeSuite(JbmstTestCase)
+    # suite2 = JbmstTestSuite()
+    # alltests = unittest.TestSuite([suite2])
+    #unittest.TextTestRunner(verbosity=2).run(alltests)
+    unittest.TextTestRunner(verbosity=2).run(suite1)

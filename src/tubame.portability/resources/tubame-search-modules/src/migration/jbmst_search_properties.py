@@ -105,7 +105,7 @@ def search_open_file(pSearchFile,pSearchStr):
             else:
                 row = line
 
-        m = re.findall(pSearchStr,row)
+        m = findAll(pSearchStr,row)
         if m:
             for hit in m:
                 if line_continue_row_count != 0:
@@ -115,7 +115,10 @@ def search_open_file(pSearchFile,pSearchStr):
         line_continue_row_count = 0
     f.close()
     return line_count_list
-    
+
+def findAll(pSearchStr,pLine):
+    return  re.findall(pSearchStr,pLine)
+
 """
 If only Search Keyword1, and returns the results of the search in Search Keyword1. 
 If the Search Keyword2 is also present, and returns the results to find the search file again by the Search Keyword2.

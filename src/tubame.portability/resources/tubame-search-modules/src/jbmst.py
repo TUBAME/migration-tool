@@ -190,8 +190,7 @@ for tempRow in tempCSVLine:
                     errorFilePath = ext_search_module.getErrorFilePath()
                 except NameError:
                     errorFilePath = "None"
-                error = inst
-                raise Exception, 'Failed search (line %d): %s \n%s' % (count,input_csv_file, error)
+                raise Exception, 'Failed search (line %d): %s \n%s' % (count,input_csv_file, inst)
             continue
     
         isHit = 0;
@@ -216,6 +215,9 @@ for tempRow in tempCSVLine:
 
                 elif extension == "sh" or extension == "csh":
                     result_line_cnt_list = jbmst_search_sh.searchByFile(filePath,search_str1,search_str2)
+
+                elif extension == "sql" or extension == "ddl":
+                    result_line_cnt_list = jbmst_search_sql.searchByFile(filePath,search_str1,search_str2)
 
                 else:
                     result_line_cnt_list = jbmst_search_default.searchByFile(filePath,search_str1,search_str2)
