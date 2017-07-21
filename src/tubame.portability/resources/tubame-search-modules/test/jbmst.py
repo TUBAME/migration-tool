@@ -154,30 +154,6 @@ class JbmstTestCase(unittest.TestCase):
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 8)
 
-    def testKeyword1JSPFileSearch(self):
-        self.searchExecute()
-        hitfile = "AlarmSearchControl.jsp"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
-        self.assertEqual(int(self.rslt_hit), 2)
-        self.assertNotEqual(self.rslt_steps, None)
-        self.assertEqual(int(self.rslt_steps[0]), 99)
-        self.assertEqual(int(self.rslt_steps[1]), 177)
-
-    def testKeyword2JSPFileSearch(self):
-        self.searchExecute()
-        hitfile = "AlarmSearchControl.jsp"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
-        self.assertEqual(int(self.rslt_hit), 8)
-        self.assertNotEqual(self.rslt_steps, None)
-        self.assertEqual(int(self.rslt_steps[0]), 99)
-        self.assertEqual(int(self.rslt_steps[1]), 99)
-        self.assertEqual(int(self.rslt_steps[2]), 137)
-        self.assertEqual(int(self.rslt_steps[3]), 137)
-        self.assertEqual(int(self.rslt_steps[4]), 173)
-        self.assertEqual(int(self.rslt_steps[5]), 173)
-        self.assertEqual(int(self.rslt_steps[6]), 177)
-        self.assertEqual(int(self.rslt_steps[7]), 177)
-
     def testKeyword1JavaFileSearch(self):
         self.searchExecute()
         hitfile = "MedRecXMLProcessor.java"
@@ -203,13 +179,7 @@ class JbmstTestCase(unittest.TestCase):
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 2)
 
-    def testKeywordRegularExpressionJSPFileSearch(self):
-        self.searchExecute()
-        hitfile = "Meta.jsp"
-        self.assertEqual(str(self.rslt_filepath), self.target + self._testMethodName +"/" + hitfile)
-        self.assertEqual(int(self.rslt_hit), 1)
-        self.assertNotEqual(self.rslt_steps, None)
-        self.assertEqual(int(self.rslt_steps[0]), 1)
+
 
     def testKeywordRegularExpressionXMLFileSearch(self):
         self.searchExecute()
@@ -577,6 +547,25 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_steps[0]), 142)
         self.assertEqual(int(self.rslt_steps[1]), 145)
 
+    def testTubameStepCounterSearchForJava(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 571)
+
+    def testTubameStepCounterSearchForJsp(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 7)
+
+    def testTubameStepCounterSearchForProperties(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 10)
+
+    def testTubameStepCounterSearchForXml(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 31)
+
+    def testTubameStepCounterSearchForSql(self):
+        self.searchExecute()
+
 
     def testTubameSqlSearchForProc2(self):
     #
@@ -602,6 +591,15 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_steps[0]), 139)
         #self.assertEqual(int(self.rslt_steps[1]), 145)
         self.assertEqual(int(self.rslt_steps[1]), 141)
+
+    def testKeyword1SqlFileSearch(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 92)
+
+    def testKeyword1DDLFileSearch(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 442)
+        self.assertEqual(int(self.rslt_steps[1]), 530)
 
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
