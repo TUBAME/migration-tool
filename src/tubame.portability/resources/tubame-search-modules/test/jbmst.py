@@ -478,7 +478,7 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_hit), 47)
         self.assertEqual(int(self.rslt_steps[0]), 402)
         self.assertEqual(int(self.rslt_steps[20]), 500)
-        self.assertEqual(int(self.rslt_steps[46]), 628)
+        self.assertEqual(int(self.rslt_steps[46]), 629)
 
     def testTubameCSearchKeyword1(self):
         self.searchExecute()
@@ -594,7 +594,7 @@ class JbmstTestCase(unittest.TestCase):
 
     def testKeyword1SqlFileSearch(self):
         self.searchExecute()
-        self.assertEqual(int(self.rslt_steps[0]), 92)
+        self.assertEqual(int(self.rslt_hit), 92)
 
     def testKeyword1DDLFileSearch(self):
         self.searchExecute()
