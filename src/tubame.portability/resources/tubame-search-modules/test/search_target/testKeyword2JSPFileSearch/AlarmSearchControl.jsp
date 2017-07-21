@@ -1,48 +1,29 @@
 <%--
 
-/* **************************************************************
-
- * ナレッジシステム WEBサーバサブシステム
-
- * Copyrightc 2003 NEC Corporation
-
- * ファイル名   : AlarmSearchControl.jsp
-
- * バージョン   : $Id: AlarmSearchControl.jsp,v 1.2 2005/06/22 09:47:37 knlg04 Exp $
-
- * 概要         : 警報履歴検索
-
- * 備考         :
-
- * 修正履歴     : 2003/06/13 四海		新規作成
-
- *                2003/09/17 四海		スクリプトをjavascriptに変更
-
- *                2003/09/25 四海		null対策強化
-
- *                2003/10/03 四海		publicをno-cacheに変更
-
- *				  2004/02/06 中原		window.open対応
-
- *				  2004/03/22 中原		異常終了の処理にグレーアウト解除を追加
-
- ****************************************************************/
+てすと
+てすと
 
 --%>
 
+
+
 <%@ page contentType="text/html; charset=EUC-JP" pageEncoding="EUC-JP" %>
 
-
+<!-- test -->
 
 <%@ page import="java.util.*" %>
+
+<!-- test -->
 
 <%@ page import="java.text.*" %>
 
 <%@ page import="jp.co.nttdocomo.knlgsys.web.web.util.*" %>
 
-
+<!-- test -->
 
 <%@ include file="../../common/common_implicit.jsf" %>
+
+
 
 
 
@@ -50,7 +31,9 @@
 
 
 
+
 String strCountKind = ( String ) request.getParameter( "count_kind" );
+
 
 strCountKind = ( strCountKind == null ) ? "" : strCountKind;
 
@@ -72,9 +55,9 @@ String strLoad = "";
 
 <%@ include file="../../common/common_header.jsf" %>
 
-<title>警報履歴検索 - ナレッジシステム</title>
+<title>test</title>
 
-
+<!-- test -->
 
 <%
 
@@ -90,13 +73,18 @@ if ( strResult.equals( "1" ) ) {
 
 
 
+		
+
         <script type="text/javascript">
+
 
         <!--
 
         function load() {
 
                 parent.parent.condition.listEnabled();
+                
+                
 
                 location.href = "/jsp/common/ErrorDlg.jsp";
 
@@ -105,6 +93,7 @@ if ( strResult.equals( "1" ) ) {
     //-->
 
     </script>
+
 
 
 
@@ -144,11 +133,16 @@ if ( strResult.equals( "1" ) ) {
 
 
 
+
                 <%
+                
+                
 
         } else {
 
             DecimalFormat df  = new DecimalFormat("###,###,##0");
+            
+            
 
             LimitCount = df.format( Long.parseLong( LimitCount ) );
 

@@ -527,8 +527,7 @@
         references Notification;
 
     alter table Notification_email_header
-        add constraint UK_F30FE3446CEA0510
-         unique (emailHeaders_id);
+        add constraint UK_F30FE3446CEA0510 unique (emailHeaders_id);
 
     alter table Notification_email_header
         add constraint FKF30FE3448BED1339
