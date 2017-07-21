@@ -34,6 +34,9 @@ MULTI_COMMENT = "MULTI_COMMENT"
 MULTI_COMMENT_END = "MULTI_COMMENT_END"
 JAVA_SOURCE = "JAVA_SOURCE"
 JAVA_SOURCE_EXCLUSION_END_OF_LINE_COMMENT = None
+
+LINE_HEAD_COMMENT_STR = "//"
+
 """
 Check single comment, multi comment, whether the source is searched record,
  and returns a status corresponding to the type of statement.
@@ -44,14 +47,14 @@ Check single comment, multi comment, whether the source is searched record,
 def isSingleComment(pLine):
     global JAVA_SOURCE_EXCLUSION_END_OF_LINE_COMMENT
     JAVA_SOURCE_EXCLUSION_END_OF_LINE_COMMENT =None
-    m = re.search("^\s*//",pLine)
+    m = re.search("^\s*"+LINE_HEAD_COMMENT_STR,pLine)
     if m:
         return SINGLE_COMMENT
     else:
         #support end of line comment
-        m = re.search("(\s*\w*)//",pLine)
+        m = re.search("(\s*\w*)"+LINE_HEAD_COMMENT_STR,pLine)
         if m:
-            m = re.search("[^//]*",pLine)
+            m = re.search("[^"+LINE_HEAD_COMMENT_STR+"]*",pLine)
             if m != None:
                 JAVA_SOURCE_EXCLUSION_END_OF_LINE_COMMENT  =  m.group()
     m = re.search("^\s*/\*",pLine)
@@ -129,13 +132,17 @@ def search_open_file(pSearchFile,pSearchStr):
                 # suuport end of line comment
                 if JAVA_SOURCE_EXCLUSION_END_OF_LINE_COMMENT != None:
                     line = JAVA_SOURCE_EXCLUSION_END_OF_LINE_COMMENT
-                m = re.findall(pSearchStr,line)
+                m = findAll(pSearchStr,line)
                 if m:
                     for hit in m:
                         line_count_list.append(line_count)
             current_line_status = line_status
     f.close()
     return line_count_list
+
+def findAll(pSearchStr,pLine):
+    return  re.findall(pSearchStr,pLine)
+
 
 """
 If only Search Keyword1, and returns the results of the search in Search Keyword1. 
@@ -154,7 +161,6 @@ def searchByFile(pSearchFile,pSearchStr1,pSearchStr2):
     hit_total_cnt = len(result_hit_count_list)
     
     if hit_total_cnt!= 0 and pSearchStr2 != "":
-        
         result_hit_count_list = search_open_file(pSearchFile,pSearchStr2)
         
     return result_hit_count_list

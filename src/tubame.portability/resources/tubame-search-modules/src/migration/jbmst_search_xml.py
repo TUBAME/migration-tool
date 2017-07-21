@@ -106,13 +106,17 @@ def search_open_file(pSearchFile,pSearchStr):
             if (line_status == SOURCE):
                 # If this is not the comment text
                 # bug fix
-                m = re.findall(pSearchStr,line)
+                m = findAll(pSearchStr,line)
                 if m:
                     for hit in m:
                         line_count_list.append(line_count)
             current_line_status = line_status
     f.close()
     return line_count_list
+
+def findAll(pSearchStr,pLine):
+    return  re.findall(pSearchStr,pLine)
+
 
 """
 If only Search Keyword1, and returns the results of the search in Search Keyword1. 

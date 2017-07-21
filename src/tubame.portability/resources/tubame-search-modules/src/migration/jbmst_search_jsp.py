@@ -173,13 +173,13 @@ def search_open_file(pSearchFile,pSearchStr):
                     continue
                 # If source
                 else:
-                    m = re.findall(pSearchStr,line)
+                    m = findAll(pSearchStr,line)
                     if m:
                         for hit in m:
                             line_count_list.append(line_count)    
         else:
             if (line_status == SOURCE):
-                m = re.findall(pSearchStr,line)
+                m = findAll(pSearchStr,line)
                 if m:
                     #bug fix 
                     for hit in m:
@@ -187,6 +187,10 @@ def search_open_file(pSearchFile,pSearchStr):
             current_line_status = line_status
     f.close()
     return line_count_list
+
+def findAll(pSearchStr,line):
+    return re.findall(pSearchStr,line)
+
     
 """
 If only Search Keyword1, and returns the results of the search in Search Keyword1. 

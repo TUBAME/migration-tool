@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-__init__.py
+jbmst_search_jsp.py
 Created on 2013/06/28
 
 Copyright (C) 2011-2013 Nippon Telegraph and Telephone Corporation
@@ -18,10 +18,20 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-"""
-Setting extend package.
-Check file names defined exists to extend folder.
-[Environment] Python 2.7
-"""
+import re, sys
+import jbmst_search_java
 
-__all__ = ["ext_search_xml_xpath","ext_report_generator","ext_search_xml_definedclass","ext_search_sql_parser","ext_search_step_counter"]
+
+"""
+If only Search Keyword1, and returns the results of the search in Search Keyword1. 
+If the Search Keyword2 is also present, and returns the results to find the search file again by the Search Keyword2.
+
+@param pSearchFile:File to be searched
+@param pSearchStr1:Search Keyword1
+@param pSearchStr2:Search Keyword2 is ignore
+@retutn List of lines that hit the search
+"""
+def searchByFile(pSearchFile,pSearchStr1,pSearchStr2):
+    jbmst_search_java.LINE_HEAD_COMMENT_STR = "--"
+    return jbmst_search_java.searchByFile(pSearchFile,pSearchStr1,pSearchStr2)
+
