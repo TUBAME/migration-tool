@@ -279,9 +279,8 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 			if(!copyDestDir.exists()){
 				copyDestDir.mkdirs();
 			}
-			copyReport(guildFolder, reportDir +File.separator + "guide");
+			copyHtmlToGuideDir(guidePath,reportDir +File.separator + "guide");
 		}
-
 	}
 
 	private void createReportTemplateTypeFile(String reportTypeVal, String outputFullPath) {
@@ -342,6 +341,10 @@ public class ReportGenWizard extends Wizard implements INewWizard {
 			}
 		}
 		return null;
+	}
+	
+	private void copyHtmlToGuideDir(String sourceHtmlPath,String reportGuideDir) throws IOException{
+    	FileUtil.copyFile(new File(sourceHtmlPath), new File(reportGuideDir+ File.separator + "index.html"));
 	}
 
 	private void copyReport(final String reportGenerationPath, String target) throws IOException {
