@@ -445,7 +445,7 @@ public class JbmSearchWizard extends Wizard implements INewWizard {
 		// no oparation.
 	}
 
-	private void createProgressStatusMapForFile(String filePath) throws JbmException, IOException {
+	public static void createProgressStatusMapForFile(String filePath) throws JbmException, IOException {
 		Map<String, Integer> progressStatusMap;
 		BufferedReader bufferedReader = null;
 		FileInputStream fileInputStream = null;
