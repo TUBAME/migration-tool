@@ -14,5 +14,10 @@ search the specified java files in the type attribute of the action tag of strut
 
 Search Keywords 1://*[local-name() = 'action-mappings']/*[local-name() = 'action']/@type</ModuleDescription>
 		</SearchModule>
+		<SearchModule>
+			<ModuleName>ext_search_sql_parser.py</ModuleName>
+			<ModuleDescription>Search up to a semicolon as one chunk.
+			</ModuleDescription>
+		</SearchModule>
 	</SearchModuleList>
 </PortabilitySearchModule>
