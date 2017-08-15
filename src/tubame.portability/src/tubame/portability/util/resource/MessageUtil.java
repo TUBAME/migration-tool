@@ -169,6 +169,20 @@ public class MessageUtil extends NLS {
 	public static String MSG_OPEN_CODE_VIEWER;
 	
 	public static String WARN_KNOWLEDGE_IMPORT_ERR;
+	
+	public static String STEPCOUNT_WIZARDPAGE_TITLE;
+	public static String STEPCOUNT_WIZARDPAGE_INFO;
+	public static String STEPCOUNT_WIZARDPAGE_OUTPUT;
+	public static String STEPCOUNT_WIZARDPAGE_BROWSE;
+	public static String STEPCOUNT_WIZARD_SUCCESS_DIALOG_TITLE;
+	public static String STEPCOUNT_WIZARD_ERR_DIALOG_TITLE;
+	public static String STEPCOUNT_WIZARD_SUCCESS_MSG;
+	public static String STEPCOUNT_WIZARD_ERR_MSG;
+	public static String STEPCOUNT_WIZARD_SEARCH_START_MSG;
+	
+	public static String STEPCOUNT_WIZARD_CANCEL_MSG;
+	
+	
     static {
         // initialize resource bundle
         NLS.initializeMessages(BUNDLE_NAME, MessageUtil.class);

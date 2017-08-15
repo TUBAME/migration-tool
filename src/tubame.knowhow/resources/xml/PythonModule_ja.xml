@@ -15,5 +15,10 @@
 
 検索キーワード1://*[local-name() = 'action-mappings']/*[local-name() = 'action']/@type</ModuleDescription>
 		</SearchModule>
+		<SearchModule>
+			<ModuleName>ext_search_sql_parser.py</ModuleName>
+			<ModuleDescription>セミコロンまでをひとつのトークンとして、検索を行う。</ModuleDescription>
+		</SearchModule>
+		
 	</SearchModuleList>
 </PortabilitySearchModule>

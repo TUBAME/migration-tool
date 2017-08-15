@@ -70,9 +70,10 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
     global g_targetFilePath,g_targetFileExt, g_search_str,g_step_counter
 
     g_search_str = u""
-    rsl_list = []
+    
     for fname in pList:
         try :
+            rsl_list = []
             g_step_counter  = 0
             g_targetFilePath = fname
             g_targetFileExt = common_module.getExtension(fname)

@@ -20,9 +20,13 @@ package tubame.portability.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -42,6 +46,7 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
@@ -944,4 +949,26 @@ public class PluginUtil {
 	public static String getSourceCodeViewId() {
         return PluginUtil.SOURCE_CODE_VIEW_ID;
     }
+	
+	public static void errorDialogWithStackTrace(Shell shell, String msg, Throwable t) {
+	        StringWriter sw = new StringWriter();
+	        PrintWriter pw = new PrintWriter(sw);
+	        t.printStackTrace(pw);
+
+	        final String trace = sw.toString(); // stack trace as a string
+
+	        // Temp holder of child statuses
+	        List<Status> childStatuses = new ArrayList();
+
+	        // Split output by OS-independend new-line
+	        for (String line : trace.split(System.getProperty("line.separator"))) {
+	            // build & add status
+	            childStatuses.add(new Status(IStatus.ERROR, Activator.PLUGIN_ID, line));
+	        }
+
+	        MultiStatus ms = new MultiStatus(Activator.PLUGIN_ID, IStatus.ERROR,
+	                childStatuses.toArray(new Status[] {}), // convert to array of statuses
+	                t.getLocalizedMessage(), t);
+	        org.eclipse.jface.dialogs.ErrorDialog.openError(shell, null,  msg, ms);	
+	    }
 }

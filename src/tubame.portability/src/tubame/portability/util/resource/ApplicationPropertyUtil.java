@@ -125,7 +125,10 @@ public class ApplicationPropertyUtil extends NLS {
     
     
     public static String SEARCH_REPORTGEN_KEYWORD_FILE;
+    
 
+    public static String SEARCH_STEPCOUNTER_KEYWORD_FILE;
+    
 	public static String REPORTGEN_OUTPUT_DIR;
 	
 	public static String KNOWLEDGE_DIR;
@@ -159,6 +162,10 @@ public class ApplicationPropertyUtil extends NLS {
 	public static String CODE_VIEWER_REC_BASE_LENGTH;
 	
 	public static String MIGRATION_KNOWLEDGE_DOWNLOAD_ENDPOINT_URL;
+	
+	
+	
+	
 
     static {
         // initialize resource bundle

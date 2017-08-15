@@ -178,6 +178,26 @@
            menubarPath="tubame.menu1/portability">
      </action>
   </objectContribution>
+   <objectContribution
+        adaptable="true"
+        id="Contribution"
+        objectClass="org.eclipse.core.resources.IResource">
+     <menu
+           id="tubame.menu1"
+           label="%menu.name"
+           path="additions">
+        <separator
+              name="portability">
+        </separator>
+     </menu>
+     <action
+           class="tubame.portability.plugin.action.StepCountWizardAction"
+           enablesFor="1"
+           id="StepCountWizardActio"
+           label="%menu.stepcount.name"
+           menubarPath="tubame.menu1/portability">
+     </action>
+  </objectContribution>
 	</extension>
  <extension
        point="org.eclipse.ui.preferencePages">
