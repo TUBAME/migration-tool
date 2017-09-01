@@ -312,7 +312,15 @@ public final class MessagePropertiesUtil {
     public static final String JAXB_ERROR_EVENT_KNOWHOW_MARSHALL = "jaxbErrorEventKnowhowMarshall";
     
     public static final String ERR_OUTPUT_DIR_NOT_EXIST= "errorNotExistOutputDirectory";
-
+    
+    public static final String PERFORM_ADD_KNOWHOW_FROM_ASCIIDOC = "peformAddKnowhowFromAsciidoc";
+    
+    public static final String ERR_IMPORT_ASCIIDOC = "errImportAsciidoc";
+    
+    public static final String REQUIRED_ASCIIDOC_HEADER = "requireAsciidocHeader";
+    
+    public static final String EMPTY_ASCIIDOC = "emptyAsciidoc";
+    
     /** Resource bundle */
     private static ResourceBundle resourceBundle = null;
     static {

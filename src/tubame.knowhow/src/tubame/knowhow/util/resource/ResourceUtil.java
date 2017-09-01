@@ -27,6 +27,7 @@ public final class ResourceUtil extends NLS {
 
     /** Resource bundle */
     private static final String BUNDLE_NAME = "resources.properties.resource"; //$NON-NLS-1$
+
     /** messeges.properties */
     public static String massagesPropertiesPath;
     /** application.properties */
@@ -247,8 +248,9 @@ public final class ResourceUtil extends NLS {
     
     public static String defaultKnowhowToAsciiDocXslPath;
     
+    public static String addKnowhowFromAsciiDoc;
     
-    
+	
 
     static {
         NLS.initializeMessages(BUNDLE_NAME, ResourceUtil.class);

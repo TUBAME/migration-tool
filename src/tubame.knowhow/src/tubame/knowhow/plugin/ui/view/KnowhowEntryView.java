@@ -20,17 +20,26 @@ package tubame.knowhow.plugin.ui.view;
 
 import java.util.List;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.IActionBars;
+import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IViewPart;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.ViewPart;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import tubame.common.util.CmnFileUtil;
 import tubame.common.util.CmnStringUtil;
 import tubame.knowhow.biz.exception.JbmException;
 import tubame.knowhow.biz.util.resource.ApplicationPropertiesUtil;
@@ -40,9 +49,12 @@ import tubame.knowhow.plugin.logic.KnowhowManagement;
 import tubame.knowhow.plugin.model.view.AbstractViewType;
 import tubame.knowhow.plugin.model.view.CheckItemViewType;
 import tubame.knowhow.plugin.model.view.PortabilityKnowhowListViewOperation;
+import tubame.knowhow.plugin.ui.dialog.ConfirmDialog;
+import tubame.knowhow.plugin.ui.dialog.ErrorDialog;
 import tubame.knowhow.plugin.ui.editor.multi.MaintenanceKnowhowMultiPageEditor;
 import tubame.knowhow.util.PluginUtil;
 import tubame.knowhow.util.ViewUtil;
+import tubame.knowhow.util.resource.ResourceUtil;
 
 /**
  * Know-how entry view class.<br/>
@@ -58,6 +70,8 @@ public class KnowhowEntryView extends ViewPart implements ViewRefresh {
 	/** open view action */
 	private Action openViewAction;
 
+	private Action importAsciidocAction;
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -65,8 +79,8 @@ public class KnowhowEntryView extends ViewPart implements ViewRefresh {
 	public void createPartControl(Composite parent) {
 		LOGGER.info(MessagePropertiesUtil.getMessage(MessagePropertiesUtil.LOG_CREATE_KNOWHOW_ENTRY_VIEW));
 
-		knowhowEntryTreeViewer = new KnowhowEntryTreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL
-				| SWT.BORDER | SWT.FULL_SELECTION);
+		knowhowEntryTreeViewer = new KnowhowEntryTreeViewer(parent,
+				SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER | SWT.FULL_SELECTION);
 
 		makeActions();
 		contributeToActionBars();
@@ -191,13 +205,110 @@ public class KnowhowEntryView extends ViewPart implements ViewRefresh {
 				}
 			}
 		};
-		openViewAction.setText(ApplicationPropertiesUtil
-				.getProperty(ApplicationPropertiesUtil.OPEN_CHECKITEM_ENTRY_VIEW));
+		openViewAction
+				.setText(ApplicationPropertiesUtil.getProperty(ApplicationPropertiesUtil.OPEN_CHECKITEM_ENTRY_VIEW));
 
+		importAsciidocAction = new Action() {
+			/**
+			 * {@inheritDoc}
+			 */
+			@Override
+			public void run() {
+				MaintenanceKnowhowMultiPageEditor knowhowMultiPageEditor = PluginUtil.getKnowhowEditor();
+				if (isDirty(knowhowMultiPageEditor)) {
+					String knowhowXmlPath = knowhowMultiPageEditor.getFileLocationFullPath();
+					FileDialog dialog = new FileDialog(PluginUtil.getActiveWorkbenchShell(), SWT.SAVE);
+
+					try {
+						IFile knowhowDetailTempIFile = knowhowMultiPageEditor.getKnowhowDetailTempIFile();
+						String projectTempdir = knowhowDetailTempIFile.getParent().getLocation().toOSString();
+
+						if (addKnowhowFromAsciiDoc(dialog, knowhowXmlPath, projectTempdir)) {
+							knowhowMultiPageEditor.close(false);
+							IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+
+							IFileEditorInput editorInput = (IFileEditorInput) knowhowMultiPageEditor.getEditorInput();
+							IFile file = editorInput.getFile();
+							if (file != null) {
+								IDE.openEditor(page, file,
+										"tubame.knowhow.maintenance.portability.editors.multi.KnowhowMultiEditor");
+							}
+						}
+
+					} catch (Exception e) {
+						ErrorDialog.errorDialogWithStackTrace(PluginUtil.getActiveWorkbenchShell(),
+								MessagePropertiesUtil.getMessage(
+										MessagePropertiesUtil.getMessage(MessagePropertiesUtil.ERR_IMPORT_ASCIIDOC)),
+								e);
+					}
+
+				}
+			}
+		};
+
+		importAsciidocAction.setText(ApplicationPropertiesUtil.getProperty(ApplicationPropertiesUtil.OPEN_CHECKITEM_ENTRY_VIEW));
+
+	}
+
+	private boolean addKnowhowFromAsciiDoc(FileDialog dialog, String knowhowXmlFilePath, String projectTempdir)
+			throws Exception {
+		// Settings dialog
+		String[] exts = { "adoc" };
+		dialog.setFilterExtensions(exts);
+		dialog.setText(ResourceUtil.addKnowhowFromAsciiDoc);
+		dialog.setFileName("*.adoc");
+		String adocFilePath = dialog.open();
+		String adocFileName = dialog.getFileName();
+		String convertedFileName = adocFileName.substring(0, adocFileName.length() - 5) + ".xml";
+		if (adocFilePath != null) {
+
+			boolean valid = FileManagement.validAsciidocHeaderForImport(adocFilePath);
+			if (!valid) {
+				ErrorDialog.openErrorDialog(PluginUtil.getActiveWorkbenchShell(), null,
+						MessagePropertiesUtil.getMessage(MessagePropertiesUtil.REQUIRED_ASCIIDOC_HEADER));
+				return false;
+			}
+			try {
+				FileManagement.addKnowhowFromAsciidoc(adocFilePath, knowhowXmlFilePath, projectTempdir);
+			} catch (Exception e) {
+				FileManagement.deleteTmpFileForAsciidocImport(projectTempdir, adocFileName, convertedFileName);
+				throw e;
+			}
+			boolean importOk = ConfirmDialog.openConfirm(PluginUtil.getActiveWorkbenchShell(),
+					ResourceUtil.addKnowhowFromAsciiDoc,
+					MessagePropertiesUtil.getMessage(MessagePropertiesUtil.PERFORM_ADD_KNOWHOW_FROM_ASCIIDOC));
+			if (importOk) {
+				try {
+					FileManagement.backupAndAppendKnowhowForImportAdoc(knowhowXmlFilePath, projectTempdir);
+					FileManagement.refresh();
+				} catch (Exception e) {
+					// restore
+					FileManagement.restoreKnowhowUsingBackup(projectTempdir, knowhowXmlFilePath);
+					FileManagement.refresh();
+					FileManagement.deleteTmpFileForAsciidocImport(projectTempdir, adocFileName, convertedFileName);
+					throw e;
+				}
+			}
+			FileManagement.deleteTmpFileForAsciidocImport(projectTempdir, adocFileName, convertedFileName);
+
+		}
+		return true;
 	}
 
 	private void fillLocalPullDown(IMenuManager menuManager) {
 		menuManager.add(openViewAction);
+		menuManager.add(importAsciidocAction);
+	}
+
+	private boolean isDirty(MaintenanceKnowhowMultiPageEditor knowhowMultiPageEditor) {
+		if (knowhowMultiPageEditor.isDirty()) {
+			JbmException.outputExceptionLog(LOGGER, null,
+					MessagePropertiesUtil.getMessage(MessagePropertiesUtil.SAVE_PROCESS_KNOWHOW_EDITOR));
+			ErrorDialog.openErrorDialog(PluginUtil.getActiveWorkbenchShell(), null,
+					MessagePropertiesUtil.getMessage(MessagePropertiesUtil.SAVE_PROCESS_KNOWHOW_EDITOR));
+			return false;
+		}
+		return true;
 	}
 
 }

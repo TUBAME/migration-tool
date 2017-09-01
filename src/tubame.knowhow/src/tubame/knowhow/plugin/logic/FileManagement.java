@@ -28,10 +28,25 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Map;
+import java.util.Properties;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathFactory;
 
 import org.eclipse.ui.IViewPart;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import tubame.common.logic.converter.CmnDocBookConverter;
 import tubame.common.util.CmnFileUtil;
@@ -43,6 +58,7 @@ import tubame.knowhow.biz.logic.converter.SearchModuleConverter;
 import tubame.knowhow.biz.model.generated.python.PortabilitySearchModule;
 import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
 import tubame.knowhow.plugin.ui.view.ViewRefresh;
+import tubame.knowhow.util.FileUtil;
 import tubame.knowhow.util.PluginUtil;
 import tubame.knowhow.util.resource.ResourceUtil;
 
@@ -79,6 +95,18 @@ public final class FileManagement {
 	private static final String TEMP2_FOR_ASCIIDOC = "temp2_docbook.xml";
 
 	private static final String TEMP3_FOR_ASCIIDOC = "temp3_docbook.adoc";
+
+	private static final String TUBAME_KNOWHOW_TEMP1_FOR_ADOC_IMPORT = ".temp1_tubame_for_adoc_import.xml";
+
+	private static final String TUBAME_KNOWHOW_TEMP2_FOR_ADOC_IMPORT = ".temp2_tubame_for_adoc_import.xml";
+
+	private static final String TUBAME_KNOWHOW_TEMP3_FOR_ADOC_IMPORT = ".temp3_tubame_for_adoc_import.xml";
+	
+	private static final String TUBAME_KNOWHOW_TEMP4_FOR_ADOC_IMPORT = ".temp4_tubame_for_adoc_import.xml";
+	
+	private static final String TUBAME_KNOWHOW_TEMP5_FOR_ADOC_IMPORT = ".temp5_tubame_for_adoc_import.xml";
+
+	private static final String TUBAME_KNOWHOW_BACKUP_FOR_ADOC_IMPORT = ".backup_tubame_for_adoc_import.xml";
 
 	/**
 	 * Constructor.<br/>
@@ -242,6 +270,147 @@ public final class FileManagement {
 
 	}
 
+	public static void addKnowhowFromAsciidoc(String asciidocPath, String knowhowXmlPath, String projectTempdir)
+			throws Exception {
+
+		String adocFileName = new File(asciidocPath).getName();
+		File tmpAdoc = new File(projectTempdir, adocFileName);
+		
+		// adoc copy
+		FileUtil.copy(new File(asciidocPath), tmpAdoc,ResourceUtil.textdataReadEncode);
+
+		String convertedFileName = adocFileName.substring(0, adocFileName.length() - 5) + ".xml";
+		String docbookFilePath = projectTempdir + File.separator + convertedFileName;
+
+		try {
+			//adoc -> docbook(docbookFilePath)
+			AsciiDocConverter.toDocBook(tmpAdoc.getAbsolutePath(), projectTempdir);
+
+			//docbook -> docbook (append section/para)
+			appendParaAsDocBook(docbookFilePath,
+					projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP1_FOR_ADOC_IMPORT);
+
+			//docbook -> docbook (replace simpara, formalpara,programlisting)
+			replaceSimparaAndformalparaAndprogramlisting(projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP1_FOR_ADOC_IMPORT,projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP2_FOR_ADOC_IMPORT);
+			
+			//docbook -> docbook (delete figura/para)
+			deleteFigurePara(projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP2_FOR_ADOC_IMPORT,projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP3_FOR_ADOC_IMPORT);
+			
+			// step3 docbook -> tubame knowhow(temp1)
+			docbookToTubameKnowledge(projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP3_FOR_ADOC_IMPORT,
+					projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP4_FOR_ADOC_IMPORT, knowhowXmlPath);
+
+			// step4 insert tubame knowhow(temp1) into current knowhowXml
+			appendToKnowhowXml(projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP4_FOR_ADOC_IMPORT,
+					projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP5_FOR_ADOC_IMPORT, knowhowXmlPath);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			
+		}
+	}
+
+	private static int deleteFigurePara(String from, String to) {
+		ClassLoader cl = FileManagement.class.getClassLoader();
+		InputStream xslInputStream = cl.getResourceAsStream("resources/xsl/d2d_delete_figure_para.xsl");
+		URL xslUrl = cl.getResource("resources/xsl/d2d_delete_figure_para.xsl");
+		return CmnDocBookConverter.convertWithProps(CmnFileUtil.getInputStream(from), to, null,
+				xslInputStream, xslUrl, null);
+		
+	}
+
+	public static boolean validAsciidocHeaderForImport(String adocPath) throws Exception{
+			BufferedReader bufferedReader = null;
+			FileInputStream fileInputStream = null;
+			int count = 0;
+			try {
+				fileInputStream = new FileInputStream(adocPath);
+				bufferedReader = new BufferedReader(
+						new InputStreamReader(fileInputStream, ResourceUtil.textdataReadEncode));
+				String s = null;
+
+				while ((s = bufferedReader.readLine()) != null) {
+					count++;
+					if (count == 2) {
+						return s.matches("^==+$");
+					}
+				}
+			} catch (IOException e) {
+				throw e;
+			} finally {
+				if (bufferedReader != null) {
+					bufferedReader.close();
+				}
+				if(fileInputStream!=null){
+					fileInputStream.close();
+				}
+			}
+			return false;
+		
+	}
+
+
+	public static void deleteTmpFileForAsciidocImport(String projectTempdir, String adocFileName,String convertedFileName) {
+		 new File(projectTempdir + File.separator +convertedFileName).delete();
+		 // Deletion of this file fails because asciidoctorj has not closed this file.
+		 new File(projectTempdir + File.separator +adocFileName).delete();
+		 new File(projectTempdir + File.separator +TUBAME_KNOWHOW_TEMP1_FOR_ADOC_IMPORT).delete();
+		 new File(projectTempdir + File.separator +TUBAME_KNOWHOW_TEMP2_FOR_ADOC_IMPORT).delete();
+		 new File(projectTempdir + File.separator +TUBAME_KNOWHOW_TEMP3_FOR_ADOC_IMPORT).delete();
+		 new File(projectTempdir + File.separator +TUBAME_KNOWHOW_TEMP4_FOR_ADOC_IMPORT).delete();
+		 new File(projectTempdir + File.separator +TUBAME_KNOWHOW_TEMP5_FOR_ADOC_IMPORT).delete();
+		 new File(projectTempdir + File.separator +TUBAME_KNOWHOW_BACKUP_FOR_ADOC_IMPORT).delete();
+	}
+
+	private static int replaceSimparaAndformalparaAndprogramlisting(String from, String to) {
+		ClassLoader cl = FileManagement.class.getClassLoader();
+		InputStream xslInputStream = cl.getResourceAsStream("resources/xsl/d2d_replace_simpara_formalpara_prog.xsl");
+		URL xslUrl = cl.getResource("resources/xsl/d2d_replace_simpara_formalpara_prog.xsl");
+		return CmnDocBookConverter.convertWithProps(CmnFileUtil.getInputStream(from), to, null,
+				xslInputStream, xslUrl, null);
+	}
+
+	private static void appendToKnowhowXml(String from, String to, String knowhowXmlPath) throws Exception {
+		NodeList entryCategoryList = FileManagement.getNodeListFromKnowhowXml(from,
+				"//*[local-name()='EntryViewList']/*[local-name()='EntryCategory']");
+		NodeList categoryList = FileManagement.getNodeListFromKnowhowXml(from,
+				"//*[local-name()='CategoryList']/*[local-name()='Category']");
+		NodeList knowhowInformationList = FileManagement.getNodeListFromKnowhowXml(from,
+				"//*[local-name()='KnowhowList']/*[local-name()='KnowhowInfomation']");
+		NodeList docbookList = FileManagement.getNodeListFromKnowhowXml(from,
+				"//*[local-name()='DocBookList']/*[local-name()='DocBook']");
+		FileManagement.appendNodeListToKnowhowXml(entryCategoryList, categoryList, knowhowInformationList, docbookList,
+				knowhowXmlPath, to);
+	}
+
+	public static int appendParaAsDocBook(String orgFilePath, String outputFilePath) {
+		// If it does not exist, specify a default XSL of resource
+		ClassLoader cl = FileManagement.class.getClassLoader();
+		InputStream xslInputStream = cl.getResourceAsStream("resources/xsl/d2d_addpara.xsl");
+		URL xslUrl = cl.getResource("resources/xsl/d2d_addpara.xsl");
+		return CmnDocBookConverter.convertWithProps(CmnFileUtil.getInputStream(orgFilePath), outputFilePath, null,
+				xslInputStream, xslUrl, null);
+	}
+
+	public static int docbookToTubameKnowledge(String from, String to, String knowhowXmlPath) throws Exception {
+		Integer knowhowLastCount = FileManagement.getLastIdFromKnowhowXml(knowhowXmlPath,
+				"//*[local-name()='KnowhowList']/*[local-name()='KnowhowInfomation']", "knowhowId");
+		Integer knowhowDetailLastCount = FileManagement.getLastIdFromKnowhowXml(knowhowXmlPath,
+				"//*[local-name()='DocBookList']/*[local-name()='DocBook']", "articleId");
+		Integer categoryLastCount = FileManagement.getLastIdFromKnowhowXml(knowhowXmlPath,
+				"//*[local-name()='CategoryList']/*[local-name()='Category']", "categoryId");
+
+		Properties properties = new Properties();
+		properties.setProperty("categoryIndexBase", String.valueOf(categoryLastCount));
+		properties.setProperty("knowhowIndexBase", String.valueOf(knowhowLastCount));
+		properties.setProperty("knowhowDetailsIndexBase", String.valueOf(knowhowDetailLastCount));
+
+		ClassLoader cl = FileManagement.class.getClassLoader();
+		InputStream xslInputStream = cl.getResourceAsStream("resources/xsl/docbookArticletoTubameKnowhow.xsl");
+		URL xslUrl = cl.getResource("resources/xsl/docbookArticletoTubameKnowhow.xsl");
+		return CmnDocBookConverter.convertWithProps(CmnFileUtil.getInputStream(from), to, null, xslInputStream, xslUrl,
+				properties);
+	}
 
 	public static void trimLineBreak(File in, File out) throws IOException {
 		BufferedReader bufferedReader = null;
@@ -284,7 +453,6 @@ public final class FileManagement {
 		URL xslUrl = cl.getResource(ResourceUtil.defaultKnowhowRemovePrefixXslPath);
 		return CmnDocBookConverter.convertHtml(CmnFileUtil.getInputStream(orgFilePath), outputFilePath, null,
 				xslInputStream, xslUrl);
-
 	}
 
 	public static void removeTempFileForAsciiDoc(String outputFilePath) {
@@ -300,7 +468,7 @@ public final class FileManagement {
 		if (tempFile.exists()) {
 			tempFile.delete();
 		}
-		
+
 		String temp3 = file.getParent() + File.separator + TEMP3_FOR_ASCIIDOC;
 		tempFile = new File(temp3);
 		if (tempFile.exists()) {
@@ -308,7 +476,8 @@ public final class FileManagement {
 		}
 	}
 
-	public static void saveAsciiDoc(String orgFilePath, String outputFilePath,InputStream xslAsciiDoc) throws Exception {
+	public static void saveAsciiDoc(String orgFilePath, String outputFilePath, InputStream xslAsciiDoc)
+			throws Exception {
 		// step1 convert docbook
 		File file = new File(outputFilePath);
 		String temp1 = file.getParent() + File.separator + TEMP1_FOR_ASCIIDOC;
@@ -320,7 +489,7 @@ public final class FileManagement {
 
 		// step3 convert asciidoc
 		String temp3 = file.getParent() + File.separator + TEMP3_FOR_ASCIIDOC;
-		AsciiDocConverter.convert(temp2, temp3,xslAsciiDoc);
+		AsciiDocConverter.convert(temp2, temp3, xslAsciiDoc);
 
 		// step4 trim line break
 		trimLineBreak(new File(temp3), file);
@@ -381,4 +550,115 @@ public final class FileManagement {
 		FileManagement.LOGGER.debug("[knowhowHtmlTempFilePath]" + knowhowHtmlTempFilePath);
 		FileManagement.knowhowHtmlTempFilePath = knowhowHtmlTempFilePath;
 	}
+
+	public static void backupAndAppendKnowhowForImportAdoc(String knowhowXmlFilePath, String tempDir) throws Exception {
+		File file = new File(tempDir, TUBAME_KNOWHOW_BACKUP_FOR_ADOC_IMPORT);
+		file.deleteOnExit();
+		FileUtil.copy(new File(knowhowXmlFilePath), new File(tempDir, TUBAME_KNOWHOW_BACKUP_FOR_ADOC_IMPORT),ResourceUtil.textdataReadEncode);
+		FileUtil.copy(new File(tempDir, TUBAME_KNOWHOW_TEMP5_FOR_ADOC_IMPORT), new File(knowhowXmlFilePath),ResourceUtil.textdataReadEncode);
+	}
+	
+	public static void restoreKnowhowUsingBackup(String tempDir,String knowhowXmlFilePath){
+		File backupFile = new File(tempDir, TUBAME_KNOWHOW_BACKUP_FOR_ADOC_IMPORT);
+		if(backupFile.exists()){
+			try {
+				FileUtil.copy(backupFile, new File(knowhowXmlFilePath),ResourceUtil.textdataReadEncode);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public static Integer getLastIdFromKnowhowXml(String knowhowXmlPath, String xpath, String attrName)
+			throws Exception {
+
+		DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+		Document doc = builder.parse(new File(knowhowXmlPath));
+		XPath xpathIns = XPathFactory.newInstance().newXPath();
+
+		NodeList dockBookNodes = (NodeList) xpathIns.evaluate(xpath, doc, XPathConstants.NODESET);
+
+		Integer currentCount = 0;
+		for (int i = 0; i < dockBookNodes.getLength(); i++) {
+
+			Node item = dockBookNodes.item(i);
+			if (item != null) {
+				NamedNodeMap attributes = item.getAttributes();
+				Node namedItem = attributes.getNamedItem(attrName);
+				String attrValue = namedItem.getNodeValue();
+				if (attrValue == null) {
+					throw new IllegalArgumentException("attribute is null");
+				}
+
+				String[] split = attrValue.split("_");
+				if (split.length != 2) {
+					throw new IllegalArgumentException("id format error");
+				}
+				String idStr = split[1];
+				Integer tmpCount = Integer.valueOf(idStr);
+				if (tmpCount > currentCount) {
+					currentCount = tmpCount;
+				}
+			}
+		}
+
+		return currentCount;
+	}
+
+	public static NodeList getNodeListFromKnowhowXml(String knowhowXmlPath, String xpath) throws Exception {
+		DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+		Document doc = builder.parse(new File(knowhowXmlPath));
+		XPath xpathIns = XPathFactory.newInstance().newXPath();
+		return (NodeList) xpathIns.evaluate(xpath, doc, XPathConstants.NODESET);
+	}
+
+	public static void appendNodeListToKnowhowXml(NodeList entryCategoryList, NodeList categoryList,
+			NodeList knowhowList, NodeList docBookList, String knowhowXmlPath, String outputPath) throws Exception {
+
+		DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+		Document doc = builder.parse(new File(knowhowXmlPath));
+		XPath xpathIns = XPathFactory.newInstance().newXPath();
+
+		// append entryCategory
+		Node entryViewParentNode = (Node) xpathIns.evaluate(
+				"*[local-name()='PortabilityKnowhow']/*[local-name()='EntryViewList']", doc, XPathConstants.NODE);
+		for (int i = 0; i < entryCategoryList.getLength(); i++) {
+			Node newChild = entryCategoryList.item(i);
+			Node importedNode = doc.importNode(newChild, true);
+			entryViewParentNode.appendChild(importedNode);
+		}
+
+		// append categoryList
+		Node categoryListParentNode = (Node) xpathIns.evaluate(
+				"*[local-name()='PortabilityKnowhow']/*[local-name()='CategoryList']", doc, XPathConstants.NODE);
+		for (int i = 0; i < categoryList.getLength(); i++) {
+			Node newChild = categoryList.item(i);
+			Node importedNode = doc.importNode(newChild, true);
+			categoryListParentNode.appendChild(importedNode);
+		}
+
+		// append KnowhowInformation
+		Node knowhowListparentNode = (Node) xpathIns.evaluate(
+				"*[local-name()='PortabilityKnowhow']/*[local-name()='KnowhowList']", doc, XPathConstants.NODE);
+		for (int i = 0; i < knowhowList.getLength(); i++) {
+			Node newChild = knowhowList.item(i);
+			Node importedNode = doc.importNode(newChild, true);
+			knowhowListparentNode.appendChild(importedNode);
+		}
+
+		// append DocBook
+		Node docbookListParentNode = (Node) xpathIns.evaluate(
+				"*[local-name()='PortabilityKnowhow']/*[local-name()='DocBookList']", doc, XPathConstants.NODE);
+		for (int i = 0; i < docBookList.getLength(); i++) {
+			Node newChild = docBookList.item(i);
+			Node importedNode = doc.importNode(newChild, true);
+			docbookListParentNode.appendChild(importedNode);
+		}
+		TransformerFactory transformerFactory = TransformerFactory.newInstance();
+		Transformer transformer = transformerFactory.newTransformer();
+		StreamResult result = new StreamResult(outputPath);
+		DOMSource source = new DOMSource(doc);
+		transformer.transform(source, result);
+	}
+
 }

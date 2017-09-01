@@ -23,32 +23,39 @@
 		</dependency>
 
 
-	    <!-- use xslt 3.0 processor for convert asciidoc -->
+		<!-- use xslt 3.0 processor for convert asciidoc -->
 		<dependency>
 			<groupId>net.sf.saxon</groupId>
 			<artifactId>Saxon-HE</artifactId>
 			<version>9.7.0-18</version>
 		</dependency>
 
-        <!-- 
-          use xalan for javax.xml.transform 
-           
-          defined:
-            
-          services/javax.xml.transform.TransformerFactory: org.apache.xalan.processor.TransformerFactoryImpl
-                
-          important:
-          
-          When the pom definition of xalan is defined before saxon ,saxon is used to implement javax.xml.transform.
-          In this case, the conversion process using xsl with javax.xml.transform API will not work
-           
-         -->
-         <dependency>
+		<!-- use xalan for javax.xml.transform defined: services/javax.xml.transform.TransformerFactory: 
+			org.apache.xalan.processor.TransformerFactoryImpl important: When the pom 
+			definition of xalan is defined before saxon ,saxon is used to implement javax.xml.transform. 
+			In this case, the conversion process using xsl with javax.xml.transform API 
+			will not work -->
+		<dependency>
 			<groupId>xalan</groupId>
 			<artifactId>xalan</artifactId>
 			<version>${xalan.version}</version>
 		</dependency>
-         
+
+		<dependency>
+			<groupId>org.asciidoctor</groupId>
+			<artifactId>asciidoctorj</artifactId>
+			<version>1.5.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jruby</groupId>
+			<artifactId>jruby-complete</artifactId>
+			<version>1.7.21</version>
+			<scope>compile</scope>
+		</dependency>
+
+
+
 		<dependency>
 			<groupId>org.javassist</groupId>
 			<artifactId>javassist</artifactId>
