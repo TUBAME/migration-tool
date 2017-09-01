@@ -26,6 +26,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
+import java.util.Collection;
+import java.util.Map.Entry;
+import java.util.Properties;
+import java.util.Set;
 
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
@@ -113,7 +117,15 @@ public class CmnDocBookConverter {
             String outputFilePath, String xslFilePath, InputStream inputXsl,
             URL xslUrl) {
         return convert(inputDocBook, CmnDocBookConverter.OUTPUTTYPE_HTML,
-                outputFilePath, xslFilePath, inputXsl, xslUrl);
+                outputFilePath, xslFilePath, inputXsl, xslUrl,null);
+    }
+    
+    
+    public static int convertWithProps(InputStream inputDocBook,
+            String outputFilePath, String xslFilePath, InputStream inputXsl,
+            URL xslUrl,Properties props) {
+        return convert(inputDocBook, CmnDocBookConverter.OUTPUTTYPE_HTML,
+                outputFilePath, xslFilePath, inputXsl, xslUrl,props);
     }
 
     /**
@@ -143,7 +155,7 @@ public class CmnDocBookConverter {
      */
     private static int convert(InputStream inputDocBook, int outputType,
             String outputFilePath, String xslFilePath, InputStream inputXsl,
-            URL xslUrl) {
+            URL xslUrl,Properties props) {
         int resultCode = RETCODE_SUCCESS;
 
         OutputStream output = null;
@@ -188,7 +200,12 @@ public class CmnDocBookConverter {
             // Generation for conversion object
             TransformerFactory factory = TransformerFactory.newInstance();
             Transformer transformer = factory.newTransformer(xslSource);
-
+            if(props !=null){
+            	Set<Entry<Object, Object>> entrySet = props.entrySet();
+            	for (Entry<Object, Object> entry : entrySet) {
+            		transformer.setParameter((String)entry.getKey(), entry.getValue());
+				}
+            }
             // Perform the conversion
             transformer.transform(source, result);
 
