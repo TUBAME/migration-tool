@@ -18,12 +18,15 @@
  */
 package tubame.knowhow.plugin.ui.view;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.FileDialog;
@@ -215,6 +218,11 @@ public class KnowhowEntryView extends ViewPart implements ViewRefresh {
 			@Override
 			public void run() {
 				MaintenanceKnowhowMultiPageEditor knowhowMultiPageEditor = PluginUtil.getKnowhowEditor();
+				if(knowhowMultiPageEditor == null){
+					ErrorDialog.openErrorDialog(PluginUtil.getActiveWorkbenchShell(),null,
+							MessagePropertiesUtil.getMessage(MessagePropertiesUtil.REQUIRED_ACTIVE_EDITOR_FOR_ADOC_IMPORT));
+					return;
+				}
 				if (isDirty(knowhowMultiPageEditor)) {
 					String knowhowXmlPath = knowhowMultiPageEditor.getFileLocationFullPath();
 					FileDialog dialog = new FileDialog(PluginUtil.getActiveWorkbenchShell(), SWT.SAVE);
@@ -229,6 +237,14 @@ public class KnowhowEntryView extends ViewPart implements ViewRefresh {
 
 							IFileEditorInput editorInput = (IFileEditorInput) knowhowMultiPageEditor.getEditorInput();
 							IFile file = editorInput.getFile();
+							
+
+							MessageDialog.openInformation(PluginUtil.getActiveWorkbenchShell(),
+									ResourceUtil.addKnowhowFromAsciiDoc,
+									MessagePropertiesUtil.getMessage(MessagePropertiesUtil.FINISH_IMPORT_ADOC) + "\n"
+											+ MessagePropertiesUtil
+													.getMessage(MessagePropertiesUtil.BACKUP_KNOWHOW_FOR_IMPORT_ADOC));
+							
 							if (file != null) {
 								IDE.openEditor(page, file,
 										"tubame.knowhow.maintenance.portability.editors.multi.KnowhowMultiEditor");
@@ -237,16 +253,15 @@ public class KnowhowEntryView extends ViewPart implements ViewRefresh {
 
 					} catch (Exception e) {
 						ErrorDialog.errorDialogWithStackTrace(PluginUtil.getActiveWorkbenchShell(),
-								MessagePropertiesUtil.getMessage(
-										MessagePropertiesUtil.getMessage(MessagePropertiesUtil.ERR_IMPORT_ASCIIDOC)),
-								e);
+								MessagePropertiesUtil.getMessage(MessagePropertiesUtil.ERR_IMPORT_ASCIIDOC), e);
 					}
 
 				}
 			}
 		};
 
-		importAsciidocAction.setText(ApplicationPropertiesUtil.getProperty(ApplicationPropertiesUtil.OPEN_CHECKITEM_ENTRY_VIEW));
+		importAsciidocAction
+				.setText(ApplicationPropertiesUtil.getProperty(ApplicationPropertiesUtil.LABEL_IMPORT_ASCIIDOC));
 
 	}
 
@@ -265,7 +280,7 @@ public class KnowhowEntryView extends ViewPart implements ViewRefresh {
 			boolean valid = FileManagement.validAsciidocHeaderForImport(adocFilePath);
 			if (!valid) {
 				ErrorDialog.openErrorDialog(PluginUtil.getActiveWorkbenchShell(), null,
-						MessagePropertiesUtil.getMessage(MessagePropertiesUtil.REQUIRED_ASCIIDOC_HEADER));
+						MessagePropertiesUtil.getMessage(MessagePropertiesUtil.REQUIRED_ASCIIDOC_HEADER)+"\n\nTitle\n=====\nUserName");
 				return false;
 			}
 			try {
@@ -278,19 +293,22 @@ public class KnowhowEntryView extends ViewPart implements ViewRefresh {
 					ResourceUtil.addKnowhowFromAsciiDoc,
 					MessagePropertiesUtil.getMessage(MessagePropertiesUtil.PERFORM_ADD_KNOWHOW_FROM_ASCIIDOC));
 			if (importOk) {
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+				String timeStamp = sdf.format(new Date());
 				try {
-					FileManagement.backupAndAppendKnowhowForImportAdoc(knowhowXmlFilePath, projectTempdir);
+					FileManagement.backupAndAppendKnowhowForImportAdoc(knowhowXmlFilePath, projectTempdir,timeStamp);
 					FileManagement.refresh();
 				} catch (Exception e) {
 					// restore
-					FileManagement.restoreKnowhowUsingBackup(projectTempdir, knowhowXmlFilePath);
+					FileManagement.restoreKnowhowUsingBackup(projectTempdir, knowhowXmlFilePath,timeStamp);
 					FileManagement.refresh();
 					FileManagement.deleteTmpFileForAsciidocImport(projectTempdir, adocFileName, convertedFileName);
 					throw e;
 				}
+			}else{
+				return false;
 			}
 			FileManagement.deleteTmpFileForAsciidocImport(projectTempdir, adocFileName, convertedFileName);
-
 		}
 		return true;
 	}

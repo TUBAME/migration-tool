@@ -321,6 +321,12 @@ public final class MessagePropertiesUtil {
     
     public static final String EMPTY_ASCIIDOC = "emptyAsciidoc";
     
+    public static final String FINISH_IMPORT_ADOC = "finishImportAdoc";
+    
+    public static final String BACKUP_KNOWHOW_FOR_IMPORT_ADOC = "backupKnowhowForImportAdoc";
+    
+    public static final String REQUIRED_ACTIVE_EDITOR_FOR_ADOC_IMPORT= "requiredActiveEditorForAocImport";
+    
     /** Resource bundle */
     private static ResourceBundle resourceBundle = null;
     static {

@@ -22,7 +22,7 @@
 
 		<PortabilityKnowhow>
 			<PortabilityKnowhowTitle>
-				<xsl:value-of select="/ns2:article/ns2:title" />
+				<xsl:value-of select="/ns2:article/ns2:info/ns2:title" />
 			</PortabilityKnowhowTitle>
 
 			<xsl:apply-templates select="/ns2:article"
@@ -128,6 +128,8 @@
 							<ns2:article>
 								<ns2:info>
 									<xsl:copy-of select="ns2:title" />
+									<xsl:copy-of select="/ns2:article/ns2:info/ns2:date" />
+									<xsl:copy-of select="/ns2:article/ns2:info/ns2:author" />
 								</ns2:info>
 								<ns2:section>
 									<xsl:copy-of select="ns2:para/child::*" />
