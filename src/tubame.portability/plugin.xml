@@ -166,8 +166,17 @@
            id="tubame.menu1"
            label="%menu.name"
            path="additions">
+        
         <separator
               name="portability">
+        </separator>
+     </menu>
+     <menu
+           id="tubame.menu.other"
+           label="%menu.other.name"
+           path="tubame.menu1/portability">
+        <separator
+              name="other">
         </separator>
      </menu>
      <action
@@ -175,7 +184,7 @@
            enablesFor="1"
            id="ReportGenWizardAction"
            label="%menu.reportgen.name"
-           menubarPath="tubame.menu1/portability">
+           menubarPath="tubame.menu1/tubame.menu.other/other">
      </action>
   </objectContribution>
    <objectContribution
@@ -190,12 +199,21 @@
               name="portability">
         </separator>
      </menu>
+     <menu
+           id="tubame.menu.other"
+           label="%menu.other.name"
+           path="tubame.menu1/portability">
+        <separator
+              name="other">
+        </separator>
+     </menu>
+     
      <action
            class="tubame.portability.plugin.action.StepCountWizardAction"
            enablesFor="1"
            id="StepCountWizardActio"
            label="%menu.stepcount.name"
-           menubarPath="tubame.menu1/portability">
+           menubarPath="tubame.menu1/tubame.menu.other/other">
      </action>
   </objectContribution>
 	</extension>

@@ -106,7 +106,6 @@ public final class FileManagement {
 	
 	private static final String TUBAME_KNOWHOW_TEMP5_FOR_ADOC_IMPORT = ".temp5_tubame_for_adoc_import.xml";
 
-	private static final String TUBAME_KNOWHOW_BACKUP_FOR_ADOC_IMPORT = ".backup_tubame_for_adoc_import.xml";
 
 	/**
 	 * Constructor.<br/>
@@ -359,7 +358,6 @@ public final class FileManagement {
 		 new File(projectTempdir + File.separator +TUBAME_KNOWHOW_TEMP3_FOR_ADOC_IMPORT).delete();
 		 new File(projectTempdir + File.separator +TUBAME_KNOWHOW_TEMP4_FOR_ADOC_IMPORT).delete();
 		 new File(projectTempdir + File.separator +TUBAME_KNOWHOW_TEMP5_FOR_ADOC_IMPORT).delete();
-		 new File(projectTempdir + File.separator +TUBAME_KNOWHOW_BACKUP_FOR_ADOC_IMPORT).delete();
 	}
 
 	private static int replaceSimparaAndformalparaAndprogramlisting(String from, String to) {
@@ -551,18 +549,20 @@ public final class FileManagement {
 		FileManagement.knowhowHtmlTempFilePath = knowhowHtmlTempFilePath;
 	}
 
-	public static void backupAndAppendKnowhowForImportAdoc(String knowhowXmlFilePath, String tempDir) throws Exception {
-		File file = new File(tempDir, TUBAME_KNOWHOW_BACKUP_FOR_ADOC_IMPORT);
-		file.deleteOnExit();
-		FileUtil.copy(new File(knowhowXmlFilePath), new File(tempDir, TUBAME_KNOWHOW_BACKUP_FOR_ADOC_IMPORT),ResourceUtil.textdataReadEncode);
-		FileUtil.copy(new File(tempDir, TUBAME_KNOWHOW_TEMP5_FOR_ADOC_IMPORT), new File(knowhowXmlFilePath),ResourceUtil.textdataReadEncode);
+	public static void backupAndAppendKnowhowForImportAdoc(String knowhowXmlFilePath, String tempDir, String timeStamp) throws Exception {
+		File knowhowFile = new File(knowhowXmlFilePath);
+		File knowhowBackupFile = new File(tempDir, knowhowFile.getName()+".bak."+timeStamp);
+		knowhowBackupFile.deleteOnExit();
+		FileUtil.copy(new File(knowhowXmlFilePath), new File(tempDir, knowhowFile.getName()+".bak."+timeStamp),ResourceUtil.textdataReadEncode);
+		FileUtil.copy(new File(tempDir, TUBAME_KNOWHOW_TEMP5_FOR_ADOC_IMPORT), knowhowFile,ResourceUtil.textdataReadEncode);
 	}
 	
-	public static void restoreKnowhowUsingBackup(String tempDir,String knowhowXmlFilePath){
-		File backupFile = new File(tempDir, TUBAME_KNOWHOW_BACKUP_FOR_ADOC_IMPORT);
-		if(backupFile.exists()){
+	public static void restoreKnowhowUsingBackup(String tempDir,String knowhowXmlFilePath,String timeStamp){
+		File knowhowFile = new File(knowhowXmlFilePath);
+		File knowhowBackupFile = new File(tempDir, knowhowFile.getName()+".bak."+timeStamp);
+		if(knowhowBackupFile.exists()){
 			try {
-				FileUtil.copy(backupFile, new File(knowhowXmlFilePath),ResourceUtil.textdataReadEncode);
+				FileUtil.copy(knowhowBackupFile, new File(knowhowXmlFilePath),ResourceUtil.textdataReadEncode);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
