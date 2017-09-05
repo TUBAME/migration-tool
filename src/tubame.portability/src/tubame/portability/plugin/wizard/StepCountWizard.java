@@ -1,6 +1,15 @@
 package tubame.portability.plugin.wizard;
 
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
@@ -116,8 +125,98 @@ public class StepCountWizard extends Wizard implements INewWizard {
 
 				@Override
 				public void done(IJobChangeEvent arg0) {
+					File file = csvFile.getLocation().toFile();
+					File parent = file.getParentFile();
+					File resultFile = new File(parent, file.getName() + ".result");
+					resultFile.deleteOnExit();
+					try {
+						calcCsv(file.getAbsolutePath(), resultFile.getAbsolutePath());
+					} catch (final Exception e) {
+						
+						Display.getDefault().asyncExec(new Runnable() {
+							/**
+							 * {@inheritDoc}
+							 */
+							@Override
+							public void run() {
+								PluginUtil.errorDialogWithStackTrace(PluginUtil.getActiveWorkbenchShell(),MessageUtil.STEPCOUNT_WIZARD_ERR_MSG, e);
+							}
+						});
+						return;
+					}
 					IStatus result = arg0.getResult();
+
 					showResults(result, progress, csvFile);
+
+				}
+
+				private void calcCsv(String csvFile, String to) throws Exception {
+					Map<String, Long[]> calcResultMap = new HashMap();
+					calcResultMap.put("java", calc(new File(csvFile), "java"));
+					calcResultMap.put("jsp", calc(new File(csvFile), "jsp"));
+					calcResultMap.put("xml", calc(new File(csvFile), "xml"));
+					calcResultMap.put("properties", calc(new File(csvFile), "properties"));
+					calcResultMap.put("sql", calc(new File(csvFile), "sql"));
+					calcResultMap.put("ddl", calc(new File(csvFile), "ddl"));
+					calcResultMap.put("c", calc(new File(csvFile), "c"));
+					calcResultMap.put("h", calc(new File(csvFile), "h"));
+					calcResultMap.put("pc", calc(new File(csvFile), "pc"));
+					writeCalcResult(calcResultMap, to);
+				}
+
+				private void writeCalcResult(Map<String, Long[]> calcResultMap, String to) throws IOException {
+					String[] targetLangs = { "java", "jsp", "xml", "properties", "sql", "ddl", "c", "h", "pc" };
+					BufferedOutputStream bufferedOutputStream = null;
+					try {
+						bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(to));
+						for (int i = 0; i < targetLangs.length; i++) {
+							String lang = targetLangs[i];
+							String csvLine = getPrintStringFromCalcResultMap(calcResultMap, lang);
+							bufferedOutputStream.write((csvLine).getBytes("UTF-8"));
+						}
+					} catch (IOException e) {
+						throw e;
+					} finally {
+						if (bufferedOutputStream != null) {
+							bufferedOutputStream.flush();
+							bufferedOutputStream.close();
+						}
+					}
+
+				}
+
+				private String getPrintStringFromCalcResultMap(Map<String, Long[]> calcResultMap, String key) {
+					Long[] longs = calcResultMap.get(key);
+					Long fileCnt = longs[0];
+					Long stepCnt = longs[1];
+					return key + "," + fileCnt + "," + stepCnt + "\n";
+				}
+
+				public Long[] calc(File in, String extName) throws IOException {
+					BufferedReader bufferedReader = null;
+					long fileCnt = 0;
+					long totalStep = 0;
+
+					try {
+						bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(in), "UTF-8"));
+						String s = null;
+						while ((s = bufferedReader.readLine()) != null) {
+							String[] token = s.split(",");
+
+							if (token[4].equalsIgnoreCase(extName)) {
+								totalStep += Long.parseLong(token[3]);
+								fileCnt++;
+							}
+						}
+					} catch (IOException e) {
+						throw e;
+					} finally {
+						if (bufferedReader != null) {
+							bufferedReader.close();
+						}
+					}
+					Long longResult[] = { fileCnt, totalStep };
+					return longResult;
 				}
 
 				@Override
