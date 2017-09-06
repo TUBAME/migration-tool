@@ -615,6 +615,10 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_steps[1]), 2)
         self.assertEqual(int(self.rslt_steps[2]), 2)
         
+    def testExtSearchInterfaceMethod(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 26)
+        
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
         tests = ['testTubameSqlSearchKey1CreateTable']

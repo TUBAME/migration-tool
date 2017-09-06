@@ -144,8 +144,44 @@ def findAll(pSearchStr,pLine):
     return  re.findall(pSearchStr,pLine)
 
 
+def searchInterfaceMethod(pSearchFile):
+    current_line_status = "NONE"
+    line_count = 0
+    methodname_list = []
+
+    # Open the search files
+    f = open(pSearchFile, "r")
+    for line in f:
+        line_count += 1
+        # Determine the type of sentence
+        line_status = isSingleComment(line)
+
+        # Distributes the processing according to the type of sentence
+        if ( current_line_status == MULTI_COMMENT):
+            # If multi-sentence comment
+            if (isMultiCommentEnd(line) == MULTI_COMMENT_END):
+                # If the multi-comment statement is completed
+                current_line_status = JAVA_SOURCE
+        else:
+            if (line_status == JAVA_SOURCE):
+                # If this is not the comment text
+                # suuport end of line comment
+                if JAVA_SOURCE_EXCLUSION_END_OF_LINE_COMMENT != None:
+                    line = JAVA_SOURCE_EXCLUSION_END_OF_LINE_COMMENT
+                m = re.search("^(?!.*\s+(static|new)\s+).*$",line)
+                if m != None:
+                    m =re.search("\w+\s+(\w+)\s*\(.*",line)
+                    if m:
+                        method_name=m.group(1)
+                        methodname_list.append(method_name)
+
+    f.close()
+    return methodname_list
+
+
+
 """
-If only Search Keyword1, and returns the results of the search in Search Keyword1. 
+If only Search Keyword1, and returns the results of the search in Search Keyword1.
 If the Search Keyword2 is also present, and returns the results to find the search file again by the Search Keyword2.
 
 @param pSearchFile File to be searched
