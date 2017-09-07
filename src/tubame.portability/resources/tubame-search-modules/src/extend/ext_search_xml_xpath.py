@@ -54,7 +54,15 @@ def replaceUnsupportedCharset(checkedDict,body):
     
 def isRetryForUnsupportedCharset(key):
     return key != None and isinstance(key,dict)
-    
+
+def result_path_handle(path,pKey2):
+    result_list = []
+    result_list.append(path.sourceline)
+    return result_list
+
+global try_charset_dict
+try_charset_dict = None
+
 """
 ・XMLファイルを検索キー1で指定されたXPATHで検索を行う。
 ・検索結果を以下の順で表示する。
@@ -80,6 +88,7 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
     xPath = pKey1
     global g_targetFilePath
     global unsupported_retry_counter
+    global try_charset_dict
     #検索対象ファイルリスト中の全ファイルを対象とする
     for fname in pList:
         try :
@@ -90,8 +99,8 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
             if line == None or line == "":
                 continue
             #pKey2がdictの場合、pythonがサポートしていない文字コード(Windows-31j)をcp932に置き換える
-            if isRetryForUnsupportedCharset(pKey2) == True:
-                line = replaceUnsupportedCharset(pKey2,line)
+            if isRetryForUnsupportedCharset(try_charset_dict) == True:
+                line = replaceUnsupportedCharset(try_charset_dict,line)
             elem = etree.fromstring(line)
             
             if elem == None:
@@ -100,12 +109,7 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
             rsl_list = []
     
             for path in pathList:
-                
-                rsl_list.append(path.sourceline)
-    
-                #検索結果の有無を確認するための一時リストオブジェクトに結果をコピー
-                no_Results.extend(rsl_list)
-                    #検索結果を表示する
+                rsl_list = rsl_list +result_path_handle(path,pKey2)
             common_module.print_csv(pNo, pPriority, pFlag, fname, rsl_list, pChapterNo, pCheck_Status)
             
         except Exception ,ex:
@@ -113,13 +117,13 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
             checkedDict = checkUnsupportedEncoding(ex)
 
             if checkedDict['unsupportedEncoding'] == True and unsupported_retry_counter == 1: 
-                pKey2 = checkedDict
+                try_charset_dict = checkedDict
                 try:
                     ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir, pChapterNo, pCheck_Status)
                     unsupported_retry_counter = 0
-                    pKey2 = None
+                    try_charset_dict = None
                 except Exception ,ex:
-                    pKey2 = None
+                    try_charset_dict = None
                     raise ex
             else:
                 raise ex

@@ -28,7 +28,7 @@ If the Search Keyword2 is also present, and returns the results to find the sear
 """
 
 import re, sys
-import jbmst_search_properties
+
 
 SINGLE_COMMENT = "SINGLE_COMMENT"
 SOURCE = "PROPS_SOURCE"
@@ -47,8 +47,7 @@ def override_is_line_type(pLine):
         return SINGLE_COMMENT
     return SOURCE
 
-#関数の上書き
-jbmst_search_properties.is_line_type=override_is_line_type
+
 
     
 """
@@ -61,5 +60,8 @@ If the Search Keyword2 is also present, and returns the results to find the sear
 @retutn List of lines that hit the search
 """
 def searchByFile(pSearchFile,pSearchStr1,pSearchStr2):
+    jbmst_search_properties = sys.modules["migration.jbmst_search_properties"]
+    #関数の上書き
+    jbmst_search_properties.is_end_line_break=override_is_line_type
     return jbmst_search_properties.searchByFile(pSearchFile,pSearchStr1,pSearchStr2)
 

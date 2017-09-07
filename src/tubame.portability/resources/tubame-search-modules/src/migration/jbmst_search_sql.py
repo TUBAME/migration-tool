@@ -19,7 +19,7 @@ limitations under the License.
 """
 
 import re, sys
-import jbmst_search_java
+
 
 
 """
@@ -32,6 +32,7 @@ If the Search Keyword2 is also present, and returns the results to find the sear
 @retutn List of lines that hit the search
 """
 def searchByFile(pSearchFile,pSearchStr1,pSearchStr2):
+    jbmst_search_java = sys.modules["migration.jbmst_search_java"]
     jbmst_search_java.LINE_HEAD_COMMENT_STR = "--"
     return jbmst_search_java.searchByFile(pSearchFile,pSearchStr1,pSearchStr2)
 

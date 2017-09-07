@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="example.UserMapper">
+
+  <cache />
+
+  <select id="getUserByUserId" resultType="User">
+    select
+    	  id,
+    	  name,
+          mobile,
+          email,
+          gender
+    from USER
+    where id = #{param1}
+  </select>
+
+
+
+  <insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO USER
+      (
+          name,
+      	  email,
+          gender,
+          mobile
+	  )
+    VALUES
+      (#{name},#{email}, #{gender}, #{mobile})
+  </insert>
+
+  <update id="updateUser" parameterType="Map">
+    UPDATE USER SET
+      <if test="name !=null ">
+        name = #{name, jdbcType=VARCHAR},
+      </if>
+      <if test="email !=null ">
+        email = #{email, jdbcType=VARCHAR},
+      </if>
+      <if test="status !=null ">
+        status = #{status, jdbcType=Integer},
+      </if>
+    WHERE ID = #{USER_ID}
+  </update>
+
+
+
+</mapper>
