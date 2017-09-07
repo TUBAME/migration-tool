@@ -38,21 +38,18 @@ SINGLE_COMMENT = "SINGLE_COMMENT"
 SOURCE = "PROPS_SOURCE"
 SOURCE_CONTINUE = "SOURCE_CONTINUE"
 SOURCE_CONTINUE_END = "SOURCE_CONTINUE_END"
+
 """
 Check whether the source or single comment
 
 @param pLine:Record to search for files
 @retutn Status of the statement to search for records
 """
-def is_line_type(pLine):
-
-    #propertiesの行頭#か、判別する
-    m = re.search("^\s*#",pLine)
+def is_end_line_break(searchTarget):
+    m = re.search("^\s*#",searchTarget)
     if m:
         return SINGLE_COMMENT
-
-    # prpertiesで、行末に\マークで改行されているか、判別する
-    m = re.search("\\\\$",pLine)
+    m = re.search("\\\\$",searchTarget)
     if m:
         return SOURCE_CONTINUE
     return SOURCE
@@ -86,7 +83,7 @@ def search_open_file(pSearchFile,pSearchStr):
     f = open(pSearchFile, "r")
     for line in f:
         line_count += 1
-        line_type = is_line_type(line)
+        line_type = is_end_line_break(line)
         if line_type == SOURCE_CONTINUE:
             if line_continue_row_count == 0:
                 row =""

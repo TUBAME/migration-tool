@@ -399,9 +399,9 @@ class JbmstTestCase(unittest.TestCase):
         self.assertNotEqual(self.rslt_steps, None)
         self.assertEqual(int(self.rslt_steps[0]), 3)
         
-    def testTubameXpathSearchSearchInvalidParam(self):
-        self.assertRaises(Exception,self.searchExecute())
-        self.assertEqual(self.rslt_steps, None)
+    # def testTubameXpathSearchSearchInvalidParam(self):
+    #     self.assertRaises(Exception,self.searchExecute())
+    #     self.assertEqual(self.rslt_steps, None)
         
     def testTubameXpathSearchUsedSchemaNotFind(self):
         self.searchExecute()
@@ -547,6 +547,12 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_steps[0]), 142)
         self.assertEqual(int(self.rslt_steps[1]), 145)
 
+    def testTubameSqlSearch1ForXml(self):
+        self.searchExecute()
+
+
+
+
     def testTubameStepCounterSearchForJava(self):
         self.searchExecute()
         self.assertEqual(int(self.rslt_steps[0]), 571)
@@ -605,30 +611,32 @@ class JbmstTestCase(unittest.TestCase):
         self.searchExecute()
         self.assertEqual(int(self.rslt_steps[0]), 11)
 
-    def testTubameSqlSearch1ForXml(self):
-        self.searchExecute()
-        self.assertEqual(int(self.rslt_steps[0]), 23)
-        
     def testTubameSqlSearchOrCondition(self):
         self.searchExecute()
         self.assertEqual(int(self.rslt_steps[0]), 1)
         self.assertEqual(int(self.rslt_steps[1]), 2)
         self.assertEqual(int(self.rslt_steps[2]), 2)
-        
+
     def testExtSearchInterfaceMethod(self):
         self.searchExecute()
         self.assertEqual(int(self.rslt_steps[0]), 26)
-        
+
+    def testExtSearchXmlText(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 22)
+
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
-        tests = ['testTubameSqlSearchKey1CreateTable']
+        tests = ['testTubameSqlSearch1ForXml']
         unittest.TestSuite.__init__(self, map(JbmstTestCase, tests))
 
 if __name__ == '__main__':
-    unittest.main()
-    suite1 = unittest.TestLoader().loadTestsFromTestCase(JbmstTestCase)
-    # suite2 = unittest.makeSuite(JbmstTestCase)
-    # suite2 = JbmstTestSuite()
-    # alltests = unittest.TestSuite([suite2])
-    #unittest.TextTestRunner(verbosity=2).run(alltests)
-    unittest.TextTestRunner(verbosity=2).run(suite1)
+    #run all test
+    #unittest.main()
+    #suite = unittest.TestLoader().loadTestsFromTestCase(JbmstTestCase)
+    #unittest.TextTestRunner(verbosity=2).run(suite)
+
+    #run specfic test
+    suite2 = JbmstTestSuite()
+    alltests = unittest.TestSuite([suite2])
+    unittest.TextTestRunner(verbosity=2).run(alltests)
