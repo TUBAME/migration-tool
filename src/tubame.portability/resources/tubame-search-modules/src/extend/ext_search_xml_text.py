@@ -61,5 +61,4 @@ def override_result_path_handle(path,pKey2):
 """
 def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir, pChapterNo, pCheck_Status):
     ext_search_xml_xpath = sys.modules["extend.ext_search_xml_xpath"]
-    ext_search_xml_xpath.result_path_handle=override_result_path_handle
-    ext_search_xml_xpath.ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir, pChapterNo, pCheck_Status)
+    ext_search_xml_xpath.ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir, pChapterNo, pCheck_Status,override_result_path_handle)

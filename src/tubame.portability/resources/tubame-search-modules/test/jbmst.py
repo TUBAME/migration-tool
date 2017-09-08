@@ -625,6 +625,13 @@ class JbmstTestCase(unittest.TestCase):
         self.searchExecute()
         self.assertEqual(int(self.rslt_steps[0]), 22)
 
+    def testTubameJavaApiSearch(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 13)
+        self.assertEqual(int(self.rslt_steps[1]), 13)
+        self.assertEqual(int(self.rslt_steps[2]), 17)
+        self.assertEqual(int(self.rslt_steps[2]), 17)
+        
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
         tests = ['testTubameSqlSearch1ForXml']

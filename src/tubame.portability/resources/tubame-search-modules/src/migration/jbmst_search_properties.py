@@ -73,7 +73,7 @@ Search the status of the search record.
 @param pSearchStr:Search Keyword1 or Search Keyword2
 @return Line list that hit the search
 """
-def search_open_file(pSearchFile,pSearchStr):
+def search_open_file(pSearchFile,pSearchStr,is_end_line_break_func=None):
     current_line_status = None
     line_count = 0
     line_count_list = []
@@ -83,7 +83,10 @@ def search_open_file(pSearchFile,pSearchStr):
     f = open(pSearchFile, "r")
     for line in f:
         line_count += 1
-        line_type = is_end_line_break(line)
+        if is_end_line_break_func != None:
+            line_type = is_end_line_break_func(line)
+        else:
+            line_type = is_end_line_break(line)
         if line_type == SOURCE_CONTINUE:
             if line_continue_row_count == 0:
                 row =""
@@ -125,10 +128,10 @@ If the Search Keyword2 is also present, and returns the results to find the sear
 @param pSearchStr2:Search Keyword2
 @retutn List of lines that hit the search
 """
-def searchByFile(pSearchFile,pSearchStr1,pSearchStr2):
+def searchByFile(pSearchFile,pSearchStr1,pSearchStr2,is_end_line_break_func=None):
     result_hit_count_list = []
-    result_hit_count_list = search_open_file(pSearchFile,pSearchStr1)
+    result_hit_count_list = search_open_file(pSearchFile,pSearchStr1,is_end_line_break_func)
     hit_total_cnt = len(result_hit_count_list)
     if hit_total_cnt!= 0 and pSearchStr2 != "":
-        result_hit_count_list = search_open_file(pSearchFile,pSearchStr2)
+        result_hit_count_list = search_open_file(pSearchFile,pSearchStr2,is_end_line_break_func)
     return result_hit_count_list

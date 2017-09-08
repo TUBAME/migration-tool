@@ -40,7 +40,6 @@ Check whether the source or single comment
 @retutn Status of the statement to search for records
 """
 def override_is_line_type(pLine):
-
     #propertiesの行頭#か、判別する
     m = re.search("^\s*#",pLine)
     if m:
@@ -61,7 +60,5 @@ If the Search Keyword2 is also present, and returns the results to find the sear
 """
 def searchByFile(pSearchFile,pSearchStr1,pSearchStr2):
     jbmst_search_properties = sys.modules["migration.jbmst_search_properties"]
-    #関数の上書き
-    jbmst_search_properties.is_end_line_break=override_is_line_type
-    return jbmst_search_properties.searchByFile(pSearchFile,pSearchStr1,pSearchStr2)
+    return jbmst_search_properties.searchByFile(pSearchFile,pSearchStr1,pSearchStr2,override_is_line_type)
 

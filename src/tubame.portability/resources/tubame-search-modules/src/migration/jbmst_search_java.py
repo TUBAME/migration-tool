@@ -108,7 +108,7 @@ Set the search list the corresponding line number of the line that matches the a
 @param pSearchStr Search Keyword1 or Search Keyword2
 @return List of search corresponding line
 """
-def search_open_file(pSearchFile,pSearchStr):
+def search_open_file(pSearchFile,pSearchStr,isFirstMatchExit=False):
     current_line_status = "NONE"
     line_count = 0
     line_count_list = []
@@ -136,6 +136,8 @@ def search_open_file(pSearchFile,pSearchStr):
                 if m:
                     for hit in m:
                         line_count_list.append(line_count)
+                        if isFirstMatchExit == True:
+                            break
             current_line_status = line_status
     f.close()
     return line_count_list
@@ -190,7 +192,6 @@ If the Search Keyword2 is also present, and returns the results to find the sear
 @retutn List of lines that hit the search
 """
 def searchByFile(pSearchFile,pSearchStr1,pSearchStr2):
-    
     result_hit_count_list = []
     result_hit_count_list = search_open_file(pSearchFile,pSearchStr1)
     
