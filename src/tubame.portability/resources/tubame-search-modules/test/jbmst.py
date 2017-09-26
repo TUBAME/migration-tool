@@ -11,6 +11,9 @@ import subprocess
 import os
 import codecs
 import shutil
+from multiprocessing import Pool, freeze_support
+
+
 
 class JbmstTestCase(unittest.TestCase):
 
@@ -23,13 +26,19 @@ class JbmstTestCase(unittest.TestCase):
         self.rslt_hit = None
         self.rslt_steps = None
         self.rslt =None
-        
+
+    def getResult(self,num):
+        if self.rslt != None:
+            lineTokens= self.rslt.split('\n')
+            token = lineTokens[num].split(',')
+            return token[1],token[2]
+
     def searchExecute(self):
         print 'searchExecute'
         input = self.input + self._testMethodName + ".csv"
         target = self.target + self._testMethodName
         cmd = "python ../src/jbmst.py " + input + " " + target
-        
+        freeze_support()
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE,shell=True)
         result = p.stdout.read()
         print result
@@ -72,7 +81,10 @@ class JbmstTestCase(unittest.TestCase):
         base = os.path.dirname(os.path.abspath(__file__))
         testResouceDir = os.path.normpath(os.path.join(base, "resource//report"))
         return testResouceDir
-    
+
+
+
+
     def getPluginReportTplPath(self):
         base = os.path.dirname(os.path.abspath(__file__))
         return os.path.normpath(os.path.join(base, "../../report/.report_tpl.json"))
@@ -459,8 +471,6 @@ class JbmstTestCase(unittest.TestCase):
         self.assertNotEqual(result_line2, "")
         self.assertEqual(str(self.getNormpath(result_line2.split(',')[1])), self.target + self._testMethodName +"/sub2/" + hitfile)
 
-
-
     def testExtSearchXmlDefinedclassFileNotFound(self):
         self.searchExecute()
         self.assertEqual(self.rslt_steps, None)
@@ -551,8 +561,6 @@ class JbmstTestCase(unittest.TestCase):
         self.searchExecute()
 
 
-
-
     def testTubameStepCounterSearchForJava(self):
         self.searchExecute()
         self.assertEqual(int(self.rslt_steps[0]), 571)
@@ -627,11 +635,111 @@ class JbmstTestCase(unittest.TestCase):
 
     def testTubameJavaApiSearch(self):
         self.searchExecute()
-        self.assertEqual(int(self.rslt_steps[0]), 13)
+        self.assertEqual(int(self.rslt_steps[0]), 23)
+        self.assertEqual(int(self.rslt_steps[1]),37)
+
+    def testTubameJavaApiSearchNotMatch(self):
+        self.searchExecute()
+        self.assertEqual(self.rslt_steps, None)
+
+    def testExtSqlSearchKey1CreateTableKey2Varchar2(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 8)
+        self.assertEqual(int(self.rslt_steps[0]), 10)
+        self.assertEqual(int(self.rslt_steps[1]), 24)
+        self.assertEqual(int(self.rslt_steps[2]), 25)
+        self.assertEqual(int(self.rslt_steps[3]), 27)
+        self.assertEqual(int(self.rslt_steps[4]), 28)
+        self.assertEqual(int(self.rslt_steps[5]), 30)
+        self.assertEqual(int(self.rslt_steps[6]), 33)
+        self.assertEqual(int(self.rslt_steps[7]), 36)
+
+    def testExtSqlSearchKey1CreateTable(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 38)
+        self.assertEqual(int(self.rslt_steps[0]), 1)
+        self.assertEqual(int(self.rslt_steps[37]), 387)
+
+    def testExtSqlSearchKey1AlterTableKey2AddConstraint(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 47)
+        self.assertEqual(int(self.rslt_steps[0]), 402)
+        self.assertEqual(int(self.rslt_steps[20]), 500)
+        self.assertEqual(int(self.rslt_steps[46]), 629)
+
+    def testExtSqlSearchKey1ForJava(self):
+        self.searchExecute()
+        self.assertEqual(self.rslt_steps, None)
+
+    def testExtSqlSearchKey1ForJava2(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(int(self.rslt_steps[0]), 774)
+
+    def testExtSqlSearchKey1ForJava3(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(int(self.rslt_steps[0]), 670)
+
+    def testExtSqlSearchKey1ForJava4(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(int(self.rslt_steps[0]), 774)
+
+    def testExtSqlSearchForProc1(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_steps[0]), 142)
+        self.assertEqual(int(self.rslt_steps[1]), 145)
+
+    def testExtSqlSearchPropertiesKeyword1(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 1)
+        self.assertEqual(int(self.rslt_steps[0]), 2)
+
+    def testExtSqlSearchPropertiesKeyword2(self):
+        self.searchExecute()
+        self.assertEqual(int(self.rslt_hit), 2)
+        self.assertEqual(int(self.rslt_steps[0]), 5)
         self.assertEqual(int(self.rslt_steps[1]), 13)
-        self.assertEqual(int(self.rslt_steps[2]), 17)
-        self.assertEqual(int(self.rslt_steps[2]), 17)
-        
+
+    def testExtSqlSearchForManyExt(self):
+        self.searchExecute()
+        match_file, match_cnt =self.getResult(1)
+        self.assertTrue(match_file.endswith('readchar.c'))
+        self.assertEqual(int(match_cnt), 1)
+
+        match_file, match_cnt =self.getResult(2)
+        self.assertTrue(match_file.endswith('JDBCStore.java'))
+        self.assertEqual(int(match_cnt), 3)
+
+        match_file, match_cnt =self.getResult(3)
+        self.assertTrue(match_file.endswith('test.h'))
+        self.assertEqual(int(match_cnt), 1)
+
+        match_file, match_cnt =self.getResult(4)
+        self.assertTrue(match_file.endswith('test.sql'))
+        self.assertEqual(int(match_cnt), 1)
+
+        match_file, match_cnt =self.getResult(5)
+        self.assertTrue(match_file.endswith('hello.pc'))
+        self.assertEqual(int(match_cnt), 2)
+
+        match_file, match_cnt =self.getResult(6)
+        self.assertTrue(match_file.endswith('test.sh'))
+        self.assertEqual(int(match_cnt), 2)
+
+        match_file, match_cnt =self.getResult(7)
+        self.assertTrue(match_file.endswith('test.ddl'))
+        self.assertEqual(int(match_cnt), 1)
+
+        match_file, match_cnt =self.getResult(8)
+        self.assertTrue(match_file.endswith('test.cpp'))
+        self.assertEqual(int(match_cnt), 2)
+
+        match_file, match_cnt =self.getResult(9)
+        self.assertTrue(match_file.endswith('sql.properties'))
+        self.assertEqual(int(match_cnt), 3)
+
 class JbmstTestSuite(unittest.TestSuite):
     def __init__(self):
         tests = ['testTubameSqlSearch1ForXml']

@@ -1,1 +1,1 @@
-1,*.java,javax.servlet.http.HttpServletRequest,getSession,ext_search_java_api.py,Unknown,,
+1,*.(java|jsp),javax.servlet.http.HttpServletRequest,getSession,ext_search_java_api.py,Unknown,,

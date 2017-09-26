@@ -73,7 +73,7 @@ Search the status of the search record.
 @param pSearchStr:Search Keyword1 or Search Keyword2
 @return Line list that hit the search
 """
-def search_open_file(pSearchFile,pSearchStr,is_end_line_break_func=None):
+def search_open_file(pSearchFile,pSearchStr,isFirstMatchExit=False,is_end_line_break_func=None,pFlag=0):
     current_line_status = None
     line_count = 0
     line_count_list = []
@@ -105,19 +105,22 @@ def search_open_file(pSearchFile,pSearchStr,is_end_line_break_func=None):
             else:
                 row = line
 
-        m = findAll(pSearchStr,row)
+        m = findAll(pSearchStr,row,pFlag)
         if m:
             for hit in m:
                 if line_continue_row_count != 0:
                     line_count_list.append( (line_count - line_continue_row_count) +1)
                 else:
                     line_count_list.append(line_count)
+                if isFirstMatchExit == True:
+                    f.close()
+                    return line_count_list
         line_continue_row_count = 0
     f.close()
     return line_count_list
 
-def findAll(pSearchStr,pLine):
-    return  re.findall(pSearchStr,pLine)
+def findAll(pSearchStr,pLine,pFlag=0):
+    return  re.findall(pSearchStr,pLine,pFlag)
 
 """
 If only Search Keyword1, and returns the results of the search in Search Keyword1. 
@@ -128,10 +131,19 @@ If the Search Keyword2 is also present, and returns the results to find the sear
 @param pSearchStr2:Search Keyword2
 @retutn List of lines that hit the search
 """
-def searchByFile(pSearchFile,pSearchStr1,pSearchStr2,is_end_line_break_func=None):
+def searchByFile(pSearchFile,pSearchStr1,pSearchStr2,is_end_line_break_func=None,pFlag=0):
     result_hit_count_list = []
-    result_hit_count_list = search_open_file(pSearchFile,pSearchStr1,is_end_line_break_func)
+    if pSearchStr2 != "":
+        result_hit_count_list = search_open_file(pSearchFile,pSearchStr1,True,is_end_line_break_func,pFlag=0)
+    else:
+        result_hit_count_list = search_open_file(pSearchFile,pSearchStr1,False,is_end_line_break_func,pFlag=0)
     hit_total_cnt = len(result_hit_count_list)
     if hit_total_cnt!= 0 and pSearchStr2 != "":
-        result_hit_count_list = search_open_file(pSearchFile,pSearchStr2,is_end_line_break_func)
+        result_hit_count_list = search_open_file(pSearchFile,pSearchStr2,False,is_end_line_break_func,pFlag=0)
     return result_hit_count_list
+
+def wrapSearchByFile(param):
+    try:
+        return (searchByFile(*param),param[0])
+    except Exception,e:
+        raise Exception, '%s , searchTargetFile = %s' % (e,param[0])

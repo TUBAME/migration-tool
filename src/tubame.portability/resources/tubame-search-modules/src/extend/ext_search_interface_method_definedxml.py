@@ -72,16 +72,22 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
         except Exception ,ex:
             raise ex
 
+    method_name_list=[]
     if len(pList)!=0 and defined_class_list != None:
-        method_name_list=[]
+
         for defined_class_fullname in defined_class_list:
             packageName,className=common_module.getPackageAndClassName(defined_class_fullname)
             findTarget =common_module.searchFileByPackageAndFileName(pTargetDir,packageName,className,[])
             if findTarget !=None:
                 method_name_list = method_name_list+ java_module.searchInterfaceMethod(findTarget)
-    if len(method_name_list)!=0:
+
+    method_name_set = set()
+    for m in method_name_list:
+        method_name_set.add(m)
+
+    if len(method_name_set)!=0:
         searchFileList = common_module.searchFileByExtension(pTargetDir, "java", [])
         for target in searchFileList:
-            for method_name in method_name_list:
+            for method_name in method_name_set:
                 result_list=java_module.searchByFile(target,"\."+method_name+"\s*\(","")
                 common_module.print_csv(pNo, pPriority, pFlag, target, result_list, pChapterNo, pCheck_Status)

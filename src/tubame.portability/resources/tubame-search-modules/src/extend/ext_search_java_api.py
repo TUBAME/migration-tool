@@ -11,8 +11,7 @@ __author__ = ' Copyright (C) 2011 Nippon Telegraph and Telephone Corporation, Al
 import os
 import sys
 import re
-from lxml import etree
-from lxml import html
+from multiprocessing import Pool
 
 
 PACKAGE_MAP = {}
@@ -35,6 +34,7 @@ def paramCheck(pKey1,pKey2):
 def getErrorFilePath():
     global g_targetFilePath
     return g_targetFilePath
+
 
 
 """
@@ -60,27 +60,40 @@ def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir
     package_name = ".".join(token[:-1])
     search_target_package_name = "\.".join(token[:-1])
     class_name= token[len(token) -1]
+    
+    if len(pList) == 0 :
+        return
+    search_ext = common_module.getExtension(pList[0])
 
-    if not PACKAGE_MAP.has_key(package_name):
-        for filePath in pList:
-            match_list = jbmst_search_java.search_open_file(filePath,search_target_package_name,True)
-            if len(match_list) != 0 :
-                if PACKAGE_MAP.has_key(package_name):
-                    PACKAGE_MAP.get(package_name).append(filePath)
+    search_input_list=[(t, search_target_package_name,True) for t in pList]
+    p = common_module.getPool()
+    if not PACKAGE_MAP.has_key(search_ext+","+package_name):
+        match_list = p.map(jbmst_search_java.wrapSearchOpenFile, search_input_list)
+        for result_tuple in match_list:
+            if len(result_tuple[0]) != 0:
+                if PACKAGE_MAP.has_key(search_ext+","+package_name):
+                    PACKAGE_MAP.get(search_ext+","+package_name).append(result_tuple[1])
                 else:
                     filePathList = []
-                    filePathList.append(filePath)
-                    PACKAGE_MAP[package_name] = filePathList
-    
+                    filePathList.append(result_tuple[1])
+                    PACKAGE_MAP[search_ext+","+package_name] = filePathList
+        if not PACKAGE_MAP.has_key(search_ext+","+package_name):
+            PACKAGE_MAP[search_ext+","+package_name] = []
+
+    targets = []
     for filePath in pList:
-        rsl_list = []    
-        if PACKAGE_MAP.has_key(package_name):
-            if filePath in PACKAGE_MAP.get(package_name):
-                keyword1 = search_target_package_name+'('+class_name+'|' +'|.\*)'
+        rsl_list = [] 
+        search_ext = common_module.getExtension(filePath)
+        if PACKAGE_MAP.has_key(search_ext+","+package_name):
+            if filePath in PACKAGE_MAP.get(search_ext+","+package_name):
+                keyword1 = search_target_package_name+'.(\*|'+class_name+')'
                 if pKey2== "":
                     keyword2= class_name
                 else:
                     keyword2 = '\.'+pKey2+'\('
-                rsl_list =jbmst_search_java.searchByFile(filePath,keyword1,keyword2)
-                common_module.print_csv(pNo, pPriority, pFlag, filePath, rsl_list, pChapterNo, pCheck_Status)
+                targets.append((filePath,keyword1,keyword2))
     
+    map_result_list = p.map(jbmst_search_java.wrapSearchByFile, targets)
+    for result_tuple in map_result_list:
+        if len(result_tuple[0]) != 0:
+            common_module.print_csv(pNo, pPriority, pFlag, result_tuple[1],result_tuple[0], pChapterNo, pCheck_Status)

@@ -108,6 +108,8 @@ sqlparserで取得したtoken配列から、検索対象の文字列(セミコ�
 def searchGroup(list,lineNum,pKey1,pKey2,hit_count,rsl_list,key1_match=False):
     global g_search_str
     global g_targetFileExt
+
+
     for item in list:
         #print unicode(item.__repr__)
         #item.is_group() method. It works when sqlparser version is 0.2.0. but It does not work  version 0.2.3
@@ -131,7 +133,7 @@ def searchGroup(list,lineNum,pKey1,pKey2,hit_count,rsl_list,key1_match=False):
             #print "target:",g_search_str,",linenum:",lineNum+1
             #print unicode(item.__repr__)
 
-            if g_targetFileExt == 'java' or g_targetFileExt == 'c' or g_targetFileExt == 'vc':
+            if g_targetFileExt == 'java' or g_targetFileExt == 'c' or g_targetFileExt == 'pc':
                  if isSlashComment(g_search_str):
                     continue
             #print 'search_target_line = ',g_search_str,'lineNum=',lineNum

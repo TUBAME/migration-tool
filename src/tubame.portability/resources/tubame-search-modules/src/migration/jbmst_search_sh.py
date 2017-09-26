@@ -58,7 +58,12 @@ If the Search Keyword2 is also present, and returns the results to find the sear
 @param pSearchStr2:Search Keyword2 is ignore
 @retutn List of lines that hit the search
 """
-def searchByFile(pSearchFile,pSearchStr1,pSearchStr2):
+def searchByFile(pSearchFile,pSearchStr1,pSearchStr2,pFlag=0):
     jbmst_search_properties = sys.modules["migration.jbmst_search_properties"]
-    return jbmst_search_properties.searchByFile(pSearchFile,pSearchStr1,pSearchStr2,override_is_line_type)
+    return jbmst_search_properties.searchByFile(pSearchFile,pSearchStr1,pSearchStr2,override_is_line_type,pFlag)
 
+def wrapSearchByFile(param):
+    try:
+        return (searchByFile(*param),param[0])
+    except Exception,e:
+        raise Exception, '%s , searchTargetFile = %s' % (e,param[0])

@@ -138,7 +138,7 @@ Set the search list the corresponding line number of the line that matches the a
 @param pSearchStr:Search Keyword1 or Search Keyword2
 @return Line list that hit the search
 """
-def search_open_file(pSearchFile,pSearchStr):
+def search_open_file(pSearchFile,pSearchStr,isFirstMatchExit=False):
     current_line_status = "NONE"
     line_count = 0
     line_count_list = []
@@ -176,7 +176,10 @@ def search_open_file(pSearchFile,pSearchStr):
                     m = findAll(pSearchStr,line)
                     if m:
                         for hit in m:
-                            line_count_list.append(line_count)    
+                            line_count_list.append(line_count)
+                            if isFirstMatchExit == True:
+                                f.close()
+                                return line_count_list
         else:
             if (line_status == SOURCE):
                 m = findAll(pSearchStr,line)
@@ -184,6 +187,9 @@ def search_open_file(pSearchFile,pSearchStr):
                     #bug fix 
                     for hit in m:
                         line_count_list.append(line_count)
+                        if isFirstMatchExit == True:
+                            f.close()
+                            return line_count_list
             current_line_status = line_status
     f.close()
     return line_count_list
@@ -204,7 +210,10 @@ If the Search Keyword2 is also present, and returns the results to find the sear
 def searchByFile(pSearchFile,pSearchStr1,pSearchStr2):
 
     result_hit_count_list = []
-    result_hit_count_list = search_open_file(pSearchFile,pSearchStr1)
+    if pSearchStr2 != "":
+        result_hit_count_list = search_open_file(pSearchFile,pSearchStr1,True)
+    else:
+        result_hit_count_list = search_open_file(pSearchFile,pSearchStr1)
     
     hit_total_cnt = len(result_hit_count_list)
 
@@ -213,3 +222,9 @@ def searchByFile(pSearchFile,pSearchStr1,pSearchStr2):
         result_hit_count_list = search_open_file(pSearchFile,pSearchStr2)
 
     return result_hit_count_list
+
+def wrapSearchByFile(param):
+    try:
+        return (searchByFile(*param),param[0])
+    except Exception,e:
+        raise Exception, '%s , searchTargetFile = %s' % (e,param[0])

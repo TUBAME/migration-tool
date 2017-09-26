@@ -30,6 +30,7 @@ import codecs
 import re
 import os
 import imp
+import multiprocessing
 
 """
 Generate the file path if you want to search for files that match the extension specified
@@ -79,13 +80,17 @@ If it is not "*." Is the first character string, and performs a search by file n
 @param pSearchTarget:File name to search for that is extracted
 @return Path list to search for files
 """
-def searchFileBySearchTarget(pSeachFolder,pSearchTarget,pIgnoreList):
-
-    
+def searchFileBySearchTarget(pSeachFolder,pSearchTarget,pIgnoreList):   
     m = re.search("^\*\.",pSearchTarget)
     if m:
-        extension = pSearchTarget.split(".")[1]
-        return searchFileByExtension(pSeachFolder,extension,pIgnoreList)
+        if re.match("\*\.\((\w+\|)+\w+\)",pSearchTarget):
+            serach_target_list =[]
+            for ext in re.findall("\w+",pSearchTarget):
+                serach_target_list += searchFileByExtension(pSeachFolder,ext,pIgnoreList)
+            return serach_target_list
+        else:
+            extension = pSearchTarget.split(".")[1]
+            return searchFileByExtension(pSeachFolder,extension,pIgnoreList)
     else:
         return searchFileByFileName(pSeachFolder,pSearchTarget,pIgnoreList)
 
@@ -256,12 +261,24 @@ def searchFileByPackageAndFileName(pSeachFolder,pPackage,pFileName,pIgoreList):
         if len(line_cnt)!=0:
             findtarget = searchTargetFile
             break
-    return findtarget
-    
-    
-    
-    
-    
-    
-     
-    
+    return findtarget  
+        
+
+
+
+def getPoolSize():
+    if multiprocessing.cpu_count() > 2:
+        #小数点値を四捨五入
+        val = int(round(multiprocessing.cpu_count()/2,0))
+        return val
+    else:
+        return 1
+
+POOL=None
+
+def getPool():
+    global  POOL
+    if POOL == None:
+        POOL = multiprocessing.Pool(getPoolSize())
+    return POOL
+

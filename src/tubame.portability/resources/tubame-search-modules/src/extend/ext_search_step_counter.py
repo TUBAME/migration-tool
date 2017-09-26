@@ -22,7 +22,7 @@ def getErrorFilePath():
     global g_targetFilePath
     return g_targetFilePath
 
-def find_for_step_counter(pSearchStr,pLine):
+def find_for_step_counter(pSearchStr,pLine,pFlag=0):
     global g_step_counter
     m = re.search("^\s*\n$",pLine)
     if not m:
