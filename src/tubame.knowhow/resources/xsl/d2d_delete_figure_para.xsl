@@ -21,6 +21,9 @@
 		<xsl:if test="doc:programlisting">
 			<xsl:apply-templates select="doc:programlisting" />
 		</xsl:if>
+		<xsl:if test="doc:screen">
+			<xsl:apply-templates select="doc:screen" />
+		</xsl:if>
 	</xsl:template>
 
 </xsl:stylesheet>

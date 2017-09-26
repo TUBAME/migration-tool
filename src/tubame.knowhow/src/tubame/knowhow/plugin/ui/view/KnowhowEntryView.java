@@ -23,7 +23,6 @@ import java.util.Date;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -31,7 +30,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.IActionBars;
-import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPage;
@@ -42,7 +40,6 @@ import org.eclipse.ui.part.ViewPart;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import tubame.common.util.CmnFileUtil;
 import tubame.common.util.CmnStringUtil;
 import tubame.knowhow.biz.exception.JbmException;
 import tubame.knowhow.biz.util.resource.ApplicationPropertiesUtil;
@@ -218,9 +215,9 @@ public class KnowhowEntryView extends ViewPart implements ViewRefresh {
 			@Override
 			public void run() {
 				MaintenanceKnowhowMultiPageEditor knowhowMultiPageEditor = PluginUtil.getKnowhowEditor();
-				if(knowhowMultiPageEditor == null){
-					ErrorDialog.openErrorDialog(PluginUtil.getActiveWorkbenchShell(),null,
-							MessagePropertiesUtil.getMessage(MessagePropertiesUtil.REQUIRED_ACTIVE_EDITOR_FOR_ADOC_IMPORT));
+				if (knowhowMultiPageEditor == null) {
+					ErrorDialog.openErrorDialog(PluginUtil.getActiveWorkbenchShell(), null, MessagePropertiesUtil
+							.getMessage(MessagePropertiesUtil.REQUIRED_ACTIVE_EDITOR_FOR_ADOC_IMPORT));
 					return;
 				}
 				if (isDirty(knowhowMultiPageEditor)) {
@@ -237,14 +234,13 @@ public class KnowhowEntryView extends ViewPart implements ViewRefresh {
 
 							IFileEditorInput editorInput = (IFileEditorInput) knowhowMultiPageEditor.getEditorInput();
 							IFile file = editorInput.getFile();
-							
 
 							MessageDialog.openInformation(PluginUtil.getActiveWorkbenchShell(),
 									ResourceUtil.addKnowhowFromAsciiDoc,
 									MessagePropertiesUtil.getMessage(MessagePropertiesUtil.FINISH_IMPORT_ADOC) + "\n"
 											+ MessagePropertiesUtil
 													.getMessage(MessagePropertiesUtil.BACKUP_KNOWHOW_FOR_IMPORT_ADOC));
-							
+
 							if (file != null) {
 								IDE.openEditor(page, file,
 										"tubame.knowhow.maintenance.portability.editors.multi.KnowhowMultiEditor");
@@ -273,15 +269,32 @@ public class KnowhowEntryView extends ViewPart implements ViewRefresh {
 		dialog.setText(ResourceUtil.addKnowhowFromAsciiDoc);
 		dialog.setFileName("*.adoc");
 		String adocFilePath = dialog.open();
+
 		String adocFileName = dialog.getFileName();
+		if (adocFileName.equals("*.adoc")) {
+			return false;
+		}
 		String convertedFileName = adocFileName.substring(0, adocFileName.length() - 5) + ".xml";
 		if (adocFilePath != null) {
 
 			boolean valid = FileManagement.validAsciidocHeaderForImport(adocFilePath);
 			if (!valid) {
 				ErrorDialog.openErrorDialog(PluginUtil.getActiveWorkbenchShell(), null,
-						MessagePropertiesUtil.getMessage(MessagePropertiesUtil.REQUIRED_ASCIIDOC_HEADER)+"\n\nTitle\n=====\nUserName");
+						MessagePropertiesUtil.getMessage(MessagePropertiesUtil.REQUIRED_ASCIIDOC_HEADER)
+								+ "\n\nTitle\n=====\nUserName");
 				return false;
+			}
+			String adocHeader = FileManagement.getAsciidocHeaderForImport(adocFilePath);
+			if (adocHeader != null) {
+				if (!FileManagement.validSeperatorLengthAsciidocHeaderForImport(adocHeader)) {
+					String createValidAsciidocHeaderForImport = FileManagement.createValidAsciidocHeaderForImport(adocHeader);
+					Exception exception = new Exception("Valid separator strings:"+createValidAsciidocHeaderForImport.split("\n")[1]);
+					ErrorDialog.openErrorDialog(PluginUtil.getActiveWorkbenchShell(), exception,
+							MessagePropertiesUtil.getMessage(MessagePropertiesUtil.INVALID_ASCIIDOC_HEADER)
+									+ "\n\nCurrent Adoc Header:\n" + adocHeader + "\n\nValid Adoc Header:\n"
+									+ createValidAsciidocHeaderForImport+"\n");
+					return false;
+				}
 			}
 			try {
 				FileManagement.addKnowhowFromAsciidoc(adocFilePath, knowhowXmlFilePath, projectTempdir);
@@ -296,16 +309,17 @@ public class KnowhowEntryView extends ViewPart implements ViewRefresh {
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 				String timeStamp = sdf.format(new Date());
 				try {
-					FileManagement.backupAndAppendKnowhowForImportAdoc(knowhowXmlFilePath, projectTempdir,timeStamp);
+					FileManagement.backupAndAppendKnowhowForImportAdoc(knowhowXmlFilePath, projectTempdir, timeStamp);
 					FileManagement.refresh();
 				} catch (Exception e) {
 					// restore
-					FileManagement.restoreKnowhowUsingBackup(projectTempdir, knowhowXmlFilePath,timeStamp);
+					FileManagement.restoreKnowhowUsingBackup(projectTempdir, knowhowXmlFilePath, timeStamp);
 					FileManagement.refresh();
 					FileManagement.deleteTmpFileForAsciidocImport(projectTempdir, adocFileName, convertedFileName);
 					throw e;
 				}
-			}else{
+
+			} else {
 				return false;
 			}
 			FileManagement.deleteTmpFileForAsciidocImport(projectTempdir, adocFileName, convertedFileName);

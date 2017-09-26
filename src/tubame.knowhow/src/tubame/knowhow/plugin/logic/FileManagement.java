@@ -57,6 +57,7 @@ import tubame.knowhow.biz.logic.converter.AsciiDocConverter;
 import tubame.knowhow.biz.logic.converter.SearchModuleConverter;
 import tubame.knowhow.biz.model.generated.python.PortabilitySearchModule;
 import tubame.knowhow.biz.util.resource.MessagePropertiesUtil;
+import tubame.knowhow.plugin.ui.dialog.ErrorDialog;
 import tubame.knowhow.plugin.ui.view.ViewRefresh;
 import tubame.knowhow.util.FileUtil;
 import tubame.knowhow.util.PluginUtil;
@@ -101,11 +102,10 @@ public final class FileManagement {
 	private static final String TUBAME_KNOWHOW_TEMP2_FOR_ADOC_IMPORT = ".temp2_tubame_for_adoc_import.xml";
 
 	private static final String TUBAME_KNOWHOW_TEMP3_FOR_ADOC_IMPORT = ".temp3_tubame_for_adoc_import.xml";
-	
-	private static final String TUBAME_KNOWHOW_TEMP4_FOR_ADOC_IMPORT = ".temp4_tubame_for_adoc_import.xml";
-	
-	private static final String TUBAME_KNOWHOW_TEMP5_FOR_ADOC_IMPORT = ".temp5_tubame_for_adoc_import.xml";
 
+	private static final String TUBAME_KNOWHOW_TEMP4_FOR_ADOC_IMPORT = ".temp4_tubame_for_adoc_import.xml";
+
+	private static final String TUBAME_KNOWHOW_TEMP5_FOR_ADOC_IMPORT = ".temp5_tubame_for_adoc_import.xml";
 
 	/**
 	 * Constructor.<br/>
@@ -274,27 +274,30 @@ public final class FileManagement {
 
 		String adocFileName = new File(asciidocPath).getName();
 		File tmpAdoc = new File(projectTempdir, adocFileName);
-		
+
 		// adoc copy
-		FileUtil.copy(new File(asciidocPath), tmpAdoc,ResourceUtil.textdataReadEncode);
+		FileUtil.copy(new File(asciidocPath), tmpAdoc, ResourceUtil.textdataReadEncode);
 
 		String convertedFileName = adocFileName.substring(0, adocFileName.length() - 5) + ".xml";
 		String docbookFilePath = projectTempdir + File.separator + convertedFileName;
 
 		try {
-			//adoc -> docbook(docbookFilePath)
+			// adoc -> docbook(docbookFilePath)
 			AsciiDocConverter.toDocBook(tmpAdoc.getAbsolutePath(), projectTempdir);
 
-			//docbook -> docbook (append section/para)
+			// docbook -> docbook (append section/para)
 			appendParaAsDocBook(docbookFilePath,
 					projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP1_FOR_ADOC_IMPORT);
 
-			//docbook -> docbook (replace simpara, formalpara,programlisting)
-			replaceSimparaAndformalparaAndprogramlisting(projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP1_FOR_ADOC_IMPORT,projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP2_FOR_ADOC_IMPORT);
-			
-			//docbook -> docbook (delete figura/para)
-			deleteFigurePara(projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP2_FOR_ADOC_IMPORT,projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP3_FOR_ADOC_IMPORT);
-			
+			// docbook -> docbook (replace simpara, formalpara,programlisting)
+			replaceSimparaAndformalparaAndprogramlisting(
+					projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP1_FOR_ADOC_IMPORT,
+					projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP2_FOR_ADOC_IMPORT);
+
+			// docbook -> docbook (delete figura/para)
+			deleteFigurePara(projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP2_FOR_ADOC_IMPORT,
+					projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP3_FOR_ADOC_IMPORT);
+
 			// step3 docbook -> tubame knowhow(temp1)
 			docbookToTubameKnowledge(projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP3_FOR_ADOC_IMPORT,
 					projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP4_FOR_ADOC_IMPORT, knowhowXmlPath);
@@ -305,7 +308,7 @@ public final class FileManagement {
 		} catch (Exception e) {
 			throw e;
 		} finally {
-			
+
 		}
 	}
 
@@ -313,59 +316,128 @@ public final class FileManagement {
 		ClassLoader cl = FileManagement.class.getClassLoader();
 		InputStream xslInputStream = cl.getResourceAsStream("resources/xsl/d2d_delete_figure_para.xsl");
 		URL xslUrl = cl.getResource("resources/xsl/d2d_delete_figure_para.xsl");
-		return CmnDocBookConverter.convertWithProps(CmnFileUtil.getInputStream(from), to, null,
-				xslInputStream, xslUrl, null);
-		
+		return CmnDocBookConverter.convertWithProps(CmnFileUtil.getInputStream(from), to, null, xslInputStream, xslUrl,
+				null);
+
 	}
 
-	public static boolean validAsciidocHeaderForImport(String adocPath) throws Exception{
-			BufferedReader bufferedReader = null;
-			FileInputStream fileInputStream = null;
-			int count = 0;
-			try {
-				fileInputStream = new FileInputStream(adocPath);
-				bufferedReader = new BufferedReader(
-						new InputStreamReader(fileInputStream, ResourceUtil.textdataReadEncode));
-				String s = null;
+	public static boolean validAsciidocHeaderForImport(String adocPath) throws Exception {
+		BufferedReader bufferedReader = null;
+		FileInputStream fileInputStream = null;
+		int count = 0;
+		try {
+			fileInputStream = new FileInputStream(adocPath);
+			bufferedReader = new BufferedReader(
+					new InputStreamReader(fileInputStream, ResourceUtil.textdataReadEncode));
+			String s = null;
 
-				while ((s = bufferedReader.readLine()) != null) {
-					count++;
-					if (count == 2) {
-						return s.matches("^==+$");
-					}
-				}
-			} catch (IOException e) {
-				throw e;
-			} finally {
-				if (bufferedReader != null) {
-					bufferedReader.close();
-				}
-				if(fileInputStream!=null){
-					fileInputStream.close();
+			while ((s = bufferedReader.readLine()) != null) {
+				count++;
+				if (count == 2) {
+					return s.matches("^==+$");
 				}
 			}
-			return false;
-		
+		} catch (IOException e) {
+			throw e;
+		} finally {
+			if (bufferedReader != null) {
+				bufferedReader.close();
+			}
+			if (fileInputStream != null) {
+				fileInputStream.close();
+			}
+		}
+		return false;
+
 	}
 
+	public static String getAsciidocHeaderForImport(String adocPath) throws Exception {
+		BufferedReader bufferedReader = null;
+		FileInputStream fileInputStream = null;
+		int count = 0;
+		try {
+			fileInputStream = new FileInputStream(adocPath);
+			bufferedReader = new BufferedReader(
+					new InputStreamReader(fileInputStream, ResourceUtil.textdataReadEncode));
+			StringBuffer buffer = new StringBuffer();
 
-	public static void deleteTmpFileForAsciidocImport(String projectTempdir, String adocFileName,String convertedFileName) {
-		 new File(projectTempdir + File.separator +convertedFileName).delete();
-		 // Deletion of this file fails because asciidoctorj has not closed this file.
-		 new File(projectTempdir + File.separator +adocFileName).delete();
-		 new File(projectTempdir + File.separator +TUBAME_KNOWHOW_TEMP1_FOR_ADOC_IMPORT).delete();
-		 new File(projectTempdir + File.separator +TUBAME_KNOWHOW_TEMP2_FOR_ADOC_IMPORT).delete();
-		 new File(projectTempdir + File.separator +TUBAME_KNOWHOW_TEMP3_FOR_ADOC_IMPORT).delete();
-		 new File(projectTempdir + File.separator +TUBAME_KNOWHOW_TEMP4_FOR_ADOC_IMPORT).delete();
-		 new File(projectTempdir + File.separator +TUBAME_KNOWHOW_TEMP5_FOR_ADOC_IMPORT).delete();
+			String s = null;
+			while ((s = bufferedReader.readLine()) != null) {
+				count++;
+				if (count == 1) {
+					buffer.append(s + "\n");
+				}
+				if (count == 2) {
+					buffer.append(s);
+					break;
+				}
+			}
+			return buffer.toString();
+		} catch (IOException e) {
+			throw e;
+		} finally {
+			if (bufferedReader != null) {
+				bufferedReader.close();
+			}
+			if (fileInputStream != null) {
+				fileInputStream.close();
+			}
+		}
+
+	}
+
+	public static boolean validSeperatorLengthAsciidocHeaderForImport(String adocHeader) throws Exception {
+		String[] tokens = adocHeader.split("\n");
+		String title = tokens[0];
+		String separatorString = tokens[1];
+
+		if (separatorString.length() >= (title.length() - 1) && separatorString.length() <= (title.length() + 1)) {
+			return true;
+		}
+		return false;
+
+	}
+	
+
+	public static String createValidAsciidocHeaderForImport(String adocHeader) throws Exception {
+		StringBuffer buffer = new StringBuffer();
+		String[] tokens = adocHeader.split("\n");
+		if(tokens.length >1){
+			String title = tokens[0];
+			String separatorString = tokens[1];
+			
+			int length = title.length();
+			
+			buffer.append(title);
+			buffer.append("\n");
+			for (int i = 0; i < length; i++) {
+				buffer.append("=");
+			}
+		}
+		return buffer.toString();
+
+	}
+
+	
+	public static void deleteTmpFileForAsciidocImport(String projectTempdir, String adocFileName,
+			String convertedFileName) {
+		new File(projectTempdir + File.separator + convertedFileName).delete();
+		// Deletion of this file fails because asciidoctorj has not closed this
+		// file.
+		new File(projectTempdir + File.separator + adocFileName).delete();
+		new File(projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP1_FOR_ADOC_IMPORT).delete();
+		new File(projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP2_FOR_ADOC_IMPORT).delete();
+		new File(projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP3_FOR_ADOC_IMPORT).delete();
+		new File(projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP4_FOR_ADOC_IMPORT).delete();
+		new File(projectTempdir + File.separator + TUBAME_KNOWHOW_TEMP5_FOR_ADOC_IMPORT).delete();
 	}
 
 	private static int replaceSimparaAndformalparaAndprogramlisting(String from, String to) {
 		ClassLoader cl = FileManagement.class.getClassLoader();
 		InputStream xslInputStream = cl.getResourceAsStream("resources/xsl/d2d_replace_simpara_formalpara_prog.xsl");
 		URL xslUrl = cl.getResource("resources/xsl/d2d_replace_simpara_formalpara_prog.xsl");
-		return CmnDocBookConverter.convertWithProps(CmnFileUtil.getInputStream(from), to, null,
-				xslInputStream, xslUrl, null);
+		return CmnDocBookConverter.convertWithProps(CmnFileUtil.getInputStream(from), to, null, xslInputStream, xslUrl,
+				null);
 	}
 
 	private static void appendToKnowhowXml(String from, String to, String knowhowXmlPath) throws Exception {
@@ -549,20 +621,23 @@ public final class FileManagement {
 		FileManagement.knowhowHtmlTempFilePath = knowhowHtmlTempFilePath;
 	}
 
-	public static void backupAndAppendKnowhowForImportAdoc(String knowhowXmlFilePath, String tempDir, String timeStamp) throws Exception {
+	public static void backupAndAppendKnowhowForImportAdoc(String knowhowXmlFilePath, String tempDir, String timeStamp)
+			throws Exception {
 		File knowhowFile = new File(knowhowXmlFilePath);
-		File knowhowBackupFile = new File(tempDir, knowhowFile.getName()+".bak."+timeStamp);
+		File knowhowBackupFile = new File(tempDir, knowhowFile.getName() + ".bak." + timeStamp);
 		knowhowBackupFile.deleteOnExit();
-		FileUtil.copy(new File(knowhowXmlFilePath), new File(tempDir, knowhowFile.getName()+".bak."+timeStamp),ResourceUtil.textdataReadEncode);
-		FileUtil.copy(new File(tempDir, TUBAME_KNOWHOW_TEMP5_FOR_ADOC_IMPORT), knowhowFile,ResourceUtil.textdataReadEncode);
+		FileUtil.copy(new File(knowhowXmlFilePath), new File(tempDir, knowhowFile.getName() + ".bak." + timeStamp),
+				ResourceUtil.textdataReadEncode);
+		FileUtil.copy(new File(tempDir, TUBAME_KNOWHOW_TEMP5_FOR_ADOC_IMPORT), knowhowFile,
+				ResourceUtil.textdataReadEncode);
 	}
-	
-	public static void restoreKnowhowUsingBackup(String tempDir,String knowhowXmlFilePath,String timeStamp){
+
+	public static void restoreKnowhowUsingBackup(String tempDir, String knowhowXmlFilePath, String timeStamp) {
 		File knowhowFile = new File(knowhowXmlFilePath);
-		File knowhowBackupFile = new File(tempDir, knowhowFile.getName()+".bak."+timeStamp);
-		if(knowhowBackupFile.exists()){
+		File knowhowBackupFile = new File(tempDir, knowhowFile.getName() + ".bak." + timeStamp);
+		if (knowhowBackupFile.exists()) {
 			try {
-				FileUtil.copy(knowhowBackupFile, new File(knowhowXmlFilePath),ResourceUtil.textdataReadEncode);
+				FileUtil.copy(knowhowBackupFile, new File(knowhowXmlFilePath), ResourceUtil.textdataReadEncode);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
