@@ -31,8 +31,13 @@ If the Search Keyword2 is also present, and returns the results to find the sear
 @param pSearchStr2:Search Keyword2 is ignore
 @retutn List of lines that hit the search
 """
-def searchByFile(pSearchFile,pSearchStr1,pSearchStr2):
+def searchByFile(pSearchFile,pSearchStr1,pSearchStr2,isFirstMatch=False,isSemicolonParse=False,headerComment="--",pFlag=0):
     jbmst_search_java = sys.modules["migration.jbmst_search_java"]
-    jbmst_search_java.LINE_HEAD_COMMENT_STR = "--"
-    return jbmst_search_java.searchByFile(pSearchFile,pSearchStr1,pSearchStr2)
+    result = jbmst_search_java.searchByFile(pSearchFile,pSearchStr1,pSearchStr2,isFirstMatch,headerComment,isSemicolonParse,pFlag)
+    return result
 
+def wrapSearchByFile(param):
+    try:
+        return (searchByFile(*param),param[0])
+    except Exception,e:
+        raise Exception, '%s , searchTargetFile = %s' % (e,param[0])

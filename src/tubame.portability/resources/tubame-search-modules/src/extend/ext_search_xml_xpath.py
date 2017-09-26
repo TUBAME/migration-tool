@@ -14,7 +14,7 @@ import sys
 import re
 from lxml import etree
 from lxml import html
-
+from multiprocessing import Pool
 
 
 """
@@ -60,8 +60,48 @@ def result_path_handle(path,pKey2):
     result_list.append(path.sourceline)
     return result_list
 
-global try_charset_dict
-try_charset_dict = None
+
+def delegate_ext_search(pFile, pKey1, pKey2,result_path_handle_func=None,try_charset_dict=None,unsupported_retry_counter=0):
+    common_module = sys.modules["migration.jbmst_common"]
+    global  g_targetFilePath
+    rsl_list = []
+    try :
+        g_targetFilePath = pFile
+        #tree = etree.parse(fname) # 返値はElementTree型
+        #elem = tree.getroot() # ルート要素を取得(Element型)
+        line = open(pFile, 'rU').read()
+        if line == None or line == "":
+            return rsl_list
+
+        #pKey2がdictの場合、pythonがサポートしていない文字コード(Windows-31j)をcp932に置き換える
+        if isRetryForUnsupportedCharset(try_charset_dict) == True:
+            line = replaceUnsupportedCharset(try_charset_dict,line)
+        elem = etree.fromstring(line)
+
+        if elem == None:
+             return rsl_list
+        pathList = elem.xpath(pKey1)
+        for path in pathList:
+            if result_path_handle_func != None:
+                rsl_list = rsl_list +result_path_handle_func(path,pKey2)
+            else:
+                rsl_list = rsl_list +result_path_handle(path,pKey2)
+        return rsl_list
+    except Exception ,ex:
+        unsupported_retry_counter = unsupported_retry_counter + 1
+        checkedDict = checkUnsupportedEncoding(ex)
+
+        if checkedDict['unsupportedEncoding'] == True and unsupported_retry_counter == 1:
+            try_charset_dict = checkedDict
+            try:
+                return delegate_ext_search(pFile, pKey1, pKey2,result_path_handle_func,try_charset_dict,unsupported_retry_counter)
+                unsupported_retry_counter = 0
+                try_charset_dict = None
+            except Exception ,ex:
+                try_charset_dict = None
+                raise ex
+        else:
+            raise ex
 
 """
 ・XMLファイルを検索キー1で指定されたXPATHで検索を行う。
@@ -80,60 +120,19 @@ try_charset_dict = None
 @param pChapterNo 章番号
 @param pCheck_Status 確認ステータス
 """
-def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir, pChapterNo, pCheck_Status):
+def ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir, pChapterNo, pCheck_Status,result_path_handle_func=None,try_charset_dict=None,unsupported_retry_counter=0):
     common_module = sys.modules["migration.jbmst_common"]
-    no_Results=[]
-
-    # キー1をXPathで読める形に変形する
-    xPath = pKey1
-    global g_targetFilePath
-    global unsupported_retry_counter
-    global try_charset_dict
+    result = []
     #検索対象ファイルリスト中の全ファイルを対象とする
-    for fname in pList:
-        try :
-            g_targetFilePath = fname
-            #tree = etree.parse(fname) # 返値はElementTree型
-            #elem = tree.getroot() # ルート要素を取得(Element型)
-            line = open(fname, 'rU').read()
-            if line == None or line == "":
-                continue
-            #pKey2がdictの場合、pythonがサポートしていない文字コード(Windows-31j)をcp932に置き換える
-            if isRetryForUnsupportedCharset(try_charset_dict) == True:
-                line = replaceUnsupportedCharset(try_charset_dict,line)
-            elem = etree.fromstring(line)
-            
-            if elem == None:
-                continue
-            pathList = elem.xpath(xPath)
-            rsl_list = []
-    
-            for path in pathList:
-                rsl_list = rsl_list +result_path_handle(path,pKey2)
-            common_module.print_csv(pNo, pPriority, pFlag, fname, rsl_list, pChapterNo, pCheck_Status)
-            
-        except Exception ,ex:
-            unsupported_retry_counter = unsupported_retry_counter + 1
-            checkedDict = checkUnsupportedEncoding(ex)
+    search_input_list=[(t, pKey1,pKey2,result_path_handle_func) for t in pList]
+    p = common_module.getPool()
+    result = p.map(wrap_ext_search, search_input_list)
+    for result_tuple in result:
+        if len(result_tuple[0]) != 0:
+            common_module.print_csv(pNo, pPriority, pFlag,result_tuple[1],result_tuple[0], pChapterNo, pCheck_Status)
 
-            if checkedDict['unsupportedEncoding'] == True and unsupported_retry_counter == 1: 
-                try_charset_dict = checkedDict
-                try:
-                    ext_search(pNo, pPriority, pFlag, pList, pKey1, pKey2, pInputCsv, pTargetDir, pChapterNo, pCheck_Status)
-                    unsupported_retry_counter = 0
-                    try_charset_dict = None
-                except Exception ,ex:
-                    try_charset_dict = None
-                    raise ex
-            else:
-                raise ex
-                    
-                
-               
-                
-            
-             
-            
-    #結果が存在しない場合は結果なしのCSVを出力
-    #if len(no_Results)==0 and len(pList)!=0:
-    #    common_module.print_csv4(pNo, pPriority, pFlag,common_module.searchTarget , pChapterNo, pCheck_Status)
+def wrap_ext_search(param):
+    try:
+        return (delegate_ext_search(*param),param[0])
+    except Exception,e:
+        raise Exception, '%s , searchTargetFile = %s' % (e,param[0])

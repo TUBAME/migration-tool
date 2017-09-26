@@ -9,16 +9,37 @@
 		<SearchModule>
 			<ModuleName>ext_search_xml_definedclass.py</ModuleName>
 			<ModuleDescription>xmlに定義されたクラスを検索する。
-			
-利用例.struts-config.xmlのactionタグのtype属性で
-指定されたjavaファイルを検知したい場合は、検索キーワード1にxpathを指定する。
 
-検索キーワード1://*[local-name() = 'action-mappings']/*[local-name() = 'action']/@type</ModuleDescription>
+				利用例.struts-config.xmlのactionタグのtype属性で
+				指定されたjavaファイルを検知したい場合は、検索キーワード1にxpathを指定する。
+
+				検索キーワード1://*[local-name() = 'action-mappings']/*[local-name() =
+				'action']/@type
+			</ModuleDescription>
 		</SearchModule>
 		<SearchModule>
 			<ModuleName>ext_search_sql_parser.py</ModuleName>
 			<ModuleDescription>セミコロンまでをひとつのトークンとして、検索を行う。</ModuleDescription>
 		</SearchModule>
-		
+		<SearchModule>
+			<ModuleName>ext_search_interface_method_definedxml.py</ModuleName>
+			<ModuleDescription>xmlに定義されたインタフェースを対象にインタフェースで定義されているメソッド名を取得し、javaファイルを対象に、インタフェースで定義されているメソッド名を実行している箇所を検索する。
+利用例.ejb-jar.xmlのremoteタグで指定されたインタフェースを対象に、検索を行う場合は、検索キーワード1にxpathを指定する。
+検索キーワード1://session/remote
+			</ModuleDescription>
+		</SearchModule>
+		<SearchModule>
+			<ModuleName>ext_search_xml_text.py</ModuleName>
+			<ModuleDescription>第一引数のXPathにマッチするノード群を対象に、textの値が、第２引数のキーワードにマッチするか検索を実施する。
+すべてのノードを対象に検索を実施する場合は検索キーワード1を以下のように設定し、第２引数に検索キワードを設定する。
+検索キーワード1://*
+検索キーワード2:SELECT.*FROM.*WHERE
+			</ModuleDescription>
+		</SearchModule>
+		<SearchModule>
+			<ModuleName>ext_search_java_api.py</ModuleName>
+			<ModuleDescription>javaのAPIを検索する。第一引数にFQCNでクラス名を指定する。第２引数には検索したいメソッド名を定義し、メソッドの実行箇所を検索する。
+			</ModuleDescription>
+		</SearchModule>
 	</SearchModuleList>
 </PortabilitySearchModule>

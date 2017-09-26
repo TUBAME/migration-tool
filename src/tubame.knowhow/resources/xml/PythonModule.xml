@@ -19,5 +19,28 @@ Search Keywords 1://*[local-name() = 'action-mappings']/*[local-name() = 'action
 			<ModuleDescription>Search up to a semicolon as one chunk.
 			</ModuleDescription>
 		</SearchModule>
+		<SearchModule>
+			<ModuleName>ext_search_interface_method_definedxml.py</ModuleName>
+			<ModuleDescription>Get the method name for the interface defined in xml. Then, it searches for the place where the method is executed.
+To search for the interface specified by the ejb-jar.xml remote tag, specify xpath as the Search Keywords 1.
+
+Search Keywords 1://session/remote
+			</ModuleDescription>
+		</SearchModule>
+		<SearchModule>
+			<ModuleName>ext_search_xml_text.py</ModuleName>
+			<ModuleDescription>For a node matching the XPath of the first argument, search is performed as to whether the value of text matches the keyword of the second argument.
+To perform a search on all nodes, set search keyword 1 as follows.
+Search Keywords 1://*
+Search Keywords 2:SELECT.*FROM.*WHERE
+			</ModuleDescription>
+		</SearchModule>
+		<SearchModule>
+			<ModuleName>ext_search_java_api.py</ModuleName>
+			<ModuleDescription>Search API of java.
+			 
+			Specify the class name with FQCN as the first argument. For the second argument, define the name of the method you want to search, and search for the execution place of the method.
+			</ModuleDescription>
+		</SearchModule>
 	</SearchModuleList>
 </PortabilitySearchModule>
