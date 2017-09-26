@@ -24,4 +24,4 @@ Check file names defined exists to extend folder.
 [Environment] Python 2.7
 """
 
-__all__ = ["ext_search_xml_xpath","ext_report_generator","ext_search_xml_definedclass","ext_search_sql_parser","ext_search_step_counter","ext_search_interface_method_definedxml","ext_search_xml_text","ext_search_java_api","ext_search_sql"]
+__all__ = ["ext_search_xml_xpath","ext_report_generator","ext_search_xml_definedclass","ext_search_step_counter","ext_search_interface_method_definedxml","ext_search_xml_text","ext_search_java_api","ext_search_sql"]

@@ -475,21 +475,6 @@ class JbmstTestCase(unittest.TestCase):
         self.searchExecute()
         self.assertEqual(self.rslt_steps, None)
 
-    def testTubameSqlSearchKey1CreateTable(self):
-        self.searchExecute()
-        self.assertEqual(int(self.rslt_hit), 38)
-
-    def testTubameSqlSearchKey1CreateTableKey2Varchar2(self):
-        self.searchExecute()
-        self.assertEqual(int(self.rslt_hit), 92)
-
-    def testTubameSqlSearchKey1AlterTableKey2AddConstraint(self):
-        self.searchExecute()
-        self.assertEqual(int(self.rslt_hit), 47)
-        self.assertEqual(int(self.rslt_steps[0]), 402)
-        self.assertEqual(int(self.rslt_steps[20]), 500)
-        self.assertEqual(int(self.rslt_steps[46]), 629)
-
     def testTubameCSearchKeyword1(self):
         self.searchExecute()
         self.assertEqual(int(self.rslt_hit), 48)
@@ -533,32 +518,8 @@ class JbmstTestCase(unittest.TestCase):
         self.assertEqual(int(self.rslt_steps[6]), 69)
 
 
-    def testTubameSqlSearchKey1ForJava(self):
-        self.searchExecute()
-        self.assertEqual(self.rslt_steps, None)
 
-    def testTubameSqlSearchKey1ForJava2(self):
-        self.searchExecute()
-        self.assertEqual(int(self.rslt_hit), 1)
-        self.assertEqual(int(self.rslt_steps[0]), 773)
 
-    def testTubameSqlSearchKey1ForJava3(self):
-        self.searchExecute()
-        self.assertEqual(int(self.rslt_hit), 1)
-        self.assertEqual(int(self.rslt_steps[0]), 669)
-
-    def testTubameSqlSearchKey1ForJava4(self):
-        self.searchExecute()
-        self.assertEqual(int(self.rslt_hit), 1)
-        self.assertEqual(int(self.rslt_steps[0]), 773)
-
-    def testTubameSqlSearchForProc1(self):
-        self.searchExecute()
-        self.assertEqual(int(self.rslt_steps[0]), 142)
-        self.assertEqual(int(self.rslt_steps[1]), 145)
-
-    def testTubameSqlSearch1ForXml(self):
-        self.searchExecute()
 
 
     def testTubameStepCounterSearchForJava(self):
@@ -581,30 +542,7 @@ class JbmstTestCase(unittest.TestCase):
         self.searchExecute()
 
 
-    def testTubameSqlSearchForProc2(self):
-    #
-    #In sqlparse, if there is a single quotation in the comment statement, the content of the comment statement
-    #It can not be taken normally.
-    #
-    # Example of events.
-    #
-    #---
-    # // If it was too long, there's be no newline. In that case, we flush
-    # // To end of line so that it does not affect affect the next call.
-    #----
-    # Acquire missing information as follows.
-    #---
-    #// If it was too long, theret affect the next call.
-    #---
-    #Due to this event, line numbers may be shifted when searching.
-    #
-    #This test confirms that the line numbers are off.
-    #
-        self.searchExecute()
-        #self.assertEqual(int(self.rslt_steps[0]), 142)
-        self.assertEqual(int(self.rslt_steps[0]), 139)
-        #self.assertEqual(int(self.rslt_steps[1]), 145)
-        self.assertEqual(int(self.rslt_steps[1]), 141)
+
 
     def testKeyword1SqlFileSearch(self):
         self.searchExecute()
@@ -618,12 +556,6 @@ class JbmstTestCase(unittest.TestCase):
     def testTubameXpathSearchIBatisSql(self):
         self.searchExecute()
         self.assertEqual(int(self.rslt_steps[0]), 11)
-
-    def testTubameSqlSearchOrCondition(self):
-        self.searchExecute()
-        self.assertEqual(int(self.rslt_steps[0]), 1)
-        self.assertEqual(int(self.rslt_steps[1]), 2)
-        self.assertEqual(int(self.rslt_steps[2]), 2)
 
     def testExtSearchInterfaceMethod(self):
         self.searchExecute()
