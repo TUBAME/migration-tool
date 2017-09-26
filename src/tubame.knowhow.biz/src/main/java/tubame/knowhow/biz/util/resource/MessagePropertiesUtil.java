@@ -319,6 +319,8 @@ public final class MessagePropertiesUtil {
     
     public static final String REQUIRED_ASCIIDOC_HEADER = "requireAsciidocHeader";
     
+    public static final String INVALID_ASCIIDOC_HEADER = "invalidAsciidocHeader";
+    
     public static final String EMPTY_ASCIIDOC = "emptyAsciidoc";
     
     public static final String FINISH_IMPORT_ADOC = "finishImportAdoc";
