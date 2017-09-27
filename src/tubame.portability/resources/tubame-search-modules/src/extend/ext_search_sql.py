@@ -12,7 +12,7 @@ __author__ = ' Copyright (C) 2011 Nippon Telegraph and Telephone Corporation, Al
 import os
 import sys
 import re
-from multiprocessing import Pool
+
 
 PACKAGE_MAP = {}
 

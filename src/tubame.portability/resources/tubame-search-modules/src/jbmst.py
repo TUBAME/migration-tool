@@ -38,7 +38,8 @@ import os
 import imp
 import codecs
 import traceback
-from multiprocessing import Pool
+import multiprocessing
+
 
 bPARAMETER_CHECK = True        # Release Version
 
@@ -228,4 +229,5 @@ def main(*args):
             raise Exception, 'Search Err(csvinfo:%s ,SearchTargetFile:%s) \r\n%s' % (row,errorFilePath,traceback.format_exc(sys.exc_info()[2]))
 
 if __name__ == '__main__':
+    multiprocessing.freeze_support()
     main()

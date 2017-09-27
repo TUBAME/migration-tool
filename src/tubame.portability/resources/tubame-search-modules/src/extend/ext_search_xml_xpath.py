@@ -14,7 +14,7 @@ import sys
 import re
 from lxml import etree
 from lxml import html
-from multiprocessing import Pool
+
 
 
 """
