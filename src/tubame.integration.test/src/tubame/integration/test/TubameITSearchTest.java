@@ -87,7 +87,7 @@ public class TubameITSearchTest {
 	@Test
 	public void tubameReportGenerate() throws Exception {
 		SwtBotUtil.selectProject(bot, TEST_PROJECT);
-		selectMenu("tubame", "レポート生成");
+		selectMenu("tubame", "その他機能","レポート生成");
 		execReportGenerate();
 		confirmOK();
 		noShowReport();
