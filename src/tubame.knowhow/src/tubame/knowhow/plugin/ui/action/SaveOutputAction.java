@@ -71,6 +71,7 @@ public class SaveOutputAction implements IEditorActionDelegate {
             String targetFileName = CmnFileUtil.getFileName(targetFilePath);
             FileDialog dialog = new FileDialog(
                     PluginUtil.getActiveWorkbenchShell(), SWT.SAVE);
+            
             if (SAVE_KNOWHOW_XML_ACTION_ID.equals(action.getId())) {
                 saveKnowhowXml(dialog, targetFilePath, targetFileName);
             } else if (SAVE_DOCBOOK_ACTION_ID.equals(action.getId())) {
