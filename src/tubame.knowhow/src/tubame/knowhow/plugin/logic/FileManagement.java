@@ -27,11 +27,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -680,6 +683,29 @@ public final class FileManagement {
 		return currentCount;
 	}
 
+	   
+    public static List<String> getProgRefFiles(String knowhowDetailFilePath,String xpath, String attrName) throws Exception {
+    		DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+    		Document doc = builder.parse(new File(knowhowDetailFilePath));
+    		XPath xpathIns = XPathFactory.newInstance().newXPath();
+    		List<String> list = new ArrayList();
+    		
+    		NodeList dockBookNodes = (NodeList) xpathIns.evaluate(xpath, doc, XPathConstants.NODESET);
+
+    		for (int i = 0; i < dockBookNodes.getLength(); i++) {
+
+    			Node item = dockBookNodes.item(i);
+    			if (item != null) {
+    				NamedNodeMap attributes = item.getAttributes();
+    				Node namedItem = attributes.getNamedItem(attrName);
+    				String attrValue = namedItem.getNodeValue();
+    				if (attrValue != null) {
+    					list.add(attrValue);
+    				}
+    			}
+    		}
+    		return list;
+	}
 	public static NodeList getNodeListFromKnowhowXml(String knowhowXmlPath, String xpath) throws Exception {
 		DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 		Document doc = builder.parse(new File(knowhowXmlPath));

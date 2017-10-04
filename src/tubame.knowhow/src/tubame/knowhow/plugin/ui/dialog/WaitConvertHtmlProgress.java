@@ -81,8 +81,8 @@ public class WaitConvertHtmlProgress implements IRunnableWithProgress {
 		this.orgFilePath = orgFilePath;
 		this.outputFilePath = outputFilePath;
 		this.xmlType = xmlType;
-		WaitConvertHtmlProgress.LOGGER.debug("[orgFilePath]" + orgFilePath + "[outputFilePath]" + outputFilePath
-				+ "[xmlType]" + xmlType);
+		WaitConvertHtmlProgress.LOGGER
+				.debug("[orgFilePath]" + orgFilePath + "[outputFilePath]" + outputFilePath + "[xmlType]" + xmlType);
 	}
 
 	/**
@@ -91,18 +91,23 @@ public class WaitConvertHtmlProgress implements IRunnableWithProgress {
 	@Override
 	public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
 		WaitConvertHtmlProgress.LOGGER.debug("[monitor]" + monitor);
-		WaitConvertHtmlProgress.LOGGER.info(MessagePropertiesUtil
-				.getMessage(MessagePropertiesUtil.LOG_START_CONVERT_HTML));
+		WaitConvertHtmlProgress.LOGGER
+				.info(MessagePropertiesUtil.getMessage(MessagePropertiesUtil.LOG_START_CONVERT_HTML));
 
 		monitor.beginTask(MessagePropertiesUtil.getMessage(MessagePropertiesUtil.CONVERT_HTML),
 				IProgressMonitor.UNKNOWN);
 
 		// ナレッジXMLより、programlisting/textobject/textdataタグのfileref属性で参照しているファイルパスを取得する
 		// ただし、ナレッジエントリビューにあるナレッジでなく、Chapterにあるカテゴリに紐づくナレッジの情報のみ抽出
-		if(ResourceUtil.isCopyProgramlistingTextDataFile.equals("true")){
+		if (ResourceUtil.isCopyProgramlistingTextDataFile.equals("true")) {
 			try {
-				List<String> refFiles = getRefFilesFromKnowledgeXml(orgFilePath);
-				copyToPluginResouce(refFiles,new File(orgFilePath).getParentFile());
+				List<String> refFiles = getRefFiles(orgFilePath);
+				if(isTmpFile(orgFilePath)){
+					copyToPluginResouce(refFiles, new File(orgFilePath).getParentFile().getParentFile());	
+				}else{
+					copyToPluginResouce(refFiles, new File(orgFilePath).getParentFile());	
+				}
+				
 			} catch (Exception e) {
 				throw new InvocationTargetException(e,
 						MessagePropertiesUtil.getMessage(MessagePropertiesUtil.ERROR_HTML_CONVERT));
@@ -133,40 +138,62 @@ public class WaitConvertHtmlProgress implements IRunnableWithProgress {
 			LOGGER.info(MessagePropertiesUtil.getMessage(MessagePropertiesUtil.PRESS_CANCEL_BUTTON));
 			throw new InterruptedException(MessagePropertiesUtil.getMessage(MessagePropertiesUtil.PRESS_CANCEL_BUTTON));
 		}
-		WaitConvertHtmlProgress.LOGGER.info(MessagePropertiesUtil
-				.getMessage(MessagePropertiesUtil.LOG_STOP_CONVERT_HTML));
+		WaitConvertHtmlProgress.LOGGER
+				.info(MessagePropertiesUtil.getMessage(MessagePropertiesUtil.LOG_STOP_CONVERT_HTML));
 		monitor.done();
 	}
 
-	private void copyToPluginResouce(List<String> refFiles, File knowledgeXmlParentFolder) throws Exception {
+	private List<String> getRefFiles(String orgFilePath) throws Exception {
+		if (isTmpFile(orgFilePath)) {
+			return FileManagement.getProgRefFiles(orgFilePath,
+					"//*[local-name()='programlisting']/*[local-name()='textobject']/*[local-name()='textdata']",
+					"fileref");
+		} else {
+			return getRefFilesFromKnowledgeXml(orgFilePath);
+		}
+	}
+
+	private boolean isTmpFile(String orgFilePath) {
+		String name = new File(orgFilePath).getName();
+		if (name.equals("tmp_docbook_ja.xml") || name.equals("tmp_docbook_en.xml")) {
+			return true;
+		}
+		return false;
+
+	}
+
+	public void copyToPluginResouce(List<String> refFiles, File knowledgeXmlParentFolder) throws Exception {
 		File pluginXSLResouceFile = getPluginXSLResoucePath();
 		for (String reativeFilePath : refFiles) {
-			File refFile = new File(knowledgeXmlParentFolder,reativeFilePath);
-			
-			File copyTarget = new File(pluginXSLResouceFile,reativeFilePath);
-			//ナレッジXMLで参照されているファイルの親ディレクトリがプロジェクト内のナレッジXMLを保持している親ディレクトかどうか確認する(プロジェクト内のカレント以外かどうか確認）
-			if(!isParentDirMatchKnowledgeXmlParentFolder(refFile,knowledgeXmlParentFolder)){
+			File refFile = new File(knowledgeXmlParentFolder, reativeFilePath);
+
+			File copyTarget = new File(pluginXSLResouceFile, reativeFilePath);
+			// ナレッジXMLで参照されているファイルの親ディレクトリがプロジェクト内のナレッジXMLを保持している親ディレクトかどうか確認する(プロジェクト内のカレント以外かどうか確認）
+			if (!isParentDirMatchKnowledgeXmlParentFolder(refFile, knowledgeXmlParentFolder)) {
 				File parentDir = copyTarget.getParentFile();
-				if(!parentDir.exists()){
+				if (!parentDir.exists()) {
 					parentDir.mkdirs();
 				}
 			}
-			LOGGER.debug("copy from:"+refFile.getPath());
-			LOGGER.debug("copy dest:"+copyTarget.getPath());
+			LOGGER.debug("copy from:" + refFile.getPath());
+			LOGGER.debug("copy dest:" + copyTarget.getPath());
+			if (!refFile.exists()){
+				throw new Exception("not found "+refFile.getPath());
+			}
 			FileUtil.copyFile(refFile, copyTarget);
 		}
-		
+
 	}
-	
-    private boolean isParentDirMatchKnowledgeXmlParentFolder(File targetFile, File knowledgeXmlParentFolder) {
-		if(targetFile.getParentFile().getPath().equals(knowledgeXmlParentFolder.getPath())){
+
+	private boolean isParentDirMatchKnowledgeXmlParentFolder(File targetFile, File knowledgeXmlParentFolder) {
+		if (targetFile.getParentFile().getPath().equals(knowledgeXmlParentFolder.getPath())) {
 			return true;
 		}
 		return false;
 	}
 
 	private File getPluginXSLResoucePath() {
-		return new File(PluginUtil.getRealPluginDirPath()+File.separator+"resources"+ File.separator +"xsl");
+		return new File(PluginUtil.getRealPluginDirPath() + File.separator + "resources" + File.separator + "xsl");
 	}
 
 	private List<String> getRefFilesFromKnowledgeXml(String knowledgeXmlFilePath) throws Exception {
@@ -176,26 +203,28 @@ public class WaitConvertHtmlProgress implements IRunnableWithProgress {
 	}
 
 	private List<String> searchXpath(List<String> knowhowDetailRefKeys, String knowledgeXmlFilePath) throws Exception {
-		
+
 		List<String> list = new ArrayList();
 		DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 		Document doc = builder.parse(new File(knowledgeXmlFilePath));
 		XPath xpath = XPathFactory.newInstance().newXPath();
-		
+
 		for (String knowhowDetailId : knowhowDetailRefKeys) {
 
-			//knowhowDetailIdが一致するsectionを取得
-			NodeList dockBookNodes = (NodeList) xpath.evaluate(
-					"//*[local-name()='DocBookList']/*[local-name()='DocBook'][@articleId='" + knowhowDetailId
-							+ "']/*[local-name()='article']/*[local-name()='section']", doc, XPathConstants.NODESET);
-			
+			// knowhowDetailIdが一致するsectionを取得
+			NodeList dockBookNodes = (NodeList) xpath
+					.evaluate(
+							"//*[local-name()='DocBookList']/*[local-name()='DocBook'][@articleId='" + knowhowDetailId
+									+ "']/*[local-name()='article']/*[local-name()='section']",
+							doc, XPathConstants.NODESET);
+
 			for (int i = 0; i < dockBookNodes.getLength(); i++) {
-				
+
 				Node item = dockBookNodes.item(i);
-				
+
 				NodeList nodeList = (NodeList) xpath.evaluate(".//*[local-name()='textdata']", item,
 						XPathConstants.NODESET);
-				
+
 				for (int j = 0; j < nodeList.getLength(); j++) {
 					Node item2 = nodeList.item(j);
 					list.add(item2.getAttributes().getNamedItem("fileref").getNodeValue());
@@ -270,6 +299,5 @@ public class WaitConvertHtmlProgress implements IRunnableWithProgress {
 		}
 		return knowhowDetailIds;
 	}
-	
-	
+
 }

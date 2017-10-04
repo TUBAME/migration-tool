@@ -540,6 +540,7 @@ public class MaintenanceKnowhowMultiPageEditor extends FormEditor implements Edi
 	private void switchKnowhowPageEditor(int level) {
 		try {
 			if (PortabilityKnowhowListViewData.LEVEL_SECOND == level) {
+				clearKnowhowDetail();
 				createDocBookPage(false);
 			} else {
 				clearKnowhowDetail();

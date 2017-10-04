@@ -12,8 +12,11 @@
 	<xsl:param name="tablecolumns.extension" select="0" />
 	<xsl:param name="use.extensions" select="1" />
 	
+	
+	<!-- 
     <xsl:template match="doc:programlisting">
         <iframe src="{./doc:textobject/doc:textdata/@fileref}" />
     </xsl:template>
+     -->
     
 </xsl:stylesheet>

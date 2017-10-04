@@ -18,7 +18,15 @@
  */
 package tubame.knowhow.plugin.ui.action;
 
+import java.io.File;
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathFactory;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.action.IAction;
@@ -28,6 +36,10 @@ import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import tubame.common.util.CmnFileUtil;
 import tubame.knowhow.biz.exception.JbmException;
@@ -67,13 +79,15 @@ public class DocBookViewerMenuAction implements IEditorActionDelegate {
             try {
                 String temporaryHtmlFilePath = getTemporaryHtmlFilePath(knowhowMultiPageEditor
                         .getKnowhowSelectionProject());
-                
+                              
                 // HTML save processing (Passing of XLS file)
                 ProgressMonitorDialog dialog = new ProgressMonitorDialog(
                         PluginUtil.getActiveWorkbenchShell());
+                
                 WaitConvertHtmlProgress convertHtmlThread = new WaitConvertHtmlProgress(
                         knowhowDetailFilePath, temporaryHtmlFilePath,
                         XML_TYPE.DOCBOOK_XML);
+                
                 dialog.run(true, true, convertHtmlThread);
                 PluginUtil.refreshWorkSpace();
                 String url = FileUtil.getURL(temporaryHtmlFilePath).toString();
@@ -102,8 +116,10 @@ public class DocBookViewerMenuAction implements IEditorActionDelegate {
                         .getMessage(MessagePropertiesUtil.LOG_OPEN_ECLIPSE_STANDARD_WEBBROWSER));
     }
 
-    
-    private String getTemporaryHtmlFilePath(IProject project) {
+ 
+
+
+	private String getTemporaryHtmlFilePath(IProject project) {
         String temporaryHtmlFilePath = null;
         temporaryHtmlFilePath = project.getLocation().toOSString()
                 + CmnFileUtil.FILE_SEPARATOR 
