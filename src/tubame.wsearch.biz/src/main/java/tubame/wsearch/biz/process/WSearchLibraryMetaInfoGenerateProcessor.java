@@ -380,6 +380,7 @@ public class WSearchLibraryMetaInfoGenerateProcessor extends
                     return null;
                 }
 
+                WSearchCacheManager.getInstance().unload(CacheBase.TYPE.LIBRARY);
                 for (LibraryModel library : libraries) {
                     WSearchLibraryCacheArgument argument = new WSearchLibraryCacheArgument(
                             CacheBase.TYPE.LIBRARY,
