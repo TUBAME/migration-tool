@@ -439,14 +439,23 @@ public class WSearchLibraryCache extends CacheBase implements
 
         List<String> cachedPackages = WSearchCacheManager.getInstance()
                 .getImportList();
+        PackageInfo packageInfo = null;
+
         for (PomReader reader : metaData.readerSet) {
             for (String packageName : reader.getPackages()) {
+            	boolean addedFirst = false;
                 LOGGER.debug(MessageUtil
                         .getResourceString(WSearchLibraryCache.class.getName()
                                 + ".debug.loadpackage.package")
                         + packageName);
-                PackageInfo packageInfo = new PackageInfo(reader, packageName);
-                metaData.packages.put(packageName, packageInfo);
+                if(!metaData.packages.containsKey(packageName)){
+                	packageInfo = new PackageInfo(reader, packageName);
+                    metaData.packages.put(packageName, packageInfo);
+                    addedFirst = true;
+                }else{
+                	packageInfo = metaData.packages.get(packageName);
+                }
+                
                 if (cachedPackages != null) {
                     for (String cached : cachedPackages) {
                         if (cached.endsWith(".")) {
@@ -454,8 +463,11 @@ public class WSearchLibraryCache extends CacheBase implements
                         }
                         if ("java.lang".equals(packageName)
                                 || cached.equals(packageName)) {
-                            packageInfo.getClasses();
-                            break;
+                        	if(addedFirst){
+                        	    packageInfo.getClasses();
+                        	}else{
+                        		packageInfo.getClasses().addAll(new PackageInfo(reader, packageName).getClasses());
+                        	}
                         }
                     }
                 }
