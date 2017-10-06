@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %plugin.name
 Bundle-SymbolicName: tubame.knowhow;singleton:=true
-Bundle-Version: 1.1.1.qualifier
+Bundle-Version: 1.1.2.qualifier
 Bundle-Activator: tubame.knowhow.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -21,6 +21,6 @@ Import-Package: org.eclipse.ui.dialogs,
 Bundle-Vendor: %plugin.provider
 Eclipse-BundleShape: dir
 Bundle-ClassPath: .,
- lib/tubame-common-1.1.1-SNAPSHOT.jar,
- lib/tubame-knowhow-biz-1.1.1-SNAPSHOT.jar,
+ lib/tubame-common-1.1.2-SNAPSHOT.jar,
+ lib/tubame-knowhow-biz-1.1.2-SNAPSHOT.jar,
  lib/xalan27.jar
