@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1475459964160
+Bnd-LastModified: 1507263077388
 Build-Jdk: 1.8.0_92
 Built-By: kwatanabe
 Bundle-ManifestVersion: 2
 Bundle-Name: tubame-common
 Bundle-SymbolicName: tubame.common
-Bundle-Version: 1.1.1.SNAPSHOT
+Bundle-Version: 1.1.2.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
 Embed-Dependency: *;scope=compile|runtime;inline=true
 Embed-Directory: target/lib
@@ -122,14 +122,14 @@ Export-Package: ch.qos.logback.classic;version="1.0.13";uses:="ch.qos.lo
  ch.qos.logback.core.subst;version="1.0.13";uses:="ch.qos.logback.core.s
  pi",ch.qos.logback.core.util;version="1.0.13";uses:="ch.qos.logback.cor
  e,ch.qos.logback.core.rolling,ch.qos.logback.core.spi,ch.qos.logback.co
- re.status",logback_template.xml;version="1.1.1.SNAPSHOT",org.slf4j;vers
+ re.status",logback_template.xml;version="1.1.2.SNAPSHOT",org.slf4j;vers
  ion="1.7.5";uses:="org.slf4j.spi",org.slf4j.helpers;version="1.7.5";use
  s:="org.slf4j,org.slf4j.spi",org.slf4j.impl;version="1.7.5";uses:="org.
  slf4j,org.slf4j.spi",org.slf4j.spi;version="1.7.5";uses:="org.slf4j",pr
- operties.common;version="1.1.1.SNAPSHOT",tubame.common.exception;versio
- n="1.1.1.SNAPSHOT",tubame.common.logging;version="1.1.1.SNAPSHOT",tubam
- e.common.logic.converter;version="1.1.1.SNAPSHOT",tubame.common.util;ve
- rsion="1.1.1.SNAPSHOT",tubame.common.util.resource;version="1.1.1.SNAPS
+ operties.common;version="1.1.2.SNAPSHOT",tubame.common.exception;versio
+ n="1.1.2.SNAPSHOT",tubame.common.logging;version="1.1.2.SNAPSHOT",tubam
+ e.common.logic.converter;version="1.1.2.SNAPSHOT",tubame.common.util;ve
+ rsion="1.1.2.SNAPSHOT",tubame.common.util.resource;version="1.1.2.SNAPS
  HOT"
 Import-Package: groovy.lang,javax.jms,javax.mail,javax.mail.internet,jav
  ax.management,javax.naming,javax.net,javax.net.ssl,javax.servlet,javax.
