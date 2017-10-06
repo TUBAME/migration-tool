@@ -533,7 +533,7 @@ public class Activator extends AbstractUIPlugin {
 	}
     
     public static boolean isDefaultCacheName(String targetName) {
-		if(targetName.startsWith("eap6.2")){
+		if(targetName.startsWith("eap7.0")){
 			return true;
 		}
 		return false;
@@ -692,6 +692,7 @@ public class Activator extends AbstractUIPlugin {
                 repository.setCache(node.getBoolean(CACHED));
                 repository.setZipCache(node.getBoolean(ZIP_CACHE));
                 repository.setOrder(order);
+               
                 libraryRepositories.put(name, repository);
             }
         } catch (Exception e) {
