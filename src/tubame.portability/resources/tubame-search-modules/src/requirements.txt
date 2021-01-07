@@ -1,2 +1,2 @@
-lxml==4.0.0
+lxml==4.6.2
 PyInstaller==3.2.1
