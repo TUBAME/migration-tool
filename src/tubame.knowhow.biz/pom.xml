@@ -167,6 +167,62 @@
 					</execution>
 				</executions>
 			</plugin>
+            <!-- Since JAXB has been deleted in Java9 or later, the jaxb library is placed on the plugin side. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.1.2</version>
+				<executions>
+					<execution>
+						<id>install</id>
+						<phase>install</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.sun.activation</groupId>
+									<artifactId>javax.activation</artifactId>
+									<version>1.2.0</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<destFileName>javax.activation-1.2.0.jar</destFileName>
+								</artifactItem>
+
+								<artifactItem>
+									<groupId>javax.xml.bind</groupId>
+									<artifactId>jaxb-api</artifactId>
+									<version>2.3.1</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<destFileName>jaxb-api-2.3.1.jar</destFileName>
+								</artifactItem>
+
+								<artifactItem>
+									<groupId>com.sun.xml.bind</groupId>
+									<artifactId>jaxb-core</artifactId>
+									<version>2.3.0.1</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<destFileName>jaxb-core-2.3.0.1.jar</destFileName>
+								</artifactItem>
+
+								<artifactItem>
+									<groupId>com.sun.xml.bind</groupId>
+									<artifactId>jaxb-impl</artifactId>
+									<version>2.3.1</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<destFileName>jaxb-impl-2.3.1.jar</destFileName>
+								</artifactItem>
+
+							</artifactItems>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
@@ -203,6 +259,44 @@
 									tofile="${knowhow_ui_eclipse_pj_path}/lib/xalan27.jar"
 									overwrite="true" />
 
+                                <!-- Since JAXB has been deleted in Java9 or later, the jaxb library is placed on the plugin side. -->
+                                <!-- copy javax.activation-1.2.0.jar for jaxb -->
+								<copy
+									file="${basedir}/target/javax.activation-1.2.0.jar"
+									tofile="${knowhow_ui_eclipse_pj_path}/lib/javax.activation-1.2.0.jar"
+									overwrite="true" />
+								<copy
+									file="${basedir}/target/javax.activation-1.2.0.jar"
+									tofile="${portability_ui_eclipse_pj_path}/lib/javax.activation-1.2.0.jar"
+									overwrite="true" />
+                                <!-- copy jaxb-api-2.3.1.jar for jaxb -->
+								<copy
+									file="${basedir}/target/jaxb-api-2.3.1.jar"
+									tofile="${knowhow_ui_eclipse_pj_path}/lib/jaxb-api-2.3.1.jar"
+									overwrite="true" />
+								<copy
+									file="${basedir}/target/jaxb-api-2.3.1.jar"
+									tofile="${portability_ui_eclipse_pj_path}/lib/jaxb-api-2.3.1.jar"
+									overwrite="true" />
+                                <!-- copy jaxb-core-2.3.0.1.jar for jaxb -->
+								<copy
+									file="${basedir}/target/jaxb-core-2.3.0.1.jar"
+									tofile="${knowhow_ui_eclipse_pj_path}/lib/jaxb-core-2.3.0.1.jar"
+									overwrite="true" />
+								<copy
+									file="${basedir}/target/jaxb-core-2.3.0.1.jar"
+									tofile="${portability_ui_eclipse_pj_path}/lib/jaxb-core-2.3.0.1.jar"
+									overwrite="true" />
+                                <!-- copy jaxb-impl-2.3.1.jar for jaxb -->
+								<copy
+									file="${basedir}/target/jaxb-impl-2.3.1.jar"
+									tofile="${knowhow_ui_eclipse_pj_path}/lib/jaxb-impl-2.3.1.jar"
+									overwrite="true" />
+								<copy
+									file="${basedir}/target/jaxb-impl-2.3.1.jar"
+									tofile="${portability_ui_eclipse_pj_path}/lib/jaxb-impl-2.3.1.jar"
+									overwrite="true" />	
+									
 								<copy
 									file="${basedir}/target/${project.artifactId}-${project.version}.jar"
 									tofile="${knowhow_ui_eclipse_pj_path}/lib/${project.artifactId}-${project.version}.jar"
