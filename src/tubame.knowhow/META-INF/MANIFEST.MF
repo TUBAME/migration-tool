@@ -23,4 +23,8 @@ Eclipse-BundleShape: dir
 Bundle-ClassPath: .,
  lib/tubame-common-1.1.2-SNAPSHOT.jar,
  lib/tubame-knowhow-biz-1.1.2-SNAPSHOT.jar,
- lib/xalan27.jar
+ lib/xalan27.jar,
+ lib/javax.activation-1.2.0.jar,
+ lib/jaxb-api-2.3.1.jar,
+ lib/jaxb-core-2.3.0.1.jar,
+ lib/jaxb-impl-2.3.1.jar
