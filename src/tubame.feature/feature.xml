@@ -2,7 +2,7 @@
 <feature
       id="tubame.feature"
       label="Feature"
-      version="1.1.2.qualifier">
+      version="1.1.4.qualifier">
 
    <description url="http://tubame.github.io/migration-tool/index_ja.html">
       TUBAME is OSS Migration Support Tools
@@ -210,18 +210,18 @@ third-party archives.
          id="tubame.knowhow"
          download-size="0"
          install-size="0"
-         version="1.1.2"/>
+         version="1.1.4"/>
 
    <plugin
          id="tubame.portability"
          download-size="0"
          install-size="0"
-         version="1.1.2"/>
+         version="1.1.4"/>
 
    <plugin
          id="tubame.wsearch"
          download-size="0"
          install-size="0"
-         version="1.1.2"/>
+         version="1.1.4"/>
 
 </feature>
