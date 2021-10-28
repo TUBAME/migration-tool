@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %plugin.name
 Bundle-SymbolicName: tubame.portability;singleton:=true
-Bundle-Version: 1.1.4.qualifier
+Bundle-Version: 1.1.3.qualifier
 Bundle-Activator: tubame.portability.Activator
 Require-Bundle: org.eclipse.core.resources,
  org.eclipse.core.runtime,
@@ -17,8 +17,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: %plugin.provider
 Eclipse-BundleShape: dir
 Bundle-ClassPath: .,
- lib/tubame-common-1.1.4-SNAPSHOT.jar,
- lib/tubame-knowhow-biz-1.1.4-SNAPSHOT.jar,
+ lib/tubame-common-1.1.3-SNAPSHOT.jar,
+ lib/tubame-knowhow-biz-1.1.3-SNAPSHOT.jar,
  lib/javax.activation-1.2.0.jar,
  lib/jaxb-api-2.3.1.jar,
  lib/jaxb-core-2.3.0.1.jar,

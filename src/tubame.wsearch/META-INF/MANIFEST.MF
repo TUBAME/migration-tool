@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %plugin.name
 Bundle-SymbolicName: tubame.wsearch;singleton:=true
-Bundle-Version: 1.1.4.qualifier
+Bundle-Version: 1.1.3.qualifier
 Bundle-Activator: tubame.wsearch.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -16,5 +16,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: %plugin.provider
 Eclipse-BundleShape: dir
 Bundle-ClassPath: .,
- lib/tubame-common-1.1.4-SNAPSHOT.jar,
- lib/tubame-wsearch-biz-1.1.4-SNAPSHOT.jar
+ lib/tubame-common-1.1.3-SNAPSHOT.jar,
+ lib/tubame-wsearch-biz-1.1.3-SNAPSHOT.jar
