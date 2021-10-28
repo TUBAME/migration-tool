@@ -1,19 +1,19 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1635229947273
+Bnd-LastModified: 1635382079525
 Build-Jdk: 1.8.0_301
 Built-By: 1000215596
 Bundle-ManifestVersion: 2
 Bundle-Name: tubame-knowhow-biz
 Bundle-SymbolicName: tubame.knowhow-biz
-Bundle-Version: 1.1.2.SNAPSHOT
+Bundle-Version: 1.1.4.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
 Embed-Dependency: *;scope=compile|runtime;inline=true;artifactId=!slf4j-
  api
 Embed-Directory: lib
 Embed-Transitive: true
-Export-Package: YechtService.class;version="1.1.2.SNAPSHOT",analyze-stri
- ng.xsd;version="1.1.2.SNAPSHOT",casevariants.xml;version="1.1.2.SNAPSHO
- T",categories.xml;version="1.1.2.SNAPSHOT",chameleon.xsl;version="1.1.2
+Export-Package: YechtService.class;version="1.1.4.SNAPSHOT",analyze-stri
+ ng.xsd;version="1.1.4.SNAPSHOT",casevariants.xml;version="1.1.4.SNAPSHO
+ T",categories.xml;version="1.1.4.SNAPSHOT",chameleon.xsl;version="1.1.4
  .SNAPSHOT",com.beust.jcommander;version="1.35.0";uses:="com.beust.jcomm
  ander.converters,com.beust.jcommander.internal,com.beust.jcommander.val
  idators",com.beust.jcommander.converters;version="1.35.0";uses:="com.be
@@ -21,488 +21,488 @@ Export-Package: YechtService.class;version="1.1.2.SNAPSHOT",analyze-stri
  ses:="com.beust.jcommander",com.beust.jcommander.internal;version="1.35
  .0";uses:="com.beust.jcommander",com.beust.jcommander.validators;versio
  n="1.35.0";uses:="com.beust.jcommander",com.headius.invokebinder;uses:=
- "com.headius.invokebinder.transform";version="1.1.2.SNAPSHOT",com.headi
- us.invokebinder.transform;version="1.1.2.SNAPSHOT",com.headius.options;
- version="1.1.2.SNAPSHOT",com.headius.options.example;version="1.1.2.SNA
- PSHOT",com.jcraft.jzlib;version="1.1.2.SNAPSHOT",com.kenai.constantine;
- uses:="jnr.constants";version="1.1.2.SNAPSHOT",com.kenai.constantine.pl
- atform;uses:="com.kenai.constantine";version="1.1.2.SNAPSHOT",com.kenai
- .jffi;version="1.1.2.SNAPSHOT",com.kenai.jffi.internal;version="1.1.2.S
- NAPSHOT",com.kenai.jnr.x86asm;version="1.1.2.SNAPSHOT",com.martiansoftw
- are.nailgun;version="1.1.2.SNAPSHOT",com.martiansoftware.nailgun.builti
- ns;uses:="com.martiansoftware.nailgun";version="1.1.2.SNAPSHOT",gems.as
- ciidoctor-1.5.4.data;version="1.1.2.SNAPSHOT",gems.asciidoctor-1.5.4.da
- ta.stylesheets;version="1.1.2.SNAPSHOT",gems.asciidoctor-1.5.4.lib;vers
- ion="1.1.2.SNAPSHOT",gems.asciidoctor-1.5.4.lib.asciidoctor;version="1.
- 1.2.SNAPSHOT",gems.asciidoctor-1.5.4.lib.asciidoctor.cli;version="1.1.2
+ "com.headius.invokebinder.transform";version="1.1.4.SNAPSHOT",com.headi
+ us.invokebinder.transform;version="1.1.4.SNAPSHOT",com.headius.options;
+ version="1.1.4.SNAPSHOT",com.headius.options.example;version="1.1.4.SNA
+ PSHOT",com.jcraft.jzlib;version="1.1.4.SNAPSHOT",com.kenai.constantine;
+ uses:="jnr.constants";version="1.1.4.SNAPSHOT",com.kenai.constantine.pl
+ atform;uses:="com.kenai.constantine";version="1.1.4.SNAPSHOT",com.kenai
+ .jffi;version="1.1.4.SNAPSHOT",com.kenai.jffi.internal;version="1.1.4.S
+ NAPSHOT",com.kenai.jnr.x86asm;version="1.1.4.SNAPSHOT",com.martiansoftw
+ are.nailgun;version="1.1.4.SNAPSHOT",com.martiansoftware.nailgun.builti
+ ns;uses:="com.martiansoftware.nailgun";version="1.1.4.SNAPSHOT",gems.as
+ ciidoctor-1.5.4.data;version="1.1.4.SNAPSHOT",gems.asciidoctor-1.5.4.da
+ ta.stylesheets;version="1.1.4.SNAPSHOT",gems.asciidoctor-1.5.4.lib;vers
+ ion="1.1.4.SNAPSHOT",gems.asciidoctor-1.5.4.lib.asciidoctor;version="1.
+ 1.4.SNAPSHOT",gems.asciidoctor-1.5.4.lib.asciidoctor.cli;version="1.1.4
  .SNAPSHOT",gems.asciidoctor-1.5.4.lib.asciidoctor.converter;version="1.
- 1.2.SNAPSHOT",gems.asciidoctor-1.5.4.lib.asciidoctor.core_ext;version="
- 1.1.2.SNAPSHOT",gems.asciidoctor-1.5.4.lib.asciidoctor.core_ext.object;
- version="1.1.2.SNAPSHOT",gems.asciidoctor-1.5.4.lib.asciidoctor.core_ex
- t.string;version="1.1.2.SNAPSHOT",gems.asciidoctor-1.5.4.lib.asciidocto
- r.core_ext.symbol;version="1.1.2.SNAPSHOT",gems.coderay-1.1.0.lib;versi
- on="1.1.2.SNAPSHOT",gems.coderay-1.1.0.lib.coderay;version="1.1.2.SNAPS
- HOT",gems.coderay-1.1.0.lib.coderay.encoders;version="1.1.2.SNAPSHOT",g
- ems.coderay-1.1.0.lib.coderay.encoders.html;version="1.1.2.SNAPSHOT",ge
- ms.coderay-1.1.0.lib.coderay.helpers;version="1.1.2.SNAPSHOT",gems.code
- ray-1.1.0.lib.coderay.scanners;version="1.1.2.SNAPSHOT",gems.coderay-1.
- 1.0.lib.coderay.scanners.java;version="1.1.2.SNAPSHOT",gems.coderay-1.1
- .0.lib.coderay.scanners.ruby;version="1.1.2.SNAPSHOT",gems.coderay-1.1.
- 0.lib.coderay.styles;version="1.1.2.SNAPSHOT",gems.erubis-2.7.0.lib;ver
- sion="1.1.2.SNAPSHOT",gems.erubis-2.7.0.lib.erubis;version="1.1.2.SNAPS
- HOT",gems.erubis-2.7.0.lib.erubis.engine;version="1.1.2.SNAPSHOT",gems.
- erubis-2.7.0.lib.erubis.helpers;version="1.1.2.SNAPSHOT",gems.haml-4.0.
- 5.lib;version="1.1.2.SNAPSHOT",gems.haml-4.0.5.lib.haml;version="1.1.2.
- SNAPSHOT",gems.haml-4.0.5.lib.haml.helpers;version="1.1.2.SNAPSHOT",gem
- s.haml-4.0.5.lib.haml.template;version="1.1.2.SNAPSHOT",gems.open-uri-c
- ached-0.0.5.lib;version="1.1.2.SNAPSHOT",gems.open-uri-cached-0.0.5.lib
- .open-uri;version="1.1.2.SNAPSHOT",gems.slim-3.0.6.lib;version="1.1.2.S
- NAPSHOT",gems.slim-3.0.6.lib.slim;version="1.1.2.SNAPSHOT",gems.slim-3.
- 0.6.lib.slim.logic_less;version="1.1.2.SNAPSHOT",gems.slim-3.0.6.lib.sl
- im.smart;version="1.1.2.SNAPSHOT",gems.slim-3.0.6.lib.slim.splat;versio
- n="1.1.2.SNAPSHOT",gems.temple-0.7.6.lib;version="1.1.2.SNAPSHOT",gems.
- temple-0.7.6.lib.temple;version="1.1.2.SNAPSHOT",gems.temple-0.7.6.lib.
- temple.erb;version="1.1.2.SNAPSHOT",gems.temple-0.7.6.lib.temple.filter
- s;version="1.1.2.SNAPSHOT",gems.temple-0.7.6.lib.temple.generators;vers
- ion="1.1.2.SNAPSHOT",gems.temple-0.7.6.lib.temple.html;version="1.1.2.S
- NAPSHOT",gems.temple-0.7.6.lib.temple.mixins;version="1.1.2.SNAPSHOT",g
- ems.temple-0.7.6.lib.temple.templates;version="1.1.2.SNAPSHOT",gems.thr
- ead_safe-0.3.5-java.lib;version="1.1.2.SNAPSHOT",gems.thread_safe-0.3.5
- -java.lib.thread_safe;version="1.1.2.SNAPSHOT",gems.thread_safe-0.3.5-j
- ava.lib.thread_safe.util;version="1.1.2.SNAPSHOT",gems.tilt-2.0.1.lib;v
- ersion="1.1.2.SNAPSHOT",gems.tilt-2.0.1.lib.tilt;version="1.1.2.SNAPSHO
- T",java_cup.runtime;version="1.1.2.SNAPSHOT",javax.xml;version="1.1.2.S
- NAPSHOT",javax.xml.datatype;uses:="javax.xml.namespace";version="1.1.2.
- SNAPSHOT",javax.xml.namespace;version="1.1.2.SNAPSHOT",javax.xml.parser
+ 1.4.SNAPSHOT",gems.asciidoctor-1.5.4.lib.asciidoctor.core_ext;version="
+ 1.1.4.SNAPSHOT",gems.asciidoctor-1.5.4.lib.asciidoctor.core_ext.object;
+ version="1.1.4.SNAPSHOT",gems.asciidoctor-1.5.4.lib.asciidoctor.core_ex
+ t.string;version="1.1.4.SNAPSHOT",gems.asciidoctor-1.5.4.lib.asciidocto
+ r.core_ext.symbol;version="1.1.4.SNAPSHOT",gems.coderay-1.1.0.lib;versi
+ on="1.1.4.SNAPSHOT",gems.coderay-1.1.0.lib.coderay;version="1.1.4.SNAPS
+ HOT",gems.coderay-1.1.0.lib.coderay.encoders;version="1.1.4.SNAPSHOT",g
+ ems.coderay-1.1.0.lib.coderay.encoders.html;version="1.1.4.SNAPSHOT",ge
+ ms.coderay-1.1.0.lib.coderay.helpers;version="1.1.4.SNAPSHOT",gems.code
+ ray-1.1.0.lib.coderay.scanners;version="1.1.4.SNAPSHOT",gems.coderay-1.
+ 1.0.lib.coderay.scanners.java;version="1.1.4.SNAPSHOT",gems.coderay-1.1
+ .0.lib.coderay.scanners.ruby;version="1.1.4.SNAPSHOT",gems.coderay-1.1.
+ 0.lib.coderay.styles;version="1.1.4.SNAPSHOT",gems.erubis-2.7.0.lib;ver
+ sion="1.1.4.SNAPSHOT",gems.erubis-2.7.0.lib.erubis;version="1.1.4.SNAPS
+ HOT",gems.erubis-2.7.0.lib.erubis.engine;version="1.1.4.SNAPSHOT",gems.
+ erubis-2.7.0.lib.erubis.helpers;version="1.1.4.SNAPSHOT",gems.haml-4.0.
+ 5.lib;version="1.1.4.SNAPSHOT",gems.haml-4.0.5.lib.haml;version="1.1.4.
+ SNAPSHOT",gems.haml-4.0.5.lib.haml.helpers;version="1.1.4.SNAPSHOT",gem
+ s.haml-4.0.5.lib.haml.template;version="1.1.4.SNAPSHOT",gems.open-uri-c
+ ached-0.0.5.lib;version="1.1.4.SNAPSHOT",gems.open-uri-cached-0.0.5.lib
+ .open-uri;version="1.1.4.SNAPSHOT",gems.slim-3.0.6.lib;version="1.1.4.S
+ NAPSHOT",gems.slim-3.0.6.lib.slim;version="1.1.4.SNAPSHOT",gems.slim-3.
+ 0.6.lib.slim.logic_less;version="1.1.4.SNAPSHOT",gems.slim-3.0.6.lib.sl
+ im.smart;version="1.1.4.SNAPSHOT",gems.slim-3.0.6.lib.slim.splat;versio
+ n="1.1.4.SNAPSHOT",gems.temple-0.7.6.lib;version="1.1.4.SNAPSHOT",gems.
+ temple-0.7.6.lib.temple;version="1.1.4.SNAPSHOT",gems.temple-0.7.6.lib.
+ temple.erb;version="1.1.4.SNAPSHOT",gems.temple-0.7.6.lib.temple.filter
+ s;version="1.1.4.SNAPSHOT",gems.temple-0.7.6.lib.temple.generators;vers
+ ion="1.1.4.SNAPSHOT",gems.temple-0.7.6.lib.temple.html;version="1.1.4.S
+ NAPSHOT",gems.temple-0.7.6.lib.temple.mixins;version="1.1.4.SNAPSHOT",g
+ ems.temple-0.7.6.lib.temple.templates;version="1.1.4.SNAPSHOT",gems.thr
+ ead_safe-0.3.5-java.lib;version="1.1.4.SNAPSHOT",gems.thread_safe-0.3.5
+ -java.lib.thread_safe;version="1.1.4.SNAPSHOT",gems.thread_safe-0.3.5-j
+ ava.lib.thread_safe.util;version="1.1.4.SNAPSHOT",gems.tilt-2.0.1.lib;v
+ ersion="1.1.4.SNAPSHOT",gems.tilt-2.0.1.lib.tilt;version="1.1.4.SNAPSHO
+ T",java_cup.runtime;version="1.1.4.SNAPSHOT",javax.xml;version="1.1.4.S
+ NAPSHOT",javax.xml.datatype;uses:="javax.xml.namespace";version="1.1.4.
+ SNAPSHOT",javax.xml.namespace;version="1.1.4.SNAPSHOT",javax.xml.parser
  s;uses:="javax.xml.validation,org.w3c.dom,org.xml.sax,org.xml.sax.helpe
- rs";version="1.1.2.SNAPSHOT",javax.xml.transform;version="1.1.2.SNAPSHO
+ rs";version="1.1.4.SNAPSHOT",javax.xml.transform;version="1.1.4.SNAPSHO
  T",javax.xml.transform.dom;uses:="javax.xml.transform,org.w3c.dom";vers
- ion="1.1.2.SNAPSHOT",javax.xml.transform.sax;uses:="javax.xml.transform
- ,org.xml.sax,org.xml.sax.ext";version="1.1.2.SNAPSHOT",javax.xml.transf
- orm.stream;uses:="javax.xml.transform";version="1.1.2.SNAPSHOT",javax.x
+ ion="1.1.4.SNAPSHOT",javax.xml.transform.sax;uses:="javax.xml.transform
+ ,org.xml.sax,org.xml.sax.ext";version="1.1.4.SNAPSHOT",javax.xml.transf
+ orm.stream;uses:="javax.xml.transform";version="1.1.4.SNAPSHOT",javax.x
  ml.validation;uses:="javax.xml.transform,org.w3c.dom,org.w3c.dom.ls,org
- .xml.sax";version="1.1.2.SNAPSHOT",javax.xml.xpath;uses:="javax.xml.nam
- espace,org.xml.sax";version="1.1.2.SNAPSHOT",jni.Darwin;version="1.1.2.
- SNAPSHOT",jni.arm-Linux;version="1.1.2.SNAPSHOT",jni.i386-Linux;version
- ="1.1.2.SNAPSHOT",jni.i386-SunOS;version="1.1.2.SNAPSHOT",jni.i386-Wind
- ows;version="1.1.2.SNAPSHOT",jni.ppc-AIX;version="1.1.2.SNAPSHOT",jni.p
- pc64-Linux;version="1.1.2.SNAPSHOT",jni.ppc64le-Linux;version="1.1.2.SN
- APSHOT",jni.sparcv9-SunOS;version="1.1.2.SNAPSHOT",jni.x86_64-FreeBSD;v
- ersion="1.1.2.SNAPSHOT",jni.x86_64-Linux;version="1.1.2.SNAPSHOT",jni.x
- 86_64-SunOS;version="1.1.2.SNAPSHOT",jni.x86_64-Windows;version="1.1.2.
- SNAPSHOT",jnr.constants;version="1.1.2.SNAPSHOT",jnr.constants.platform
- ;uses:="jnr.constants";version="1.1.2.SNAPSHOT",jnr.constants.platform.
- darwin;uses:="jnr.constants";version="1.1.2.SNAPSHOT",jnr.constants.pla
- tform.fake;uses:="jnr.constants";version="1.1.2.SNAPSHOT",jnr.constants
- .platform.freebsd;uses:="jnr.constants";version="1.1.2.SNAPSHOT",jnr.co
- nstants.platform.linux;uses:="jnr.constants";version="1.1.2.SNAPSHOT",j
- nr.constants.platform.openbsd;uses:="jnr.constants";version="1.1.2.SNAP
- SHOT",jnr.constants.platform.sunos;uses:="jnr.constants";version="1.1.2
+ .xml.sax";version="1.1.4.SNAPSHOT",javax.xml.xpath;uses:="javax.xml.nam
+ espace,org.xml.sax";version="1.1.4.SNAPSHOT",jni.Darwin;version="1.1.4.
+ SNAPSHOT",jni.arm-Linux;version="1.1.4.SNAPSHOT",jni.i386-Linux;version
+ ="1.1.4.SNAPSHOT",jni.i386-SunOS;version="1.1.4.SNAPSHOT",jni.i386-Wind
+ ows;version="1.1.4.SNAPSHOT",jni.ppc-AIX;version="1.1.4.SNAPSHOT",jni.p
+ pc64-Linux;version="1.1.4.SNAPSHOT",jni.ppc64le-Linux;version="1.1.4.SN
+ APSHOT",jni.sparcv9-SunOS;version="1.1.4.SNAPSHOT",jni.x86_64-FreeBSD;v
+ ersion="1.1.4.SNAPSHOT",jni.x86_64-Linux;version="1.1.4.SNAPSHOT",jni.x
+ 86_64-SunOS;version="1.1.4.SNAPSHOT",jni.x86_64-Windows;version="1.1.4.
+ SNAPSHOT",jnr.constants;version="1.1.4.SNAPSHOT",jnr.constants.platform
+ ;uses:="jnr.constants";version="1.1.4.SNAPSHOT",jnr.constants.platform.
+ darwin;uses:="jnr.constants";version="1.1.4.SNAPSHOT",jnr.constants.pla
+ tform.fake;uses:="jnr.constants";version="1.1.4.SNAPSHOT",jnr.constants
+ .platform.freebsd;uses:="jnr.constants";version="1.1.4.SNAPSHOT",jnr.co
+ nstants.platform.linux;uses:="jnr.constants";version="1.1.4.SNAPSHOT",j
+ nr.constants.platform.openbsd;uses:="jnr.constants";version="1.1.4.SNAP
+ SHOT",jnr.constants.platform.sunos;uses:="jnr.constants";version="1.1.4
  .SNAPSHOT",jnr.constants.platform.windows;uses:="jnr.constants";version
- ="1.1.2.SNAPSHOT",jnr.enxio.channels;uses:="jnr.ffi,jnr.ffi.annotations
- ,jnr.ffi.types";version="1.1.2.SNAPSHOT",jnr.enxio.example;uses:="jnr.f
- fi,jnr.ffi.annotations,jnr.ffi.types";version="1.1.2.SNAPSHOT",jnr.ffi;
- uses:="jnr.ffi.mapper,jnr.ffi.provider,jnr.ffi.util";version="1.1.2.SNA
- PSHOT",jnr.ffi.annotations;uses:="jnr.ffi";version="1.1.2.SNAPSHOT",jnr
- .ffi.byref;uses:="jnr.ffi";version="1.1.2.SNAPSHOT",jnr.ffi.mapper;uses
- :="jnr.ffi";version="1.1.2.SNAPSHOT",jnr.ffi.provider;uses:="jnr.ffi,jn
- r.ffi.mapper";version="1.1.2.SNAPSHOT",jnr.ffi.provider.converters;uses
+ ="1.1.4.SNAPSHOT",jnr.enxio.channels;uses:="jnr.ffi,jnr.ffi.annotations
+ ,jnr.ffi.types";version="1.1.4.SNAPSHOT",jnr.enxio.example;uses:="jnr.f
+ fi,jnr.ffi.annotations,jnr.ffi.types";version="1.1.4.SNAPSHOT",jnr.ffi;
+ uses:="jnr.ffi.mapper,jnr.ffi.provider,jnr.ffi.util";version="1.1.4.SNA
+ PSHOT",jnr.ffi.annotations;uses:="jnr.ffi";version="1.1.4.SNAPSHOT",jnr
+ .ffi.byref;uses:="jnr.ffi";version="1.1.4.SNAPSHOT",jnr.ffi.mapper;uses
+ :="jnr.ffi";version="1.1.4.SNAPSHOT",jnr.ffi.provider;uses:="jnr.ffi,jn
+ r.ffi.mapper";version="1.1.4.SNAPSHOT",jnr.ffi.provider.converters;uses
  :="jnr.ffi,jnr.ffi.annotations,jnr.ffi.byref,jnr.ffi.mapper";version="1
- .1.2.SNAPSHOT",jnr.ffi.provider.jffi;uses:="com.kenai.jffi,jnr.ffi,jnr.
+ .1.4.SNAPSHOT",jnr.ffi.provider.jffi;uses:="com.kenai.jffi,jnr.ffi,jnr.
  ffi.mapper,jnr.ffi.provider,jnr.ffi.types,org.jruby.org.objectweb.asm";
- version="1.1.2.SNAPSHOT",jnr.ffi.provider.jffi.platform.arm.linux;uses:
- ="jnr.ffi";version="1.1.2.SNAPSHOT",jnr.ffi.provider.jffi.platform.i386
- .darwin;uses:="jnr.ffi";version="1.1.2.SNAPSHOT",jnr.ffi.provider.jffi.
- platform.i386.freebsd;uses:="jnr.ffi";version="1.1.2.SNAPSHOT",jnr.ffi.
- provider.jffi.platform.i386.linux;uses:="jnr.ffi";version="1.1.2.SNAPSH
+ version="1.1.4.SNAPSHOT",jnr.ffi.provider.jffi.platform.arm.linux;uses:
+ ="jnr.ffi";version="1.1.4.SNAPSHOT",jnr.ffi.provider.jffi.platform.i386
+ .darwin;uses:="jnr.ffi";version="1.1.4.SNAPSHOT",jnr.ffi.provider.jffi.
+ platform.i386.freebsd;uses:="jnr.ffi";version="1.1.4.SNAPSHOT",jnr.ffi.
+ provider.jffi.platform.i386.linux;uses:="jnr.ffi";version="1.1.4.SNAPSH
  OT",jnr.ffi.provider.jffi.platform.i386.openbsd;uses:="jnr.ffi";version
- ="1.1.2.SNAPSHOT",jnr.ffi.provider.jffi.platform.i386.solaris;uses:="jn
- r.ffi";version="1.1.2.SNAPSHOT",jnr.ffi.provider.jffi.platform.i386.win
- dows;uses:="jnr.ffi";version="1.1.2.SNAPSHOT",jnr.ffi.provider.jffi.pla
- tform.mips.linux;uses:="jnr.ffi";version="1.1.2.SNAPSHOT",jnr.ffi.provi
- der.jffi.platform.mipsel.linux;uses:="jnr.ffi";version="1.1.2.SNAPSHOT"
- ,jnr.ffi.provider.jffi.platform.ppc.aix;uses:="jnr.ffi";version="1.1.2.
+ ="1.1.4.SNAPSHOT",jnr.ffi.provider.jffi.platform.i386.solaris;uses:="jn
+ r.ffi";version="1.1.4.SNAPSHOT",jnr.ffi.provider.jffi.platform.i386.win
+ dows;uses:="jnr.ffi";version="1.1.4.SNAPSHOT",jnr.ffi.provider.jffi.pla
+ tform.mips.linux;uses:="jnr.ffi";version="1.1.4.SNAPSHOT",jnr.ffi.provi
+ der.jffi.platform.mipsel.linux;uses:="jnr.ffi";version="1.1.4.SNAPSHOT"
+ ,jnr.ffi.provider.jffi.platform.ppc.aix;uses:="jnr.ffi";version="1.1.4.
  SNAPSHOT",jnr.ffi.provider.jffi.platform.ppc.darwin;uses:="jnr.ffi";ver
- sion="1.1.2.SNAPSHOT",jnr.ffi.provider.jffi.platform.ppc.linux;uses:="j
- nr.ffi";version="1.1.2.SNAPSHOT",jnr.ffi.provider.jffi.platform.ppc64.l
- inux;uses:="jnr.ffi";version="1.1.2.SNAPSHOT",jnr.ffi.provider.jffi.pla
- tform.ppc64le.linux;uses:="jnr.ffi";version="1.1.2.SNAPSHOT",jnr.ffi.pr
- ovider.jffi.platform.s390.linux;uses:="jnr.ffi";version="1.1.2.SNAPSHOT
+ sion="1.1.4.SNAPSHOT",jnr.ffi.provider.jffi.platform.ppc.linux;uses:="j
+ nr.ffi";version="1.1.4.SNAPSHOT",jnr.ffi.provider.jffi.platform.ppc64.l
+ inux;uses:="jnr.ffi";version="1.1.4.SNAPSHOT",jnr.ffi.provider.jffi.pla
+ tform.ppc64le.linux;uses:="jnr.ffi";version="1.1.4.SNAPSHOT",jnr.ffi.pr
+ ovider.jffi.platform.s390.linux;uses:="jnr.ffi";version="1.1.4.SNAPSHOT
  ",jnr.ffi.provider.jffi.platform.s390x.linux;uses:="jnr.ffi";version="1
- .1.2.SNAPSHOT",jnr.ffi.provider.jffi.platform.sparc.solaris;uses:="jnr.
- ffi";version="1.1.2.SNAPSHOT",jnr.ffi.provider.jffi.platform.sparcv9.so
- laris;uses:="jnr.ffi";version="1.1.2.SNAPSHOT",jnr.ffi.provider.jffi.pl
- atform.x86_64.darwin;uses:="jnr.ffi";version="1.1.2.SNAPSHOT",jnr.ffi.p
- rovider.jffi.platform.x86_64.freebsd;uses:="jnr.ffi";version="1.1.2.SNA
+ .1.4.SNAPSHOT",jnr.ffi.provider.jffi.platform.sparc.solaris;uses:="jnr.
+ ffi";version="1.1.4.SNAPSHOT",jnr.ffi.provider.jffi.platform.sparcv9.so
+ laris;uses:="jnr.ffi";version="1.1.4.SNAPSHOT",jnr.ffi.provider.jffi.pl
+ atform.x86_64.darwin;uses:="jnr.ffi";version="1.1.4.SNAPSHOT",jnr.ffi.p
+ rovider.jffi.platform.x86_64.freebsd;uses:="jnr.ffi";version="1.1.4.SNA
  PSHOT",jnr.ffi.provider.jffi.platform.x86_64.linux;uses:="jnr.ffi";vers
- ion="1.1.2.SNAPSHOT",jnr.ffi.provider.jffi.platform.x86_64.openbsd;uses
- :="jnr.ffi";version="1.1.2.SNAPSHOT",jnr.ffi.provider.jffi.platform.x86
- _64.solaris;uses:="jnr.ffi";version="1.1.2.SNAPSHOT",jnr.ffi.provider.j
- ffi.platform.x86_64.windows;uses:="jnr.ffi";version="1.1.2.SNAPSHOT",jn
- r.ffi.types;uses:="jnr.ffi,jnr.ffi.annotations";version="1.1.2.SNAPSHOT
- ",jnr.ffi.util;uses:="jnr.ffi.mapper";version="1.1.2.SNAPSHOT",jnr.ffi.
- util.ref;version="1.1.2.SNAPSHOT",jnr.ffi.util.ref.internal;version="1.
- 1.2.SNAPSHOT",jnr.netdb;uses:="jnr.ffi,jnr.ffi.annotations";version="1.
- 1.2.SNAPSHOT",jnr.posix;uses:="jnr.constants.platform,jnr.ffi,jnr.ffi.a
+ ion="1.1.4.SNAPSHOT",jnr.ffi.provider.jffi.platform.x86_64.openbsd;uses
+ :="jnr.ffi";version="1.1.4.SNAPSHOT",jnr.ffi.provider.jffi.platform.x86
+ _64.solaris;uses:="jnr.ffi";version="1.1.4.SNAPSHOT",jnr.ffi.provider.j
+ ffi.platform.x86_64.windows;uses:="jnr.ffi";version="1.1.4.SNAPSHOT",jn
+ r.ffi.types;uses:="jnr.ffi,jnr.ffi.annotations";version="1.1.4.SNAPSHOT
+ ",jnr.ffi.util;uses:="jnr.ffi.mapper";version="1.1.4.SNAPSHOT",jnr.ffi.
+ util.ref;version="1.1.4.SNAPSHOT",jnr.ffi.util.ref.internal;version="1.
+ 1.4.SNAPSHOT",jnr.netdb;uses:="jnr.ffi,jnr.ffi.annotations";version="1.
+ 1.4.SNAPSHOT",jnr.posix;uses:="jnr.constants.platform,jnr.ffi,jnr.ffi.a
  nnotations,jnr.ffi.byref,jnr.ffi.mapper,jnr.ffi.types,jnr.posix.util";v
- ersion="1.1.2.SNAPSHOT",jnr.posix.util;uses:="jnr.constants.platform,jn
- r.ffi,jnr.posix";version="1.1.2.SNAPSHOT",jnr.unixsocket;uses:="jnr.enx
- io.channels,jnr.ffi.annotations,jnr.ffi.byref,jnr.posix";version="1.1.2
- .SNAPSHOT",jnr.x86asm;version="1.1.2.SNAPSHOT",jruby;version="1.1.2.SNA
- PSHOT",jruby.bundler;version="1.1.2.SNAPSHOT",jruby.java;version="1.1.2
- .SNAPSHOT",jruby.java.core_ext;version="1.1.2.SNAPSHOT",jruby.java.java
- _ext;version="1.1.2.SNAPSHOT",jruby.kernel;version="1.1.2.SNAPSHOT",jru
- by.kernel.jruby;version="1.1.2.SNAPSHOT",jruby.kernel19;version="1.1.2.
- SNAPSHOT",jruby.kernel19.encoding;version="1.1.2.SNAPSHOT",jruby.kernel
- 19.jruby;version="1.1.2.SNAPSHOT",jruby.kernel20;version="1.1.2.SNAPSHO
- T",json.xsd;version="1.1.2.SNAPSHOT",lib;version="1.1.2.SNAPSHOT",licen
- se;version="1.1.2.SNAPSHOT",net.sf.saxon;uses:="javax.xml.transform,jav
+ ersion="1.1.4.SNAPSHOT",jnr.posix.util;uses:="jnr.constants.platform,jn
+ r.ffi,jnr.posix";version="1.1.4.SNAPSHOT",jnr.unixsocket;uses:="jnr.enx
+ io.channels,jnr.ffi.annotations,jnr.ffi.byref,jnr.posix";version="1.1.4
+ .SNAPSHOT",jnr.x86asm;version="1.1.4.SNAPSHOT",jruby;version="1.1.4.SNA
+ PSHOT",jruby.bundler;version="1.1.4.SNAPSHOT",jruby.java;version="1.1.4
+ .SNAPSHOT",jruby.java.core_ext;version="1.1.4.SNAPSHOT",jruby.java.java
+ _ext;version="1.1.4.SNAPSHOT",jruby.kernel;version="1.1.4.SNAPSHOT",jru
+ by.kernel.jruby;version="1.1.4.SNAPSHOT",jruby.kernel19;version="1.1.4.
+ SNAPSHOT",jruby.kernel19.encoding;version="1.1.4.SNAPSHOT",jruby.kernel
+ 19.jruby;version="1.1.4.SNAPSHOT",jruby.kernel20;version="1.1.4.SNAPSHO
+ T",json.xsd;version="1.1.4.SNAPSHOT",lib;version="1.1.4.SNAPSHOT",licen
+ se;version="1.1.4.SNAPSHOT",net.sf.saxon;uses:="javax.xml.transform,jav
  ax.xml.transform.stream,net.sf.saxon.event,net.sf.saxon.expr,net.sf.sax
  on.expr.instruct,net.sf.saxon.expr.parser,net.sf.saxon.expr.sort,net.sf
  .saxon.functions,net.sf.saxon.jaxp,net.sf.saxon.lib,net.sf.saxon.om,net
  .sf.saxon.query,net.sf.saxon.regex,net.sf.saxon.s9api,net.sf.saxon.seri
  alize.charcode,net.sf.saxon.style,net.sf.saxon.trace,net.sf.saxon.trans
  ,net.sf.saxon.tree.util,net.sf.saxon.type,net.sf.saxon.value,net.sf.sax
- on.z,org.xml.sax";version="1.1.2.SNAPSHOT",net.sf.saxon.dom;uses:="java
+ on.z,org.xml.sax";version="1.1.4.SNAPSHOT",net.sf.saxon.dom;uses:="java
  x.xml.parsers,javax.xml.transform,net.sf.saxon,net.sf.saxon.event,net.s
  f.saxon.expr,net.sf.saxon.expr.parser,net.sf.saxon.lib,net.sf.saxon.om,
  net.sf.saxon.pattern,net.sf.saxon.trans,net.sf.saxon.tree.iter,net.sf.s
  axon.tree.util,net.sf.saxon.tree.wrapper,net.sf.saxon.type,org.w3c.dom,
- org.xml.sax";version="1.1.2.SNAPSHOT",net.sf.saxon.event;uses:="javax.x
+ org.xml.sax";version="1.1.4.SNAPSHOT",net.sf.saxon.event;uses:="javax.x
  ml.namespace,javax.xml.stream,javax.xml.transform,net.sf.saxon,net.sf.s
  axon.expr,net.sf.saxon.expr.parser,net.sf.saxon.lib,net.sf.saxon.om,net
  .sf.saxon.trace,net.sf.saxon.trans,net.sf.saxon.tree.util,net.sf.saxon.
- type,org.xml.sax,org.xml.sax.ext";version="1.1.2.SNAPSHOT",net.sf.saxon
+ type,org.xml.sax,org.xml.sax.ext";version="1.1.4.SNAPSHOT",net.sf.saxon
  .evpull;uses:="javax.xml.namespace,javax.xml.stream,javax.xml.transform
  ,net.sf.saxon,net.sf.saxon.event,net.sf.saxon.expr,net.sf.saxon.expr.pa
  rser,net.sf.saxon.om,net.sf.saxon.trans,net.sf.saxon.type";version="1.1
- .2.SNAPSHOT",net.sf.saxon.expr;uses:="javax.xml.transform,net.sf.saxon,
+ .4.SNAPSHOT",net.sf.saxon.expr;uses:="javax.xml.transform,net.sf.saxon,
  net.sf.saxon.event,net.sf.saxon.evpull,net.sf.saxon.expr.instruct,net.s
  f.saxon.expr.oper,net.sf.saxon.expr.parser,net.sf.saxon.expr.sort,net.s
  f.saxon.functions,net.sf.saxon.lib,net.sf.saxon.om,net.sf.saxon.pattern
  ,net.sf.saxon.regex,net.sf.saxon.style,net.sf.saxon.trace,net.sf.saxon.
  trans,net.sf.saxon.tree.iter,net.sf.saxon.type,net.sf.saxon.value";vers
- ion="1.1.2.SNAPSHOT",net.sf.saxon.expr.flwor;uses:="net.sf.saxon,net.sf
+ ion="1.1.4.SNAPSHOT",net.sf.saxon.expr.flwor;uses:="net.sf.saxon,net.sf
  .saxon.evpull,net.sf.saxon.expr,net.sf.saxon.expr.oper,net.sf.saxon.exp
  r.parser,net.sf.saxon.expr.sort,net.sf.saxon.om,net.sf.saxon.trace,net.
- sf.saxon.trans,net.sf.saxon.type,net.sf.saxon.value";version="1.1.2.SNA
+ sf.saxon.trans,net.sf.saxon.type,net.sf.saxon.value";version="1.1.4.SNA
  PSHOT",net.sf.saxon.expr.instruct;uses:="javax.xml.transform,net.sf.sax
  on,net.sf.saxon.event,net.sf.saxon.evpull,net.sf.saxon.expr,net.sf.saxo
  n.expr.number,net.sf.saxon.expr.parser,net.sf.saxon.expr.sort,net.sf.sa
  xon.functions,net.sf.saxon.lib,net.sf.saxon.om,net.sf.saxon.pattern,net
  .sf.saxon.query,net.sf.saxon.regex,net.sf.saxon.serialize,net.sf.saxon.
  style,net.sf.saxon.trace,net.sf.saxon.trans,net.sf.saxon.tree.iter,net.
- sf.saxon.tree.util,net.sf.saxon.type,net.sf.saxon.value";version="1.1.2
+ sf.saxon.tree.util,net.sf.saxon.type,net.sf.saxon.value";version="1.1.4
  .SNAPSHOT",net.sf.saxon.expr.number;uses:="net.sf.saxon.lib,net.sf.saxo
  n.regex,net.sf.saxon.tree.util,net.sf.saxon.value,net.sf.saxon.z";versi
- on="1.1.2.SNAPSHOT",net.sf.saxon.expr.oper;uses:="net.sf.saxon.expr";ve
- rsion="1.1.2.SNAPSHOT",net.sf.saxon.expr.parser;uses:="javax.xml.transf
+ on="1.1.4.SNAPSHOT",net.sf.saxon.expr.oper;uses:="net.sf.saxon.expr";ve
+ rsion="1.1.4.SNAPSHOT",net.sf.saxon.expr.parser;uses:="javax.xml.transf
  orm,net.sf.saxon,net.sf.saxon.expr,net.sf.saxon.expr.flwor,net.sf.saxon
  .expr.instruct,net.sf.saxon.expr.sort,net.sf.saxon.lib,net.sf.saxon.om,
  net.sf.saxon.pattern,net.sf.saxon.query,net.sf.saxon.style,net.sf.saxon
  .trans,net.sf.saxon.type,net.sf.saxon.value,net.sf.saxon.z,org.xml.sax"
- ;version="1.1.2.SNAPSHOT",net.sf.saxon.expr.sort;uses:="net.sf.saxon,ne
+ ;version="1.1.4.SNAPSHOT",net.sf.saxon.expr.sort;uses:="net.sf.saxon,ne
  t.sf.saxon.expr,net.sf.saxon.expr.parser,net.sf.saxon.lib,net.sf.saxon.
  om,net.sf.saxon.pattern,net.sf.saxon.regex,net.sf.saxon.trace,net.sf.sa
  xon.trans,net.sf.saxon.tree.iter,net.sf.saxon.type,net.sf.saxon.value,n
- et.sf.saxon.z";version="1.1.2.SNAPSHOT",net.sf.saxon.functions;uses:="j
+ et.sf.saxon.z";version="1.1.4.SNAPSHOT",net.sf.saxon.functions;uses:="j
  avax.xml.transform,net.sf.saxon,net.sf.saxon.event,net.sf.saxon.expr,ne
  t.sf.saxon.expr.instruct,net.sf.saxon.expr.number,net.sf.saxon.expr.par
  ser,net.sf.saxon.expr.sort,net.sf.saxon.lib,net.sf.saxon.om,net.sf.saxo
  n.query,net.sf.saxon.regex,net.sf.saxon.trace,net.sf.saxon.trans,net.sf
  .saxon.type,net.sf.saxon.value,net.sf.saxon.z,org.xml.sax";version="1.1
- .2.SNAPSHOT",net.sf.saxon.java;uses:="javax.xml.transform,javax.xml.tra
+ .4.SNAPSHOT",net.sf.saxon.java;uses:="javax.xml.transform,javax.xml.tra
  nsform.stream,net.sf.saxon,net.sf.saxon.event,net.sf.saxon.expr,net.sf.
  saxon.expr.parser,net.sf.saxon.expr.sort,net.sf.saxon.functions,net.sf.
  saxon.lib,net.sf.saxon.regex,net.sf.saxon.trans,net.sf.saxon.type,org.x
- ml.sax";version="1.1.2.SNAPSHOT",net.sf.saxon.jaxp;uses:="javax.xml.tra
+ ml.sax";version="1.1.4.SNAPSHOT",net.sf.saxon.jaxp;uses:="javax.xml.tra
  nsform,javax.xml.transform.sax,net.sf.saxon,net.sf.saxon.event,net.sf.s
- axon.s9api,net.sf.saxon.trans,org.xml.sax";version="1.1.2.SNAPSHOT",net
+ axon.s9api,net.sf.saxon.trans,org.xml.sax";version="1.1.4.SNAPSHOT",net
  .sf.saxon.lib;uses:="javax.xml.stream,javax.xml.transform,javax.xml.tra
  nsform.sax,javax.xml.transform.stream,net.sf.saxon,net.sf.saxon.event,n
  et.sf.saxon.expr,net.sf.saxon.expr.instruct,net.sf.saxon.expr.number,ne
  t.sf.saxon.expr.sort,net.sf.saxon.functions,net.sf.saxon.om,net.sf.saxo
  n.query,net.sf.saxon.regex,net.sf.saxon.resource,net.sf.saxon.s9api,net
  .sf.saxon.serialize,net.sf.saxon.trace,net.sf.saxon.trans,net.sf.saxon.
- type,net.sf.saxon.value,org.xml.sax";version="1.1.2.SNAPSHOT",net.sf.sa
+ type,net.sf.saxon.value,org.xml.sax";version="1.1.4.SNAPSHOT",net.sf.sa
  xon.ma.arrays;uses:="net.sf.saxon.expr,net.sf.saxon.expr.oper,net.sf.sa
  xon.expr.parser,net.sf.saxon.expr.sort,net.sf.saxon.lib,net.sf.saxon.om
  ,net.sf.saxon.trace,net.sf.saxon.trans,net.sf.saxon.type,net.sf.saxon.v
- alue,net.sf.saxon.z";version="1.1.2.SNAPSHOT",net.sf.saxon.ma.json;uses
+ alue,net.sf.saxon.z";version="1.1.4.SNAPSHOT",net.sf.saxon.ma.json;uses
  :="net.sf.saxon.event,net.sf.saxon.expr,net.sf.saxon.expr.parser,net.sf
  .saxon.functions,net.sf.saxon.ma.map,net.sf.saxon.om,net.sf.saxon.s9api
  ,net.sf.saxon.trans,net.sf.saxon.tree.util,net.sf.saxon.type,net.sf.sax
- on.z";version="1.1.2.SNAPSHOT",net.sf.saxon.ma.map;uses:="net.sf.saxon.
+ on.z";version="1.1.4.SNAPSHOT",net.sf.saxon.ma.map;uses:="net.sf.saxon.
  expr,net.sf.saxon.expr.parser,net.sf.saxon.expr.sort,net.sf.saxon.lib,n
  et.sf.saxon.ma.trie,net.sf.saxon.om,net.sf.saxon.trace,net.sf.saxon.tra
  ns,net.sf.saxon.tree.iter,net.sf.saxon.type,net.sf.saxon.value";version
- ="1.1.2.SNAPSHOT",net.sf.saxon.ma.trie;version="1.1.2.SNAPSHOT",net.sf.
+ ="1.1.4.SNAPSHOT",net.sf.saxon.ma.trie;version="1.1.4.SNAPSHOT",net.sf.
  saxon.om;uses:="javax.xml.namespace,javax.xml.transform,net.sf.saxon,ne
  t.sf.saxon.event,net.sf.saxon.evpull,net.sf.saxon.expr,net.sf.saxon.exp
  r.parser,net.sf.saxon.expr.sort,net.sf.saxon.pattern,net.sf.saxon.style
  ,net.sf.saxon.trace,net.sf.saxon.trans,net.sf.saxon.tree.iter,net.sf.sa
  xon.tree.util,net.sf.saxon.tree.wrapper,net.sf.saxon.type,net.sf.saxon.
- value";version="1.1.2.SNAPSHOT",net.sf.saxon.pattern;uses:="javax.xml.s
+ value";version="1.1.4.SNAPSHOT",net.sf.saxon.pattern;uses:="javax.xml.s
  tream,net.sf.saxon,net.sf.saxon.expr,net.sf.saxon.expr.flwor,net.sf.sax
  on.expr.instruct,net.sf.saxon.expr.parser,net.sf.saxon.om,net.sf.saxon.
  trace,net.sf.saxon.trans,net.sf.saxon.tree.tiny,net.sf.saxon.type,net.s
- f.saxon.z";version="1.1.2.SNAPSHOT",net.sf.saxon.pull;uses:="javax.xml.
+ f.saxon.z";version="1.1.4.SNAPSHOT",net.sf.saxon.pull;uses:="javax.xml.
  namespace,javax.xml.stream,javax.xml.transform,net.sf.saxon.event,net.s
  f.saxon.expr.parser,net.sf.saxon.om,net.sf.saxon.trans,net.sf.saxon.typ
- e,net.sf.saxon.value";version="1.1.2.SNAPSHOT",net.sf.saxon.query;uses:
+ e,net.sf.saxon.value";version="1.1.4.SNAPSHOT",net.sf.saxon.query;uses:
  ="javax.xml.transform,javax.xml.transform.stream,net.sf.saxon,net.sf.sa
  xon.event,net.sf.saxon.evpull,net.sf.saxon.expr,net.sf.saxon.expr.flwor
  ,net.sf.saxon.expr.instruct,net.sf.saxon.expr.parser,net.sf.saxon.funct
  ions,net.sf.saxon.lib,net.sf.saxon.om,net.sf.saxon.trace,net.sf.saxon.t
  rans,net.sf.saxon.type,net.sf.saxon.value,net.sf.saxon.z";version="1.1.
- 2.SNAPSHOT",net.sf.saxon.regex;uses:="net.sf.saxon.expr,net.sf.saxon.om
- ,net.sf.saxon.trans,net.sf.saxon.value,net.sf.saxon.z";version="1.1.2.S
+ 4.SNAPSHOT",net.sf.saxon.regex;uses:="net.sf.saxon.expr,net.sf.saxon.om
+ ,net.sf.saxon.trans,net.sf.saxon.value,net.sf.saxon.z";version="1.1.4.S
  NAPSHOT",net.sf.saxon.resource;uses:="javax.xml.transform,net.sf.saxon,
  net.sf.saxon.expr,net.sf.saxon.functions,net.sf.saxon.lib,net.sf.saxon.
- om,net.sf.saxon.trans";version="1.1.2.SNAPSHOT",net.sf.saxon.s9api;uses
+ om,net.sf.saxon.trans";version="1.1.4.SNAPSHOT",net.sf.saxon.s9api;uses
  :="javax.xml.namespace,javax.xml.stream,javax.xml.transform,net.sf.saxo
  n,net.sf.saxon.event,net.sf.saxon.expr,net.sf.saxon.expr.instruct,net.s
  f.saxon.lib,net.sf.saxon.om,net.sf.saxon.query,net.sf.saxon.serialize,n
  et.sf.saxon.style,net.sf.saxon.sxpath,net.sf.saxon.trans,net.sf.saxon.t
- ype,net.sf.saxon.value,org.w3c.dom,org.xml.sax";version="1.1.2.SNAPSHOT
+ ype,net.sf.saxon.value,org.w3c.dom,org.xml.sax";version="1.1.4.SNAPSHOT
  ",net.sf.saxon.serialize;uses:="javax.xml.transform,javax.xml.transform
  .stream,net.sf.saxon,net.sf.saxon.event,net.sf.saxon.expr.parser,net.sf
  .saxon.expr.sort,net.sf.saxon.lib,net.sf.saxon.om,net.sf.saxon.serializ
  e.charcode,net.sf.saxon.serialize.codenorm,net.sf.saxon.trace,net.sf.sa
- xon.trans,net.sf.saxon.type,net.sf.saxon.z";version="1.1.2.SNAPSHOT",ne
+ xon.trans,net.sf.saxon.type,net.sf.saxon.z";version="1.1.4.SNAPSHOT",ne
  t.sf.saxon.serialize.charcode;uses:="net.sf.saxon.trans,net.sf.saxon.z"
- ;version="1.1.2.SNAPSHOT",net.sf.saxon.serialize.codenorm;uses:="net.sf
- .saxon,net.sf.saxon.trans,net.sf.saxon.tree.util";version="1.1.2.SNAPSH
+ ;version="1.1.4.SNAPSHOT",net.sf.saxon.serialize.codenorm;uses:="net.sf
+ .saxon,net.sf.saxon.trans,net.sf.saxon.tree.util";version="1.1.4.SNAPSH
  OT",net.sf.saxon.stax;uses:="javax.xml.stream,javax.xml.transform,net.s
  f.saxon,net.sf.saxon.event,net.sf.saxon.expr.parser,net.sf.saxon.lib,ne
  t.sf.saxon.om,net.sf.saxon.s9api,net.sf.saxon.trans,net.sf.saxon.type";
- version="1.1.2.SNAPSHOT",net.sf.saxon.style;uses:="javax.xml.transform,
+ version="1.1.4.SNAPSHOT",net.sf.saxon.style;uses:="javax.xml.transform,
  net.sf.saxon,net.sf.saxon.event,net.sf.saxon.expr,net.sf.saxon.expr.ins
  truct,net.sf.saxon.expr.parser,net.sf.saxon.expr.sort,net.sf.saxon.func
  tions,net.sf.saxon.lib,net.sf.saxon.om,net.sf.saxon.pattern,net.sf.saxo
  n.query,net.sf.saxon.serialize,net.sf.saxon.sxpath,net.sf.saxon.trace,n
  et.sf.saxon.trans,net.sf.saxon.tree.linked,net.sf.saxon.tree.util,net.s
- f.saxon.type,net.sf.saxon.value,net.sf.saxon.z";version="1.1.2.SNAPSHOT
+ f.saxon.type,net.sf.saxon.value,net.sf.saxon.z";version="1.1.4.SNAPSHOT
  ",net.sf.saxon.sxpath;uses:="javax.xml.transform,net.sf.saxon,net.sf.sa
  xon.expr,net.sf.saxon.expr.instruct,net.sf.saxon.expr.parser,net.sf.sax
  on.functions,net.sf.saxon.lib,net.sf.saxon.om,net.sf.saxon.trans,net.sf
- .saxon.type,net.sf.saxon.value";version="1.1.2.SNAPSHOT",net.sf.saxon.t
+ .saxon.type,net.sf.saxon.value";version="1.1.4.SNAPSHOT",net.sf.saxon.t
  race;uses:="javax.xml.transform.stream,net.sf.saxon,net.sf.saxon.event,
  net.sf.saxon.expr,net.sf.saxon.expr.flwor,net.sf.saxon.expr.parser,net.
  sf.saxon.lib,net.sf.saxon.om,net.sf.saxon.trans,net.sf.saxon.type";vers
- ion="1.1.2.SNAPSHOT",net.sf.saxon.trans;uses:="javax.xml.transform,net.
+ ion="1.1.4.SNAPSHOT",net.sf.saxon.trans;uses:="javax.xml.transform,net.
  sf.saxon,net.sf.saxon.expr,net.sf.saxon.expr.instruct,net.sf.saxon.expr
  .parser,net.sf.saxon.expr.sort,net.sf.saxon.functions,net.sf.saxon.lib,
  net.sf.saxon.om,net.sf.saxon.pattern,net.sf.saxon.s9api,net.sf.saxon.st
  yle,net.sf.saxon.trace,net.sf.saxon.type,net.sf.saxon.value,net.sf.saxo
- n.z,org.xml.sax";version="1.1.2.SNAPSHOT",net.sf.saxon.tree;uses:="net.
+ n.z,org.xml.sax";version="1.1.4.SNAPSHOT",net.sf.saxon.tree;uses:="net.
  sf.saxon,net.sf.saxon.event,net.sf.saxon.expr.parser,net.sf.saxon.om,ne
  t.sf.saxon.pattern,net.sf.saxon.trans,net.sf.saxon.tree.iter,net.sf.sax
- on.tree.util,net.sf.saxon.type";version="1.1.2.SNAPSHOT",net.sf.saxon.t
+ on.tree.util,net.sf.saxon.type";version="1.1.4.SNAPSHOT",net.sf.saxon.t
  ree.iter;uses:="net.sf.saxon.expr,net.sf.saxon.expr.parser,net.sf.saxon
  .om,net.sf.saxon.trans,net.sf.saxon.value,net.sf.saxon.z";version="1.1.
- 2.SNAPSHOT",net.sf.saxon.tree.linked;uses:="javax.xml.transform,net.sf.
+ 4.SNAPSHOT",net.sf.saxon.tree.linked;uses:="javax.xml.transform,net.sf.
  saxon,net.sf.saxon.event,net.sf.saxon.expr.parser,net.sf.saxon.om,net.s
  f.saxon.pattern,net.sf.saxon.trans,net.sf.saxon.tree.iter,net.sf.saxon.
- tree.util,net.sf.saxon.tree.wrapper,net.sf.saxon.type";version="1.1.2.S
+ tree.util,net.sf.saxon.tree.wrapper,net.sf.saxon.type";version="1.1.4.S
  NAPSHOT",net.sf.saxon.tree.tiny;uses:="net.sf.saxon,net.sf.saxon.event,
  net.sf.saxon.evpull,net.sf.saxon.expr.parser,net.sf.saxon.om,net.sf.sax
  on.pattern,net.sf.saxon.trans,net.sf.saxon.tree.iter,net.sf.saxon.tree.
- util,net.sf.saxon.type,net.sf.saxon.z";version="1.1.2.SNAPSHOT",net.sf.
+ util,net.sf.saxon.type,net.sf.saxon.z";version="1.1.4.SNAPSHOT",net.sf.
  saxon.tree.util;uses:="net.sf.saxon,net.sf.saxon.event,net.sf.saxon.exp
  r,net.sf.saxon.expr.parser,net.sf.saxon.om,net.sf.saxon.pattern,net.sf.
  saxon.regex,net.sf.saxon.trans,net.sf.saxon.tree.iter,net.sf.saxon.tree
  .tiny,net.sf.saxon.tree.wrapper,net.sf.saxon.type,org.xml.sax";version=
- "1.1.2.SNAPSHOT",net.sf.saxon.tree.wrapper;uses:="net.sf.saxon,net.sf.s
+ "1.1.4.SNAPSHOT",net.sf.saxon.tree.wrapper;uses:="net.sf.saxon,net.sf.s
  axon.event,net.sf.saxon.expr.parser,net.sf.saxon.om,net.sf.saxon.patter
  n,net.sf.saxon.trans,net.sf.saxon.tree.iter,net.sf.saxon.tree.util,net.
- sf.saxon.type";version="1.1.2.SNAPSHOT",net.sf.saxon.type;uses:="javax.
+ sf.saxon.type";version="1.1.4.SNAPSHOT",net.sf.saxon.type;uses:="javax.
  xml.transform,net.sf.saxon,net.sf.saxon.expr,net.sf.saxon.expr.parser,n
  et.sf.saxon.lib,net.sf.saxon.om,net.sf.saxon.pattern,net.sf.saxon.trans
- ,net.sf.saxon.value,net.sf.saxon.z";version="1.1.2.SNAPSHOT",net.sf.sax
+ ,net.sf.saxon.value,net.sf.saxon.z";version="1.1.4.SNAPSHOT",net.sf.sax
  on.value;uses:="javax.xml.datatype,javax.xml.namespace,javax.xml.transf
  orm,net.sf.saxon,net.sf.saxon.event,net.sf.saxon.expr,net.sf.saxon.expr
  .parser,net.sf.saxon.expr.sort,net.sf.saxon.functions,net.sf.saxon.lib,
  net.sf.saxon.om,net.sf.saxon.pattern,net.sf.saxon.regex,net.sf.saxon.tr
  ans,net.sf.saxon.tree.iter,net.sf.saxon.tree.util,net.sf.saxon.type";ve
- rsion="1.1.2.SNAPSHOT",net.sf.saxon.xpath;uses:="javax.xml.namespace,ja
+ rsion="1.1.4.SNAPSHOT",net.sf.saxon.xpath;uses:="javax.xml.namespace,ja
  vax.xml.transform,javax.xml.xpath,net.sf.saxon,net.sf.saxon.expr,net.sf
  .saxon.expr.instruct,net.sf.saxon.expr.parser,net.sf.saxon.functions,ne
  t.sf.saxon.om,net.sf.saxon.sxpath,net.sf.saxon.trace,net.sf.saxon.trans
- ,net.sf.saxon.type,org.xml.sax";version="1.1.2.SNAPSHOT",net.sf.saxon.z
- ;version="1.1.2.SNAPSHOT",normalizationData.xml;version="1.1.2.SNAPSHOT
- ",okay;version="1.1.2.SNAPSHOT",okay.rb;version="1.1.2.SNAPSHOT",org.ap
+ ,net.sf.saxon.type,org.xml.sax";version="1.1.4.SNAPSHOT",net.sf.saxon.z
+ ;version="1.1.4.SNAPSHOT",normalizationData.xml;version="1.1.4.SNAPSHOT
+ ",okay;version="1.1.4.SNAPSHOT",okay.rb;version="1.1.4.SNAPSHOT",org.ap
  ache.bcel;uses:="org.apache.bcel.classfile,org.apache.bcel.util";versio
- n="1.1.2.SNAPSHOT",org.apache.bcel.classfile;uses:="org.apache.bcel,org
- .apache.bcel.util";version="1.1.2.SNAPSHOT",org.apache.bcel.generic;use
- s:="org.apache.bcel.classfile,org.apache.bcel.util";version="1.1.2.SNAP
+ n="1.1.4.SNAPSHOT",org.apache.bcel.classfile;uses:="org.apache.bcel,org
+ .apache.bcel.util";version="1.1.4.SNAPSHOT",org.apache.bcel.generic;use
+ s:="org.apache.bcel.classfile,org.apache.bcel.util";version="1.1.4.SNAP
  SHOT",org.apache.bcel.util;uses:="org.apache.bcel,org.apache.bcel.class
- file,org.apache.bcel.generic";version="1.1.2.SNAPSHOT",org.apache.bcel.
- verifier;uses:="javax.swing,javax.swing.event";version="1.1.2.SNAPSHOT"
- ,org.apache.bcel.verifier.exc;version="1.1.2.SNAPSHOT",org.apache.bcel.
+ file,org.apache.bcel.generic";version="1.1.4.SNAPSHOT",org.apache.bcel.
+ verifier;uses:="javax.swing,javax.swing.event";version="1.1.4.SNAPSHOT"
+ ,org.apache.bcel.verifier.exc;version="1.1.4.SNAPSHOT",org.apache.bcel.
  verifier.statics;uses:="org.apache.bcel,org.apache.bcel.classfile,org.a
  pache.bcel.generic,org.apache.bcel.verifier,org.apache.bcel.verifier.ex
- c";version="1.1.2.SNAPSHOT",org.apache.bcel.verifier.structurals;uses:=
+ c";version="1.1.4.SNAPSHOT",org.apache.bcel.verifier.structurals;uses:=
  "org.apache.bcel,org.apache.bcel.generic,org.apache.bcel.verifier";vers
- ion="1.1.2.SNAPSHOT",org.apache.regexp;version="1.1.2.SNAPSHOT",org.apa
- che.xalan;version="1.1.2.SNAPSHOT",org.apache.xalan.client;version="1.1
- .2.SNAPSHOT",org.apache.xalan.extensions;uses:="javax.xml.namespace,jav
+ ion="1.1.4.SNAPSHOT",org.apache.regexp;version="1.1.4.SNAPSHOT",org.apa
+ che.xalan;version="1.1.4.SNAPSHOT",org.apache.xalan.client;version="1.1
+ .4.SNAPSHOT",org.apache.xalan.extensions;uses:="javax.xml.namespace,jav
  ax.xml.transform,javax.xml.xpath,org.apache.xalan.templates,org.apache.
  xalan.transformer,org.apache.xml.utils,org.apache.xpath,org.apache.xpat
  h.functions,org.apache.xpath.objects,org.w3c.dom,org.w3c.dom.traversal"
- ;version="1.1.2.SNAPSHOT",org.apache.xalan.lib;uses:="javax.xml.transfo
+ ;version="1.1.4.SNAPSHOT",org.apache.xalan.lib;uses:="javax.xml.transfo
  rm,org.apache.xalan.extensions,org.apache.xalan.templates,org.apache.xa
  lan.transformer,org.apache.xml.serializer,org.apache.xpath,org.apache.x
- path.objects,org.w3c.dom,org.xml.sax";version="1.1.2.SNAPSHOT",org.apac
+ path.objects,org.w3c.dom,org.xml.sax";version="1.1.4.SNAPSHOT",org.apac
  he.xalan.lib.sql;uses:="javax.naming,javax.xml.transform,org.apache.xal
  an.extensions,org.apache.xml.dtm,org.apache.xml.dtm.ref,org.apache.xml.
  utils,org.apache.xpath.objects,org.w3c.dom,org.xml.sax,org.xml.sax.ext"
- ;version="1.1.2.SNAPSHOT",org.apache.xalan.processor;uses:="javax.xml.t
+ ;version="1.1.4.SNAPSHOT",org.apache.xalan.processor;uses:="javax.xml.t
  ransform,javax.xml.transform.sax,org.apache.xalan.templates,org.apache.
  xml.utils,org.apache.xpath,org.w3c.dom,org.xml.sax,org.xml.sax.helpers"
- ;version="1.1.2.SNAPSHOT",org.apache.xalan.res;uses:="org.apache.xpath.
- res";version="1.1.2.SNAPSHOT",org.apache.xalan.serialize;uses:="javax.x
+ ;version="1.1.4.SNAPSHOT",org.apache.xalan.res;uses:="org.apache.xpath.
+ res";version="1.1.4.SNAPSHOT",org.apache.xalan.serialize;uses:="javax.x
  ml.transform,org.apache.xml.dtm,org.apache.xml.serializer,org.apache.xp
- ath,org.apache.xpath.objects,org.xml.sax";version="1.1.2.SNAPSHOT",org.
+ ath,org.apache.xpath.objects,org.xml.sax";version="1.1.4.SNAPSHOT",org.
  apache.xalan.templates;uses:="javax.xml.transform,org.apache.xalan.exte
  nsions,org.apache.xalan.processor,org.apache.xalan.transformer,org.apac
  he.xml.dtm,org.apache.xml.serializer,org.apache.xml.utils,org.apache.xm
  l.utils.res,org.apache.xpath,org.apache.xpath.axes,org.apache.xpath.com
  piler,org.apache.xpath.functions,org.apache.xpath.objects,org.apache.xp
- ath.operations,org.w3c.dom,org.xml.sax.helpers";version="1.1.2.SNAPSHOT
+ ath.operations,org.w3c.dom,org.xml.sax.helpers";version="1.1.4.SNAPSHOT
  ",org.apache.xalan.trace;uses:="javax.xml.transform,org.apache.xalan.te
  mplates,org.apache.xalan.transformer,org.apache.xml.utils,org.apache.xp
- ath,org.apache.xpath.objects,org.w3c.dom,org.xml.sax";version="1.1.2.SN
+ ath,org.apache.xpath.objects,org.w3c.dom,org.xml.sax";version="1.1.4.SN
  APSHOT",org.apache.xalan.transformer;uses:="javax.xml.transform,javax.x
  ml.transform.sax,org.apache.xalan.extensions,org.apache.xalan.templates
  ,org.apache.xalan.trace,org.apache.xml.dtm,org.apache.xml.dtm.ref,org.a
  pache.xml.serializer,org.apache.xml.utils,org.apache.xpath,org.apache.x
  path.axes,org.apache.xpath.functions,org.apache.xpath.objects,org.w3c.d
  om,org.w3c.dom.traversal,org.xml.sax,org.xml.sax.ext,org.xml.sax.helper
- s";version="1.1.2.SNAPSHOT",org.apache.xalan.xslt;uses:="org.w3c.dom";v
- ersion="1.1.2.SNAPSHOT",org.apache.xalan.xsltc;uses:="org.apache.xalan.
+ s";version="1.1.4.SNAPSHOT",org.apache.xalan.xslt;uses:="org.w3c.dom";v
+ ersion="1.1.4.SNAPSHOT",org.apache.xalan.xsltc;uses:="org.apache.xalan.
  xsltc.runtime,org.apache.xml.dtm,org.apache.xml.serializer,org.w3c.dom,
- org.xml.sax";version="1.1.2.SNAPSHOT",org.apache.xalan.xsltc.cmdline;ve
- rsion="1.1.2.SNAPSHOT",org.apache.xalan.xsltc.cmdline.getopt;version="1
- .1.2.SNAPSHOT",org.apache.xalan.xsltc.compiler;uses:="java_cup.runtime,
+ org.xml.sax";version="1.1.4.SNAPSHOT",org.apache.xalan.xsltc.cmdline;ve
+ rsion="1.1.4.SNAPSHOT",org.apache.xalan.xsltc.cmdline.getopt;version="1
+ .1.4.SNAPSHOT",org.apache.xalan.xsltc.compiler;uses:="java_cup.runtime,
  org.apache.bcel.classfile,org.apache.bcel.generic,org.apache.xalan.xslt
  c.compiler.util,org.apache.xalan.xsltc.runtime,org.xml.sax";version="1.
- 1.2.SNAPSHOT",org.apache.xalan.xsltc.compiler.util;uses:="org.apache.bc
+ 1.4.SNAPSHOT",org.apache.xalan.xsltc.compiler.util;uses:="org.apache.bc
  el.classfile,org.apache.bcel.generic,org.apache.xalan.xsltc.compiler";v
- ersion="1.1.2.SNAPSHOT",org.apache.xalan.xsltc.dom;uses:="javax.xml.tra
+ ersion="1.1.4.SNAPSHOT",org.apache.xalan.xsltc.dom;uses:="javax.xml.tra
  nsform,org.apache.xalan.xsltc,org.apache.xalan.xsltc.runtime,org.apache
  .xalan.xsltc.util,org.apache.xml.dtm,org.apache.xml.dtm.ref,org.apache.
  xml.dtm.ref.sax2dtm,org.apache.xml.serializer,org.apache.xml.utils,org.
- w3c.dom,org.xml.sax,org.xml.sax.ext";version="1.1.2.SNAPSHOT",org.apach
+ w3c.dom,org.xml.sax,org.xml.sax.ext";version="1.1.4.SNAPSHOT",org.apach
  e.xalan.xsltc.runtime;uses:="javax.xml.parsers,javax.xml.transform,org.
  apache.xalan.xsltc,org.apache.xalan.xsltc.dom,org.apache.xml.dtm,org.ap
- ache.xml.serializer,org.w3c.dom,org.xml.sax";version="1.1.2.SNAPSHOT",o
+ ache.xml.serializer,org.w3c.dom,org.xml.sax";version="1.1.4.SNAPSHOT",o
  rg.apache.xalan.xsltc.runtime.output;uses:="javax.xml.parsers,org.apach
  e.xml.serializer,org.w3c.dom,org.xml.sax,org.xml.sax.ext";version="1.1.
- 2.SNAPSHOT",org.apache.xalan.xsltc.trax;uses:="javax.xml.parsers,javax.
+ 4.SNAPSHOT",org.apache.xalan.xsltc.trax;uses:="javax.xml.parsers,javax.
  xml.transform,javax.xml.transform.sax,org.apache.xalan.xsltc,org.apache
  .xalan.xsltc.compiler,org.apache.xalan.xsltc.dom,org.apache.xalan.xsltc
  .runtime,org.apache.xalan.xsltc.runtime.output,org.apache.xml.serialize
  r,org.w3c.dom,org.xml.sax,org.xml.sax.ext,org.xml.sax.helpers";version=
- "1.1.2.SNAPSHOT",org.apache.xalan.xsltc.util;version="1.1.2.SNAPSHOT",o
+ "1.1.4.SNAPSHOT",org.apache.xalan.xsltc.util;version="1.1.4.SNAPSHOT",o
  rg.apache.xml.dtm;uses:="javax.xml.transform,org.apache.xml.utils,org.w
- 3c.dom,org.xml.sax,org.xml.sax.ext";version="1.1.2.SNAPSHOT",org.apache
+ 3c.dom,org.xml.sax,org.xml.sax.ext";version="1.1.4.SNAPSHOT",org.apache
  .xml.dtm.ref;uses:="javax.xml.transform,org.apache.xerces.parsers,org.a
  pache.xml.dtm,org.apache.xml.utils,org.w3c.dom,org.w3c.dom.traversal,or
- g.xml.sax,org.xml.sax.ext,org.xml.sax.helpers";version="1.1.2.SNAPSHOT"
+ g.xml.sax,org.xml.sax.ext,org.xml.sax.helpers";version="1.1.4.SNAPSHOT"
  ,org.apache.xml.dtm.ref.dom2dtm;uses:="javax.xml.transform,javax.xml.tr
  ansform.dom,org.apache.xml.dtm,org.apache.xml.dtm.ref,org.apache.xml.ut
- ils,org.w3c.dom,org.xml.sax,org.xml.sax.ext";version="1.1.2.SNAPSHOT",o
+ ils,org.w3c.dom,org.xml.sax,org.xml.sax.ext";version="1.1.4.SNAPSHOT",o
  rg.apache.xml.dtm.ref.sax2dtm;uses:="javax.xml.transform,org.apache.xml
  .dtm,org.apache.xml.dtm.ref,org.apache.xml.serializer,org.apache.xml.ut
- ils,org.xml.sax,org.xml.sax.ext";version="1.1.2.SNAPSHOT",org.apache.xm
- l.res;version="1.1.2.SNAPSHOT",org.apache.xml.serializer;uses:="javax.x
+ ils,org.xml.sax,org.xml.sax.ext";version="1.1.4.SNAPSHOT",org.apache.xm
+ l.res;version="1.1.4.SNAPSHOT",org.apache.xml.serializer;uses:="javax.x
  ml.transform,org.apache.xml.serializer.utils,org.w3c.dom,org.w3c.dom.ls
- ,org.xml.sax,org.xml.sax.ext,org.xml.sax.helpers";version="1.1.2.SNAPSH
+ ,org.xml.sax,org.xml.sax.ext,org.xml.sax.helpers";version="1.1.4.SNAPSH
  OT",org.apache.xml.serializer.dom3;uses:="org.apache.xml.serializer,org
- .w3c.dom,org.w3c.dom.ls";version="1.1.2.SNAPSHOT",org.apache.xml.serial
+ .w3c.dom,org.w3c.dom.ls";version="1.1.4.SNAPSHOT",org.apache.xml.serial
  izer.utils;uses:="javax.xml.transform,org.w3c.dom,org.xml.sax";version=
- "1.1.2.SNAPSHOT",org.apache.xml.utils;uses:="javax.xml.transform,org.w3
- c.dom,org.xml.sax,org.xml.sax.ext,org.xml.sax.helpers";version="1.1.2.S
- NAPSHOT",org.apache.xml.utils.res;version="1.1.2.SNAPSHOT",org.apache.x
- mlcommons;version="1.1.2.SNAPSHOT",org.apache.xpath;uses:="javax.xml.tr
+ "1.1.4.SNAPSHOT",org.apache.xml.utils;uses:="javax.xml.transform,org.w3
+ c.dom,org.xml.sax,org.xml.sax.ext,org.xml.sax.helpers";version="1.1.4.S
+ NAPSHOT",org.apache.xml.utils.res;version="1.1.4.SNAPSHOT",org.apache.x
+ mlcommons;version="1.1.4.SNAPSHOT",org.apache.xpath;uses:="javax.xml.tr
  ansform,org.apache.xalan.extensions,org.apache.xml.dtm,org.apache.xml.u
  tils,org.apache.xpath.axes,org.apache.xpath.compiler,org.apache.xpath.f
  unctions,org.apache.xpath.objects,org.apache.xpath.operations,org.apach
  e.xpath.patterns,org.w3c.dom,org.w3c.dom.traversal,org.xml.sax";version
- ="1.1.2.SNAPSHOT",org.apache.xpath.axes;uses:="javax.xml.transform,org.
+ ="1.1.4.SNAPSHOT",org.apache.xpath.axes;uses:="javax.xml.transform,org.
  apache.xml.dtm,org.apache.xml.utils,org.apache.xpath,org.apache.xpath.c
  ompiler,org.apache.xpath.functions,org.apache.xpath.objects,org.apache.
  xpath.patterns,org.w3c.dom,org.w3c.dom.traversal,org.xml.sax";version="
- 1.1.2.SNAPSHOT",org.apache.xpath.compiler;uses:="javax.xml.transform,or
+ 1.1.4.SNAPSHOT",org.apache.xpath.compiler;uses:="javax.xml.transform,or
  g.apache.xml.utils,org.apache.xpath,org.apache.xpath.patterns";version=
- "1.1.2.SNAPSHOT",org.apache.xpath.domapi;uses:="javax.xml.transform,org
- .w3c.dom,org.w3c.dom.xpath";version="1.1.2.SNAPSHOT",org.apache.xpath.f
+ "1.1.4.SNAPSHOT",org.apache.xpath.domapi;uses:="javax.xml.transform,org
+ .w3c.dom,org.w3c.dom.xpath";version="1.1.4.SNAPSHOT",org.apache.xpath.f
  unctions;uses:="javax.xml.transform,org.apache.xml.utils,org.apache.xpa
  th,org.apache.xpath.compiler,org.apache.xpath.objects,org.xml.sax";vers
- ion="1.1.2.SNAPSHOT",org.apache.xpath.jaxp;uses:="javax.xml.namespace,j
+ ion="1.1.4.SNAPSHOT",org.apache.xpath.jaxp;uses:="javax.xml.namespace,j
  avax.xml.transform,javax.xml.xpath,org.apache.xml.utils,org.apache.xpat
  h,org.apache.xpath.functions,org.apache.xpath.objects,org.w3c.dom,org.x
- ml.sax";version="1.1.2.SNAPSHOT",org.apache.xpath.objects;uses:="javax.
+ ml.sax";version="1.1.4.SNAPSHOT",org.apache.xpath.objects;uses:="javax.
  xml.transform,org.apache.xml.dtm,org.apache.xml.utils,org.apache.xpath,
  org.apache.xpath.axes,org.w3c.dom,org.w3c.dom.traversal,org.xml.sax,org
- .xml.sax.ext";version="1.1.2.SNAPSHOT",org.apache.xpath.operations;uses
+ .xml.sax.ext";version="1.1.4.SNAPSHOT",org.apache.xpath.operations;uses
  :="javax.xml.transform,org.apache.xalan.templates,org.apache.xml.utils,
  org.apache.xpath,org.apache.xpath.axes,org.apache.xpath.objects";versio
- n="1.1.2.SNAPSHOT",org.apache.xpath.patterns;uses:="javax.xml.transform
+ n="1.1.4.SNAPSHOT",org.apache.xpath.patterns;uses:="javax.xml.transform
  ,org.apache.xml.dtm,org.apache.xpath,org.apache.xpath.axes,org.apache.x
- path.objects";version="1.1.2.SNAPSHOT",org.apache.xpath.res;uses:="org.
- apache.xml.res";version="1.1.2.SNAPSHOT",org.asciidoctor;version="1.5.4
+ path.objects";version="1.1.4.SNAPSHOT",org.apache.xpath.res;uses:="org.
+ apache.xml.res";version="1.1.4.SNAPSHOT",org.asciidoctor;version="1.5.4
  ";uses:="org.asciidoctor.ast,org.asciidoctor.converter,org.asciidoctor.
  extension",org.asciidoctor.ast;version="1.5.4";uses:="org.jruby,org.jru
  by.runtime.builtin",org.asciidoctor.cli;uses:="com.beust.jcommander,org
- .asciidoctor";version="1.1.2.SNAPSHOT",org.asciidoctor.converter;versio
+ .asciidoctor";version="1.1.4.SNAPSHOT",org.asciidoctor.converter;versio
  n="1.5.4";uses:="org.asciidoctor.ast,org.asciidoctor.internal,org.jruby
  ,org.jruby.anno,org.jruby.runtime,org.jruby.runtime.builtin",org.asciid
- octor.converter.internal;uses:="org.asciidoctor";version="1.1.2.SNAPSHO
+ octor.converter.internal;uses:="org.asciidoctor";version="1.1.4.SNAPSHO
  T",org.asciidoctor.converter.spi;version="1.5.4";uses:="org.asciidoctor
  ",org.asciidoctor.extension;version="1.5.4";uses:="org.asciidoctor.ast,
  org.asciidoctor.internal,org.jruby",org.asciidoctor.extension.internal;
- uses:="org.asciidoctor";version="1.1.2.SNAPSHOT",org.asciidoctor.extens
+ uses:="org.asciidoctor";version="1.1.4.SNAPSHOT",org.asciidoctor.extens
  ion.spi;version="1.5.4";uses:="org.asciidoctor",org.asciidoctor.interna
  l;uses:="org.asciidoctor,org.asciidoctor.ast,org.asciidoctor.converter,
  org.asciidoctor.extension,org.jruby,org.jruby.runtime.builtin";version=
- "1.1.2.SNAPSHOT",org.docbook.ns.docbook;uses:="javax.xml.bind.annotatio
- n,javax.xml.bind.annotation.adapters";version="1.1.2.SNAPSHOT",org.jcod
- ings;uses:="org.jcodings.util";version="1.1.2.SNAPSHOT",org.jcodings.as
- cii;version="1.1.2.SNAPSHOT",org.jcodings.constants;uses:="org.jcodings
- .util";version="1.1.2.SNAPSHOT",org.jcodings.exception;version="1.1.2.S
+ "1.1.4.SNAPSHOT",org.docbook.ns.docbook;uses:="javax.xml.bind.annotatio
+ n,javax.xml.bind.annotation.adapters";version="1.1.4.SNAPSHOT",org.jcod
+ ings;uses:="org.jcodings.util";version="1.1.4.SNAPSHOT",org.jcodings.as
+ cii;version="1.1.4.SNAPSHOT",org.jcodings.constants;uses:="org.jcodings
+ .util";version="1.1.4.SNAPSHOT",org.jcodings.exception;version="1.1.4.S
  NAPSHOT",org.jcodings.specific;uses:="org.jcodings,org.jcodings.unicode
- ";version="1.1.2.SNAPSHOT",org.jcodings.transcode;uses:="org.jcodings,o
- rg.jcodings.util";version="1.1.2.SNAPSHOT",org.jcodings.transcode.speci
- fic;uses:="org.jcodings.transcode";version="1.1.2.SNAPSHOT",org.jcoding
- s.unicode;uses:="org.jcodings";version="1.1.2.SNAPSHOT",org.jcodings.ut
- il;version="1.1.2.SNAPSHOT",org.joda.time;uses:="org.joda.convert,org.j
+ ";version="1.1.4.SNAPSHOT",org.jcodings.transcode;uses:="org.jcodings,o
+ rg.jcodings.util";version="1.1.4.SNAPSHOT",org.jcodings.transcode.speci
+ fic;uses:="org.jcodings.transcode";version="1.1.4.SNAPSHOT",org.jcoding
+ s.unicode;uses:="org.jcodings";version="1.1.4.SNAPSHOT",org.jcodings.ut
+ il;version="1.1.4.SNAPSHOT",org.joda.time;uses:="org.joda.convert,org.j
  oda.time.base,org.joda.time.field,org.joda.time.format,org.joda.time.tz
- ";version="1.1.2.SNAPSHOT",org.joda.time.base;uses:="org.joda.convert,o
- rg.joda.time,org.joda.time.format";version="1.1.2.SNAPSHOT",org.joda.ti
- me.chrono;uses:="org.joda.time";version="1.1.2.SNAPSHOT",org.joda.time.
- convert;uses:="org.joda.time,org.joda.time.format";version="1.1.2.SNAPS
- HOT",org.joda.time.field;uses:="org.joda.time";version="1.1.2.SNAPSHOT"
- ,org.joda.time.format;uses:="org.joda.time";version="1.1.2.SNAPSHOT",or
- g.joda.time.tz;uses:="org.joda.time";version="1.1.2.SNAPSHOT",org.joda.
- time.tz.data;version="1.1.2.SNAPSHOT",org.joda.time.tz.data.Africa;vers
- ion="1.1.2.SNAPSHOT",org.joda.time.tz.data.America;version="1.1.2.SNAPS
- HOT",org.joda.time.tz.data.America.Argentina;version="1.1.2.SNAPSHOT",o
- rg.joda.time.tz.data.America.Indiana;version="1.1.2.SNAPSHOT",org.joda.
- time.tz.data.America.Kentucky;version="1.1.2.SNAPSHOT",org.joda.time.tz
- .data.America.North_Dakota;version="1.1.2.SNAPSHOT",org.joda.time.tz.da
- ta.Antarctica;version="1.1.2.SNAPSHOT",org.joda.time.tz.data.Asia;versi
- on="1.1.2.SNAPSHOT",org.joda.time.tz.data.Atlantic;version="1.1.2.SNAPS
- HOT",org.joda.time.tz.data.Australia;version="1.1.2.SNAPSHOT",org.joda.
- time.tz.data.Etc;version="1.1.2.SNAPSHOT",org.joda.time.tz.data.Europe;
- version="1.1.2.SNAPSHOT",org.joda.time.tz.data.Indian;version="1.1.2.SN
- APSHOT",org.joda.time.tz.data.Pacific;version="1.1.2.SNAPSHOT",org.joni
- ;uses:="org.jcodings,org.joni.ast,org.joni.constants";version="1.1.2.SN
+ ";version="1.1.4.SNAPSHOT",org.joda.time.base;uses:="org.joda.convert,o
+ rg.joda.time,org.joda.time.format";version="1.1.4.SNAPSHOT",org.joda.ti
+ me.chrono;uses:="org.joda.time";version="1.1.4.SNAPSHOT",org.joda.time.
+ convert;uses:="org.joda.time,org.joda.time.format";version="1.1.4.SNAPS
+ HOT",org.joda.time.field;uses:="org.joda.time";version="1.1.4.SNAPSHOT"
+ ,org.joda.time.format;uses:="org.joda.time";version="1.1.4.SNAPSHOT",or
+ g.joda.time.tz;uses:="org.joda.time";version="1.1.4.SNAPSHOT",org.joda.
+ time.tz.data;version="1.1.4.SNAPSHOT",org.joda.time.tz.data.Africa;vers
+ ion="1.1.4.SNAPSHOT",org.joda.time.tz.data.America;version="1.1.4.SNAPS
+ HOT",org.joda.time.tz.data.America.Argentina;version="1.1.4.SNAPSHOT",o
+ rg.joda.time.tz.data.America.Indiana;version="1.1.4.SNAPSHOT",org.joda.
+ time.tz.data.America.Kentucky;version="1.1.4.SNAPSHOT",org.joda.time.tz
+ .data.America.North_Dakota;version="1.1.4.SNAPSHOT",org.joda.time.tz.da
+ ta.Antarctica;version="1.1.4.SNAPSHOT",org.joda.time.tz.data.Asia;versi
+ on="1.1.4.SNAPSHOT",org.joda.time.tz.data.Atlantic;version="1.1.4.SNAPS
+ HOT",org.joda.time.tz.data.Australia;version="1.1.4.SNAPSHOT",org.joda.
+ time.tz.data.Etc;version="1.1.4.SNAPSHOT",org.joda.time.tz.data.Europe;
+ version="1.1.4.SNAPSHOT",org.joda.time.tz.data.Indian;version="1.1.4.SN
+ APSHOT",org.joda.time.tz.data.Pacific;version="1.1.4.SNAPSHOT",org.joni
+ ;uses:="org.jcodings,org.joni.ast,org.joni.constants";version="1.1.4.SN
  APSHOT",org.joni.ast;uses:="org.jcodings,org.joni,org.joni.constants";v
- ersion="1.1.2.SNAPSHOT",org.joni.bench;version="1.1.2.SNAPSHOT",org.jon
- i.constants;version="1.1.2.SNAPSHOT",org.joni.exception;uses:="org.jcod
- ings.exception";version="1.1.2.SNAPSHOT",org.jruby;version="1.7.21";use
+ ersion="1.1.4.SNAPSHOT",org.joni.bench;version="1.1.4.SNAPSHOT",org.jon
+ i.constants;version="1.1.4.SNAPSHOT",org.joni.exception;uses:="org.jcod
+ ings.exception";version="1.1.4.SNAPSHOT",org.jruby;version="1.7.21";use
  s:="jnr.constants,jnr.posix,org.jcodings,org.joda.time,org.joni,org.jru
  by.anno,org.jruby.ast,org.jruby.ast.executable,org.jruby.ast.visitor,or
  g.jruby.common,org.jruby.compiler,org.jruby.embed,org.jruby.exceptions,
@@ -788,89 +788,89 @@ Export-Package: YechtService.class;version="1.1.2.SNAPSHOT",analyze-stri
  osix,jnr.unixsocket,org.jcodings,org.jruby,org.jruby.exceptions,org.jru
  by.runtime,org.jruby.runtime.builtin,org.jruby.util,org.jruby.util.enco
  ding",org.jruby.util.log;version="1.7.21",org.jruby.util.unsafe;version
- ="1.7.21";uses:="sun.misc",org.w3c.dom;version="1.1.2.SNAPSHOT",org.w3c
- .dom.bootstrap;uses:="org.w3c.dom";version="1.1.2.SNAPSHOT",org.w3c.dom
+ ="1.7.21";uses:="sun.misc",org.w3c.dom;version="1.1.4.SNAPSHOT",org.w3c
+ .dom.bootstrap;uses:="org.w3c.dom";version="1.1.4.SNAPSHOT",org.w3c.dom
  .css;uses:="org.w3c.dom,org.w3c.dom.stylesheets,org.w3c.dom.views";vers
- ion="1.1.2.SNAPSHOT",org.w3c.dom.events;uses:="org.w3c.dom,org.w3c.dom.
- views";version="1.1.2.SNAPSHOT",org.w3c.dom.html;uses:="org.w3c.dom";ve
- rsion="1.1.2.SNAPSHOT",org.w3c.dom.ls;uses:="org.w3c.dom,org.w3c.dom.ev
- ents,org.w3c.dom.traversal";version="1.1.2.SNAPSHOT",org.w3c.dom.ranges
- ;uses:="org.w3c.dom";version="1.1.2.SNAPSHOT",org.w3c.dom.stylesheets;u
- ses:="org.w3c.dom";version="1.1.2.SNAPSHOT",org.w3c.dom.traversal;uses:
- ="org.w3c.dom";version="1.1.2.SNAPSHOT",org.w3c.dom.views;version="1.1.
- 2.SNAPSHOT",org.w3c.dom.xpath;uses:="org.w3c.dom";version="1.1.2.SNAPSH
- OT",org.xml.sax;version="1.1.2.SNAPSHOT",org.xml.sax.ext;uses:="org.xml
- .sax,org.xml.sax.helpers";version="1.1.2.SNAPSHOT",org.xml.sax.helpers;
- uses:="org.xml.sax";version="1.1.2.SNAPSHOT",org.yaml.snakeyaml;uses:="
+ ion="1.1.4.SNAPSHOT",org.w3c.dom.events;uses:="org.w3c.dom,org.w3c.dom.
+ views";version="1.1.4.SNAPSHOT",org.w3c.dom.html;uses:="org.w3c.dom";ve
+ rsion="1.1.4.SNAPSHOT",org.w3c.dom.ls;uses:="org.w3c.dom,org.w3c.dom.ev
+ ents,org.w3c.dom.traversal";version="1.1.4.SNAPSHOT",org.w3c.dom.ranges
+ ;uses:="org.w3c.dom";version="1.1.4.SNAPSHOT",org.w3c.dom.stylesheets;u
+ ses:="org.w3c.dom";version="1.1.4.SNAPSHOT",org.w3c.dom.traversal;uses:
+ ="org.w3c.dom";version="1.1.4.SNAPSHOT",org.w3c.dom.views;version="1.1.
+ 4.SNAPSHOT",org.w3c.dom.xpath;uses:="org.w3c.dom";version="1.1.4.SNAPSH
+ OT",org.xml.sax;version="1.1.4.SNAPSHOT",org.xml.sax.ext;uses:="org.xml
+ .sax,org.xml.sax.helpers";version="1.1.4.SNAPSHOT",org.xml.sax.helpers;
+ uses:="org.xml.sax";version="1.1.4.SNAPSHOT",org.yaml.snakeyaml;uses:="
  org.yaml.snakeyaml.constructor,org.yaml.snakeyaml.emitter,org.yaml.snak
  eyaml.events,org.yaml.snakeyaml.introspector,org.yaml.snakeyaml.nodes,o
  rg.yaml.snakeyaml.representer,org.yaml.snakeyaml.resolver";version="1.1
- .2.SNAPSHOT",org.yaml.snakeyaml.composer;uses:="org.yaml.snakeyaml.erro
+ .4.SNAPSHOT",org.yaml.snakeyaml.composer;uses:="org.yaml.snakeyaml.erro
  r,org.yaml.snakeyaml.nodes,org.yaml.snakeyaml.parser,org.yaml.snakeyaml
- .resolver";version="1.1.2.SNAPSHOT",org.yaml.snakeyaml.constructor;uses
+ .resolver";version="1.1.4.SNAPSHOT",org.yaml.snakeyaml.constructor;uses
  :="org.yaml.snakeyaml,org.yaml.snakeyaml.composer,org.yaml.snakeyaml.er
  ror,org.yaml.snakeyaml.introspector,org.yaml.snakeyaml.nodes";version="
- 1.1.2.SNAPSHOT",org.yaml.snakeyaml.emitter;uses:="org.yaml.snakeyaml,or
- g.yaml.snakeyaml.error,org.yaml.snakeyaml.events";version="1.1.2.SNAPSH
- OT",org.yaml.snakeyaml.error;version="1.1.2.SNAPSHOT",org.yaml.snakeyam
+ 1.1.4.SNAPSHOT",org.yaml.snakeyaml.emitter;uses:="org.yaml.snakeyaml,or
+ g.yaml.snakeyaml.error,org.yaml.snakeyaml.events";version="1.1.4.SNAPSH
+ OT",org.yaml.snakeyaml.error;version="1.1.4.SNAPSHOT",org.yaml.snakeyam
  l.events;uses:="org.yaml.snakeyaml,org.yaml.snakeyaml.error";version="1
- .1.2.SNAPSHOT",org.yaml.snakeyaml.extensions.compactnotation;uses:="org
- .yaml.snakeyaml.constructor,org.yaml.snakeyaml.nodes";version="1.1.2.SN
- APSHOT",org.yaml.snakeyaml.external.biz.base64Coder;version="1.1.2.SNAP
+ .1.4.SNAPSHOT",org.yaml.snakeyaml.extensions.compactnotation;uses:="org
+ .yaml.snakeyaml.constructor,org.yaml.snakeyaml.nodes";version="1.1.4.SN
+ APSHOT",org.yaml.snakeyaml.external.biz.base64Coder;version="1.1.4.SNAP
  SHOT",org.yaml.snakeyaml.external.com.google.gdata.util.common.base;ver
- sion="1.1.2.SNAPSHOT",org.yaml.snakeyaml.introspector;version="1.1.2.SN
+ sion="1.1.4.SNAPSHOT",org.yaml.snakeyaml.introspector;version="1.1.4.SN
  APSHOT",org.yaml.snakeyaml.nodes;uses:="org.yaml.snakeyaml.error";versi
- on="1.1.2.SNAPSHOT",org.yaml.snakeyaml.parser;uses:="org.yaml.snakeyaml
+ on="1.1.4.SNAPSHOT",org.yaml.snakeyaml.parser;uses:="org.yaml.snakeyaml
  .error,org.yaml.snakeyaml.events,org.yaml.snakeyaml.reader";version="1.
- 1.2.SNAPSHOT",org.yaml.snakeyaml.reader;uses:="org.yaml.snakeyaml.error
- ";version="1.1.2.SNAPSHOT",org.yaml.snakeyaml.representer;uses:="org.ya
+ 1.4.SNAPSHOT",org.yaml.snakeyaml.reader;uses:="org.yaml.snakeyaml.error
+ ";version="1.1.4.SNAPSHOT",org.yaml.snakeyaml.representer;uses:="org.ya
  ml.snakeyaml,org.yaml.snakeyaml.introspector,org.yaml.snakeyaml.nodes";
- version="1.1.2.SNAPSHOT",org.yaml.snakeyaml.resolver;uses:="org.yaml.sn
- akeyaml.nodes";version="1.1.2.SNAPSHOT",org.yaml.snakeyaml.scanner;uses
+ version="1.1.4.SNAPSHOT",org.yaml.snakeyaml.resolver;uses:="org.yaml.sn
+ akeyaml.nodes";version="1.1.4.SNAPSHOT",org.yaml.snakeyaml.scanner;uses
  :="org.yaml.snakeyaml.error,org.yaml.snakeyaml.reader,org.yaml.snakeyam
- l.tokens";version="1.1.2.SNAPSHOT",org.yaml.snakeyaml.serializer;uses:=
+ l.tokens";version="1.1.4.SNAPSHOT",org.yaml.snakeyaml.serializer;uses:=
  "org.yaml.snakeyaml,org.yaml.snakeyaml.emitter,org.yaml.snakeyaml.error
- ,org.yaml.snakeyaml.nodes,org.yaml.snakeyaml.resolver";version="1.1.2.S
+ ,org.yaml.snakeyaml.nodes,org.yaml.snakeyaml.resolver";version="1.1.4.S
  NAPSHOT",org.yaml.snakeyaml.tokens;uses:="org.yaml.snakeyaml.error";ver
- sion="1.1.2.SNAPSHOT",org.yaml.snakeyaml.util;version="1.1.2.SNAPSHOT",
- org.yecht;version="1.1.2.SNAPSHOT",org.yecht.debug;version="1.1.2.SNAPS
+ sion="1.1.4.SNAPSHOT",org.yaml.snakeyaml.util;version="1.1.4.SNAPSHOT",
+ org.yecht;version="1.1.4.SNAPSHOT",org.yecht.debug;version="1.1.4.SNAPS
  HOT",org.yecht.ruby;uses:="org.jruby,org.jruby.anno,org.jruby.runtime,o
- rg.jruby.runtime.builtin,org.yecht";version="1.1.2.SNAPSHOT",override.x
- sl;version="1.1.2.SNAPSHOT",properties.knowhow;version="1.1.2.SNAPSHOT"
- ,specifications;version="1.1.2.SNAPSHOT",tables;version="1.1.2.SNAPSHOT
- ",trax;version="1.1.2.SNAPSHOT",tubame.knowhow.biz.exception;uses:="org
- .slf4j";version="1.1.2.SNAPSHOT",tubame.knowhow.biz.logic;uses:="javax.
+ rg.jruby.runtime.builtin,org.yecht";version="1.1.4.SNAPSHOT",override.x
+ sl;version="1.1.4.SNAPSHOT",properties.knowhow;version="1.1.4.SNAPSHOT"
+ ,specifications;version="1.1.4.SNAPSHOT",tables;version="1.1.4.SNAPSHOT
+ ",trax;version="1.1.4.SNAPSHOT",tubame.knowhow.biz.exception;uses:="org
+ .slf4j";version="1.1.4.SNAPSHOT",tubame.knowhow.biz.logic;uses:="javax.
  xml.bind,org.docbook.ns.docbook,tubame.knowhow.biz.exception,tubame.kno
  whow.biz.logic.converter,tubame.knowhow.biz.logic.io,tubame.knowhow.biz
  .model.generated.knowhow,tubame.knowhow.biz.model.generated.python";ver
- sion="1.1.2.SNAPSHOT",tubame.knowhow.biz.logic.converter;uses:="tubame.
+ sion="1.1.4.SNAPSHOT",tubame.knowhow.biz.logic.converter;uses:="tubame.
  knowhow.biz.model.generated.knowhow,tubame.knowhow.biz.model.generated.
- python";version="1.1.2.SNAPSHOT",tubame.knowhow.biz.logic.io;uses:="jav
+ python";version="1.1.4.SNAPSHOT",tubame.knowhow.biz.logic.io;uses:="jav
  ax.xml.parsers,org.docbook.ns.docbook,org.w3c.dom,org.xml.sax,tubame.kn
  owhow.biz.exception,tubame.knowhow.biz.model.generated.knowhow,tubame.k
- nowhow.biz.model.generated.python";version="1.1.2.SNAPSHOT",tubame.know
- how.biz.model;version="1.1.2.SNAPSHOT",tubame.knowhow.biz.model.generat
+ nowhow.biz.model.generated.python";version="1.1.4.SNAPSHOT",tubame.know
+ how.biz.model;version="1.1.4.SNAPSHOT",tubame.knowhow.biz.model.generat
  ed.knowhow;uses:="javax.xml.bind.annotation,org.docbook.ns.docbook";ver
- sion="1.1.2.SNAPSHOT",tubame.knowhow.biz.model.generated.python;uses:="
- javax.xml.bind.annotation";version="1.1.2.SNAPSHOT",tubame.knowhow.biz.
+ sion="1.1.4.SNAPSHOT",tubame.knowhow.biz.model.generated.python;uses:="
+ javax.xml.bind.annotation";version="1.1.4.SNAPSHOT",tubame.knowhow.biz.
  util;uses:="javax.xml.bind,javax.xml.validation,org.xml.sax";version="1
- .1.2.SNAPSHOT",tubame.knowhow.biz.util.resource;version="1.1.2.SNAPSHOT
- ",unicodeBlocks.xml;version="1.1.2.SNAPSHOT",w3c;version="1.1.2.SNAPSHO
- T",w3c.mathml.mathml1;version="1.1.2.SNAPSHOT",w3c.mathml.mathml2;versi
- on="1.1.2.SNAPSHOT",w3c.mathml.mathml2.html;version="1.1.2.SNAPSHOT",w3
- c.mathml.mathml2.iso8879;version="1.1.2.SNAPSHOT",w3c.mathml.mathml2.is
- o9573-13;version="1.1.2.SNAPSHOT",w3c.mathml.mathml2.mathml;version="1.
- 1.2.SNAPSHOT",w3c.mathml.mathml3;version="1.1.2.SNAPSHOT",w3c.rddl;vers
- ion="1.1.2.SNAPSHOT",w3c.svg10;version="1.1.2.SNAPSHOT",w3c.svg11;versi
- on="1.1.2.SNAPSHOT",w3c.svg11.templates;version="1.1.2.SNAPSHOT",w3c.xh
- tml10;version="1.1.2.SNAPSHOT",w3c.xhtml11;version="1.1.2.SNAPSHOT",w3c
- .xlink;version="1.1.2.SNAPSHOT",w3c.xmlschema10;version="1.1.2.SNAPSHOT
- ",w3c.xmlschema11;version="1.1.2.SNAPSHOT",w3c.xmlspec;version="1.1.2.S
- NAPSHOT",w3c.xslt3;version="1.1.2.SNAPSHOT",xml-to-json-indent.xsl;vers
- ion="1.1.2.SNAPSHOT",xml-to-json-pkg.xsl;version="1.1.2.SNAPSHOT",xml-t
- o-json.xsl;version="1.1.2.SNAPSHOT",xpath-functions.scm;version="1.1.2.
- SNAPSHOT",xpath-functions.xsd;version="1.1.2.SNAPSHOT",xsd;version="1.1
- .2.SNAPSHOT",yaml;version="1.1.2.SNAPSHOT",yaml.rb;version="1.1.2.SNAPS
+ .1.4.SNAPSHOT",tubame.knowhow.biz.util.resource;version="1.1.4.SNAPSHOT
+ ",unicodeBlocks.xml;version="1.1.4.SNAPSHOT",w3c;version="1.1.4.SNAPSHO
+ T",w3c.mathml.mathml1;version="1.1.4.SNAPSHOT",w3c.mathml.mathml2;versi
+ on="1.1.4.SNAPSHOT",w3c.mathml.mathml2.html;version="1.1.4.SNAPSHOT",w3
+ c.mathml.mathml2.iso8879;version="1.1.4.SNAPSHOT",w3c.mathml.mathml2.is
+ o9573-13;version="1.1.4.SNAPSHOT",w3c.mathml.mathml2.mathml;version="1.
+ 1.4.SNAPSHOT",w3c.mathml.mathml3;version="1.1.4.SNAPSHOT",w3c.rddl;vers
+ ion="1.1.4.SNAPSHOT",w3c.svg10;version="1.1.4.SNAPSHOT",w3c.svg11;versi
+ on="1.1.4.SNAPSHOT",w3c.svg11.templates;version="1.1.4.SNAPSHOT",w3c.xh
+ tml10;version="1.1.4.SNAPSHOT",w3c.xhtml11;version="1.1.4.SNAPSHOT",w3c
+ .xlink;version="1.1.4.SNAPSHOT",w3c.xmlschema10;version="1.1.4.SNAPSHOT
+ ",w3c.xmlschema11;version="1.1.4.SNAPSHOT",w3c.xmlspec;version="1.1.4.S
+ NAPSHOT",w3c.xslt3;version="1.1.4.SNAPSHOT",xml-to-json-indent.xsl;vers
+ ion="1.1.4.SNAPSHOT",xml-to-json-pkg.xsl;version="1.1.4.SNAPSHOT",xml-t
+ o-json.xsl;version="1.1.4.SNAPSHOT",xpath-functions.scm;version="1.1.4.
+ SNAPSHOT",xpath-functions.xsd;version="1.1.4.SNAPSHOT",xsd;version="1.1
+ .4.SNAPSHOT",yaml;version="1.1.4.SNAPSHOT",yaml.rb;version="1.1.4.SNAPS
  HOT"
 Import-Package: javax.annotation.processing,javax.lang.model,javax.lang.
  model.element,javax.lang.model.type,javax.lang.model.util,javax.managem
