@@ -11,7 +11,7 @@
 	</parent>
 
 	<properties>
-		<xalan.version>2.7.1</xalan.version>
+		<xalan.version>2.7.2</xalan.version>
 		<docbook.xsl.release>docbook-xsl-1.78.1</docbook.xsl.release>
 	</properties>
 
